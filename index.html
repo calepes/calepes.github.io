@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apps — Lepesqueur</title>
+<style>
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    --label: #1D1D1F;
+    --secondary: rgba(60, 60, 67, 0.55);
+    --bg: #FFFFFF;
+    --bg2: #F5F5F7;
+    --separator: rgba(60, 60, 67, 0.12);
+    --accent: #007AFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --label: #F5F5F7;
+      --secondary: rgba(235, 235, 245, 0.55);
+      --bg: #000000;
+      --bg2: #1C1C1E;
+      --separator: rgba(84, 84, 88, 0.36);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--label);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .hero {
+    text-align: center;
+    padding: 80px 0 48px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--secondary);
+  }
+  .app-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .app-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--bg2);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--label);
+    transition: transform 0.2s ease;
+  }
+  .app-card:hover { transform: translateX(4px); }
+  .app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .app-name {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .app-desc {
+    font-size: 13px;
+    color: var(--secondary);
+    margin-top: 2px;
+  }
+  .app-arrow {
+    margin-left: auto;
+    color: var(--secondary);
+    font-size: 17px;
+  }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Apps</h1>
+    <p>lepesqueur.net</p>
+  </section>
+  <div class="app-list">
+    <a href="/carnavales2026/" class="app-card">
+      <div class="app-icon" style="background: rgba(255, 45, 85, 0.1);">🇧🇴</div>
+      <div>
+        <div class="app-name">Carnavales 2026</div>
+        <div class="app-desc">Itinerario Bolivia — Feb 13-17</div>
+      </div>
+      <span class="app-arrow">›</span>
+    </a>
+  </div>
+</body>
+</html>
