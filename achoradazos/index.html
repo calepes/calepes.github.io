@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achoradazos — 6to Junte</title>
+<style>
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    --label: #1D1D1F;
+    --secondary: rgba(60, 60, 67, 0.55);
+    --bg: #FFFFFF;
+    --bg2: #F5F5F7;
+    --separator: rgba(60, 60, 67, 0.12);
+    --accent: #C9A84C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --label: #F5F5F7;
+      --secondary: rgba(235, 235, 245, 0.55);
+      --bg: #000000;
+      --bg2: #1C1C1E;
+      --separator: rgba(84, 84, 88, 0.36);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-family: var(--font); background: var(--bg); color: var(--label); -webkit-font-smoothing: antialiased; }
+  body { max-width: 480px; margin: 0 auto; padding: 0 20px 80px; }
+  .hero { text-align: center; padding: 60px 0 36px; }
+  .hero img { width: 240px; margin-bottom: 16px; }
+  .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .hero p { font-size: 15px; color: var(--secondary); }
+  .app-list { display: flex; flex-direction: column; gap: 12px; }
+  .app-card {
+    display: flex; align-items: center; gap: 16px; padding: 16px;
+    background: var(--bg2); border-radius: 12px; text-decoration: none;
+    color: var(--label); transition: transform 0.2s ease;
+  }
+  .app-card:hover { transform: translateX(4px); }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .app-name { font-size: 17px; font-weight: 600; }
+  .app-desc { font-size: 13px; color: var(--secondary); margin-top: 2px; }
+  .app-arrow { margin-left: auto; color: var(--secondary); font-size: 17px; }
+  .back { display: inline-block; margin-top: 32px; font-size: 15px; color: var(--accent); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <img src="logo_achoradazos.png" alt="Achoradazos">
+    <h1>6to Junte</h1>
+    <p>Viernes 6 de Marzo 2026 · 8:00 PM · Frater Palo Santo</p>
+  </section>
+  <div class="app-list">
+    <a href="tracker_achoradazos.html" class="app-card">
+      <div class="app-icon" style="background: rgba(74, 222, 128, 0.1);">📊</div>
+      <div>
+        <div class="app-name">Tracker de Pagos</div>
+        <div class="app-desc">12/19 pagaron · Bs 2,400 recaudado</div>
+      </div>
+      <span class="app-arrow">›</span>
+    </a>
+    <a href="flyer_achoradazos.html" class="app-card">
+      <div class="app-icon" style="background: rgba(201, 168, 76, 0.1);">🎉</div>
+      <div>
+        <div class="app-name">Flyer del Evento</div>
+        <div class="app-desc">Info completa del 6to Junte</div>
+      </div>
+      <span class="app-arrow">›</span>
+    </a>
+    <a href="resumen_achoradazos.html" class="app-card">
+      <div class="app-icon" style="background: rgba(0, 122, 255, 0.1);">💰</div>
+      <div>
+        <div class="app-name">Resumen Financiero</div>
+        <div class="app-desc">KPIs, progreso y pendientes</div>
+      </div>
+      <span class="app-arrow">›</span>
+    </a>
+  </div>
+  <a href="/" class="back">← Volver a Apps</a>
+</body>
+</html>
