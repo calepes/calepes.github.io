@@ -1,0 +1,12 @@
+{
+  "name": "Combustible Cards",
+  "short_name": "Combustible",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F2F2F7",
+  "theme_color": "#F2F2F7",
+  "icons": [
+    { "src": "../shared/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" },
+    { "src": "../shared/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml" }
+  ]
+}

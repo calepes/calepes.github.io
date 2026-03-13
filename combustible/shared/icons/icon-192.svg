@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Orange rounded-rect background -->
+  <rect width="512" height="512" rx="100" ry="100" fill="#FF9500"/>
+
+  <!-- Fuel pump body -->
+  <rect x="128" y="160" width="180" height="230" rx="16" ry="16" fill="white"/>
+
+  <!-- Fuel gauge window -->
+  <rect x="152" y="186" width="132" height="72" rx="8" ry="8" fill="#FF9500"/>
+
+  <!-- Gauge needle / fuel level indicator -->
+  <line x1="188" y1="244" x2="248" y2="204" stroke="white" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Pump base -->
+  <rect x="112" y="380" width="212" height="28" rx="8" ry="8" fill="white"/>
+
+  <!-- Nozzle arm (horizontal piece from pump body to the right) -->
+  <rect x="308" y="180" width="60" height="20" rx="4" ry="4" fill="white"/>
+
+  <!-- Nozzle vertical connector -->
+  <rect x="348" y="180" width="20" height="80" rx="4" ry="4" fill="white"/>
+
+  <!-- Hose (curved path from connector down to nozzle) -->
+  <path d="M 358 260 C 358 310, 380 320, 380 340" stroke="white" stroke-width="16" fill="none" stroke-linecap="round"/>
+
+  <!-- Nozzle tip (angled) -->
+  <path d="M 374 332 L 400 370 L 384 378 L 358 340" fill="white"/>
+
+  <!-- Small circle at top of nozzle arm (pipe connection) -->
+  <circle cx="338" cy="172" r="12" fill="white"/>
+  <circle cx="338" cy="172" r="6" fill="#FF9500"/>
+</svg>
