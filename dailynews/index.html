@@ -31,49 +31,6 @@
   .footer { margin-top: 40px; padding-top: 16px; border-top: 2px solid var(--ink); font-family: 'Libre Franklin', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); text-align: center; }
   @media (max-width: 600px) { .countries { grid-template-columns: 1fr; } }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // This script dynamically populates briefing links
-  // GitHub Pages serves static files, so we use a known structure
-  const countries = [
-    { id: 'colombia', name: 'Colombia', folder: 'Colombia' },
-    { id: 'peru', name: 'Peru', folder: 'Peru' },
-    { id: 'bolivia', name: 'Bolivia', folder: 'Bolivia' }
-  ];
-
-  // Parse the briefings-manifest.json if available
-  fetch('briefings-manifest.json')
-    .then(r => r.json())
-    .then(manifest => {
-      countries.forEach(country => {
-        const list = document.getElementById(country.id + '-list');
-        const files = manifest[country.folder] || [];
-        if (files.length === 0) {
-          list.innerHTML = '<li style="color: var(--muted); font-style: italic;">Sin briefings disponibles</li>';
-          return;
-        }
-        // Sort descending (newest first)
-        files.sort().reverse();
-        list.innerHTML = files.map(f => {
-          const dateStr = f.replace(country.folder + '-', '').replace('.html', '');
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6);
-          const day = dateStr.substring(6, 8);
-          const months = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-          const label = day + ' ' + months[parseInt(month)] + ' ' + year;
-          return '<li><a href="' + country.folder + '/' + f + '"><span class="date-label">' + label + '</span></a></li>';
-        }).join('');
-      });
-    })
-    .catch(() => {
-      // Fallback: show message
-      countries.forEach(country => {
-        const list = document.getElementById(country.id + '-list');
-        list.innerHTML = '<li style="color: var(--muted); font-style: italic;">Cargando...</li>';
-      });
-    });
-});
-</script>
 </head>
 <body>
   <div class="masthead">
@@ -91,21 +48,27 @@ document.addEventListener('DOMContentLoaded', function() {
       <h2>Colombia</h2>
       <div class="flag">Bogota</div>
       <ul class="briefing-list" id="colombia-list">
-        <li style="color: var(--muted); font-style: italic;">Cargando...</li>
+        <!-- COLOMBIA-LINKS -->
+        <li><a href="Colombia/Colombia-20260315.html"><span class="date-label">15 Mar 2026</span></a></li>
+        <!-- /COLOMBIA-LINKS -->
       </ul>
     </div>
     <div class="country-card peru">
       <h2>Peru</h2>
       <div class="flag">Lima</div>
       <ul class="briefing-list" id="peru-list">
-        <li style="color: var(--muted); font-style: italic;">Cargando...</li>
+        <!-- PERU-LINKS -->
+        <li><a href="Peru/Peru-20260315.html"><span class="date-label">15 Mar 2026</span></a></li>
+        <!-- /PERU-LINKS -->
       </ul>
     </div>
     <div class="country-card bolivia">
       <h2>Bolivia</h2>
       <div class="flag">La Paz</div>
       <ul class="briefing-list" id="bolivia-list">
-        <li style="color: var(--muted); font-style: italic;">Cargando...</li>
+        <!-- BOLIVIA-LINKS -->
+        <li><a href="Bolivia/Bolivia-20260315.html"><span class="date-label">15 Mar 2026</span></a></li>
+        <!-- /BOLIVIA-LINKS -->
       </ul>
     </div>
   </div>
