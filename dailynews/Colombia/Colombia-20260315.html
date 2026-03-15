@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Ejecutivo Colombia - 14 de marzo de 2026</title>
+    <meta name="color-scheme" content="light only">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #c4841d;
+            --paper: #f6f2ea;
+            --light-rule: #c8b99a;
+            --muted: #6b5e4f;
+            --ink: #1a1a1a;
+            --rule: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Serif 4', serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        /* MASTHEAD */
+        .masthead {
+            margin-bottom: 30px;
+        }
+
+        .masthead-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 72px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Source Serif 4', serif;
+            font-size: 14px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .rule-thin {
+            height: 1px;
+            background-color: var(--rule);
+            margin: 30px 0;
+        }
+
+        .rule-thick {
+            height: 3px;
+            background-color: var(--rule);
+            margin: 30px 0;
+        }
+
+        /* TOP 5 DEL DÍA */
+        .section-header {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .top5-items {
+            margin-bottom: 35px;
+        }
+
+        .top5-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .top5-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            min-width: 45px;
+        }
+
+        .top5-content {
+            flex: 1;
+        }
+
+        .top5-content p {
+            font-size: 14.5px;
+            text-align: justify;
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+
+        .source-link {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        /* COLUMNAS */
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .col-divider {
+            border-left: 1px solid var(--light-rule);
+            padding-left: 30px;
+        }
+
+        .column-section {
+            margin-bottom: 25px;
+        }
+
+        .column-section h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .column-section p {
+            font-size: 14.5px;
+            text-align: justify;
+            margin-bottom: 10px;
+            line-height: 1.65;
+        }
+
+        .column-item {
+            margin-bottom: 12px;
+        }
+
+        .column-item p {
+            font-size: 14.5px;
+            text-align: justify;
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        /* TC BOX */
+        .tc-box {
+            background-color: var(--paper);
+            border: 2px solid var(--light-rule);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tc-box h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .tc-rate {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .tc-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* VIGILAR */
+        .vigilar-box {
+            background-color: var(--ink);
+            color: var(--paper);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .vigilar-box h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #d4a574;
+            margin-bottom: 15px;
+        }
+
+        .vigilar-item {
+            font-size: 14.5px;
+            text-align: justify;
+            margin-bottom: 10px;
+            line-height: 1.65;
+        }
+
+        .vigilar-item::before {
+            content: "→ ";
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid var(--light-rule);
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .footer-section {
+            margin-bottom: 12px;
+        }
+
+        .footer-section strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 12px;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-credit {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-rule);
+            font-size: 11px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .container {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: clamp(32px, 6vw, 48px);
+            }
+
+            .columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .col-divider {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid var(--light-rule);
+                padding-top: 20px;
+            }
+
+            .masthead-top {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- MASTHEAD -->
+        <div class="masthead">
+            <div class="masthead-top">
+                <span>Briefing Ejecutivo</span>
+                <span>Edición Diaria</span>
+                <span>Confidencial</span>
+            </div>
+            <h1>Colombia</h1>
+            <p class="subtitle">Sábado 14 de marzo de 2026 — Bogotá</p>
+        </div>
+
+        <div class="rule-thin"></div>
+
+        <!-- TOP 5 DEL DÍA -->
+        <div class="top5-items">
+            <div class="section-header">Top 5 del Día</div>
+
+            <div class="top5-item">
+                <div class="top5-number">1</div>
+                <div class="top5-content">
+                    <p>El Servicio Geológico Colombiano reportó ocho temblores en Cundinamarca, Santander, Chocó y Boyacá el 14 de marzo, con registros de hasta magnitud 2.5 en Quetame. Los sismos de baja magnitud evidencian la actividad sísmica permanente en varias regiones del país, sin reportes de daños significativos.</p>
+                    <a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-14-de-marzo-de-2026-1002084" class="source-link">Noticias RCN</a>
+                </div>
+            </div>
+
+            <div class="top5-item">
+                <div class="top5-number">2</div>
+                <div class="top5-content">
+                    <p>Catorce candidatos se inscribieron ante la Registraduría Nacional para disputar la presidencia en la primera vuelta de mayo de 2026. El Pacto Histórico presentó a Iván Cepeda como candidato único con Aida Quilcué como vicepresidenta, consolidando el proyecto político de Gustavo Petro.</p>
+                    <a href="https://www.infobae.com/colombia/2026/03/13/elecciones-2026-asi-quedaron-conformadas-las-campanas-presidenciales-de-cara-a-la-primera-vuelta-en-mayo/" class="source-link">Infobae</a>
+                </div>
+            </div>
+
+            <div class="top5-item">
+                <div class="top5-number">3</div>
+                <div class="top5-content">
+                    <p>El Gobierno expidió siete decretos bajo la emergencia económica por inundaciones que afectan varias regiones. Las medidas buscan acelerar la respuesta institucional y la canalización de recursos hacia zonas afectadas por eventos climáticos extremos que impactan la producción agrícola.</p>
+                    <a href="https://www.semana.com/" class="source-link">Semana</a>
+                </div>
+            </div>
+
+            <div class="top5-item">
+                <div class="top5-number">4</div>
+                <div class="top5-content">
+                    <p>La Procuraduría expresó reparos frente a denuncias de Gustavo Petro sobre supuesto fraude en elecciones legislativas. La controversia sobre participación presidencial en política marca tensiones previas a la carrera presidencial de mayo con una aprobación presidencial del 37,5%.</p>
+                    <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gustavo-petro-responde-por-criticas-de-participacion-indebida-en-politica-que-dice-la-ley-en-colombia-noticias-hoy/" class="source-link">El Espectador</a>
+                </div>
+            </div>
+
+            <div class="top5-item">
+                <div class="top5-number">5</div>
+                <div class="top5-content">
+                    <p>La TRM se situó en $3.685,53 por dólar el 14 de marzo, presentando una apreciación del peso colombiano con reducción de $14,93 pesos respecto a la jornada anterior. El comportamiento del tipo de cambio refleja expectativas relativas a política monetaria y dinámicas de flujos de capital.</p>
+                    <a href="https://dolar.wilkinsonpc.com.co/2026-03-14" class="source-link">Banco de la República</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-thick"></div>
+
+        <!-- COLUMNAS -->
+        <div class="columns">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="column">
+                <!-- POLÍTICOS -->
+                <div class="column-section">
+                    <h3>Políticos</h3>
+                    <div class="column-item">
+                        <p><strong>Congreso renovado:</strong> El Pacto Histórico consolidó su poder con 62 escaños, dejando al Centro Democrático en segundo lugar con 45 curules. El nuevo Congreso 2026-2030 enfatiza cambios en la estructura política previa a la elección presidencial de mayo.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Campaña de Cepeda:</strong> Iván Cepeda con su fórmula de Aida Quilcué aspira a continuar el proyecto de Petro. Doce candidatos adicionales de diversos espectros ideológicos competirán en una contienda compleja con polarización notable.</p>
+                    </div>
+                </div>
+
+                <!-- ECONÓMICOS -->
+                <div class="column-section">
+                    <h3>Económicos</h3>
+                    <div class="column-item">
+                        <p><strong>Crecimiento moderado:</strong> BBVA proyecta expansión de 2,8% en 2026 con desaceleración a 1,8% en 2027. El consumo de hogares, impulsado por empleo formal y remesas, sustenta la actividad mientras la inversión crece apenas 1,4%.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Inflación rebota:</strong> Se anticipa inflación de 6,5% al cierre de 2026, presionando al Banco de la República a mantener tasa de política monetaria en 12,25%. La variación febrero 2026 fue 7,74%, mejorando desde máximos previos.</p>
+                    </div>
+                </div>
+
+                <!-- EMPRESARIALES -->
+                <div class="column-section">
+                    <h3>Empresariales</h3>
+                    <div class="column-item">
+                        <p><strong>Inversión en estadios:</strong> Corficolombiana adquirió 51% de la concesionaria para renovar El Campín con inversión cercana a 2,4 billones de pesos. En Barranquilla, el estadio Metropolitano avanza con inversión de $180.000 millones.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Textiles para el Mundial:</strong> Protela y empresas colombianas visten a la Selección Colombia, aprovechando oportunidades del Mundial 2026 para expandir exportaciones de ropa deportiva hacia Norteamérica con crecimientos proyectados de 30%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="column col-divider">
+                <!-- SOCIALES -->
+                <div class="column-section">
+                    <h3>Sociales</h3>
+                    <div class="column-item">
+                        <p><strong>Emergencia climática:</strong> Inundaciones afectan múltiples regiones, generando seis decretos de emergencia para acelerar respuesta institucional. Escuelas de Talentos en 32 departamentos con inversión de $44.200 millones fortalecen base deportiva nacional.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Salud pública:</strong> La Secretaría Distrital de Salud habilitó puntos de vacunación en Bogotá contra poliomielitis, sarampión, difteria y tos ferina el 14 de marzo, continuando agenda de inmunización.</p>
+                    </div>
+                </div>
+
+                <!-- FINANCIEROS -->
+                <div class="column-section">
+                    <h3>Financieros</h3>
+                    <div class="column-item">
+                        <p><strong>Déficit fiscal crítico:</strong> Finanzas públicas atraviesan momento complejo con alto déficit y deuda bruta en niveles elevados que elevan costo de financiamiento. Déficit de cuenta corriente se amplía a 2,8% del PIB en 2026.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Peso aprecia:</strong> Moneda local muestra fortaleza con dólar en fase bajista desde febrero. Dinámicas de flujos de capital y expectativas de política monetaria inciden en cotización del TRM.</p>
+                    </div>
+                </div>
+
+                <!-- DEPORTES -->
+                <div class="column-section">
+                    <h3>Deportes</h3>
+                    <div class="column-item">
+                        <p><strong>Selección Colombia:</strong> Protela, proveedor oficial de la Selección, fortalece posicionamiento como líder en confección de camisetas y prendas de alto desempeño técnico. Anticipación al Mundial 2026 impulsa dinamismo del sector.</p>
+                    </div>
+                    <div class="column-item">
+                        <p><strong>Infraestructura deportiva:</strong> El país avanza en modernización de estadios y centros deportivos con inversiones estratégicas que buscan posicionar a Colombia como destino de eventos internacionales de envergadura.</p>
+                    </div>
+                </div>
+
+                <!-- EXTERNO E INTERNACIONAL -->
+                <div class="column-section">
+                    <h3>Externo e Intl.</h3>
+                    <div class="column-item">
+                        <p><strong>Frontera con Venezuela:</strong> Colombia y Venezuela acordaron fortalecer cooperación en seguridad mediante intercambio de información, inteligencia y despliegue permanente de fuerzas armadas en frontera común. Diálogo diplomático avanza en control de cruces ilegales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TC BOX -->
+        <div class="tc-box">
+            <h3>Tipo de Cambio Representativo</h3>
+            <div class="tc-rate">$3.685,53</div>
+            <div class="tc-label">USD/COP — 14 de marzo de 2026 — Banco de la República</div>
+        </div>
+
+        <!-- VIGILAR -->
+        <div class="vigilar-box">
+            <h3>Qué Vigilar Hoy</h3>
+            <div class="vigilar-item">Comportamiento de los precios internacionales de petróleo y carbón que inciden en recaudos fiscales y dinámicas de inversión extranjera en sector energético.</div>
+            <div class="vigilar-item">Evolución de las condiciones climáticas en zonas afectadas por inundaciones, con potencial impacto en producción agrícola, inflación de alimentos y estabilidad fiscal regional.</div>
+            <div class="vigilar-item">Dinámicas de las campañas presidenciales en la carrera hacia elecciones de mayo, especialmente posibles alianzas o cambios en posicionamiento de candidatos y coaliciones.</div>
+            <div class="vigilar-item">Decisiones de política monetaria del Banco de la República ante inflación persistente, con posibles impactos en costo de financiamiento y dinámica de tasas de interés.</div>
+            <div class="vigilar-item">Sentimiento de mercados hacia deuda soberana colombiana frente a déficit fiscal, con implicaciones en spreads de riesgo y acceso a financiamiento internacional.</div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-section">
+                <strong>Fuentes Consultadas</strong>
+                <a href="https://www.noticiasrcn.com/" class="footer-link">Noticias RCN</a>
+                <a href="https://www.semana.com/" class="footer-link">Semana</a>
+                <a href="https://www.eltiempo.com/" class="footer-link">El Tiempo</a>
+                <a href="https://www.elespectador.com/" class="footer-link">El Espectador</a>
+                <a href="https://www.portafolio.co/" class="footer-link">Portafolio</a>
+                <a href="https://www.banrep.gov.co/" class="footer-link">Banco de la República</a>
+                <a href="https://www.infobae.com/colombia/" class="footer-link">Infobae</a>
+                <a href="https://americaeconomica.com/" class="footer-link">América Económica</a>
+            </div>
+            <div class="footer-credit">
+                Briefing generado con Claude — Solo para uso informativo. Contenido compilado de fuentes públicas. No constituye análisis de inversión.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

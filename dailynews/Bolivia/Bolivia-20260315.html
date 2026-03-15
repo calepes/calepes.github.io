@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolivia - Briefing Ejecutivo 14 de Marzo 2026</title>
+    <meta name="color-scheme" content="light only">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #8b1a1a;
+            --paper: #f5f0e8;
+            --light-rule: #c8b99a;
+            --muted: #6b5e4f;
+            --ink: #1a1a1a;
+            --rule: #2a2a2a;
+            --subtle: #e8e3da;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Serif 4', serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+            font-size: 15px;
+            padding: 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Masthead */
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-rule);
+        }
+
+        .masthead-top {
+            display: flex;
+            gap: 40px;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .masthead h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 72px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--ink);
+            margin: 20px 0 12px 0;
+        }
+
+        .masthead-subtitle {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .thin-rule {
+            height: 1px;
+            background-color: var(--light-rule);
+            margin: 32px 0;
+        }
+
+        /* Top 5 */
+        .section-header {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .top5-container {
+            display: grid;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .top5-item {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+        }
+
+        .top5-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .top5-text {
+            font-size: 14.5px;
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            display: inline;
+            font-size: 12px;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .source-link a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .source-link a:hover {
+            background-color: rgba(139, 26, 26, 0.05);
+        }
+
+        .thick-rule {
+            height: 3px;
+            background-color: var(--rule);
+            margin: 40px 0;
+        }
+
+        /* Columns */
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .col-right {
+            border-left: 2px solid var(--light-rule);
+            padding-left: 40px;
+        }
+
+        .column-section {
+            margin-bottom: 36px;
+        }
+
+        .column-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .column-item {
+            margin-bottom: 20px;
+            font-size: 14.5px;
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        .column-item strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* TC Box */
+        .tc-box {
+            background-color: var(--subtle);
+            padding: 28px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 40px;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+
+        .tc-box h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .tc-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--light-rule);
+        }
+
+        .tc-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .tc-pair {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .tc-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .tc-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--ink);
+            font-family: 'Source Serif 4', serif;
+        }
+
+        .tc-gap {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* Vigilar */
+        .vigilar-box {
+            background-color: var(--ink);
+            color: var(--paper);
+            padding: 28px;
+            margin-bottom: 40px;
+        }
+
+        .vigilar-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #d4a574;
+            margin-bottom: 20px;
+        }
+
+        .vigilar-item {
+            font-size: 14.5px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        .vigilar-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .vigilar-item::before {
+            content: "→ ";
+            color: #d4a574;
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid var(--light-rule);
+            font-size: 11px;
+            color: var(--muted);
+            font-family: 'Libre Franklin', sans-serif;
+            line-height: 1.6;
+        }
+
+        .sources {
+            margin-bottom: 16px;
+        }
+
+        .sources strong {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .source-list {
+            font-size: 10px;
+            line-height: 1.8;
+        }
+
+        .source-list a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--light-rule);
+        }
+
+        .source-list a:hover {
+            color: var(--accent);
+        }
+
+        .footer-note {
+            font-size: 10px;
+            margin-top: 16px;
+            font-style: italic;
+            color: #8b7355;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            body {
+                padding: 24px 20px;
+            }
+
+            .masthead {
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--light-rule);
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+
+            .masthead-top {
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-bottom: 16px;
+                width: 100%;
+            }
+
+            .masthead h1 {
+                font-size: 42px;
+                margin: 12px 0 8px 0;
+                letter-spacing: 2px;
+            }
+
+            .columns {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .col-right {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .top5-item {
+                grid-template-columns: 50px 1fr;
+                gap: 16px;
+            }
+
+            .top5-number {
+                font-size: 28px;
+            }
+
+            .tc-box {
+                padding: 20px;
+            }
+
+            .tc-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .vigilar-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Masthead -->
+    <div class="masthead">
+        <div>
+            <div class="masthead-top">
+                <div>Briefing Ejecutivo</div>
+                <div>Edicion Diaria</div>
+                <div>Confidencial</div>
+            </div>
+            <h1>BOLIVIA</h1>
+            <div class="masthead-subtitle">Sabado 14 de marzo de 2026 — La Paz</div>
+        </div>
+    </div>
+
+    <div class="thin-rule"></div>
+
+    <!-- Top 5 -->
+    <div class="section-header">Top 5 del Dia</div>
+
+    <div class="top5-container">
+        <div class="top5-item">
+            <div class="top5-number">1</div>
+            <div class="top5-text">
+                Captura de narcotraficante Sebastián Marset fue trasladado al Aeropuerto Internacional de Viru Viru y entregado a agentes de la DEA. El ministro Marco Oviedo confirmó que la operación se realizó con discreción y con participación de policías de élite de varias regiones.
+                <div class="source-link"><a href="https://www.atb.com.bo">ATB Digital</a></div>
+            </div>
+        </div>
+
+        <div class="top5-item">
+            <div class="top5-number">2</div>
+            <div class="top5-text">
+                Dólar oficial se cotiza a Bs 6,86 compra y Bs 6,96 venta. El dólar paralelo (blue) se mantiene en Bs 9,24, reflejando una brecha de 32,8% respecto al tipo oficial, evidenciando la persistente escasez de divisas en el mercado formal.
+                <div class="source-link"><a href="https://www.bcb.gob.bo">Banco Central de Bolivia</a></div>
+            </div>
+        </div>
+
+        <div class="top5-item">
+            <div class="top5-number">3</div>
+            <div class="top5-text">
+                Bolivia enfrenta elecciones subnacionales el 22 de marzo para elegir nueve gobernadores y asambleístas departamentales. El 15 de marzo se publicará la ubicación oficial de las mesas de votación en todo el país.
+                <div class="source-link"><a href="https://www.opinion.com.bo">Opinion.com.bo</a></div>
+            </div>
+        </div>
+
+        <div class="top5-item">
+            <div class="top5-number">4</div>
+            <div class="top5-text">
+                Ministro de Economía José Gabriel Espinoza anticipa crecimiento positivo del PIB para 2026, "dando una sorpresa" al mercado. Sin embargo, el Banco Mundial proyecta contracción de 1,1% anual, el peor desempeño en América Latina.
+                <div class="source-link"><a href="https://www.bloomberglinea.com">Bloomberg Linea</a></div>
+            </div>
+        </div>
+
+        <div class="top5-item">
+            <div class="top5-number">5</div>
+            <div class="top5-text">
+                Bolivia disputará partido de repechaje al Mundial 2026 contra Surinam el 26 de marzo en Monterrey, México. Los partidos serán transmitidos por señal abierta a todo el país gracias a alianza entre Bolivia TV y Entel, la ilusión de volver al Mundial tras 32 años.
+                <div class="source-link"><a href="https://diez.bo">Diez.bo Deportes</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="thick-rule"></div>
+
+    <!-- Columns -->
+    <div class="columns">
+        <!-- Left Column -->
+        <div>
+            <div class="column-section">
+                <div class="section-header">Politicos</div>
+                <div class="column-item">
+                    <strong>Expulsion del MAS a Luis Arce.</strong> El expresidente fue expulsado del Movimiento al Socialismo apenas 48 horas después de entregar el mando al nuevo gobierno de Rodrigo Paz Pereira, marcando una profunda fractura en la coalición gobernante.
+                    <div class="source-link"><a href="https://www.perfil.com">Perfil</a></div>
+                </div>
+                <div class="column-item">
+                    <strong>Investigacion sobre proteccion a Marset.</strong> Sectores politicos exigen esclarecer el rol de autoridades del anterior y actual gobierno que negaron durante dos años la presencia del narcotraficante en territorio boliviano, a pesar de advertencias internacionales.
+                    <div class="source-link"><a href="https://www.opinion.com.bo">Opinion.com.bo</a></div>
+                </div>
+            </div>
+
+            <div class="column-section">
+                <div class="section-header">Economicos</div>
+                <div class="column-item">
+                    <strong>Inflacion en baja pero economia contractil.</strong> La inflacion cedió de 20% en 2025 a 17% en 2026, pero los desequilibrios estructurales persisten: déficit fiscal, escasez de dólares y baja productividad. El alza del petróleo empeorará estos problemas.
+                    <div class="source-link"><a href="https://www.eldiario.net">El Diario</a></div>
+                </div>
+                <div class="column-item">
+                    <strong>Plan Estrategico 2026-2030.</strong> El Ministerio de Desarrollo Productivo lanzó "Bolivia Productiva y Resiliente" para impulsar modelo de desarrollo rural, inclusivo y sostenible, promoviendo alianzas público-privadas.
+                    <div class="source-link"><a href="https://abi.bo">ABI Noticias</a></div>
+                </div>
+            </div>
+
+            <div class="column-section">
+                <div class="section-header">Empresariales</div>
+                <div class="column-item">
+                    <strong>Oportunidades mineras presentadas en BID.</strong> El Ministro Romero presentó ante la Asamblea Anual del Banco Interamericano de Desarrollo las oportunidades mineras de Bolivia, buscando atraer inversión extranjera en el sector.
+                    <div class="source-link"><a href="https://www.atb.com.bo">ATB Digital</a></div>
+                </div>
+                <div class="column-item">
+                    <strong>Escasez de divisas y mercado paralelo.</strong> Las plataformas P2P se consolidan como principal canal para acceder a divisas, con USDT/BOB liderando transacciones en Binance Bolivia ante dificultad de obtener dólares al tipo oficial.
+                    <div class="source-link"><a href="https://bolivianblue.net">BolivianBlue</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-right">
+            <div class="column-section">
+                <div class="section-header">Sociales</div>
+                <div class="column-item">
+                    <strong>Alcalde de Santa Cruz bajo restricciones.</strong> Autoridades locales fueron sometidas a prohibiciones que incluyen salir del pais, asistir eventos nocturnos y brindar declaraciones a prensa, como parte de operativos de control administrativo.
+                    <div class="source-link"><a href="https://eldeber.com.bo">El Deber</a></div>
+                </div>
+            </div>
+
+            <div class="column-section">
+                <div class="section-header">Financieros</div>
+                <div class="column-item">
+                    <strong>Presupuesto estatal entró en vigencia automaticamente.</strong> El Presupuesto General del Estado 2026, elaborado por gobierno de Arce, entró en vigencia el 1 de enero sin aprobación de Asamblea Legislativa, generando tensiones institucionales.
+                    <div class="source-link"><a href="https://unitel.bo">Unitel Noticias</a></div>
+                </div>
+                <div class="column-item">
+                    <strong>Compromiso de Bolivia con pagos de deuda.</strong> Ministro Espinoza reafirmó ante comunidad internacional el compromiso de cumplir con obligaciones externas, crítico para mantener credibilidad en mercados financieros.
+                    <div class="source-link"><a href="https://www.costadelsolfm.org">Costa del Sol FM</a></div>
+                </div>
+            </div>
+
+            <div class="column-section">
+                <div class="section-header">Deportes</div>
+                <div class="column-item">
+                    <strong>Ley de Incentivo al Deporte promulgada.</strong> Gobierno anunció anteproyecto de ley que promueve alianzas público-privadas con incentivos tributarios para empresas que patrocinen atletas y proyectos deportivos.
+                    <div class="source-link"><a href="https://www.minsalud.gob.bo">Ministerio de Salud y Deportes</a></div>
+                </div>
+            </div>
+
+            <div class="column-section">
+                <div class="section-header">Externo e Internacional</div>
+                <div class="column-item">
+                    <strong>Repechaje mundialista del 26 de marzo.</strong> Bolivia se enfrentará a Surinam en semifinal del repechaje para el Mundial 2026. La cita será en Monterrey, México, transmitida por señal abierta a todo el país.
+                    <div class="source-link"><a href="https://libero.pe">Libero.pe</a></div>
+                </div>
+                <div class="column-item">
+                    <strong>Perspectivas economicas mejoran con nuevo gobierno.</strong> Sectores internacionales perciben cambio positivo con administración Paz Pereira, pero evaluarán resultados concretos en próximas semanas.
+                    <div class="source-link"><a href="https://1000noticias.com.py">1000 Noticias</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Type de Cambio -->
+    <div class="tc-box">
+        <h3>Tipo de Cambio USD/BOB</h3>
+        <div class="tc-row">
+            <div>
+                <div class="tc-pair">
+                    <span class="tc-label">Oficial Compra</span>
+                    <span class="tc-value">Bs 6,86</span>
+                </div>
+            </div>
+            <div>
+                <div class="tc-pair">
+                    <span class="tc-label">Oficial Venta</span>
+                    <span class="tc-value">Bs 6,96</span>
+                </div>
+            </div>
+        </div>
+        <div class="tc-row">
+            <div>
+                <div class="tc-pair">
+                    <span class="tc-label">Paralelo (Blue)</span>
+                    <span class="tc-value">Bs 9,24</span>
+                </div>
+                <div class="tc-gap">Brecha: +32,8%</div>
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Vigilar -->
+    <div class="vigilar-box">
+        <h3>Vigilar Hoy</h3>
+        <div class="vigilar-item">
+            Publicacion de ubicacion oficial de mesas de votacion para elecciones subnacionales del 22 de marzo — instrumento crítico para movilizacion electoral.
+        </div>
+        <div class="vigilar-item">
+            Declaraciones de cancilleria sobre extradicion de Marset a EE.UU. — posible respuesta a cuestionamientos sobre proteccion previa del narcotraficante.
+        </div>
+        <div class="vigilar-item">
+            Comportamiento del dólar blue frente a presiones de escasez de divisas — indicador de confianza en politica monetaria del nuevo gobierno.
+        </div>
+        <div class="vigilar-item">
+            Anuncios de inversión minera durante presenta ante BID — señales sobre capacidad de atraer capital extranjero.
+        </div>
+        <div class="vigilar-item">
+            Movimientos internos del MAS tras expulsion de Arce — fragmentacion total de partido gobernante ante elecciones municipales.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="sources">
+            <strong>Fuentes Consultadas</strong>
+            <div class="source-list">
+                <a href="https://eldeber.com.bo">El Deber</a> • <a href="https://www.opinion.com.bo">Opinion.com.bo</a> • <a href="https://www.lostiempos.com">Los Tiempos</a> • <a href="https://larazon.bo">La Razon</a> • <a href="https://www.bcb.gob.bo">Banco Central de Bolivia</a> • <a href="https://www.bloomberglinea.com">Bloomberg Linea</a> • <a href="https://www.atb.com.bo">ATB Digital</a> • <a href="https://abi.bo">ABI Noticias</a> • <a href="https://diez.bo">Diez.bo</a> • <a href="https://www.minsalud.gob.bo">Ministerio de Salud y Deportes</a>
+            </div>
+        </div>
+        <div class="footer-note">
+            Briefing generado con Claude — Solo para uso informativo. Los datos del tipo de cambio corresponden a fuentes oficiales y mercado paralelo al 14 de marzo de 2026.
+        </div>
+    </div>
+</body>
+</html>
