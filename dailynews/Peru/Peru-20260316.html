@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Perú — 16 de marzo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --ink: #1a1a1a;
+    --paper: #f8f4ed;
+    --accent: #1a4a6b;
+    --rule: #2a2a2a;
+    --light-rule: #c5b8a5;
+    --muted: #6b5e4f;
+    --paper-dark: #ede8df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.55;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    text-align: center;
+    border-bottom: 4px double var(--rule);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  .masthead-top {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 4px 0;
+  }
+  .masthead-subtitle {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* RULES */
+  .thin-rule {
+    border: none;
+    border-top: 1px solid var(--light-rule);
+    margin: 16px 0;
+  }
+  .thick-rule {
+    border: none;
+    border-top: 3px solid var(--rule);
+    margin: 20px 0;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    margin-bottom: 12px;
+    padding-bottom: 2px;
+  }
+
+  /* TOP 5 */
+  .top5-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .top5-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--light-rule);
+    padding: 10px 0;
+  }
+  .top5-item:last-child { border-bottom: none; }
+  .top5-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: right;
+  }
+  .top5-text {
+    font-size: 14.5px;
+    padding-top: 4px;
+    flex: 1;
+  }
+
+  /* COLUMNS */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .col-divider {
+    border-left: 1px solid var(--light-rule);
+    padding-left: 24px;
+  }
+
+  /* ITEMS */
+  .item {
+    font-size: 14.5px;
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .source-link {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+  }
+  .source-link a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .source-link a:hover { text-decoration: underline; }
+
+  /* TIPO DE CAMBIO */
+  .tc-box {
+    background: var(--paper-dark);
+    border: 1px solid var(--light-rule);
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .tc-box h3 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .tc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    text-align: center;
+  }
+  .tc-item {
+    font-family: 'Libre Franklin', sans-serif;
+  }
+  .tc-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    display: block;
+  }
+  .tc-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+  .tc-sub {
+    font-size: 10px;
+    color: var(--muted);
+    display: block;
+  }
+
+  /* VIGILAR */
+  .vigilar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .vigilar h3 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #d4a574;
+    margin-bottom: 10px;
+  }
+  .vigilar ul {
+    list-style: none;
+    padding: 0;
+  }
+  .vigilar li {
+    font-size: 14px;
+    padding: 5px 0 5px 20px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .vigilar li::before {
+    content: '\2192';
+    position: absolute;
+    left: 0;
+    color: #d4a574;
+  }
+
+  /* FOOTER */
+  .footer {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-align: center;
+    border-top: 2px solid var(--rule);
+    padding-top: 12px;
+    margin-top: 20px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .columns { grid-template-columns: 1fr; }
+    .col-divider { border-left: none; padding-left: 0; border-top: 1px solid var(--light-rule); padding-top: 16px; }
+    .tc-grid { grid-template-columns: 1fr 1fr; }
+    .masthead-top { font-size: 9px; letter-spacing: 0.8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <span>Briefing Ejecutivo</span>
+    <span>Edición Diaria</span>
+    <span>Confidencial</span>
+  </div>
+  <h1>Perú</h1>
+  <div class="masthead-subtitle">Lunes 16 de marzo de 2026 &mdash; Lima</div>
+</div>
+
+<hr class="thin-rule">
+
+<!-- TOP 5 -->
+<div class="section-header">Top 5 del Día</div>
+<div class="top5-grid">
+
+  <div class="top5-item">
+    <span class="top5-num">1</span>
+    <div class="top5-text">
+      El Gabinete Miralles enfrenta el miércoles 18 su voto de confianza en el Congreso con al menos 37 parlamentarios ya declarados en contra y Fuerza Popular aún sin definir su postura, lo que coloca al gobierno de transición en situación de extrema vulnerabilidad a menos de un mes de las elecciones del 12 de abril.
+      <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/15/gabinete-miralles-llega-debilitado-al-voto-de-confianza-37-congresistas-dan-la-espalda-a-ministros-hnews-360360">La República</a>, <a href="https://www.infobae.com/peru/2026/03/15/keiko-fujimori-asegura-que-la-bancada-de-fuerza-popular-definira-su-voto-de-confianza-al-gabinete-miralles-el-18-de-marzo/">Infobae</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <span class="top5-num">2</span>
+    <div class="top5-text">
+      La reparación del ducto de Camisea avanza al 74% según el MINEM, pero la crisis energética ya generó un impacto inflacionario severo: analistas proyectan que la inflación mensual de marzo alcanzaría entre 1,5% y 1,8%, la más alta en cuatro años, con el IPC anual rozando el límite del 3% del rango meta del BCRP.
+      <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/12/crisis-de-gas-natural-en-peru-avance-en-las-reparaciones-de-ductos-de-camisea-va-al-74-segun-el-minem/">Infobae</a>, <a href="https://rpp.pe/economia/economia/crisis-energetica-peru-inflacion-de-marzo-registraria-indice-mas-alto-en-cuatro-anos-por-escases-gas-natural-gnv-noticia-1679305">RPP</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <span class="top5-num">3</span>
+    <div class="top5-text">
+      Falleció el candidato presidencial Napoleón Becerra en un accidente de tránsito cuando se dirigía a Ayacucho para actividades de campaña. El vehículo se despistó en la carretera de Rumichaca, en Huaytará (Huancavelica). Becerra estaba programado para abrir el debate presidencial del 23 de marzo y había postulado fortaleciendo la seguridad ciudadana con reservistas militares.
+      <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/15/napoleon-becerra-fallece-candidato-presidencial-en-un-accidente-de-transito-cuando-se-dirigia-a-ayacucho/">Infobae</a>, <a href="https://cnnespanol.cnn.com/2026/03/15/latinoamerica/muere-el-candidato-presidencial-de-peru-napoleon-becerra-en-un-accidente-de-transito-informan-medios-estatales">CNN</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <span class="top5-num">4</span>
+    <div class="top5-text">
+      El BCRP mantuvo la tasa de interés de referencia en 4,25% en su sesión de marzo, señalando que la inflación podría ubicarse temporalmente en el tramo superior del rango meta por factores climáticos, alza internacional de la energía e interrupciones en el suministro de gas. Las expectativas de inflación a 12 meses subieron de 2,0% a 2,1%.
+      <span class="source-link">(<a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <span class="top5-num">5</span>
+    <div class="top5-text">
+      Economistas advierten sobre riesgo de estanflación ante la combinación de la crisis del gas de Camisea, el avance de El Niño Costero y el alza del petróleo por tensiones en Medio Oriente. Thorne &amp; Associates proyecta una contracción del PBI de hasta -1,1% en marzo, la más pronunciada en tres años, mientras BBVA Research recortó su proyección de crecimiento para 2026 de 3,1% a 2,9%.
+      <span class="source-link">(<a href="https://larepublica.pe/economia/2026/03/13/crisis-del-gas-el-nino-y-alza-del-petroleo-hundirian-la-economia-peruana-en-11-en-marzo-hnews-821496">La República</a>, <a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a>)</span>
+    </div>
+  </div>
+
+</div>
+
+<hr class="thick-rule">
+
+<!-- COLUMNAS TEMÁTICAS -->
+<div class="columns">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <div class="col-left">
+
+    <div class="section-header">Políticos</div>
+
+    <div class="item">
+      La premier Denisse Miralles afirmó que no ha discutido con el presidente Balcázar su eventual reemplazo en caso de no obtener la confianza del Congreso el miércoles 18. Solo Alianza para el Progreso (APP) ha expresado disposición favorable; Avanza País, Renovación Popular y Perú Libre anticipan rechazo. Se necesitan 66 votos de los 130 congresistas para aprobar.
+      <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/15/denisse-miralles-sobre-su-reemplazo-de-no-alcanzar-el-voto-de-confianza-en-el-congreso-no-lo-hemos-hablado-con-el-presidente-hnews-1064130">La República</a>)</span>
+    </div>
+
+    <div class="item">
+      El presidente Balcázar declaró que confía en que el Congreso otorgará la confianza al gabinete y anunció que el 23 de abril se reanudará la operatividad del aeropuerto de Jaén, como parte de la agenda de infraestructura regional del gobierno de transición.
+      <span class="source-link">(<a href="https://diarioelpueblo.com.pe/2026/03/15/balcazar-confia-en-que-congreso-otorgara-voto-de-confianza-al-gabinete-miralles/">Diario El Pueblo</a>)</span>
+    </div>
+
+    <div class="item">
+      El gobierno declaró estado de emergencia en Pisco para reforzar la seguridad ciudadana ante el avance del crimen organizado en la provincia iqueña, donde han escalado los asesinatos y extorsiones en los últimos meses.
+      <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
+    </div>
+
+    <div class="item">
+      Un juez de Lima impuso medidas de restricción contra Miguel Ángel Marín Morón, acusado de liderar la organización criminal "Los Sanguinarios de la Construcción", red dedicada a la extorsión y el sicariato en el sector de la construcción de la capital.
+      <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
+    </div>
+
+    <hr class="thin-rule">
+    <div class="section-header">Económicos</div>
+
+    <div class="item">
+      La rotura del ducto de Camisea el 1 de marzo —atribuida por Osinergmin a fallas durante trabajos de mantenimiento, no a un atentado— redujo el suministro de gas natural de 800 a apenas 70 millones de pies cúbicos diarios, disparando el precio de la electricidad hasta USD 200 por MWh desde un rango habitual de 30-40 USD. Al 12 de marzo, TGP reportó avance del 74% en reparaciones.
+      <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/02/se-rompio-el-ducto-de-camisea-la-electricidad-se-dispara-a-usd200-mwh-y-casi-todas-las-plantas-a-gas-en-lima-estan-detenidas/">Infobae</a>, <a href="https://www.infobae.com/peru/2026/03/12/crisis-de-gas-natural-en-peru-avance-en-las-reparaciones-de-ductos-de-camisea-va-al-74-segun-el-minem/">Infobae</a>)</span>
+    </div>
+
+    <div class="item">
+      El Ministerio de Vivienda supervisa trabajos de emergencia en Ayabaca, distrito de Piura afectado por deslizamientos provocados por las lluvias asociadas al avance de El Niño Costero. El fenómeno climático suma presiones al ya deteriorado panorama económico nacional.
+      <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
+    </div>
+
+    <hr class="thin-rule">
+    <div class="section-header">Empresariales</div>
+
+    <div class="item">
+      Los sectores de transporte, manufactura y gastronomía son los más afectados por la escasez de gas natural vehicular (GNV). La sustitución forzada por diésel y gasolinas generó sobrecostos de producción que se trasladan a precios al consumidor final, según análisis de gremios empresariales. La crisis expone la ausencia del Gasoducto Sur Peruano como brecha de infraestructura crítica.
+      <span class="source-link">(<a href="https://larepublica.pe/economia/2026/03/08/un-solo-ducto-paraliza-al-pais-y-expone-la-falta-del-gasoducto-sur-peruano-hnews-645246">La República</a>, <a href="https://rpp.pe/economia/economia/crisis-de-gnv-los-sectores-mas-golpeados-por-emergencia-de-gas-natural-en-camisea-y-sus-multiples-impactos-informe-noticia-1678615">RPP</a>)</span>
+    </div>
+
+    <div class="item">
+      Congresistas y gremios plantean un subsidio transitorio a combustibles para amortiguar el impacto en los hogares y contener la inflación mientras se normaliza el suministro de Camisea. El debate sobre la medida se dará en paralelo al voto de confianza al gabinete.
+      <span class="source-link">(<a href="https://rpp.pe/economia/economia/inflacion-en-peru-2026-plantean-subsidio-a-combustibles-para-evitar-alza-de-precios-y-proteger-bolsillos-de-que-trata-noticia-1678702">RPP</a>)</span>
+    </div>
+
+  </div>
+
+  <!-- COLUMNA DERECHA -->
+  <div class="col-divider">
+
+    <div class="section-header">Sociales</div>
+
+    <div class="item">
+      La muerte del candidato presidencial Napoleón Becerra sacudió el escenario electoral a menos de cuatro semanas de la primera vuelta del 12 de abril. Todos los candidatos expresaron condolencias. Becerra había sido asignado como primer expositor en el debate presidencial del 23 de marzo organizado por el JNE, cuyo formato deberá ajustarse.
+      <span class="source-link">(<a href="https://elperuano.pe/noticia/291282-elecciones-2026-candidatos-lamentan-muerte-de-napoleon-becerra">El Peruano</a>, <a href="https://www.infobae.com/peru/2026/03/15/quien-era-napoleon-becerra-el-candidato-presidencial-fallecido-en-un-accidentre-de-transito-y-cuales-eran-sus-propuestas-para-el-peru/">Infobae</a>)</span>
+    </div>
+
+    <div class="item">
+      Sedapal ejecutó cortes de agua programados en ocho distritos de Lima durante el fin de semana para mantenimiento e infraestructura de almacenamiento. Las interrupciones afectaron por aproximadamente seis horas a zonas de Lima Norte y Lima Este.
+      <span class="source-link">(<a href="https://rpp.pe/lima/obras/corte-de-agua-en-lima-hoy-15-de-marzo-distritos-y-horarios-afectados-noticia-1680140">RPP</a>)</span>
+    </div>
+
+    <hr class="thin-rule">
+    <div class="section-header">Financieros</div>
+
+    <div class="item">
+      La inflación acumulada a febrero 2026 registró 2,21% anual en Lima —la más alta desde noviembre de 2024—, impulsada por tarifas de agua y alimentos. Para marzo, el IPE proyecta un alza mensual de hasta 1,8% por el impacto energético, lo que llevaría la inflación anual al borde del 3%, el límite del rango meta del BCRP. El exministro Waldo Mendoza advierte sobre el riesgo de estanflación.
+      <span class="source-link">(<a href="https://elcomercio.pe/economia/peru/inflacion-mensual-en-marzo-podria-crecer-hasta-18-ante-interrupcion-de-gas-y-alza-en-precios-del-petroleo-segun-el-ipe-noticia/">El Comercio</a>)</span>
+    </div>
+
+    <div class="item">
+      La exfiscal de la Nación Delia Espinoza venció al abogado Humberto Abanto en la segunda vuelta de la selección de candidatos para un cargo institucional relevante, en votación que generó debate sobre la independencia de los organismos autónomos en período electoral.
+      <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
+    </div>
+
+    <hr class="thin-rule">
+    <div class="section-header">Deportes</div>
+
+    <div class="item">
+      En la fecha 7 del Torneo Apertura de la Liga 1 2026, Alianza Lima y Los Chankas comparten la cima con 17 puntos. Universitario venció a UTC en el Estadio Monumental, aunque el encuentro fue momentáneamente interrumpido cuando el árbitro Michael Espinoza activó el protocolo contra el racismo ante insultos provenientes de la tribuna sur, instantes antes de un penal a favor del cuadro crema.
+      <span class="source-link">(<a href="https://larepublica.pe/deportes/2026/03/13/tabla-de-posiciones-de-la-liga-1-2026-partidos-de-hoy-por-la-fecha-7-del-torneo-apertura-271544">La República</a>)</span>
+    </div>
+
+    <div class="item">
+      Sporting Cristal goleó 3-0 a Sport Boys con goles de Irven Ávila, Maxloren Castro y Miguel Araujo. Melgar continúa sin ganar tras su quinto partido consecutivo sin victoria, al empatar 0-0 ante Atlético Grau. ADT venció 1-0 a Sport Huancayo con gol de Josué Alvino.
+      <span class="source-link">(<a href="https://libero.pe/futbol-peruano/sporting-cristal/2026/03/14/sporting-cristal-vs-sport-boys-en-vivo-partido-de-liga-1-peru-torneo-apertura-via-liga-1-max-internet-lbev-795228">Libero.pe</a>)</span>
+    </div>
+
+    <hr class="thin-rule">
+    <div class="section-header">Externo e Internacional</div>
+
+    <div class="item">
+      En la gala de la 98.ª edición de los Premios Oscar celebrada el domingo 15 de marzo, "One Battle After Another" se alzó con el galardón a Mejor Película, superando a "Sinners". Jessie Buckley fue reconocida como Mejor Actriz. La entrega —transmitida en Perú por TNT y HBO Max— fue seguida con interés en el país por su relevancia cultural regional.
+      <span class="source-link">(<a href="https://elcomercio.pe/luces/cine/premios-oscar-2026-en-vivo-hoy-15-de-marzo-cuando-a-que-hora-y-donde-ver-la-gala-tnt-oscars-2026-lbposting-noticia/">El Comercio</a>)</span>
+    </div>
+
+    <div class="item">
+      Las elecciones presidenciales del 12 de abril de 2026 concentran la atención regional. Con 36 candidatos inscritos y debates programados para el 23, 24 y 25 de marzo, la campaña electoral transcurre en un contexto de crisis energética, cuestionamiento al gobierno de transición y alta incertidumbre política. Analistas consideran que la primera vuelta no definirá ganador, haciendo probable una segunda vuelta.
+      <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/12/elecciones-presidenciales-2026-en-peru-quienes-son-los-36-candidatos-y-como-sera-la-votacion/">Infobae</a>)</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- TIPO DE CAMBIO -->
+<div class="tc-box">
+  <h3>Tipo de Cambio — USD / PEN</h3>
+  <div class="tc-grid">
+    <div class="tc-item">
+      <span class="tc-label">Compra (SUNAT)</span>
+      <span class="tc-value">S/ 3.446</span>
+      <span class="tc-sub">16 mar 2026</span>
+    </div>
+    <div class="tc-item">
+      <span class="tc-label">Venta (SUNAT)</span>
+      <span class="tc-value">S/ 3.453</span>
+      <span class="tc-sub">16 mar 2026</span>
+    </div>
+    <div class="tc-item">
+      <span class="tc-label">Proyección fin 2026</span>
+      <span class="tc-value">S/ 3.34-3.46</span>
+      <span class="tc-sub">BCRP (rango consenso)</span>
+    </div>
+  </div>
+  <p style="font-family:'Libre Franklin',sans-serif;font-size:11px;color:var(--muted);margin-top:10px;">
+    No existe mercado paralelo relevante. Fuente: <a href="https://www.americatv.com.pe/noticias/actualidad/cuanto-esta-dolar-precio-moneda-verde-bcr-tipo-cambio-cotizacion-n474082" style="color:var(--accent);text-decoration:none;">América TV / SUNAT</a> &middot; <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-16-de-marzo-del-2026-noticia-1680219" style="color:var(--accent);text-decoration:none;">RPP</a>
+  </p>
+</div>
+
+<!-- QUÉ VIGILAR HOY -->
+<div class="vigilar">
+  <h3>Qué vigilar hoy</h3>
+  <ul>
+    <li>Reuniones de la premier Miralles con bancadas parlamentarias antes del voto de confianza del miércoles 18: la definición de Fuerza Popular y otros grupos indecisos determinará la supervivencia del gabinete en el período preelectoral más crítico.</li>
+    <li>Confirmación del plazo final de reparación del ducto de Camisea: TGP estima terminar esta semana; el restablecimiento del suministro normalizaría precios de electricidad y contendría el repunte inflacionario proyectado para marzo.</li>
+    <li>Ajuste al calendario de debates presidenciales tras la muerte de Becerra: el JNE deberá redefinir la estructura de los debates del 23-25 de marzo, lo que podría dar visibilidad adicional a candidatos de segunda línea en la recta final hacia el 12 de abril.</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Fuentes consultadas: El Comercio, La República, RPP, Infobae Perú, Andina, El Peruano, BCRP, MINEM, Libero.pe, CNN Español, BBVA Research, América TV</p>
+  <p style="margin-top:6px;">Briefing generado con Claude &mdash; Solo para uso informativo</p>
+</div>
+
+</body>
+</html>
