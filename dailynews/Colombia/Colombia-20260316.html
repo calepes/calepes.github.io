@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 16 Mar 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #1a1a1a;
+      --paper: #f6f2ea;
+      --accent: #c4841d;
+      --rule: #2a2a2a;
+      --light-rule: #c8b99a;
+      --muted: #6b5e4f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      line-height: 1.55;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      text-align: center;
+      padding-bottom: 14px;
+      border-bottom: 4px double var(--rule);
+      margin-bottom: 18px;
+    }
+    .masthead-top {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.1;
+      margin: 4px 0;
+    }
+    .masthead-subtitle {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* RULES */
+    .thin-rule {
+      border: none;
+      border-top: 1px solid var(--light-rule);
+      margin: 18px 0;
+    }
+    .thick-rule {
+      border: none;
+      border-top: 3px solid var(--rule);
+      margin: 20px 0;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      margin-bottom: 12px;
+      padding-bottom: 2px;
+    }
+
+    /* TOP 5 */
+    .top5-section { margin-bottom: 20px; }
+    .top5-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--light-rule);
+      padding: 10px 0;
+    }
+    .top5-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 40px;
+      text-align: right;
+    }
+    .top5-text {
+      font-size: 15px;
+      line-height: 1.5;
+      padding-top: 4px;
+    }
+    .top5-text strong {
+      font-weight: 700;
+    }
+
+    /* COLUMNS */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .col-left {}
+    .col-right {
+      border-left: 1px solid var(--light-rule);
+      padding-left: 24px;
+    }
+    .col-section { margin-bottom: 22px; }
+
+    /* ITEMS */
+    .item {
+      font-size: 14.5px;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .source-link {
+      color: var(--muted);
+      font-size: 12px;
+      font-style: italic;
+    }
+    .source-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* TIPO DE CAMBIO */
+    .tc-box {
+      background: #ede9df;
+      border: 1px solid var(--light-rule);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+    .tc-box h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .tc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .tc-item {
+      font-family: 'Libre Franklin', sans-serif;
+    }
+    .tc-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      display: block;
+    }
+    .tc-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      font-family: 'Playfair Display', serif;
+    }
+    .tc-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* VIGILAR */
+    .vigilar {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .vigilar h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #d4a574;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .vigilar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .vigilar li {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .vigilar li::before {
+      content: '\2192';
+      color: #d4a574;
+      position: absolute;
+      left: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 2px solid var(--rule);
+      padding-top: 12px;
+      margin-top: 10px;
+      line-height: 1.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+      .col-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--light-rule);
+        padding-top: 16px;
+      }
+      .tc-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .masthead-top {
+        flex-direction: column;
+        gap: 2px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <span>Briefing Ejecutivo</span>
+      <span>Edicion Diaria</span>
+      <span>Confidencial</span>
+    </div>
+    <h1>Colombia</h1>
+    <div class="masthead-subtitle">Lunes 16 de marzo de 2026 &mdash; Bogota</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="top5-section">
+    <div class="section-header">Top 5 del dia</div>
+
+    <div class="top5-item">
+      <div class="top5-num">1</div>
+      <div class="top5-text">
+        <strong>Escandalo UNGRD: Karen Manrique llega al bunker de la Fiscalia.</strong>
+        Tras evadir brevemente la justicia cruzando hacia Venezuela, la congresista Karen Manrique fue capturada y trasladada a Bogota. Junto a Wadith Manzur, ambos legisladores reelegidos el 8 de marzo enfrentan medida de aseguramiento en centro carcelario por cohecho impropio en el caso de la Unidad Nacional para la Gestion del Riesgo de Desastres.
+        <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/12/capturan-a-la-congresista-karen-manrique-tras-orden-de-la-corte-suprema-por-caso-de-corrupcion-en-la-ungrd/">Infobae</a>, <a href="https://cambiocolombia.com/poder/articulo/2026/3/corte-suprema-ordena-captura-de-los-congresistas-electos-wadith-manzur-y-karen-manrique-por-el-escandalo-de-la-ungrd/">Cambio Colombia</a>)</span>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-num">2</div>
+      <div class="top5-text">
+        <strong>Plan Financiero 2026: inflacion al 5,8% y deficit del 5,1% del PIB.</strong>
+        El gobierno de Petro oficializo su hoja de ruta fiscal proyectando crecimiento del 2,6%, una inflacion persistentemente por encima de la meta del Banco de la Republica, y el dolar en $3.915 para fin de ano. Moody's analizo el documento con escepticismo sobre la consolidacion fiscal.
+        <span class="source-link">(<a href="https://www.semana.com/economia/macroeconomia/articulo/gobierno-petro-oficializa-plan-financiero-del-2026-proyecta-crecimiento-de-26-y-subida-del-dolar-a-3915/202608/">Semana</a>, <a href="https://www.elcolombiano.com/negocios/inflacion-subida-colombia-2026-salario-minimo-plan-financiero-FG34549149">El Colombiano</a>)</span>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-num">3</div>
+      <div class="top5-text">
+        <strong>Inversion extranjera cae 21% en el inicio del ano.</strong>
+        Entre enero y febrero de 2026 ingresaron al pais cerca de USD 1.300 millones, una reduccion del 21,2% frente al mismo periodo de 2025. La incertidumbre politica posterior a las elecciones legislativas y el entorno fiscal debil son senalados como factores determinantes.
+        <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/14/la-plata-no-esta-llegando-inversion-extranjera-en-colombia-cayo-mas-del-21-al-iniciar-2026/">Infobae</a>)</span>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-num">4</div>
+      <div class="top5-text">
+        <strong>Elecciones legislativas: incertidumbre sobre rumbo economico postelectoral.</strong>
+        Tras los comicios del 8 de marzo, persiste la pregunta sobre si Colombia continuara con el modelo de Petro o girara hacia la ortodoxia economica. Analistas de Semana describen una probabilidad 50/50 en el debate de fondo que se resolvera con las presidenciales de mayo.
+        <span class="source-link">(<a href="https://www.semana.com/economia/macroeconomia/articulo/tras-elecciones-se-mantiene-incertidumbre-sobre-si-el-pais-seguira-con-modelo-economico-de-petro-o-girara-a-la-ortodoxia/202634/">Semana</a>)</span>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-num">5</div>
+      <div class="top5-text">
+        <strong>Grupo Gilinski toma el 20% de GeoPark por USD 107 millones.</strong>
+        Colden Investments, firma del Grupo Gilinski, adquirio aproximadamente el 20% de la petrolera GeoPark en una operacion valorada en 107 millones de dolares, reforzando la presencia del conglomerado colombiano en el sector de hidrocarburos en la region.
+        <span class="source-link">(<a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a>)</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="thick-rule">
+
+  <!-- COLUMNS -->
+  <div class="columns">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-left">
+
+      <div class="col-section">
+        <div class="section-header">Politicos</div>
+
+        <div class="item">
+          La <strong>Sala de Instruccion de la Corte Suprema de Justicia</strong> acuso formalmente a cinco congresistas y un excongresista por cohecho impropio en el caso UNGRD. Los acusados —Wadith Manzur, Karen Manrique, Liliana Bitar, Juan Pablo Gallo, Julian Peinado y Juan Diego Munoz— habrian aceptado contratos de obras en Cordoba, Arauca y Bolivar a cambio de avalar operaciones de credito publico. Manzur y Manrique enfrentan detencion preventiva.
+          <span class="source-link">(<a href="https://cortesuprema.gov.co/sala-de-instruccion-acusa-a-cinco-congresistas-y-un-excongresista-por-presunto-cohecho-impropio-y-dicta-medidas-de-aseguramiento-contra-dos-de-ellos/">Corte Suprema</a>, <a href="https://www.infobae.com/colombia/2026/03/11/corte-suprema-envio-a-la-carcel-a-los-congresistas-wadith-manzur-y-karen-manrique-por-el-escandalo-de-corrupcion-en-la-ungrd/">Infobae</a>)</span>
+        </div>
+
+        <div class="item">
+          La candidata presidencial <strong>Paloma Valencia</strong> (Centro Democratico) arremetio publicamente contra el plan de gobierno de Ivan Cepeda, candidato del Pacto Historico, cuestionando su propuesta de paz total como continuacion de politicas fallidas. El debate abre la campana presidencial de cara al 31 de mayo con ejes en seguridad y modelo economico.
+          <span class="source-link">(<a href="https://www.cronista.com/colombia/actualidad-co/elecciones-en-colombia-paloma-valencia-cuestiona-el-plan-de-gobierno-de-ivan-cepeda-y-su-propuesta-de-paz-total/">El Cronista</a>)</span>
+        </div>
+
+        <div class="item">
+          Autoridades investigan a alias <strong>"Medio Labio"</strong>, presunto enlace entre la <em>Mocro Maffia</em> y el Clan del Golfo, sindicado junto a alias "Black Jack" de lavar dinero mediante criptomonedas y tokens para financiar estructuras criminales. El caso expone la creciente sofisticacion financiera del crimen organizado en Colombia.
+          <span class="source-link">(<a href="https://www.noticiascaracol.com">Noticias Caracol</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Economicos</div>
+
+        <div class="item">
+          El <strong>Ministerio de Hacienda</strong> presento el Plan Financiero 2026 con proyecciones que admiten inflacion del 5,8%, crecimiento del 2,6% y deficit del Gobierno Nacional Central en 5,1% del PIB. El gobierno reconoce que la meta de inflacion del 3% del Banco de la Republica no se alcanzara este ano, influida en parte por el incremento del salario minimo y presiones sectoriales.
+          <span class="source-link">(<a href="https://www.semana.com/economia/macroeconomia/articulo/gobierno-petro-oficializa-plan-financiero-del-2026-proyecta-crecimiento-de-26-y-subida-del-dolar-a-3915/202608/">Semana</a>, <a href="https://www.elpais.com.co/economia/gobierno-petro-presento-plan-financiero-para-2026-estas-son-las-principales-proyecciones-1154.html">El Pais</a>)</span>
+        </div>
+
+        <div class="item">
+          La inversion extranjera directa acumulo una caida del <strong>21,2%</strong> en el primer bimestre del ano frente a igual periodo de 2025, con apenas USD 1.300 millones ingresados al pais. Sin embargo, febrero mostro una recuperacion mensual del 7% (USD 814 millones), senalando cierta estabilizacion tras las elecciones.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/14/la-plata-no-esta-llegando-inversion-extranjera-en-colombia-cayo-mas-del-21-al-iniciar-2026/">Infobae</a>)</span>
+        </div>
+
+        <div class="item">
+          El BBVA Research publico en marzo su informe <em>Situacion Colombia</em>, en el que proyecta crecimiento de 2,8% para el ano, impulsado por la demanda interna, con advertencias sobre la inversion fija como riesgo principal. La recuperacion del sector constructor y el consumo de los hogares sostienen el estimado positivo.
+          <span class="source-link">(<a href="https://www.bbvaresearch.com/en/publicaciones/colombia-economic-outlook-march-2026/">BBVA Research</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Empresariales</div>
+
+        <div class="item">
+          <strong>Millicom (Tigo)</strong> consolido la integracion con Movistar en Colombia tras desembolsar cerca de USD 785 millones, incluyendo la adquisicion de la participacion de EPM. La fusion crea uno de los operadores de telecomunicaciones mas grandes del pais en un entorno de alta competencia por espectro e infraestructura 5G.
+          <span class="source-link">(<a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a>)</span>
+        </div>
+
+        <div class="item">
+          El <strong>Grupo Gilinski</strong>, a traves de Colden Investments, adquirio aproximadamente el 20% de <strong>GeoPark</strong> por USD 107 millones, consolidando su apuesta en el sector de hidrocarburos. La operacion es una de las mas significativas del trimestre en el mercado de capitales regional.
+          <span class="source-link">(<a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a>)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-right">
+
+      <div class="col-section">
+        <div class="section-header">Sociales</div>
+
+        <div class="item">
+          <strong>Medellin</strong> puso en marcha el plan de <em>parques inundables</em>, una infraestructura verde capaz de absorber miles de litros de agua en zonas vulnerables a inundaciones durante temporadas de lluvias. El proyecto, anunciado en el marco del Plan de Ordenamiento Territorial, busca mitigar los efectos del cambio climatico en asentamientos urbanos densamente poblados.
+          <span class="source-link">(<a href="https://www.noticiascaracol.com">Noticias Caracol</a>)</span>
+        </div>
+
+        <div class="item">
+          La estrategia de <strong>Paz Electoral</strong>, liderada por la Procuraduria General con apoyo de la MAPP/OEA, fue destacada como un avance en la proteccion del entorno democratico para las elecciones presidenciales del 31 de mayo. Se desplegaron mas de 126.000 efectivos de seguridad durante las elecciones legislativas del 8 de marzo.
+          <span class="source-link">(<a href="https://www.procuraduria.gov.co/Pages/en-2026-colombia-se-viste-de-paz-electoral.aspx">Procuraduria</a>, <a href="https://www.mapp-oea.org/elecciones-2026-hacemos-un-llamado-a-garantizar-una-participacion-libre-segura-y-en-paz-en-los-proximos-procesos-electorales/">MAPP/OEA</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Financieros</div>
+
+        <div class="item">
+          La <strong>TRM del dolar</strong> se fijo en $3.685,53 pesos para el periodo 14-16 de marzo, registrando una baja de $14,93 frente a la jornada anterior. Desde el inicio del ano, el peso colombiano acumula una apreciacion del 1,51% frente al inicio de 2026, cuando la TRM se ubicaba en $3.757,08. Sin embargo, el gobierno proyecta el dolar en $3.915 para fin de ano.
+          <span class="source-link">(<a href="https://www.noticiascaracol.com/economia/dolar-hoy-16-de-marzo-de-2026-en-colombia-como-esta-la-trm-so35">Noticias Caracol</a>, <a href="https://www.banrep.gov.co/es/glosario/tasa-cambio-trm">Banrep</a>)</span>
+        </div>
+
+        <div class="item">
+          El presidente Petro aseguro publicamente que su gobierno ha reducido la deuda externa, afirmacion que fue desmentida por el <strong>Banco de la Republica</strong> con cifras oficiales. El episodio reaviva el debate sobre la narrativa fiscal del gobierno frente a la realidad macroeconomica documentada por el banco central.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/12/gustavo-petro-saco-pecho-por-reducir-la-deuda-externa-gracias-a-su-gobierno-el-banco-de-la-republica-lo-desmintio/">Infobae</a>)</span>
+        </div>
+
+        <div class="item">
+          El <strong>Decreto 0234 de 2026</strong> del gobierno Petro amplIO la negociacion colectiva, permitiendo a los sindicatos negociar con grupos de empresas, sectores economicos completos o a nivel nacional. El gremio empresarial advierte sobre el impacto en la estructura de costos laborales y la competitividad sectorial.
+          <span class="source-link">(<a href="https://www.bloomberglinea.com/latinoamerica/colombia/le-explicamos-el-decreto-0234-de-2026-que-anuncio-el-gobierno-petro-y-como-afecta-su-bolsillo/">Bloomberg Linea</a>, <a href="https://www.portafolio.co/economia/gobierno/emergencia-economica-estos-son-los-cinco-decretos-expedidos-por-el-gobierno-petro-y-lo-que-busca-cada-uno-488994">Portafolio</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Deportes</div>
+
+        <div class="item">
+          <strong>Atletico Nacional</strong> lidera la Liga BetPlay 2026-I con 24 puntos en 10 partidos jugados y diferencia de goles de +17, tras vencer 2-0 a Llaneros. Le siguen Once Caldas (22 pts), Deportivo Pasto (21 pts) y Junior (19 pts). El proximo miercoles 17 de marzo, Nacional visitara a Millonarios en el estadio El Campin en duelo de alto voltaje por la fecha 12.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/deportes/2026/03/16/asi-va-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-luego-de-la-fecha-11-nacional-sigue-lider-con-un-partido-menos/">Infobae</a>, <a href="https://www.eluniversal.com.co/deportes/2026/03/16/liga-betplay-dia-y-hora-del-partidazo-entre-millonarios-y-nacional/">El Universal</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Externo e Internacional</div>
+
+        <div class="item">
+          La <strong>edicion 98 de los Premios Oscar</strong> se celebro el domingo 15 de marzo con las cintas "El Agente Secreto" (Brasil) y "Valor Sentimental" (Noruega) entre las mas opcionadas. La industria audiovisual colombiana monitorea de cerca la tendencia de produccion latinoamericana que gana relevancia en circuitos internacionales.
+          <span class="source-link">(<a href="https://www.noticiascaracol.com">Noticias Caracol</a>)</span>
+        </div>
+
+        <div class="item">
+          El 30% de los inversores internacionales encuestados por Bain &amp; Company considera que Colombia ofrece buenas oportunidades para 2026, el doble que hace dos anos. Sin embargo, la percepcion positiva contrasta con la caida efectiva de flujos, senalando una brecha entre interes latente y decision de inversion que persiste mientras no se despeje la incertidumbre politica.
+          <span class="source-link">(<a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a>)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIPO DE CAMBIO -->
+  <div class="tc-box">
+    <h3>Tipo de Cambio &mdash; Lunes 16 de Marzo de 2026</h3>
+    <div class="tc-grid">
+      <div class="tc-item">
+        <span class="tc-label">TRM Oficial (COP/USD)</span>
+        <span class="tc-value">$3.685,53</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">Variacion diaria</span>
+        <span class="tc-value">-$14,93</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">YTD vs. inicio 2026</span>
+        <span class="tc-value">-1,51%</span>
+      </div>
+    </div>
+    <div class="tc-note">TRM certificada por la Superintendencia Financiera de Colombia para el periodo 14-16 de marzo. Gobierno proyecta $3.915 para fin de ano segun Plan Financiero 2026. Fuente: <a href="https://www.banrep.gov.co/es/glosario/tasa-cambio-trm" style="color:var(--accent);">Banco de la Republica</a></div>
+  </div>
+
+  <!-- QUE VIGILAR HOY -->
+  <div class="vigilar">
+    <h3>Que Vigilar Esta Semana</h3>
+    <ul>
+      <li><strong>Caso UNGRD:</strong> Seguimiento a la situacion juridica de Karen Manrique y Wadith Manzur en el bunker de la Fiscalia. Posibles nuevas acusaciones contra el septimo congresista identificado por la Corte Suprema.</li>
+      <li><strong>Campana presidencial:</strong> Los candidatos comenzaran a perfilar sus propuestas economicas con mayor definicion. La postura sobre el modelo Petro vs. ortodoxia fiscal sera el eje de la semana.</li>
+      <li><strong>Liga BetPlay:</strong> El miercoles 17 se juega el clasico Millonarios vs. Atletico Nacional en El Campin. Nacional busca consolidar el liderato con juego pendiente.</li>
+      <li><strong>IED y dolar:</strong> Monitorear si los flujos de inversion extranjera de marzo mejoran respecto al bimestre enero-febrero. La TRM cotiza por debajo de la proyeccion gubernamental ($3.915), diferencial que puede generar presion fiscal.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Fuentes consultadas: El Tiempo, Semana, Infobae Colombia, Noticias Caracol, El Colombiano, Bloomberg Linea, Portafolio, La Republica, Cambio Colombia, Corte Suprema de Justicia, Banco de la Republica, BBVA Research, Procuraduria General</p>
+    <p style="margin-top:6px;">Briefing generado con Claude &mdash; Solo para uso informativo &mdash; 16 Mar 2026</p>
+  </div>
+
+</body>
+</html>
