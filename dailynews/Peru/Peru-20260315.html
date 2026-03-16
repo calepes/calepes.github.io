@@ -1,421 +1,416 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta color-scheme="light only">
-    <title>Briefing Ejecutivo Perú - 14 de marzo de 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --accent: #1a4a6b;
-            --paper: #f8f4ed;
-            --light-rule: #c5b8a5;
-            --muted: #6b5e4f;
-            --ink: #1a1a1a;
-            --rule: #2a2a2a;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Ejecutivo — Perú — 14 de marzo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #1a1a1a;
+      --paper: #f8f4ed;
+      --accent: #1a4a6b;
+      --rule: #2a2a2a;
+      --light-rule: #c5b8a5;
+      --muted: #6b5e4f;
+      --paper-dark: #ede8df;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        html, body {
-            color-scheme: light only;
-        }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      line-height: 1.55;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
 
-        body {
-            font-family: "Source Serif 4", serif;
-            background-color: var(--paper);
-            color: var(--ink);
-            line-height: 1.65;
-            padding: 40px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .masthead {
+      text-align: center;
+      border-bottom: 4px double var(--rule);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .masthead-top {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .masthead-subtitle {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--muted);
+    }
 
-        .masthead-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: "Libre Franklin", sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 25px;
-        }
+    .thin-rule { border: none; border-top: 1px solid var(--rule); margin: 18px 0; }
+    .thick-rule { border: none; border-top: 3px solid var(--rule); margin: 22px 0; }
 
-        h1 {
-            font-family: "Playfair Display", serif;
-            font-weight: 900;
-            font-size: clamp(42px, 8vw, 72px);
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-        }
+    .section-header {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      margin-bottom: 12px;
+      padding-bottom: 3px;
+    }
 
-        .subtitle {
-            font-family: "Source Serif 4", serif;
-            font-size: 13px;
-            color: var(--muted);
-            font-style: italic;
-            margin-bottom: 25px;
-        }
+    .top5-section { margin-bottom: 22px; }
+    .top5-item {
+      display: flex;
+      gap: 14px;
+      border-bottom: 1px solid var(--light-rule);
+      padding: 10px 0;
+      align-items: flex-start;
+    }
+    .top5-item:last-child { border-bottom: none; }
+    .top5-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 36px;
+      text-align: center;
+    }
+    .top5-text { font-size: 15px; padding-top: 4px; }
+    .top5-text strong { font-weight: 700; }
 
-        .thin-rule {
-            border-bottom: 1px solid var(--light-rule);
-            margin-bottom: 30px;
-        }
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 22px;
+    }
+    .col-divider {
+      border-left: 1px solid var(--light-rule);
+      padding-left: 28px;
+    }
+    .col-section { margin-bottom: 22px; }
 
-        .section-header {
-            font-family: "Libre Franklin", sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            margin-top: 30px;
-        }
+    .item {
+      font-size: 14.5px;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .source-link { color: var(--muted); font-size: 12px; font-style: italic; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .source-link a:hover { text-decoration: underline; }
 
-        .section-header:first-of-type {
-            margin-top: 0;
-        }
+    .tc-box {
+      background: var(--paper-dark);
+      border: 1px solid var(--light-rule);
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+    .tc-box h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--light-rule);
+      padding-bottom: 6px;
+    }
+    .tc-grid { display: flex; gap: 32px; flex-wrap: wrap; }
+    .tc-item { font-size: 14px; }
+    .tc-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .tc-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .tc-note { font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic; }
 
-        .top5-container {
-            margin-bottom: 30px;
-        }
+    .vigilar {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 18px 22px;
+      margin-bottom: 22px;
+    }
+    .vigilar h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #d4a574;
+      margin-bottom: 12px;
+    }
+    .vigilar ul { list-style: none; padding: 0; }
+    .vigilar li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .vigilar li::before { content: '\2192'; color: #d4a574; position: absolute; left: 0; }
 
-        .top5-item {
-            display: grid;
-            grid-template-columns: 50px 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
-            align-items: start;
-        }
+    .footer {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 2px solid var(--rule);
+      padding-top: 14px;
+      line-height: 1.8;
+    }
 
-        .top5-number {
-            font-family: "Playfair Display", serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .top5-text {
-            font-size: 14.5px;
-            text-align: justify;
-            line-height: 1.7;
-        }
-
-        .source-link {
-            display: block;
-            font-size: 12px;
-            font-style: italic;
-            color: var(--accent);
-            margin-top: 8px;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .source-link:hover {
-            opacity: 0.8;
-        }
-
-        .thick-rule {
-            border-bottom: 3px solid var(--rule);
-            margin: 35px 0;
-        }
-
-        .columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 30px 0;
-        }
-
-        .column-left {
-            padding-right: 0;
-        }
-
-        .column-right {
-            padding-left: 20px;
-            border-left: 2px solid var(--light-rule);
-        }
-
-        .col-divider {
-            border-left: 2px solid var(--light-rule);
-            padding-left: 20px;
-        }
-
-        .item {
-            margin-bottom: 25px;
-            font-size: 14.5px;
-            text-align: justify;
-            line-height: 1.7;
-        }
-
-        .tc-box {
-            background-color: white;
-            border: 2px solid var(--light-rule);
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            border-radius: 4px;
-        }
-
-        .tc-label {
-            font-family: "Libre Franklin", sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 10px;
-        }
-
-        .tc-value {
-            font-family: "Playfair Display", serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 5px;
-        }
-
-        .tc-date {
-            font-size: 12px;
-            color: var(--muted);
-            font-style: italic;
-        }
-
-        .vigilar-section {
-            background-color: var(--ink);
-            color: var(--paper);
-            padding: 25px;
-            margin: 35px 0;
-            border-radius: 4px;
-        }
-
-        .vigilar-section h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #d4a574;
-            margin-bottom: 15px;
-        }
-
-        .vigilar-item {
-            font-size: 14.5px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .vigilar-item::before {
-            content: "→ ";
-            color: #d4a574;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-
-        .footer {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--light-rule);
-            font-style: italic;
-        }
-
-        .sources-list {
-            margin-top: 15px;
-            font-size: 11px;
-        }
-
-        .sources-list li {
-            margin-bottom: 5px;
-            list-style-position: inside;
-        }
-
-        @media (max-width: 700px) {
-            body {
-                padding: 25px 15px;
-            }
-
-            .columns {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .column-right {
-                padding-left: 0;
-                border-left: none;
-            }
-
-            .col-divider {
-                border-left: none;
-                padding-left: 0;
-            }
-
-            .masthead-top {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            h1 {
-                font-size: 48px;
-            }
-        }
-    </style>
+    @media (max-width: 700px) {
+      .columns { grid-template-columns: 1fr; }
+      .col-divider { border-left: none; padding-left: 0; border-top: 1px solid var(--light-rule); padding-top: 16px; }
+      .masthead-top { font-size: 10px; letter-spacing: 1px; }
+      .tc-grid { gap: 18px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- MASTHEAD -->
+
+  <header class="masthead">
     <div class="masthead-top">
-        <span>Briefing Ejecutivo</span>
-        <span>Edición Diaria</span>
-        <span>Confidencial</span>
+      <span>Briefing Ejecutivo</span>
+      <span>Edici&oacute;n Diaria</span>
+      <span>Confidencial</span>
+    </div>
+    <h1>Per&uacute;</h1>
+    <div class="masthead-subtitle">S&aacute;bado 14 de marzo de 2026 &mdash; Lima</div>
+  </header>
+
+  <hr class="thin-rule">
+
+  <section class="top5-section">
+    <div class="section-header">Top 5 del d&iacute;a</div>
+
+    <div class="top5-item">
+      <span class="top5-num">1</span>
+      <div class="top5-text">
+        <strong>Boluarte destituida por el Congreso a menos de un mes de las elecciones:</strong> el pleno destituy&oacute; a la presidenta Dina Boluarte en una jornada pol&iacute;tica de alta tensi&oacute;n, agravando la inestabilidad institucional. La asunci&oacute;n del cuestionado titular del Congreso, Jos&eacute; Jer&iacute;, gener&oacute; nuevas protestas callejeras lideradas por la Generaci&oacute;n Z. El pa&iacute;s ingresa a la recta final electoral con su tercera crisis constitucional en cuatro a&ntilde;os.
+        <span class="source-link">(<a href="https://larepublica.pe/politica">La Rep&uacute;blica</a>, <a href="https://rpp.pe">RPP</a>)</span>
+      </div>
     </div>
 
-    <h1>Perú</h1>
-    <p class="subtitle">Sábado 14 de marzo de 2026 — Lima</p>
-
-    <div class="thin-rule"></div>
-
-    <!-- TOP 5 DEL DÍA -->
-    <div class="top5-container">
-        <h2 class="section-header">Top 5 del Día</h2>
-
-        <div class="top5-item">
-            <div class="top5-number">1</div>
-            <div>
-                <p class="top5-text">Se cierra el plazo para inscripción definitiva de candidaturas en las elecciones generales 2026. Tras un intenso proceso de evaluación y resolución de recursos, se definen las candidaturas que competirán en los comicios presidenciales y parlamentarios del 12 de abril. La ONPE confirma 36 candidatos presidenciales inscritos.</p>
-                <a href="https://andina.pe/agencia/noticia-elecciones-2026-hoy-vence-plazo-para-inscripcion-definitiva-candidaturas-1066418.aspx" class="source-link">Agencia Peruana de Noticias Andina</a>
-            </div>
-        </div>
-
-        <div class="top5-item">
-            <div class="top5-number">2</div>
-            <div>
-                <p class="top5-text">BBVA Research revisa proyección de crecimiento económico para 2026 a 2.9 por ciento. La rebaja obedece a choques de oferta, incluyendo deterioro de condiciones climáticas y restricciones en suministro de combustibles. Sin embargo, el BCRP mantiene proyección de 3.0 por ciento apoyado en gasto privado dinámico.</p>
-                <a href="https://www.bbva.com/es/pe/economia-y-finanzas/bbva-research-rebaja-su-prevision-de-crecimiento-para-la-economia-peruana-a-29-en-2026/" class="source-link">BBVA Noticias</a>
-            </div>
-        </div>
-
-        <div class="top5-item">
-            <div class="top5-number">3</div>
-            <div>
-                <p class="top5-text">Dólar sigue al alza cerrando en 3.4485 soles. Las fluctuaciones del tipo de cambio reflejan volatilidad en mercados internacionales. Las proyecciones del BCRP para fin de año mantienen rango entre 3.34 y 3.46 soles por dólar, considerando términos de intercambio favorables para commodities de exportación.</p>
-                <a href="https://www.bloomberg.com/quote/USDPEN:CUR" class="source-link">Bloomberg</a>
-            </div>
-        </div>
-
-        <div class="top5-item">
-            <div class="top5-number">4</div>
-            <div>
-                <p class="top5-text">HEAD designado patrocinador oficial de indumentaria del Team Perú 2026-2028. Primera vez que una marca deportiva respaldará integralmente al Comité Olímpico Peruano durante un ciclo olímpico completo, apoyando la preparación para Los Ángeles 2028.</p>
-                <a href="https://larepublica.pe/deportes/2026/03/02/team-peru-presenta-nueva-marca-para-el-ciclo-olimpico-de-los-angeles-2028-184692" class="source-link">La República</a>
-            </div>
-        </div>
-
-        <div class="top5-item">
-            <div class="top5-number">5</div>
-            <div>
-                <p class="top5-text">Gobierno declara estado de emergencia en provincia de Pisco por 60 días. Medida busca reforzar seguridad y control del orden interno en el departamento de Ica, respondiendo a preocupaciones sobre criminalidad regional.</p>
-                <a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-sabado-14-marzo-del-2026-1066913.aspx" class="source-link">Agencia Andina</a>
-            </div>
-        </div>
+    <div class="top5-item">
+      <span class="top5-num">2</span>
+      <div class="top5-text">
+        <strong>Debates presidenciales inician el 23 de marzo con 36 candidatos:</strong> con las elecciones generales fijadas para el 12 de abril, la ONPE confirm&oacute; que seis jornadas de debate reunir&aacute;n a todos los candidatos. Las encuestas m&aacute;s recientes muestran ca&iacute;da de Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular, 11,7%) y Keiko Fujimori (Fuerza Popular), mientras suben Alfonso L&oacute;pez Chau (Ahora Naci&oacute;n) y Wolfgang Grozo (Integridad Democr&aacute;tica).
+        <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/13/encuestas-presidenciales-2026-keiko-fujimori-y-rla-experimentan-caida-en-intencion-de-voto-mientras-que-lopez-chau-y-wolfgang-grozo-aumentan-hnews-997896">La Rep&uacute;blica</a>, <a href="https://andina.pe/agencia/noticia-elecciones-2026-cuando-a-hora-y-donde-podra-ser-visto-debate-presidencial-1065057.aspx">Andina</a>)</span>
+      </div>
     </div>
 
-    <div class="thick-rule"></div>
+    <div class="top5-item">
+      <span class="top5-num">3</span>
+      <div class="top5-text">
+        <strong>Compra de 24 cazas Gripen protegida bajo &ldquo;secreto militar&rdquo;:</strong> el gobierno autoriz&oacute; la compra directa de 24 aeronaves Gripen E/F de Saab por USD 3.500 millones, declarando el proceso bajo la modalidad de secreto militar. Con una transferencia inicial de S/ 1.137 millones ya depositada al Ministerio de Defensa, el contrato excluye los modelos Rafale y F-16. El grupo sueco Wallenberg busca profundizar su presencia industrial en Per&uacute; como condici&oacute;n asociada al acuerdo.
+        <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/06/gobierno-autoriza-compra-directa-de-cazas-bajo-la-modalidad-de-secreto-militar-fap-hnews-522984">La Rep&uacute;blica</a>, <a href="https://www.infobae.com/peru/2026/02/17/gobierno-transfiere-s1137-millones-al-ministerio-de-defensa-para-la-compra-de-24-aviones-caza-para-la-joya/">Infobae</a>)</span>
+      </div>
+    </div>
 
-    <!-- COLUMNAS TEMÁTICAS -->
-    <div class="columns">
-        <div class="column-left">
-            <!-- POLÍTICOS -->
-            <h2 class="section-header">Políticos</h2>
-            <div class="item">
-Continuidad institucional: El gobierno de José María Balcázar avanza en consolidación de políticas tras su reciente designación. El Plan Nacional de Seguridad Ciudadana 2026-2028 ha sido promulgado para combatir criminalidad organizada. La campaña electoral intensifica propuestas de candidatos vicepresidenciales en programas como Tu decisión 2026, donde Demócrata Verde, PRIN, Fuerza y Libertad y Salvemos al Perú presentan sus lineamientos.
-            </div>
+    <div class="top5-item">
+      <span class="top5-num">4</span>
+      <div class="top5-text">
+        <strong>Per&uacute; pierde posici&oacute;n en inversi&oacute;n minera global pero presenta cartera de USD 63.000 millones en el PDAC:</strong> el IIMP confirm&oacute; que el pa&iacute;s ya no figura entre los diez principales destinos de inversi&oacute;n minera mundial. En el PDAC 2026 (Toronto) present&oacute; 51 proyectos por USD 63.000 millones, con el cobre concentrando el 73% de los planes. Ocho proyectos por USD 7.619 millones iniciar&aacute;n ejecuci&oacute;n este a&ntilde;o.
+        <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/14/peru-ya-no-esta-en-el-top-10-mundial-de-inversion-minera-pero-busca-recuperar-el-puesto/">Infobae</a>, <a href="https://www.diariominero.com/iimp-impulsa-cartera-de-us-63000-millones-en-el-pdac-2026/inversion/">Diario Minero</a>)</span>
+      </div>
+    </div>
 
-            <!-- ECONÓMICOS -->
-            <h2 class="section-header">Económicos</h2>
-            <div class="item">
-Desempeño resiliente con revisiones a la baja: La economía continúa apoyada en dinámico gasto privado y términos de intercambio elevados, particularmente por precios altos de cobre y oro. BBVA Research proyecta inflación cerrará 2026 en 2.6 por ciento dentro del rango meta del BCRP. Riesgos incluyen anomalías climáticas persistentes y restricciones de suministro de gas natural con impacto pronunciado en primer trimestre.
-            </div>
+    <div class="top5-item">
+      <span class="top5-num">5</span>
+      <div class="top5-text">
+        <strong>D&oacute;lar cierra a S/ 3,45 en semana de alta volatilidad electoral:</strong> el tipo de cambio USD/PEN cerr&oacute; el 14 de marzo en S/ 3,4530, con apertura en S/ 3,4320, seg&uacute;n el BCRP. El sol acumula presi&oacute;n cambiaria por la incertidumbre electoral y las tensiones arancelarias globales. Analistas proyectan el d&oacute;lar en el rango S/ 3,34&ndash;3,46 al cierre de 2026.
+        <span class="source-link">(<a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-a-cuanto-esta-el-dolar-y-tipo-de-cambio-este-sabado-14-de-marzo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a>, <a href="https://www.infobae.com/noticias/2026/03/13/peru-cotizacion-de-apertura-del-dolar-hoy-13-de-marzo-de-usd-a-pen/">Infobae</a>)</span>
+      </div>
+    </div>
+  </section>
 
-            <!-- EMPRESARIALES -->
-            <h2 class="section-header">Empresariales</h2>
-            <div class="item">
-Impulso privado al deporte: Banco Falabella respalda a siete atletas de élite peruana en distintas disciplinas, demostrando sinergia entre empresa privada y desarrollo deportivo. Sector de deportes anticipa crecimiento impulsado por mundial de fútbol 2026 en junio, incrementando demanda de indumentaria y equipamiento deportivo. Analistas señalan 2026 como año clave para emprendimientos en retail deportivo.
-            </div>
+  <hr class="thick-rule">
+
+  <div class="columns">
+
+    <div class="col-left">
+
+      <div class="col-section">
+        <div class="section-header">Pol&iacute;ticos</div>
+
+        <div class="item">
+          La destituci&oacute;n de Boluarte eleva la fragmentaci&oacute;n pol&iacute;tica en la recta final de la campa&ntilde;a. Jos&eacute; Jer&iacute;, presidente del Congreso y se&ntilde;alado en investigaciones por presuntos v&iacute;nculos con el crimen organizado, asumi&oacute; constitucionalmente la conducci&oacute;n del Ejecutivo de forma interina. Movimientos pol&iacute;ticos de distinto signo rechazaron la medida o la respaldaron seg&uacute;n conveniencias electorales.
+          <span class="source-link">(<a href="https://larepublica.pe/politica">La Rep&uacute;blica</a>)</span>
         </div>
 
-        <div class="column-right">
-            <!-- SOCIALES -->
-            <h2 class="section-header">Sociales</h2>
-            <div class="item">
-Seguridad como prioridad transversal: La declaratoria de estado de emergencia en Pisco refleja desafíos de seguridad ciudadana en regiones. La iniciativa gubernamental de combate a criminalidad organizada prioriza provinciales fuera de Lima metropolitana. Medidas de 60 días buscan restaurar orden interno mediante operativos coordinados entre fuerzas de seguridad.
-            </div>
-
-            <!-- FINANCIEROS -->
-            <h2 class="section-header">Financieros</h2>
-            <div class="item">
-Volatilidad cambiaria moderada: Dólar mantiene presión alcista en 3.45 soles tras fluctuaciones de mercado internacional. Banco Central gestiona volatilidad mediante comunicación de tendencias esperadas, señalando convergencia hacia 3.34-3.46 por fin de año. Mercados monitorean indicadores globales de tasa de interés y precios de petróleo que afectan directamente soles.
-            </div>
-
-            <!-- DEPORTES -->
-            <h2 class="section-header">Deportes</h2>
-            <div class="item">
-Team Perú mira a Los Ángeles 2028: Con HEAD como patrocinador oficial de indumentaria, infraestructura deportiva se fortalece. Siete atletas reciben respaldo de Banco Falabella para preparación específica. Agenda 2026 marca inicio del ciclo olímpico con concentración de recursos hacia disciplinas competitivas.
-            </div>
-
-            <!-- EXTERNO E INTERNACIONAL -->
-            <h2 class="section-header">Externo e Internacional</h2>
-            <div class="item">
-Geopolítica de commodities en foco: Precios internacionales de cobre y oro mantienen términos de intercambio favorables para Perú, aunque volatilidad persiste. Previsiones señalan crecimiento de 6.4 por ciento en precios de commodities para 2026. Contexto de demanda global débil en algunos sectores requiere vigilancia en exportaciones mineras y agrícolas.
-            </div>
+        <div class="item">
+          La exfiscal de la Naci&oacute;n Delia Espinoza venci&oacute; ampliamente al abogado Humberto Abanto en el balotaje para la JNJ (Junta Nacional de Justicia). El resultado consolida una nueva correlaci&oacute;n de fuerzas en el organismo que supervisa magistrados y fiscales, con implicaciones sobre casos judiciales de alto perfil en pleno proceso electoral.
+          <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
         </div>
+
+        <div class="item">
+          El JNE confirm&oacute; el calendario de debates presidenciales: seis jornadas los d&iacute;as 23, 24, 25, 30 y 31 de marzo y 1 de abril. La ONPE calific&oacute; estas elecciones como &ldquo;las m&aacute;s complejas de la historia&rdquo;, con m&aacute;s de 40 partidos en una sola c&eacute;dula para presidente, congresistas y representantes ante el Parlamento Andino.
+          <span class="source-link">(<a href="https://andina.pe/agencia/noticia-elecciones-2026-cuando-a-hora-y-donde-podra-ser-visto-debate-presidencial-1065057.aspx">Andina</a>, <a href="https://eg2026.onpe.gob.pe/">ONPE</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Econ&oacute;micos</div>
+
+        <div class="item">
+          El BCRP mantiene su proyecci&oacute;n de crecimiento del PBI en 3,3% para 2026, impulsado por la demanda interna y un aumento estimado de 5,0% en inversi&oacute;n privada. Los t&eacute;rminos de intercambio crecen 6,4%, sostenidos por precios altos del cobre y el oro. Sin embargo, la sostenibilidad fiscal enfrenta riesgos ante planes de gobierno con manejo impredecible de las finanzas p&uacute;blicas.
+          <span class="source-link">(<a href="https://www.gob.pe/institucion/mef/noticias/1297936-mef-peru-seguira-liderando-crecimiento-en-la-region-gobierno-presenta-proyecciones-macroeconomicas-e-ingresos-2026">MEF</a>, <a href="https://microfinanzas.pe/peru-2026una-economia-bajo-el-asedio-de-la-fragilidad-politica-y-la-volatilidad-global/">Microfinanzas</a>)</span>
+        </div>
+
+        <div class="item">
+          El IIMP advirti&oacute; que Per&uacute; perdi&oacute; competitividad como destino de inversi&oacute;n minera global. El presidente del gremio, Juan Carlos Ortiz, se&ntilde;al&oacute; que la expansi&oacute;n de la miner&iacute;a ilegal y de econom&iacute;as criminales vinculadas es el principal factor de deterioro, junto a la inestabilidad regulatoria y los conflictos sociales acumulados.
+          <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/14/peru-ya-no-esta-en-el-top-10-mundial-de-inversion-minera-pero-busca-recuperar-el-puesto/">Infobae</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Empresariales</div>
+
+        <div class="item">
+          Ocho proyectos mineros con inversi&oacute;n combinada de USD 7.619 millones iniciar&aacute;n ejecuci&oacute;n en 2026: reposici&oacute;n Colquijirca y Ampliaci&oacute;n Huaron (Pasco), reposici&oacute;n San Rafael y Corani (Puno), optimizaci&oacute;n Cerro Verde y Pampa de Pongo (Arequipa), y Ampliaci&oacute;n Huancapeti (&Aacute;ncash). El cobre concentra el 73% de la cartera nacional de inversiones mineras.
+          <span class="source-link">(<a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gesti&oacute;n</a>)</span>
+        </div>
+
+        <div class="item">
+          El grupo industrial sueco Wallenberg, vinculado al fabricante de los cazas Gripen, negocia condiciones de transferencia tecnol&oacute;gica e inversi&oacute;n industrial en Per&uacute; como contraparte al contrato de defensa. La modalidad de secreto militar limita la transparencia sobre los t&eacute;rminos espec&iacute;ficos del acuerdo.
+          <span class="source-link">(<a href="https://peru21.pe/politica/inicia-la-compra-de-aviones-caza-para-la-fap-f-16-gripen-rafale/">Per&uacute; 21</a>)</span>
+        </div>
+      </div>
+
     </div>
 
-    <!-- TIPO DE CAMBIO BOX -->
-    <div class="tc-box">
-        <div class="tc-label">Tipo de Cambio Oficial USD/PEN</div>
-        <div class="tc-value">3.4485</div>
-        <div class="tc-date">Cierre 14 de marzo de 2026 — Banco Central de Reserva del Perú</div>
+    <div class="col-divider">
+
+      <div class="col-section">
+        <div class="section-header">Sociales</div>
+
+        <div class="item">
+          El juez Roberth Rimachi, del Segundo Juzgado de Investigaci&oacute;n Preparatoria de Ventanilla, impuso medidas restrictivas contra Miguel &Aacute;ngel Mar&iacute;n Mor&oacute;n, presunto integrante de &ldquo;Los Sanguinarios de la Construcci&oacute;n&rdquo;, banda dedicada a la extoris&oacute;n y el sicariato en obras de infraestructura en Lima Norte.
+          <span class="source-link">(<a href="https://rpp.pe">RPP</a>)</span>
+        </div>
+
+        <div class="item">
+          Protestas protagonizadas por la Generaci&oacute;n Z se registraron en Lima y otras ciudades en rechazo a la conducci&oacute;n interina del Congreso tras la destituci&oacute;n de Boluarte. Las manifestaciones evidencian el creciente activismo pol&iacute;tico juvenil con demandas de renovaci&oacute;n institucional y lucha anticorrupci&oacute;n a tres semanas de las elecciones.
+          <span class="source-link">(<a href="https://larepublica.pe/politica">La Rep&uacute;blica</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Financieros</div>
+
+        <div class="item">
+          El sol cerr&oacute; la semana bajo presi&oacute;n. El tipo de cambio interbancario registr&oacute; m&aacute;ximos de S/ 3,4600 y m&iacute;nimos de S/ 3,4300 durante la semana, con un promedio de S/ 3,4469 al 12 de marzo. Los analistas del sistema financiero proyectan el d&oacute;lar en S/ 3,39 al cierre de 2026, mientras las empresas no financieras estiman S/ 3,46. La incertidumbre electoral es el principal factor de presi&oacute;n.
+          <span class="source-link">(<a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-12-de-marzo-del-2026-noticia-1679667">RPP</a>, <a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-a-cuanto-esta-el-dolar-este-jueves-12-de-marzo-tipo-de-cambio-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-noticia/">El Comercio</a>)</span>
+        </div>
+
+        <div class="item">
+          Los candidatos presidenciales debatieron propuestas sobre pensiones, tributos y crecimiento econ&oacute;mico en un foro del Grupo El Comercio y la SNI. Las plataformas de Renovaci&oacute;n Popular, Fuerza Popular, Ahora Naci&oacute;n, Alianza para el Progreso y Somos Per&uacute; mostraron divergencias sobre el cap&iacute;tulo econ&oacute;mico de la Constituci&oacute;n y la pol&iacute;tica de inversi&oacute;n privada.
+          <span class="source-link">(<a href="https://gestion.pe/peru/politica/elecciones-2026-candidatos-presidenciales-expondran-propuestas-en-foro-de-grupo-el-comercio-y-la-sni-noticia/">Gesti&oacute;n</a>, <a href="https://rpp.pe/economia/economia/elecciones-2026-que-proponen-sobre-pensiones-y-crecimiento-economico-los-partidos-que-lideran-encuestas-noticia-1679430">RPP</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Deportes</div>
+
+        <div class="item">
+          Alianza Lima defendi&oacute; el liderato de la Liga 1 ante Deportivo Garcilaso en el estadio Inca Garcilaso de la Vega (Cusco). En el estadio Monumental, Universitario de Deportes recibi&oacute; a UTC; el &aacute;rbitro Michael Espinoza activ&oacute; el protocolo contra el racismo tras insultos provenientes de la tribuna sur. El crema jug&oacute; sin Jairo Concha, suspendido por incidentes con hinchas de Sporting Cristal.
+          <span class="source-link">(<a href="https://rpp.pe/futbol/futbol-mundial/partidos-de-hoy-liga-1-y-laliga-en-vivo-peru-sabado-14-de-marzo-del-2026-horarios-y-canales-tv-ver-futbol-en-vivo-noticia-1679908">RPP</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Externo e Internacional</div>
+
+        <div class="item">
+          La compra de los 24 cazas Gripen coloca a Per&uacute; en el centro de la disputa geopolítica entre Estados Unidos (F-16 Lockheed Martin), Francia (Rafale Dassault) y Suecia (Gripen Saab) por contratos de defensa en Am&eacute;rica del Sur. La elecci&oacute;n del Gripen E/F es la mayor adquisici&oacute;n militar peruana en d&eacute;cadas y genera reacciones en c&iacute;rculos diplom&aacute;ticos regionales.
+          <span class="source-link">(<a href="https://galaxiamilitar.es/peru-confirma-la-compra-de-24-cazas-gripen-e-f-y-descarta-los-rafale-y-f-16/">Galaxia Militar</a>, <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2026/02/22/peru-da-luz-verde-a-gran-gasto-en-defensa-y-empieza-a-ser-realidad-la-compra-de-24-cazas-de-combate.shtml">BioBioChile</a>)</span>
+        </div>
+
+        <div class="item">
+          El IIMP present&oacute; la cartera minera peruana de USD 63.000 millones en el PDAC 2026 (Toronto), el principal evento mundial de inversi&oacute;n minera. La participaci&oacute;n busca reposicionar al Per&uacute; como destino atractivo tras a&ntilde;os de conflictividad social y trabas regulatorias que alejaron capitales hacia Chile, Ecuador y Zambia.
+          <span class="source-link">(<a href="https://www.diariominero.com/iimp-impulsa-cartera-de-us-63000-millones-en-el-pdac-2026/inversion/">Diario Minero</a>)</span>
+        </div>
+      </div>
+
     </div>
 
-    <!-- VIGILAR HOY -->
-    <div class="vigilar-section">
-        <h3>Qué Vigilar Hoy</h3>
-        <div class="vigilar-item">Movimientos del tipo de cambio en respuesta a datos económicos globales publicados durante la sesión internacional.</div>
-        <div class="vigilar-item">Actualizaciones sobre seguridad en provincia de Pisco y avance de operativos del estado de emergencia.</div>
-        <div class="vigilar-item">Repercusiones de cierre de inscripción de candidaturas: confirmación de agendas electorales y primer debate entre candidatos.</div>
-        <div class="vigilar-item">Señales de mercados de commodities, particularmente oro y cobre que sustentan fortaleza de exportaciones.</div>
-        <div class="vigilar-item">Reportes de condiciones climáticas anómalas esperadas para el trimestre en sierra y selva.</div>
-    </div>
+  </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <strong>Fuentes Consultadas:</strong>
-        <ul class="sources-list">
-            <li><a href="https://andina.pe" style="color: var(--accent); text-decoration: none;">Agencia Peruana de Noticias Andina</a></li>
-            <li><a href="https://elcomercio.pe" style="color: var(--accent); text-decoration: none;">El Comercio</a></li>
-            <li><a href="https://rpp.pe" style="color: var(--accent); text-decoration: none;">RPP Noticias</a></li>
-            <li><a href="https://larepublica.pe" style="color: var(--accent); text-decoration: none;">La República</a></li>
-            <li><a href="https://www.bbvaresearch.com" style="color: var(--accent); text-decoration: none;">BBVA Research</a></li>
-            <li><a href="https://www.bcrp.gob.pe" style="color: var(--accent); text-decoration: none;">Banco Central de Reserva del Perú</a></li>
-            <li><a href="https://www.bloomberglinea.com" style="color: var(--accent); text-decoration: none;">Bloomberg Línea</a></li>
-        </ul>
-        <p style="margin-top: 15px;">Briefing generado con Claude — Solo para uso informativo. Clasificación: Confidencial.</p>
+  <div class="tc-box">
+    <h3>Tipo de Cambio &mdash; 14 de marzo de 2026</h3>
+    <div class="tc-grid">
+      <div class="tc-item">
+        <span class="tc-label">USD / PEN (cierre BCRP)</span>
+        <span class="tc-value">3,4530</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">Apertura</span>
+        <span class="tc-value">3,4320</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">M&aacute;x. semanal</span>
+        <span class="tc-value">3,4600</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">Proyecci&oacute;n fin de a&ntilde;o</span>
+        <span class="tc-value">3,34&ndash;3,46</span>
+      </div>
     </div>
+    <p class="tc-note">Fuente: BCRP / SBS. No existe brecha cambiaria significativa. Presi&oacute;n al alza por incertidumbre electoral y volatilidad global de aranceles.</p>
+  </div>
+
+  <div class="vigilar">
+    <h3>Qu&eacute; vigilar hoy</h3>
+    <ul>
+      <li>Estabilidad del ejecutivo interino: si el Congreso confirma o revisa la conducci&oacute;n de Jos&eacute; Jer&iacute;; recursos de amparo y reacciones de partidos en las pr&oacute;ximas horas ser&aacute;n clave para la certeza institucional antes del 12 de abril.</li>
+      <li>Comportamiento del tipo de cambio al abrir los mercados el lunes: la crisis pol&iacute;tica puede generar presi&oacute;n adicional sobre el sol; el BCRP podr&iacute;a intervenir en caso de que el USD/PEN supere S/ 3,47.</li>
+      <li>Primeras posiciones de candidatos presidenciales ante el nuevo escenario pol&iacute;tico: sus declaraciones sobre la legitimidad del gobierno interino definir&aacute;n las narrativas de campa&ntilde;a para las tres semanas restantes.</li>
+      <li>Avance judicial contra &ldquo;Los Sanguinarios de la Construcci&oacute;n&rdquo;: el juzgado de Ventanilla podr&iacute;a emitir nuevas &oacute;rdenes de detenci&oacute;n preliminar y ampliar la investigaci&oacute;n a otros integrantes de la banda.</li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <p>Fuentes consultadas: El Comercio, Gesti&oacute;n, La Rep&uacute;blica, RPP, Andina, Infobae Per&uacute;, Per&uacute; 21, Diario Minero, Galaxia Militar, BCRP, MEF, ONPE, JNE</p>
+    <p style="margin-top:4px;">Briefing generado con Claude &mdash; Solo para uso informativo &mdash; 15 de marzo de 2026</p>
+  </footer>
+
 </body>
 </html>
