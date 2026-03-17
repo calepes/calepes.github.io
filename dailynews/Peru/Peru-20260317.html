@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Perú — 17 Mar 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --ink: #1a1a1a;
+    --paper: #f8f4ed;
+    --accent: #1a4a6b;
+    --rule: #2a2a2a;
+    --light-rule: #c5b8a5;
+    --muted: #6b5e4f;
+    --paper-dark: #ede8df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.55;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead {
+    text-align: center;
+    border-bottom: 4px double var(--rule);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .masthead-top {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.05;
+    margin: 6px 0 8px;
+  }
+  .masthead-subtitle {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--muted);
+  }
+
+  /* ---- RULES ---- */
+  .thin-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 16px 0;
+  }
+  .thick-rule {
+    border: none;
+    border-top: 3px solid var(--rule);
+    margin: 20px 0;
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  .section-header {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    margin-bottom: 12px;
+    padding-bottom: 3px;
+  }
+
+  /* ---- TOP 5 ---- */
+  .top5-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 14px 0;
+  }
+  .top5-item {
+    display: flex;
+    gap: 14px;
+    border-bottom: 1px solid var(--light-rule);
+    padding: 10px 0;
+    align-items: flex-start;
+  }
+  .top5-item:last-child { border-bottom: none; }
+  .top5-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 44px;
+    text-align: right;
+  }
+  .top5-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    padding-top: 4px;
+  }
+  .top5-text strong {
+    font-weight: 700;
+  }
+
+  /* ---- COLUMNS ---- */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+  .col-left {}
+  .col-right {
+    border-left: 1px solid var(--light-rule);
+    padding-left: 24px;
+  }
+  .col-section {
+    margin-bottom: 22px;
+  }
+
+  /* ---- ITEMS ---- */
+  .item {
+    font-size: 14.5px;
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 12px;
+    line-height: 1.55;
+  }
+  .source-link {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+  }
+  .source-link a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .source-link a:hover { text-decoration: underline; }
+
+  /* ---- TIPO DE CAMBIO ---- */
+  .tc-box {
+    background: var(--paper-dark);
+    border: 1px solid var(--light-rule);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+  .tc-box h3 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .tc-grid {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .tc-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .tc-label {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .tc-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .tc-note {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ---- QUÉ VIGILAR ---- */
+  .vigilar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .vigilar h3 {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #d4a574;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .vigilar ul {
+    list-style: none;
+    padding: 0;
+  }
+  .vigilar li {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 7px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .vigilar li::before {
+    content: '\2192';
+    color: #d4a574;
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-align: center;
+    border-top: 2px solid var(--rule);
+    padding-top: 12px;
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 700px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+    .col-right {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--light-rule);
+      padding-top: 16px;
+    }
+    .tc-grid { gap: 18px; }
+    .masthead-top { flex-direction: column; gap: 2px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <span>Briefing Ejecutivo</span>
+    <span>Edición Diaria</span>
+    <span>Confidencial</span>
+  </div>
+  <h1>Perú</h1>
+  <div class="masthead-subtitle">Martes 17 de marzo de 2026 &mdash; Lima</div>
+</div>
+
+<hr class="thin-rule">
+
+<!-- TOP 5 DEL DÍA -->
+<div class="section-header">Top 5 del Día</div>
+<div class="top5-grid">
+
+  <div class="top5-item">
+    <div class="top5-num">1</div>
+    <div class="top5-text">
+      <strong>Crisis del gas: abastecimiento de GLP sigue en riesgo semanas después de la rotura en Camisea.</strong>
+      Aunque las reparaciones del ducto de Camisea han concluido, la Sociedad Peruana de Gas Licuado advierte que la recomposición de inventarios en plantas distribuidoras tomará varias semanas más. Más de 8 millones de hogares enfrentan precios elevados de balones de gas, y la Asociación de Grifos alerta sobre desabastecimiento persistente de gasohol y diésel. El Ministerio de Energía y Minas no descarta ampliar medidas de emergencia. <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/15/abastecimiento-de-glp-sigue-en-riesgo-pese-a-la-reparacion-del-ducto-de-camisea-alerta-la-spgl-reposicion-llevara-semanas/">Infobae</a>, <a href="https://rpp.pe/economia/economia/crisis-energetica-en-el-peru-asociacion-de-grifos-advierte-que-gasohol-y-diesel-enfrentan-grave-desabastecimiento-y-alza-de-precios-noticia-1678978">RPP</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <div class="top5-num">2</div>
+    <div class="top5-text">
+      <strong>Elecciones a 26 días: López Aliaga y Fujimori pierden terreno; Grozo y López Chau suben en encuestas.</strong>
+      A menos de un mes de las elecciones generales del 12 de abril, los últimos sondeos muestran una reconfiguración del panorama: Rafael López Aliaga y Keiko Fujimori registran caídas en intención de voto, mientras Wolfgang Grozo y Alfonso López Chau ganan posiciones. En Cusco, el candidato Mario Vizcarra criticó a López Aliaga por promesas incumplidas en su gestión municipal. El JNE evalúa la candidatura de Angélica Sayán en reemplazo del fallecido postulante Napoleón Becerra. <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/16/elecciones-peru-2026-en-vivo-ultimas-noticias-de-los-candidatos-presidenciales-hoy-rafael-lopez-aliaga-keiko-fujimori-wolfgang-grozo-alfonso-lopez-chau-hnews-793936">La República</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <div class="top5-num">3</div>
+    <div class="top5-text">
+      <strong>BCP recorta proyección de crecimiento a 3,2% por "triple choque" de gas, El Niño y petróleo.</strong>
+      El Banco de Crédito del Perú ajustó a la baja su estimación de PBI para 2026, citando la crisis energética de Camisea, las lluvias intensas del Niño Costero y la volatilidad del petróleo global como factores que frenan la expansión. BBVA es más pesimista aún y proyecta 2,9%. Sin los choques internos, la economía habría podido crecer entre 3,5% y 4%. El BCRP mantiene su tasa de referencia en 4,25%. <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/16/bcp-ajusta-a-la-baja-expectativa-de-crecimiento-de-peru-para-2026-ahora-preve-32-por-que/">Infobae</a>, <a href="https://infomercado.pe/bbva-recorta-proyeccion-de-peru-a-2-9-en-2026-por-el-triple-golpe-del-gas-el-nino-y-el-petroleo/">Infomercado</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <div class="top5-num">4</div>
+    <div class="top5-text">
+      <strong>Ola de extorsión y violencia: bus incendiado en Villa El Salvador y ocho detenidos en SMP.</strong>
+      La Policía Nacional detuvo a ocho ciudadanos extranjeros en San Martín de Porres acusados de extorsionar a mototaxistas y comerciantes. En Villa El Salvador, un bus de la empresa Real Star fue incendiado por presuntos extorsionadores; el gobierno interino de José Balcázar registra 128 homicidios desde su inicio y prepara legislación para distinguir bandas locales de crimen organizado transnacional. Además, delincuentes lanzaron un artefacto explosivo contra una bodega en Surco. <span class="source-link">(<a href="https://larepublica.pe/politica/2026/03/13/los-numeros-de-la-muerte-128-homicidios-en-lo-que-va-del-actual-regimen-inseguridad-hnews-950391">La República</a>, <a href="https://rpp.pe/lima/seguridad/carabayllo-joven-mototaxista-fue-asesinado-a-balazos-en-la-puerta-de-su-casa-noticia-1680254">RPP</a>)</span>
+    </div>
+  </div>
+
+  <div class="top5-item">
+    <div class="top5-num">5</div>
+    <div class="top5-text">
+      <strong>Banco Mundial aprueba US$ 200 millones para minería sostenible; economía creció 3,54% en enero.</strong>
+      El Banco Mundial desembolsará 200 millones de dólares para apoyar la agenda de minería sostenible en Perú. El INEI confirmó que la actividad productiva creció 3,54% en enero, acumulando 22 meses consecutivos de expansión, impulsados por minería, construcción y comercio. Los términos de intercambio del país alcanzan máximos de 65 años, sostenidos por precios elevados de cobre, oro, plata y zinc. <span class="source-link">(<a href="https://diarioelpueblo.com.pe/2026/03/16/economia-peruana-crecio-3-54-por-mineria-construccion-y-comercio/">Diario El Pueblo</a>, <a href="https://www.rumbominero.com/peru/noticias/economia/inei-produccion-mineria-hidrocarburos-308-en-enero-de-2026/">Rumbo Minero</a>)</span>
+    </div>
+  </div>
+
+</div>
+
+<hr class="thick-rule">
+
+<!-- COLUMNAS TEMÁTICAS -->
+<div class="columns">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <div class="col-left">
+
+    <div class="col-section">
+      <div class="section-header">Políticos</div>
+      <div class="item">
+        El candidato presidencial de Buen Gobierno, <strong>Jorge Nieto Montesinos</strong>, solicitó la renuncia de una exfuncionaria de su lista que había sido coordinadora parlamentaria durante el gobierno de Dina Boluarte, tras cuestionamientos sobre vínculos con la ex presidenta. Nieto confirmó la salida y rechazó que se trate de una campaña política contra su organización. <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/15/exfuncionaria-del-gobierno-de-dina-boluarte-deja-la-lista-del-buen-gobierno-tras-pedido-de-jorge-nieto/">Infobae</a>)</span>
+      </div>
+      <div class="item">
+        El programa electoral de TVPerú <em>Tu Decisión 2026</em> presentó este lunes a los candidatos a la primera y segunda vicepresidencia de varios partidos, en una jornada de debate sobre seguridad ciudadana y propuestas económicas. El candidato <strong>Winston Huamán</strong> del PTE calificó de "irresponsable" la solicitud de Angélica Sayán ante el JNE para asumir la candidatura presidencial del partido del fallecido Napoleón Becerra. <span class="source-link">(<a href="https://www.tvperu.gob.pe/noticias/locales/candidatos-a-vicepresidentes-se-presentan-en-tu-decision-2026-conoce-a-los-invitados-de-hoy-16-de-marzo">TVPerú</a>)</span>
+      </div>
+      <div class="item">
+        El Congreso publicó las <strong>normas legales más importantes</strong> del día, entre las que destacan disposiciones sobre el proceso electoral del 12 de abril y medidas de emergencia derivadas de la crisis energética, según el boletín del diario oficial El Peruano. <span class="source-link">(<a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-lunes-16-de-marzo-de-2026">TVPerú</a>)</span>
+      </div>
+    </div>
+
+    <div class="col-section">
+      <div class="section-header">Económicos</div>
+      <div class="item">
+        El <strong>Ministerio de Economía y Finanzas</strong> lanzó el Plan Nacional de Infraestructura 2026-2031 con 72 proyectos por un monto de S/ 144.117 millones. La cartera incluye obras en transportes, energía, agua y saneamiento, con especial énfasis en la <strong>Longitudinal de la Sierra Norte</strong>, para la cual el MTC aseguró recursos en siete subtramos prioritarios. <span class="source-link">(<a href="https://www.rumbominero.com/peru/noticias/economia/mef-lanza-pni-2026-2031-con-72-proyectos/">Rumbo Minero</a>)</span>
+      </div>
+      <div class="item">
+        La inflación anual en Lima alcanzó <strong>2,21%</strong> en febrero de 2026, la más alta desde noviembre de 2024, impulsada por el encarecimiento de combustibles, GLP y transporte. El BCP proyecta que la inflación cerrará el año cerca del <strong>3%</strong>, aunque el BCRP la considera transitoria y dentro del rango meta de 1% a 3%. <span class="source-link">(<a href="https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html">BCRP</a>, <a href="https://www.infobae.com/peru/2026/03/16/bcp-ajusta-a-la-baja-expectativa-de-crecimiento-de-peru-para-2026-ahora-preve-32-por-que/">Infobae</a>)</span>
+      </div>
+      <div class="item">
+        Los precios de los <strong>combustibles</strong> registran variaciones al alza en GNV, GLP, gasohol regular y premium. La crisis en Camisea ha impactado la cadena de distribución, con largas colas reportadas en estaciones de servicio de Lima Metropolitana durante el fin de semana. Analistas esperan normalización gradual en las próximas dos a tres semanas. <span class="source-link">(<a href="https://larepublica.pe/economia/2026/03/16/cuanto-esta-el-combustible-hoy-en-peru-precios-del-gnv-glp-diesel-y-gasolina-en-marzo-2026-hnews-535457">La República</a>)</span>
+      </div>
+    </div>
+
+    <div class="col-section">
+      <div class="section-header">Empresariales</div>
+      <div class="item">
+        El <strong>Banco Mundial</strong> aprobó un préstamo de US$ 200 millones destinado a fortalecer la gobernanza y la sostenibilidad del sector minero peruano, con énfasis en comunidades afectadas por operaciones extractivas. La operación busca mejorar estándares ambientales y reducir conflictos sociales en zonas mineras de la sierra sur. <span class="source-link">(<a href="https://diarioelpueblo.com.pe/2026/03/16/economia-peruana-crecio-3-54-por-mineria-construccion-y-comercio/">Diario El Pueblo</a>)</span>
+      </div>
+      <div class="item">
+        La <strong>cartera minera del Perú</strong> suma 65 proyectos con inversión potencial de US$ 63.005 millones. El sector registró crecimiento del 3,08% en producción de minerales durante enero de 2026, favorecido por mayores volúmenes de cobre, zinc, oro, plata y estaño. Los términos de intercambio se ubican en máximos históricos de 65 años. <span class="source-link">(<a href="https://www.rumbominero.com/peru/noticias/economia/inei-produccion-mineria-hidrocarburos-308-en-enero-de-2026/">Rumbo Minero</a>, <a href="https://andina.pe/agencia/noticia-la-mineria-sera-clave-el-desempeno-de-economia-peruana-este-2026-1059804.aspx">Andina</a>)</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COLUMNA DERECHA -->
+  <div class="col-right">
+
+    <div class="col-section">
+      <div class="section-header">Sociales</div>
+      <div class="item">
+        El promotor de espectáculos <strong>Jhon Leyva</strong> fue asesinado durante un evento en San Martín de Porres. Extorsionadores le exigían S/ 30.000 y, ante la negativa, lo ultimaron frente al público. La artista Sonia Morales, cuyo show promovía Leyva, exigió justicia y denunció que la inseguridad impide el trabajo en el sector cultural. <span class="source-link">(<a href="https://www.infobae.com/peru/2026/03/15/asesinan-a-promotor-de-sonia-morales-y-dina-paucar-durante-evento-en-smp-extorsionadores-le-exigian-s30-mil/">Infobae</a>, <a href="https://larepublica.pe/espectaculos/2026/03/16/sonia-morales-exige-justicia-por-el-asesinato-del-promotor-jhon-leyva-por-extorsion-hasta-cuando-la-inseguridad-608352">La República</a>)</span>
+      </div>
+      <div class="item">
+        Un <strong>sismo de magnitud 4,3</strong> se registró a las 04:19 a.m. a 55 km al este de Puerto Bermúdez, en Oxapampa, Pasco, a 32 km de profundidad. Otro temblor de <strong>magnitud 4,0</strong> sacudió a las 06:36 a.m. la zona de Chala, Caravelí, Arequipa. El Instituto Geofísico del Perú no emitió alerta de daños ni de tsunami. <span class="source-link">(<a href="https://larepublica.pe/sociedad/2026/03/16/temblor-en-peru-hoy-lunes-16-de-marzo-del-2026-magnitud-epicentro-y-mas-sobre-sismos-recientes-segun-igp-ultimo-sismo-en-lima-ica-callao-y-otras-provincias-atmp-1189770">La República</a>)</span>
+      </div>
+    </div>
+
+    <div class="col-section">
+      <div class="section-header">Financieros</div>
+      <div class="item">
+        El <strong>tipo de cambio</strong> cerró el lunes 16 de marzo en <strong>S/ 3,4200</strong> según el BCRP, con apertura en S/ 3,4265 y un rango interbancario entre S/ 3,4160 y S/ 3,4340. Para fines tributarios, la SUNAT registró S/ 3,446 para compra y S/ 3,453 para venta. Bloomberg abrió la jornada en S/ 3,4520. Analistas proyectan que el dólar retrocederá a S/ 3,34 al cierre del año, conforme se disipen los choques de oferta. <span class="source-link">(<a href="https://larepublica.pe/economia/precio-del-dolar/2026/03/16/precio-del-dolar-hoy-en-peru-16-de-marzo-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-325515">La República</a>, <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-16-de-marzo-del-2026-noticia-1680219">RPP</a>)</span>
+      </div>
+      <div class="item">
+        El <strong>BCRP mantuvo su tasa de referencia en 4,25%</strong>, sin cambios desde septiembre de 2025. El banco central considera transitorias las presiones inflacionarias actuales y no prevé ajustes en el corto plazo. El mercado laboral muestra solidez: el desempleo bajó a 3,9% en el cuarto trimestre de 2025 y el salario promedio mensual subió de S/ 1.766 a S/ 1.887 en el último año. <span class="source-link">(<a href="https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html">BCRP</a>)</span>
+      </div>
+    </div>
+
+    <div class="col-section">
+      <div class="section-header">Deportes</div>
+      <div class="item">
+        El <strong>Torneo Apertura de la Liga 1 2026</strong> llega a su jornada 8, programada entre el 20 y el 22 de marzo. Tras siete fechas, <strong>Alianza Lima y Los Chankas</strong> comparten el primer lugar empatados en puntos y diferencia de goles. El director técnico de la selección, <strong>Mano Menezes</strong>, continúa su agenda de observación en partidos del campeonato nacional para definir la próxima convocatoria. <span class="source-link">(<a href="https://libero.pe/futbol-peruano/liga-1/2026/03/16/partidos-de-liga-1-2026-programacion-de-fecha-8-torneo-apertura-1275920">Libero</a>, <a href="https://www.infobae.com/peru/deportes/2026/03/14/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-7-torneo-apertura-alianza-lima-universitario-utc-sporting-cristal-cienciano-melgar/">Infobae</a>)</span>
+      </div>
+    </div>
+
+    <div class="col-section">
+      <div class="section-header">Externo e Internacional</div>
+      <div class="item">
+        El contexto internacional de <strong>volatilidad del petróleo</strong>, ligado a la política arancelaria de la administración Trump, presiona los costos de combustibles importados en Perú. La caída del dólar a nivel global tras anuncios del gobierno estadounidense alivió parcialmente el tipo de cambio local. Los precios del cobre mantienen niveles históricamente elevados, beneficiando las exportaciones mineras peruanas. <span class="source-link">(<a href="https://www.infobae.com/noticias/2026/03/09/valor-de-apertura-del-dolar-en-peru-este-9-de-marzo-de-usd-a-pen/">Infobae</a>, <a href="https://gestion.pe/economia/economia-de-peru-2026-se-frena-por-triple-choque-cuanto-crecimiento-de-pbi-se-pierde-noticia/">Gestión</a>)</span>
+      </div>
+      <div class="item">
+        El <strong>Banco Interamericano de Desarrollo</strong> y organismos regionales monitorean de cerca la transición política peruana de cara al 12 de abril, ante el riesgo de inestabilidad postelectoral. Analistas de riesgo político señalan que la fragmentación del Congreso y la ausencia de mayorías claras podrían dificultar la gobernabilidad del próximo ejecutivo. <span class="source-link">(<a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a>, <a href="https://www.descifrandolaguerra.es/elecciones-peru-2026/">Descifrando la Guerra</a>)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TIPO DE CAMBIO -->
+<div class="tc-box">
+  <h3>Tipo de Cambio — USD / PEN — 16 Mar 2026</h3>
+  <div class="tc-grid">
+    <div class="tc-item">
+      <div class="tc-label">Cierre BCRP</div>
+      <div class="tc-value">S/ 3,4200</div>
+    </div>
+    <div class="tc-item">
+      <div class="tc-label">Apertura Bloomberg</div>
+      <div class="tc-value">S/ 3,4520</div>
+    </div>
+    <div class="tc-item">
+      <div class="tc-label">SUNAT Compra</div>
+      <div class="tc-value">S/ 3,446</div>
+    </div>
+    <div class="tc-item">
+      <div class="tc-label">SUNAT Venta</div>
+      <div class="tc-value">S/ 3,453</div>
+    </div>
+    <div class="tc-item">
+      <div class="tc-label">Proyección fin 2026</div>
+      <div class="tc-value">S/ 3,34</div>
+    </div>
+  </div>
+  <div class="tc-note">Fuente: BCRP, Bloomberg, SUNAT. Sin mercado paralelo relevante en Perú. Proyección: consenso analistas marzo 2026.</div>
+</div>
+
+<!-- QUÉ VIGILAR HOY -->
+<div class="vigilar">
+  <h3>Qué Vigilar Hoy</h3>
+  <ul>
+    <li>Avance en la recomposición de inventarios de GLP y GNV en Lima: la Sociedad Peruana de Gas Licuado anunciará nueva estimación de plazos para la normalización total del suministro.</li>
+    <li>Novedades electorales: el JNE debe resolver la solicitud de Angélica Sayán para asumir la candidatura presidencial del partido del fallecido Napoleón Becerra; el resultado podría reconfigurar la papeleta del 12 de abril.</li>
+    <li>Cifras de actividad económica de febrero: el INEI publicará datos del Informe Técnico de Producción, que mostrará el impacto de la crisis energética en el crecimiento mensual.</li>
+    <li>Seguridad ciudadana: el gobierno de Balcázar presentaría ante el Congreso el proyecto de ley para diferenciar el tratamiento penal de bandas locales y crimen organizado transnacional, clave ante el récord de extorsiones.</li>
+    <li>Dólar: seguimiento del tipo de cambio interbancario; cualquier movimiento de la Reserva Federal o dato de inflación en EE.UU. podría presionar el sol en las próximas horas.</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Fuentes consultadas: El Comercio, Gestión, La República, RPP, Infobae, Andina, TVPerú, BCRP, Rumbo Minero, Libero, Infomercado, Diario El Pueblo, Descifrando la Guerra</p>
+  <p style="margin-top:4px;">Briefing generado con Claude &mdash; Solo para uso informativo &mdash; 17 Mar 2026</p>
+</div>
+
+</body>
+</html>
