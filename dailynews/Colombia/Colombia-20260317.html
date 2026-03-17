@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colombia — Briefing Ejecutivo 17 Mar 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #1a1a1a;
+      --paper: #f6f2ea;
+      --accent: #c4841d;
+      --rule: #2a2a2a;
+      --light-rule: #c8b99a;
+      --muted: #6b5e4f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      line-height: 1.55;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      text-align: center;
+      border-bottom: 4px double var(--rule);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .masthead-top {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 7vw, 74px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+      margin: 6px 0;
+    }
+    .masthead-subtitle {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* RULES */
+    .thin-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 14px 0;
+    }
+    .thick-rule {
+      border: none;
+      border-top: 3px solid var(--rule);
+      margin: 18px 0 16px;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      margin-bottom: 12px;
+      padding-bottom: 2px;
+    }
+
+    /* TOP 5 */
+    .top5-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .top5-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--light-rule);
+      padding: 10px 0;
+    }
+    .top5-item:last-child { border-bottom: none; }
+    .top5-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 38px;
+      text-align: right;
+      padding-top: 2px;
+    }
+    .top5-text {
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .top5-text strong {
+      font-weight: 700;
+    }
+
+    /* COLUMNS */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 4px;
+    }
+    .col-left {}
+    .col-right {
+      border-left: 1px solid var(--light-rule);
+      padding-left: 28px;
+    }
+    .col-section {
+      margin-bottom: 22px;
+    }
+
+    /* ITEMS */
+    .item {
+      font-size: 14px;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 13px;
+      line-height: 1.55;
+    }
+    .source-link {
+      color: var(--muted);
+      font-size: 12px;
+      font-style: italic;
+    }
+    .source-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-link a:hover { text-decoration: underline; }
+
+    /* TIPO DE CAMBIO */
+    .tc-box {
+      background: #ede7d9;
+      border: 1px solid var(--light-rule);
+      padding: 14px 18px;
+      margin: 18px 0;
+    }
+    .tc-box h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .tc-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .tc-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .tc-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+    .tc-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .tc-note {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* QUE VIGILAR */
+    .vigilar {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 16px 22px;
+      margin: 18px 0;
+    }
+    .vigilar h3 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #d4a574;
+      margin-bottom: 12px;
+    }
+    .vigilar ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .vigilar li {
+      font-size: 13.5px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .vigilar li::before {
+      content: '\2192';
+      color: #d4a574;
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+    .footer {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 2px solid var(--rule);
+      padding-top: 12px;
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+      .col-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--light-rule);
+        padding-top: 18px;
+      }
+      .masthead-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Briefing Ejecutivo</span>
+      <span>Edición Diaria</span>
+      <span>Confidencial</span>
+    </div>
+    <h1>Colombia</h1>
+    <div class="masthead-subtitle">Martes 17 de marzo de 2026 &mdash; Bogotá</div>
+  </header>
+
+  <hr class="thin-rule">
+
+  <!-- TOP 5 -->
+  <div class="col-section">
+    <div class="section-header">Top 5 del Día</div>
+    <div class="top5-grid">
+
+      <div class="top5-item">
+        <div class="top5-num">1</div>
+        <div class="top5-text">
+          <strong>Congresistas de la UNGRD ante la justicia.</strong> La Corte Suprema acusó formalmente a cinco congresistas y un excongresista por cohecho impropio ligado al saqueo de la Unidad Nacional para la Gestión del Riesgo de Desastres. Karen Manrique, trasladada ayer desde Arauca al búnker de la Fiscalía en Bogotá, y Wadith Manzur permanecen bajo medida de aseguramiento privativa de la libertad. Su esposo solicitó la credencial como representante electa por Arauca, generando controversia sobre la aplicación de la figura de silla vacía.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/11/corte-suprema-envio-a-la-carcel-a-los-congresistas-wadith-manzur-y-karen-manrique-por-el-escandalo-de-corrupcion-en-la-ungrd/">Infobae</a>, <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/que-pasara-con-las-curules-de-wadith-manzur-y-karen-manrique-tras-orden-de-captura-por-el-escandalo-de-la-ungrd-3539491">El Tiempo</a>)</span>
+        </div>
+      </div>
+
+      <div class="top5-item">
+        <div class="top5-num">2</div>
+        <div class="top5-text">
+          <strong>Inflación resistente: Banco de la República elevaría tasa al 11,25% el 31 de marzo.</strong> Con el IPC anual en 5,29% a febrero y la proyección del MinHacienda de cerrar 2026 en 5,8%, la mediana del mercado anticipa un nuevo aumento de 100 puntos básicos en la reunión de junta de fin de mes. BBVA Research es más pesimista: estima que la inflación podría alcanzar 6,5% al cierre del año, impulsada por el ajuste salarial del 23% y factores climáticos. El 60% de las alzas del año se concentrarían antes de mayo, según BTG Pactual.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/17/asi-cerraria-el-ipc-de-marzo-de-2026-en-colombia-dato-revelado-por-el-banco-de-la-republica-confirma-que-todo-seguira-caro/">Infobae</a>, <a href="https://www.bbvaresearch.com/en/publicaciones/colombia-economic-outlook-march-2026/">BBVA Research</a>, <a href="https://www.bloomberglinea.com/latinoamerica/colombia/efecto-inflacion-en-colombia-el-60-de-las-alzas-de-2026-se-concentrarian-antes-de-mayo/">Bloomberg Línea</a>)</span>
+        </div>
+      </div>
+
+      <div class="top5-item">
+        <div class="top5-num">3</div>
+        <div class="top5-text">
+          <strong>Gloria Foods cierra su operación láctea en Colombia: desaparecen Algarra y Lechesán.</strong> El grupo peruano suspendió definitivamente la producción de leche en su planta de Cogua (Cundinamarca), dejando sin empleo a más de 150 trabajadores en cuatro ciudades. La marca Algarra, presente en el mercado colombiano desde 1952, y Lechesán desaparecerán de las góndolas. Petro sugirió a productores rurales crear una cooperativa para reemplazar a la empresa. El sindicato denunció despidos sin seguir procedimientos legales.
+          <span class="source-link">(<a href="https://www.eltiempo.com/economia/empresas/por-que-leche-algarra-y-lechesan-se-van-de-colombia-los-detalles-tras-el-cierre-de-operaciones-de-gloria-foods-en-cogua-3540433">El Tiempo</a>, <a href="https://www.infobae.com/colombia/2026/03/16/empresa-peruana-de-lacteos-cesa-operaciones-en-colombia-desaparecen-algarra-y-lechesan-y-mas-de-150-empleados-quedaron-sin-trabajo/">Infobae</a>)</span>
+        </div>
+      </div>
+
+      <div class="top5-item">
+        <div class="top5-num">4</div>
+        <div class="top5-text">
+          <strong>Emergencia aérea de Avianca y alerta de MinTransporte.</strong> Un vuelo de Avianca en la ruta Bogotá&ndash;Nueva York declaró emergencia y debió aterrizar en Barranquilla. El Ministerio de Transporte exigió a la Aerocivil un informe técnico ante la acumulación de incidentes aéreos recientes, elevando el escrutinio regulatorio sobre la aviación civil del país.
+          <span class="source-link">(<a href="https://www.eltiempo.com/">El Tiempo</a>, <a href="https://www.rtvcnoticias.com">RTVC Noticias</a>)</span>
+        </div>
+      </div>
+
+      <div class="top5-item">
+        <div class="top5-num">5</div>
+        <div class="top5-text">
+          <strong>Candidatura presidencial: Cepeda del Pacto Histórico e Iván Duque rumbo al 31 de mayo.</strong> El senador Iván Cepeda, candidato único del Pacto Histórico tras ganar la consulta interpartidista del 8 de marzo, debió defender públicamente sus comentarios sobre Antioquia. Por otro lado, Abelardo de la Espriella formalizó su candidatura en Cali con José Manuel Restrepo como fórmula vicepresidencial, mientras Paloma Valencia consolida su posición como favorita de la derecha a 75 días de las elecciones.
+          <span class="source-link">(<a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN en Español</a>, <a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a>)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="thick-rule">
+
+  <!-- COLUMNAS TEMÁTICAS -->
+  <div class="columns">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="col-left">
+
+      <div class="col-section">
+        <div class="section-header">Políticos</div>
+
+        <div class="item">
+          <strong>Petro reúne al Pacto Histórico y prioriza reforma a la salud.</strong> El presidente se reunió el viernes 13 con los 25 nuevos senadores y representantes del Pacto Histórico, designando la reforma a la salud como eje legislativo del periodo que inicia. El bloque obtuvo la mayor votación desde 1990, pero sin mayoría absoluta, por lo que Petro deberá construir coaliciones para avanzar en las reformas.
+          <span class="source-link">(<a href="https://www.elespectador.com/politica/elecciones-colombia-2026/presidente-gustavo-petro-se-reunio-con-la-bancada-del-pacto-historico-en-la-casa-de-narino-este-viernes-noticias-hoy/">El Espectador</a>, <a href="https://www.infobae.com/colombia/2026/03/09/petro-afirma-que-el-pacto-historico-arraso-en-las-elecciones-al-congreso-y-anuncia-prioridad-a-la-reforma-a-la-salud/">Infobae</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Aprobación presidencial dividida a 150 días del fin del mandato.</strong> Mientras una encuesta cifra la aprobación de Petro en 37,5% frente a un 53,7% de desaprobación (Atlas-Intel), otros sondeos le dan 37,5% de aprobación. La imagen del ejecutivo en la recta final de su gobierno será determinante para el candidato del oficialismo en la primera vuelta del 31 de mayo.
+          <span class="source-link">(<a href="https://www.infobae.com/colombia/2026/03/13/encuesta-atlas-intel-gustavo-petro-se-rajo-en-la-aprobacion-de-su-gobierno-a-falta-de-menos-de-150-dias-para-su-salida-de-la-casa-de-narino/">Infobae</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Sala de Instrucción acusó a seis parlamentarios por cohecho.</strong> Además de Manrique y Manzur (con detención preventiva), cuatro congresistas más continúan el proceso en libertad: Liliana Bitar, Julián Peinado, Juan Pablo Gallo y Juan Diego Muñoz. Todos son señalados de haber recibido dádivas a cambio de votos favorables en la Comisión Interparlamentaria de Crédito Público.
+          <span class="source-link">(<a href="https://www.elpais.com.co/judicial/corte-suprema-se-prepara-para-definir-llamado-a-juicio-a-los-congresistas-salpicados-en-el-escandalo-de-la-ungrd-0355.html">El País</a>, <a href="https://www.eltiempo.com/justicia/cortes/las-pruebas-contra-los-seis-congresistas-investigados-por-el-caso-ungrd-con-las-que-se-definira-su-llamado-a-juicio-3536739">El Tiempo</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Económicos</div>
+
+        <div class="item">
+          <strong>Comercio minorista crece en enero: gobierno celebra efecto del salario mínimo.</strong> El DANE publicó la Encuesta Mensual de Comercio de enero de 2026 con cifras positivas en ventas al detal. El presidente Petro atribuyó el resultado al mayor poder adquisitivo generado por el incremento del 23% al salario mínimo, aunque economistas advierten que el mismo ajuste es el principal motor inflacionario del año.
+          <span class="source-link">(<a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc/ipc-informacion-tecnica">DANE</a>, <a href="https://www.elcolombiano.com/negocios/inflacion-subida-colombia-2026-salario-minimo-plan-financiero-FG34549149">El Colombiano</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Plan Financiero proyecta dólar promedio de $3.915 y petróleo a USD 59,2.</strong> La actualización del plan fiscal revisó al alza el tipo de cambio y a la baja el precio del crudo frente a estimaciones anteriores (USD 74,3), lo que presiona los ingresos de Ecopetrol y el presupuesto nacional. El PIB se proyecta con crecimiento del 2,6% para 2026.
+          <span class="source-link">(<a href="https://abceconomia.co/2026/03/12/actualizacion-plan-financiero-2026-colombia-pib-dolar-e-inflacion/">ABC Economía</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Reforma laboral y jornada de 42 horas impactan costos empresariales.</strong> Desde 2026, la jornada máxima se redujo a 42 horas semanales con mayores recargos dominicales y festivos. Sumado al alza salarial, el costo laboral total del año escalaría hasta 28,5% en sectores intensivos en mano de obra como vigilancia, retail y manufactura.
+          <span class="source-link">(<a href="https://www.larepublica.co/especiales/las-normas-legales-que-definen-2026/mas-reformas-vigilancia-y-riesgo-los-desafios-que-tendran-las-empresas-durante-2026-4326111">La República</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Empresariales</div>
+
+        <div class="item">
+          <strong>Gloria Foods: cierre lácteo confirma presiones sobre el sector lechero.</strong> La salida del grupo peruano del segmento lácteo colombiano ocurre en un contexto de sanciones previas a varias empresas del sector. La compañía mantendrá en Colombia solo su línea de bebidas (jugos California y gaseosas Fresky) desde la planta de Simijaca. El sindicato y el gobierno cruzan acusaciones sobre los procedimientos de desvinculación.
+          <span class="source-link">(<a href="https://www.valoraanalitik.com/gloria-foods-suspende-operacion-lactea-en-colombia/">Valora Analitik</a>, <a href="https://www.elpais.com.co/economia/adios-a-reconocida-marca-de-leche-en-colombia-anuncio-cierre-parcial-de-su-planta-1619.html">El País</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Riesgos empresariales 2026: IA y desinformación lideran las amenazas.</strong> Según Semana, las empresas colombianas afrontan un entorno de mayor incertidumbre, con la inteligencia artificial y la desinformación como principales riesgos, seguidos por los riesgos políticos y la violencia (26%). La ciberseguridad sigue siendo una prioridad creciente de inversión para compañías en Colombia y América Latina.
+          <span class="source-link">(<a href="https://www.semana.com/economia/macroeconomia/articulo/las-empresas-colombianas-entran-a-2026-con-mas-amenazas-que-certezas/202619/">Semana</a>)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="col-right">
+
+      <div class="col-section">
+        <div class="section-header">Sociales</div>
+
+        <div class="item">
+          <strong>Alerta climática por retorno de lluvias y posible El Niño.</strong> El IDEAM emitió alertas por tormentas en Cali y el Valle del Cauca mientras se monitorea un frente frío en el Caribe. En paralelo, datos del océano Pacífico ecuatorial muestran un calentamiento sostenido que anticipa un posible fenómeno de El Niño en el segundo semestre, con implicaciones para la generación hidroeléctrica y la agricultura.
+          <span class="source-link">(<a href="https://www.rtvcnoticias.com">RTVC Noticias</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Reclutamiento de menores por grupos armados vía redes sociales.</strong> Reportes de organizaciones de derechos humanos advierten sobre el incremento del reclutamiento de niños, niñas y adolescentes por parte de grupos criminales y armados ilegales, que utilizan promesas de dinero rápido y plataformas digitales para captar víctimas en territorios de conflicto.
+          <span class="source-link">(<a href="https://www.eltiempo.com/">El Tiempo</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Operación binacional contra red de abuso sexual infantil.</strong> Autoridades de Colombia y Venezuela capturaron a una mujer que grababa a sus hijas mientras eran víctimas de abuso sexual. La operación conjunta se enmarca en los acuerdos de cooperación policial entre los dos países.
+          <span class="source-link">(<a href="https://www.semana.com">Semana</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Financieros</div>
+
+        <div class="item">
+          <strong>Mercado anticipa tasa de referencia al 11,25% el 31 de marzo.</strong> La mediana de analistas encuestados por Reuters pronostica que el Banco de la República subirá 100 puntos básicos en su próxima reunión, desde el actual 10,25%. Algunos actores del sector contemplan que la tasa podría superar el 12% e incluso acercarse al 13% si la inflación no cede en abril-mayo, lo que encarecería crédito hipotecario y corporativo.
+          <span class="source-link">(<a href="https://gbm.com/media/noticia/pib-de-colombia-creceria-menos-en-2026-inflacion-aun-no-es-angustiante-codirectora-banco-central-laura-moisa/">GBM Media</a>, <a href="https://www.banrep.gov.co/es/glosario/tasa-cambio-trm">Banco de la República</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>IPC de febrero en 5,29% anual; dato de marzo se publica el 9 de abril.</strong> La inflación continúa descendiendo gradualmente desde el pico, pero las estimaciones del mercado para marzo ubican el IPC mensual en 0,68%, ligeramente por debajo del 1,08% de febrero. El dato oficial del DANE será clave para calibrar la decisión de política monetaria de abril.
+          <span class="source-link">(<a href="https://es.tradingeconomics.com/colombia/inflation-cpi">Trading Economics</a>, <a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc/ipc-informacion-tecnica">DANE</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Deportes</div>
+
+        <div class="item">
+          <strong>James Rodríguez ficha por Minnesota United de la MLS.</strong> El mediocampista colombiano se vinculó al club estadounidense en un movimiento que lo devuelve al fútbol de primera línea tras su paso por el Rayo Vallecano. La llegada de James eleva el perfil del Minnesota United y reactiva el interés mediático en la MLS de cara a la próxima temporada.
+          <span class="source-link">(<a href="https://www.eltiempo.com/">El Tiempo</a>, <a href="https://www.elcolombiano.com/">El Colombiano</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Millonarios vs. Nacional desde El Campín, duelo de la jornada.</strong> El clásico entre Millonarios y Atlético Nacional destaca en la programación de la Liga BetPlay. El partido en el estadio Nemesio Camacho El Campín de Bogotá será uno de los eventos de mayor convocatoria de la semana en el fútbol colombiano.
+          <span class="source-link">(<a href="https://www.elcolombiano.com/">El Colombiano</a>)</span>
+        </div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-header">Externo e Internacional</div>
+
+        <div class="item">
+          <strong>Emergencia en vuelo Avianca Bogotá&ndash;Nueva York; MinTransporte exige informe.</strong> El incidente aéreo, que obligó al desvío a Barranquilla, se suma a una serie de eventos de aviación que llevaron al Ministerio de Transporte a exigir un informe técnico a la Aerocivil. El regulador evalúa si las medidas de seguridad del sector requieren ajustes estructurales.
+          <span class="source-link">(<a href="https://www.eltiempo.com/">El Tiempo</a>)</span>
+        </div>
+
+        <div class="item">
+          <strong>Colombia en el radar regional: relaciones Petro-Trump y vecindad venezolana.</strong> La reunión entre Petro y Trump en la Casa Blanca a principios de año dejó tensiones latentes luego de que Colombia condenara en enero los ataques militares de EE. UU. contra Venezuela. Con las elecciones a 75 días, la política exterior se perfila como línea de fractura entre el oficialismo y los candidatos de oposición.
+          <span class="source-link">(<a href="https://cnnespanol.cnn.com/colombia">CNN en Español</a>)</span>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /columns -->
+
+  <!-- TIPO DE CAMBIO -->
+  <div class="tc-box">
+    <h3>Tipo de Cambio &mdash; Martes 17 de Marzo de 2026</h3>
+    <div class="tc-row">
+      <div class="tc-item">
+        <span class="tc-label">TRM Oficial (USD/COP)</span>
+        <span class="tc-value">$3.691,90</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">Variación diaria</span>
+        <span class="tc-value">+$6,37</span>
+      </div>
+      <div class="tc-item">
+        <span class="tc-label">Proyección Plan Financiero</span>
+        <span class="tc-value">$3.915</span>
+      </div>
+    </div>
+    <p class="tc-note">Fuente: Banco de la República / Capital Colombia. Mercado paralelo no reportado con brecha significativa. El plan financiero revisado eleva el tipo de cambio promedio proyectado para 2026.</p>
+  </div>
+
+  <!-- QUÉ VIGILAR HOY -->
+  <div class="vigilar">
+    <h3>Qué Vigilar Hoy</h3>
+    <ul>
+      <li>Declaraciones de la Corte Suprema sobre el proceso a los seis congresistas del caso UNGRD y posibles implicaciones para la conformación del nuevo Congreso que inicia el 20 de julio.</li>
+      <li>Señales del Banco de la República sobre la decisión de tasa del 31 de marzo; cualquier comunicado o intervención de codirectores moverá la curva de deuda y el tipo de cambio.</li>
+      <li>Reacción del sector lechero al cierre de Gloria Foods en Cogua: posibles efectos en precios al consumidor y decisiones de otros operadores del segmento.</li>
+      <li>Avance de la campaña presidencial: pronunciamientos de Paloma Valencia e Iván Cepeda sobre economía y seguridad, los ejes que definirán la primera vuelta del 31 de mayo.</li>
+      <li>Informe técnico de la Aerocivil al MinTransporte sobre incidentes aéreos recientes y eventual impacto regulatorio sobre Avianca y otras aerolíneas que operan en Colombia.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Fuentes consultadas: El Tiempo &middot; El Colombiano &middot; Semana &middot; Infobae Colombia &middot; El Espectador &middot; Bloomberg Línea &middot; BBVA Research &middot; Banco de la República &middot; DANE &middot; CNN en Español &middot; La República &middot; El País &middot; RTVC Noticias &middot; Valora Analitik</p>
+    <p style="margin-top:4px;">Briefing generado con Claude &mdash; Solo para uso informativo &middot; 17 Mar 2026</p>
+  </footer>
+
+</body>
+</html>
