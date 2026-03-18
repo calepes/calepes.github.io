@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia - 18 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #dc2626;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-mid); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Martes 18 de marzo de 2026 · La Paz</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Hoy cierra la campa&ntilde;a: el jueves comienza el silencio electoral rumbo al 22M</h3>
+    <p>Este martes 18 de marzo es el &uacute;ltimo d&iacute;a de campa&ntilde;a electoral para las subnacionales del 22 de marzo. A partir del jueves 20 rige el silencio electoral en todo el territorio nacional. M&aacute;s de 7 millones de bolivianos elegir&aacute;n 5.432 autoridades departamentales, regionales y municipales. El TSE desplegar&aacute; m&aacute;s de 1.700 observadores nacionales y recibi&oacute; 17 misiones internacionales, incluyendo delegaciones de la OEA.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Son las primeras subnacionales del ciclo post-MAS. El resultado medir&aacute; la fuerza territorial del gobierno de Paz y la fragmentaci&oacute;n del evismo, con impacto directo en la gobernabilidad para el segundo a&ntilde;o de mandato.
+    </div>
+    <span class="source-link"><a href="https://rtvu.uto.edu.bo/2026/03/17/silencio-electoral-rige-desde-este-jueves-rumbo-a-las-subnacionales/">RTVU</a> · <a href="https://abi.bo/mas-de-1-700-observadores-se-desplegaran-en-las-subnacionales-2026-en-bolivia/">ABI</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Paz y Lula firman cinco acuerdos estrat&eacute;gicos y anuncian l&iacute;nea el&eacute;ctrica binacional</h3>
+    <p>En Brasilia, los presidentes Rodrigo Paz y Lula da Silva suscribieron cinco convenios de cooperaci&oacute;n en energ&iacute;a, hidrocarburos, seguridad fronteriza, turismo e integraci&oacute;n aduanera. El acuerdo m&aacute;s significativo es la construcci&oacute;n de una l&iacute;nea de transmisi&oacute;n el&eacute;ctrica entre Germ&aacute;n Busch (Santa Cruz) y Corumb&aacute; (Brasil). Una delegaci&oacute;n de 110 empresarios bolivianos particip&oacute; en encuentros bilaterales de negocios.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La interconexi&oacute;n el&eacute;ctrica con Brasil diversifica la matriz energ&eacute;tica y abre una fuente de divisas en un momento de escasez cr&iacute;tica de d&oacute;lares. Los acuerdos comerciales pueden acelerar exportaciones no tradicionales.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/mundo/2026/03/16/lula-da-silva-y-rodrigo-paz-acordaron-tender-una-linea-electrica-entre-bolivia-y-brasil/">Infobae</a> · <a href="https://www.opinion.com.bo/articulo/pais/bolivia-brasil-firman-acuerdos-cooperacion-cinco-ejes/20260317000042990164.html">Opini&oacute;n</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Tarija declara desastre departamental por inundaciones: 34 muertos y 132.000 familias afectadas</h3>
+    <p>La Gobernaci&oacute;n de Tarija emiti&oacute; el Decreto 011/2026 declarando desastre departamental por los da&ntilde;os acumulados desde octubre de 2025. A nivel nacional, las lluvias han dejado 34 fallecidos, 13 desaparecidos, 2.500 viviendas destruidas y 53 municipios en situaci&oacute;n de desastre. En Tarija, los municipios m&aacute;s afectados son El Puente, Yunchar&aacute;, Uriondo, Bermejo y Entre R&iacute;os.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La declaratoria de desastre habilita fondos de emergencia y cooperaci&oacute;n internacional. La destrucci&oacute;n de infraestructura agr&iacute;cola en Tarija amenaza la seguridad alimentaria regional y presiona las ya ajustadas finanzas p&uacute;blicas.
+    </div>
+    <span class="source-link"><a href="https://www.reduno.com.bo/noticias/tarija-se-declara-en-desastre-departamental-por-lluvias-e-inundaciones-2026317111347">Red Uno</a> · <a href="https://eldeber.com.bo/pais/lluvias-deslizamientos-riadas-causan-34-muertes-afectan-132-000-familias_1773399064">El Deber</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>El d&oacute;lar paralelo se mantiene en Bs 9,25 mientras el BCB fija referencial en Bs 9,21</h3>
+    <p>El tipo de cambio oficial sigue congelado en Bs 6,96 por d&oacute;lar, pero las operaciones reales se realizan al tipo referencial del Banco Central (Bs 9,21 compra / Bs 9,40 venta) y al paralelo (Bs 9,25). La brecha entre el oficial y el paralelo supera el 32%, aunque se ha estabilizado en las &uacute;ltimas semanas tras el proceso de unificaci&oacute;n cambiaria.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La convergencia entre el referencial del BCB y el paralelo indica que la unificaci&oacute;n cambiaria avanza, pero la brecha del 32% con el oficial sigue distorsionando costos de importaci&oacute;n y complicando la planificaci&oacute;n financiera empresarial.
+    </div>
+    <span class="source-link"><a href="https://www.dolarboliviahoy.com/">Dolar Bolivia Hoy</a> · <a href="https://www.bcb.gob.bo/?q=cotizaciones_tc">BCB</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>La Verde ya est&aacute; en Monterrey: el 26 de marzo enfrenta a Surinam por el repechaje mundialista</h3>
+    <p>La selecci&oacute;n boliviana lleg&oacute; a Monterrey para disputar el repechaje intercontinental rumbo al Mundial 2026. El primer partido ser&aacute; el 26 de marzo contra Surinam en el estadio BRAVA. Bolivia cerr&oacute; su preparaci&oacute;n con una goleada 3-0 sobre Trinidad y Tobago en Santa Cruz. El t&eacute;cnico Villegas convoc&oacute; 28 jugadores, con la sorpresa de Juan Godoy y la ausencia de Marcelo Moreno Martins.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Bolivia no va a un Mundial desde 1994. Una clasificaci&oacute;n tendr&iacute;a impacto econ&oacute;mico en turismo, merchandising y moral nacional, adem&aacute;s de generar un efecto unificador en un contexto pol&iacute;tico polarizado.
+    </div>
+    <span class="source-link"><a href="https://www.bolivia.com/futbol/la-seleccion/la-seleccion-de-bolivia-ya-esta-en-monterrey-y-se-alista-para-el-repechaje-574002">Bolivia.com</a> · <a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16417871/bolivia-vs-surinam-repechaje-mundial-2026-equipo-fecha-hora-tv-en-vivo">ESPN</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>TSE define agenda final: el domingo 22 de marzo se eligen 5.432 autoridades en todo el pa&iacute;s</h3>
+  <p>El Tribunal Supremo Electoral confirm&oacute; el operativo log&iacute;stico definitivo para las subnacionales. Se instalar&aacute;n m&aacute;s de 35.000 mesas de sufragio. Las elecciones ser&aacute;n el term&oacute;metro de la nueva correlaci&oacute;n de fuerzas tras el fin del ciclo masista, con un sistema fragmentado entre partidos nacionales debilitados y agrupaciones ciudadanas regionales.</p>
+  <span class="source-link"><a href="https://rtvu.uto.edu.bo/2026/03/17/tse-define-agenda-final-rumbo-a-las-elecciones-subnacionales-del-22-de-marzo/">RTVU</a> · <a href="https://www.vision360.bo/noticias/2026/03/15/41532-subnacionales-2026-el-verdadero-termometro-politico">Visi&oacute;n 360</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Banco Mundial proyecta ca&iacute;da del PIB de -1,1% para Bolivia en 2026</h3>
+  <p>Bolivia ser&iacute;a el &uacute;nico pa&iacute;s sudamericano en recesi&oacute;n este a&ntilde;o seg&uacute;n el Banco Mundial. El modelo basado en gas se agot&oacute; y los desequilibrios acumulados (d&eacute;ficit fiscal, escasez de divisas, baja productividad) ya no pueden posponerse. El ministro Espinoza, sin embargo, anticip&oacute; que Bolivia podr&iacute;a registrar crecimiento positivo gracias al Plan Estrat&eacute;gico 2026-2030.</p>
+  <span class="source-link"><a href="https://rtpbolivia.com.bo/economia/bolivia-decrecera-en-2026-dice-banco-mundial/">RTP Bolivia</a> · <a href="https://www.bloomberglinea.com/latinoamerica/bolivia/exclusiva-economia-de-bolivia-vera-crecimiento-positivo-en-2026-dice-ministro-espinoza/">Bloomberg L&iacute;nea</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Alza del petr&oacute;leo agravar&iacute;a d&eacute;ficit fiscal, escasez de d&oacute;lares y dependencia de importaciones</h3>
+  <p>Un an&aacute;lisis de El Diario advierte que la subida del precio internacional del petr&oacute;leo empeorar&aacute; simult&aacute;neamente tres problemas estructurales de la econom&iacute;a boliviana: el d&eacute;ficit fiscal, la escasez de divisas y la creciente dependencia de combustibles importados. Bolivia cerr&oacute; 2025 con inflaci&oacute;n del 20,4%, la m&aacute;s alta en casi 40 a&ntilde;os.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/03/13/alza-del-precio-del-petroleo-empeorara-tres-problemas-de-la-economia-nacional/">El Diario</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Delegaci&oacute;n de 110 empresarios bolivianos participa en encuentros bilaterales con Brasil</h3>
+  <p>Representantes de los sectores agropecuario, energ&eacute;tico, minero, qu&iacute;mico y farmac&eacute;utico bolivianos se reunieron con contrapartes brasile&ntilde;as durante la visita presidencial a Brasilia. El objetivo es diversificar exportaciones y expandir oportunidades de negocio m&aacute;s all&aacute; del gas natural, que sigue siendo el principal producto de exportaci&oacute;n a Brasil.</p>
+  <span class="source-link"><a href="https://www.instantaneas.tic.bo/2026/03/16/politica/politica-boliviana-internacional/paz-brasil-acuerdos-lula-delegacion-empresarial/">Instant&aacute;neas</a> · <a href="https://www.atb.com.bo/2026/03/16/bolivia-y-brasil-firman-cinco-acuerdos-estrategicos/">ATB</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>La Paz: dos viviendas colapsaron y diez resultaron anegadas por fuerte granizada</h3>
+  <p>La Alcald&iacute;a de La Paz report&oacute; que una intensa granizada del domingo provoc&oacute; el colapso de dos viviendas y aneg&oacute; otras diez. Los equipos de emergencia municipal atendieron las zonas afectadas. El evento se suma a la temporada de lluvias extremas que ha golpeado m&uacute;ltiples regiones del pa&iacute;s.</p>
+  <span class="source-link"><a href="https://abi.bo/">ABI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>F&uacute;tbol boliviano regresar&aacute; el 5 de abril con formato todos contra todos</h3>
+  <p>El Consejo Superior de la Divisi&oacute;n Profesional confirm&oacute; que el campeonato dom&eacute;stico arranca el 5 de abril de 2026 bajo un sistema de todos contra todos. Mientras tanto, la atenci&oacute;n deportiva se centra en el repechaje mundialista de Monterrey, donde Bolivia busca volver a una Copa del Mundo despu&eacute;s de 32 a&ntilde;os.</p>
+  <span class="source-link"><a href="https://www.opinion.com.bo/articulo/deportes/oficialmente-futbol-boliviano-regresa-abril-tendra-dos-torneos/20260317000030990163.html">Opini&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Embajador de China en Bolivia expone objetivos de desarrollo y cooperaci&oacute;n</h3>
+  <p>El embajador chino en La Paz present&oacute; los lineamientos de cooperaci&oacute;n bilateral entre ambos pa&iacute;ses, alineados con los objetivos de desarrollo de Beijing. La presencia diplom&aacute;tica china se da en paralelo al acercamiento de Bolivia con Brasil, en un contexto donde el pa&iacute;s busca diversificar sus alianzas comerciales y fuentes de financiamiento.</p>
+  <span class="source-link"><a href="https://www.prensa-latina.cu/2026/03/18/embajador-de-china-en-bolivia-expone-objetivos-de-desarrollo/">Prensa Latina</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
+    <div class="data-cell-value">6,96</div>
+    <div class="data-cell-delta">Bs/USD (sin cambio)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">9,25</div>
+    <div class="data-cell-delta red">Bs/USD</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">32,9%</div>
+    <div class="data-cell-delta red">Oficial vs. paralelo</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Cierre de campa&ntilde;a electoral: &uacute;ltimos actos p&uacute;blicos antes del silencio del jueves. Monitorear posibles incidentes o tensiones de &uacute;ltima hora en plazas departamentales.</div>
+  <div class="vigilar-item">Avance de la emergencia clim&aacute;tica: pron&oacute;sticos indican continuidad de lluvias en el sur y oriente. Posibles nuevas declaratorias de desastre en Chuquisaca y Cochabamba.</div>
+  <div class="vigilar-item">Reacciones del mercado a los acuerdos Bolivia-Brasil: impacto en expectativas de inversi&oacute;n y posibles movimientos en el tipo de cambio paralelo tras el anuncio de interconexi&oacute;n el&eacute;ctrica.</div>
+</div>
+
+<div class="footer">
+  Fuentes: ABI · El Deber · Opini&oacute;n · Red Uno · Infobae · Bloomberg L&iacute;nea · BCB · ESPN · RTP Bolivia · Prensa Latina · Visi&oacute;n 360 · ATB<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
