@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia - 18 Marzo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #e6a84d;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Martes 18 de marzo de 2026 · Bogota</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro ordena liquidar EPS en quiebra y desata crisis en el sistema de salud</h3>
+    <p>Tras el hundimiento de la reforma a la salud en el Congreso y el bloqueo judicial del decreto de reorganizacion territorial, el presidente Gustavo Petro ordeno la liquidacion inmediata de las EPS que se encuentran en estado de insolvencia. La medida podria afectar a mas de 20 millones de afiliados. El Gobierno rechazo asumir la deuda de 50 billones de pesos del sistema.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La liquidacion de las EPS representa la mayor reestructuracion del sistema de salud colombiano en decadas. La incertidumbre sobre la continuidad de servicios para millones de usuarios genera riesgo social y politico a menos de cinco meses de las elecciones presidenciales.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/gobierno-petro-liquidara-eps-en-quiebra-y-no-asumira-deuda-de-50-billones-tras-caida-de-reforma-a-la-salud/">Infobae</a> · <a href="https://www.vanguardia.com/colombia/2026/03/17/petro-ordena-liquidar-eps-en-quiebra-y-desata-controversia-nacional/">Vanguardia</a> · <a href="https://www.elcolombiano.com/colombia/salud/petro-vuelve-jaque-sistema-salud-anuncio-liquidar-eps-quebradas-NJ34689523">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Petro anuncia nueva reforma tributaria para el 20 de julio</h3>
+    <p>Durante el Consejo de Ministros del 16 de marzo, el presidente confirmo que presentara una nueva reforma tributaria ante el Congreso entrante el 20 de julio. La reforma anterior fue archivada por el Senado en diciembre de 2025 tras buscar recaudar entre 16,3 y 26,3 billones de pesos. Petro critico al Congreso y la Corte Constitucional por bloquear sus iniciativas fiscales.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Con el mandato de Petro terminando el 7 de agosto, la viabilidad de esta reforma depende enteramente del nuevo Congreso. El anuncio genera incertidumbre fiscal y podria influir en las decisiones de inversion privada durante el periodo de transicion.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/la-reforma-tributaria-se-presentara-de-nuevo-el-20-de-julio-gustavo-petro-lanza-anuncio-desde-el-consejo-de-ministros/202649/">Semana</a> · <a href="https://www.infobae.com/colombia/2026/03/17/gustavo-petro-confirmo-que-los-colombianos-tendran-que-pagar-mas-impuestos-debido-a-nueva-reforma-anuncio-la-fecha-exacta/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Banco de la Republica proyecta inflacion de 5,45% en marzo y advierte que seguira alta</h3>
+    <p>Estimaciones del Banco de la Republica y el Ministerio de Hacienda indican que la inflacion en marzo se ubicaria en 5,45% anual. Aunque en febrero bajo a 7,74% interanual (el nivel mas bajo desde abril de 2022), la cifra sigue lejos de la meta del 3%. El emisor proyecta un repunte hacia 6,5% al cierre de 2026 por efectos del salario minimo y factores climaticos.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La persistencia inflacionaria condiciona la politica monetaria: el Banco de la Republica podria elevar la tasa de referencia hasta 12,25% antes de iniciar recortes en 2027, encareciendo el credito para empresas y hogares en pleno ciclo electoral.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/asi-cerraria-el-ipc-de-marzo-de-2026-en-colombia-dato-revelado-por-el-banco-de-la-republica-confirma-que-todo-seguira-caro/">Infobae</a> · <a href="https://www.bbvaresearch.com/en/publicaciones/colombia-economic-outlook-march-2026/">BBVA Research</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Megamovidas empresariales: Gilinski entra al petroleo y Tigo-Movistar se consolidan</h3>
+    <p>En los primeros 75 dias de 2026, una serie de compras, ventas y fusiones sacudio sectores clave. Los tres movimientos mas relevantes: la venta de activos de Cemex en Colombia, la integracion entre Tigo y Movistar en telecomunicaciones, y la entrada del Grupo Gilinski al negocio petrolero regional. La inversion extranjera directa cayo 21% en el primer bimestre por la inestabilidad juridica.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La recomposicion de capital en sectores estrategicos senala que los grandes jugadores estan apostando a la transicion de gobierno. La caida de la IED, sin embargo, refleja que la incertidumbre regulatoria sigue frenando nuevas inversiones.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> · <a href="https://www.semana.com/economia/macroeconomia/articulo/las-empresas-colombianas-entran-a-2026-con-mas-amenazas-que-certezas/202619/">Semana</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Nueve sismos sacuden Colombia en una sola jornada</h3>
+    <p>El Servicio Geologico Colombiano registro al menos nueve temblores durante el martes 17 de marzo. El mas significativo alcanzo magnitud 4.0 con epicentro en Los Santos, Santander, a 147 kilometros de profundidad. No se reportaron danos estructurales ni victimas, aunque la actividad sismica inusual genero alerta en varias regiones del pais.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La concentracion de eventos sismicos en una sola jornada pone en foco la preparacion del pais ante desastres naturales y la necesidad de actualizar protocolos de respuesta, especialmente en zonas de alta densidad poblacional como el area metropolitana de Bucaramanga.
+    </div>
+    <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-17-de-marzo-de-2026-1003186">Noticias RCN</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Carrera presidencial: Cepeda y Valencia lideran las encuestas rumbo al 31 de mayo</h3>
+  <p>Tras las elecciones legislativas del 8 de marzo, el panorama presidencial se definio con Ivan Cepeda (Pacto Historico) y Paloma Valencia (Centro Democratico) como los candidatos emergentes de las consultas interpartidistas. Cepeda inscribio su formula vicepresidencial Aida Quilcue el 11 de marzo. La aprobacion de Petro oscila entre 37,5% (Atlas-Intel) y 54% (otras mediciones), reflejando la polarizacion del electorado.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN</a> · <a href="https://www.infobae.com/colombia/2026/03/09/petro-afirma-que-el-pacto-historico-arraso-en-las-elecciones-al-congreso-y-anuncia-prioridad-a-la-reforma-a-la-salud/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Cambio Radical responsabiliza al Gobierno por la crisis en salud</h3>
+  <p>El partido Cambio Radical se pronuncio contra el presidente Petro por la situacion del sistema de salud, afirmando que la responsabilidad de la crisis recae directamente en la Presidencia. La Superintendencia de Salud, por su parte, emitio un comunicado buscando dar tranquilidad sobre la continuidad de los servicios durante el proceso de liquidacion de las EPS.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/el-responsable-esta-en-palacio-cambio-radical-se-despacho-contra-gustavo-petro-por-crisis-en-el-sistema-de-salud/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Produccion industrial retrocede 0,5% en enero y la economia crece por debajo del potencial</h3>
+  <p>El Indice de Produccion Industrial registro una variacion anual negativa de -0,5% en enero de 2026. Las proyecciones de crecimiento para el ano se ubican entre 2,3% y 3,0%, con el FMI en el extremo bajo. Los principales obstaculos: baja productividad, informalidad laboral persistente y dificultades fiscales.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/economia/la-industria-colombiana-empieza-2026-entre-avances-y-retrocesos/">El Espectador</a> · <a href="https://www.infobae.com/colombia/2026/03/02/hay-malas-noticias-para-los-que-esperan-que-colombia-tenga-un-mejor-crecimiento-economico-en-2026-fmi-dio-cifras-desalentadoras/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Emprendimiento Digital 2026: MinTIC e iNNpulsa lanzan programa de apoyo</h3>
+  <p>El Ministerio de Tecnologias de la Informacion, el Ministerio de Comercio e iNNpulsa Colombia lanzaron el Programa de Emprendimiento Digital 2026, orientado a convertir ideas en negocios viables. Paralelamente, la Camara de Comercio de Bogota proyecta impactar a 230.000 empresarios y generar mas de 590.000 oportunidades comerciales, un incremento de 127% frente a 2025.</p>
+  <span class="source-link"><a href="https://www.trendtic.cl/2026/03/colombia-emprendimiento-digital-2026-es-la-gran-apuesta-del-gobierno-para-que-mas-personas-conviertan-sus-ideas-en-ingresos/">TrendTIC</a> · <a href="https://www.ccb.org.co/es/de-interes/comunicados/la-camara-de-comercio-de-bogota-impactara-a-230000-empresarios-y-generara-mas-de-590000-oportunidades-comerciales-durante-2026">CCB</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Petro impulsa asamblea indigena en Santa Marta antes del fin de su mandato</h3>
+  <p>El presidente confirmo su intencion de convocar una gran asamblea de pueblos indigenas en Santa Marta, Magdalena, como una de sus ultimas iniciativas de gobierno. La medida se enmarca en la estrategia para fortalecer la organizacion de comunidades indigenas en medio del pulso electoral.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/asi-es-ruta-del-gobierno-petro-para-fortalecer-grupos-indigenas-en-medio-de-pulso-electoral/">El Espectador</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 12: Millonarios goleo 3-0 a Nacional en El Campin</h3>
+  <p>En el partido mas destacado de la jornada, Millonarios derroto contundentemente 3-0 a Atletico Nacional con goles de Rodrigo Contreras, Mateo Garcia y Leonardo Castro. En el otro encuentro del martes, Llaneros y Cucuta Deportivo igualaron 2-2 en Villavicencio. Nacional se mantiene lider de la tabla con un partido menos disputado.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/como-quedo-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-tras-millonarios-3-0-nacional-so35">GolCaracol</a> · <a href="https://www.espn.com/soccer/match/_/gameId/401850820">ESPN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Financiero</span>
+  <h3>Petroleo Brent repunta a USD 103 por barril; peso colombiano se fortalece en la region</h3>
+  <p>El crudo Brent, referencia para Colombia, cerro en USD 103 por barril con un repunte significativo. A nivel regional, las monedas latinoamericanas se apreciaron frente al dolar, lo que contribuyo a contener la presion sobre la TRM. El comercio en Bogota crecio 2,1% en febrero frente al mismo mes de 2025.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-en-el-cierre-de-hoy-17-de-marzo-de-2026-1003015">Noticias RCN</a> · <a href="https://observatorio.desarrolloeconomico.gov.co/publicaciones/boletines/en-febrero-de-2026-las-empresas-de-comercio-de-bogota-aumentaron-21-frente-al-mismo-mes-de-2025/">Observatorio Bogota</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar TRM</div>
+    <div class="data-cell-value">$3.691</div>
+    <div class="data-cell-delta red">&#9650; +6,37 (0,17%)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Cierre</div>
+    <div class="data-cell-value">$3.693</div>
+    <div class="data-cell-delta red">&#9650; +10,32</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brent</div>
+    <div class="data-cell-value">$103</div>
+    <div class="data-cell-delta green">&#9650; Repunte</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Reaccion de las EPS y gremios de salud a la orden de liquidacion: posibles acciones judiciales y plan de transicion de afiliados.</div>
+  <div class="vigilar-item">Movimientos de las campanas presidenciales de Cepeda y Valencia ante la crisis de salud: definiciones programaticas clave a 74 dias de las elecciones.</div>
+  <div class="vigilar-item">Comportamiento de la TRM tras el repunte del petroleo: si el Brent se sostiene sobre USD 100, el peso podria consolidar su apreciacion regional.</div>
+  <div class="vigilar-item">Continuacion de la fecha 12 de la Liga BetPlay: partidos pendientes que definiran posiciones en la zona de clasificacion.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · Semana · El Tiempo · El Espectador · El Colombiano · Noticias RCN · Vanguardia · CNN · ESPN · BBVA Research · Banco de la Republica<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
