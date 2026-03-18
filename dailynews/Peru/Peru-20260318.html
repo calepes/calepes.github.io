@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Ejecutivo Perú — 18 Mar 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #18181b;
+      --paper: #fafafa;
+      --accent: #1a4a6b;
+      --accent-soft: #eff6ff;
+      --accent-mid: #7ba8c9;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --muted: #78716c;
+      --pill-pol: #1e40af;
+      --pill-pol-bg: #eff6ff;
+      --pill-eco: #065f46;
+      --pill-eco-bg: #ecfdf5;
+      --pill-emp: #7c2d12;
+      --pill-emp-bg: #fff7ed;
+      --pill-soc: #6b21a8;
+      --pill-soc-bg: #faf5ff;
+      --pill-dep: #0369a1;
+      --pill-dep-bg: #f0f9ff;
+      --pill-int: #374151;
+      --pill-int-bg: #f3f4f6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Sora', sans-serif;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Masthead */
+    .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+    .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+    /* Top 5 */
+    .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+    .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+    .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+    .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+    /* Why box */
+    .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+    .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+    /* Sources */
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    /* Section divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    /* News items */
+    .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+    /* Data strip (tipo de cambio) */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+    .data-cell:last-child { border-right: none; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+    .green { color: #16a34a; }
+    .red { color: #dc2626; }
+
+    /* Qué vigilar */
+    .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-mid); margin-bottom: 14px; opacity: 0.9; }
+    .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '→'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .data-cell:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Miércoles 18 de marzo de 2026 · Lima</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="top5-header">Top 5 del Día</div>
+
+  <div class="top5-card">
+    <div class="top5-num">01</div>
+    <div class="top5-content">
+      <h3>López Aliaga y Keiko en empate técnico a 26 días de las elecciones</h3>
+      <p>La encuesta Datum publicada el 16 de marzo sitúa a Rafael López Aliaga (Renovación Popular) en 11,4% y a Keiko Fujimori (Fuerza Popular) en 10,9%, dentro del margen de error. Wolfgang Grozo Costa continúa escalando posiciones. El bloque indeciso y de voto blanco o viciado supera el 21%, número mayor al respaldo de cualquier candidato individual. Las elecciones generales se celebran el 12 de abril.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Con una segunda vuelta casi segura, la fragmentación del voto y el alto porcentaje de indecisos hace imprevisible la composición del próximo gobierno. Cualquier empresa con contratos estatales o proyectos bajo regulación debe monitorear los planes de cada candidato en materia fiscal y minería.
+      </div>
+      <span class="source-link"><a href="https://rpp.pe/politica/elecciones/encuesta-datum-estos-son-los-candidatos-que-lideran-las-preferencias-electorales-para-la-presidencia-de-la-republica-noticia-1680206">RPP / Datum</a> · <a href="https://www.infobae.com/peru/2026/03/16/elecciones-2026-keiko-fujimori-vuelve-al-segundo-lugar-y-wolfgang-grozo-sigue-subiendo-en-las-preferencias-segun-encuesta/">Infobae</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">02</div>
+    <div class="top5-content">
+      <h3>Mafias del oro amplían economías ilegales y amenazan la seguridad nacional</h3>
+      <p>Un informe publicado el 16 de marzo revela que organizaciones criminales extraen oro en cantidades industriales en nueve regiones amazónicas, incluyendo Madre de Dios, Puno y Loreto. Más de 200 ríos registran presencia de dragas y maquinaria ilegal. El fenómeno alimenta redes de sicariato, tráfico de personas y corrupción regional, y opera con estructuras similares a carteles. El Ejecutivo promulgó el Decreto Legislativo N.° 1695 para tipificar la minería ilegal como crimen organizado.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La expansión del crimen organizado minero presiona la inversión formal al encarecer los seguros, dificultar las operaciones en zonas aledañas y deteriorar la imagen del país ante inversionistas internacionales. Además, la proximidad de las elecciones convierte este tema en variable política de alto riesgo.
+      </div>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/16/mafias-extraen-oro-en-enormes-cantidades-en-peru-y-amplian-economias-ilegales-que-afectan-ambiente-y-seguridad/">Infobae Perú</a> · <a href="https://es.mongabay.com/2026/02/mineria-ilegal-peru-deforestacion-contaminacion-asesinatos/">Mongabay</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">03</div>
+    <div class="top5-content">
+      <h3>ONPE incorpora tecnología RFID para trazabilidad total del material electoral</h3>
+      <p>La Oficina Nacional de Procesos Electorales presentó el 17 de marzo su nuevo sistema de ensamblaje con etiquetas RFID en cada caja electoral, lo que permite identificar y rastrear el contenido sin abrirlas. Los vehículos de distribución llevarán GPS. La entrega a las Oficinas Descentralizadas comienza el 28 de marzo; los locales de votación de Lima y Callao recibirán el material el 10 de abril, dos días antes de los comicios.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La adopción de RFID reduce el margen de manipulación del material electoral y fortalece la cadena de custodia en un proceso que se realiza bajo presidencia interina. Una logística robusta es clave para la legitimidad del resultado y la gobernabilidad post-electoral.
+      </div>
+      <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/17/onpe-presenta-moderno-proceso-de-ensamblaje-con-tecnologia-rfid-para-las-elecciones-2026-sistema-permitira-rastrear-cada-caja-sin-abrirla-hnews-915654">La República</a> · <a href="https://www.rcrperu.com/onpe-moderniza-ensamblaje-de-material-electoral-con-tecnologia-rfid-para-las-elecciones/">RCR Perú</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">04</div>
+    <div class="top5-content">
+      <h3>Inversión minera formal supera US$ 7,600 millones con ocho proyectos en ejecución</h3>
+      <p>La cartera minera 2026 contempla el inicio de ocho proyectos por un total de US$ 7,619 millones, entre ellos Corani (Puno), ampliación de Cerro Verde (Arequipa) y reposición San Rafael (Puno). La inversión minera total proyectada para el año asciende a US$ 6,400 millones, el nivel más alto en una década. El sector representa el 8,5% del PBI y el 63,9% de las exportaciones nacionales.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        El ciclo de inversión minera es el principal motor del crecimiento peruano en 2026. Su ejecución depende de la estabilidad política post-electoral y de la capacidad del próximo gobierno de mantener los marcos contractuales vigentes. El resultado del 12 de abril definirá el apetito inversor del segundo semestre.
+      </div>
+      <span class="source-link"><a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gestión</a> · <a href="https://www.rumbominero.com/peru/noticias/mineria/inversion-minera-2026-2/">Rumbo Minero</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">05</div>
+    <div class="top5-content">
+      <h3>BBVA Research recorta proyección de crecimiento del PBI a 2,9% para 2026</h3>
+      <p>El informe "Situación Perú — Marzo 2026" de BBVA Research revisó a la baja la estimación de crecimiento del producto bruto interno de 3,1% a 2,9%, citando tres choques de oferta negativos acumulados. La inflación se mantiene en 2,2% —dentro del rango meta del Banco Central— y se proyecta que cerrará el año en 2,6%. El tipo de cambio cotizó a S/ 3,42 el 17 de marzo, con una baja de 0,06%.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Un crecimiento menor al esperado en año electoral reduce el margen fiscal del gobierno interino y limita la capacidad del próximo presidente de implementar promesas de gasto. La inflación controlada es el único dato positivo del cuadro macroeconómico actual.
+      </div>
+      <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a> · <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-17-de-marzo-del-2026-noticia-1680371">RPP</a></span>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+  <!-- POLÍTICO -->
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>Candidatos a vicepresidentes debaten en "Tu decisión 2026"</h3>
+    <p>El programa electoral de TVPerú recibió el 17 de marzo a los candidatos a vicepresidentes de Juntos por el Perú y del Partido Integridad Democrática, quienes expusieron sus propuestas y respondieron sobre los retos del próximo gobierno. El espacio busca ampliar la información disponible para el electorado en las semanas previas al 12 de abril, en un contexto de alta volatilidad en las preferencias.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/candidatos-a-vicepresidentes-se-presentan-en-tu-decision-2026-conoce-a-los-invitados-de-hoy-17-de-marzo">TVPerú</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>Balcázar preside el gobierno interino con plazo hasta el 28 de julio</h3>
+    <p>José María Balcázar, del partido Perú Libre y presidente del Congreso, ejerce la presidencia interina de la República luego de la destitución de Dina Boluarte en octubre de 2025 y la salida de José Jerí. Balcázar es el octavo mandatario desde el gobierno de Pedro Pablo Kuczynski y entregará el cargo al ganador de las elecciones del 12 de abril. Su rol es gestionar la transición sin grandes reformas de fondo.</p>
+    <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/02/18/latinoamerica/jose-balcazar-presidente-congreso-peru-orix">CNN en Español</a></span>
+  </div>
+
+  <!-- ECONÓMICO -->
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>MEF lanza Plan Nacional de Infraestructura 2026-2031 con 72 proyectos por S/ 144,117 millones</h3>
+    <p>El Ministerio de Economía y Finanzas presentó el nuevo Plan Nacional de Infraestructura (PNI), que incluye 72 proyectos estratégicos por un valor total de S/ 144,117 millones en sectores de transporte, energía, agua y salud. El plan busca activar la inversión pública como contrapeso a la desaceleración del crecimiento privado. La ejecución dependerá del presupuesto que apruebe el Congreso electo.</p>
+    <span class="source-link"><a href="https://www.rumbominero.com/peru/noticias/economia/mef-lanza-pni-2026-2031-con-72-proyectos/">Rumbo Minero</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar cierra a S/ 3,42: analistas prevén caída a S/ 3,25 para fin de año</h3>
+    <p>Al cierre del 17 de marzo, el tipo de cambio del dólar frente al sol peruano se situó en S/ 3,42, con una baja de 0,06%. Según el tipo de cambio SUNAT, la compra fue a S/ 3,425 y la venta a S/ 3,439. Los analistas consultados por Infobae proyectan que el sol podría apreciarse hasta S/ 3,25 al cierre del año, siempre que el proceso electoral transcurra sin turbulencias políticas mayores.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-17-de-marzo-del-2026-noticia-1680371">RPP</a> · <a href="https://www.infobae.com/peru/2026/03/12/pese-a-subida-del-dolar-divisa-podria-caer-hasta-los-s-325-para-cierre-del-ano/">Infobae</a></span>
+  </div>
+
+  <!-- EMPRESARIAL -->
+  <div class="news-item">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Empresas privadas planean invertir US$ 11,500 millones en 2026, tercer año consecutivo de crecimiento</h3>
+    <p>Según datos publicados por Gestión, la inversión privada crecerá por tercer año consecutivo, liderada por los sectores minero, energético y de infraestructura. Los proyectos en cartera incluyen expansiones en Arequipa, Puno y Áncash. El dinamismo inversor contrasta con la incertidumbre electoral y depende de que el nuevo gobierno mantenga los marcos regulatorios actuales sin modificaciones abruptas.</p>
+    <span class="source-link"><a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gestión</a></span>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="news-item">
+    <span class="pill pill-soc">Social</span>
+    <h3>MINAM aprueba guía para manejo de conflictos socioambientales en el sector minero</h3>
+    <p>El Ministerio del Ambiente publicó el 17 de marzo la "Guía para el tratamiento de los conflictos socioambientales en el sector ambiental", instrumento que establece lineamientos comunes para la prevención y gestión de disputas entre comunidades, empresas y Estado. El documento busca armonizar la participación de actores públicos y privados y fortalecer la gobernanza ambiental, un flanco crítico en regiones con alta conflictividad minera.</p>
+    <span class="source-link"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-martes-17-marzo-2026-1067232.aspx">Agencia Andina</a></span>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="news-item">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga 1: Sporting Cristal golea 3-0 a Sport Boys; Alianza Lima empata en Cusco</h3>
+    <p>En la fecha 7 del Torneo Apertura 2026, Sporting Cristal derrotó 3-0 a Sport Boys en el Estadio Nacional y se ubica entre los líderes de la tabla. Alianza Lima empató 1-1 ante Deportivo Garcilaso en el Cusco, resultado que lo mantiene compartiendo la punta con Los Chankas. Universitario venció 2-0 a UTC en el Monumental y suma su segunda victoria consecutiva. Melgar igualó 0-0 con Atlético Grau en Arequipa.</p>
+    <span class="source-link"><a href="https://libero.pe/futbol-peruano/liga-1/2026/03/13/tabla-de-posiciones-del-torneo-apertura-liga-1-peru-en-fecha-7-323778">Libero</a> · <a href="https://rpp.pe/futbol/descentralizado/tabla-de-posiciones-liga-1-2026-en-vivo-resultados-hoy-y-puestos-torneo-apertura-universitario-alianza-lima-sporting-cristal-noticia-1673748">RPP</a></span>
+  </div>
+
+  <!-- INTERNACIONAL -->
+  <div class="news-item">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Minería ilegal peruana se posiciona como amenaza de seguridad regional en Sudamérica</h3>
+    <p>Analistas y organismos internacionales señalan que las redes de extracción ilegal de oro en Perú han desbordado las fronteras nacionales y operan con estructuras transnacionales vinculadas al lavado de activos. El evento proEXPLO 2026, convocado por el Instituto de Ingenieros de Minas del Perú, dedicará un bloque temático al impacto de la minería ilegal sobre la economía y la seguridad. Líderes regionales, incluido el chileno José Antonio Kast, han alzado la voz sobre el riesgo de contagio institucional.</p>
+    <span class="source-link"><a href="https://iimp.org.pe/noticias/interna/proexplo-2026-abordara-el-impacto-de-la-mineria-ilegal-en-la-economia-y-la-seguridad-del-pais">IIMP</a> · <a href="https://www.infobae.com/peru/2026/01/08/jose-antonio-kast-preocupado-advierte-que-mineria-ilegal-en-peru-es-crimen-organizado-que-amenaza-a-toda-sudamerica/">Infobae</a></span>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip">
+    <div class="data-cell">
+      <div class="data-cell-label">Dólar Oficial (BCR)</div>
+      <div class="data-cell-value">S/ 3.42</div>
+      <div class="data-cell-delta green">▼ 0.06%</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Tipo SUNAT (venta)</div>
+      <div class="data-cell-value">S/ 3.439</div>
+      <div class="data-cell-delta" style="color: var(--muted);">— referencial</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Proyección fin de año</div>
+      <div class="data-cell-value">S/ 3.25</div>
+      <div class="data-cell-delta green">▼ apreciación</div>
+    </div>
+  </div>
+
+  <!-- QUÉ VIGILAR HOY -->
+  <div class="vigilar">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Movimientos en las encuestas electorales: con 25 días para el 12 de abril, cualquier variación de dos o más puntos en la intención de voto de los candidatos líderes puede alterar el posicionamiento de activos peruanos en mercados emergentes.</div>
+    <div class="vigilar-item">Avance del despliegue logístico de la ONPE: el 22 de marzo se inicia la entrega del material electoral al Ministerio de Relaciones Exteriores para el voto en el exterior. Retrasos o incidentes podrían generar ruido político.</div>
+    <div class="vigilar-item">Reacción del Ejecutivo al informe sobre minería ilegal: la publicación del decreto legislativo N.° 1695 está pendiente de reglamentación. Se espera que el gobierno interino defina responsabilidades institucionales antes del cierre de campaña.</div>
+    <div class="vigilar-item">Comportamiento del tipo de cambio ante volatilidad pre-electoral: el sol peruano mostró una leve apreciación el 17 de marzo, pero la incertidumbre sobre el resultado electoral podría revertir esta tendencia en los próximos días.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Fuentes: RPP · La República · Gestión · Infobae Perú · Agencia Andina · BBVA Research · Rumbo Minero · TVPerú · Libero · IIMP · El Comercio · Mongabay<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</body>
+</html>
