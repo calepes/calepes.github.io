@@ -6,489 +6,284 @@
   <title>Bolivia — Briefing Ejecutivo 17 Mar 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light only;
-      --ink: #1a1a1a;
-      --paper: #f5f0e8;
-      --accent: #8b1a1a;
-      --rule: #2a2a2a;
-      --light-rule: #c8b99a;
-      --muted: #6b5e4f;
-      --paper-dark: #ede5d8;
+      --ink: #18181b;
+      --paper: #fafafa;
+      --accent: #991b1b;
+      --accent-soft: #fef2f2;
+      --accent-mid: #fca5a5;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --muted: #78716c;
+      --pill-pol: #1e40af;
+      --pill-pol-bg: #eff6ff;
+      --pill-eco: #065f46;
+      --pill-eco-bg: #ecfdf5;
+      --pill-emp: #7c2d12;
+      --pill-emp-bg: #fff7ed;
+      --pill-soc: #6b21a8;
+      --pill-soc-bg: #faf5ff;
+      --pill-dep: #0369a1;
+      --pill-dep-bg: #f0f9ff;
+      --pill-int: #374151;
+      --pill-int-bg: #f3f4f6;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: var(--paper);
       color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      line-height: 1.55;
-      max-width: 1000px;
+      font-family: 'Sora', sans-serif;
+      line-height: 1.6;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 24px 20px;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* MASTHEAD */
-    .masthead {
-      text-align: center;
-      border-bottom: 4px double var(--rule);
-      padding-bottom: 14px;
-      margin-bottom: 16px;
-    }
-    .masthead-top {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .masthead h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(42px, 7vw, 72px);
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--ink);
-      line-height: 1;
-      margin: 6px 0 8px;
-    }
-    .masthead-subtitle {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--muted);
-    }
+    /* Masthead */
+    .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+    .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
 
-    /* RULES */
-    .thin-rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 16px 0;
-    }
-    .thick-rule {
-      border: none;
-      border-top: 3px solid var(--rule);
-      margin: 20px 0;
-    }
+    /* Top 5 */
+    .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+    .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+    .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+    .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
 
-    /* SECTION HEADERS */
-    .section-header {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      margin-bottom: 12px;
-      padding-bottom: 2px;
-    }
+    /* Why box */
+    .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+    .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
 
-    /* TOP 5 */
-    .top5-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 4px;
-    }
-    .top5-item {
-      display: flex;
-      gap: 14px;
-      border-bottom: 1px solid var(--light-rule);
-      padding: 10px 0;
-      align-items: flex-start;
-    }
-    .top5-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-      min-width: 36px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .top5-text {
-      font-size: 15px;
-      line-height: 1.5;
-      padding-top: 4px;
-    }
-    .top5-text strong {
-      font-weight: 700;
-    }
+    /* Sources */
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .source-link a:hover { text-decoration: underline; }
 
-    /* COLUMNS */
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-bottom: 20px;
-    }
-    .col-divider {
-      border-left: 1px solid var(--light-rule);
-      padding-left: 28px;
-    }
-    .col-section {
-      margin-bottom: 22px;
-    }
+    /* Section divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
 
-    /* NEWS ITEMS */
-    .item {
-      font-size: 14.5px;
-      text-align: justify;
-      hyphens: auto;
-      margin-bottom: 13px;
-      line-height: 1.55;
-    }
-    .source-link {
-      color: var(--muted);
-      font-size: 12px;
-      font-style: italic;
-    }
-    .source-link a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .source-link a:hover {
-      text-decoration: underline;
-    }
+    /* News items */
+    .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
 
-    /* TIPO DE CAMBIO */
-    .tc-box {
-      background: var(--paper-dark);
-      border: 1px solid var(--light-rule);
-      padding: 14px 18px;
-      margin-bottom: 20px;
-    }
-    .tc-box h3 {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .tc-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .tc-item {
-      text-align: center;
-    }
-    .tc-label {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 2px;
-    }
-    .tc-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .tc-sub {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 10px;
-      color: var(--muted);
-      display: block;
-    }
-    .tc-brecha {
-      color: var(--accent);
-      font-weight: 700;
-    }
+    /* Data strip (tipo de cambio) */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+    .data-cell:last-child { border-right: none; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+    .green { color: #16a34a; }
+    .red { color: #dc2626; }
 
-    /* QUE VIGILAR */
-    .vigilar {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-    .vigilar h3 {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: #d4a574;
-      margin-bottom: 10px;
-    }
-    .vigilar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .vigilar li {
-      font-size: 14px;
-      line-height: 1.5;
-      padding: 5px 0 5px 20px;
-      position: relative;
-      border-bottom: 1px solid rgba(200,185,154,0.2);
-    }
-    .vigilar li:last-child {
-      border-bottom: none;
-    }
-    .vigilar li::before {
-      content: '\2192';
-      color: #d4a574;
-      position: absolute;
-      left: 0;
-      font-size: 14px;
-    }
+    /* Qué vigilar */
+    .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-mid); margin-bottom: 14px; opacity: 0.9; }
+    .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
 
-    /* FOOTER */
-    .footer {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-      text-align: center;
-      border-top: 2px solid var(--rule);
-      padding-top: 12px;
-      line-height: 1.8;
-    }
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
 
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .columns {
-        grid-template-columns: 1fr;
-      }
-      .col-divider {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid var(--light-rule);
-        padding-top: 16px;
-      }
-      .tc-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .masthead-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
-      }
+    /* Responsive */
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .data-cell:last-child { border-bottom: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- MASTHEAD -->
-  <header class="masthead">
-    <div class="masthead-top">
-      <span>Briefing Ejecutivo</span>
-      <span>Edici&oacute;n Diaria</span>
-      <span>Confidencial</span>
-    </div>
+  <div class="masthead">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
     <h1>Bolivia</h1>
-    <div class="masthead-subtitle">Lunes 17 de marzo de 2026 &mdash; Informaci&oacute;n al 16 de marzo</div>
-  </header>
-
-  <hr class="thin-rule">
-
-  <!-- TOP 5 DEL DÍA -->
-  <div class="section-header">Top 5 del D&iacute;a</div>
-  <div class="top5-grid">
-
-    <div class="top5-item">
-      <span class="top5-num">1</span>
-      <div class="top5-text">
-        <strong>La Selecci&oacute;n boliviana ya est&aacute; en Monterrey</strong> para disputar el repechaje intercontinental al Mundial 2026 contra Surinam el 26 de marzo. Bolivia busca su primera clasificaci&oacute;n a una Copa del Mundo en 32 a&ntilde;os; el DT &Oacute;scar Villegas convoc&oacute; a 28 jugadores y el kines&iacute;ologo Rudy Romero aclar&oacute; el estado f&iacute;sico de Lucas Macazaga. <span class="source-link">(<a href="https://www.luznoticias.mx/2026-03-16/deportes/bolivia-ya-esta-en-monterrey-para-el-repechaje-hacia-la-copa-del-mundo-2026/281913">Luz Noticias</a>, <a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16442916/bolivia-vs-trinidad-y-tobago-goleo-ultimo-partido-preparacion-repechaje-mundial-2026">ESPN</a>)</span>
-      </div>
-    </div>
-
-    <div class="top5-item">
-      <span class="top5-num">2</span>
-      <div class="top5-text">
-        <strong>La Fiscal&iacute;a a&uacute;n no recibi&oacute; la querella del gobierno por el supuesto sabotaje en YPFB</strong>, a casi dos semanas del anuncio presidencial de Rodrigo Paz. El ejecutivo denunci&oacute; da&ntilde;os deliberados a la calidad de combustibles y militariz&oacute; 16 plantas; la demora procesal genera interrogantes sobre la solidez del caso. <span class="source-link">(<a href="https://www.eldiario.net/portal/2026/03/13/fiscalia-aun-no-recibe-querella-sobre-caso-sabotaje-en-ypfb-2/">El Diario</a>)</span>
-      </div>
-    </div>
-
-    <div class="top5-item">
-      <span class="top5-num">3</span>
-      <div class="top5-text">
-        <strong>La Procuradur&iacute;a entrega a la ABC un informe sobre posibles irregularidades en la doble v&iacute;a El Sillar</strong> y abre la puerta a acciones legales. El fiscal Hugo Le&oacute;n La Faye present&oacute; el documento al presidente de la ABC, Ernesto Farf&aacute;n, se&ntilde;alando que se cambi&oacute; el dise&ntilde;o original del proyecto, tornando inviable la obra ejecutada. En enero fue detenido el exministro Edgar Monta&ntilde;o. <span class="source-link">(<a href="https://larazon.bo/economia-y-empresa/2026/03/16/procuraduria-entrega-informe-sobre-el-sillar-a-la-abc-para-revision-y-posibles-acciones-legales/">La Raz&oacute;n</a>)</span>
-      </div>
-    </div>
-
-    <div class="top5-item">
-      <span class="top5-num">4</span>
-      <div class="top5-text">
-        <strong>Debate de candidatos a la Alcald&iacute;a de Santa Cruz de la Sierra</strong> se realiz&oacute; la noche del domingo, con el momento m&aacute;s tenso al cierre del bloque cuando el candidato Saavedra anunci&oacute; que impulsará procesos para recuperar recursos p&uacute;blicos. Faltan seis d&iacute;as para las elecciones subnacionales del 22 de marzo. <span class="source-link">(<a href="https://eju.tv/2026/03/agenda-informativa-jornada-de-debates-de-candidatos-a-alcaldes-a-una-semana-de-las-elecciones-subnacionales/">eju.tv</a>)</span>
-      </div>
-    </div>
-
-    <div class="top5-item">
-      <span class="top5-num">5</span>
-      <div class="top5-text">
-        <strong>La inflaci&oacute;n boliviana cedi&oacute; al 17,41% interanual en febrero</strong>, desde el 19,64% de enero, aunque economistas advierten que la correcci&oacute;n es puntual y no marca tendencia. El IIF anticipa un ajuste del tipo de cambio oficial hacia Bs 9 alrededor de mediados de 2026, lo que agravar&iacute;a las presiones sobre precios. <span class="source-link">(<a href="https://www.bloomberglinea.com/latinoamerica/bolivia/inflacion-en-bolivia-cede-y-cae-al-1741-interanual-en-febrero-pero-las-presiones-persisten/">Bloomberg L&iacute;nea</a>)</span>
-      </div>
-    </div>
-
+    <div class="masthead-date">Lunes 16 de marzo de 2026 &nbsp;&middot;&nbsp; La Paz</div>
+    <div class="masthead-tag">Edición Diaria</div>
   </div>
 
-  <hr class="thick-rule">
+  <!-- TOP 5 DEL DÍA -->
+  <div class="top5-header">Top 5 del Día</div>
 
-  <!-- COLUMNS -->
-  <div class="columns">
-
-    <!-- COLUMNA IZQUIERDA -->
-    <div class="col-left">
-
-      <div class="col-section">
-        <div class="section-header">Pol&iacute;ticos</div>
-
-        <div class="item">
-          <strong>Rodrigo Paz enfrenta la semana clave preelectoral.</strong> A seis d&iacute;as de las elecciones subnacionales del 22 de marzo, el gobierno de Paz busca consolidar respaldo territorial. Su partido ingresa a la jornada con el peso de una econom&iacute;a en contracci&oacute;n y la imagen afectada por la crisis de combustibles. Los nueve gobernadores y 335 alcald&iacute;as est&aacute;n en juego. <span class="source-link">(<a href="https://es.wikipedia.org/wiki/Elecciones_subnacionales_de_Bolivia_de_2026">Wikipedia</a>, <a href="https://www.oep.org.bo/elecciones-subnacionales-2026/">OEP</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>YPFB militarizado pero la querella no lleg&oacute; a la Fiscal&iacute;a.</strong> El presidente Paz despleg&oacute; 1.500 militares en 16 plantas de YPFB bajo el "Plan San Alberto" para evitar nuevos da&ntilde;os, luego de denunciar que el combustible degradado fue resultado de sabotaje deliberado. Sin embargo, a 13 d&iacute;as del anuncio, la Fiscal&iacute;a confirm&oacute; no haber recibido ninguna querella formal, generando dudas sobre la sustentaci&oacute;n jur&iacute;dica del caso. <span class="source-link">(<a href="https://www.eldiario.net/portal/2026/03/13/fiscalia-aun-no-recibe-querella-sobre-caso-sabotaje-en-ypfb-2/">El Diario</a>, <a href="https://rtvu.uto.edu.bo/2026/03/02/paz-asegura-que-responsables-del-sabotaje-ya-estan-identificados/">RTVU</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>El MAS, sin peso pol&iacute;tico real.</strong> Tras el resultado electoral de 2025 &mdash;apenas 3,17% en primera vuelta y dos diputados&mdash;, el Movimiento al Socialismo no tiene capacidad de oposici&oacute;n institucional efectiva. La expulsi&oacute;n del expresidente Luis Arce del partido agrava la fragmentaci&oacute;n. Evo Morales sigue fuera del escenario pol&iacute;tico legal. <span class="source-link">(<a href="https://www.perfil.com/noticias/internacional/en-medio-de-acusaciones-de-corrupcion-el-mas-expulso-a-luis-arce-pocas-horas-despues-de-que-entregara-la-presidencia-de-bolivia.phtml">Perfil</a>)</span>
-        </div>
+  <div class="top5-card">
+    <div class="top5-num">01</div>
+    <div class="top5-content">
+      <h3>Paz y Lula firman acuerdos estratégicos en energía, gas e interconexión eléctrica</h3>
+      <p>En visita oficial a Brasilia, el presidente Rodrigo Paz y su par brasileño Luiz Inácio Lula da Silva suscribieron acuerdos en hidrocarburos, energía, turismo y lucha contra el crimen organizado. El más relevante establece la construcción de una línea de transmisión eléctrica de 500 kV entre Santa Cruz y Mato Grosso do Sul, con capacidad de intercambio de hasta 420 megavatios. Lula además planteó ampliar las inversiones gasíferas de Petrobras en territorio boliviano bajo el nuevo marco legal en elaboración.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La interconexión eléctrica con Brasil es la mayor apuesta de infraestructura energética del gobierno Paz y podría aliviar la crisis de abastecimiento interno a mediano plazo, mientras el acuerdo con Petrobras puede desbloquear inversiones en exploración que Bolivia necesita con urgencia para sostener su producción gasífera.
       </div>
-
-      <div class="col-section">
-        <div class="section-header">Econ&oacute;micos</div>
-
-        <div class="item">
-          <strong>Inflaci&oacute;n modera pero el riesgo persiste.</strong> El INE report&oacute; una inflaci&oacute;n intermensual negativa de -0,62% en febrero, lo que baj&oacute; el acumulado interanual al 17,41% desde el pico de enero (19,64%). El economista Fernando Romero advirti&oacute; que "fue un mes de correcci&oacute;n, no una nueva tendencia". El FMI proyecta inflaci&oacute;n de entre 15% y 20% para todo 2026. <span class="source-link">(<a href="https://www.bloomberglinea.com/latinoamerica/bolivia/inflacion-en-bolivia-cede-y-cae-al-1741-interanual-en-febrero-pero-las-presiones-persisten/">Bloomberg L&iacute;nea</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>D&eacute;ficit fiscal en 7% del PIB y modelo agotado.</strong> El gobierno de Paz proyecta reducir el d&eacute;ficit desde el estimado 13% del PIB de 2025 al 7% este a&ntilde;o, tarea que los analistas consideran sumamente ambiciosa sin una reforma fiscal de fondo. El Banco Mundial anticipa una retracci&oacute;n del PIB de -1,1% para 2026, mientras la CEPAL proyecta un crecimiento marginal del 0,5%. <span class="source-link">(<a href="https://www.economy.com.bo/articulo/economia/bolivia-enfrenta-2026-punto-quiebre-economico/20260223103550021808.html">Economy.com.bo</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>BID compromete USD 4.500 millones para Bolivia 2026-2028.</strong> El financiamiento del Banco Interamericano de Desarrollo, anunciado en el marco de las reformas del nuevo gobierno, es uno de los pilares de la estrategia de estabilizaci&oacute;n macroecon&oacute;mica de Paz. Los recursos buscan sostener inversiones p&uacute;blicas mientras se ajusta el gasto corriente. <span class="source-link">(<a href="https://spanish.xinhuanet.com/20260205/14f2fd92146648a89ec6ce8b1449348d/c.html">Xinhua</a>)</span>
-        </div>
-      </div>
-
-      <div class="col-section">
-        <div class="section-header">Empresariales</div>
-
-        <div class="item">
-          <strong>Informe de Procuradur&iacute;a sobre El Sillar abre paso a litigio.</strong> La doble v&iacute;a Cochabamba&ndash;Santa Cruz acumula a&ntilde;os de retrasos, cambios de dise&ntilde;o y sospechas de corrupci&oacute;n contra la constructora Sinohydro. El informe entregado el 16 de marzo a la ABC podr&iacute;a desencadenar un arbitraje internacional y acciones penales adicionales. El exministro Monta&ntilde;o ya est&aacute; detenido preventivamente. <span class="source-link">(<a href="https://larazon.bo/economia-y-empresa/2026/03/16/procuraduria-entrega-informe-sobre-el-sillar-a-la-abc-para-revision-y-posibles-acciones-legales/">La Raz&oacute;n</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>YPFB acusada de sobrecostos en importaci&oacute;n de crudo.</strong> Denuncias del sector privado apuntan a un sobreprecio de aproximadamente USD 4 millones mensuales en las compras de crudo importado por la estatal petrolera, que el gobierno de Paz no ha desmentido de forma contundente. El caso suma presi&oacute;n sobre la gesti&oacute;n de YPFB en el marco de la crisis de combustibles. <span class="source-link">(<a href="https://eju.tv/2026/03/agenda-informativa-desde-este-lunes-las-plantas-de-ypfb-son-militarizadas-el-gobierno-anuncia-acciones/">eju.tv</a>)</span>
-        </div>
-      </div>
-
+      <span class="source-link"><a href="https://www.infobae.com/america/mundo/2026/03/16/lula-da-silva-y-rodrigo-paz-acordaron-tender-una-linea-electrica-entre-bolivia-y-brasil/">Infobae</a> · <a href="https://www.energypress.com.bo/2026/03/17/bolivia-y-brasil-acuerdan-avanzar-en-una-interconexion-electrica-entre-santa-cruz-y-mato-grosso-do-sul/">EnergyPress</a> · <a href="https://www.eldiario.net/portal/2026/03/17/bolivia-y-brasil-firman-acuerdos-en-hidrocarburos-energia-turismo-y-seguridad/">El Diario</a></span>
     </div>
+  </div>
 
-    <!-- COLUMNA DERECHA -->
-    <div class="col-divider">
-
-      <div class="col-section">
-        <div class="section-header">Sociales</div>
-
-        <div class="item">
-          <strong>Filas en gasolineras persisten en las principales ciudades.</strong> Conductores de La Paz, El Alto, Cochabamba y Santa Cruz reportaron largas colas para abastecerse de gasolina y di&eacute;sel durante la &uacute;ltima jornada. La crisis de combustibles, vinculada a problemas en YPFB y a la reducci&oacute;n de subsidios, sigue afectando a transportistas y ciudadanos comunes a d&iacute;as de las elecciones subnacionales. <span class="source-link">(<a href="https://www.instantaneas.tic.bo/2026/03/05/politica/elecciones/ted-santa-cruz-gasolina-mercado-informal-elecciones/">Instant&aacute;neas</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>Misi&oacute;n diplom&aacute;tica de India se re&uacute;ne con empresarios de Cochabamba.</strong> M&aacute;s de 60 l&iacute;deres empresariales y emprendedores cochabambinos participaron en un encuentro con representantes del gobierno indio para explorar oportunidades de comercio, inversi&oacute;n y cooperaci&oacute;n t&eacute;cnica. La reuni&oacute;n se da en el contexto del nuevo alineamiento internacional del gobierno Paz. <span class="source-link">(<a href="https://www.urgente.bo/">Urgente.bo</a>)</span>
-        </div>
+  <div class="top5-card">
+    <div class="top5-num">02</div>
+    <div class="top5-content">
+      <h3>Elecciones subnacionales en seis días: más de 7 millones de bolivianos elegirán 5.432 autoridades el 22M</h3>
+      <p>El Tribunal Supremo Electoral definió la agenda final para las elecciones del próximo domingo 22 de marzo, en las que se elegirán nueve gobernadores departamentales, 335 alcaldes y más de 2.000 concejales municipales para el período 2026–2031. Más de 1.700 observadores nacionales e internacionales se desplegarán en todo el país. El presidente Paz, desde Brasilia, reafirmó que el gobierno no financia campañas electorales, calificando la postura como la primera neutralidad estatal en dos décadas.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Los comicios del 22M son el primer test electoral del gobierno Paz y medirán la correlación de fuerzas regionales post-MAS. El resultado en Santa Cruz, El Alto y La Paz marcará el equilibrio político para la segunda parte del mandato y el contexto legislativo para las reformas de hidrocarburos y minería.
       </div>
-
-      <div class="col-section">
-        <div class="section-header">Financieros</div>
-
-        <div class="item">
-          <strong>Reservas internacionales limitadas por alta concentraci&oacute;n en oro.</strong> Las reservas internacionales netas (RIN) se ubican alrededor de USD 3.800 millones, pero m&aacute;s del 85% est&aacute; en oro, lo que limita severamente la disponibilidad de divisas l&iacute;quidas para transacciones internacionales y el sostenimiento del tipo de cambio oficial. <span class="source-link">(<a href="https://www.bloomberglinea.com/latinoamerica/bolivia/iif-preve-trayectoria-mas-accidentada-de-la-inflacion-en-bolivia-y-ajuste-del-tipo-de-cambio/">Bloomberg L&iacute;nea</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>IIF anticipa ajuste cambiario hacia Bs 9 para mediados de 2026.</strong> El Instituto de Finanzas Internacionales estima que el tipo de cambio oficial, actualmente en torno a Bs 6,96 por d&oacute;lar, se ajustar&aacute; hacia Bs 9 en el escenario base. Un salto de esa magnitud tendr&iacute;a efecto inflacionario directo al encarecer importaciones y presionar aun m&aacute;s los precios internos. <span class="source-link">(<a href="https://www.bloomberglinea.com/latinoamerica/bolivia/iif-preve-trayectoria-mas-accidentada-de-la-inflacion-en-bolivia-y-ajuste-del-tipo-de-cambio/">Bloomberg L&iacute;nea</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>El euro cotiz&oacute; a Bs 7,88 al abrir el 16 de marzo.</strong> La divisa europea registr&oacute; un incremento del 0,61% frente a los Bs 7,83 de la jornada anterior. El dólar oficial cerr&oacute; la semana con un avance acumulado del 1,73% en siete d&iacute;as. <span class="source-link">(<a href="https://www.atb.com.bo/2026/03/16/cotizacion-del-dolar-hoy-16-de-marzo-de-2026/">ATB Digital</a>, <a href="https://www.infobae.com/noticias/2026/03/16/bolivia-cotizacion-de-apertura-del-dolar-hoy-16-de-marzo-de-usd-a-bob/">Infobae</a>)</span>
-        </div>
-      </div>
-
-      <div class="col-section">
-        <div class="section-header">Deportes</div>
-
-        <div class="item">
-          <strong>Bolivia arriba a Monterrey para el repechaje mundialista.</strong> La Verde lleg&oacute; a M&eacute;xico para preparar el enfrentamiento del 26 de marzo ante Surinam, partido de ida del repechaje intercontinental al Mundial 2026. El ganador del cruce se medir&aacute; con Irak. Bolivia no clasifica a un Mundial desde 1994 y el torneo se jugar&aacute; en Estados Unidos, Canad&aacute; y M&eacute;xico. <span class="source-link">(<a href="https://www.tudn.com/mundial-2026/mundial-2026-seleccion-de-bolivia-llega-a-mexico-para-jugar-el-repechaje-intercontinental">TUDN</a>, <a href="https://libero.pe/futbol-internacional/2026/03/11/bolivia-vs-surinam-repechaje-mundial-2026-fecha-hora-cuando-donde-juegan-383526">Libero.pe</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>Macazaga en observaci&oacute;n, Rocha en recuperaci&oacute;n.</strong> El kines&iacute;ologo Rudy Romero inform&oacute; que Lucas Macazaga sali&oacute; con molestias del partido amistoso contra Trinidad y Tobago (victoria 3-0) y est&aacute; en seguimiento m&eacute;dico. Yomar Rocha avanza en su proceso de recuperaci&oacute;n y podr&iacute;a estar disponible para el repechaje. <span class="source-link">(<a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16442916/bolivia-vs-trinidad-y-tobago-goleo-ultimo-partido-preparacion-repechaje-mundial-2026">ESPN</a>)</span>
-        </div>
-      </div>
-
-      <div class="col-section">
-        <div class="section-header">Externo e Internacional</div>
-
-        <div class="item">
-          <strong>Chile levanta barreras f&iacute;sicas en la frontera con Bolivia.</strong> El presidente Jos&eacute; Antonio Kast orden&oacute; la construcci&oacute;n de estructuras de contenci&oacute;n en la l&iacute;nea fronteriza, una decisi&oacute;n recibida con frialdad en La Paz luego de recientes gestos de acercamiento diplom&aacute;tico entre ambos pa&iacute;ses. La medida reactiva la tensi&oacute;n bilateral hist&oacute;rica sobre acceso al mar y migraci&oacute;n. <span class="source-link">(<a href="https://eju.tv/">eju.tv</a>)</span>
-        </div>
-
-        <div class="item">
-          <strong>Banco Mundial anticipa contracci&oacute;n del -1,1% del PIB de Bolivia en 2026.</strong> El organismo multilateral, en su &uacute;ltimo reporte regional, ubica a Bolivia entre los pa&iacute;ses con peor perspectiva de crecimiento de Am&eacute;rica Latina para el a&ntilde;o en curso, por detr&aacute;s incluso de Argentina. La CEPAL, m&aacute;s optimista, proyecta un crecimiento marginal del 0,5%. <span class="source-link">(<a href="https://www.economy.com.bo/articulo/economia/bolivia-enfrenta-2026-punto-quiebre-economico/20260223103550021808.html">Economy.com.bo</a>)</span>
-        </div>
-      </div>
-
+      <span class="source-link"><a href="https://abi.bo/mas-de-1-700-observadores-se-desplegaran-en-las-subnacionales-2026-en-bolivia/">ABI</a> · <a href="https://rtvu.uto.edu.bo/2026/03/17/tse-define-agenda-final-rumbo-a-las-elecciones-subnacionales-del-22-de-marzo/">RTVU</a> · <a href="https://www.oep.org.bo/elecciones-subnacionales-2026/">OEP</a></span>
     </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">03</div>
+    <div class="top5-content">
+      <h3>Cuatro cómplices de Marset encarcelados; FELCN fue excluida del operativo por sospecha de infiltración</h3>
+      <p>En seguimiento a la captura del narcotraficante uruguayo Sebastián Marset el 13 de marzo en Santa Cruz, cuatro extranjeros detenidos durante el operativo —entre ellos un integrante vinculado al Comando Vermelho brasileño— fueron formalizados y enviados a prisión preventiva. ATB Digital reveló que la Fuerza Especial de Lucha Contra el Narcotráfico fue deliberadamente excluida del operativo ante sospechas de infiltración. El gobierno investiga colaboradores y protectores internos de Marset dentro de instituciones del Estado.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La exclusión de la FELCN expone la profundidad de la penetración del crimen organizado en las instituciones bolivianas y complica la narrativa del gobierno sobre el "Estado que empieza a funcionar". La investigación sobre redes de protección podría desencadenar una crisis política si apunta a funcionarios activos o exfuncionarios del período anterior.
+      </div>
+      <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/16/cuatro-detenidos-en-el-operativo-de-captura-de-sebastian-marset-fueron-encarcelados-en-bolivia/">Infobae</a> · <a href="https://www.atb.com.bo/2026/03/17/felcn-no-lidero-captura-de-marset-por-presuntas-infiltraciones/">ATB Digital</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">04</div>
+    <div class="top5-content">
+      <h3>Nueva Ley de Hidrocarburos irá al Legislativo después del 22M; Paz propone consenso nacional</h3>
+      <p>El presidente Paz anunció desde Brasil que enviará el proyecto de nueva Ley de Hidrocarburos a la Asamblea Legislativa una vez concluidas las elecciones subnacionales. El nuevo marco contempla un régimen impositivo promedio del 50% del valor de producción —conforme al referéndum de 2004— con cláusulas variables según condiciones de campo y mercado para atraer inversión privada. La urgencia radica en que Bolivia registra su menor producción gasífera en 20 años: apenas 24 millones de metros cúbicos diarios frente a una demanda interna más exportaciones que ya supera esa cifra.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Sin nueva ley no hay inversión en exploración y sin exploración la producción seguirá cayendo, acercando a Bolivia al escenario de importar gas en lugar de exportarlo. El timing post-electoral es deliberado: el gobierno busca capital político suficiente para aprobar una reforma que tocará intereses regionales y del sector más estatista del espectro político.
+      </div>
+      <span class="source-link"><a href="https://www.eldiario.net/portal/2026/03/17/paz-plantea-un-acuerdo-entre-bolivianos-para-la-nueva-ley-de-hidrocarburos/">El Diario</a> · <a href="https://larazon.bo/economia-y-empresa/2026/03/16/paz-habla-desde-brasil-de-una-nueva-ley-de-hidrocarburos/">La Razón</a> · <a href="https://eldeber.com.bo/pais/gobierno-invita-brasil-invertir-bolivia-nueva-ley-hidrocarburos_1773669551">El Deber</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">05</div>
+    <div class="top5-content">
+      <h3>La Verde llega a México para el repechaje mundialista; enfrenta a Surinam el 26 de marzo</h3>
+      <p>La selección boliviana de fútbol aterrizó en Monterrey para preparar el partido de semifinal del Repechaje Intercontinental al Mundial 2026 frente a Surinam, programado para el jueves 26 de marzo en el Estadio BRAVA. Si Bolivia supera a Surinam, disputará la final del repechaje contra Irak el 31 de marzo. Un triunfo en esa instancia significaría la primera clasificación boliviana a un Mundial desde Estados Unidos 1994, hace 32 años. El técnico Óscar Villegas calificó el encuentro ante Surinam como el partido "más importante" de la historia reciente del fútbol boliviano.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La clasificación a un Mundial sería un hecho histórico sin precedentes en tres décadas y tendría un impacto directo en la cohesión social y el ánimo nacional en un momento de estrés económico sostenido. Un resultado positivo coincidiría políticamente con el período post-electoral del gobierno Paz.
+      </div>
+      <span class="source-link"><a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16442916/bolivia-vs-trinidad-y-tobago-goleo-ultimo-partido-preparacion-repechaje-mundial-2026">ESPN Deportes</a> · <a href="https://www.tudn.com/mundial-2026/mundial-2026-seleccion-de-bolivia-llega-a-mexico-para-jugar-el-repechaje-intercontinental">TUDN</a></span>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+  <!-- NOTICIAS POLÍTICAS -->
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>TSE define agenda final de los comicios: lista definitiva de candidatos se publica el 21 de marzo</h3>
+    <p>El Tribunal Supremo Electoral confirmó el cronograma de las elecciones subnacionales del 22 de marzo. El sábado 21 se publicará el padrón final de candidaturas habilitadas. Si alguna gobernación no obtiene mayoría absoluta, habrá segunda vuelta el 19 de abril. Más de 1.700 observadores —entre nacionales e internacionales— estarán desplegados el día de la votación. El presidente Paz reiteró desde Brasilia que el Estado no financia campañas, contrastando con la práctica gubernamental del MAS en los últimos 20 años.</p>
+    <span class="source-link"><a href="https://rtvu.uto.edu.bo/2026/03/17/tse-define-agenda-final-rumbo-a-las-elecciones-subnacionales-del-22-de-marzo/">RTVU</a> · <a href="https://www.instantaneas.tic.bo/2026/03/17/politica/elecciones/paz-neutralidad-elecciones-subnacionales-bolivia/">Instantáneas TIC</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>Expertos alertan sobre señales alarmantes en el sistema antidroga tras el caso Marset</h3>
+    <p>Analistas consultados por ATB Digital señalaron que la captura de Marset, aunque exitosa, deja expuestas fallas estructurales del aparato de seguridad boliviano. La necesidad de excluir a la FELCN por riesgo de filtración revela la penetración del crimen organizado en las fuerzas antidrogas. La excesiva presencia de coca excedentaria en zonas productoras también es señalada como factor que hace a Bolivia territorialmente atractiva para el narcotráfico internacional.</p>
+    <span class="source-link"><a href="https://www.atb.com.bo/2026/03/16/expertos-advierten-alarmantes-senales-tras-captura-de-marset/">ATB Digital</a> · <a href="https://www.instantaneas.tic.bo/2026/03/16/politica/corrupcion-transparencia-bolivia/bolivia-atractiva-narcotrafico-captura-marset/">Instantáneas TIC</a></span>
+  </div>
+
+  <!-- NOTICIAS ECONÓMICAS -->
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Bolivia en punto de quiebre: producción gasífera en mínimo de 20 años y perspectivas de contracción del PIB</h3>
+    <p>Economistas bolivianos y organismos internacionales coinciden en que 2026 es un año de quiebre para el modelo económico basado en la renta gasífera. El Banco Mundial anticipa una contracción del PIB de -1,1%, mientras la CEPAL proyecta un crecimiento marginal del 0,5%. La producción gasífera diaria cayó a 24 millones de metros cúbicos frente a una demanda interna de 15 millones y compromisos de exportación a Brasil de alrededor de 10 millones, lo que significa que la oferta ya no alcanza para cubrir ambas necesidades simultáneamente.</p>
+    <span class="source-link"><a href="https://www.economy.com.bo/articulo/economia/bolivia-enfrenta-2026-punto-quiebre-economico/20260223103550021808.html">Economy.com.bo</a> · <a href="https://erbol.com.bo/econom%C3%ADa/bolivia-sufre-una-crisis-energ%C3%A9tica-sin-precedentes-experto-advierte-que-el-modelo-es">Erbol</a></span>
+  </div>
+
+  <!-- NOTICIAS EMPRESARIALES -->
+  <div class="news-item">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Bolivia invita a Petrobras con "nuevas reglas de juego"; ley contempla régimen impositivo del 50%</h3>
+    <p>El ministro de Hidrocarburos explicó que los acuerdos con Brasil buscan consolidar el vínculo histórico con Petrobras e invitar a la empresa estatal a invertir en exploración bajo el nuevo marco legal. La nueva ley contemplaría contratos con cláusulas estables e inamovibles —principal reclamo del sector privado— y un régimen fiscal promedio del 50% con flexibilidad según las condiciones de cada yacimiento. El gobierno también está en conversaciones con otras empresas internacionales interesadas en el sector.</p>
+    <span class="source-link"><a href="https://radiokollasuyo.bo/2026/03/16/gobierno-busca-que-empresarios-brasilenos-inviertan-en-bolivia-con-nuevas-reglas-de-juego-el-ministro-destaco-que-uno-de-los-objetivos-centrales-es-consolidar-la-relacion-historica-e/">Radio Kollasuyo</a> · <a href="https://americaeconomica.com/noticia/bolivia/bolivia-busca-ampliar-la-exploracion-de-gas-con-petrobras-y-reforzar-la-integracion-energetica-con-brasil.html">América Económica</a></span>
+  </div>
+
+  <!-- NOTICIAS SOCIALES -->
+  <div class="news-item">
+    <span class="pill pill-soc">Social</span>
+    <h3>Dólar paralelo estabilizado, pero inflación heredada de 2025 sigue erosionando el poder adquisitivo</h3>
+    <p>Con el dólar paralelo estabilizado en torno a los 9,27–9,30 bolivianos —muy por debajo de los extremos de 2025— la presión inmediata sobre precios cedió parcialmente. Sin embargo, la inflación acumulada del 20,40% durante 2025 sigue afectando el poder adquisitivo de sectores medios y bajos. Alimentos, medicamentos, repuestos y servicios continúan ajustándose con referencia al tipo de cambio informal, generando una brecha real entre el dato oficial y la experiencia cotidiana de los bolivianos.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/economia/dolar-paralelo-enfria-abre-2026-lejos-extremos-2025_1767281324">El Deber</a> · <a href="https://lapatria.bo/dinero-negocios/cotizacion-del-dolar-paralelo-en-bolivia-al-16-de-marzo/">La Patria</a></span>
+  </div>
+
+  <!-- NOTICIAS DEPORTES -->
+  <div class="news-item">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>La Verde golea en su último ensayo antes de Monterrey; Villegas apunta al partido de la vida</h3>
+    <p>En partido de preparación previo al viaje, Bolivia venció con amplitud a Trinidad y Tobago. El técnico Óscar Villegas realizó sus últimas pruebas tácticas antes del choque del 26 de marzo contra Surinam en el Estadio BRAVA de Monterrey. La delegación boliviana ya está instalada en Nuevo León para los entrenamientos previos. Si Bolivia derrota a Surinam y luego a Irak el 31 de marzo, obtendría su primera clasificación a una Copa del Mundo en 32 años.</p>
+    <span class="source-link"><a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16442916/bolivia-vs-trinidad-y-tobago-goleo-ultimo-partido-preparacion-repechaje-mundial-2026">ESPN Deportes</a> · <a href="https://www.oncediario.com/notas/61323-bolivia-nuevo-leon-repechaje-mundial-2026-seleccion-de-bolivia-estadio-monterrey-oscar-villegas-la-capilla-soccer-park-bolivia-vs-surinam">Once Diario</a></span>
+  </div>
+
+  <!-- NOTICIAS INTERNACIONAL -->
+  <div class="news-item">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Análisis: Bolivia aspira a posicionarse como "bisagra geopolítica" entre el Atlántico y el Pacífico</h3>
+    <p>Un análisis publicado por El Deber plantea que la posición geográfica de Bolivia —sin litoral pero fronteriza con Brasil, Argentina, Chile, Perú y Paraguay— puede convertirse en ventaja estratégica si el gobierno Paz articula corredores de exportación hacia ambos océanos. Los acuerdos con Brasil del 16 de marzo son leídos por analistas como el primer paso concreto en esa dirección, combinando energía, infraestructura y cooperación en seguridad en un solo paquete diplomático.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/pais/analisis-bolivia-puede-ser-bisagra-geopolitica-atlantico-pacifico_1773766155">El Deber</a> · <a href="https://www.prensa-latina.cu/2026/03/16/brasil-y-bolivia-por-mas-cooperacion-en-energia-seguridad-y-comercio/">Prensa Latina</a></span>
   </div>
 
   <!-- TIPO DE CAMBIO -->
-  <div class="tc-box">
-    <h3>Tipo de Cambio &mdash; 16 de marzo de 2026</h3>
-    <div class="tc-grid">
-      <div class="tc-item">
-        <span class="tc-label">Oficial (BCB)</span>
-        <span class="tc-value">Bs 6,96</span>
-        <span class="tc-sub">Venta / Bs 6,86 compra</span>
-      </div>
-      <div class="tc-item">
-        <span class="tc-label">Paralelo</span>
-        <span class="tc-value">Bs 9,40</span>
-        <span class="tc-sub">Mercado informal</span>
-      </div>
-      <div class="tc-item">
-        <span class="tc-label">Brecha</span>
-        <span class="tc-value tc-brecha">~35%</span>
-        <span class="tc-sub">Presi&oacute;n sobre importaciones</span>
-      </div>
+  <div class="data-strip">
+    <div class="data-cell">
+      <div class="data-cell-label">Dólar Oficial</div>
+      <div class="data-cell-value">6.96</div>
+      <div class="data-cell-delta" style="color: var(--muted);">BOB/USD &mdash; sin cambio</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">9.27</div>
+      <div class="data-cell-delta red">&#9660; vs. máx. 2025</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value red">33%</div>
+      <div class="data-cell-delta" style="color: var(--muted);">paralelo vs. oficial</div>
     </div>
   </div>
 
   <!-- QUÉ VIGILAR HOY -->
   <div class="vigilar">
-    <h3>Qu&eacute; Vigilar Hoy</h3>
-    <ul>
-      <li>Preparativos de la selecci&oacute;n en Monterrey: estado f&iacute;sico de Macazaga y avance de Rocha antes del repechaje del 26 de marzo contra Surinam.</li>
-      <li>Presentaci&oacute;n formal de la querella del gobierno por sabotaje en YPFB ante la Fiscal&iacute;a: la demora erosiona la credibilidad del caso y la imagen del ejecutivo.</li>
-      <li>&Uacute;ltima semana de campa&ntilde;a electoral antes de las subnacionales del 22 de marzo: cierres de campa&ntilde;a en Santa Cruz, La Paz y Cochabamba concentrar&aacute;n atenci&oacute;n.</li>
-      <li>Posibles acciones legales de la ABC tras el informe de Procuradur&iacute;a sobre El Sillar: se espera decisi&oacute;n sobre denuncia formal contra Sinohydro y exfuncionarios.</li>
-      <li>Comportamiento del tipo de cambio paralelo: cualquier movimiento brusco hacia Bs 9,50 o m&aacute;s amplificar&iacute;a las expectativas de ajuste oficial.</li>
-    </ul>
+    <div class="vigilar-header">Qué Vigilar Hoy &mdash; 17 Mar 2026</div>
+    <div class="vigilar-item">Reacción de los mercados y cámaras empresariales a los acuerdos Bolivia-Brasil: si se consolidan compromisos concretos de inversión de Petrobras, podría haber movimiento en las expectativas sobre el tipo de cambio y la actividad en el sector energético.</div>
+    <div class="vigilar-item">Publicación de la lista definitiva de candidaturas habilitadas para las subnacionales (el 21 de marzo): cualquier resolución del TSE que habilite o excluya candidatos tendrá impacto inmediato en municipios y departamentos clave como Santa Cruz, El Alto y La Paz.</div>
+    <div class="vigilar-item">Avance de la investigación sobre la red de protección de Marset: si la Fiscalía identifica a funcionarios públicos activos o pasados como colaboradores, el caso escalará de operativo policial a crisis institucional de primer orden.</div>
+    <div class="vigilar-item">Preparativos de la selección boliviana en Monterrey: entrenamientos, novedades de lesiones y posibles ajustes tácticos de Villegas de cara al partido del 26 de marzo frente a Surinam por el pase al Mundial.</div>
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <p>Fuentes consultadas: La Raz&oacute;n, Bloomberg L&iacute;nea, El Diario, eju.tv, ATB Digital, Infobae, ESPN, TUDN, Economy.com.bo, Xinhua, Urgente.bo, OEP, Wikipedia</p>
-    <p style="margin-top:4px;">Briefing generado con Claude &mdash; Solo para uso informativo</p>
-  </footer>
+  <div class="footer">
+    Fuentes: El Deber &middot; La Razón &middot; Erbol &middot; ABI &middot; ATB Digital &middot; Infobae &middot; EnergyPress &middot; El Diario &middot; La Patria &middot; ESPN Deportes &middot; TUDN &middot; Instantáneas TIC &middot; Radio Kollasuyo &middot; RTVU &middot; Prensa Latina<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
+  </div>
 
 </body>
 </html>
