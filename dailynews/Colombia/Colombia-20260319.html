@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia - 19 de marzo de 2026</title>
+<meta name="color-scheme" content="light only">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #e8a84c;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Miercoles 19 de marzo de 2026 · Bogota</div>
+  <span class="masthead-tag">Edicion Diaria</span>
+</header>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro ordena liquidar EPS en quiebra y rechaza asumir deuda de $50 billones</h3>
+    <p>El presidente Gustavo Petro ordeno durante el Consejo de Ministros la liquidacion inmediata de las Entidades Promotoras de Salud que se encuentren en situacion de quiebra. El mandatario fue enfatico al senalar que el Gobierno no asumira la deuda historica del sistema, estimada en $50 billones de pesos. El ministro de Salud, Guillermo Jaramillo, defendio la medida y anuncio que la Reforma a la Salud sera presentada nuevamente ante el nuevo Congreso a partir del 20 de julio.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La liquidacion de EPS en quiebra afecta directamente a millones de afiliados que deberan ser reasignados. Nueva EPS sera la unica opcion en el 45% de los municipios del pais, concentrando 2,84 millones de afiliados reasignados, lo que genera riesgos de capacidad y calidad en la atencion.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/gobierno-petro-liquidara-eps-en-quiebra-y-no-asumira-deuda-de-50-billones-tras-caida-de-reforma-a-la-salud/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/salud/petro-vuelve-jaque-sistema-salud-anuncio-liquidar-eps-quebradas-NJ34689523">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Fecode convoca paro nacional de maestros para el 15 de abril</h3>
+    <p>La Federacion Colombiana de Educadores anuncio un paro nacional de 24 horas para el 15 de abril en protesta por la crisis del modelo de salud del magisterio. Miles de docentes quedaron sin atencion medica adecuada tras la implementacion del Acuerdo 003 de 2024 para el Fomag. La federacion tambien exige la expedicion inmediata de los decretos salariales de 2026, que permanecen pendientes.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El paro afectara a millones de estudiantes en el sistema publico. Ademas, Fecode anuncio su respaldo a la candidatura presidencial de Ivan Cepeda, lo que anade una dimension electoral a la movilizacion social prevista para abril.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/nacion/articulo/fecode-convoca-paro-nacional-de-24-horas-para-el-15-de-abril-manifestaran-contra-el-modelo-de-salud-del-magisterio/202629/">Semana</a> · <a href="https://www.infobae.com/colombia/2026/03/18/fecode-convoco-paro-nacional-de-24-horas-el-15-de-abril-en-rechazo-al-nuevo-modelo-de-salud-para-docentes/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>14 candidatos inscritos para elecciones presidenciales del 31 de mayo</h3>
+    <p>La Registraduria Nacional confirmo la inscripcion de 14 formulas presidenciales para la primera vuelta del 31 de mayo. Entre los principales candidatos figuran Ivan Cepeda (Pacto Historico), Paloma Valencia (Centro Democratico), Sergio Fajardo, Clara Lopez, Luis Gilberto Murillo y Roy Barreras. La segunda vuelta quedo programada para el 21 de junio.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Con 14 candidatos y un espectro politico amplio, la fragmentacion del voto hace probable una segunda vuelta. Las alianzas que se formen en las proximas semanas definiran los escenarios de gobernabilidad para el periodo 2026-2030.
+    </div>
+    <span class="source-link"><a href="https://www.registraduria.gov.co/14-candidatos-se-inscribieron-para-las-elecciones-presidenciales-de-2026.html">Registraduria</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/asi-quedaron-los-candidatos-presidenciales-tras-el-cierre-de-inscripciones-en-la-registraduria-3540134">El Tiempo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Economia colombiana crecio apenas 1,5% en enero de 2026</h3>
+    <p>El DANE reporto que la actividad economica de Colombia registro un crecimiento de 1,5% en enero frente al mismo mes de 2025. El sector servicios lidero con una expansion de 2,73%, mientras que las actividades primarias como agricultura y mineria cayeron 2,39%. BBVA Research y Fedesarrollo proyectan un crecimiento de 2,8% para el ano completo, aunque el FMI ha dado cifras mas cautelosas.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El arranque debil del ano confirma que la recuperacion economica sera gradual. La caida del sector primario y la dependencia del sector servicios revelan desequilibrios estructurales que limitan el potencial de crecimiento sostenido.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/actividad-economia-crecio-ise-dane-enero-MC34729234">El Colombiano</a> · <a href="https://www.infobae.com/colombia/2026/03/02/hay-malas-noticias-para-los-que-esperan-que-colombia-tenga-un-mejor-crecimiento-economico-en-2026-fmi-dio-cifras-desalentadoras/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Sismo de magnitud 3,6 sacude Cundinamarca cerca de Bogota</h3>
+    <p>Un movimiento telurico de magnitud 3,6 se registro a las 12:07 del mediodia con epicentro en Cucunuba, Cundinamarca. El sismo fue percibido en Bogota y municipios aledanos. Segun el Servicio Geologico Colombiano, no se reportaron afectaciones estructurales ni victimas. El evento se ubica dentro de los rangos de actividad sismica habitual para la region centro del pais.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Aunque sin danos, el sismo recuerda la vulnerabilidad sismica de la region central. Bogota concentra el 17% del PIB nacional y cualquier evento de mayor magnitud tendria impacto economico significativo.
+    </div>
+    <span class="source-link"><a href="https://www.vanguardia.com/colombia/2026/03/18/temblor-en-el-centro-del-pais-sismo-de-magnitud-36-sacudio-este-miercoles-18-de-marzo/">Vanguardia</a> · <a href="https://www.noticiascaracol.com/colombia/temblor-en-colombia-este-miercoles-18-de-marzo-de-2026-epicentro-en-municipio-de-cundinamarca-cerca-a-bogota-so35">Noticias Caracol</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Petro impulsa asamblea de pueblos indigenas en Santa Marta</h3>
+  <p>El presidente Gustavo Petro confirmo su intencion de convocar una gran asamblea de pueblos indigenas en Santa Marta antes del fin de su mandato el 7 de agosto. La iniciativa busca fortalecer la agenda de grupos indigenas en un contexto de transicion electoral. La congresista Katherine Miranda critico la postura de Fecode como contradictoria, al protestar por la salud del magisterio siendo aliados del gobierno que implemento los cambios.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/asi-es-ruta-del-gobierno-petro-para-fortalecer-grupos-indigenas-en-medio-de-pulso-electoral/">El Espectador</a> · <a href="https://www.infobae.com/colombia/2026/03/18/parece-chiste-pero-no-lo-es-katherine-miranda-se-burlo-de-la-incoherencia-de-fecode-al-ir-a-paro-por-la-salud-de-los-maestros/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Inflacion cerraria marzo en 5,45% segun expectativas del Banco de la Republica</h3>
+  <p>Las proyecciones del Banco de la Republica situan el IPC de marzo de 2026 en torno al 5,45% anual. En febrero, la variacion anual fue de 7,74%, la mas baja desde abril de 2022. Tanto el emisor como el Ministerio de Hacienda esperan una desinflacion gradual hacia el cierre del ano, aunque los analistas advierten que el aumento del salario minimo de 23,7% ejerce presion sobre los precios.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/asi-cerraria-el-ipc-de-marzo-de-2026-en-colombia-dato-revelado-por-el-banco-de-la-republica-confirma-que-todo-seguira-caro/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Salario minimo 2026: $1.750.905 con el mayor incremento desde la Constitucion</h3>
+  <p>El salario minimo mensual vigente para 2026 es de $1.750.905 tras un aumento de 23,7%, el mas alto desde la Constitucion de 1991. El ajuste impacta directamente a 2,4 millones de empleados formales y genera efectos en cadena sobre pensiones, multas y tarifas indexadas al minimo. Analistas alertan sobre la presion inflacionaria adicional que este incremento genera.</p>
+  <span class="source-link"><a href="https://www.cronista.com/colombia/finanzas-y-economia/aumento-confirmado-del-salario-minimo-como-seran-los-sueldos-en-marzo-de-2026/">Cronista</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Nuevo mapa de EPS: traslado masivo de pacientes y reorganizacion territorial</h3>
+  <p>El Ministerio de Salud publico el nuevo mapa de distribucion de EPS bajo el Decreto 0182 de 2026. Nueva EPS queda como unica opcion en el 45% de los municipios y recibira 2,84 millones de afiliados reasignados. La Superintendencia de Salud busco dar un parte de tranquilidad sobre la transicion, mientras organizaciones medicas expresaron preocupacion por la capacidad del sistema para absorber la demanda concentrada.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/05/asi-quedo-el-nuevo-mapa-de-eps-en-colombia-gobierno-definio-traslado-masivo-de-pacientes-y-reorganizacion-territorial-del-sistema-de-salud/">Infobae</a> · <a href="https://www.infobae.com/colombia/2026/03/17/la-superintendencia-de-salud-se-pronuncio-sobre-la-orden-de-petro-de-liquidar-las-eps-quebradas-dio-un-parte-de-tranquilidad/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: Millonarios golea 3-0 a Nacional en la fecha 12</h3>
+  <p>En la apertura de la fecha 12 de la Liga BetPlay I-2026, Millonarios derroto de manera contundente 3-0 al Atletico Nacional en Bogota. En el otro partido del martes, Llaneros y Cucuta empataron 2-2. La tabla de posiciones sigue apretada y ningun equipo logra marcar diferencia definitiva. Cucuta Deportivo, Boyaca Chico, Deportivo Pereira y Alianza son los equipos que mas dificultades presentan en la clasificacion.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/como-quedo-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-tras-millonarios-3-0-nacional-so35">Gol Caracol</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-de-liga-betplay-2026-i-y-resultados-de-fecha-12-asi-se-mueve-la-clasificacion-264642">FutbolRed</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Congreso recien elegido definira equilibrio de poder para el proximo presidente</h3>
+  <p>Tras las elecciones legislativas del 8 de marzo, el Pacto Historico y el Centro Democratico emergieron como las fuerzas con mayor votacion. El nuevo Congreso, que inicia sesiones el 20 de julio, sera clave para la gobernabilidad del proximo presidente. La composicion fragmentada obligara a construir coaliciones amplias para aprobar reformas estructurales, especialmente la de salud que Petro planea reponer.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN en Espanol</a> · <a href="https://www.infobae.com/colombia/2026/03/09/petro-afirma-que-el-pacto-historico-arraso-en-las-elecciones-al-congreso-y-anuncia-prioridad-a-la-reforma-a-la-salud/">Infobae</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar TRM</div>
+    <div class="data-cell-value">$3.689</div>
+    <div class="data-cell-delta green">&#9660; $1,93 (-0,05%)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Inflacion anual</div>
+    <div class="data-cell-value">7,74%</div>
+    <div class="data-cell-delta green">&#9660; Feb 2026</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">PIB Ene 2026</div>
+    <div class="data-cell-value">+1,5%</div>
+    <div class="data-cell-delta red">&#9660; vs 2025</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Reaccion del mercado y las EPS a la orden de liquidacion de Petro; la Superintendencia de Salud debera formalizar los procesos de intervencion</div>
+  <div class="vigilar-item">Continuacion de la fecha 12 de la Liga BetPlay con partidos pendientes que pueden alterar la tabla de posiciones</div>
+  <div class="vigilar-item">Movimientos de alianzas entre los 14 candidatos presidenciales a 73 dias de la primera vuelta del 31 de mayo</div>
+  <div class="vigilar-item">Seguimiento a la trayectoria del dolar, que oscilo entre $3.670 y $3.775 en la ultima semana tras las elecciones legislativas</div>
+</div>
+
+<footer class="footer">
+  Fuentes: Infobae · El Colombiano · Semana · El Tiempo · Noticias Caracol · El Espectador · Vanguardia · CNN en Espanol · FutbolRed · Registraduria Nacional<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</body>
+</html>
