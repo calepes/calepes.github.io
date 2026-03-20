@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing Peru - 20 Mar 2026</title>
+<title>Briefing Ejecutivo — Perú — 20 de marzo de 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   color-scheme: light only;
@@ -14,7 +13,7 @@
   --paper: #fafafa;
   --accent: #1a4a6b;
   --accent-soft: #eff6ff;
-  --accent-mid: #3b7aad;
+  --accent-mid: #bfdbfe;
   --surface: #ffffff;
   --border: #e5e5e5;
   --muted: #78716c;
@@ -31,9 +30,7 @@
   --pill-int: #374151;
   --pill-int-bg: #f3f4f6;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -44,30 +41,25 @@ body {
   padding: 32px 20px;
   -webkit-font-smoothing: antialiased;
 }
-
 .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
 .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
-
 .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
 .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
 .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
 .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
-
 .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
 .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
-
 .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-
+.source-link a:hover { text-decoration: underline; }
 .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
 .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -78,7 +70,6 @@ body {
 .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
 .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
-
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
 .data-cell:last-child { border-right: none; }
@@ -87,14 +78,12 @@ body {
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
 .green { color: #16a34a; }
 .red { color: #dc2626; }
-
 .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
-.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-mid); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
 .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
-.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
-
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
 .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
-
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -107,158 +96,158 @@ body {
 
 <div class="masthead">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-  <h1>Peru</h1>
-  <div class="masthead-date">Jueves 20 de marzo de 2026 &middot; Lima</div>
-  <div class="masthead-tag">Edicion Diaria</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Jueves 19 de marzo de 2026 &middot; Lima</div>
+  <span class="masthead-tag">Edici&oacute;n Diaria</span>
 </div>
 
-<div class="top5-header">Top 5 del dia</div>
+<div class="top5-header">Top 5 del D&iacute;a</div>
 
 <div class="top5-card">
   <div class="top5-num">01</div>
   <div class="top5-content">
-    <h3>Debates presidenciales arrancan el 23 de marzo con 35 candidatos</h3>
-    <p>El Jurado Nacional de Elecciones confirmó que los debates presidenciales se realizarán en seis jornadas entre el 23 de marzo y el 1 de abril. Doce candidatos participarán por jornada, con temas de seguridad ciudadana, corrupción, empleo y educación. Las encuestas muestran a Rafael López Aliaga (11,4%) y Keiko Fujimori (10,9%) en empate técnico, mientras que el 21,5% de los electores opta por voto blanco o nulo.</p>
+    <h3>Callao registra casi un homicidio diario pese al estado de emergencia</h3>
+    <p>Durante el vigente estado de emergencia en Lima y Callao, el Callao acumula 14 asesinatos en 16 d&iacute;as, un promedio de 0.875 casos diarios, cifra muy superior al per&iacute;odo anterior de emergencia (0.44 diarios). El gobierno de Jos&eacute; Mar&iacute;a Balc&aacute;zar enfrenta cuestionamientos crecientes sobre la efectividad real de la medida para reducir la violencia letal.</p>
     <div class="why-box">
-      <div class="why-label">Por qué importa</div>
-      A menos de un mes de las elecciones del 12 de abril, los debates serán la última gran oportunidad para que los candidatos definan posiciones ante un electorado fragmentado. La alta indecisión sugiere que el resultado de los debates podría reconfigurar las preferencias electorales.
+      <div class="why-label">Por qu&eacute; importa</div>
+      El estado de emergencia, que suspende garant&iacute;as constitucionales y moviliza a las Fuerzas Armadas, no est&aacute; logrando reducir la violencia en el Callao. Esto debilita la credibilidad del principal instrumento de seguridad del gobierno a semanas de las elecciones generales del 12 de abril.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/17/todo-lo-que-se-sabe-del-debate-presidencial-2026-fechas-participantes-y-temas-que-debera-exponer-cada-candidato/">Infobae</a> · <a href="https://www.ipsos.com/es-pe/primer-simulacro-nacional-y-encuesta-de-intencion-de-voto-marzo-2026-encuesta-peru-21-ipsos">Ipsos</a></span>
+    <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/03/17/callao-en-alerta-reportan-casi-un-asesinato-diario-en-pleno-estado-de-emergencia-ntpe-1377935">La Rep&uacute;blica</a> &middot; <a href="https://gestion.pe/peru/politica/gobierno-declara-nuevo-estado-de-emergencia-en-lima-y-callao-ante-escalada-criminal-noticia/">Gesti&oacute;n</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">02</div>
   <div class="top5-content">
-    <h3>Gobierno prorroga estado de emergencia en ocho regiones por lluvias</h3>
-    <p>El Ejecutivo extendió por 60 días el estado de emergencia en distritos de Áncash, Ica, La Libertad, Lambayeque, Lima, Moquegua, Piura y Tumbes a partir del 20 de marzo, ante el riesgo persistente de lluvias intensas asociadas al Niño costero. Las precipitaciones han causado 72 fallecidos, más de 23.000 damnificados y la destrucción de 1.149 viviendas y 82 colegios.</p>
+    <h3>Debates presidenciales arrancan el 23 de marzo con 36 candidatos inscritos</h3>
+    <p>A 24 d&iacute;as de las elecciones generales del 12 de abril, el JNE inicia los debates presidenciales el lunes 23, con participaci&oacute;n de los 36 candidatos en tres jornadas. Las encuestas m&aacute;s recientes sit&uacute;an a Rafael L&oacute;pez Aliaga (11.4%) y Keiko Fujimori (10.9%) en los primeros lugares, seguidos por Wolfgang Grozo y Alfonso L&oacute;pez Chau.</p>
     <div class="why-box">
-      <div class="why-label">Por qué importa</div>
-      La emergencia climática es uno de los tres choques que están frenando el crecimiento económico peruano en 2026. Los daños en infraestructura vial y agrícola afectan cadenas de suministro y elevan la presión sobre el gasto público a semanas de las elecciones.
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con el electorado fragmentado entre m&aacute;s de 40 partidos y ning&uacute;n candidato superando el 12% de intenci&oacute;n de voto, los debates son el momento decisivo. El resultado podr&iacute;a consolidar una segunda vuelta entre la derecha populista y el fujimorismo, o abrir espacio para una tercera fuerza.
     </div>
-    <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/03/19/estado-de-emergencia-se-extiende-en-distritos-de-ocho-regiones-por-riesgo-de-lluvias-intensas-1295876">La República</a> · <a href="https://gestion.pe/peru/gobierno-prorroga-estado-de-emergencia-por-fuertes-lluvias-en-distritos-de-ocho-regiones-del-pais-noticia/">Gestión</a></span>
+    <span class="source-link"><a href="https://andina.pe/agencia/noticia-elecciones-2026-candidatos-debatiran-23-marzo-y-temas-abordaran-1065349.aspx">Andina</a> &middot; <a href="https://www.infobae.com/peru/2026/03/16/elecciones-2026-keiko-fujimori-vuelve-al-segundo-lugar-y-wolfgang-grozo-sigue-subiendo-en-las-preferencias-segun-encuesta/">Infobae</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">03</div>
   <div class="top5-content">
-    <h3>BCP recorta proyección de crecimiento a 3,2% por triple choque</h3>
-    <p>El Banco de Crédito del Perú ajustó a la baja su estimación de crecimiento del PBI para 2026, de 3,5% a 3,2%. Los tres factores: la emergencia climática por lluvias, la rotura del ducto de Camisea en marzo y la escalada global de precios de combustibles. Sin estos choques, la economía habría crecido entre 3,5% y 4%. La inflación podría acercarse al 3% anual.</p>
+    <h3>Minedu retira a 214 docentes con condenas o procesos por delitos graves</h3>
+    <p>El Ministerio de Educaci&oacute;n separ&oacute; del servicio a 214 trabajadores del sistema educativo &mdash;186 docentes y 28 administrativos&mdash; entre enero y el 12 de marzo de 2026. El 94% de los casos involucra delitos contra la libertad sexual de menores; los restantes corresponden a terrorismo, tr&aacute;fico de drogas, explotaci&oacute;n sexual y secuestro.</p>
     <div class="why-box">
-      <div class="why-label">Por qué importa</div>
-      La revisión del BCP confirma que los choques de oferta están erosionando el dinamismo económico peruano. La combinación de menor crecimiento y mayor inflación reduce el margen de maniobra para la política monetaria del BCRP en los próximos meses.
+      <div class="why-label">Por qu&eacute; importa</div>
+      La magnitud de la depuraci&oacute;n &mdash;m&aacute;s de dos casos por d&iacute;a h&aacute;bil&mdash; revela una falla sist&eacute;mica en los filtros de contrataci&oacute;n del magisterio peruano. La medida protege a los estudiantes pero expone la debilidad de los controles institucionales en el sector educativo.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/16/bcp-ajusta-a-la-baja-expectativa-de-crecimiento-de-peru-para-2026-ahora-preve-32-por-que/">Infobae</a> · <a href="https://gestion.pe/economia/economia-de-peru-2026-se-frena-por-triple-choque-cuanto-crecimiento-de-pbi-se-pierde-noticia/">Gestión</a></span>
+    <span class="source-link"><a href="https://elcomercio.pe/lima/minedu-separa-a-214-trabajadores-con-denuncias-o-condenas-por-delitos-graves-en-colegios-ultimas-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/18/ano-escolar-2026-minedu-expulsa-a-214-docentes-y-administrativos-implicados-en-graves-delitos/">Infobae</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">04</div>
   <div class="top5-content">
-    <h3>Ducto de Camisea reparado, pero abastecimiento de GLP sigue en riesgo</h3>
-    <p>Aunque el presidente Balcázar confirmó la reparación total del ducto de Camisea y el reinicio del transporte de gas natural desde el 13 de marzo, la Sociedad Peruana de Gas Licuado alertó que la normalización completa del abastecimiento de GLP tomará semanas adicionales. La reposición de inventarios en plantas y distribuidoras avanza de forma gradual.</p>
+    <h3>Inversi&oacute;n minera proyecta US$6,400 millones en 2026, nivel m&aacute;s alto en una d&eacute;cada</h3>
+    <p>El BCRP proyecta que la inversi&oacute;n minera alcanzar&aacute; los US$6,400 millones en 2026, un crecimiento cercano al 10% frente al a&ntilde;o anterior y el mayor nivel en diez a&ntilde;os. Sin embargo, Per&uacute; ha perdido m&aacute;s de 30 posiciones en el ranking mundial de destinos para inversi&oacute;n minera, afectado por la miner&iacute;a ilegal y la inestabilidad pol&iacute;tica recurrente.</p>
     <div class="why-box">
-      <div class="why-label">Por qué importa</div>
-      El GLP es el combustible principal de cocina para millones de hogares peruanos. La demora en la normalización mantiene la presión sobre precios de combustibles y afecta directamente el costo de vida de los sectores más vulnerables.
+      <div class="why-label">Por qu&eacute; importa</div>
+      La miner&iacute;a representa el 8.5% del PBI y el 63.9% de las exportaciones peruanas. Un pico de inversi&oacute;n en a&ntilde;o electoral favorece las cuentas fiscales, pero la p&eacute;rdida de competitividad global advierte sobre riesgos de largo plazo que el pr&oacute;ximo gobierno deber&aacute; atender con urgencia.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/15/abastecimiento-de-glp-sigue-en-riesgo-pese-a-la-reparacion-del-ducto-de-camisea-alerta-la-spgl-reposicion-llevara-semanas/">Infobae</a> · <a href="https://rpp.pe/economia/economia/gnv-presidente-balcazar-anuncia-reinicio-del-suministro-de-gas-natural-en-grifos-tras-reparacion-del-ducto-de-camisea-noticia-1679912">RPP</a></span>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/inversion-minera-llegaria-a-us6400-millones-en-2026-su-mayor-nivel-en-una-decada-l-mineria-l-ultimas-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/14/peru-ya-no-esta-en-el-top-10-mundial-de-inversion-minera-pero-busca-recuperar-el-puesto/">Infobae</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">05</div>
   <div class="top5-content">
-    <h3>23 candidatos presentan propuestas económicas en foro de la SNI</h3>
-    <p>El martes 18 de marzo, 23 candidatos presidenciales expusieron sus propuestas en un foro organizado por el Grupo El Comercio y la Sociedad Nacional de Industrias. Los temas centrales fueron formalización económica, promoción del empleo, salud, educación y seguridad ciudadana. El evento evidenció las diferencias programáticas entre los principales aspirantes.</p>
+    <h3>Balc&aacute;zar no desmiente que C&eacute;sar Acu&ntilde;a controla Minsa y EsSalud</h3>
+    <p>El presidente Jos&eacute; Mar&iacute;a Balc&aacute;zar evit&oacute; desmentir las acusaciones de que el l&iacute;der de Alianza para el Progreso, C&eacute;sar Acu&ntilde;a, ejerce control informal sobre el Ministerio de Salud y EsSalud, instituciones que administran el seguro social de m&aacute;s de 12 millones de peruanos y presupuestos multimillonarios.</p>
     <div class="why-box">
-      <div class="why-label">Por qué importa</div>
-      Con 36 candidatos en carrera, el foro de la SNI fue una de las pocas instancias donde el sector empresarial pudo evaluar propuestas concretas de política económica antes de las elecciones del 12 de abril.
+      <div class="why-label">Por qu&eacute; importa</div>
+      La posible captura partidaria de dos de las instituciones de salud m&aacute;s grandes del pa&iacute;s genera riesgos de gesti&oacute;n y conflictos de inter&eacute;s, especialmente porque Acu&ntilde;a tambi&eacute;n compite en la carrera presidencial. El escándalo puede agravar la percepci&oacute;n de debilidad del gobierno transitorio.
     </div>
-    <span class="source-link"><a href="https://elcomercio.pe/politica/elecciones-2026-en-vivo-foro-candidatos-presidenciales-al-menos-25-postulantes-exponen-propuestas-en-foro-electoral-en-la-sni-video-detalles-tlc-audio-noticia/">El Comercio</a> · <a href="https://gestion.pe/peru/politica/elecciones-2026-candidatos-presidenciales-expondran-propuestas-en-foro-de-grupo-el-comercio-y-la-sni-noticia/">Gestión</a></span>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/20/jose-balcazar-no-niega-que-cesar-acuna-controle-minsa-y-essalud-eso-ha-sido-con-el-gobierno-de-jose-jeri-y-dina-boluarte/">Infobae</a></span>
   </div>
 </div>
 
-<div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
 
 <div class="news-item">
-  <span class="pill pill-pol">Político</span>
-  <h3>Elecciones con sistema bicameral: 60 senadores y 130 diputados por elegirse</h3>
-  <p>Las elecciones del 12 de abril serán las primeras bajo el nuevo sistema bicameral aprobado por referéndum. Los electores elegirán 60 senadores y 130 diputados en 27 distritos electorales, además del presidente y vicepresidentes. La cédula de votación será la más extensa en la historia reciente del país, con 36 candidatos presidenciales.</p>
-  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_parlamentarias_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://peru21.pe/politica/elecciones-2026-cual-es-la-diferencia-entre-diputados-y-senadores/">Perú 21</a></span>
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno prorroga estado de emergencia por lluvias en ocho regiones</h3>
+  <p>El Ejecutivo extendi&oacute; el estado de emergencia en distritos de ocho regiones &mdash;Amazonas, Áncash, Apr&iacute;mac, Ayacucho, Cajamarca, Jun&iacute;n, Moquegua y Pasco&mdash; ante el riesgo de lluvias intensas proyectadas hasta mayo. La medida se suma al estado de emergencia por seguridad en Lima y Callao, lo que convierte a Per&uacute; en uno de los pa&iacute;ses de la regi&oacute;n con m&aacute;s zonas bajo emergencia simult&aacute;nea.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-19-de-marzo-de-2026">TVPer&uacute;</a> &middot; <a href="https://www.infobae.com/peru/2026/03/12/gobierno-declara-estado-de-emergencia-en-10-regiones-ante-riesgo-de-lluvias-intensas-hasta-mayo-de-2026/">Infobae</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Económico</span>
-  <h3>Precios del cobre y oro favorecen exportaciones peruanas</h3>
-  <p>El precio del cobre supera en 30% el promedio de 2025 y el oro se ubica casi 50% por encima del año anterior, según BBVA Research. Este contexto externo favorable sostiene las exportaciones mineras y compensa parcialmente los choques internos. La producción de cobre podría alcanzar 2,8 millones de toneladas métricas finas en 2026, consolidando a Perú como segundo productor mundial.</p>
-  <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a> · <a href="https://www.rumbominero.com/peru/noticias/mineria/este-2026-la-produccion-de-cobre-en-peru-minem/">Rumbo Minero</a></span>
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Ejecutivo aprueba Plan Nacional de Seguridad Ciudadana 2026-2028</h3>
+  <p>El gobierno de Balc&aacute;zar aprob&oacute; el Plan Nacional de Seguridad Ciudadana para el per&iacute;odo 2026-2028, con metas de reducci&oacute;n de homicidios, robos y extorsi&oacute;n a nivel nacional. El presidente afirm&oacute; que el plan busca "recuperar el orden y fortalecer la autoridad del Estado", aunque los indicadores de violencia del Callao en el corto plazo cuestionan su efectividad inmediata.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/gobierno-aprueba-plan-nacional-de-seguridad-ciudadana-2026-2028">TVPer&uacute;</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Económico</span>
-  <h3>Activar 36 proyectos mineros sumaría un punto al PBI anual durante 15 años</h3>
-  <p>Un análisis de Infobae reveló que la puesta en marcha de 36 proyectos mineros pendientes representaría una inversión cercana a USD 45.000 millones y podría agregar un punto porcentual adicional al crecimiento del PBI por año durante 15 años. El interés de inversionistas extranjeros por Perú subió al 62% según datos del PDAC 2026 en Toronto.</p>
-  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/11/activar-36-proyectos-mineros-sumaria-un-punto-anual-extra-al-pbi-peruano-durante-15-anos/">Infobae</a> · <a href="https://www.redimin.cl/pdac-2026-impulsa-inversion-interes-por-peru-sube-a-62-y-refuerza-atractivo-minero-internacional/">Redimin</a></span>
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cierra en S/ 3.46 el 19 de marzo, sube 0.38% en la sesi&oacute;n</h3>
+  <p>El tipo de cambio del d&oacute;lar cerr&oacute; en S/ 3.46 el jueves 19 de marzo, su nivel m&aacute;s alto de la semana, con un avance del 0.38% frente a la sesi&oacute;n anterior. La cotizaci&oacute;n SUNAT del d&iacute;a fue de S/ 3.408 para la compra y S/ 3.417 para la venta. La presi&oacute;n al alza responde a la incertidumbre electoral y al fortalecimiento global del d&oacute;lar ante se&ntilde;ales de pol&iacute;tica monetaria de la Reserva Federal de Estados Unidos.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-19-de-marzo-del-2026-noticia-1680702">RPP Noticias</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-emp">Empresarial</span>
-  <h3>VIII Feria Internacional de Franquicias arranca en Lima</h3>
-  <p>Los días 20 y 21 de marzo se celebra la VIII Feria Internacional de Franquicias 2026 en el campus de la USIL en La Molina, con la participación de 23 empresas provenientes de México, Argentina, Colombia, Venezuela y Guatemala. El evento refleja el crecimiento del modelo de franquicias en Perú, impulsado por la estabilidad macroeconómica y una inflación controlada.</p>
-  <span class="source-link"><a href="https://chnm.com.pe/2026/03/09/viii-feria-internacional-de-franquicias-2026-el-retorno-estrategico-del-modelo-de-negocio-mas-resiliente-del-peru/">CHNM</a></span>
+  <h3>Banco Mundial destina US$200 millones a miner&iacute;a sostenible en Per&uacute;</h3>
+  <p>El Banco Mundial anunci&oacute; un proyecto de inversi&oacute;n de US$200 millones orientado a fortalecer la competitividad de la miner&iacute;a peruana, promover el empleo formal y avanzar hacia est&aacute;ndares ambientales m&aacute;s exigentes. La iniciativa busca contrarrestar la expansi&oacute;n de la miner&iacute;a ilegal del oro, que ha ganado terreno significativo bajo el control del crimen organizado en los &uacute;ltimos a&ntilde;os.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/mineria-en-peru-banco-mundial-invierte-200-millones-de-dolares-para-impulsar-empleo-y-sostenibilidad-de-que-trata-noticia-1680336">RPP Noticias</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-soc">Social</span>
-  <h3>Combustibles mantienen volatilidad: GNV, GLP y gasolina con variaciones</h3>
-  <p>Los precios de combustibles en Perú continúan con variaciones diarias en GNV, GLP, diésel y gasolina. La normalización post-Camisea avanza de forma gradual, pero la incertidumbre sobre el abastecimiento de GLP y los precios internacionales del petróleo mantienen la presión sobre el bolsillo de los consumidores, particularmente en el transporte público.</p>
-  <span class="source-link"><a href="https://larepublica.pe/economia/2026/03/16/cuanto-esta-el-combustible-hoy-en-peru-precios-del-gnv-glp-diesel-y-gasolina-en-marzo-2026-hnews-535457">La República</a></span>
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inversi&oacute;n privada crecería 5% en 2026, tercer a&ntilde;o consecutivo de expansi&oacute;n</h3>
+  <p>El BCRP proyecta un crecimiento de 5% en la inversi&oacute;n privada para 2026, tercer a&ntilde;o consecutivo en expansi&oacute;n. Empresas del sector minero, energ&iacute;a e infraestructura tienen comprometido al menos US$11,500 millones en proyectos en ejecuci&oacute;n o pr&oacute;ximos a iniciar. La estabilidad macroecon&oacute;mica contrasta marcadamente con la agitaci&oacute;n pol&iacute;tica del a&ntilde;o electoral.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gesti&oacute;n</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Liga 1: Alianza Lima lidera el Apertura; Copa Perú inicia en Cusco</h3>
-  <p>Alianza Lima se mantiene en la cima del Torneo Apertura de la Liga 1 2026 con 16 puntos tras la fecha 6, con una ventaja de dos unidades sobre sus perseguidores. En la fecha 7, el equipo blanquiazul empató con Deportivo Garcilaso mientras Universitario venció a UTC. Paralelamente, la Copa Perú 2026 inició su Liga Distrital en Cusco con la jornada inaugural el 19 de marzo.</p>
-  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/07/tabla-de-posiciones-liga-1-peru-2026-fecha-6-torneo-apertura-alianza-lima-universitario-sporting-cristal-utc-melgar/">Infobae</a> · <a href="https://diarioelsolcusco.pe/2026/03/19/copa-peru-2026-resultados-en-la-fecha-1-de-la-liga-distrital-de-cusco-y-tabla-de-posiciones/">Diario El Sol</a></span>
+  <h3>Liga 1 &mdash; Fecha 8 del Torneo Apertura 2026 arranca este viernes</h3>
+  <p>La octava jornada del Torneo Apertura de la Liga 1 2026 inicia el viernes 20 con tres partidos clave: Comerciantes Unidos vs. Universitario, Los Chankas vs. Sporting Cristal, y Alianza Lima vs. Juan Pablo II. En la tabla acumulada tras siete fechas, Universitario, Alianza Lima y Sporting Cristal encabezan las posiciones en una lucha pareja por el liderato.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/20/resultados-de-la-fecha-8-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a> &middot; <a href="https://rpp.pe/futbol/descentralizado/tabla-de-posiciones-liga-1-2026-en-vivo-resultados-hoy-y-puestos-torneo-apertura-universitario-alianza-lima-sporting-cristal-noticia-1673748">RPP</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-int">Internacional</span>
-  <h3>Precios globales del petróleo y conflictos comerciales presionan la economía</h3>
-  <p>La escalada global de precios de combustibles, combinada con tensiones comerciales internacionales, forma parte del triple choque que afecta la economía peruana en 2026. BBVA Research mantiene su proyección de crecimiento en 2,9%, por debajo del potencial, citando tanto factores externos como las emergencias internas que han marcado el primer trimestre del año.</p>
-  <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a> · <a href="https://ipe.org.pe/economia-peruana-enfrentaria-desaceleracion-en-2026/">IPE</a></span>
+  <h3>Per&uacute; y Canad&aacute; fortalecen cooperaci&oacute;n en miner&iacute;a y seguridad</h3>
+  <p>El gobierno peruano sostuvo reuniones de alto nivel con representantes canadienses para avanzar en la cooperaci&oacute;n bilateral, con &eacute;nfasis en inversi&oacute;n minera &mdash;Canad&aacute; es el primer inversor extranjero en miner&iacute;a peruana&mdash;, acuerdos de seguridad y movilidad laboral. La visita refleja el inter&eacute;s de Ottawa por diversificar cadenas de suministro de minerales cr&iacute;ticos en Am&eacute;rica del Sur.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-19-de-marzo-de-2026">TVPer&uacute;</a></span>
 </div>
 
 <div class="data-strip">
   <div class="data-cell">
-    <div class="data-cell-label">Dólar Oficial</div>
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
     <div class="data-cell-value">S/ 3.46</div>
     <div class="data-cell-delta red">&#9650; +0.38%</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">Dólar Compra</div>
-    <div class="data-cell-value">S/ 3.408</div>
-    <div class="data-cell-delta red">&#9650; vs 3.40</div>
+    <div class="data-cell-label">Compra / Venta</div>
+    <div class="data-cell-value" style="font-size:16px; padding-top:4px;">3.408 / 3.417</div>
+    <div class="data-cell-delta" style="color: var(--muted);">SUNAT 19 mar</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">Dólar Venta</div>
-    <div class="data-cell-value">S/ 3.417</div>
-    <div class="data-cell-delta red">&#9650; vs 3.41</div>
+    <div class="data-cell-label">Tendencia Marzo</div>
+    <div class="data-cell-value">+0.3%</div>
+    <div class="data-cell-delta red">&#9650; vs. cierre feb</div>
   </div>
 </div>
 
 <div class="vigilar">
-  <div class="vigilar-header">Qué vigilar hoy</div>
-  <div class="vigilar-item">Inicio de los debates presidenciales el 23 de marzo: el formato y las posiciones de los candidatos líderes pueden alterar las encuestas a tres semanas de las elecciones.</div>
-  <div class="vigilar-item">Evolución del abastecimiento de GLP: la reposición de inventarios tras la crisis de Camisea sigue incompleta y podría generar nuevos episodios de escasez localizada.</div>
-  <div class="vigilar-item">Pronóstico de lluvias para la costa norte: el Senamhi mantiene alertas por precipitaciones intensas que podrían agravar los daños en regiones bajo estado de emergencia.</div>
-  <div class="vigilar-item">Precio del cobre en máximos: cualquier corrección en los mercados internacionales de metales impactaría las perspectivas fiscales y de exportación para el segundo trimestre.</div>
+  <div class="vigilar-header">Qu&eacute; Vigilar Hoy</div>
+  <div class="vigilar-item">Primer debate presidencial el lunes 23 de marzo: los primeros intercambios sobre seguridad y corrupci&oacute;n pueden reconfigurar las encuestas a solo tres semanas del cierre de campa&ntilde;a.</div>
+  <div class="vigilar-item">Indicadores de homicidios en el Callao durante el fin de semana: si la tasa se mantiene cerca de un caso diario, aumentar&aacute; la presi&oacute;n para cambiar de estrategia o declarar un tercer estado de emergencia.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del tipo de cambio ante la pr&oacute;xima reuni&oacute;n de la Reserva Federal de Estados Unidos, que podr&iacute;a fortalecer a&uacute;n m&aacute;s el d&oacute;lar y presionar importaciones e inflaci&oacute;n local.</div>
+  <div class="vigilar-item">Respuesta del Congreso y los candidatos presidenciales al escándalo del presunto control de Acu&ntilde;a sobre Minsa y EsSalud: el silencio o la defensa de la situaci&oacute;n podr&iacute;a convertirse en eje del debate electoral.</div>
 </div>
 
 <div class="footer">
-  Fuentes: RPP · El Comercio · Gestión · La República · Infobae · BBVA Research · Ipsos · Diario El Sol<br>
-  Briefing generado con Claude — Solo para uso informativo
+  Fuentes: RPP Noticias &middot; El Comercio &middot; La Rep&uacute;blica &middot; Gesti&oacute;n &middot; Infobae Per&uacute; &middot; TVPer&uacute; &middot; Andina &middot; BCRP<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
 </div>
 
 </body>
