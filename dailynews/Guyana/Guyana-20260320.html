@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo · Guyana · 20 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+/* Top 5 */
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+/* Why box */
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+/* Sources */
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+/* Section divider */
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+/* News items */
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+/* Data strip (tipo de cambio) */
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+/* Qué vigilar */
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '→'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+/* Footer */
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Guyana</h1>
+  <div class="masthead-date">Viernes 20 de marzo de 2026 · Georgetown</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<!-- TOP 5 DEL DÍA -->
+<div class="top5-header">Top 5 del Día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Guyana liquidará toda su deuda con ExxonMobil por los siete proyectos petroleros antes de fin de año</h3>
+    <p>El gobierno de Georgetown confirmó que para finales de 2026 habrá reembolsado a ExxonMobil todos los costos de exploración y desarrollo de los siete proyectos offshore sancionados. Sin embargo, la compañía no pudo precisar cuándo Guyana comenzará a recibir el 50% completo de las ganancias previsto en el contrato de producción compartida.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El umbral del reembolso total es la bisagra financiera del boom guyanés: una vez cruzado, los ingresos del Estado se duplicarán. Es la noticia económica más importante del año para Guyana y su efecto sobre el Fondo de Recursos Naturales (NRF) será inmediato.
+    </div>
+    <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/guyana-will-pay-off-exxon-all-costs-for-7-oil-projects-by-year-end/">Kaieteur News</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>ExxonMobil solicita aprobación para el octavo y noveno proyecto de petróleo en Guyana</h3>
+    <p>El consorcio liderado por ExxonMobil presentó solicitud formal ante las autoridades guyanesas para avanzar en la sanción de dos proyectos adicionales en el bloque Stabroek. Paralelamente, la empresa confirmó que la unidad flotante de producción FPSO Errea Wittu, construida por MODEC en Singapur, está próxima a zarpar hacia aguas guyanesas, lo que representaría el quinto FPSO del consorcio en operación.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La expansión continua confirma que Guyana mantiene su trayectoria hacia los 1,3 millones de barriles diarios para 2027. Con los precios del crudo al alza por el conflicto en Oriente Medio, cada nuevo FPSO tiene valor fiscal inmediato para Georgetown.
+    </div>
+    <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/exxon-seeking-8th-and-9th-oil-project/">Kaieteur News</a> · <a href="https://lapatilla.com/2026/03/20/exxon-mobil-acelera-proyectos-de-petroleo-y-gas-en-guyana-mientras-los-precios-se-disparan/">La Patilla</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Empresario Mohamed paga deuda judicial en monedas y billetes transportados en carretillas</h3>
+    <p>Azruddin Mohamed, líder del partido opositor We Invest in Nationhood (WIN) y figura sancionada por EE.UU. por evasión tributaria, cumplió una deuda con la corte de manera inusual: enviando el pago en efectivo físico, incluyendo monedas, en vehículos de carga. El hecho se convirtió en el episodio político más comentado del día en Guyana.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Mohamed lidera la segunda fuerza política de Guyana tras obtener 25% del voto en septiembre de 2025. Su relación con el sistema judicial y su historial de sanciones estadounidenses son variables de riesgo político que el gobierno de Ali deberá gestionar durante el quinquenio.
+    </div>
+    <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/wheelbarrows-of-cash/">Kaieteur News</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Stabroek News imprime su última edición física tras más de tres décadas de circulación</h3>
+    <p>El 15 de marzo, el diario Stabroek News — considerado el periódico de mayor credibilidad en Guyana — imprimió su última edición en papel. La causa inmediata fue una deuda de publicidad gubernamental que el gobierno del presidente Ali no habría saldado. El cierre del impreso ha generado un debate amplio sobre libertad de prensa y la relación del gobierno del PPP con los medios críticos.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El cierre del Stabroek News impreso es una señal de alerta para el espacio cívico en Guyana. Columnistas y analistas señalan contradicciones en la postura democrática del presidente Ali, quien promovió libertad de prensa en campaña pero habría permitido la asfixia financiera del diario más independiente del país.
+    </div>
+    <span class="source-link"><a href="https://www.stabroeknews.com/">Stabroek News</a> · <a href="https://demerarawaves.com/2026/03/17/opinion-pres-ali-leadership-through-contradictions/">Demerara Waves</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Residentes de Rupununi exigen voz en decisiones sobre permisos mineros en la región</h3>
+    <p>Comunidades indígenas y rurales de la región de Rupununi, en el suroeste guyanés, demandaron públicamente ser incluidas en las decisiones gubernamentales sobre otorgamiento de permisos mineros. La presión surge en un contexto de aceleración extractiva en el interior del país, impulsada por el auge del oro y la expansión petrolera.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La tensión entre comunidades del interior y el Estado es uno de los flancos de gobernanza más vulnerables del boom guyanés. Ignorar esta dinámica puede escalar a conflictos sociales que afecten la imagen inversora del país y la estabilidad política del segundo término de Ali.
+    </div>
+    <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/rupununi-residents-demand-voice-mining-permit-decision/">Kaieteur News</a></span>
+  </div>
+</div>
+
+<!-- TIPO DE CAMBIO -->
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">USD / GYD oficial</div>
+    <div class="data-cell-value">209.2</div>
+    <div class="data-cell-delta" style="color: var(--muted);">Régimen cuasifijo</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. 30 días</div>
+    <div class="data-cell-value green">+0.05%</div>
+    <div class="data-cell-delta green">Estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">PIB proyectado 2026</div>
+    <div class="data-cell-value" style="color: var(--accent);">+24%</div>
+    <div class="data-cell-delta" style="color: var(--muted);">CEPAL estimado</div>
+  </div>
+</div>
+
+<!-- POLÍTICA -->
+<div class="divider"><span class="divider-text">Política</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Ali inicia segundo mandato con agenda de digitalización y banco de desarrollo para PYMEs</h3>
+  <p>Reelecto en septiembre de 2025 con el 55% de los votos, el presidente Irfaan Ali avanza su agenda para el quinquenio 2025–2030: digitalización completa de servicios estatales para mediados de 2026, centros de cuidado infantil, y un banco de desarrollo de USD 200 millones orientado a pequeñas y medianas empresas. El FMI proyecta un crecimiento promedio del 14% anual durante los próximos cuatro años.</p>
+  <span class="source-link"><a href="https://www.americasquarterly.org/article/guyana-a-2026-snapshot/">Americas Quarterly</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Caso Brickdam: maestro suspendido por acusaciones de índole sexual</h3>
+  <p>Un docente de la Escuela Secundaria Brickdam fue retirado del cargo mientras las autoridades investigan denuncias de naturaleza sexual. El caso se suma a una serie de incidentes de seguridad escolar que han generado presión sobre el Ministerio de Educación para reforzar protocolos de protección estudiantil.</p>
+  <span class="source-link"><a href="https://demerarawaves.com/">Demerara Waves</a></span>
+</div>
+
+<!-- ECONOMÍA Y ENERGÍA -->
+<div class="divider"><span class="divider-text">Economía y Energía</span></div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Guyana ya capta ingresos adicionales por alza del petróleo ante tensiones en Irán</h3>
+  <p>Con los precios del crudo al alza como consecuencia del conflicto en Medio Oriente, Guyana está percibiendo ingresos incrementales sobre sus exportaciones actuales. El gobierno señaló que el país podría pronto capturar una proporción mayor de ganancias, en paralelo con el reembolso de costos a ExxonMobil.</p>
+  <span class="source-link"><a href="https://guyanatimesgy.com/">Guyana Times</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Proyecto Gas-to-Energy: gasoducto desde campos offshore será determinante para el sector energético</h3>
+  <p>El presidente de ExxonMobil Guyana, Alistair Routledge, calificó como "transformador" el proyecto de gasoducto que llevará gas natural desde los campos offshore hasta territorio continental. El proyecto, que ha sufrido retrasos, es clave para reducir los costos eléctricos del país en un 50% y aliviar la sobrecarga de la red.</p>
+  <span class="source-link"><a href="https://guyanatimesgy.com/">Guyana Times</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Granja ganadera en Mon Repos atrae 30 postores para mejoras por USD 49 millones</h3>
+  <p>El proceso de licitación para modernizar la instalación pecuaria estatal de Mon Repos recibió 30 propuestas, señal del dinamismo del sector agroindustrial impulsado por el gasto de ingresos petroleros en diversificación económica.</p>
+  <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/49m-mon-repos-livestock-farm-upgrade-attracts-30-bidders/">Kaieteur News</a></span>
+</div>
+
+<!-- SEGURIDAD Y SOCIAL -->
+<div class="divider"><span class="divider-text">Seguridad y Social</span></div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>CANU incauta bebidas infusionadas con cannabis en el aeropuerto Cheddi Jagan</h3>
+  <p>La Unidad Nacional Antidroga (CANU) decomisó en el aeropuerto internacional de Georgetown una carga de bebidas con contenido de marihuana. El hallazgo forma parte del incremento en controles de narcóticos en puntos de entrada al país, en un contexto de mayor tráfico regional.</p>
+  <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/canu-seizes-weed-infused-beverages-at-cjia/">Kaieteur News</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Inauguradas nuevas estaciones de policía en la Región 8; debate sobre gasto en el sistema penitenciario</h3>
+  <p>El gobierno comisionó nuevas instalaciones policiales en la Región Ocho (Potaro-Siparuni), reforzando la presencia del Estado en zonas del interior. En paralelo, el MP opositor Sherod Duncan pidió mayor escrutinio al gasto gubernamental en el Servicio Penitenciario de Guyana.</p>
+  <span class="source-link"><a href="https://kaieteurnewsonline.com/2026/03/20/new-police-stations-commissioned-in-region-eight/">Kaieteur News</a></span>
+</div>
+
+<!-- GEOPOLÍTICA -->
+<div class="divider"><span class="divider-text">Geopolítica: Essequibo</span></div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Con Maduro detenido, el riesgo Venezuela-Guyana cae a su punto más bajo desde 2023</h3>
+  <p>Tras la operación militar de EE.UU. que resultó en la captura del presidente Nicolás Maduro en enero de 2026, analistas coinciden en que las amenazas venezolanas sobre el Essequibo han quedado en suspenso. Guyana mantiene alianza estratégica de seguridad con Washington, que ha desplegado activos navales en el Caribe sur. El gobierno de Ali ha apoyado públicamente la postura estadounidense y continúa su caso ante la Corte Internacional de Justicia.</p>
+  <span class="source-link"><a href="https://www.cnbc.com/2026/01/12/oil-trump-venezuela-guyana-essequibo-territorial-dispute.html">CNBC</a> · <a href="https://kaieteurnewsonline.com/2026/01/05/a-guyanese-view-on-maduros-capture-and-the-essequibo-dispute/">Kaieteur News</a></span>
+</div>
+
+<!-- QUÉ VIGILAR -->
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar</div>
+  <div class="vigilar-item">Fecha exacta en que ExxonMobil certifique el reembolso total de costos: desde ese momento, los ingresos del Fondo de Recursos Naturales (NRF) se aceleran. Es el indicador fiscal más importante del año.</div>
+  <div class="vigilar-item">Avance del proyecto Gas-to-Energy: nuevos retrasos afectarán la competitividad eléctrica de Guyana y la popularidad del gobierno de Ali en centros urbanos.</div>
+  <div class="vigilar-item">Evolución política de Azruddin Mohamed y el partido WIN: con 16 escaños en la Asamblea Nacional y 25% del voto popular, representa la principal presión opositora sobre la distribución del ingreso petrolero.</div>
+  <div class="vigilar-item">Libertad de prensa post-Stabroek News: cómo reacciona el ecosistema mediático guyanés al cierre del impreso más independiente del país será un termómetro del espacio democrático durante el segundo mandato de Ali.</div>
+  <div class="vigilar-item">Proceso ante la CIJ sobre el Essequibo: con Venezuela en transición, Guyana podría avanzar posiciones legales internacionales. Vigilar si Georgetown aprovecha el momento para acelerar el litigio.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Briefing Ejecutivo · Guyana · Viernes 20 de marzo de 2026<br>
+  Fuentes: Kaieteur News · Demerara Waves · Guyana Times · Guyana Standard · Americas Quarterly · CNBC · La Patilla · Stabroek News<br>
+  Generado con criterio periodístico para toma de decisiones ejecutivas
+</div>
+
+</body>
+</html>
