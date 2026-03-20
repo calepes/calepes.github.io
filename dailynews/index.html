@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
 <title>Daily Briefings</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1D1D1F">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html {
@@ -62,6 +67,10 @@ body { display: flex; justify-content: center; }
 .dot-colombia { background: #c4841d; }
 .dot-peru { background: #1a4a6b; }
 .dot-bolivia { background: #8b1a1a; }
+.dot-brasil { background: #009c3b; }
+.dot-uruguay { background: #5b21b6; }
+.dot-guyana { background: #0e7490; }
+.dot-paraguay { background: #b45309; }
 
 .error-msg {
   text-align: center; font-size: 14px;
@@ -123,11 +132,27 @@ body { display: flex; justify-content: center; }
   </div>
 
   <script>
-    const COUNTRIES = [
-      { key: 'Colombia', color: '#c4841d', dotClass: 'dot-colombia' },
-      { key: 'Peru', color: '#1a4a6b', dotClass: 'dot-peru' },
-      { key: 'Bolivia', color: '#8b1a1a', dotClass: 'dot-bolivia' }
-    ];
+    const COUNTRY_COLORS = {
+      Colombia: '#c4841d',
+      Peru: '#1a4a6b',
+      Bolivia: '#8b1a1a',
+      Brasil: '#009c3b',
+      Uruguay: '#5b21b6',
+      Guyana: '#0e7490',
+      Paraguay: '#b45309'
+    };
+    const FALLBACK_COLORS = ['#6d28d9','#0284c7','#059669','#d97706','#dc2626','#7c3aed','#0891b2'];
+
+    function getCountryColor(name) {
+      if (COUNTRY_COLORS[name]) return COUNTRY_COLORS[name];
+      var hash = 0;
+      for (var i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      return FALLBACK_COLORS[Math.abs(hash) % FALLBACK_COLORS.length];
+    }
+
+    function getCountryDotClass(name) {
+      return 'dot-' + name.toLowerCase();
+    }
 
     const MONTHS = [
       'Enero','Febrero','Marzo','Abril','Mayo','Junio',
@@ -135,19 +160,21 @@ body { display: flex; justify-content: center; }
     ];
 
     let briefingsByDate = {};
+    let allCountries = [];
     let currentYear, currentMonth;
     let selectedDate = null;
 
     function parseManifest(data) {
       const map = {};
-      for (const country of COUNTRIES) {
-        const files = data[country.key] || [];
+      allCountries = Object.keys(data);
+      for (const country of allCountries) {
+        const files = data[country] || [];
         for (const f of files) {
           const m = f.match(/(\d{4})(\d{2})(\d{2})/);
           if (!m) continue;
           const dateKey = m[1] + '-' + m[2] + '-' + m[3];
           if (!map[dateKey]) map[dateKey] = [];
-          map[dateKey].push(country.key);
+          map[dateKey].push(country);
         }
       }
       return map;
@@ -198,10 +225,9 @@ body { display: flex; justify-content: center; }
         if (countries.length) classes.push('has-briefings');
 
         let dots = '';
-        for (const c of COUNTRIES) {
-          if (countries.includes(c.key)) {
-            dots += '<span class="' + c.dotClass + '"></span>';
-          }
+        for (const c of countries) {
+          var cls = getCountryDotClass(c);
+          dots += '<span class="' + cls + '" style="background:' + getCountryColor(c) + '"></span>';
         }
 
         const onclick = countries.length ? ' onclick="showDay(\'' + dateKey + '\')"' : '';
@@ -247,11 +273,10 @@ body { display: flex; justify-content: center; }
 
       const yyyymmdd = parts[0] + parts[1] + parts[2];
       let html = '';
-      for (const c of COUNTRIES) {
-        if (!countries.includes(c.key)) continue;
-        html += '<a class="country-card" href="' + c.key + '/' + c.key + '-' + yyyymmdd + '.html">' +
-          '<span class="country-dot" style="background:' + c.color + '"></span>' +
-          '<span class="country-name">' + c.key + '</span>' +
+      for (const c of countries) {
+        html += '<a class="country-card" href="' + c + '/' + c + '-' + yyyymmdd + '.html">' +
+          '<span class="country-dot" style="background:' + getCountryColor(c) + '"></span>' +
+          '<span class="country-name">' + c + '</span>' +
           '<span class="country-arrow">&#8250;</span></a>';
       }
       document.getElementById('day-cards').innerHTML = html;
