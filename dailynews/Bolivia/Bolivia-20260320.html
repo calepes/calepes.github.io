@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia - 20 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #c85a5a;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-mid); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Jueves 20 de marzo de 2026 · La Paz</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Elecciones subnacionales a 48 horas: Bolivia elige gobernadores, alcaldes y mas de 5.000 autoridades el 22 de marzo</h3>
+    <p>El Tribunal Supremo Electoral tiene todo listo para la jornada del domingo. Mas de 7,4 millones de bolivianos estan habilitados para votar y se desplegaran mas de 1.700 observadores nacionales e internacionales. Los comicios elegiran nueve gobernadores, asambleistas departamentales, alcaldes y concejales para el periodo 2026-2031. El Auto de Buen Gobierno entra en vigor desde el viernes 21, prohibiendo propaganda electoral.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Son las primeras elecciones subnacionales bajo el gobierno de Rodrigo Paz y definiran el mapa de poder regional que condicionara la gobernabilidad y la aprobacion de reformas economicas clave como la nueva Ley de Hidrocarburos.
+    </div>
+    <span class="source-link"><a href="https://abi.bo/mas-de-1-700-observadores-se-desplegaran-en-las-subnacionales-2026-en-bolivia/">ABI</a> · <a href="https://boliviaverifica.bo/elecciones-subnacionales-2026-conoce-las-fechas-clave-del-calendario-electoral-para-elegir-alcaldes-y-gobernadores/">Bolivia Verifica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Moody's sube la calificacion de Bolivia de Ca a Caa3 con perspectiva positiva</h3>
+    <p>La agencia calificadora elevo la nota crediticia de Bolivia tras el compromiso del gobierno de cumplir con los pagos de cupones de bonos en dolares. La mejora refleja una reduccion del riesgo de impago a corto plazo, respaldada por la transicion politica de fines de 2025 y el aumento de reservas internacionales a niveles que cubren los proximos vencimientos. El Ministerio de Economia confirmo la disponibilidad de USD 356 millones para intereses y capital de bonos por USD 1.000 millones con vencimiento en 2028.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Aunque la calificacion sigue muy por debajo de grado de inversion, el cambio de tendencia puede reducir el costo de endeudamiento externo y reforzar la confianza de organismos multilaterales que ya comprometieron financiamiento significativo.
+    </div>
+    <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/bolivia/moodys-eleva-la-calificacion-crediticia-de-bolivia-tras-compromiso-de-pagar-cupones/">Bloomberg Linea</a> · <a href="https://larazon.bo/economia-y-empresa/2026/03/18/moodys-mejora-calificacion-de-bolivia-y-el-gobierno-destaca-sus-politicas/">La Razon</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Paz anuncia paquete de leyes economicas post-elecciones: hidrocarburos, mineria y seguridad juridica</h3>
+    <p>El presidente Rodrigo Paz confirmo que despues del 22 de marzo enviara a la Asamblea Legislativa un paquete de leyes orientado a impulsar la economia, con foco en una nueva Ley de Hidrocarburos con esquema impositivo 50-50, una ley de mineria y reformas de seguridad juridica para atraer inversion. El Ministerio de Hidrocarburos indico que el proyecto de ley esta en fase final de redaccion.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La nueva Ley de Hidrocarburos es la reforma estructural mas esperada del gobierno Paz. Su diseno determinara si Bolivia logra reactivar la produccion de gas, cuyo declive agoto el modelo economico de las ultimas dos decadas.
+    </div>
+    <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/paz-anuncia-paquete-leyes-elecciones-impulsar-economia/20260319215317990352.html">Opinion</a> · <a href="https://eldeber.com.bo/economia/paz-anuncia-nueva-ley-hidrocarburos-esquema-50-50-atraer-inversion-potenciar-desarrollo-regional_1773781295">El Deber</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Dolar paralelo se estabiliza en torno a Bs 9,25 mientras el oficial se mueve a 6,86</h3>
+    <p>El tipo de cambio oficial abrio en Bs 6,86 por dolar (compra), con una variacion de 1,92% respecto a la sesion anterior. En el mercado paralelo, la cotizacion se mantiene en el rango de Bs 9,25 a 9,26, con una brecha cercana al 33% frente al tipo oficial. La estabilidad temporal se vincula a las expectativas de reformas cambiarias y al anuncio de USD 4.500 millones del BID para 2026-2028.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La brecha cambiaria del 33% sigue siendo un indicador critico de presion sobre las reservas y afecta directamente costos de importacion, precios internos y la planificacion de cualquier empresa con operaciones en Bolivia.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/noticias/2026/03/19/bolivia-cotizacion-de-apertura-del-dolar-hoy-19-de-marzo-de-usd-a-bob/">Infobae</a> · <a href="https://www.atb.com.bo/2026/03/19/cotizacion-del-dolar-hoy-19-de-marzo-de-2026/">ATB Digital</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Bolivia goleo 3-0 a Trinidad y Tobago y se prepara para el repechaje mundialista contra Surinam</h3>
+    <p>La seleccion boliviana vencio 3-0 a Trinidad y Tobago en el estadio Tahuichi de Santa Cruz en su ultimo amistoso de preparacion. Los goles fueron de Luis Haquin (23'), Juan Godoy (37') y Fernando Nava (51'). Bolivia enfrentara a Surinam el 26 de marzo en el estadio BBVA de Monterrey, Mexico, en la semifinal del repechaje intercontinental. Si avanza, jugara la final contra Irak el 31 de marzo.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La clasificacion al Mundial seria historica para Bolivia y tiene implicaciones economicas directas: turismo, derechos de transmision y el impulso animico para un pais que atraviesa un momento economico complejo.
+    </div>
+    <span class="source-link"><a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16442916/bolivia-vs-trinidad-y-tobago-goleo-ultimo-partido-preparacion-repechaje-mundial-2026">ESPN</a> · <a href="https://www.reduno.com.bo/deportes/bolivia-se-juega-el-todo-por-el-todo-fechas-y-horarios-del-repechaje-al-mundial-2026-202631813138">Red Uno</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Gobierno niega persecucion politica en proceso contra hijo de Luis Arce</h3>
+  <p>El ejecutivo aseguro que no existe persecucion politica en las acciones judiciales contra el hijo del expresidente Luis Arce Catacora, y enfatizo que todos los ciudadanos son iguales ante la ley. La declaracion llega en un contexto de tensiones residuales entre el gobierno de Paz y sectores afines al masismo.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/19/gobierno-no-hay-persecucion-politica/">ATB Digital</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Mas de 200.000 jurados electorales desplegados para las subnacionales del 22M</h3>
+  <p>El Organo Electoral Plurinacional confirmo que mas de 200.000 jurados de mesa fueron designados para las elecciones subnacionales. La propaganda electoral en medios masivos se permitio hasta el 18 de marzo, y desde el viernes 21 regiran las restricciones del Auto de Buen Gobierno, incluyendo la prohibicion de venta de bebidas alcoholicas.</p>
+  <span class="source-link"><a href="https://abi.bo/que-prohibe-el-auto-de-buen-gobierno-y-desde-cuando-entra-en-vigencia/">ABI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>BID ratifica apoyo de USD 4.500 millones para Bolivia 2026-2028</h3>
+  <p>El paquete acordado entre el Grupo BID y Bolivia contempla USD 2.000 millones en el primer ano para un programa de estabilizacion que protege a la poblacion vulnerable y busca restaurar la estabilidad macroeconomica. La plataforma "Bolivia Crece" acompanara la ejecucion de proyectos en infraestructura, proteccion social e inversion privada.</p>
+  <span class="source-link"><a href="https://www.iadb.org/en/news/idb-group-bolivia-agree-major-45-billion-support-package">BID</a> · <a href="https://erbol.com.bo/econom%C3%ADa/presidente-del-bid-confirma-financiamiento-de-hasta-us-4500-millones-en-proyectos-para">Erbol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Banco Mundial proyecta recesion de -1,1% para Bolivia en 2026; CEPAL estima +0,5%</h3>
+  <p>Las proyecciones para la economia boliviana en 2026 divergen: el Banco Mundial anticipa una contraccion del 1,1% del PIB, mientras la CEPAL proyecta un crecimiento marginal del 0,5%. El ministro Espinoza sostiene que las medidas del gobierno aseguraran crecimiento positivo. Bolivia cerro 2025 con una inflacion anual del 20,4%, la mas alta en casi 40 anos.</p>
+  <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/bolivia/exclusiva-economia-de-bolivia-vera-crecimiento-positivo-en-2026-dice-ministro-espinoza/">Bloomberg Linea</a> · <a href="https://icam.bo/proyecciones-economicas-y-escenarios-para-boliviarecaudacion-tributaria-al-mes-de-marzo/">ICAM</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Bolivia busca inversiones brasilenas bajo el paraguas de la nueva ley de hidrocarburos</h3>
+  <p>El presidente Paz invito a empresas brasilenas a invertir en Bolivia aprovechando el nuevo marco regulatorio en hidrocarburos. La propuesta se realizo durante gestiones bilaterales donde se discutio la integracion energetica y la reactivacion de campos gasiferos que podrian abastecer tanto el mercado interno como la demanda brasilena.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/03/18/bolivia-busca-oportunidades-en-brasil-para-impulsar-su-economia/">El Diario</a> · <a href="https://eldeber.com.bo/pais/gobierno-invita-brasil-invertir-bolivia-nueva-ley-hidrocarburos_1773669551">El Deber</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Bolivia celebra el Dia del Padre el 19 de marzo, unica fecha en la region</h3>
+  <p>A diferencia de la mayoria de paises latinoamericanos que celebran el Dia del Padre el tercer domingo de junio, Bolivia mantiene la tradicion de festejarlo el 19 de marzo, dia de San Jose en el calendario catolico. La fecha genera actividad comercial significativa en el sector retail y gastronomico.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/respuestas/que/por-que-el-dia-del-padre-2026-en-bolivia-se-celebra-el-19-de-marzo-conoce-su-origen-tdpe-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Ley de Incentivo al Deporte busca alianzas publico-privadas para financiar atletas</h3>
+  <p>El gobierno presento el anteproyecto de Ley de Incentivo al Deporte, que crea un marco legal y financiero para fortalecer el desarrollo deportivo en Bolivia. La norma permitira que empresas inviertan directamente en deportistas y disciplinas, con incentivos fiscales. Coincide con el momento historico del repechaje mundialista.</p>
+  <span class="source-link"><a href="https://www.minsalud.gob.bo/9032-gobierno-anuncia-anteproyecto-de-ley-de-incentivo-al-deporte">Ministerio de Salud y Deportes</a> · <a href="https://abi.bo/conozca-los-beneficios-de-la-nueva-ley-de-incentivo-al-deporte-para-los-deportistas/">ABI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Fitch tambien mejoro la nota boliviana: de CCC- a CCC en enero</h3>
+  <p>Ademas de la reciente decision de Moody's, Fitch Ratings elevo la calificacion soberana de Bolivia de CCC- a CCC a principios de 2026, en un contexto de menores restricciones politicas que facilitaron el acceso a financiamiento externo. Ambas mejoras reflejan una percepcion de menor riesgo de impago, aunque aun lejos de grado especulativo medio.</p>
+  <span class="source-link"><a href="https://www.vision360.bo/noticias/2026/03/19/41758-moodys-mejora-la-calificacion-de-riesgo-de-bolivia-el-gobierno-lo-atribuye-a-la-nueva-politica-economica">Vision 360</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Oficial</div>
+    <div class="data-cell-value">6,86</div>
+    <div class="data-cell-delta red">&#9650; 1,92%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Paralelo</div>
+    <div class="data-cell-value">9,25</div>
+    <div class="data-cell-delta red">&#9650; estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">~33%</div>
+    <div class="data-cell-delta red">&#9660; leve</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Inicio del Auto de Buen Gobierno manana viernes 21: restricciones electorales entran en vigor; mercados pueden mostrar menor actividad comercial el fin de semana.</div>
+  <div class="vigilar-item">Resultado de las elecciones subnacionales del 22 de marzo: el mapa de gobernadores y alcaldes definira alianzas legislativas para aprobar la Ley de Hidrocarburos y reformas economicas.</div>
+  <div class="vigilar-item">Semana decisiva para la seleccion: Bolivia vs. Surinam el 26 de marzo en Monterrey, repechaje al Mundial 2026. Impacto directo en consumo y animo nacional.</div>
+  <div class="vigilar-item">Seguimiento a la ejecucion de los USD 2.000 millones del BID para el primer ano: el desembolso efectivo sera clave para la estabilidad cambiaria y la presion sobre reservas.</div>
+</div>
+
+<div class="footer">
+  Fuentes: ABI · ATB Digital · Bloomberg Linea · Bolivia Verifica · El Deber · El Diario · Erbol · ESPN · Infobae · La Razon · Opinion · Red Uno · Vision 360<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
