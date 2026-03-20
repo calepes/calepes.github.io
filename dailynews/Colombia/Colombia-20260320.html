@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia - 20 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #e4a94f;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Jueves 20 de marzo de 2026 · Bogota</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro ordena liquidar EPS en quiebra: 23 millones de afiliados en vilo</h3>
+    <p>El presidente Gustavo Petro instruyó a los ministros de Hacienda y Salud para iniciar la liquidación inmediata de las EPS declaradas en quiebra, tras el hundimiento de la reforma a la salud en el Congreso. Ocho EPS se encuentran bajo intervención de la Supersalud, incluyendo Nueva EPS, Famisanar, Savia Salud y Emssanar. El gobierno anunció que no asumirá la deuda histórica de las EPS, que asciende a $50 billones. La Superintendencia de Salud dio un parte de tranquilidad indicando que el proceso será gradual.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La decisión afecta a más de 22 millones de afiliados y podría provocar una reestructuración profunda del sistema de salud colombiano, con implicaciones directas para el sector asegurador y la provisión de servicios médicos en todo el territorio.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/17/gobierno-petro-liquidara-eps-en-quiebra-y-no-asumira-deuda-de-50-billones-tras-caida-de-reforma-a-la-salud/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/salud/petro-vuelve-jaque-sistema-salud-anuncio-liquidar-eps-quebradas-NJ34689523">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuesta GAD3: Cepeda lidera con 35%, De la Espriella 21% y Valencia sube a 16%</h3>
+    <p>La más reciente encuesta GAD3 para las elecciones presidenciales del 31 de mayo sitúa a Iván Cepeda (Pacto Histórico) al frente con 35% de intención de voto, seguido por Abelardo de la Espriella con 21% y Paloma Valencia (Centro Democrático) con 16%. Valencia registró un salto notable desde el 4% previo a su victoria en la consulta interpartidista del 8 de marzo. En escenarios de segunda vuelta, habría empate técnico entre Cepeda y Valencia (43% vs 40%).</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      A 72 días de la primera vuelta, la contienda se configura como una carrera a tres bandas con potencial de segunda vuelta reñida, lo que define la incertidumbre regulatoria y fiscal que enfrentarán empresas e inversionistas en los próximos meses.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/amp/politica/elecciones-colombia-2026/nueva-encuesta-de-gad3-ivan-cepeda-35-abelardo-de-la-espriella-21-paloma-valencia-16-claudia-lopez-3541684">El Tiempo</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/ivan-cepeda-35-abelardo-de-la-espriella-21-y-palencia-valencia-16-lideran-encuesta-gad3-noticias-hoy/">El Espectador</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Colombia entra al top 10 del indice global de terrorismo por primera vez</h3>
+    <p>El Global Terrorism Index 2026, elaborado por el Instituto para la Economía y la Paz, ubica a Colombia entre los diez países más afectados por terrorismo en el mundo. El país registró un aumento del 70% en muertes por terrorismo y un 47% más de atentados en 2025. Los grupos armados ilegales crecieron 23,5% hasta sumar más de 27.000 integrantes, con las disidencias de las FARC y el ELN adoptando drones cargados de explosivos como nueva arma.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El deterioro de la seguridad incrementa el riesgo operativo para empresas con presencia rural y puede afectar la percepción de Colombia como destino de inversión, en un momento donde la inversión extranjera directa ya cayó 21% en los dos primeros meses de 2026.
+    </div>
+    <span class="source-link"><a href="https://www.eluniversal.com.co/colombia/2026/03/19/colombia-en-la-lista-de-los-10-paises-mas-afectados-por-terrorismo/">El Universal</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Economía crece solo 1,5% en enero y proyecciones se deterioran</h3>
+    <p>El ISE del DANE reveló que la actividad económica colombiana arrancó 2026 con un crecimiento de apenas 1,5% interanual en enero. El sector servicios fue el principal motor (2,73%), mientras que agricultura y minería cayeron 2,39%. BBVA Research y Fedesarrollo revisaron a la baja sus proyecciones para el año, y el FMI emitió cifras desalentadoras. La inflación se mantiene cerca del 5,45% anual, con el Banco de la República sosteniendo la tasa en 11,75%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El bajo crecimiento combinado con tasas de interés elevadas y caída del sector primario indica que la recuperación sigue siendo frágil, con impacto directo en el empleo, el consumo y la viabilidad de nuevos proyectos de inversión.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/actividad-economia-crecio-ise-dane-enero-MC34729234">El Colombiano</a> · <a href="https://www.bloomberglinea.com/latinoamerica/colombia/empeoran-las-proyecciones-de-crecimiento-economico-para-colombia-en-2026-las-razones/">Bloomberg Línea</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Dólar sube a $3.704 tras sesión volátil y presión alcista</h3>
+    <p>La TRM se ubicó en $3.704,17 para el 19 de marzo, con un aumento de $14,2 (+0,38%) frente al día anterior. Durante la jornada, el dólar tocó máximos y cerró en promedio a $3.692,27 en el mercado spot. En casas de cambio, el precio de venta llegó a $3.764,44. A pesar de la subida diaria, el dólar acumula una baja de 8,39% en el último año y de 0,25% en la última semana.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La volatilidad cambiaria refleja la incertidumbre electoral y las presiones sobre los flujos de capital. Empresas con exposición importadora deben vigilar de cerca la tendencia en las próximas semanas previas a la elección.
+    </div>
+    <span class="source-link"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-hoy-19-de-marzo-de-2026-1003720">RCN</a> · <a href="https://www.elespectador.com/economia/finanzas-personales/precio-del-dolar-hoy-19-de-marzo-de-2026-en-colombia-noticias-hoy/">El Espectador</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Seccion</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Pacto Histórico aseguró 25 curules en el Senado tras legislativas del 8 de marzo</h3>
+  <p>El partido del presidente Petro ganó cinco escaños adicionales respecto a 2022, consolidándose como la primera fuerza en el Congreso. El Centro Democrático fue la segunda fuerza más votada. Los resultados configuran un legislativo más fragmentado donde la correlación de fuerzas definirá el trámite de la reforma a la salud que Petro prometió reintroducir el 20 de julio.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN en Español</a> · <a href="https://www.infobae.com/colombia/2026/03/09/petro-afirma-que-el-pacto-historico-arraso-en-las-elecciones-al-congreso-y-anuncia-prioridad-a-la-reforma-a-la-salud/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Gobierno presenta hoja de ruta de gestión del espectro 2026-2029</h3>
+  <p>El MinTIC lanzó el plan que modernizará la gestión del espectro radioeléctrico en Colombia para el período 2026-2029, buscando dinamizar el sector de telecomunicaciones en un momento de consolidación tras la fusión Tigo-Movistar.</p>
+  <span class="source-link"><a href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/428278:Gobierno-Petro-presenta-la-hoja-de-ruta-que-modernizara-la-gestion-del-espectro-en-Colombia-entre-2026-y-2029">MinTIC</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Inversión extranjera directa cayó 21% en primeros dos meses del año</h3>
+  <p>La IED retrocedió considerablemente en enero-febrero de 2026, con la inversión estadounidense colapsando un 38%. Analistas atribuyen la caída a la incertidumbre regulatoria, la "tormenta tributaria" y la inestabilidad jurídica que ha marcado el gobierno Petro. El plan financiero 2026 del gobierno generó controversia adicional por sus supuestos fiscales optimistas.</p>
+  <span class="source-link"><a href="https://www.pulzo.com/economia/10-empresas-fueron-colombia-por-cambio-reglas-gustavo-petro-PP5098899">Pulzo</a> · <a href="https://razonpublica.com/actualizacion-del-plan-financiero-2026-colombia-genera-controversia-fiscal/">Razón Pública</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Tigo consolida posición como segundo operador tras adquisición de Movistar</h3>
+  <p>Millicom completó la toma de control de Movistar Colombia por USD 214,4 millones, posicionando a Tigo como el segundo operador de telecomunicaciones del país con 40,7% de participación, a menos de 4 puntos de Claro (44,5%). Ambas marcas operarán de manera independiente mientras Millicom espera la segunda fase de privatización prevista para abril.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/02/06/movistar-ya-es-propiedad-de-tigo-en-colombia-ceo-de-millicom-revelo-que-va-a-pasar-con-los-servicios-de-las-dos-empresas/">Infobae</a> · <a href="https://www.telesemana.com/blog/2026/02/05/millicom-compra-movistar-colombia-por-us-2144-millones-posiciona-a-tigo-segundo-en-el-pais-y-va-por-su-ultima-puntada/">TeleSemana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Megamovidas empresariales: cemento, telecom y petróleo lideran fusiones</h3>
+  <p>En los primeros 75 días de 2026, Colombia registró una oleada de operaciones corporativas. Además de la integración Tigo-Movistar, destacan la venta de activos de Cemex y la entrada de Grupo Gilinski al negocio petrolero regional. En 2025 se liquidaron 368 empresas, un récord de cuatro años, evidenciando un entorno operativo polarizado entre consolidaciones en sectores estratégicos y cierres en empresas medianas.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo de magnitud 4,4 sacudió Santander sin daños reportados</h3>
+  <p>El Servicio Geológico Colombiano reportó un sismo de magnitud 4,4 a las 18:41 hora local del jueves, con epicentro en Los Santos, Santander, cerca de Majadal Alto. No se reportaron daños materiales ni víctimas. La zona del Nido de Bucaramanga es una de las regiones con mayor actividad sísmica recurrente en Colombia.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/colombia/temblor-en-colombia-en-la-noche-de-este-jueves-19-de-marzo-de-2026-con-magnitud-de-4-4-epicentro-y-profundidad-so35">Noticias Caracol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay Fecha 12: empates dominan la jornada</h3>
+  <p>La fecha 12 de la Liga BetPlay 2026-I se caracterizó por resultados apretados. Deportes Tolima igualó 0-0 con Fortaleza FC, Independiente Medellín empató sin goles con Junior, Bucaramanga y Once Caldas terminaron 1-1, al igual que Cali y Santa Fe. Alianza Valledupar logró una victoria 1-0 sobre Jaguares. Atlético Nacional sigue líder con un partido menos.</p>
+  <span class="source-link"><a href="https://www.vanguardia.com/deportes/futbol/2026/03/19/asi-quedo-la-tabla-de-la-liga-colombiana-2026-luego-de-varios-empates-en-la-fecha-12/">Vanguardia</a> · <a href="https://www.infobae.com/colombia/deportes/2026/03/16/asi-va-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-luego-de-la-fecha-11-nacional-sigue-lider-con-un-partido-menos/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Colombia supera 1,8 millones de empresas activas pese a entorno adverso</h3>
+  <p>Colombia cerró 2025 con más de 1,8 millones de empresas activas, un récord histórico. La Cámara de Comercio de Bogotá anunció planes para impactar a 230.000 empresarios y generar más de 590.000 oportunidades comerciales durante 2026, un 127% más que el año anterior. Sin embargo, el contraste con las 368 liquidaciones del año pasado evidencia una dinámica empresarial de dos velocidades.</p>
+  <span class="source-link"><a href="https://www.enter.co/empresas/colombia-supera-18-millones-de-empresas-la-senal-que-esta-cambiando-la-inversion-extranjera/">Enter.co</a> · <a href="https://www.ccb.org.co/es/de-interes/comunicados/la-camara-de-comercio-de-bogota-impactara-a-230000-empresarios-y-generara-mas-de-590000-oportunidades-comerciales-durante-2026">CCB</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar TRM</div>
+    <div class="data-cell-value">$3.704</div>
+    <div class="data-cell-delta red">&#9650; +$14,2</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Spot</div>
+    <div class="data-cell-value">$3.692</div>
+    <div class="data-cell-delta red">&#9650; +$11,9</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. 12 meses</div>
+    <div class="data-cell-value">-8,4%</div>
+    <div class="data-cell-delta green">&#9660; Peso fortalecido</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Reacción de los mercados y del sector salud a la orden de liquidación de EPS: posibles amparos judiciales y pronunciamientos de gremios hospitalarios.</div>
+  <div class="vigilar-item">Publicación de nuevas encuestas presidenciales post-legislativas: la dinámica Cepeda-De la Espriella-Valencia definirá el tono de la campaña en las próximas semanas.</div>
+  <div class="vigilar-item">Datos de balanza comercial de febrero y evolución de la IED, que podrían confirmar la tendencia de desaceleración en flujos de capital hacia el país.</div>
+</div>
+
+<div class="footer">
+  Fuentes: El Tiempo · El Espectador · Infobae · El Colombiano · Bloomberg Línea · RCN · Noticias Caracol · Portafolio · Semana · CNN · Vanguardia · FIP · MinTIC<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
