@@ -3,122 +3,312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
 <title>Daily Briefings</title>
 <style>
-  :root {
-    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-    --label: #1D1D1F;
-    --secondary: rgba(60, 60, 67, 0.55);
-    --bg: #FFFFFF;
-    --bg2: #F5F5F7;
-    --separator: rgba(60, 60, 67, 0.12);
-    --accent: #007AFF;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --label: #F5F5F7;
-      --secondary: rgba(235, 235, 245, 0.55);
-      --bg: #000000;
-      --bg2: #1C1C1E;
-      --separator: rgba(84, 84, 88, 0.36);
-    }
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { font-family: var(--font); background: var(--bg); color: var(--label); -webkit-font-smoothing: antialiased; }
-  body { max-width: 480px; margin: 0 auto; padding: 0 20px 80px; }
-  .hero { text-align: center; padding: 60px 0 32px; }
-  .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
-  .hero p { font-size: 15px; color: var(--secondary); }
-  .section-label { font-size: 13px; font-weight: 600; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px; padding: 0 0 8px; }
-  .country-group { margin-bottom: 28px; }
-  .briefing-list { display: flex; flex-direction: column; background: var(--bg2); border-radius: 12px; overflow: hidden; }
-  .briefing-list a { display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; color: var(--label); transition: background 0.15s; }
-  .briefing-list a:not(:last-child) { border-bottom: 0.5px solid var(--separator); }
-  .briefing-list a:hover { background: rgba(0,0,0,0.04); }
-  @media (prefers-color-scheme: dark) { .briefing-list a:hover { background: rgba(255,255,255,0.06); } }
-  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .dot.colombia { background: #c4841d; }
-  .dot.peru { background: #1a4a6b; }
-  .dot.bolivia { background: #8b1a1a; }
-  .briefing-country { font-size: 17px; font-weight: 600; }
-  .briefing-date { font-size: 15px; color: var(--secondary); margin-left: auto; }
-  .briefing-arrow { color: var(--secondary); font-size: 17px; margin-left: 4px; }
-  .footer { padding-top: 20px; font-size: 11px; color: var(--secondary); text-align: center; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: #ffffff;
+  color: #1D1D1F;
+  -webkit-font-smoothing: antialiased;
+}
+body { display: flex; justify-content: center; }
+.container { width: 100%; max-width: 480px; padding: 0 20px 80px; }
+
+.hero { text-align: center; padding: 60px 0 32px; }
+.hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+
+.month-nav {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-bottom: 20px;
+}
+.month-nav span { font-size: 17px; font-weight: 600; min-width: 160px; text-align: center; }
+.nav-arrow {
+  background: none; border: none; font-size: 24px; color: #1D1D1F;
+  cursor: pointer; padding: 4px 8px; border-radius: 6px;
+  line-height: 1;
+}
+.nav-arrow:hover { background: rgba(0,0,0,0.05); }
+
+.weekday-header {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  text-align: center; font-size: 13px; font-weight: 600;
+  color: rgba(60, 60, 67, 0.55); margin-bottom: 4px;
+}
+
+.calendar-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+}
+.day-cell {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 8px 0; min-height: 48px;
+  font-size: 15px; position: relative;
+}
+.day-cell.has-briefings { cursor: pointer; border-radius: 8px; }
+.day-cell.has-briefings:hover { background: rgba(0,0,0,0.04); }
+.day-cell.outside { color: rgba(60, 60, 67, 0.2); }
+.day-cell.today .day-num {
+  background: #1D1D1F; color: #fff;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.day-num { font-size: 15px; line-height: 1; }
+.dots {
+  display: flex; gap: 3px; margin-top: 4px; justify-content: center;
+  min-height: 4px;
+}
+.dots span { width: 4px; height: 4px; border-radius: 50%; }
+.dot-colombia { background: #c4841d; }
+.dot-peru { background: #1a4a6b; }
+.dot-bolivia { background: #8b1a1a; }
+
+.error-msg {
+  text-align: center; font-size: 14px;
+  color: rgba(60, 60, 67, 0.55); padding: 40px 0;
+}
+
+/* Day view */
+.back-btn {
+  background: none; border: none; font-size: 15px; color: #007AFF;
+  cursor: pointer; padding: 4px 0; margin-bottom: 16px;
+}
+.back-btn:hover { text-decoration: underline; }
+#day-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
+.country-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; text-decoration: none; color: #1D1D1F;
+  border: 1px solid #e5e5e5; border-radius: 12px;
+  margin-bottom: 8px; transition: box-shadow 0.15s;
+}
+.country-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.country-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.country-name { font-size: 17px; font-weight: 600; }
+.country-arrow { margin-left: auto; color: rgba(60, 60, 67, 0.55); font-size: 17px; }
+
+.footer {
+  padding-top: 32px; font-size: 11px;
+  color: rgba(60, 60, 67, 0.55); text-align: center;
+}
 </style>
 </head>
 <body>
-  <section class="hero">
-    <h1>Daily Briefings</h1>
-    <p>Colombia, Peru, Bolivia</p>
-  </section>
+  <div class="container">
+    <header class="hero">
+      <h1>Daily Briefings</h1>
+    </header>
 
-  <div class="country-group">
-    <div class="section-label">Colombia</div>
-    <div class="briefing-list" id="colombia-list">
-      <!-- COLOMBIA-LINKS -->
-      <a href="Colombia/Colombia-20260320.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">20 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Colombia/Colombia-20260319.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">19 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Colombia/Colombia-20260318.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">18 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Colombia/Colombia-20260317.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">17 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Colombia/Colombia-20260316.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">16 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Colombia/Colombia-20260315.html"><span class="dot colombia"></span><span class="briefing-country">Colombia</span><span class="briefing-date">15 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /COLOMBIA-LINKS -->
+    <!-- Calendar View -->
+    <div id="calendar-view">
+      <div class="month-nav">
+        <button id="prev-month" class="nav-arrow">&lsaquo;</button>
+        <span id="month-label"></span>
+        <button id="next-month" class="nav-arrow">&rsaquo;</button>
+      </div>
+      <div class="weekday-header">
+        <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+      </div>
+      <div id="calendar-grid" class="calendar-grid"></div>
+      <div id="error-msg" class="error-msg" hidden>No se pudieron cargar los briefings.</div>
     </div>
-  </div>
 
-  <div class="country-group">
-    <div class="section-label">Peru</div>
-    <div class="briefing-list" id="peru-list">
-      <!-- PERU-LINKS -->
-      <a href="Peru/Peru-20260320.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">20 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Peru/Peru-20260319.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">19 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Peru/Peru-20260318.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">18 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Peru/Peru-20260317.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">17 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Peru/Peru-20260316.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">16 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Peru/Peru-20260315.html"><span class="dot peru"></span><span class="briefing-country">Peru</span><span class="briefing-date">15 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /PERU-LINKS -->
+    <!-- Day View -->
+    <div id="day-view" hidden>
+      <button id="back-btn" class="back-btn">&lsaquo; Volver</button>
+      <h2 id="day-title"></h2>
+      <div id="day-cards"></div>
     </div>
+
+    <footer class="footer">Generado con Claude</footer>
   </div>
 
-  <div class="country-group">
-    <div class="section-label">Bolivia</div>
-    <div class="briefing-list" id="bolivia-list">
-      <!-- BOLIVIA-LINKS -->
-      <a href="Bolivia/Bolivia-20260320.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">20 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Bolivia/Bolivia-20260319.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">19 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Bolivia/Bolivia-20260318.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">18 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Bolivia/Bolivia-20260317.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">17 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Bolivia/Bolivia-20260316.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">16 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <a href="Bolivia/Bolivia-20260315.html"><span class="dot bolivia"></span><span class="briefing-country">Bolivia</span><span class="briefing-date">15 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /BOLIVIA-LINKS -->
-    </div>
-  </div>
+  <script>
+    const COUNTRIES = [
+      { key: 'Colombia', color: '#c4841d', dotClass: 'dot-colombia' },
+      { key: 'Peru', color: '#1a4a6b', dotClass: 'dot-peru' },
+      { key: 'Bolivia', color: '#8b1a1a', dotClass: 'dot-bolivia' }
+    ];
 
-  <div class="country-group">
-    <div class="section-label">Brasil</div>
-    <div class="briefing-list" id="brasil-list">
-      <!-- BRASIL-LINKS -->
-      <a href="Brasil/Brasil-20260320.html"><span class="dot brasil"></span><span class="briefing-country">Brasil</span><span class="briefing-date">20 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /BRASIL-LINKS -->
-    </div>
-  </div>
+    const MONTHS = [
+      'Enero','Febrero','Marzo','Abril','Mayo','Junio',
+      'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'
+    ];
 
-  <div class="country-group">
-    <div class="section-label">Guyana</div>
-    <div class="briefing-list" id="guyana-list">
-      <!-- GUYANA-LINKS -->
-      <a href="Guyana/Guyana-20260320.html"><span class="dot guyana"></span><span class="briefing-country">Guyana</span><span class="briefing-date">20 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /GUYANA-LINKS -->
-    </div>
-  </div>
-  <div class="country-group">
-    <div class="section-label">Uruguay</div>
-    <div class="briefing-list" id="uruguay-list">
-      <!-- URUGUAY-LINKS -->
-      <a href="Uruguay/Uruguay-20260319.html"><span class="dot uruguay"></span><span class="briefing-country">Uruguay</span><span class="briefing-date">19 Mar 2026</span><span class="briefing-arrow">&#8250;</span></a>
-      <!-- /URUGUAY-LINKS -->
-    </div>
-  </div>
-  <div class="footer">Generado con Claude</div>
+    let briefingsByDate = {};
+    let currentYear, currentMonth;
+    let selectedDate = null;
+
+    function parseManifest(data) {
+      const map = {};
+      for (const country of COUNTRIES) {
+        const files = data[country.key] || [];
+        for (const f of files) {
+          const m = f.match(/(\d{4})(\d{2})(\d{2})/);
+          if (!m) continue;
+          const dateKey = m[1] + '-' + m[2] + '-' + m[3];
+          if (!map[dateKey]) map[dateKey] = [];
+          map[dateKey].push(country.key);
+        }
+      }
+      return map;
+    }
+
+    async function loadManifest() {
+      try {
+        const res = await fetch('briefings-manifest.json');
+        if (!res.ok) throw new Error(res.status);
+        briefingsByDate = parseManifest(await res.json());
+      } catch {
+        document.getElementById('error-msg').hidden = false;
+      }
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById('calendar-grid');
+      const label = document.getElementById('month-label');
+      const nextBtn = document.getElementById('next-month');
+
+      label.textContent = MONTHS[currentMonth] + ' ' + currentYear;
+
+      const now = new Date();
+      const isCurrentMonth = currentYear === now.getFullYear() && currentMonth === now.getMonth();
+      nextBtn.style.visibility = isCurrentMonth ? 'hidden' : 'visible';
+
+      const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+      const startOffset = (firstDay + 6) % 7;
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const daysInPrev = new Date(currentYear, currentMonth, 0).getDate();
+
+      const todayStr = now.getFullYear() + '-' +
+        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+        String(now.getDate()).padStart(2, '0');
+
+      let html = '';
+
+      for (let i = startOffset - 1; i >= 0; i--) {
+        html += '<div class="day-cell outside"><span class="day-num">' + (daysInPrev - i) + '</span><div class="dots"></div></div>';
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateKey = currentYear + '-' + String(currentMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        const countries = briefingsByDate[dateKey] || [];
+        const isToday = dateKey === todayStr;
+        const classes = ['day-cell'];
+        if (isToday) classes.push('today');
+        if (countries.length) classes.push('has-briefings');
+
+        let dots = '';
+        for (const c of COUNTRIES) {
+          if (countries.includes(c.key)) {
+            dots += '<span class="' + c.dotClass + '"></span>';
+          }
+        }
+
+        const onclick = countries.length ? ' onclick="showDay(\'' + dateKey + '\')"' : '';
+        html += '<div class="' + classes.join(' ') + '"' + onclick + '><span class="day-num">' + d + '</span><div class="dots">' + dots + '</div></div>';
+      }
+
+      const totalCells = startOffset + daysInMonth;
+      const remaining = (7 - (totalCells % 7)) % 7;
+      for (let i = 1; i <= remaining; i++) {
+        html += '<div class="day-cell outside"><span class="day-num">' + i + '</span><div class="dots"></div></div>';
+      }
+
+      grid.innerHTML = html;
+    }
+
+    document.getElementById('prev-month').addEventListener('click', function() {
+      currentMonth--;
+      if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+      renderCalendar();
+    });
+
+    document.getElementById('next-month').addEventListener('click', function() {
+      const now = new Date();
+      const nextM = currentMonth + 1;
+      const nextY = nextM > 11 ? currentYear + 1 : currentYear;
+      const adjM = nextM % 12;
+      if (nextY > now.getFullYear() || (nextY === now.getFullYear() && adjM > now.getMonth())) return;
+      currentMonth = adjM;
+      currentYear = nextY;
+      renderCalendar();
+    });
+
+    function showDay(dateKey) {
+      const parts = dateKey.split('-');
+      const day = parseInt(parts[2]);
+      const monthIdx = parseInt(parts[1]) - 1;
+      const year = parseInt(parts[0]);
+      const countries = briefingsByDate[dateKey] || [];
+      if (!countries.length) return;
+
+      document.getElementById('day-title').textContent =
+        day + ' de ' + MONTHS[monthIdx].toLowerCase() + ' de ' + year;
+
+      const yyyymmdd = parts[0] + parts[1] + parts[2];
+      let html = '';
+      for (const c of COUNTRIES) {
+        if (!countries.includes(c.key)) continue;
+        html += '<a class="country-card" href="' + c.key + '/' + c.key + '-' + yyyymmdd + '.html">' +
+          '<span class="country-dot" style="background:' + c.color + '"></span>' +
+          '<span class="country-name">' + c.key + '</span>' +
+          '<span class="country-arrow">&#8250;</span></a>';
+      }
+      document.getElementById('day-cards').innerHTML = html;
+
+      selectedDate = dateKey;
+      document.getElementById('calendar-view').hidden = true;
+      document.getElementById('day-view').hidden = false;
+      location.hash = dateKey;
+    }
+
+    function showCalendar() {
+      if (selectedDate) {
+        const parts = selectedDate.split('-');
+        currentYear = parseInt(parts[0]);
+        currentMonth = parseInt(parts[1]) - 1;
+        selectedDate = null;
+      }
+      document.getElementById('day-view').hidden = true;
+      document.getElementById('calendar-view').hidden = false;
+      history.replaceState(null, '', location.pathname);
+      renderCalendar();
+    }
+
+    document.getElementById('back-btn').addEventListener('click', showCalendar);
+
+    async function init() {
+      await loadManifest();
+
+      const now = new Date();
+      const hash = location.hash.slice(1);
+      const hashMatch = hash.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+      if (hashMatch) {
+        currentYear = parseInt(hashMatch[1]);
+        currentMonth = parseInt(hashMatch[2]) - 1;
+        renderCalendar();
+        if (briefingsByDate[hash]) {
+          showDay(hash);
+        }
+      } else {
+        currentYear = now.getFullYear();
+        currentMonth = now.getMonth();
+        renderCalendar();
+      }
+    }
+
+    window.addEventListener('hashchange', function() {
+      const hash = location.hash.slice(1);
+      if (hash && briefingsByDate[hash]) {
+        const parts = hash.split('-');
+        currentYear = parseInt(parts[0]);
+        currentMonth = parseInt(parts[1]) - 1;
+        showDay(hash);
+      }
+    });
+
+    init();
+  </script>
 </body>
 </html>
