@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Ejecutivo — Paraguay | 19 de marzo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #18181b;
+      --paper: #fafafa;
+      --accent: #1a5c3a;
+      --accent-soft: #ecfdf5;
+      --accent-mid: #a7f3d0;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --muted: #78716c;
+      --pill-pol: #1e40af; --pill-pol-bg: #eff6ff;
+      --pill-eco: #065f46; --pill-eco-bg: #ecfdf5;
+      --pill-emp: #7c2d12; --pill-emp-bg: #fff7ed;
+      --pill-soc: #6b21a8; --pill-soc-bg: #faf5ff;
+      --pill-dep: #0369a1; --pill-dep-bg: #f0f9ff;
+      --pill-int: #374151; --pill-int-bg: #f3f4f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Sora', sans-serif; line-height: 1.6; max-width: 680px; margin: 0 auto; padding: 32px 20px; -webkit-font-smoothing: antialiased; }
+    .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+    .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+    .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+    .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+    .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+    .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+    .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+    .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+    .data-cell:last-child { border-right: none; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+    .green { color: #16a34a; }
+    .red { color: #dc2626; }
+    .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '→'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .data-cell:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="masthead">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Paraguay</h1>
+    <div class="masthead-date">Jueves 19 de marzo de 2026 · Asunción</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="top5-header">Top 5 del Día</div>
+
+  <div class="top5-card">
+    <div class="top5-num">01</div>
+    <div class="top5-content">
+      <h3>Peña promulga la reforma de la Caja Fiscal entre críticas por la velocidad y el alcance</h3>
+      <p>El presidente Santiago Peña firmó la promulgación de la Ley N° 7633 de reforma del sistema de jubilaciones y pensiones del sector público, apenas 48 horas después de su sanción en el Congreso. La versión final, consensuada con gremios docentes y mediada por el vicepresidente Alliana, aumenta el aporte de afiliados del 16% al 19% y el aporte estatal del 5% al 10%. Sin embargo, analistas advierten que el ahorro proyectado es de apenas USD 165 millones en cinco años, frente al déficit potencial de USD 796 millones si no se reforma el sistema. Gremios docentes amenazan con demandar al Estado por "cuasiconfiscación salarial".</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La Caja Fiscal carga un déficit estructural que el propio MEF proyecta en USD 796 millones. La reforma promulgada solo mitiga el 21% de ese déficit, dejando abierta la pregunta fiscal de largo plazo y exponiendo al Gobierno a conflictos gremiales que podrían escalar antes del ciclo electoral de 2028.
+      </div>
+      <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/19/santiago-pena-promulgo-la-ley-que-reforma-el-sistema-de-pensiones-publicas-en-paraguay/">Infobae</a> · <a href="https://www.ultimahora.com/pena-promulga-la-reforma-de-la-caja-fiscal">Última Hora</a> · <a href="https://www.abc.com.py/politica/2026/03/19/por-que-se-promulgo-tan-rapido-la-reforma-de-la-caja-fiscal-cuestiona-senador/">ABC Color</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">02</div>
+    <div class="top5-content">
+      <h3>Cartismo blinda a "Chaqueñito" y archiva la pérdida de investidura por vivienda social</h3>
+      <p>El Senado descartó con 23 votos la pérdida de investidura del senador Javier "Chaqueñito" Vera, quien fue adjudicado con un departamento del programa de Viviendas Económicas del MUVH pese a percibir más de Gs. 37 millones mensuales — casi el doble del tope de ingresos del programa. Solo 6 senadores votaron por la expulsión y 6 se abstuvieron. La oposición denunció tráfico de influencias; el cartismo lo calificó de vendetta política.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        El blindaje exprés a Chaqueñito, un mes después de la condena a Erico Galeano por vínculos con el narco Marset, refuerza la percepción de impunidad selectiva en el Congreso. La decisión alimenta el desgaste del cartismo en un año donde la credibilidad institucional será clave de cara a 2028.
+      </div>
+      <span class="source-link"><a href="https://www.ultimahora.com/cartismo-da-un-blaqueo-expres-a-chaquenito-tras-beneficiarse-con-programa-del-muvh">Última Hora</a> · <a href="https://elnacional.com.py/politica/blindaje-politico-cartismo-rechaza-perdida-investidura-chaquenito-pese-escandalo-vivienda-n102703">El Nacional</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">03</div>
+    <div class="top5-content">
+      <h3>Capturan banda de 14 personas en Ciudad del Este que planeaba el "robo del siglo"</h3>
+      <p>La Policía Nacional allanó una lujosa residencia en Ciudad del Este y detuvo a 14 personas — paraguayos, brasileños y taiwaneses — vinculadas a una banda que planeaba asaltar una casa de cambios de alto valor. La operación partió de una alerta de inteligencia que anticipó el megaasalto. También fue capturado Joel Molina Ruiz, quien se encontraba prófugo en Concepción por el atraco al Banco Sudameris.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Ciudad del Este sigue siendo el epicentro del crimen organizado transnacional en Paraguay. La composición multinacional de la banda confirma que las redes delictivas operan con estructuras regionales, en un corredor donde el control del Estado es históricamente débil.
+      </div>
+      <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a> · <a href="https://www.paraguay.com/">Paraguay.com</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">04</div>
+    <div class="top5-content">
+      <h3>Sorteo Libertadores y Sudamericana 2026: Olimpia como cabeza de serie, Recoleta debuta en copa internacional</h3>
+      <p>Desde la sede de la Conmebol en Luque, se definieron los grupos de la Copa Libertadores y la Copa Sudamericana 2026. Olimpia ingresó como cabeza de serie desde el Bombo 2, mientras que el histórico Recoleta FC hace su primera aparición en competencia continental. Cerro Porteño y Libertad también representarán al país en ambos torneos. Guaraní y 2 de Mayo quedaron eliminados en fases previas.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La sede del sorteo en Luque refuerza el posicionamiento de Paraguay como capital del fútbol sudamericano vía Conmebol. El debut de Recoleta abre un capítulo histórico para el fútbol paraguayo y generará exposición mediática regional durante toda la fase de grupos.
+      </div>
+      <span class="source-link"><a href="https://www.abc.com.py">ABC Color</a> · <a href="https://d10.ultimahora.com/">D10</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">05</div>
+    <div class="top5-content">
+      <h3>Guaraní se aprecia frente al dólar y genera caída del 10.5% en ingresos aduaneros</h3>
+      <p>La apreciación sostenida del guaraní frente al dólar provocó una reducción del 10.5% en la recaudación aduanera de febrero de 2026. El tipo de cambio de referencia del BCP se ubica en torno a Gs. 6.350 por dólar (compra) y Gs. 6.800 (venta). La DNIT intensificó clausuras de comercios en Encarnación y Luque por incumplimientos tributarios, en un contexto de menor recaudación general.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Paraguay es altamente dependiente de ingresos aduaneros asociados al comercio fronterizo con Brasil y Argentina, denominado en dólares. Una caída sostenida del tipo de cambio erosiona las finanzas públicas y complica el financiamiento de la inversión pública en un año de ajuste fiscal.
+      </div>
+      <span class="source-link"><a href="https://www.hoy.com.py/">Diario HOY</a> · <a href="https://www.abc.com.py">ABC Color</a></span>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>Kattya González anuncia candidatura presidencial tras su expulsión del Senado</h3>
+    <p>La exsenadora Kattya González afirmó que se postulará a la presidencia de la República y que su expulsión del Congreso — un proceso que ella considera injusto — la fortaleció políticamente. Dijo sentir "en el corazón" que está preparada para el cargo. Su caso contrasta con el blindaje que el cartismo otorgó a Chaqueñito, lo que intensifica el debate sobre la selectividad en la aplicación de la pérdida de investidura.</p>
+    <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>JEM abre investigación contra fiscal que liberó a agresor que luego cometió feminicidio</h3>
+    <p>El Jurado de Enjuiciamiento de Magistrados inició de oficio una investigación preliminar contra el fiscal Juan Daniel Benítez, de Santa Rosa del Aguaray, quien en 2025 liberó a un hombre denunciado por violencia doméstica que posteriormente asesinó a su pareja. El fiscal además apareció en videos cantando la "polca colorada", cuestionando su imparcialidad política.</p>
+    <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Gobierno ofrece pagar deuda de USD 150 millones a constructoras via cesión a bancos privados</h3>
+    <p>El Ejecutivo presentó a las empresas constructoras un plan para saldar una deuda millonaria mediante la cesión de las obligaciones a bancos privados, evitando el impacto directo en el Presupuesto General de la Nación 2026. El mecanismo permitiría honrar compromisos pendientes en obras de infraestructura sin generar presión fiscal inmediata.</p>
+    <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>DNIT clausura comercios en Encarnación y Luque en medio de presión recaudatoria</h3>
+    <p>La Dirección Nacional de Ingresos Tributarios clausuró temporalmente varios comercios y locales gastronómicos en Encarnación y Luque por incumplimientos tributarios. La entidad advirtió que continuarán los controles en todo el país en un contexto de menor recaudación, impulsada en parte por la apreciación del guaraní frente al dólar y la caída de ingresos aduaneros.</p>
+    <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-soc">Social</span>
+    <h3>Junta Municipal de Encarnación rechaza cesión de 3.4 hectáreas en la Costanera al intendente</h3>
+    <p>Por votación unánime, la Junta Municipal de Encarnación rechazó el veto del intendente Luis Yd que buscaba entregar gratuitamente un valioso inmueble de 3.4 hectáreas en uno de los sectores más exclusivos de la Costanera República del Paraguay. El rechazo fue acompañado de críticas al intendente por intentar disponer de bienes públicos sin aval legislativo.</p>
+    <span class="source-link"><a href="https://www.ultimahora.com/">Última Hora</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Dani Vallejo ingresa al Top 100 del ranking ATP; Lice Chamorro anota ante Barcelona en Copa de la Reina</h3>
+    <p>El tenista paraguayo Dani Vallejo alcanzó un hito histórico al ingresar oficialmente al Top 100 del ranking ATP, consolidando su posición entre los mejores del mundo. En paralelo, la futbolista Lice Chamorro anotó un gol frente al FC Barcelona en la Copa de la Reina de España, destacándose en la élite del fútbol femenino europeo.</p>
+    <span class="source-link"><a href="https://d10.ultimahora.com/">D10</a> · <a href="https://www.paraguay.com/">Paraguay.com</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Peña y Lula se reunirán el 22 de marzo en Campo Grande para avanzar en el Anexo C de Itaipú</h3>
+    <p>El canciller paraguayo confirmó que los presidentes Santiago Peña y Luiz Inácio Lula da Silva se reunirán este domingo en Campo Grande, Mato Grosso do Sul, para avanzar en las negociaciones sobre el Anexo C del Tratado de Itaipú — que regula la tarifa de la energía y la deuda histórica de Paraguay. El canciller indicó que las conversaciones avanzan "de manera muy constructiva".</p>
+    <span class="source-link"><a href="https://www.hoy.com.py/">Diario HOY</a></span>
+  </div>
+
+  <div class="data-strip">
+    <div class="data-cell">
+      <div class="data-cell-label">USD / Guaraní (compra BCP)</div>
+      <div class="data-cell-value green">Gs 6.350</div>
+      <div class="data-cell-delta green">▼ Guaraní se aprecia</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">USD / Guaraní (venta BCP)</div>
+      <div class="data-cell-value">Gs 6.800</div>
+      <div class="data-cell-delta" style="color:var(--muted)">Referencial 19 mar</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Impacto recaudación aduanera</div>
+      <div class="data-cell-value red">-10.5%</div>
+      <div class="data-cell-delta red">▼ Feb 2026 vs Feb 2025</div>
+    </div>
+  </div>
+
+  <div class="vigilar">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Reunión Peña-Lula (22 mar, Campo Grande): el resultado de las negociaciones del Anexo C de Itaipú podría redefinir los ingresos energéticos de Paraguay. Cualquier acuerdo sobre tarifa o deuda histórica tiene impacto fiscal directo.</div>
+    <div class="vigilar-item">Reacción gremial a la Caja Fiscal: los sindicatos docentes amenazaron con demandas judiciales. Monitorear si escalan a movilizaciones antes de que la ley entre en plena vigencia.</div>
+    <div class="vigilar-item">Guaraní y recaudación: si la apreciación cambiaria se sostiene, el impacto en los ingresos aduaneros de marzo podría superar el de febrero. Clave para la postura fiscal del MEF en el segundo trimestre.</div>
+    <div class="vigilar-item">Caso Marset y nexos políticos paraguayos: con Marset detenido en Bolivia, la DEA y la justicia de EE.UU. podrían solicitar información que involucre a figuras políticas locales. El juicio a Erico Galeano sigue en primera instancia.</div>
+    <div class="vigilar-item">Copa Libertadores / Sudamericana: el sorteo definió grupos; los primeros partidos de Olimpia y Libertad definirán si Paraguay puede aspirar a instancias avanzadas esta temporada.</div>
+  </div>
+
+  <div class="footer">
+    Fuentes: ABC Color · Última Hora · Diario HOY · La Nación Paraguay · Paraguay.com · D10 · El Nacional · Infobae · El Poder · 1000 Noticias<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</body>
+</html>
