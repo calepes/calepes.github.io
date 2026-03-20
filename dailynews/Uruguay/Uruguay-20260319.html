@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Uruguay — 19 de marzo de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Uruguay</h1>
+  <div class="masthead-date">Jueves 19 de marzo de 2026 &middot; Montevideo</div>
+  <span class="masthead-tag">Edici&oacute;n Diaria</span>
+</div>
+
+<div class="top5-header">Top 5 del D&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>OSE activa fase de excepcionalidad por d&eacute;ficit h&iacute;drico en Montevideo</h3>
+    <p>El sistema metropolitano de agua ingres&oacute; en la segunda etapa del protocolo de sequ&iacute;a. OSE comenzar&aacute; a reducir gradualmente la presi&oacute;n de bombeo para preservar reservas. Paso Severino se encuentra al 47% de su capacidad. Se reforzaron cuadrillas de reparaci&oacute;n de fugas y se reacondicionan perforaciones subterr&aacute;neas como reserva estrat&eacute;gica.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Evoca la crisis h&iacute;drica de 2023-2024, la peor en 70 a&ntilde;os. La dependencia del Santa Luc&iacute;a sigue sin resolverse y la represa de Casup&aacute; a&uacute;n no est&aacute; construida. Si las lluvias no llegan, la tercera fase implicar&iacute;a cortes programados.
+    </div>
+    <span class="source-link"><a href="https://www.subrayado.com.uy/ose-anuncio-medidas-el-deficit-hidrico-reduccion-gradual-presiones-bombeo-y-reforzar-el-trabajo-cuadrillas-n1002848">Subrayado</a> &middot; <a href="https://mediospublicos.uy/ose-declara-fase-de-excepcionalidad-del-deficit-hidrico/">Medios P&uacute;blicos</a> &middot; <a href="https://www.infobae.com/america/america-latina/2026/03/19/uruguay-reduce-la-presion-del-agua-potable-en-montevideo-y-alrededores-para-hacer-frente-a-la-sequia/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Tensi&oacute;n en el Senado: Botana acusa al FA de favorecer al narcotr&aacute;fico y rechaza retractarse</h3>
+    <p>El senador nacionalista Sergio Botana reafirm&oacute; en sala que las decisiones del Frente Amplio favorecen al narcotr&aacute;fico. El FA exigi&oacute; retractaci&oacute;n p&uacute;blica y present&oacute; una moci&oacute;n de repudio que no fue acompa&ntilde;ada por la oposici&oacute;n. El senador Oscar Andrade advirti&oacute; que no descartan llevar las declaraciones a Fiscal&iacute;a ni invocar el art&iacute;culo 115 de la Constituci&oacute;n.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El episodio escala la crispaci&oacute;n entre oficialismo y oposici&oacute;n a tres meses del Mundial, en un contexto donde Uruguay necesita acuerdos para el Presupuesto y la agenda de seguridad. El clima pol&iacute;tico se deteriora r&aacute;pidamente.
+    </div>
+    <span class="source-link"><a href="https://www.subrayado.com.uy/el-fa-exigio-que-botana-se-retracte-lo-que-dijo-la-izquierda-y-el-narcotrafico-pero-el-senador-blanco-mantuvo-sus-dichos-n1002762">Subrayado</a> &middot; <a href="https://www.elobservador.com.uy/nacional/botana-reafirma-sus-dichos-e-insiste-que-las-decisiones-del-fa-coinciden-la-situacion-mas-conveniente-el-narcotrafico-n6037891">El Observador</a> &middot; <a href="https://enperspectiva.uy/en-perspectiva-programa/la-mesa/senador-sergio-botana-afirmo-gobierno-narcotrafico-desde-el-fa-exigieron-retracte/">En Perspectiva</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>ARU cuestiona la represa de Casup&aacute; y propone alternativa desde el R&iacute;o de la Plata</h3>
+    <p>El presidente de la Asociaci&oacute;n Rural, Rafael Ferber, critic&oacute; el proyecto Casup&aacute; por el impacto en la cuenca del Santa Luc&iacute;a: 1,3 millones de hect&aacute;reas que generan el 28% del PIB agropecuario (USD 1.500 millones). Propuso captar agua del R&iacute;o de la Plata v&iacute;a Juan Lacaze como alternativa al modelo actual.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La oposici&oacute;n entre infraestructura h&iacute;drica y productividad agropecuaria polariza al sector rural contra el gobierno. La licitaci&oacute;n de Casup&aacute; est&aacute; prevista para abril-mayo; si avanza, las restricciones ambientales afectar&aacute;n la ganader&iacute;a y lecher&iacute;a de la zona.
+    </div>
+    <span class="source-link"><a href="https://enperspectiva.uy/en-perspectiva-programa/asociacion-rural-cuestiona-represa-de-casupa-con-rafael-ferber/">En Perspectiva</a> &middot; <a href="https://www.talaciudad.com/2026/03/18/casupa-aru-planteo-reparos-al-proyecto-por-limitaciones-productivas-desestimulo-y-prohibicion-a-inversiones/">TalaCiudad</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Fernando Muslera vuelve a la Selecci&oacute;n tras 4 a&ntilde;os: sue&ntilde;a con su quinto Mundial</h3>
+    <p>El arquero de 39 a&ntilde;os, actualmente en Estudiantes de La Plata, se present&oacute; en el Complejo Celeste tras ser convocado por Marcelo Bielsa. La delegaci&oacute;n viaj&oacute; a Europa para los amistosos ante Inglaterra (21/3 en Wembley) y Argelia (31/3 en Tur&iacute;n), &uacute;ltimas pruebas antes del Mundial.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El retorno de Muslera (133 partidos, 4 Mundiales) inyecta liderazgo y experiencia a un plantel que ven&iacute;a de resultados irregulares. Uruguay debuta el 15 de junio ante Arabia Saudita en el Grupo H, junto a Espa&ntilde;a y Cabo Verde.
+    </div>
+    <span class="source-link"><a href="https://www.subrayado.com.uy/fernando-muslera-ya-llego-al-complejo-celeste-citado-marcelo-bielsa-la-seleccion-n1002886">Subrayado</a> &middot; <a href="https://www.montevideo.com.uy/Deportes/Seleccion-Fernando-Muslera-y-Agustin-Canobbio-volvieron-a-ser-reservados-por-Bielsa-uc955309">Montevideo Portal</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Comisi&oacute;n del Senado avanza en caso Ojeda por ejercicio de abogac&iacute;a siendo legislador</h3>
+    <p>La Comisi&oacute;n de Constituci&oacute;n y Legislaci&oacute;n del Senado vivi&oacute; un tenso debate sobre la denuncia contra el senador colorado Andr&eacute;s Ojeda. Con los 5 votos del FA, se aprob&oacute; pedir el informe de la fiscal Lovesio y citar a constitucionalistas para evaluar si viol&oacute; el art&iacute;culo 124 al ejercer como abogado.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La norma prev&eacute; la p&eacute;rdida de la banca como sanci&oacute;n. Si bien se necesitan dos tercios del Senado para destituirlo, el proceso desgasta al principal l&iacute;der del Partido Colorado y agudiza la fragmentaci&oacute;n legislativa.
+    </div>
+    <span class="source-link"><a href="https://laprensa.com.uy/informaci%C3%B3n/nacionales/desde-el-fa-quieren-llevar-a-juicio-politico-al-senador-andres-ojeda">La Prensa</a> &middot; <a href="https://www.elobservador.com.uy/nacional/ojeda-violo-la-constitucion-las-posturas-opuestas-los-constitucionalistas-y-que-podria-pasar-el-senador-colorado-n6026381">El Observador</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Orsi plantea cooperaci&oacute;n antidrogas regional tras exclusi&oacute;n del Escudo de las Am&eacute;ricas</h3>
+  <p>El presidente Yamand&uacute; Orsi neg&oacute; haber recibido invitaci&oacute;n al programa antidrogas impulsado por Estados Unidos y anunci&oacute; una iniciativa propia de cooperaci&oacute;n regional contra el narcotr&aacute;fico. La oposici&oacute;n cuestion&oacute; la ausencia de Uruguay en la instancia multilateral.</p>
+  <span class="source-link"><a href="https://enperspectiva.uy/en-perspectiva-programa/noticias-del-jueves-19-de-marzo-de-2026/">En Perspectiva</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Expoactiva Nacional 2026: inauguraci&oacute;n con Orsi y cosecha de verano en Soriano</h3>
+  <p>Se inici&oacute; la 29&ordf; Expoactiva Nacional en Mercedes, con la presencia del presidente Orsi, quien inaugur&oacute; simb&oacute;licamente la cosecha de verano con una trilla de ma&iacute;z. Participan unas 350 empresas y 750 marcas. El sector agropecuario report&oacute; que la industria pag&oacute; USD 45 millones m&aacute;s que en 2025 por compra de novillos en lo que va del a&ntilde;o.</p>
+  <span class="source-link"><a href="https://www.elobservador.com.uy/agro/todo-lo-que-hay-que-saber-la-expoactiva-nacional-que-organiza-la-ars-n6037375">El Observador</a> &middot; <a href="https://www.eltelegrafo.com/">El Tel&eacute;grafo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Financiero</span>
+  <h3>D&oacute;lar sube a $40,49 promedio con alta volatilidad semanal</h3>
+  <p>El billete verde cerr&oacute; el mi&eacute;rcoles 18 en 40,49 pesos uruguayos promedio (Dow Jones), un avance de 0,92% respecto a la sesi&oacute;n anterior. En el BROU, la pizarra del jueves 19 abri&oacute; a $39,45 compra / $41,85 venta. La volatilidad semanal supera ampliamente el promedio anual de 13,75%, reflejo de la incertidumbre geop&oacute;litica global.</p>
+  <span class="source-link"><a href="https://www.infobae.com/noticias/2026/03/18/uruguay-cotizacion-de-cierre-del-dolar-hoy-18-de-marzo-de-usd-a-uyu/">Infobae</a> &middot; <a href="https://www.elobservador.com.uy/economia-y-empresas/dolar-hoy-esta-es-la-cotizacion-del-jueves-19-marzo-segun-el-brou-n6037990">El Observador</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>CIDH muestra preocupaci&oacute;n por impacto de centros de datos en recursos h&iacute;dricos y energ&eacute;ticos</h3>
+  <p>La Relator&iacute;a sobre Derechos Econ&oacute;micos de la CIDH manifest&oacute; preocupaci&oacute;n por el uso intensivo de recursos que demandan los data centers, a partir de un caso vinculado a Uruguay. El tema gana relevancia tras el anuncio de Orsi de construir dos centros de Antel especializados en inteligencia artificial.</p>
+  <span class="source-link"><a href="https://ladiaria.com.uy/">la diaria</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Selecci&oacute;n viaja a Europa con Muslera; Libertadores sortea grupos</h3>
+  <p>La delegaci&oacute;n celeste parti&oacute; rumbo a Bilbao encabezada por Bielsa. Adem&aacute;s de Muslera, los reservados incluyen a Canobbio, Laquintana, Marichal y De La Cruz. En paralelo, el sorteo de la Copa Libertadores defini&oacute; el destino de Boston River, Montevideo City Torque y Juventud en la fase de grupos.</p>
+  <span class="source-link"><a href="https://www.subrayado.com.uy/fernando-muslera-ya-llego-al-complejo-celeste-citado-marcelo-bielsa-la-seleccion-n1002886">Subrayado</a> &middot; <a href="https://ladiaria.com.uy/">la diaria</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>China suspend&oacute; al frigor&iacute;fico San Jacinto por trazas de fluazur&oacute;n</h3>
+  <p>Las autoridades sanitarias chinas suspendieron al frigor&iacute;fico San Jacinto tras detectar trazas de fluazur&oacute;n en carne faenada en septiembre. El caso pone nuevamente en foco los controles de residuos qu&iacute;micos en la cadena c&aacute;rnica exportadora uruguaya.</p>
+  <span class="source-link"><a href="https://www.busqueda.com.uy/">B&uacute;squeda</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar BROU Compra</div>
+    <div class="data-cell-value">39,45</div>
+    <div class="data-cell-delta red">&#9650; 0,20</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar BROU Venta</div>
+    <div class="data-cell-value">41,85</div>
+    <div class="data-cell-delta red">&#9650; 0,20</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Promedio</div>
+    <div class="data-cell-value">40,49</div>
+    <div class="data-cell-delta red">&#9650; 0,92%</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Evoluci&oacute;n de reservas de Paso Severino: si caen del umbral de excepcionalidad, OSE podr&iacute;a activar la tercera fase (cortes programados) en d&iacute;as.</div>
+  <div class="vigilar-item">Amistoso Uruguay vs. Inglaterra (21/3 en Wembley): primera prueba real de Bielsa con el plantel mundialista; definir&aacute; si Muslera tiene rol o es homenaje.</div>
+  <div class="vigilar-item">Escalada pol&iacute;tica Botana-FA: el FA mencion&oacute; llevar las declaraciones a Fiscal&iacute;a e invocar el art&iacute;culo 115. Si se concreta, se abre un conflicto institucional sin precedentes recientes.</div>
+  <div class="vigilar-item">Respuesta del mercado al d&oacute;lar en $40,49: la volatilidad semanal duplica el promedio anual, con el conflicto en Medio Oriente empujando activos refugio.</div>
+</div>
+
+<div class="footer">
+  Fuentes: En Perspectiva &middot; Subrayado &middot; El Observador &middot; la diaria &middot; Infobae &middot; Medios P&uacute;blicos &middot; B&uacute;squeda &middot; La Prensa &middot; Prensa Mercosur &middot; Presidencia Uruguay<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
