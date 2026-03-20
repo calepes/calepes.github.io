@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Ejecutivo — Brasil · 20 de marzo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --accent: #009c3b;
+      --accent-soft: #ecfdf5;
+      --accent-mid: #6ee7b7;
+      --ink: #18181b;
+      --paper: #fafafa;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --muted: #78716c;
+      --pill-pol: #1e40af;
+      --pill-pol-bg: #eff6ff;
+      --pill-eco: #065f46;
+      --pill-eco-bg: #ecfdf5;
+      --pill-emp: #7c2d12;
+      --pill-emp-bg: #fff7ed;
+      --pill-soc: #6b21a8;
+      --pill-soc-bg: #faf5ff;
+      --pill-dep: #0369a1;
+      --pill-dep-bg: #f0f9ff;
+      --pill-int: #374151;
+      --pill-int-bg: #f3f4f6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Sora', sans-serif;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Masthead */
+    .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+    .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+    /* Top 5 */
+    .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+    .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+    .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+    .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+    /* Why box */
+    .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+    .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+    /* Sources */
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    /* Section divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    /* News items */
+    .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+    /* Data strip */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+    .data-cell:last-child { border-right: none; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+    .green { color: #16a34a; }
+    .red { color: #dc2626; }
+
+    /* Qué vigilar */
+    .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #6ee7b7; margin-bottom: 14px; opacity: 0.9; }
+    .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '→'; position: absolute; left: 0; color: #6ee7b7; font-weight: 600; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .data-cell:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Brasil</h1>
+    <div class="masthead-date">Viernes 20 de marzo de 2026 · Brasília</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="top5-header">Top 5 del día</div>
+
+  <div class="top5-card">
+    <div class="top5-num">01</div>
+    <div class="top5-content">
+      <h3>Lula confirma a Dario Durigan como nuevo ministro de Hacienda tras salida de Haddad</h3>
+      <p>El presidente Lula formalizó ayer el relevo en la conducción económica del país: Dario Durigan, actual secretario ejecutivo de Hacienda y principal articulador político del equipo económico, reemplazará a Fernando Haddad, quien abandona el cargo para lanzar su precandidatura al gobierno de São Paulo. Lula calificó a Haddad como "el ministro de Hacienda más exitoso de la historia del país" por haber aprobado la reforma tributaria que estuvo frenada 40 años.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        El cambio en Hacienda se produce a siete meses de las elecciones presidenciales y en un momento de presión fiscal intensa. Durigan deberá dar continuidad a la agenda sin margen de error: el déficit primario se estima en R$90.600 millones para 2026 y la deuda pública supera el 79% del PIB. Los mercados vigilarán señales sobre disciplina fiscal.
+      </div>
+      <span class="source-link"><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-03/lula-confirma-durigan-na-fazenda-apos-saida-de-haddad">Agência Brasil</a> · <a href="https://www.bloomberg.com/news/articles/2026-03-17/lula-revamps-economic-team-ahead-of-brazil-elections">Bloomberg</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">02</div>
+    <div class="top5-content">
+      <h3>Banco Central inicia ciclo de recortes: Selic baja al 14,75% en decisión unánime</h3>
+      <p>El Comité de Política Monetaria (Copom), presidido por Gabriel Galipolo, redujo la tasa Selic de 15% a 14,75% — el primer recorte desde 2024 — en una decisión unánime adoptada el miércoles 18. La baja de solo 25 puntos básicos refleja cautela ante el alza del petróleo por encima de los USD 100 por barril (tensión en Medio Oriente) y expectativas de inflación para 2026 que subieron al 4,1%. El mercado en Polymarket asigna 76% de probabilidad a un nuevo recorte en abril.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Con la Selic todavía en niveles restrictivos y la actividad enfriándose (crecimiento del 0,1% en el 4T 2025), el inicio del ciclo de alivio monetario es clave para el consumo y la inversión. La moderación del ritmo, sin embargo, señala que el Banco Central no sacrificará el ancla inflacionaria por la agenda electoral.
+      </div>
+      <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/brasil/brasil-baja-su-tasa-al-1475-con-cautela-ante-presion-del-petroleo-y-guerra-en-medio-oriente/">Bloomberg Línea</a> · <a href="https://es.mercopress.com/2026/03/18/banco-central-de-brasil-inicia-recorte-de-tasas-y-baja-la-selic-al-14-75">MercoPress</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">03</div>
+    <div class="top5-content">
+      <h3>Encuestas muestran empate técnico entre Lula y Flávio Bolsonaro de cara a octubre</h3>
+      <p>La aprobación de Lula cayó al 44% (51% de desaprobación) según Genial/Quaest, mientras Datafolha lo ubica con 46% frente al 43% de Flávio Bolsonaro en segunda vuelta — una brecha que se redujo de 5 a 3 puntos en un mes. El 48% de los votantes considera que la economía empeoró en el último año y el 62% de los trabajadores de bajos ingresos dice no haber sentido el beneficio de la exención del impuesto a la renta.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        Brasil entra en modo electoral pleno. Con Tarcísio de Freitas descartado, Flávio Bolsonaro consolida el liderazgo de la derecha con el aval de su padre preso. Un Lula que no logre mejorar la percepción económica antes de junio enfrentará un segundo semestre muy complicado.
+      </div>
+      <span class="source-link"><a href="https://www.riotimesonline.com/lula-approval-falls-brazil-polls-2026-election/">Rio Times</a> · <a href="https://polymarket.com/event/brazil-presidential-election/">Polymarket</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">04</div>
+    <div class="top5-content">
+      <h3>Lula expulsa al asesor de Trump, Darren Beattie, y escala tensión diplomática con EE.UU.</h3>
+      <p>El gobierno de Brasil revocó el visado de Darren Beattie — consejero sénior de política para Brasil en el Departamento de Estado de Trump — tras la negativa del STF a aprobar su visita a Jair Bolsonaro en prisión. Lula justificó la medida como respuesta a la restricción de visa que Washington impuso al ministro de Salud Alexandre Padilha en 2025. El líder del Partido Liberal, Valdemar Costa Neto, declaró que "Trump va a ayudar a Flávio" y que desea un gobierno de derecha en Brasil.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La expulsión del enviado de Trump eleva el riesgo diplomático en un momento en que EE.UU. y Brasil negocian acuerdos de tierras raras (Brasil posee la segunda reserva mundial) y aranceles. La interferencia trumpista en la campaña electoral puede tanto perjudicar a Flávio (por soberanía) como beneficiarlo (por afinidad ideológica).
+      </div>
+      <span class="source-link"><a href="https://www.aljazeera.com/news/2026/3/13/brazil-pulls-visa-of-trump-adviser-who-asked-to-visit-bolsonaro-in-prison">Al Jazeera</a> · <a href="https://www.infobae.com/america/america-latina/2026/03/13/la-corte-suprema-de-brasil-revoco-el-permiso-de-la-visita-del-asesor-de-donald-trump-a-jair-bolsonaro/">Infobae</a></span>
+    </div>
+  </div>
+
+  <div class="top5-card">
+    <div class="top5-num">05</div>
+    <div class="top5-content">
+      <h3>Petrobras suspende licitación de combustibles y gana 2.200 MW en subasta energética histórica</h3>
+      <p>En 24 horas, Petrobras protagonizó dos movimientos opuestos: suspendió la licitación de diésel y gasolina para reevaluar inventarios ante la incertidumbre internacional (petróleo sobre USD 100/barril), mientras simultáneamente ganó contratos para ocho plantas termoeléctricas en la subasta de reserva de capacidad LRCAP 2026 por 2.235 MW de capacidad firme. Eso generará ingresos fijos anuales estimados en R$4.000 millones. Además, Lula propuso una alianza Petrobras-Pemex para exploración offshore en aguas profundas del Golfo de México.</p>
+      <div class="why-box">
+        <div class="why-label">Por qué importa</div>
+        La suspensión de la licitación de combustibles revela la fragilidad estructural de Brasil: depende en un 30% de diésel importado. La exposición al precio del petróleo es un riesgo directo tanto para la inflación como para el presupuesto electoral de Lula.
+      </div>
+      <span class="source-link"><a href="https://agencia.petrobras.com.br/w/negocio/petrobras-informa-sobre-resultado-no-leil%C3%A3o-de-reserva-de-capacidade">Petrobras</a> · <a href="https://newsrondonia.com.br/economia/2026/03/18/petrobras-suspende-leilao-de-combustiveis-para-reavaliar-estoques-diante-de-crise-global">News Rondônia</a></span>
+    </div>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip">
+    <div class="data-cell">
+      <div class="data-cell-label">USD / BRL</div>
+      <div class="data-cell-value">5,20</div>
+      <div class="data-cell-delta red">▲ +0,17% (miérc.)</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Selic</div>
+      <div class="data-cell-value">14,75%</div>
+      <div class="data-cell-delta green">▼ −25 pb (18 mar)</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Inflación 12m</div>
+      <div class="data-cell-value">3,81%</div>
+      <div class="data-cell-delta green">▼ IPCA feb.</div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN POLÍTICA / JUSTICIA -->
+  <div class="divider"><span class="divider-text">Política y Justicia</span></div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>La candidatura de Flávio Bolsonaro: confirmada, pero tensa</h3>
+    <p>Tras retractarse de su comentario sobre "poner precio" a su candidatura, Flávio Bolsonaro reafirmó que no abandonará la carrera presidencial. Su hermano Eduardo enfrenta juicio por obstrucción a la justicia. El PL pronostica que Trump apoyará a Flávio y desea un gobierno de derecha en Brasil. Tarcísio de Freitas avaló la candidatura de Flávio, despejando la fragmentación dentro de la derecha.</p>
+    <span class="source-link"><a href="https://www.aljazeera.com/news/2026/3/10/brazils-jair-bolsonaro-seeks-court-approval-for-visit-from-trump-official">Al Jazeera</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-pol">Político</span>
+    <h3>Lula posiciona a Venezuela como su principal vulnerabilidad electoral</h3>
+    <p>Un análisis de Chatham House publicado esta semana advierte que la respuesta de Lula ante la captura de Maduro por fuerzas especiales de EE.UU. (enero 2026) — calificando la operación de "afrenta a la soberanía venezolana" — le está costando caro electoralmente. La postura pro-Maduro contrasta con la presión de Washington y podría ser el "issue" que decida la elección.</p>
+    <span class="source-link"><a href="https://www.chathamhouse.org/publications/the-world-today/2026-03/lulas-response-maduros-capture-could-cost-him-and-brazil">Chatham House</a></span>
+  </div>
+
+  <!-- SECCIÓN ECONOMÍA -->
+  <div class="divider"><span class="divider-text">Economía</span></div>
+
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>El gobierno endurece fiscalización contra aumentos indebidos de combustibles</h3>
+    <p>En paralelo a la suspensión de la licitación de Petrobras, el gobierno anunció medidas para frenar el traslado de los precios internacionales al consumidor: suspendió PIS/Cofins, propuso eliminar el ICMS sobre diésel importado y creó una subvención para productores e importadores. El Tesoro también intervino en el mercado de deuda local para estabilizar operaciones ante las fuertes fluctuaciones en los precios.</p>
+    <span class="source-link"><a href="https://agenciabrasil.ebc.com.br/economia">Agência Brasil</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Industria, comercio y sindicatos exigen recortes más agresivos de la Selic</h3>
+    <p>Entidades empresariales y sindicales elevaron su presión al Banco Central un día antes del anuncio del recorte de 25 pb, exigiendo una reducción más pronunciada. El crecimiento del PIB en el 4T de 2025 fue de apenas 0,1%, y las proyecciones para todo 2026 apuntan al 1,8%. Los analistas del mercado esperan que la Selic cierre 2026 alrededor del 12,25%.</p>
+    <span class="source-link"><a href="https://agenciabrasil.ebc.com.br/economia">Agência Brasil</a> · <a href="https://es.mercopress.com/2026/03/18/banco-central-de-brasil-inicia-recorte-de-tasas-y-baja-la-selic-al-14-75">MercoPress</a></span>
+  </div>
+
+  <!-- SECCIÓN EMPRESARIAL -->
+  <div class="divider"><span class="divider-text">Empresarial</span></div>
+
+  <div class="news-item">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Lula propone alianza Petrobras-Pemex para aguas profundas del Golfo de México</h3>
+    <p>En una llamada con la presidenta de México, Claudia Sheinbaum, Lula planteó que Petrobras podría asistir a Pemex en exploración a 2.500 metros de profundidad. Petrobras, especialista en operaciones en aguas ultra-profundas, busca expandirse internacionalmente para reponer reservas. Pemex, cuya producción ha caído a la mitad de su pico histórico, necesita socios técnicos. La propuesta está sin confirmar por ambas partes.</p>
+    <span class="source-link"><a href="https://worldoil.com/news/2026/3/20/brazil-mexico-weigh-petrobras-pemex-tie-up-for-offshore-oil-exploration/">World Oil</a></span>
+  </div>
+
+  <div class="news-item">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Baker Hughes gana contrato de 5 años con Petrobras para turbomaquinaria offshore</h3>
+    <p>Baker Hughes formalizó un acuerdo de 60 meses firmado en febrero para el mantenimiento de hasta 64 turbinas de gas aeroderivativas en instalaciones offshore y refinerías de Petrobras. Es parte de la estrategia de la estatal de tercerizar servicios de ciclo de vida para concentrarse en exploración y producción.</p>
+    <span class="source-link"><a href="https://brazilenergyinsight.com/2026/03/18/baker-hughes-lands-five-year-job-with-petrobras-in-brazil/">Brazil Energy Insight</a></span>
+  </div>
+
+  <!-- VIGILAR -->
+  <div class="vigilar">
+    <div class="vigilar-header">Qué vigilar en los próximos días</div>
+    <div class="vigilar-item">Presentación oficial de la pre-candidatura de Haddad al gobierno de São Paulo — ancla el escenario bipartidista PT vs. PL para octubre.</div>
+    <div class="vigilar-item">Reacción de los mercados al cambio en Hacienda: Durigan deberá hacer señales claras sobre la trayectoria fiscal antes del informe bimestral del Ministerio de Finanzas, previsto para fines de marzo.</div>
+    <div class="vigilar-item">Evolución del precio del petróleo (actualmente sobre USD 100/barril) y su impacto sobre diésel y la inflación brasileña — factor clave para el ritmo del ciclo de recortes de la Selic.</div>
+    <div class="vigilar-item">Siguiente movimiento diplomático entre Brasília y Washington tras la expulsión de Beattie: ¿habrá represalias arancelarias o avanzará la negociación de tierras raras?</div>
+    <div class="vigilar-item">Encuestas de intención de voto post-cambio de gabinete: si Lula no recupera percepción económica en el 2T, el margen de maniobra para reactivar antes de las elecciones se estrecha significativamente.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Briefing Ejecutivo · Brasil · 20 de marzo de 2026<br>
+    Fuentes: Agência Brasil, Bloomberg Línea, MercoPress, Rio Times, Chatham House, Al Jazeera, Infobae, World Oil, Petrobras<br>
+    Generado con Claude · Anthropic
+  </div>
+
+</body>
+</html>
