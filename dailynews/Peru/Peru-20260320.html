@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing Ejecutivo — Perú — 20 de marzo de 2026</title>
+<title>Briefing Ejecutivo — Peru — 20 marzo 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   color-scheme: light only;
@@ -30,7 +31,9 @@
   --pill-int: #374151;
   --pill-int-bg: #f3f4f6;
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   background: var(--paper);
   color: var(--ink);
@@ -41,25 +44,30 @@ body {
   padding: 32px 20px;
   -webkit-font-smoothing: antialiased;
 }
+
 .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
 .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
 .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
 .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
 .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
 .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
 .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
 .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
 .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-.source-link a:hover { text-decoration: underline; }
+
 .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
 .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -70,6 +78,7 @@ body {
 .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
 .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
 .data-cell:last-child { border-right: none; }
@@ -78,12 +87,14 @@ body {
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
 .green { color: #16a34a; }
 .red { color: #dc2626; }
+
 .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
 .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
 .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
-.vigilar-item:last-child { margin-bottom: 0; }
+
 .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -96,157 +107,156 @@ body {
 
 <div class="masthead">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-  <h1>Per&uacute;</h1>
-  <div class="masthead-date">Jueves 19 de marzo de 2026 &middot; Lima</div>
-  <span class="masthead-tag">Edici&oacute;n Diaria</span>
+  <h1>Peru</h1>
+  <div class="masthead-date">Viernes 20 de marzo de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edicion Diaria</div>
 </div>
 
-<div class="top5-header">Top 5 del D&iacute;a</div>
+<div class="top5-header">Top 5 del dia</div>
 
 <div class="top5-card">
   <div class="top5-num">01</div>
   <div class="top5-content">
-    <h3>Callao registra casi un homicidio diario pese al estado de emergencia</h3>
-    <p>Durante el vigente estado de emergencia en Lima y Callao, el Callao acumula 14 asesinatos en 16 d&iacute;as, un promedio de 0.875 casos diarios, cifra muy superior al per&iacute;odo anterior de emergencia (0.44 diarios). El gobierno de Jos&eacute; Mar&iacute;a Balc&aacute;zar enfrenta cuestionamientos crecientes sobre la efectividad real de la medida para reducir la violencia letal.</p>
+    <h3>JNJ no ratifica a Jose Domingo Perez como fiscal anticorrupcion</h3>
+    <p>Por unanimidad, la Junta Nacional de Justicia decidio no ratificar al fiscal Jose Domingo Perez Gomez en su cargo de fiscal provincial especializado en delitos de corrupcion de funcionarios en Lima. La decision pone fin a 21 anos de carrera en el Ministerio Publico. Perez anuncio que presentara una denuncia constitucional contra la JNJ, acusandola de usar datos falsos en su evaluacion. El Instituto de Defensa Legal condeno la decision calificandola de proceso sin garantias basicas de defensa.</p>
     <div class="why-box">
-      <div class="why-label">Por qu&eacute; importa</div>
-      El estado de emergencia, que suspende garant&iacute;as constitucionales y moviliza a las Fuerzas Armadas, no est&aacute; logrando reducir la violencia en el Callao. Esto debilita la credibilidad del principal instrumento de seguridad del gobierno a semanas de las elecciones generales del 12 de abril.
+      <div class="why-label">Por que importa</div>
+      Perez lideraba investigaciones de alto perfil contra exfuncionarios por corrupcion. Su salida debilita la capacidad institucional del Ministerio Publico en casos emblematicos a solo semanas de las elecciones, y reaviva el debate sobre la independencia del sistema de justicia.
     </div>
-    <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/03/17/callao-en-alerta-reportan-casi-un-asesinato-diario-en-pleno-estado-de-emergencia-ntpe-1377935">La Rep&uacute;blica</a> &middot; <a href="https://gestion.pe/peru/politica/gobierno-declara-nuevo-estado-de-emergencia-en-lima-y-callao-ante-escalada-criminal-noticia/">Gesti&oacute;n</a></span>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/19/jose-domingo-perez-queda-fuera-del-ministerio-publico-jnj-no-lo-ratifica-como-fiscal-anticorrupcion-hnews-1410237">La Republica</a> &middot; <a href="https://elcomercio.pe/politica/jnj-decide-no-ratificar-a-jose-domingo-perez-como-fiscal-anticorrupcion-ultimas-noticia/">El Comercio</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/politica/jnj-no-ratifica-a-jose-domingo-perez-como-fiscal-anticorrupcion">TVPeru</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">02</div>
   <div class="top5-content">
-    <h3>Debates presidenciales arrancan el 23 de marzo con 36 candidatos inscritos</h3>
-    <p>A 24 d&iacute;as de las elecciones generales del 12 de abril, el JNE inicia los debates presidenciales el lunes 23, con participaci&oacute;n de los 36 candidatos en tres jornadas. Las encuestas m&aacute;s recientes sit&uacute;an a Rafael L&oacute;pez Aliaga (11.4%) y Keiko Fujimori (10.9%) en los primeros lugares, seguidos por Wolfgang Grozo y Alfonso L&oacute;pez Chau.</p>
+    <h3>30 candidatos confirman participacion en debate presidencial del JNE</h3>
+    <p>El presidente del Jurado Nacional de Elecciones, Roberto Burneo, confirmo que 30 de los 36 candidatos presidenciales participaran en el debate oficial. La primera jornada sera los dias 23, 24 y 25 de marzo, abordando seguridad ciudadana y lucha contra la corrupcion. La segunda jornada (30-31 de marzo y 1 de abril) tratara empleo, desarrollo, educacion e innovacion. Los candidatos debatiran en grupos de tres, con doce participantes por ronda.</p>
     <div class="why-box">
-      <div class="why-label">Por qu&eacute; importa</div>
-      Con el electorado fragmentado entre m&aacute;s de 40 partidos y ning&uacute;n candidato superando el 12% de intenci&oacute;n de voto, los debates son el momento decisivo. El resultado podr&iacute;a consolidar una segunda vuelta entre la derecha populista y el fujimorismo, o abrir espacio para una tercera fuerza.
+      <div class="why-label">Por que importa</div>
+      A menos de tres semanas de las elecciones del 12 de abril, el debate es la principal oportunidad para que los electores comparen propuestas. Con 36.7% de votos indecisos segun Datum, estos encuentros podrian definir la composicion de una probable segunda vuelta.
     </div>
-    <span class="source-link"><a href="https://andina.pe/agencia/noticia-elecciones-2026-candidatos-debatiran-23-marzo-y-temas-abordaran-1065349.aspx">Andina</a> &middot; <a href="https://www.infobae.com/peru/2026/03/16/elecciones-2026-keiko-fujimori-vuelve-al-segundo-lugar-y-wolfgang-grozo-sigue-subiendo-en-las-preferencias-segun-encuesta/">Infobae</a></span>
+    <span class="source-link"><a href="https://elcomercio.pe/politica/elecciones/debate-presidencial-jne-2026-inicia-este-lunes-23-ternas-fechas-candidatos-temas-dinamica-mas-detalles-y-donde-pondran-verlo-noticia/">El Comercio</a> &middot; <a href="https://andina.pe/agencia/noticia-elecciones-2026-cuando-a-hora-y-donde-podra-ser-visto-debate-presidencial-1065057.aspx">Andina</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">03</div>
   <div class="top5-content">
-    <h3>Minedu retira a 214 docentes con condenas o procesos por delitos graves</h3>
-    <p>El Ministerio de Educaci&oacute;n separ&oacute; del servicio a 214 trabajadores del sistema educativo &mdash;186 docentes y 28 administrativos&mdash; entre enero y el 12 de marzo de 2026. El 94% de los casos involucra delitos contra la libertad sexual de menores; los restantes corresponden a terrorismo, tr&aacute;fico de drogas, explotaci&oacute;n sexual y secuestro.</p>
+    <h3>Gobierno otorga nuevo rescate de S/ 500 millones a Petroperu</h3>
+    <p>El Ministerio de Energia y Minas anuncio una inyeccion de 500 millones de soles a Petroperu como parte del proceso de reestructuracion patrimonial y financiera de la petrolera estatal, que cerro 2025 con una perdida neta de US$ 113 millones y apenas US$ 26 millones en caja. En paralelo, Petroperu opero solo a 70,000 barriles diarios en la refineria de Talara, lejos de su capacidad maxima, tras la crisis energetica de inicios de mes que provoco el cambio completo de su directorio el 6 de marzo.</p>
     <div class="why-box">
-      <div class="why-label">Por qu&eacute; importa</div>
-      La magnitud de la depuraci&oacute;n &mdash;m&aacute;s de dos casos por d&iacute;a h&aacute;bil&mdash; revela una falla sist&eacute;mica en los filtros de contrataci&oacute;n del magisterio peruano. La medida protege a los estudiantes pero expone la debilidad de los controles institucionales en el sector educativo.
+      <div class="why-label">Por que importa</div>
+      El rescate compromete recursos fiscales en plena campana electoral. Petroperu se ha convertido en un tema de debate: Keiko Fujimori propone convertirla en asociacion publico-privada. La viabilidad de la empresa afecta directamente el abastecimiento energetico nacional y las cuentas publicas.
     </div>
-    <span class="source-link"><a href="https://elcomercio.pe/lima/minedu-separa-a-214-trabajadores-con-denuncias-o-condenas-por-delitos-graves-en-colegios-ultimas-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/18/ano-escolar-2026-minedu-expulsa-a-214-docentes-y-administrativos-implicados-en-graves-delitos/">Infobae</a></span>
+    <span class="source-link"><a href="https://mineriaenergia.com/petroperu-obtuvo-resultado-positivo-de-us-13-millones-al-termino-del-2025/">Mineria &amp; Energia</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">04</div>
   <div class="top5-content">
-    <h3>Inversi&oacute;n minera proyecta US$6,400 millones en 2026, nivel m&aacute;s alto en una d&eacute;cada</h3>
-    <p>El BCRP proyecta que la inversi&oacute;n minera alcanzar&aacute; los US$6,400 millones en 2026, un crecimiento cercano al 10% frente al a&ntilde;o anterior y el mayor nivel en diez a&ntilde;os. Sin embargo, Per&uacute; ha perdido m&aacute;s de 30 posiciones en el ranking mundial de destinos para inversi&oacute;n minera, afectado por la miner&iacute;a ilegal y la inestabilidad pol&iacute;tica recurrente.</p>
+    <h3>Dolar sube cerca a S/ 3.50 y acumula avance de 0.84%</h3>
+    <p>El tipo de cambio cerro el viernes 20 de marzo en S/ 3.4850 segun el Banco Central de Reserva del Peru (BCRP). La cotizacion SUNAT registro S/ 3.447 para la compra y S/ 3.454 para la venta. En el mercado paralelo, el dolar se cotizo en S/ 3.430 (compra) y S/ 3.460 (venta). El tipo de cambio interbancario alcanzo un maximo de S/ 3.4830 y un minimo de S/ 3.4730, reflejando presion alcista en un contexto de incertidumbre electoral.</p>
     <div class="why-box">
-      <div class="why-label">Por qu&eacute; importa</div>
-      La miner&iacute;a representa el 8.5% del PBI y el 63.9% de las exportaciones peruanas. Un pico de inversi&oacute;n en a&ntilde;o electoral favorece las cuentas fiscales, pero la p&eacute;rdida de competitividad global advierte sobre riesgos de largo plazo que el pr&oacute;ximo gobierno deber&aacute; atender con urgencia.
+      <div class="why-label">Por que importa</div>
+      La cercanía del dolar a la barrera psicologica de S/ 3.50 refleja la volatilidad propia de un periodo preelectoral con alta fragmentacion de candidatos. Las proyecciones del mercado situan el tipo de cambio entre S/ 3.34 y S/ 3.46 para fin de ano, dependiendo del resultado electoral.
     </div>
-    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/inversion-minera-llegaria-a-us6400-millones-en-2026-su-mayor-nivel-en-una-decada-l-mineria-l-ultimas-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/14/peru-ya-no-esta-en-el-top-10-mundial-de-inversion-minera-pero-busca-recuperar-el-puesto/">Infobae</a></span>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-cuanto-esta-el-dolar-este-viernes-20-de-marzo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> &middot; <a href="https://www.americatv.com.pe/noticias/actualidad/cuanto-esta-dolar-precio-moneda-verde-bcr-tipo-cambio-cotizacion-n474082">America TV</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">05</div>
   <div class="top5-content">
-    <h3>Balc&aacute;zar no desmiente que C&eacute;sar Acu&ntilde;a controla Minsa y EsSalud</h3>
-    <p>El presidente Jos&eacute; Mar&iacute;a Balc&aacute;zar evit&oacute; desmentir las acusaciones de que el l&iacute;der de Alianza para el Progreso, C&eacute;sar Acu&ntilde;a, ejerce control informal sobre el Ministerio de Salud y EsSalud, instituciones que administran el seguro social de m&aacute;s de 12 millones de peruanos y presupuestos multimillonarios.</p>
+    <h3>Congreso aprueba aumento de pensiones para maestros jubilados a S/ 3,500</h3>
+    <p>Con 82 votos a favor, cero en contra y tres abstenciones, el Pleno del Congreso aprobo por insistencia el aumento de pensiones para profesores jubilados y cesantes de la Carrera Publica Magisterial. La pension se elevara a S/ 3,500, equivalente a la Remuneracion Integra Mensual (RIM) de la primera escala magisterial. La medida beneficia a miles de docentes retirados que recibian montos significativamente menores.</p>
     <div class="why-box">
-      <div class="why-label">Por qu&eacute; importa</div>
-      La posible captura partidaria de dos de las instituciones de salud m&aacute;s grandes del pa&iacute;s genera riesgos de gesti&oacute;n y conflictos de inter&eacute;s, especialmente porque Acu&ntilde;a tambi&eacute;n compite en la carrera presidencial. El escándalo puede agravar la percepci&oacute;n de debilidad del gobierno transitorio.
+      <div class="why-label">Por que importa</div>
+      Aprobada por insistencia, la norma tiene impacto fiscal directo y establece un precedente para otras demandas salariales del sector publico. En contexto electoral, refuerza la agenda social del Congreso a semanas de las elecciones.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/20/jose-balcazar-no-niega-que-cesar-acuna-controle-minsa-y-essalud-eso-ha-sido-con-el-gobierno-de-jose-jeri-y-dina-boluarte/">Infobae</a></span>
+    <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/03/19/pension-de-profesores-sube-a-s3500-congreso-aprueba-aumento-para-jubilados-y-cesantes-del-cpm-ntpe-1811536">La Republica</a></span>
   </div>
 </div>
 
-<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
 
 <div class="news-item">
-  <span class="pill pill-pol">Pol&iacute;tico</span>
-  <h3>Gobierno prorroga estado de emergencia por lluvias en ocho regiones</h3>
-  <p>El Ejecutivo extendi&oacute; el estado de emergencia en distritos de ocho regiones &mdash;Amazonas, Áncash, Apr&iacute;mac, Ayacucho, Cajamarca, Jun&iacute;n, Moquegua y Pasco&mdash; ante el riesgo de lluvias intensas proyectadas hasta mayo. La medida se suma al estado de emergencia por seguridad en Lima y Callao, lo que convierte a Per&uacute; en uno de los pa&iacute;ses de la regi&oacute;n con m&aacute;s zonas bajo emergencia simult&aacute;nea.</p>
-  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-19-de-marzo-de-2026">TVPer&uacute;</a> &middot; <a href="https://www.infobae.com/peru/2026/03/12/gobierno-declara-estado-de-emergencia-en-10-regiones-ante-riesgo-de-lluvias-intensas-hasta-mayo-de-2026/">Infobae</a></span>
+  <span class="pill pill-pol">Politico</span>
+  <h3>Encuesta Datum: Lopez Aliaga y Fujimori en empate tecnico; 36.7% de indecisos</h3>
+  <p>La encuesta de Datum (6-10 de marzo) situa a Rafael Lopez Aliaga (Renovacion Popular) en primer lugar con 11.4% de intencion de voto, seguido de Keiko Fujimori (Fuerza Popular) con 10.9%. Alfonso Lopez Chau (Ahora Nacion) aparece tercero con 6.5%, liderando en el centro y sur del pais. Wolfgang Grozo continua su ascenso en las preferencias. Los votos en blanco, viciados y nulos suman 21.5%, mientras que el 15.2% no sabe por quien votara.</p>
+  <span class="source-link"><a href="https://rpp.pe/politica/elecciones/encuesta-datum-estos-son-los-candidatos-que-lideran-las-preferencias-electorales-para-la-presidencia-de-la-republica-noticia-1680206">RPP</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-pol">Pol&iacute;tico</span>
-  <h3>Ejecutivo aprueba Plan Nacional de Seguridad Ciudadana 2026-2028</h3>
-  <p>El gobierno de Balc&aacute;zar aprob&oacute; el Plan Nacional de Seguridad Ciudadana para el per&iacute;odo 2026-2028, con metas de reducci&oacute;n de homicidios, robos y extorsi&oacute;n a nivel nacional. El presidente afirm&oacute; que el plan busca "recuperar el orden y fortalecer la autoridad del Estado", aunque los indicadores de violencia del Callao en el corto plazo cuestionan su efectividad inmediata.</p>
-  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/gobierno-aprueba-plan-nacional-de-seguridad-ciudadana-2026-2028">TVPer&uacute;</a></span>
+  <span class="pill pill-pol">Politico</span>
+  <h3>Muerte de candidato presidencial en accidente de transito enluta la campana</h3>
+  <p>Napoleon Becerra, candidato del Partido de los Trabajadores y Emprendedores del Peru (PTE), fallecio el 15 de marzo tras un accidente de transito en la carretera de Rumichaca, en Huancavelica, cuando se dirigia a una actividad de campana en Ayacucho. El suceso puso en evidencia las precarias condiciones viales que enfrentan los candidatos en sus desplazamientos por el interior del pais.</p>
+  <span class="source-link">Fuente: medios nacionales, sin link directo disponible</span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Econ&oacute;mico</span>
-  <h3>D&oacute;lar cierra en S/ 3.46 el 19 de marzo, sube 0.38% en la sesi&oacute;n</h3>
-  <p>El tipo de cambio del d&oacute;lar cerr&oacute; en S/ 3.46 el jueves 19 de marzo, su nivel m&aacute;s alto de la semana, con un avance del 0.38% frente a la sesi&oacute;n anterior. La cotizaci&oacute;n SUNAT del d&iacute;a fue de S/ 3.408 para la compra y S/ 3.417 para la venta. La presi&oacute;n al alza responde a la incertidumbre electoral y al fortalecimiento global del d&oacute;lar ante se&ntilde;ales de pol&iacute;tica monetaria de la Reserva Federal de Estados Unidos.</p>
-  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-19-de-marzo-del-2026-noticia-1680702">RPP Noticias</a></span>
+  <span class="pill pill-eco">Economico</span>
+  <h3>Comision de Energia y Minas aprueba dictamen para revisar concesiones mineras</h3>
+  <p>La Comision de Energia y Minas del Congreso aprobo un dictamen que modifica la Ley General de Mineria con el objetivo de fortalecer las concesiones mineras y evitar la existencia de concesiones ociosas. La medida busca que los titulares cumplan con plazos de inversion y produccion, o pierdan los derechos. Peru espera inversiones mineras por US$ 6,880 millones entre 2026 y 2028 en nuevos proyectos.</p>
+  <span class="source-link"><a href="https://cosas.pe/politica/367906/comision-de-energia-y-minas-aprueba-dictamen-que-revisaria-concesiones-mineras-formales/">COSAS</a> &middot; <a href="https://www.rumbominero.com/revista/exploracion-minera-peru-2026/">Rumbo Minero</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-emp">Empresarial</span>
-  <h3>Banco Mundial destina US$200 millones a miner&iacute;a sostenible en Per&uacute;</h3>
-  <p>El Banco Mundial anunci&oacute; un proyecto de inversi&oacute;n de US$200 millones orientado a fortalecer la competitividad de la miner&iacute;a peruana, promover el empleo formal y avanzar hacia est&aacute;ndares ambientales m&aacute;s exigentes. La iniciativa busca contrarrestar la expansi&oacute;n de la miner&iacute;a ilegal del oro, que ha ganado terreno significativo bajo el control del crimen organizado en los &uacute;ltimos a&ntilde;os.</p>
-  <span class="source-link"><a href="https://rpp.pe/economia/economia/mineria-en-peru-banco-mundial-invierte-200-millones-de-dolares-para-impulsar-empleo-y-sostenibilidad-de-que-trata-noticia-1680336">RPP Noticias</a></span>
+  <h3>Petroperu cambia directorio completo y opera a fraccion de capacidad en Talara</h3>
+  <p>El 6 de marzo, la Junta General de Accionistas de Petroperu removio a la totalidad de su directorio, incluida la presidenta Elba Rojas, designando a Edgar Leonidas Zamalloa Gallegos como nuevo presidente. La refineria de Talara produce solo 70,000 barriles diarios, lejos de su capacidad instalada. La empresa cerro 2025 con US$ 26 millones en caja, una caida drastica desde los US$ 131 millones del ano anterior, aunque registro un EBITDA positivo de US$ 13 millones.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/petroperu-obtuvo-resultado-positivo-de-us-13-millones-al-termino-del-2025/">Mineria &amp; Energia</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Econ&oacute;mico</span>
-  <h3>Inversi&oacute;n privada crecería 5% en 2026, tercer a&ntilde;o consecutivo de expansi&oacute;n</h3>
-  <p>El BCRP proyecta un crecimiento de 5% en la inversi&oacute;n privada para 2026, tercer a&ntilde;o consecutivo en expansi&oacute;n. Empresas del sector minero, energ&iacute;a e infraestructura tienen comprometido al menos US$11,500 millones en proyectos en ejecuci&oacute;n o pr&oacute;ximos a iniciar. La estabilidad macroecon&oacute;mica contrasta marcadamente con la agitaci&oacute;n pol&iacute;tica del a&ntilde;o electoral.</p>
-  <span class="source-link"><a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gesti&oacute;n</a></span>
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Gobierno electrifica 30 localidades rurales en Amazonas, Ayacucho y Huancavelica</h3>
+  <p>El Ministerio de Energia y Minas culmino en el primer trimestre de 2026 tres proyectos de electrificacion rural que benefician a 5,212 habitantes de 30 localidades en las regiones de Amazonas, Ayacucho y Huancavelica. Los proyectos representan un avance en la meta de cobertura electrica universal, particularmente en zonas de dificil acceso.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/gobierno-culmina-tres-proyectos-que-llevan-electricidad-a-mas-de-5000-peruanos/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Minsa alerta sobre aumento de miopia en ninos por uso excesivo de pantallas</h3>
+  <p>El Ministerio de Salud advirtio sobre un incremento significativo en los casos de miopia infantil asociados al uso prolongado de celulares y tablets. La autoridad sanitaria recomendo limitar el tiempo de exposicion a pantallas y promover actividades al aire libre, especialmente en menores de 12 anos. El fenomeno sigue una tendencia global post-pandemia que se ha acelerado en America Latina.</p>
+  <span class="source-link">Fuente: Minsa, via medios nacionales</span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Liga 1 &mdash; Fecha 8 del Torneo Apertura 2026 arranca este viernes</h3>
-  <p>La octava jornada del Torneo Apertura de la Liga 1 2026 inicia el viernes 20 con tres partidos clave: Comerciantes Unidos vs. Universitario, Los Chankas vs. Sporting Cristal, y Alianza Lima vs. Juan Pablo II. En la tabla acumulada tras siete fechas, Universitario, Alianza Lima y Sporting Cristal encabezan las posiciones en una lucha pareja por el liderato.</p>
-  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/20/resultados-de-la-fecha-8-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a> &middot; <a href="https://rpp.pe/futbol/descentralizado/tabla-de-posiciones-liga-1-2026-en-vivo-resultados-hoy-y-puestos-torneo-apertura-universitario-alianza-lima-sporting-cristal-noticia-1673748">RPP</a></span>
-</div>
-
-<div class="news-item">
-  <span class="pill pill-int">Internacional</span>
-  <h3>Per&uacute; y Canad&aacute; fortalecen cooperaci&oacute;n en miner&iacute;a y seguridad</h3>
-  <p>El gobierno peruano sostuvo reuniones de alto nivel con representantes canadienses para avanzar en la cooperaci&oacute;n bilateral, con &eacute;nfasis en inversi&oacute;n minera &mdash;Canad&aacute; es el primer inversor extranjero en miner&iacute;a peruana&mdash;, acuerdos de seguridad y movilidad laboral. La visita refleja el inter&eacute;s de Ottawa por diversificar cadenas de suministro de minerales cr&iacute;ticos en Am&eacute;rica del Sur.</p>
-  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-19-de-marzo-de-2026">TVPer&uacute;</a></span>
+  <h3>Liga 1 Fecha 8: ADT y Melgar empatan; Los Chankas y Alianza Lima lideran</h3>
+  <p>La fecha 8 del Torneo Apertura 2026 inicio el viernes con el empate entre ADT y Melgar en el Estadio Union Tarma. La tabla de posiciones la encabezan Los Chankas y Alianza Lima con 17 puntos cada uno, seguidos por Universitario (14), Cienciano (13) y UTC (13). La jornada continua el sabado con partidos destacados como Alianza Lima vs Juan Pablo II en Lima y Los Chankas vs Sporting Cristal en Andahuaylas.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La Republica</a></span>
 </div>
 
 <div class="data-strip">
   <div class="data-cell">
-    <div class="data-cell-label">D&oacute;lar Oficial</div>
-    <div class="data-cell-value">S/ 3.46</div>
-    <div class="data-cell-delta red">&#9650; +0.38%</div>
+    <div class="data-cell-label">Dolar BCRP</div>
+    <div class="data-cell-value">S/ 3.485</div>
+    <div class="data-cell-delta red">&#9650; +0.84%</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">Compra / Venta</div>
-    <div class="data-cell-value" style="font-size:16px; padding-top:4px;">3.408 / 3.417</div>
-    <div class="data-cell-delta" style="color: var(--muted);">SUNAT 19 mar</div>
+    <div class="data-cell-label">Dolar SUNAT</div>
+    <div class="data-cell-value">S/ 3.454</div>
+    <div class="data-cell-delta">venta</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">Tendencia Marzo</div>
-    <div class="data-cell-value">+0.3%</div>
-    <div class="data-cell-delta red">&#9650; vs. cierre feb</div>
+    <div class="data-cell-label">Dolar Paralelo</div>
+    <div class="data-cell-value">S/ 3.460</div>
+    <div class="data-cell-delta">venta</div>
   </div>
 </div>
 
 <div class="vigilar">
-  <div class="vigilar-header">Qu&eacute; Vigilar Hoy</div>
-  <div class="vigilar-item">Primer debate presidencial el lunes 23 de marzo: los primeros intercambios sobre seguridad y corrupci&oacute;n pueden reconfigurar las encuestas a solo tres semanas del cierre de campa&ntilde;a.</div>
-  <div class="vigilar-item">Indicadores de homicidios en el Callao durante el fin de semana: si la tasa se mantiene cerca de un caso diario, aumentar&aacute; la presi&oacute;n para cambiar de estrategia o declarar un tercer estado de emergencia.</div>
-  <div class="vigilar-item">Evoluci&oacute;n del tipo de cambio ante la pr&oacute;xima reuni&oacute;n de la Reserva Federal de Estados Unidos, que podr&iacute;a fortalecer a&uacute;n m&aacute;s el d&oacute;lar y presionar importaciones e inflaci&oacute;n local.</div>
-  <div class="vigilar-item">Respuesta del Congreso y los candidatos presidenciales al escándalo del presunto control de Acu&ntilde;a sobre Minsa y EsSalud: el silencio o la defensa de la situaci&oacute;n podr&iacute;a convertirse en eje del debate electoral.</div>
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Debate presidencial del JNE inicia el lunes 23 de marzo: primera ronda sobre seguridad ciudadana y lucha contra la corrupcion. Podria redefinir la carrera electoral a tres semanas de las urnas.</div>
+  <div class="vigilar-item">Reaccion de Jose Domingo Perez ante la no ratificacion: anuncio denuncia constitucional contra la JNJ. Posibles movilizaciones de sectores que defienden la lucha anticorrupcion.</div>
+  <div class="vigilar-item">Impacto fiscal del rescate a Petroperu y del aumento de pensiones docentes: dos compromisos presupuestarios aprobados en la misma semana que presionaran las cuentas publicas del proximo gobierno.</div>
 </div>
 
 <div class="footer">
-  Fuentes: RPP Noticias &middot; El Comercio &middot; La Rep&uacute;blica &middot; Gesti&oacute;n &middot; Infobae Per&uacute; &middot; TVPer&uacute; &middot; Andina &middot; BCRP<br>
+  Fuentes: La Republica &middot; El Comercio &middot; RPP &middot; TVPeru &middot; Andina &middot; Mineria &amp; Energia &middot; America TV &middot; COSAS &middot; Rumbo Minero<br>
   Briefing generado con Claude &mdash; Solo para uso informativo
 </div>
 
