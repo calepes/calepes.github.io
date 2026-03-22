@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 22 de marzo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Sábado 22 de marzo de 2026 · La Paz</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Bolivia vota hoy: 7,4 millones de ciudadanos eligen más de 5.400 autoridades subnacionales</h3>
+    <p>Las elecciones subnacionales del 22 de marzo definen gobernadores, asambleístas, alcaldes y concejales en los nueve departamentos y 340 municipios del país para el período 2026-2031. Es la primera elección regional bajo el gobierno de Rodrigo Paz y la primera prueba territorial tras el fin de dos décadas de hegemonía del MAS. El Auto de Buen Gobierno rige desde el viernes 20 con prohibición de venta de alcohol, silencio electoral y restricción vehicular hasta el lunes 23 al mediodía.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Los resultados redefinirán el mapa político departamental y municipal, con implicaciones directas sobre la gobernabilidad del gobierno central, la redistribución fiscal propuesta por Paz (modelo 50/50) y la capacidad de gestión en regiones productoras de gas, minerales y litio.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/22/bolivia-elige-autoridades-regionales-en-una-eleccion-que-definira-el-mapa-politico-de-los-proximos-anos/">Infobae</a> · <a href="https://abi.bo/mas-de-5-400-autoridades-seran-electas-en-las-subnacionales-2026/">ABI</a> · <a href="https://www.expreso.ec/actualidad/mundo/bolivia-define-su-nuevo-mapa-politico-claves-de-las-elecciones-regionales-2026-278663.html">Expreso</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>15 integrantes de la red de seguridad de Marset enviados a prisión preventiva por 180 días</h3>
+    <p>Un juez de Santa Cruz dictó detención preventiva de 180 días para 15 personas acusadas de integrar el aparato de seguridad del narcotraficante uruguayo Sebastián Marset, extraditado a EE.UU. el 13 de marzo. Entre los detenidos hay nueve colombianos, dos ecuatorianos y cuatro bolivianos. La Policía reveló que el grupo planeaba atentados con explosivos como represalia por la captura de Marset, según mensajes interceptados en sus celulares.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La desarticulación de la red de Marset en territorio boliviano expone la penetración del narcotráfico transnacional en Santa Cruz y genera presión sobre las fuerzas de seguridad para mantener el control en una jornada electoral crítica.
+    </div>
+    <span class="source-link"><a href="https://www.opinion.com.bo/articulo/policial/15-sindicados-integrar-seguridad-marset-van-prision-preventiva/20260321205946990432.html">Opinión</a> · <a href="https://www.infobae.com/colombia/2026/03/19/detienen-en-bolivia-a-cinco-colombianos-senalados-como-parte-del-esquema-de-seguridad-del-narco-sebastian-marset/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Bolivia conmemora 147 años de la pérdida del litoral con acto inédito en Puerto Quijarro</h3>
+    <p>En vísperas del Día del Mar (23 de marzo), Bolivia inició los actos conmemorativos con un homenaje a Eduardo Abaroa en La Paz. Los restos del héroe fueron trasladados desde el templo de San Francisco hasta la plaza Abaroa. El presidente Rodrigo Paz romperá la tradición y dará su discurso el lunes desde Puerto Quijarro, en la frontera con Brasil, en lugar de La Paz. El Ministerio de Educación instruyó actos cívicos breves en colegios para no interferir con la jornada electoral.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El traslado del acto presidencial a Puerto Quijarro señala un giro simbólico hacia la integración comercial con Brasil, priorizando la conectividad fluvial y logística por sobre el reclamo histórico ante Chile.
+    </div>
+    <span class="source-link"><a href="https://heraldodepuebla.com/2026/03/21/bolivia-inicia-actos-por-el-dia-del-mar/">Heraldo de Puebla</a> · <a href="https://www.vanguardia.com/mundo/2026/03/20/bolivia-conmemora-el-dia-del-mar-con-homenaje-a-eduardo-abaroa-y-mensaje-de-soberania/">Vanguardia</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Dólar paralelo se mantiene en torno a Bs 9,50; brecha con oficial supera el 36%</h3>
+    <p>La cotización del dólar paralelo se ubicó en Bs 9,46-9,50 para la venta, mientras el tipo oficial del Banco Central se mantuvo en Bs 6,96 (venta). La brecha entre ambos mercados se sitúa por encima del 36%. Las plataformas P2P y el mercado de USDT se han consolidado como la principal vía de acceso a divisas, ante la persistente escasez de dólares en el sistema bancario formal.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La brecha cambiaria sostenida erosiona la competitividad importadora y genera distorsiones de precios que impactan directamente a empresas con costos en dólares, incluyendo el sector fintech y de pagos digitales.
+    </div>
+    <span class="source-link"><a href="https://dolarboliviahoy.com">DolarBoliviaHoy</a> · <a href="https://bolivianblue.net/en">BolivianBlue</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Gobierno busca formalizar 4.000 permisos mineros sin licencia ambiental por decreto</h3>
+    <p>El gobierno de Rodrigo Paz presentó un borrador de decreto para regularizar 3.982 operaciones mineras que carecen de licencia ambiental, beneficiando a 2.816 mineros que abandonaron el trámite y 1.166 que nunca lo iniciaron. La medida busca dinamizar la producción del sector, pero organizaciones ambientales advierten sobre los riesgos de flexibilizar controles en cuencas hídricas y áreas protegidas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La minería es el segundo generador de divisas del país. Formalizar operaciones sin licencia ambiental puede acelerar la producción y exportaciones, pero genera riesgo reputacional y potencial conflicto con comunidades locales.
+    </div>
+    <span class="source-link"><a href="https://apcbolivia.org/2026/03/bolivia-el-gobierno-de-paz-busca-formalizar-por-decreto-casi-4000-permisos-mineros-sin-licencia-ambiental/">APC Bolivia</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>TSE habilita uso de celulares durante la votación y desmiente circular restrictiva</h3>
+  <p>El Tribunal Supremo Electoral aclaró que los votantes podrán usar celulares dentro de los recintos electorales, siempre que lo hagan con prudencia. La entidad calificó como falsa una circular que circuló en redes sociales prohibiendo los dispositivos, y recordó que la jornada se extiende de 8:00 a 17:00 horas con asistencia obligatoria.</p>
+  <span class="source-link"><a href="https://abi.bo/tse-publica-el-cronograma-de-actividades-de-informacion-sobre-la-jornada-electoral-de-este-domingo/">ABI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Auto de Buen Gobierno: ley seca, silencio electoral y restricción vehicular vigentes</h3>
+  <p>Desde las 00:00 del viernes 20 de marzo rige la prohibición de venta y consumo de bebidas alcohólicas. El silencio electoral está vigente desde el jueves 19, prohibiendo toda manifestación de apoyo o rechazo a candidaturas. La circulación de vehículos motorizados queda restringida durante la jornada del domingo, con excepciones para servicios de emergencia, medios de comunicación y personal electoral.</p>
+  <span class="source-link"><a href="https://abi.bo/que-prohibe-el-auto-de-buen-gobierno-y-desde-cuando-entra-en-vigencia/">ABI</a> · <a href="https://www.bolivia.com/actualidad/nacionales/desde-cuando-se-aplicara-el-auto-de-buen-gobierno-por-las-subnacionales-574266">Bolivia.com</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Decreto exime de impuestos a empresas extranjeras que reinviertan utilidades en Bolivia</h3>
+  <p>El Decreto Supremo 5563 del gobierno de Paz exime del pago de impuestos sobre utilidades a empresas extranjeras que reinviertan sus ganancias en el país. Paralelamente, se anunció el impuesto SIETE-RG del 5% sobre la actividad económica de pequeños productores, comerciantes y artesanos, generando críticas del sector informal.</p>
+  <span class="source-link"><a href="https://www.resumenlatinoamericano.org/2026/03/10/bolivia-las-ultimas-medidas-e-imposturas-del-gobierno-de-rodrigo-paz">Resumen Latinoamericano</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Decreto 5549 abre paso a mayor inversión en energías renovables</h3>
+  <p>El Decreto 5549 habilita mayor participación privada en energías renovables dentro del sistema eléctrico boliviano. Bolivia cuenta actualmente con una capacidad instalada de 3.399 MW, mientras la demanda se sitúa en 1.574 MW. La medida busca diversificar la matriz energética en un contexto de declive sostenido en la producción gasífera.</p>
+  <span class="source-link"><a href="https://cbe.com.bo/noticia/entrevista-a-la-cbe-actualidad-del-sector-electrico">CBE</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>CANALMIN y Ministerio de Minería avanzan agenda para la minería chica</h3>
+  <p>La Cámara Nacional de Minería (CANALMIN), liderada por Néstor Choque, y el ministro Marco Antonio Calderón de la Barca se reunieron para revisar asuntos prioritarios del sector de la minería chica. El segmento representa una parte significativa de la actividad productiva minera del país y ha sido históricamente relegado en materia de formalización y acceso a financiamiento.</p>
+  <span class="source-link"><a href="https://www.rumbominero.com/bolivia/mineria-en-bolivia-articulan-agenda-comun/">Rumbo Minero</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Finaliza el pago del Bono PEPE: beneficiarios pendientes pueden cobrar hasta fin de mes</h3>
+  <p>El Ministerio de Economía informó que el Bono PEPE (Bs 450 en tres cuotas de Bs 150 para enero, febrero y marzo) se encuentra en su fase final de pago. Los beneficiarios que no cobraron en la fecha programada pueden hacerlo el siguiente día hábil. El bono, dirigido a sectores vulnerables, concluye su vigencia con la cuota de marzo de 2026.</p>
+  <span class="source-link"><a href="https://www.reduno.com.bo/economia/culmina-el-pago-del-bono-pepe-quienes-seguiran-recibiendo-el-beneficio-202631717386">Red Uno</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Juez de EE.UU. fija audiencia para Marset el 25 de marzo; Fiscalía boliviana mantiene seis causas activas</h3>
+  <p>Tras su extradición el 13 de marzo, un juez federal estadounidense programó una nueva audiencia para Sebastián Marset el 25 de marzo. En Bolivia, la Fiscalía General mantiene seis procesos abiertos con acusación formal contra el narcotraficante uruguayo en distintos departamentos, incluyendo cargos por narcotráfico y legitimación de ganancias ilícitas. Le incautaron bienes y se hallaron máscaras hiperrealistas que usaba para cambiar su apariencia.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/13/latinoamerica/sebastian-marset-fugitivo-dea-detenido-bolivia-orix">CNN</a> · <a href="https://vebolivia.com/2026/03/sebastian-marset-y-las-mascaras-hiperrealistas-que-usaba-para-cambiar-su-rostro/">VBolivia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga Profesional 2026: temporada oficial arranca tras cierre del Torneo de Verano</h3>
+  <p>La División Profesional del fútbol boliviano se prepara para el inicio del torneo Apertura 2026, con 16 equipos confirmados. Always Ready defiende el título obtenido en 2025. La jornada electoral del 22 de marzo condiciona la programación de las primeras fechas, con el calendario deportivo ajustándose a las restricciones del Auto de Buen Gobierno.</p>
+  <span class="source-link"><a href="https://www.espn.com/soccer/schedule/_/league/bol.1">ESPN</a> · <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Oficial</div>
+    <div class="data-cell-value">6,96</div>
+    <div class="data-cell-delta">Bs (venta) · sin cambio</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Paralelo</div>
+    <div class="data-cell-value red">9,50</div>
+    <div class="data-cell-delta red">Bs (venta) · estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value red">36,5%</div>
+    <div class="data-cell-delta red">&#9650; persistente</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Resultados de las elecciones subnacionales: primeros conteos rápidos a partir de las 18:00 h y cómputo oficial en los días siguientes. Observar la participación electoral y el desempeño del oficialismo en departamentos clave como Santa Cruz, La Paz y Cochabamba.</div>
+  <div class="vigilar-item">Discurso presidencial por el Día del Mar desde Puerto Quijarro (23 de marzo): posibles anuncios sobre conectividad fluvial con Brasil y política exterior hacia Chile.</div>
+  <div class="vigilar-item">Audiencia de Sebastián Marset en tribunal federal de EE.UU. el 25 de marzo: implicaciones para los procesos judiciales abiertos en Bolivia y posibles nuevas revelaciones sobre la red de narcotráfico en Santa Cruz.</div>
+</div>
+
+<div class="footer">
+  Fuentes: ABI · Infobae · CNN · Opinión · El Deber · Red Uno · ATB · La Patria · Bolivia Verifica · DolarBoliviaHoy · BolivianBlue · Rumbo Minero · APC Bolivia<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
