@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 22 marzo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Sábado 22 de marzo de 2026 · Bogotá</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del Día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Crisis diplomática con Ecuador escala: cumbre bilateral en Lima el 23 y 24 de marzo</h3>
+    <p>Los presidentes Petro y Noboa se reunirán en Lima para intentar desescalar la crisis detonada por bombardeos en la frontera amazónica. Colombia denunció el hallazgo de una bomba Mark-85 de 250 kg en Nariño que no detonó, mientras Ecuador insiste en que operó dentro de su territorio contra el campamento del alias "Mono Tole". La tensión se agrava con una guerra arancelaria recíproca que ya alcanza el 50%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La crisis combina seguridad fronteriza, comercio bilateral y relaciones diplomáticas. Los aranceles del 50% ya impactan cadenas de suministro y exportadores colombianos hacia Ecuador, uno de los principales socios comerciales de la región andina.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/19/presidentes-de-colombia-y-ecuador-se-reuniran-en-lima-para-intentar-frenar-la-crisis-diplomatica/">Infobae</a> · <a href="https://www.jornada.com.mx/noticia/2026/03/17/mundo/escala-tension-entre-colombia-y-ecuador-por-bombardeos">La Jornada</a> · <a href="https://www.infobae.com/america/2026/03/18/nuevos-datos-sobre-el-explosivo-hallado-en-la-frontera-colombo-ecuatoriana-era-una-mark85-y-pudo-afectar-580-metros-a-la-redonda/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuesta presidencial: Cepeda lidera con 35%, Paloma Valencia sube 12 puntos</h3>
+    <p>La Gran Encuesta publicada el 20 de marzo muestra a Iván Cepeda (Pacto Histórico) al frente con 35% de intención de voto. Abelardo de la Espriella cae 5 puntos al 21%, mientras Paloma Valencia (Centro Democrático) registra el mayor ascenso con 16%, tras ganar 12 puntos desde la consulta del 8 de marzo. La primera vuelta será el 31 de mayo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La consolidación de tres polos electorales claros (izquierda, derecha y centro-derecha) anticipa una segunda vuelta altamente competida. Las decisiones de política económica del próximo gobierno dependerán de quién alcance la presidencia.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/20/ivan-cepeda-abelardo-de-la-espriella-y-paloma-valencia-lideran-las-intenciones-de-voto-para-la-primera-vuelta-presidencial-segun-la-gran-encuesta/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Colombia regresa al top 10 del Índice Global de Terrorismo por primera vez desde 2013</h3>
+    <p>El Global Terrorism Index 2026 ubica a Colombia en el noveno lugar mundial con un puntaje de 7,116. El país registró 213 muertes y 442 ataques terroristas, cifras que representan máximos históricos. Los ataques aumentaron 70% y las muertes 47% respecto al año anterior, impulsados por las disidencias de las FARC (283 ataques, 125 muertes) y el ELN (150 ataques, 88 víctimas fatales).</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Este indicador deteriora la percepción de riesgo-país y puede afectar flujos de inversión extranjera directa justo cuando Colombia busca atraer capital. El uso de drones con explosivos por grupos armados marca una escalada tecnológica preocupante.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/19/colombia-volvio-al-top-10-mundial-de-paises-mas-afectados-por-el-terrorismo-segun-informe-internacional-repunta-por-ataques-con-drones/">Infobae</a> · <a href="https://www.valoraanalitik.com/colombia-vuelve-al-top-10-mundial-de-terrorismo-tras-repunte-de-violencia-segun-indice-global/">Valora Analitik</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Mercado Libre anuncia inversión récord de US$600 millones en Colombia para 2026</h3>
+    <p>La plataforma de comercio electrónico argentina destinará su mayor inyección histórica en el país, un 27% más que los US$470 millones invertidos en 2025. Los recursos se enfocarán en fortalecer infraestructura logística y tecnológica para acelerar tiempos de entrega. Mercado Libre ya cuenta con cerca de 8 millones de usuarios en Colombia y prepara el primer "Mercado Libre Experience" en el país.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La apuesta de MELI confirma la maduración del e-commerce colombiano y contrasta con las señales negativas del Índice de Terrorismo. Es una señal de confianza del capital privado extranjero en el mercado doméstico.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/economia/empresas/articulo/mercado-libre-anuncia-su-mayor-inversion-historica-en-colombia-para-2026/202651/">Semana</a> · <a href="https://www.bloomberglinea.com/latinoamerica/colombia/mercado-libre-destinara-us600-millones-en-colombia-su-mayor-inversion-hasta-ahora-en-el-pais/">Bloomberg Línea</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Festival Estéreo Picnic 2026 arranca en Bogotá con artistas de talla mundial</h3>
+    <p>El festival más importante de música en Colombia inició el viernes 20 de marzo en el Parque Simón Bolívar con su edición "Un Mundo Distinto". El evento, que se extiende hasta el domingo 22, reúne artistas como Lorde, Sabrina Carpenter (debut en Colombia), Skrillex, Peggy Gou e Interpol en cinco escenarios principales. Miles de asistentes ya colmaron el parque durante el primer día.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El Estéreo Picnic es un termómetro de la economía del entretenimiento y el turismo en Bogotá. Su realización sin contratiempos envía una señal positiva sobre la capacidad logística y de seguridad de la capital para grandes eventos internacionales.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/bogota/festival-estereo-picnic-2026-en-bogota-novedades-artistas-horarios-y-todo-lo-que-pasa-hoy-3541902">El Tiempo</a> · <a href="https://bogota.gov.co/que-hacer/cultura/programacion-festival-estereo-picnic-2026-bogota-sabado-21-de-marzo">Bogota.gov.co</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Petro ordena liquidar EPS en quiebra tras suspensión del Decreto 0182</h3>
+  <p>El presidente Gustavo Petro endureció su postura frente al sistema de salud, instruyendo a los ministros de Hacienda y Salud a liquidar las EPS que se encuentren en quiebra. El Decreto 0182, que reorganiza la operación territorial de las aseguradoras, proyecta redistribuir a cerca de 6,5 millones de afiliados, con Nueva EPS como principal receptora (pasará de 11,58 a 14,19 millones de usuarios). La medida genera controversia entre gremios médicos y aseguradoras.</p>
+  <span class="source-link"><a href="https://consultorsalud.com/eps-que-esten-quiebra-liquidan-presidente/">ConsultorSalud</a> · <a href="https://www.infobae.com/colombia/2026/03/05/asi-quedo-el-nuevo-mapa-de-eps-en-colombia-gobierno-definio-traslado-masivo-de-pacientes-y-reorganizacion-territorial-del-sistema-de-salud/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Campaña presidencial entra en fase decisiva a 70 días de la primera vuelta</h3>
+  <p>Con 14 candidatos inscritos ante la Registraduría, la carrera presidencial se concentra en tres figuras: Cepeda desde la izquierda, De la Espriella desde la derecha y Valencia desde el centro-derecha. Las elecciones legislativas del 8 de marzo mostraron la participación más alta desde 1990, con más de 21 millones de votantes. El Pacto Histórico y el Centro Democrático fueron los partidos con mayor votación al Senado.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN</a> · <a href="https://www.registraduria.gov.co/14-candidatos-se-inscribieron-para-las-elecciones-presidenciales-de-2026.html">Registraduría</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Empresarios colombianos proyectan crecimiento moderado para el primer semestre</h3>
+  <p>La Encuesta Ritmo Empresarial (ERE), aplicada a 5.894 empresas afiliadas a 21 cámaras de comercio, revela un panorama de optimismo moderado: el 21% planea realizar inversiones en el primer semestre de 2026. La temporada de resultados corporativos mostró ingresos creciendo al 9,2% y utilidades avanzando 14,1%, ambas cifras en máximos de varios años. El 30% de inversionistas internacionales considera a Colombia con buenas oportunidades, el doble que hace dos años.</p>
+  <span class="source-link"><a href="https://www.ruedalaeconomia.com/2026/03/20/empresarios-colombianos-esperan-crecer-con-optimismo-en-el-primer-semestre/">Rueda La Economía</a> · <a href="https://ifmnoticias.com/empresas-en-colombia-proyectan-crecimiento-moderado-y-mayor-inversion-para-el-primer-semestre-de-2026-segun-encuesta-ritmo-empresarial/">IFM Noticias</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Megamovidas empresariales: Millicom consolida operación en Colombia con US$785 millones</h3>
+  <p>En apenas 75 días de 2026, una seguidilla de compras, fusiones y alianzas ha sacudido sectores estratégicos como telecomunicaciones, petróleo, minería, banca y alimentos. Millicom (TiGo) desembolsó cerca de US$785 millones entre la compra de la participación de EPM y una OPA posterior para consolidar su operación en el país. Colombia ya supera 1,8 millones de empresas registradas.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> · <a href="https://www.enter.co/empresas/colombia-supera-18-millones-de-empresas-la-senal-que-esta-cambiando-la-inversion-extranjera/">Enter.co</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Fuerzas Militares neutralizan 1.590 miembros de grupos armados en lo corrido de 2026</h3>
+  <p>El Ministerio de Defensa presentó su balance operacional: 1.590 integrantes de grupos al margen de la ley neutralizados, 55 toneladas de cocaína incautadas y 280 laboratorios destruidos entre febrero y marzo. Sin embargo, un informe de la FIP advierte que los miembros de grupos armados crecieron 23% hasta alcanzar 27.000 combatientes, con el Clan del Golfo fortaleciéndose en varias regiones.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/11/fuerzas-militares-neutralizaron-1590-miembros-de-grupos-armados-este-es-el-balance-oficial-de-seguridad-en-colombia/">Infobae</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 13: Millonarios golea 4-1 a Once Caldas; Nacional amplía ventaja como líder</h3>
+  <p>La jornada 13 de la Liga BetPlay I-2026 dejó resultados contundentes. Millonarios aplastó 4-1 a Once Caldas en Manizales, subiendo al quinto puesto con 20 puntos. Atlético Nacional venció 3-0 a Internacional de Bogotá y se consolidó como líder sólido con 27 puntos en 12 partidos. Deportivo Pasto es segundo con 24 unidades. La fecha continúa con partidos como Santa Fe vs. Medellín y Alianza vs. Cali.</p>
+  <span class="source-link"><a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/millonarios-humillo-a-once-caldas-en-fecha-13-de-liga-betplay-2026-1-resultado-goles-y-posiciones-264873">Futbolred</a> · <a href="https://www.espn.com.co/futbol/colombia/nota/_/id/14839338/como-quedo-tabla-de-posiciones-liga-betplay">ESPN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Guerra arancelaria con Ecuador alcanza el 50% y agrava la crisis bilateral</h3>
+  <p>Además de la tensión por los bombardeos fronterizos, Colombia y Ecuador mantienen una escalada arancelaria con tasas recíprocas que han llegado al 50%. Ecuador acusa a Colombia de dejar la frontera común desprotegida, permitiendo el tránsito libre de cocaína, armas y milicias criminales. Los cancilleres buscan una distensión en la reunión de Lima programada para el 23 y 24 de marzo.</p>
+  <span class="source-link"><a href="https://www.expreso.ec/actualidad/ecuador-y-colombia-reunion-de-ministros-baja-tension-tras-hallazgo-de-bomba-278704.html">Expreso</a> · <a href="https://www.tvperu.gob.pe/noticias/internacionales/colombia-y-ecuador-se-reunen-para-reducir-la-tension-por-presunto-bombardeo">TVPerú</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar TRM</div>
+    <div class="data-cell-value">$3.704</div>
+    <div class="data-cell-delta red">&#9650; +$12,39</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. Diaria</div>
+    <div class="data-cell-value">+0,34%</div>
+    <div class="data-cell-delta red">&#9650; Alza</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. YTD</div>
+    <div class="data-cell-value">-1,4%</div>
+    <div class="data-cell-delta green">&#9660; Revaluación</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Cumbre bilateral Colombia-Ecuador en Lima (23-24 marzo): resultado de las negociaciones sobre bombardeos fronterizos y aranceles recíprocos del 50%.</div>
+  <div class="vigilar-item">Movimientos en encuestas presidenciales: el ascenso de Paloma Valencia y la caída de De la Espriella podrían reconfigurar la carrera antes de la primera vuelta del 31 de mayo.</div>
+  <div class="vigilar-item">Implementación del Decreto 0182 de salud: el traslado masivo de 6,5 millones de afiliados entre EPS puede generar disrupciones en la prestación de servicios en las próximas semanas.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · El Tiempo · Semana · CNN · Bloomberg Línea · Valora Analitik · Futbolred · ESPN · Portafolio · La FM · Registraduría · FIP · ConsultorSalud<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
