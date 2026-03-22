@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 21 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Peru</h1>
+  <div class="masthead-date">Sabado 21 de marzo de 2026 · Lima</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Balcazar promulga ley de gratificaciones y CTS para 350.000 trabajadores CAS pese a advertencias del MEF y el BCR</h3>
+    <p>El presidente Jose Maria Balcazar confirmo la promulgacion de la autografa de ley que garantiza el pago de gratificaciones por Fiestas Patrias y Navidad, asi como la Compensacion por Tiempo de Servicios (CTS), a trabajadores bajo el regimen de Contratacion Administrativa de Servicios. Julio Velarde, presidente del BCR, advirtio que el Ejecutivo deberia haber observado la norma por su impacto significativo en el Tesoro Publico.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Genera presion fiscal adicional en un ano electoral. El MEF estima un costo anual de mas de S/2.000 millones que no estaba previsto en el presupuesto, lo que podria obligar a recortes en inversion publica o mayor endeudamiento.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/21/presidente-jose-balcazar-promulga-ley-que-otorga-gratificaciones-y-cts-a-trabajadores-cas-pese-a-advertencias-del-mef/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/03/18/jose-maria-balcazar-admite-que-el-congreso-recomendo-nombrar-a-un-nuevo-premier-para-combatir-la-inseguridad-ciudadana-hnews-439632">La Republica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Alerta epidemiologica nacional por leptospirosis: 1.045 casos y 5 muertes en 23 regiones</h3>
+    <p>El Ministerio de Salud emitio la Alerta Epidemiologica AE-CDC N.° 004-2026 por el incremento de casos de leptospirosis asociado a lluvias intensas. A la Semana Epidemiologica 10 se registraron 1.045 casos y 5 fallecidos en regiones como Tumbes (98 notificaciones, 2 muertes), Piura, San Martin y Junin. Se declaro emergencia en distritos de 23 regiones y se exigio procesamiento de muestras en menos de 24 horas.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La alerta cubre casi todo el territorio nacional y coincide con la temporada de lluvias. Tumbes y Piura, regiones fronterizas con Ecuador, concentran los focos mas criticos, lo que podria afectar cadenas logisticas y movilidad en el norte del pais.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/peru/actualidad/minsa-emitio-alerta-epidemiologica-por-aumento-del-riesgo-de-leptospirosis-en-regiones-con-lluvias-intensas-noticia-1681092">RPP</a> · <a href="https://www.infobae.com/peru/2026/03/19/peru-suma-cuatro-muertes-por-leptospirosis-dos-en-tumbes-reportan-841-casos-en-todo-el-pais-en-medio-de-problemas-de-agua-y-saneamiento/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>GLP sigue caro pese a reparacion de Camisea: normalizacion de precios recien para mediados de abril</h3>
+    <p>Aunque TGP completo la reparacion del ducto de Camisea el 13 de marzo tras la deflagracion del 1 de marzo, el mercado de GLP no se ha normalizado. La Sociedad Peruana de Gas Licuado advirtio que la reposicion de inventarios tomara semanas. El balon de gas domestico llego a cotizarse en S/100 durante la crisis y los precios de combustibles en grifos se mantienen elevados, afectando a mas de 8 millones de hogares.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El 70% del GLP consumido en Peru depende de Camisea. La crisis expuso la vulnerabilidad de la matriz energetica y su impacto directo en la canasta basica y el transporte urbano. La normalizacion gradual no llegara antes de mediados de abril.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/19/glp-no-baja-por-que-los-precios-siguen-altos-pese-a-la-reactivacion-de-camisea/">Infobae</a> · <a href="https://www.infobae.com/peru/2026/03/15/abastecimiento-de-glp-sigue-en-riesgo-pese-a-la-reparacion-del-ducto-de-camisea-alerta-la-spgl-reposicion-llevara-semanas/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Elecciones 2026: ONPE amplia plazo de cuentas y el 57% de electores sigue indeciso a tres semanas de la primera vuelta</h3>
+    <p>La ONPE extendio hasta el 27 de marzo el plazo para que partidos reporten aportes, ingresos y gastos de campana. Segun la encuesta Datum de marzo, Rafael Lopez Aliaga lidera con 11,4%, seguido de Keiko Fujimori con 10,9% y Alfonso Lopez Chau con 6,5%. Wolfgang Grozo consolida una tendencia ascendente con 5,1%. El 57% de los electores aun no ha decidido su voto, segun El Comercio.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Con la primera vuelta fijada para el 12 de abril y mas de la mitad del electorado indeciso, el panorama sigue completamente abierto. La alta indecision puede generar volatilidad en los mercados conforme se acerque la fecha.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/21/elecciones-2026-onpe-amplia-hasta-el-27-de-marzo-la-entrega-del-informe-de-cuentas-de-campana-hnews-2046408">La Republica</a> · <a href="https://elcomercio.pe/politica/encuesta-datum-internacional-marzo-2026-el-57-de-los-electores-aun-no-ha-decidido-su-voto-elecciones-2026-tlcnota-noticia/">El Comercio</a> · <a href="https://rpp.pe/politica/elecciones/encuesta-datum-estos-son-los-candidatos-que-lideran-las-preferencias-electorales-para-la-presidencia-de-la-republica-noticia-1680206">RPP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Dolar roza los S/3,50: tipo de cambio alcanza su nivel mas alto del mes</h3>
+    <p>El dolar abrio el sabado 21 de marzo en S/3,469 (compra) y S/3,477 (venta) segun SUNAT, mientras que Bloomberg registro S/3,4788. La cotizacion marca un avance del 0,84% respecto a la semana anterior (S/3,44 el 18 de marzo) y se acerca al techo psicologico de S/3,50, impulsado por la incertidumbre electoral y la crisis energetica de Camisea.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El avance del dolar encarece las importaciones y presiona los precios al consumidor, amplificando el efecto de la crisis de combustibles. Las proyecciones para fin de ano se ubican entre S/3,34 y S/3,46, pero la volatilidad preelectoral podria desafiar ese rango.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/economia/precio-del-dolar/2026/03/21/precio-del-dolar-hoy-en-peru-21-de-marzo-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-749140">La Republica</a> · <a href="https://www.infobae.com/noticias/2026/03/20/peru-cotizacion-de-apertura-del-dolar-hoy-20-de-marzo-de-usd-a-pen/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Balcazar admite que el Congreso "recomendo" cambiar de premier para combatir la inseguridad ciudadana</h3>
+  <p>El presidente Jose Maria Balcazar reconocio que el Congreso le sugirio nombrar un nuevo presidente del Consejo de Ministros enfocado en la lucha contra la delincuencia, aunque descarto que se trate de una presion politica. La inseguridad ciudadana sigue siendo la principal preocupacion de los peruanos, segun encuestas recientes, y fue uno de los detonantes de las protestas masivas de septiembre y octubre de 2025.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/18/jose-balcazar-descarta-presion-del-congreso-por-cambio-en-la-pcm-y-anuncia-que-reforzara-lucha-contra-la-delincuencia/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/03/18/jose-maria-balcazar-admite-que-el-congreso-recomendo-nombrar-a-un-nuevo-premier-para-combatir-la-inseguridad-ciudadana-hnews-439632">La Republica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Candidatos vicepresidenciales de Fuerza Popular y Peru Accion presentan propuestas en TVPeru</h3>
+  <p>En el espacio "Tu Decision 2026" de TVPeru, los candidatos a la vicepresidencia de ambos partidos expusieron sus plataformas. El formato busca dar visibilidad a las formulas vicepresidenciales en una campana dominada por las figuras presidenciales, a tres semanas de la primera vuelta.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/tu-decision-2026-candidatos-vicepresidenciales-de-los-partidos-fuerza-popular-y-peru-accion-presentan-sus-propuestas">TVPeru</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Combustibles siguen caros: la cadena de distribucion de GLP aun no se normaliza tras Camisea</h3>
+  <p>Pese al restablecimiento del gas natural vehicular (GNV) en grifos de Lima, los precios del GLP, gasolina y diesel se mantienen por encima de los niveles previos a la crisis. La carga de un camion cisterna en Pisco toma 3 a 4 dias frente a las 14 horas habituales, lo que mantiene el cuello de botella logistico. La normalizacion plena se estima para mediados de abril.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/19/glp-no-baja-por-que-los-precios-siguen-altos-pese-a-la-reactivacion-de-camisea/">Infobae</a> · <a href="https://rpp.pe/economia/economia/escasez-de-gnv-impulsa-alza-de-precio-de-diesel-glp-y-gasolinas-en-grifos-noticia-1678589">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>MINEM culmina tres proyectos de electrificacion rural que benefician a 5.212 habitantes</h3>
+  <p>El Ministerio de Energia y Minas informo la finalizacion de tres proyectos de electrificacion rural en Amazonas, Ayacucho y Huancavelica durante el primer trimestre de 2026, conectando a 30 localidades a la red electrica. Los proyectos forman parte del plan de cierre de brechas de infraestructura energetica en zonas rurales.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/gobierno-culmina-tres-proyectos-que-llevan-electricidad-a-mas-de-5000-peruanos/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Peru espera USD 6.880 millones en nuevos proyectos mineros entre 2026 y 2028</h3>
+  <p>Segun el informe de EY y el MINEM, la cartera de proyectos mineros que iniciarian operaciones entre 2026 y 2028 suma un compromiso de inversion de USD 6.880 millones, reforzando la posicion de Peru como hub minero global. El programa "Peru Explora" impulsa reuniones con empresas responsables de proyectos de exploracion priorizados a nivel nacional.</p>
+  <span class="source-link"><a href="https://www.ey.com/es_pe/insights/mining-metals/guia-inversion-minera-peru">EY Peru</a> · <a href="https://mineriaenergia.com/minem-busca-impulsar-avance-de-proyectos-estrategicos-de-exploracion-minera-2025-2026/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo de magnitud 3.5 sacude Lima y genera alarma en la poblacion</h3>
+  <p>El Instituto Geofisico del Peru (IGP) reporto un movimiento telurico de magnitud 3.5 con epicentro a 8 km al sur de Chilca, Canete, a una profundidad de 45 km. Aunque no se reportaron danos, el sismo genero preocupacion entre la poblacion limena, que se mantiene en alerta por la actividad sismica recurrente en la costa central.</p>
+  <span class="source-link"><a href="https://elpopular.pe/actualidad/2026/03/21/temblor-en-lima-hoy-sabado-21-de-marzo-epicentro-del-ultimo-sismo-en-peru-1551648">El Popular</a> · <a href="https://libero.pe/tiempoextra/2026/03/21/temblor-hoy-en-peru-sabado-21-de-marzo-de-2026-en-vivo-cual-fue-magnitud-epicentro-del-sismo-reportado-igp-588620">Libero</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 fecha 8: Cienciano golea, Universitario empata y Los Chankas sorprenden a Cristal</h3>
+  <p>En la jornada 8 del Torneo Apertura 2026, Cienciano vencio 3-0 a FC Cajamarca, Comerciantes Unidos empato 0-0 con Universitario, y Los Chankas se impuso 3-2 a Sporting Cristal. Alianza Lima y Los Chankas comparten el liderato con 17 puntos, seguidos por Universitario con 14 y Cienciano con 13. Alianza Lima empato 0-0 ante Juan Pablo II.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/20/resultados-de-la-fecha-8-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a> · <a href="https://www.infobae.com/peru/deportes/2026/03/20/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-8-torneo-apertura-alianza-lima-universitario-los-chankas-cienciano-sporting-cristal-melgar/">Infobae</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Compra</div>
+    <div class="data-cell-value">S/3,469</div>
+    <div class="data-cell-delta red">&#9650; +0,84%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Venta</div>
+    <div class="data-cell-value">S/3,477</div>
+    <div class="data-cell-delta red">&#9650; +0,84%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Bloomberg</div>
+    <div class="data-cell-value">S/3,479</div>
+    <div class="data-cell-delta red">&#9650; +0,84%</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Reaccion del MEF y posible observacion presidencial a la ley CAS: el impacto fiscal podria forzar reasignaciones presupuestarias o modificaciones reglamentarias.</div>
+  <div class="vigilar-item">Evolucion de precios de GLP y combustibles: la normalizacion de la cadena de distribucion post-Camisea definira si las presiones inflacionarias se moderan o se intensifican en las proximas semanas.</div>
+  <div class="vigilar-item">Encuestas electorales de la segunda quincena de marzo: a 22 dias de la primera vuelta, cualquier movimiento en las preferencias de los candidatos puede impactar al tipo de cambio y la confianza empresarial.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · RPP · La Republica · El Comercio · TVPeru · El Popular · Libero · Mineria &amp; Energia · EY Peru · Bloomberg<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
