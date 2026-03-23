@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 23 de marzo de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Domingo 23 de marzo de 2026 · La Paz</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Bolivia vot&oacute;: 7,5 millones acudieron a las urnas en elecciones subnacionales</h3>
+    <p>El 22 de marzo se celebraron las elecciones subnacionales para elegir 5.432 autoridades entre gobernadores, alcaldes, asemble&iacute;stas y concejales para el per&iacute;odo 2026-2031. El TSE calific&oacute; la jornada como &ldquo;exitosa y tranquila&rdquo;. Resultados preliminares del SIREPRE muestran a Luis Revilla liderando en La Paz, Juan Pablo Velazco en Santa Cruz y Leonardo Loza en Cochabamba. En varias gobernaciones podr&iacute;a haber segunda vuelta.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El nuevo mapa pol&iacute;tico subnacional definir&aacute; alianzas y contrapesos al gobierno de Rodrigo Paz. Gobernadores afines o adversos impactar&aacute;n directamente la aprobaci&oacute;n legislativa de las leyes econ&oacute;micas pendientes (hidrocarburos, litio, electricidad).
+    </div>
+    <span class="source-link"><a href="https://abi.bo/elecciones-subnacionales-2026-siga-el-minuto-a-minuto-de-los-momentos-clave-de-la-jornada-electoral-en-bolivia/">ABI</a> · <a href="https://spanish.xinhuanet.com/20260323/75e87dfee6cb4720921985488f4465b6/c.html">Xinhua</a> · <a href="https://sirepre.oep.org.bo/national/">SIREPRE/TSE</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Marcelo Arce Mosqueira ingresa a Palmasola con 140 d&iacute;as de detenci&oacute;n preventiva</h3>
+    <p>El hijo del expresidente Luis Arce fue trasladado a la c&aacute;rcel de Palmasola tras su detenci&oacute;n el 18 de marzo en Equipetrol, Santa Cruz. Enfrenta cargos por legitimaci&oacute;n de ganancias il&iacute;citas, enriquecimiento il&iacute;cito y da&ntilde;o econ&oacute;mico al Estado. La UIF identific&oacute; 18 propiedades y 20 veh&iacute;culos vinculados al caso; la familia Arce Mosqueira habr&iacute;a obtenido pr&eacute;stamos por USD 9,1 millones en seis operaciones con la misma entidad bancaria.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Este caso marca la primera acci&oacute;n judicial de alto perfil contra el entorno del gobierno anterior. Si la investigaci&oacute;n se amplía a otros funcionarios, podr&iacute;a generar tensi&oacute;n pol&iacute;tica en un momento donde el oficialismo necesita consensos legislativos.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/21/la-justicia-de-bolivia-dicto-la-prision-preventiva-para-uno-de-los-hijos-del-ex-presidente-luis-arce/">Infobae</a> · <a href="https://rtvu.uto.edu.bo/2026/03/21/marcelo-arce-ingresa-a-palmasola-y-su-defensa-cuestiona-detencion-preventiva/">RTVU</a> · <a href="https://www.eldiario.net/portal/2026/03/19/aprehenden-a-marcelo-arce-mosqueira-por-legitimacion-de-ganancias-ilicitas/">El Diario</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Gobierno alista paquete legislativo de hidrocarburos, litio y electricidad post-elecciones</h3>
+    <p>El presidente Rodrigo Paz confirm&oacute; que enviar&aacute; al Legislativo las leyes de Hidrocarburos, Litio, Electricidad y Ley Verde tras las subnacionales del 22 de marzo. La nueva ley de hidrocarburos contempla un r&eacute;gimen impositivo del 50%, contratos con cl&aacute;usulas fijas y apertura a inversi&oacute;n privada en exploraci&oacute;n. La ley de litio habilita licitaciones internacionales con participaci&oacute;n privada junto a YLB.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Estas cuatro leyes redefinir&aacute;n la pol&iacute;tica energ&eacute;tica de Bolivia y la capacidad de atraer inversi&oacute;n extranjera. Con producci&oacute;n de gas cayendo de 59 a 37 MMm3/d&iacute;a en una d&eacute;cada, la urgencia legislativa es cr&iacute;tica para evitar mayor dependencia de importaciones.
+    </div>
+    <span class="source-link"><a href="https://www.mhe.gob.bo/2026/03/17/ministro-de-hidrocarburos-presenta-alcances-de-la-reforma-integral-del-sector-energetico-en-el-foro-empresarial-brasil-bolivia/">MHE</a> · <a href="https://www.bloomberglinea.com/latinoamerica/bolivia/bolivia-impulsaria-nueva-ley-de-litio-con-reglas-claras-y-participacion-de-inversion-privada/">Bloomberg L&iacute;nea</a> · <a href="https://larazon.bo/economia-y-empresa/2026/03/14/hidrocarburos-nueva-ley-y-nuevas-inversiones-o-resignarse-a-importar/">La Raz&oacute;n</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>D&oacute;lar paralelo se mantiene en Bs 9,37-9,40 el d&iacute;a de las elecciones</h3>
+    <p>En la jornada electoral del 22 de marzo, el d&oacute;lar blue cotiz&oacute; entre Bs 9,37 (venta) y Bs 9,40 (compra en Binance P2P). El tipo oficial del BCB se mantuvo en Bs 6,96 (venta), lo que sit&uacute;a la brecha cambiaria en torno al 35%. El valor referencial del BCB para el 23 de marzo es de Bs 9,59.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La estabilidad relativa del blue durante la jornada electoral sugiere que el mercado ya descontaba los comicios. Sin embargo, la brecha del 35% sigue presionando costos de importaci&oacute;n y la competitividad de empresas que operan con d&oacute;lar paralelo.
+    </div>
+    <span class="source-link"><a href="https://www.dolar-bolivia.com/">dolar-bolivia.com</a> · <a href="https://dolarboliviahoy.com/">dolarboliviahoy.com</a> · <a href="https://www.reduno.com.bo/economia/atencion-el-dolar-paralelo-presenta-variaciones-la-tarde-de-este-viernes-20-de-marzo-2026320121715">Red Uno</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Choquehuanca se desmarca de Arce: &ldquo;Los delitos son individuales&rdquo;</h3>
+    <p>El exvicepresidente David Choquehuanca declar&oacute; el domingo 22 de marzo que los delitos por los que se investiga a Luis Arce &ldquo;son de car&aacute;cter personal&rdquo; y que &ldquo;cada uno debe asumir su responsabilidad&rdquo;. La declaraci&oacute;n marca un distanciamiento p&uacute;blico dentro del ala evista-arcista del MAS.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La fractura interna del MAS se profundiza. Si Choquehuanca consolida una facci&oacute;n independiente, esto podr&iacute;a facilitar negociaciones legislativas para el gobierno de Paz, pero tambi&eacute;n agitar la pugna interna del principal partido de oposici&oacute;n.
+    </div>
+    <span class="source-link"><a href="https://www.instantaneas.tic.bo/2026/03/22/politica/corrupcion-transparencia-bolivia/choquehuanca-delitos-arce-personales-sin-responsabilidad/">Instant&aacute;neas</a> · <a href="https://www.aygun.com.bo/david-choquehuanca-delitos-individuales-bolivia/">Ayg&uuml;n Bolivia</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno niega persecuci&oacute;n pol&iacute;tica en caso Arce Mosqueira</h3>
+  <p>El ministro de Gobierno, Marco Antonio Oviedo, afirm&oacute; que &ldquo;no hay persecuci&oacute;n pol&iacute;tica&rdquo; en los procesos contra la familia del expresidente Arce, y remarc&oacute; que todos son iguales ante la ley. Durante el allanamiento se incautaron USD 16.500, Bs 40.000 y un veh&iacute;culo; adem&aacute;s, el detenido se habr&iacute;a hecho pasar como funcionario de YPFB.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/19/gobierno-no-hay-persecucion-politica/">ATB Digital</a> · <a href="https://www.opinion.com.bo/articulo/pais/marcelo-arce-es-acusado-delitos-corrupcion-quiso-darse-fuga-incauto-us-16500-bs-40-mil/20260318203820990268.html">Opini&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Quiroga emplaza al gobierno tras 100 d&iacute;as sin leyes econ&oacute;micas aprobadas</h3>
+  <p>Jorge &ldquo;Tuto&rdquo; Quiroga critic&oacute; que a m&aacute;s de 100 d&iacute;as de gesti&oacute;n, el gobierno de Paz no ha logrado aprobar ni una sola ley econ&oacute;mica, ni siquiera el Presupuesto General del Estado. El PGE del gobierno anterior entr&oacute; en vigencia de manera autom&aacute;tica. El ministro de Econom&iacute;a respondi&oacute; que en 100 d&iacute;as se logr&oacute; &ldquo;estabilizar una situaci&oacute;n econ&oacute;mica verdaderamente dram&aacute;tica&rdquo;.</p>
+  <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/quiroga-100-dias-gestion-paz-ha-aprobado-ni-sola-ley-economica/20260217183916988728.html">Opini&oacute;n</a> · <a href="https://erbol.com.bo/nacional/tuto-quiroga-cuestiona-la-gesti%C3%B3n-del-gobierno-en-100-d%C3%ADas-no-se-aprob%C3%B3-ni-una-sola-ley">Erbol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inflaci&oacute;n proyectada entre 12% y 17% para 2026; enero cerr&oacute; en 1,31% mensual</h3>
+  <p>El gobierno proyecta una inflaci&oacute;n anual de entre 12% y 17% para 2026, tras un 2025 que cerr&oacute; con 20,40% acumulado, el nivel m&aacute;s alto en m&aacute;s de dos d&eacute;cadas. En enero 2026 la inflaci&oacute;n mensual fue de 1,31%, impulsada por transporte, educaci&oacute;n y alimentos consumidos fuera del hogar. El gobierno destaca que los precios de prote&iacute;nas han dejado de subir a los ritmos previos.</p>
+  <span class="source-link"><a href="https://www.reduno.com.bo/economia/bolivia-inicia-2026-con-una-inflacion-mensual-de-1-31-reporta-el-ine-2026257240">Red Uno</a> · <a href="https://unitel.bo/noticias/economia/el-gobierno-de-bolivia-proyecta-una-tasa-de-inflacion-entre-12-y-17-para-2026-EP19077883">Unitel</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Reforma energ&eacute;tica integral presentada en Foro Empresarial Brasil-Bolivia</h3>
+  <p>El Ministro de Hidrocarburos present&oacute; el 17 de marzo los alcances de la reforma integral del sector energ&eacute;tico ante empresarios brasile&ntilde;os. El paquete de cuatro leyes busca modernizar el marco regulatorio, atraer inversi&oacute;n privada y preparar al pa&iacute;s para los desaf&iacute;os energ&eacute;ticos hacia 2028-2029, cuando la producci&oacute;n de gas podr&iacute;a caer a&uacute;n m&aacute;s sin nuevas inversiones en exploraci&oacute;n.</p>
+  <span class="source-link"><a href="https://www.mhe.gob.bo/2026/03/17/ministro-de-hidrocarburos-presenta-alcances-de-la-reforma-integral-del-sector-energetico-en-el-foro-empresarial-brasil-bolivia/">MHE</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Ley de Litio habilita licitaci&oacute;n internacional con participaci&oacute;n privada</h3>
+  <p>La nueva ley para el sector del litio divide el Salar de Uyuni: una parte se declara patrimonio tur&iacute;stico y el resto queda sujeto a licitaci&oacute;n internacional para proyectos de empresas privadas o asociaciones con YLB. Bolivia posee reservas estimadas en 23 millones de toneladas. La C&aacute;mara de Diputados ya aprob&oacute; en comisi&oacute;n el proyecto de extracci&oacute;n de litio junto a una ley referida a hidrocarburos.</p>
+  <span class="source-link"><a href="https://www.resumenlatinoamericano.org/2026/01/01/bolivia-presenta-ley-para-el-sector-del-litio-y-anuncia-licitacion-internacional/">Resumen Latinoamericano</a> · <a href="https://diputados.gob.bo/noticias/comision-de-diputados-aprueba-proyecto-para-la-extraccion-de-litio-y-una-ley-referida-a-hidrocarburos/">C&aacute;mara de Diputados</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Jornada electoral transcurri&oacute; sin incidentes graves de seguridad</h3>
+  <p>El presidente del TSE, Gustavo &Aacute;vila, destac&oacute; el compromiso c&iacute;vico de la poblaci&oacute;n al calificar la jornada como pac&iacute;fica. Las urnas estuvieron abiertas de 08:00 a 16:00, con restricciones de circulaci&oacute;n vehicular y ley seca vigentes. No se reportaron incidentes significativos en los nueve departamentos.</p>
+  <span class="source-link"><a href="https://www.reduno.com.bo/noticias/elecciones-subnacionales-en-bolivia-horarios-restricciones-y-requisitos-que-debes-conocer-202632271358">Red Uno</a> · <a href="https://spanish.xinhuanet.com/20260323/75e87dfee6cb4720921985488f4465b6/c.html">Xinhua</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Divisi&oacute;n Profesional arrancar&aacute; el 5 de abril con formato renovado</h3>
+  <p>La FBF confirm&oacute; que la Liga de la Divisi&oacute;n Profesional 2026 iniciar&aacute; el 5 de abril con 16 clubes en sistema todos contra todos a 30 fechas (ida y vuelta). Un segundo torneo (Copa) arranca el 12 de junio con cuatro grupos de cuatro equipos. El Torneo de Verano, certamen de pretemporada, finaliz&oacute; el 1 de marzo.</p>
+  <span class="source-link"><a href="https://www.opinion.com.bo/articulo/deportes/oficialmente-futbol-boliviano-regresa-abril-tendra-dos-torneos/20260317000030990163.html">Opini&oacute;n</a> · <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
+    <div class="data-cell-value">6,96</div>
+    <div class="data-cell-delta">Bs (venta BCB)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">9,37</div>
+    <div class="data-cell-delta red">Bs (venta blue)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">~35%</div>
+    <div class="data-cell-delta red">oficial vs. paralelo</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Avance del c&oacute;mputo oficial de las subnacionales: verificar si alguna gobernaci&oacute;n supera el umbral del 50% o del 40%+10pp para evitar segunda vuelta, especialmente en Santa Cruz.</div>
+  <div class="vigilar-item">Reacci&oacute;n del mercado cambiario el lunes 23 de marzo ante los resultados electorales y la composici&oacute;n pol&iacute;tica emergente.</div>
+  <div class="vigilar-item">Env&iacute;o al Legislativo del paquete de leyes de Hidrocarburos, Litio, Electricidad y Ley Verde, prometido por Paz para despu&eacute;s del 22 de marzo.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del caso Arce Mosqueira: posible ampliaci&oacute;n de investigaci&oacute;n a otros miembros de la familia y reacci&oacute;n de facciones del MAS.</div>
+</div>
+
+<div class="footer">
+  Fuentes: ABI · Infobae · Opini&oacute;n · El Diario · Red Uno · Unitel · Erbol · ATB · Xinhua · Bloomberg L&iacute;nea · MHE · FBF · SIREPRE/TSE · dolar-bolivia.com<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
