@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo Peru - 23 marzo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&#250;</h1>
+  <div class="masthead-date">Lunes 23 de marzo de 2026 &#183; Lima</div>
+  <div class="masthead-tag">Edici&#243;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&#237;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Arranca el debate presidencial del JNE: 11 candidatos se enfrentan esta noche en Lima</h3>
+    <p>El Jurado Nacional de Elecciones da inicio hoy a las 20:00 h al primer ciclo de debates presidenciales rumbo a las elecciones del 12 de abril. En esta primera jornada participan 11 candidatos, entre ellos Rafael L&#243;pez Aliaga, C&#233;sar Acu&#241;a, Alfonso L&#243;pez Chau, Jos&#233; Williams, Fernando Olivera y Marisol P&#233;rez Tello. Los temas centrales son seguridad ciudadana y lucha contra la corrupci&#243;n. El ciclo contin&#250;a el 24, 25, 30, 31 de marzo y el 1 de abril.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&#233; importa</div>
+      A 20 d&#237;as de la elecci&#243;n, las encuestas muestran un escenario fragmentado sin liderazgo claro. El desempe&#241;o en los debates podr&#237;a definir qu&#233; candidatos pasan a segunda vuelta, con impacto directo en la agenda regulatoria y econ&#243;mica del pr&#243;ximo gobierno.
+    </div>
+    <span class="source-link"><a href="https://elcomercio.pe/politica/elecciones/debate-presidencial-jne-2026-inicia-este-lunes-23-ternas-fechas-candidatos-temas-dinamica-mas-detalles-y-donde-pondran-verlo-noticia/">El Comercio</a> &#183; <a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a> &#183; <a href="https://elperuano.pe/noticia/291842-elecciones-2026-hoy-comienza-el-debate-presidencial">El Peruano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuesta Datum: Fujimori y L&#243;pez Aliaga empatan en primer lugar con alta indecisi&#243;n</h3>
+    <p>La encuesta Datum del 13-17 de marzo sit&#250;a a Keiko Fujimori (11.9%) y Rafael L&#243;pez Aliaga (11.7%) en empate t&#233;cnico. Alfonso L&#243;pez Chau sube al tercer lugar con 6.5%, seguido de Carlos &#193;lvarez (5.0%) y Jorge Nieto, que escala al quinto puesto. M&#225;s del 50% de electores a&#250;n no se decide. Ipsos confirma la tendencia con L&#243;pez Aliaga al 17.2% y Fujimori al 14.2% en simulacro de voto v&#225;lido.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&#233; importa</div>
+      La alta indecisi&#243;n y la fragmentaci&#243;n del voto sugieren que candidatos hoy en tercer o cuarto lugar podr&#237;an dar sorpresas en primera vuelta. El empate Fujimori-L&#243;pez Aliaga define dos perfiles muy distintos de pol&#237;tica econ&#243;mica para el pr&#243;ximo quinquenio.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/datum-fujimori-lopez-aliaga-y-lopez-chau-lideran-la-intencion-de-voto-pero-mas-de-50-de-electores-aun-no-se-decide-noticia-1681228">RPP</a> &#183; <a href="https://www.ipsos.com/es-pe/primer-simulacro-nacional-y-encuesta-de-intencion-de-voto-marzo-2026-encuesta-peru-21-ipsos">Ipsos</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Paro indefinido de transportistas bloquea la v&#237;a Los Libertadores y rutas del sur</h3>
+    <p>Desde la medianoche de hoy, transportistas de carga pesada de Ayacucho, Huancavelica, Jun&#237;n y Apur&#237;mac iniciaron un paro indefinido bloqueando la ruta Los Libertadores y accesos a Andahuaylas y el VRAEM. Exigen la reparaci&#243;n inmediata de la carretera, declarada en emergencia por el MTC mediante R.M. 155-2026 tras detectar fallas geol&#243;gicas, hundimientos y p&#233;rdida de plataforma en el tramo San Clemente-Ayacucho.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&#233; importa</div>
+      El bloqueo de la principal ruta que conecta la costa (Ica/Pisco) con la sierra sur puede generar desabastecimiento de productos b&#225;sicos y alza de precios en la regi&#243;n, agravando las presiones inflacionarias que ya enfrenta el pa&#237;s tras la crisis del gas.
+    </div>
+    <span class="source-link"><a href="https://altavoz.pe/sincategoria/paro-indefinido-en-ayacucho-transportistas-bloquean-vias-clave-y-suspenden-ingreso-y-salida-de-vehiculos-desde-el-23-de-marzo/">Altavoz</a> &#183; <a href="https://jornada.com.pe/transportistas-acatan-paro-indefinido-por-mal-estado-de-la-via-libertadores/">Jornada</a> &#183; <a href="https://diariocorreo.pe/politica/gobierno-declara-en-emergencia-la-via-los-libertadores-por-graves-danos-estructurales-noticia/">Correo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Crisis del gas de Camisea: ducto reparado pero suministro de GLP a&#250;n sin normalizar</h3>
+    <p>Aunque la reparaci&#243;n del ducto de Camisea (roto el 1 de marzo en Megantoni, Cusco) alcanz&#243; el 74% al 12 de marzo y el flujo de gas natural se restableci&#243; parcialmente, la Sociedad Peruana de Gas Licuado alert&#243; que la reposici&#243;n de inventarios de GLP tomar&#225; semanas. El bal&#243;n de GLP lleg&#243; a cotizarse en S/ 100 durante la crisis. El gobierno anunci&#243; la construcci&#243;n de una planta regasificadora para alcanzar 30 d&#237;as de reservas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&#233; importa</div>
+      La crisis expuso la vulnerabilidad de depender de un solo ducto para casi la mitad de la generaci&#243;n el&#233;ctrica del pa&#237;s. El impacto en precios de energ&#237;a y GLP tiene efecto directo en inflaci&#243;n y costos operativos de hogares y empresas.
+    </div>
+    <span class="source-link"><a href="https://es.wikipedia.org/wiki/Crisis_energ%C3%A9tica_de_Per%C3%BA_de_2026">Wikipedia</a> &#183; <a href="https://rpp.pe/economia/economia/minem-tgp-avanzo-al-48-la-reparacion-del-ducto-del-gas-de-camisea-y-se-preve-cumplir-el-plazo-previsto-noticia-1679228">RPP</a> &#183; <a href="https://larepublica.pe/economia/2026/03/08/un-solo-ducto-paraliza-al-pais-y-expone-la-falta-del-gasoducto-sur-peruano-hnews-645246">La Rep&#250;blica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Presidente Balc&#225;zar promulgar&#225; ley que otorga CTS y gratificaciones a 350 mil trabajadores CAS</h3>
+    <p>El presidente Jos&#233; Mar&#237;a Balc&#225;zar confirm&#243; que promulgar&#225; la autografa de ley aprobada por el Congreso (95 votos a favor, 0 en contra) que extiende gratificaciones por Fiestas Patrias y Navidad, CTS y subsidio por sepelio a los trabajadores del r&#233;gimen CAS del sector p&#250;blico. El impacto fiscal estimado asciende a S/ 2,800 millones anuales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&#233; importa</div>
+      La medida tiene un costo fiscal significativo que presionar&#225; el presupuesto p&#250;blico 2026-2027 y podr&#237;a afectar la meta de d&#233;ficit fiscal. Es la reforma laboral m&#225;s relevante del a&#241;o, con alcance a cerca de 350,000 servidores p&#250;blicos.
+    </div>
+    <span class="source-link"><a href="https://www.gob.pe/institucion/presidencia/noticias/1368763-presidente-balcazar-promulgara-autografa-de-ley-sobre-trabajadores-cas">Gob.pe</a> &#183; <a href="https://rpp.pe/economia/economia/trabajadores-cas-recibiran-gratificaciones-y-cts-congreso-aprueba-cambios-que-cuestan-s-2800-millones-al-ano-noticia-1679800">RPP</a> &#183; <a href="https://elperuano.pe/noticia/291088-si-trabajas-bajo-cas-tendras-gratificaciones-y-cts-revisa-los-alcances-de-la-nueva-ley">El Peruano</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&#237;tico</span>
+  <h3>Elecciones con 35 candidatos: las m&#225;s complejas de la historia, seg&#250;n la ONPE</h3>
+  <p>La Oficina Nacional de Procesos Electorales calific&#243; las elecciones generales del 12 de abril como las m&#225;s complejas en la historia del pa&#237;s, con 35 candidatos presidenciales compitiendo en una sola c&#233;dula y m&#225;s de 40 partidos pol&#237;ticos inscritos. El ciclo de debates del JNE se extiende hasta el 1 de abril con seis jornadas.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/16/candidatos-presidenciales-2026-lista-oficial-de-35-aspirantes-y-sus-partidos-politicos-para-las-elecciones-generales-del-12-de-abril-hnews-1033056">La Rep&#250;blica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&#237;tico</span>
+  <h3>MTC declara en emergencia 180 d&#237;as la v&#237;a Los Libertadores por fallas geol&#243;gicas</h3>
+  <p>Mediante Resoluci&#243;n Ministerial 155-2026, el Ministerio de Transportes declar&#243; en emergencia por 180 d&#237;as la Ruta Nacional PE-28A (San Clemente, Pisco - Ayacucho) tras detectar asentamientos diferenciales, inestabilidad geodin&#225;mica, socavaci&#243;n hidr&#225;ulica, p&#233;rdida de plataforma y una falla geol&#243;gica activa en el tramo. Prov&#237;as Nacional ejecutar&#225; las intervenciones de emergencia.</p>
+  <span class="source-link"><a href="https://www.radionacional.gob.pe/noticias/nacional/gobierno-declara-en-emergencia-los-libertadores-para-garantizar-la-transitabilidad">Radio Nacional</a> &#183; <a href="https://www.exitosanoticias.pe/actualidad/gobierno-declara-estado-emergencia-tramo-san-clemente-pisco-ayacucho-via-libertadores-n171823/amp">Exitosa</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&#243;mico</span>
+  <h3>BCRP mantiene tasa de referencia en 4.25% por s&#233;ptimo mes consecutivo</h3>
+  <p>El Banco Central de Reserva mantuvo la tasa de inter&#233;s de referencia en 4.25% en su reuni&#243;n de marzo, el s&#233;ptimo mes sin cambios desde octubre 2025. La inflaci&#243;n anual subi&#243; de 1.7% en enero a 2.2% en febrero, impulsada por alzas en tarifas de agua y alimentos. El BCRP proyecta que la inflaci&#243;n podr&#237;a ubicarse temporalmente en la parte alta del rango meta por factores clim&#225;ticos, precios internacionales de energ&#237;a y la crisis del gas.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&#243;mico</span>
+  <h3>MINEM anuncia planta regasificadora y plan de 30 d&#237;as de reservas de gas</h3>
+  <p>Tras la crisis energ&#233;tica de marzo, el Ministerio de Energ&#237;a y Minas anunci&#243; el 13 de marzo la construcci&#243;n de una planta regasificadora para almacenar reservas de gas natural suficientes para 30 d&#237;as de suministro. La medida busca evitar que la dependencia de un solo ducto vuelva a paralizar la generaci&#243;n el&#233;ctrica, que se dispar&#243; de USD 30-40/MWh a m&#225;s de USD 200/MWh durante la emergencia.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Crisis_energ%C3%A9tica_de_Per%C3%BA_de_2026">Wikipedia</a> &#183; <a href="https://larepublica.pe/economia/2026/03/08/un-solo-ducto-paraliza-al-pais-y-expone-la-falta-del-gasoducto-sur-peruano-hnews-645246">La Rep&#250;blica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Inversi&#243;n minera acumula USD 4,482 millones a octubre 2025, con proyecci&#243;n de USD 6,880 millones en nuevos proyectos 2026-2028</h3>
+  <p>El sector minero cerr&#243; enero-octubre 2025 con USD 4,482 millones invertidos (+17.7% interanual), liderado por exploraci&#243;n (+36.2%) e infraestructura (+30.5%). Para el periodo 2026-2028, la cartera de nuevos proyectos comprometidos suma USD 6,880 millones. El MINEM impulsa una estrategia para destrabar proyectos estrat&#233;gicos de exploraci&#243;n.</p>
+  <span class="source-link"><a href="https://elperuano.pe/noticia/287428-la-mineria-sera-clave-en-el-2026">El Peruano</a> &#183; <a href="https://www.rumbominero.com/revista/mineria-peruana-2025-2026/">Rumbo Minero</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>MINEM concluye tres proyectos de electrificaci&#243;n rural que benefician a 5,212 habitantes</h3>
+  <p>Durante el primer trimestre de 2026, el Ministerio de Energ&#237;a y Minas culmin&#243; tres proyectos de electrificaci&#243;n rural en 30 localidades de Amazonas, Ayacucho y Huancavelica, beneficiando a 5,212 personas que por primera vez acceden al servicio el&#233;ctrico.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/gobierno-culmina-tres-proyectos-que-llevan-electricidad-a-mas-de-5000-peruanos/">Miner&#237;a &amp; Energ&#237;a</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo de magnitud 4.4 sacude Tacna sin da&#241;os reportados</h3>
+  <p>El 22 de marzo a las 03:02 se registr&#243; un sismo de magnitud 4.4 con epicentro a 53 km al este de Calana, Tacna, seg&#250;n el Instituto Geof&#237;sico del Per&#250;. No se reportaron da&#241;os materiales ni v&#237;ctimas.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/respuestas/hoy-temblor-en-peru-en-vivo-ultimos-sismos-21-y-22-de-marzo-2026-hora-magnitud-y-epicentro-del-reporte-segun-el-igp-sismo-tacna-instituto-geofisico-del-peru-lima-callao-ica-lbposting-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1, Fecha 8: Alianza Lima y Los Chankas comparten el liderato del Apertura</h3>
+  <p>Los Chankas gole&#243; 3-1 a Sporting Cristal en Andahuaylas y se instal&#243; como colider junto a Alianza Lima (que empat&#243; 0-0 con Juan Pablo II). Universitario, tricampe&#243;n vigente, qued&#243; cuarto tras empatar 0-0 con Comerciantes Unidos. Tambi&#233;n: Cienciano 3-0 FC Cajamarca, D. Moquegua 1-2 Cusco FC y UTC 0-0 A. Atl&#233;tico.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La Rep&#250;blica</a> &#183; <a href="https://libero.pe/futbol-peruano/liga-1/2026/03/20/tabla-de-posiciones-del-torneo-apertura-liga-1-peru-en-fecha-8-alianza-lima-universitario-sporting-cristal-449820">L&#237;bero</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&#243;lar Compra</div>
+    <div class="data-cell-value">S/ 3.469</div>
+    <div class="data-cell-delta red">&#9650; +0.02</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&#243;lar Venta</div>
+    <div class="data-cell-value">S/ 3.477</div>
+    <div class="data-cell-delta red">&#9650; +0.02</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BCRP</div>
+    <div class="data-cell-value">4.25%</div>
+    <div class="data-cell-delta">sin cambio</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&#233; vigilar hoy</div>
+  <div class="vigilar-item">Desempe&#241;o de L&#243;pez Aliaga, Acu&#241;a y L&#243;pez Chau en el debate presidencial de esta noche: podr&#237;a reconfigurar las encuestas a tres semanas de la elecci&#243;n.</div>
+  <div class="vigilar-item">Evoluci&#243;n del paro de transportistas en Ayacucho y posible extensi&#243;n a otras regiones del sur: riesgo de desabastecimiento y alza de precios en la sierra.</div>
+  <div class="vigilar-item">Normalizaci&#243;n efectiva del suministro de GLP tras la reparaci&#243;n del ducto de Camisea: la SPGL advierte que la cadena log&#237;stica a&#250;n no se recupera por completo.</div>
+  <div class="vigilar-item">Fecha de promulgaci&#243;n de la ley CAS por el Ejecutivo y posibles observaciones al texto aprobado por el Congreso, dado su impacto de S/ 2,800 millones anuales.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP &#183; La Rep&#250;blica &#183; El Comercio &#183; Infobae Per&#250; &#183; El Peruano &#183; Gesti&#243;n &#183; Ipsos &#183; Datum &#183; Exitosa &#183; Radio Nacional &#183; Altavoz &#183; L&#237;bero &#183; Rumbo Minero<br>
+  Briefing generado con Claude &#8212; Solo para uso informativo
+</div>
+
+</body>
+</html>
