@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 22 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+/* Top 5 */
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+/* Why box */
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+/* Sources */
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+/* Section divider */
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+/* News items */
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+/* Data strip (tipo de cambio) */
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+/* Qué vigilar */
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+/* Footer */
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Perú</h1>
+  <div class="masthead-date">Domingo 22 de marzo de 2026 · Lima</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Debate presidencial del JNE arranca hoy con 35 candidatos en seis jornadas</h3>
+    <p>El Jurado Nacional de Elecciones inauguró la primera ronda de debates presidenciales rumbo a las elecciones generales del 12 de abril. Once candidatos participan en la primera fecha (23 de marzo), con sesiones adicionales el 24 y 25 de marzo. Los temas centrales son seguridad ciudadana y lucha contra la corrupción. Keiko Fujimori debatirá el 25 de marzo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Con 57% del electorado aún indeciso y a solo 21 días de la elección, los debates son la principal ventana de exposición para candidatos menores y podrían reorganizar las preferencias en una contienda extremadamente fragmentada.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a> · <a href="https://elcomercio.pe/politica/elecciones/debate-presidencial-jne-2026-inicia-este-lunes-23-ternas-fechas-candidatos-temas-dinamica-mas-detalles-y-donde-pondran-verlo-noticia/">El Comercio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuesta Datum: Fujimori y López Aliaga empatan en primer lugar; Nieto sube al quinto puesto</h3>
+    <p>La última encuesta de Datum publicada el 22 de marzo muestra un empate técnico entre Keiko Fujimori (11,9%) y Rafael López Aliaga (11,7%). Alfonso López Chau se mantiene tercero con 6,5%. Jorge Nieto escala al quinto lugar. El 57% del electorado no ha decidido su voto.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La alta indecisión y la dispersión de candidatos hacen muy probable una segunda vuelta. El ascenso de Nieto y la caída relativa de los líderes sugieren que los debates podrían alterar significativamente el tablero electoral.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/peru/politica/elecciones-peru-2026-keiko-fujimori-y-lopez-aliaga-empatan-con-voto-indeciso-segun-datum-noticia/">Gestión</a> · <a href="https://rpp.pe/politica/elecciones/datum-fujimori-lopez-aliaga-y-lopez-chau-lideran-la-intencion-de-voto-pero-mas-de-50-de-electores-aun-no-se-decide-noticia-1681228">RPP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Gabinete Arroyo cumple su primera semana con prioridad en seguridad ciudadana</h3>
+    <p>El gabinete liderado por el premier Luis Enrique Arroyo Sánchez, general retirado juramentado el 17 de marzo tras la renuncia de Denisse Miralles, completó su primera semana en funciones. Balcázar admitió que el Congreso recomendó el cambio para reforzar la lucha contra la inseguridad y la criminalidad organizada.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      A menos de un mes de las elecciones, el cambio de gabinete refleja la fragilidad del gobierno de transición. La designación de un militar retirado como premier señala la gravedad de la crisis de seguridad y condiciona el clima preelectoral.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/18/jose-maria-balcazar-admite-que-el-congreso-recomendo-nombrar-a-un-nuevo-premier-para-combatir-la-inseguridad-ciudadana-hnews-439632">La República</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/presidente-balcazar-destaca-cambios-en-el-gabinete-y-prioriza-lucha-contra-la-inseguridad">TVPerú</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Ducto de Camisea reparado al 100%: se restablece suministro de gas natural</h3>
+    <p>Tras 12 días de emergencia por la deflagración del 1 de marzo en el kilómetro 43 del ducto de líquidos de Camisea (Cusco), el presidente Balcázar confirmó la reparación completa. El suministro de GNV y gas natural a Lima y Callao se ha restablecido, aunque la Sociedad Peruana de Gas Licuado advierte que la reposición total de GLP tomará semanas adicionales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La crisis evidenció la dependencia de un solo ducto para el abastecimiento energético de Lima. El pico de electricidad a USD 200/MWh impactó costos industriales y abrió el debate sobre la diversificación de la matriz energética.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/gnv-presidente-balcazar-anuncia-reinicio-del-suministro-de-gas-natural-en-grifos-tras-reparacion-del-ducto-de-camisea-noticia-1679912">RPP</a> · <a href="https://www.tvperu.gob.pe/noticias/nacionales/reparacion-de-ductos-de-gas-de-camisea-alcanza-avance-del-90-informa-osinergmin">TVPerú</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Indecopi aprueba adquisición de Cementos Pacasmayo por la suiza Holcim</h3>
+    <p>La Comisión de Defensa de la Libre Competencia del Indecopi dio luz verde a la transacción entre Inversiones ASPI y la cementera suiza Holcim para la adquisición del 50,01% del capital de Cementos Pacasmayo, una de las principales cementeras del norte del país.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La operación consolida el interés de capitales europeos en el sector de materiales de construcción peruano y podría alterar la dinámica competitiva de la industria cementera, concentrada en pocos actores.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/economia/empresas/">Gestión</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Ley modifica sistema de pensiones de Fuerzas Armadas y Policía</h3>
+  <p>El Diario Oficial El Peruano publicó una ley que modifica el Decreto Legislativo 1133 sobre la organización definitiva del Sistema de Pensiones del Personal Militar y Policial. Los cambios buscan reestructurar las condiciones de jubilación y beneficios del personal en retiro.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-domingo-22-de-marzo-de-2026">TVPerú</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>ONPE califica las elecciones del 12 de abril como las más complejas de la historia</h3>
+  <p>La Oficina Nacional de Procesos Electorales advirtió que las elecciones generales del 12 de abril serán las más complejas jamás organizadas, con más de 40 partidos políticos en una sola cédula de votación. La logística de impresión y distribución del material electoral representa un reto sin precedentes.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/16/candidatos-presidenciales-2026-lista-oficial-de-35-aspirantes-y-sus-partidos-politicos-para-las-elecciones-generales-del-12-de-abril-hnews-1033056">La República</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Dólar cierra la semana en S/ 3,485; sol se mantiene estable pese a incertidumbre electoral</h3>
+  <p>El tipo de cambio interbancario cerró el viernes 20 de marzo en S/ 3,4850, con un promedio semanal de S/ 3,4780. El sol peruano se mantuvo relativamente estable a pesar de la volatilidad política, apoyado por flujos de exportaciones mineras. El mercado paralelo cotizó a S/ 3,450 compra y S/ 3,480 venta.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-cuanto-esta-el-dolar-este-domingo-22-de-marzo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> · <a href="https://larepublica.pe/economia/precio-del-dolar/2026/03/21/precio-del-dolar-hoy-en-peru-21-de-marzo-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-749140">La República</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Cartera minera peruana alcanza USD 54.600 millones en 51 proyectos</h3>
+  <p>El portafolio de proyectos mineros del Perú suma USD 54.600 millones en 51 proyectos activos, más 75 proyectos de exploración con inversiones por USD 644 millones adicionales. La inversión minera entre enero y octubre de 2025 fue de USD 4.482 millones, un 17,7% más que en el mismo período de 2024.</p>
+  <span class="source-link"><a href="https://www.rumbominero.com/revista/exploracion-minera-peru-2026/">Rumbo Minero</a> · <a href="https://elperuano.pe/noticia/287428-la-mineria-sera-clave-en-el-2026">El Peruano</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Teck suspende construcción del proyecto minero Zafranal</h3>
+  <p>La minera canadiense Teck Resources suspendió la construcción y desmovilizó contratistas del proyecto cuprífero Zafranal, ubicado en Arequipa. La decisión se produce en un contexto de incertidumbre regulatoria y reajuste de prioridades de inversión de la compañía a nivel global.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/empresas/">Gestión</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Defensoría reporta 193 conflictos sociales activos a nivel nacional</h3>
+  <p>Según el último reporte de la Defensoría del Pueblo (febrero 2026), se registran 193 conflictos sociales en el país. Los socioambientales representan el 51,3% del total, con minería como principal detonante (33,2%). Loreto lidera con 23 casos, seguido de Puno (21) y Áncash (17).</p>
+  <span class="source-link"><a href="https://www.defensoria.gob.pe/documentos/reporte-de-conflictos-sociales-n-o-264-febrero-2026/">Defensoría del Pueblo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Serie de sismos registrados en distintas regiones del país</h3>
+  <p>El Instituto Geofísico del Perú reportó múltiples movimientos sísmicos el 22 de marzo, incluyendo un sismo de magnitud 4,4 en Tacna y dos de magnitud 3,5 en las regiones de Ica y Lima. No se reportaron daños materiales ni víctimas.</p>
+  <span class="source-link"><a href="https://elpopular.pe/actualidad/2026/03/22/en-vivo-temblor-en-peru-hoy-22-de-marzo-de-2026-donde-y-a-que-hora-se-registro-el-sismo-1400718">El Popular</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1: Alianza Lima y Los Chankas lideran tras fecha 8 del Apertura</h3>
+  <p>Alianza Lima venció 2-0 a Juan Pablo II y Los Chankas superó 3-2 a Sporting Cristal para mantenerse como colíderes del Torneo Apertura 2026. Cienciano goleó 3-0 a FC Cajamarca y trepó al tercer puesto con 16 puntos, desplazando a Universitario, que empató 0-0 ante Comerciantes Unidos en Cutervo. Sport Boys goleó 3-0 a Sport Huancayo.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La República</a> · <a href="https://www.futbolperuano.com/liga-1/resultados">Fútbol Peruano</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Compra</div>
+    <div class="data-cell-value">S/ 3,450</div>
+    <div class="data-cell-delta green">estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Venta</div>
+    <div class="data-cell-value">S/ 3,485</div>
+    <div class="data-cell-delta red">&#9650; +0,01</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">BCRP Promedio</div>
+    <div class="data-cell-value">S/ 3,478</div>
+    <div class="data-cell-delta green">estable</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Debates presidenciales del JNE (23-25 marzo): primeras exposiciones de los 35 candidatos ante millones de electores indecisos. Posible reconfiguración de las encuestas.</div>
+  <div class="vigilar-item">Abastecimiento de GLP post-Camisea: pese a la reparación del ducto, la reposición completa de gas licuado podría tardar semanas. Monitorear precios y disponibilidad en Lima.</div>
+  <div class="vigilar-item">Impacto de la suspensión de Zafranal (Teck): evaluar si otras mineras ajustan cronogramas ante la incertidumbre regulatoria preelectoral, especialmente en proyectos de cobre en Arequipa y Apurímac.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP · La República · El Comercio · Gestión · TVPerú · Infobae Perú · Defensoría del Pueblo · Rumbo Minero · El Peruano<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
