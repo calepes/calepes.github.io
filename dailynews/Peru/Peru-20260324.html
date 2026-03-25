@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo Peru - 24 marzo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Martes 24 de marzo de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Segunda fecha del debate presidencial JNE: 11 candidatos exponen propuestas sobre seguridad y corrupci&oacute;n</h3>
+    <p>Once candidatos presidenciales participaron en la segunda jornada del debate organizado por el Jurado Nacional de Elecciones en el Centro de Convenciones de Lima. Los bloques tem&aacute;ticos fueron seguridad ciudadana, lucha contra la criminalidad e integridad p&uacute;blica. Per&uacute; Libre no particip&oacute; por la ausencia del pr&oacute;fugo Vladimir Cerr&oacute;n. Participaron representantes de Fe en el Per&uacute;, Alianza Fuerza y Libertad, Somos Per&uacute;, Juntos por el Per&uacute;, entre otros.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      A 19 d&iacute;as de la primera vuelta del 12 de abril, los debates moldean la percepci&oacute;n del electorado indeciso, que seg&uacute;n Datum supera el 50%. La seguridad ciudadana es el tema n&uacute;mero uno para los votantes, y las propuestas presentadas marcar&aacute;n la agenda de las pr&oacute;ximas semanas.
+    </div>
+    <span class="source-link"><a href="https://elcomercio.pe/politica/actualidad/debate-presidencial-2026-en-vivo-hoy-martes-24-de-marzo-minuto-a-minuto-de-la-segunda-fecha-de-versus-de-candidatos-temas-bloques-e-incidencias-elecciones-peru-2026-lbposting-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/24/debate-presidencial-2026-en-vivo-minuto-a-minuto-de-la-segunda-fecha-hoy-martes-24-de-marzo-con-11-candidatos-temas-bloques-e-incidencias-previo-a-elecciones/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/03/24/debate-presidencial-hoy-martes-24-de-marzo-horarios-candidatos-formato-y-temas-de-la-primera-jornada-rumbo-a-elecciones-generales-peru-2026-hnews-1352124">La Rep&uacute;blica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Oficializan a Tom&aacute;s G&aacute;lvez como Fiscal de la Naci&oacute;n para el per&iacute;odo 2026-2029</h3>
+    <p>La Junta de Fiscales Supremos eligi&oacute; a Tom&aacute;s Aladino G&aacute;lvez Villegas como nuevo Fiscal de la Naci&oacute;n con tres votos a favor y dos en contra. Su juramentaci&oacute;n est&aacute; programada para el viernes 27 de marzo. El Colegio de Abogados de Lima cuestion&oacute; la designaci&oacute;n por investigaciones pendientes contra el magistrado.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La Fiscal&iacute;a es pieza clave en la lucha anticorrupci&oacute;n y el combate al crimen organizado. G&aacute;lvez asumir&aacute; en plena campa&ntilde;a electoral y con un mandato de tres a&ntilde;os que trascender&aacute; al pr&oacute;ximo gobierno. Las investigaciones pendientes generan incertidumbre sobre la independencia del &oacute;rgano.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/24/oficializan-designacion-de-tomas-galvez-como-fiscal-de-la-nacion-y-fijan-juramentacion-el-27-de-marzo/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/03/23/tomas-galvez-es-el-nuevo-fiscal-de-la-nacion-para-el-periodo-20262029-hnews-1603445">La Rep&uacute;blica</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/politica/tomas-aladino-galvez-villegas-es-elegido-como-fiscal-de-la-nacion-para-el-periodo-2026-2029">TVPer&uacute;</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>BCRP mantiene tasa en 4,25%: inflaci&oacute;n subir&iacute;a al tramo superior del rango meta por crisis del gas y El Ni&ntilde;o</h3>
+    <p>El Banco Central de Reserva mantuvo la tasa de referencia en 4,25% por sexto mes consecutivo. La inflaci&oacute;n anual subi&oacute; de 1,7% en enero a 2,2% en febrero, y el BCRP anticipa que se ubicar&aacute; temporalmente entre 2% y 3% por el impacto de la crisis de Camisea, el alza de combustibles y factores clim&aacute;ticos. No se esperan recortes adicionales en 2026.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La pausa prolongada en recortes de tasa encarece el cr&eacute;dito empresarial y de consumo. La confluencia de tres choques de oferta (gas, combustibles, clima) presiona precios al alza y limita el margen de maniobra de pol&iacute;tica monetaria en un a&ntilde;o electoral.
+    </div>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/bcr-mantiene-sin-cambios-tasa-de-referencia-de-marzo-en-425-en-un-contexto-de-riesgo-inflacionario-l-ultimas-noticia/">El Comercio</a> &middot; <a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a> &middot; <a href="https://www.bbvaresearch.com/en/publicaciones/peru-bcrp-holds-rate-higher-inflation-would-be-transitory/">BBVA Research</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>D&oacute;lar baja a S/3,46: debilidad global del billete verde favorece al sol</h3>
+    <p>El tipo de cambio oficial cerr&oacute; en S/3,46 seg&uacute;n el BCRP, con el interbancario promediando S/3,4613. El d&oacute;lar SUNAT se ubic&oacute; en S/3,448 compra y S/3,468 venta. La tendencia a la baja responde a factores internacionales de debilidad del d&oacute;lar estadounidense, seg&uacute;n Infobae.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Un sol fortalecido abarata importaciones y amortigua parcialmente la presi&oacute;n inflacionaria por combustibles. Para empresas con ingresos en soles y costos en d&oacute;lares, el movimiento mejora m&aacute;rgenes operativos en el corto plazo.
+    </div>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-a-cuanto-esta-el-dolar-y-tipo-de-cambio-este-martes-24-de-marzo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> &middot; <a href="https://www.infobae.com/peru/2026/03/24/dolar-a-la-baja-lo-que-esta-pasando-internacionalmente-y-como-impactara-al-sol-peruano/">Infobae</a> &middot; <a href="https://gestion.pe/economia/mercados/tipo-de-cambio-dolar-hoy-en-peru-cuanto-esta-el-precio-del-dolar-este-martes-24-de-marzo-dolares-a-soles-compra-y-venta-bcrp-noticia/">Gesti&oacute;n</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Encuestas Ipsos-Datum: Fujimori y L&oacute;pez Aliaga empatan en primer lugar; 57% del electorado a&uacute;n indeciso</h3>
+    <p>Seg&uacute;n Datum e Ipsos, Keiko Fujimori (Fuerza Popular) y Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular) lideran la intenci&oacute;n de voto con 11,9% y 11,7% respectivamente, en empate t&eacute;cnico. Alfonso L&oacute;pez Chau (Ahora Naci&oacute;n) ocupa el tercer lugar con 6,5%, seguido de Carlos &Aacute;lvarez (5,0%) y Jorge Nieto (4,6%). M&aacute;s de la mitad de los electores no ha definido su voto.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con 57% de indecisos a tres semanas de la elecci&oacute;n, la carrera permanece completamente abierta. La fragmentaci&oacute;n del voto y la alta indecisi&oacute;n anticipan una primera vuelta con resultados muy ajustados, lo que podr&iacute;a definirse por d&eacute;cimas porcentuales.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/datum-fujimori-lopez-aliaga-y-lopez-chau-lideran-la-intencion-de-voto-pero-mas-de-50-de-electores-aun-no-se-decide-noticia-1681228">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/03/22/elecciones-2026-keiko-fujimori-y-rafael-lopez-aliaga-empatan-en-primer-lugar-mientras-jorge-nieto-sube-al-quinto-puesto/">Infobae</a> &middot; <a href="https://rpp.pe/politica/elecciones/keiko-fujimori-y-rafael-lopez-aliaga-siguen-liderando-encuestas-pero-hay-un-cuadruple-empate-en-el-tercer-lugar-segun-ipsos-noticia-1681557">RPP/Ipsos</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno aprueba Plan Nacional de Seguridad Ciudadana 2026-2028 contra crimen organizado</h3>
+  <p>El Poder Ejecutivo oficializ&oacute; el Plan Nacional de Seguridad Ciudadana y Lucha contra la Criminalidad 2026-2028. El documento establece como meta reducir la tasa de homicidios de 10,7 a 8,5 por cada 100.000 habitantes para 2028 y contempla una disminuci&oacute;n progresiva de extorsiones y sicariato. El costo de la inseguridad en 2025 represent&oacute; 1,7% del PBI (S/19.800 millones).</p>
+  <span class="source-link"><a href="https://elcomercio.pe/lima/seguridad/gobierno-aprueba-el-plan-nacional-de-seguridad-ciudadana-y-lucha-contra-la-criminalidad-2026-2028-ultimas-noticia/">El Comercio</a> &middot; <a href="https://rpp.pe/politica/gobierno/plan-nacional-de-seguridad-ciudadana-estas-son-las-medidas-para-enfrentar-la-criminalidad-organizada-en-los-proximos-2-anos-noticia-1679428">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Observadores internacionales acreditados para elecciones del 12 de abril</h3>
+  <p>El JNE acredit&oacute; a m&uacute;ltiples organizaciones de observaci&oacute;n electoral internacional para las Elecciones Generales 2026, incluyendo al Consejo de Expertos Electorales de Latinoam&eacute;rica y la COPPPAL, seg&uacute;n normas publicadas en El Peruano.</p>
+  <span class="source-link"><a href="https://www.elperuano.pe/noticia/291923-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-martes-24-de-marzo-del-2026">El Peruano</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Crisis de Camisea: suministro restablecido pero secuelas econ&oacute;micas persisten</h3>
+  <p>Tras la ruptura del gasoducto de Camisea el 1 de marzo que redujo el flujo de gas en 91%, la reparaci&oacute;n se complet&oacute; el 13 de marzo y el suministro se restableci&oacute;. Sin embargo, el impacto econ&oacute;mico perdura: el precio de la electricidad se dispar&oacute; de US$30-40/MWh a m&aacute;s de US$200/MWh durante la emergencia, afectando costos industriales. El episodio expuso la vulnerabilidad de depender de un solo ducto para casi la mitad de la generaci&oacute;n el&eacute;ctrica del pa&iacute;s.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/23/la-crisis-del-gas-de-camisea-seguridad-nacional-oportunidades-y-aprendizaje/">Infobae</a> &middot; <a href="https://larepublica.pe/economia/2026/03/08/un-solo-ducto-paraliza-al-pais-y-expone-la-falta-del-gasoducto-sur-peruano-hnews-645246">La Rep&uacute;blica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>BBVA Research publica panorama econ&oacute;mico de Per&uacute; para marzo 2026</h3>
+  <p>BBVA Research difundi&oacute; su informe &ldquo;Situaci&oacute;n Per&uacute; - Marzo 2026&rdquo;, en el que eval&uacute;a los riesgos convergentes sobre la econom&iacute;a peruana: la crisis energ&eacute;tica de Camisea, el Fen&oacute;meno El Ni&ntilde;o Costero y el alza internacional de combustibles. El banco estima que la inflaci&oacute;n transitoriamente elevada no requerir&iacute;a subidas de tasa.</p>
+  <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>El Ni&ntilde;o Costero declarado inminente: alerta clim&aacute;tica desde marzo hasta noviembre</h3>
+  <p>La Comisi&oacute;n ENFEN declar&oacute; &ldquo;casi inminente&rdquo; el Fen&oacute;meno El Ni&ntilde;o Costero, con inicio confirmado en marzo y extensi&oacute;n prevista hasta noviembre. Se espera magnitud moderada con pico antes de julio. Tumbes, Piura y Lambayeque son las regiones m&aacute;s expuestas. Se anticipan lluvias intensas, activaci&oacute;n de quebradas e incremento de caudales entre marzo y mayo.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/02/19/fenomeno-el-nino-es-inminente-en-peru-todo-sobre-su-inicio-duracion-magnitud-y-zonas-en-riesgo/">Infobae</a> &middot; <a href="https://www.latercera.com/mundo/noticia/declaran-alerta-climatica-en-peru-frente-al-desarrollo-de-el-nino-costero-desde-marzo/">La Tercera</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Producci&oacute;n de cobre crece 3% en enero; EXPOCOBRE 2026 oficializado como evento internacional</h3>
+  <p>La producci&oacute;n cupr&iacute;fera alcanz&oacute; 226.256 TMF en enero 2026, un 3% m&aacute;s que el a&ntilde;o anterior. Destacan Antapaccay (+36,7%), Antamina (+24,5%) y Las Bambas (+15,2%). Sin embargo, las unidades formales de oro cayeron 35,8%, con solo 212 titulares activos. EXPOCOBRE 2026 fue reconocido oficialmente y se realizar&aacute; en Lima del 27 al 29 de abril.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/peru-empieza-2026-con-menos-unidades-formales-produciendo-cobre-y-oro-mineria-ilegal-acelera/">Miner&iacute;a &amp; Energ&iacute;a</a> &middot; <a href="https://construnoticias.com/2026/03/24/expocobre-2026-obtiene-reconocimiento-oficial-como-evento-internacional-en-el-peru/">Construnoticias</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 fecha 8: Alianza Lima y Los Chankas l&iacute;deres; Universitario empata sin goles</h3>
+  <p>La fecha 8 del Torneo Apertura dej&oacute; a Alianza Lima (empate 0-0 vs Juan Pablo II) y Los Chankas (victoria 3-1 vs Sporting Cristal) como l&iacute;deres de la tabla. Cienciano se ubica tercero tras golear 3-0 a FC Cajamarca. Universitario empat&oacute; 0-0 ante Comerciantes Unidos y qued&oacute; cuarto. Cusco FC venci&oacute; 2-1 a Deportivo Moquegua de visitante.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com/peru/deportes/2026/03/20/resultados-de-la-fecha-8-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Actividad s&iacute;smica: dos temblores en Arequipa e Ica</h3>
+  <p>El IGP registr&oacute; un sismo de magnitud 4,2 a las 10:36 a.m. a 47 km al noreste de Cotahuasi (Arequipa) con profundidad de 103 km, y otro de magnitud 4,7 a las 11:16 a.m. a 80 km al suroeste de Ica con profundidad de 36 km. No se reportaron da&ntilde;os.</p>
+  <span class="source-link"><a href="https://libero.pe/tiempoextra/2026/03/24/temblor-hoy-en-peru-martes-24-de-marzo-ultimo-sismo-donde-fue-epicentro-segun-igp-833336">L&iacute;bero</a> &middot; <a href="https://larepublica.pe/sociedad/2026/03/24/temblor-en-peru-hoy-martes-24-de-marzo-del-2026-magnitud-epicentro-y-mas-sobre-sismos-recientes-segun-igp-ultimo-sismo-en-lima-ica-callao-y-otras-provincias-atmp-935502">La Rep&uacute;blica</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial (BCRP)</div>
+    <div class="data-cell-value">S/3.460</div>
+    <div class="data-cell-delta green">&#9660; -0.3%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar SUNAT</div>
+    <div class="data-cell-value">S/3.468</div>
+    <div class="data-cell-delta green">&#9660; -0.2%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Inflaci&oacute;n anual</div>
+    <div class="data-cell-value">2.2%</div>
+    <div class="data-cell-delta red">&#9650; +0.5pp</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Continuaci&oacute;n del ciclo de debates presidenciales JNE: tercera fecha programada con los candidatos restantes. Los debates son la &uacute;ltima oportunidad masiva de exposici&oacute;n antes del 12 de abril.</div>
+  <div class="vigilar-item">Juramentaci&oacute;n de Tom&aacute;s G&aacute;lvez como Fiscal de la Naci&oacute;n el viernes 27 de marzo. Observar si el Colegio de Abogados u otras instituciones formalizan impugnaciones.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del Fen&oacute;meno El Ni&ntilde;o Costero: monitorear precipitaciones en Tumbes, Piura y Lambayeque. INDECI podr&iacute;a declarar emergencias locales si las lluvias se intensifican.</div>
+  <div class="vigilar-item">Normalizaci&oacute;n efectiva del suministro de gas de Camisea y su impacto en tarifas el&eacute;ctricas para el sector industrial en las pr&oacute;ximas semanas.</div>
+  <div class="vigilar-item">Publicaci&oacute;n de nuevas encuestas electorales post-debate. Con 57% de indecisos, cualquier movimiento en intenci&oacute;n de voto puede reconfigurar la carrera.</div>
+</div>
+
+<div class="footer">
+  Fuentes: El Comercio &middot; Infobae Per&uacute; &middot; La Rep&uacute;blica &middot; RPP &middot; Gesti&oacute;n &middot; TVPer&uacute; &middot; BBVA Research &middot; Miner&iacute;a &amp; Energ&iacute;a &middot; El Peruano &middot; Datum &middot; Ipsos<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
