@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 26 de marzo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Jueves 26 de marzo de 2026 &middot; Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Duelo nacional: identificaci&oacute;n de v&iacute;ctimas del accidente del Herc&uacute;les avanza lentamente</h3>
+    <p>Medicina Legal confirm&oacute; que 24 de los 69 uniformados fallecidos en el accidente del avi&oacute;n C-130 H&eacute;rcules en Puerto Legu&iacute;zamo (Putumayo) ya fueron identificados, y seis cuerpos entregados a las Fuerzas Militares. La identificaci&oacute;n completa tardar&aacute; uno o dos d&iacute;as m&aacute;s. Colombia contin&uacute;a en el segundo de tres d&iacute;as de duelo nacional decretados por el presidente Petro.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Es la peor tragedia a&eacute;rea militar en la historia reciente de Colombia. Abre interrogantes sobre el estado de la flota de la Fuerza Aeroespacial y podr&iacute;a acelerar decisiones sobre renovaci&oacute;n de equipos de transporte militar.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/23/accidente-avion-de-la-fuerza-aerea-colombiana-en-vivo-una-aeronave-hercules-se-accidento-en-puerto-leguizamo-al-sur-de-colombia/">Infobae</a> &middot; <a href="https://cnnespanol.cnn.com/2026/03/24/colombia/que-paso-avion-accidente-hercules-fuerza-aeroespacial-orix">CNN</a> &middot; <a href="https://www.publimetro.co/noticias/2026/03/25/petro-decreto-tres-dias-de-duelo-nacional-por-la-muerte-de-69-uniformados-en-el-accidente-aereo-en-putumayo/">Publimetro</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Gobierno oficializa aumento salarial del 7% para empleados p&uacute;blicos</h3>
+    <p>Mediante 23 decretos expedidos el 25 de marzo, el Gobierno Petro formaliz&oacute; un incremento del 7% (IPC 2025 de 5,1% + 1,9 puntos adicionales) para m&aacute;s de un mill&oacute;n de servidores del Estado, incluyendo docentes, jueces, militares, funcionarios de la DIAN y congresistas. El aumento es retroactivo al 1 de enero de 2026.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      En plena &eacute;poca preelectoral, la medida tiene lectura fiscal y pol&iacute;tica. El incremento por encima de la inflaci&oacute;n presiona el gasto p&uacute;blico en un a&ntilde;o donde las finanzas del Estado ya enfrentan retos por la transici&oacute;n energ&eacute;tica y el conflicto en Medio Oriente.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/gobierno-petro-oficializo-alza-salarial-del-7-para-congresistas-y-funcionarios-publicos-mediante-nuevo-decreto/">Infobae</a> &middot; <a href="https://www.portafolio.co/economia/gobierno/el-gobierno-petro-anuncio-el-aumento-oficial-que-tendran-los-trabajadores-publicos-para-el-2026-de-cuanto-fue-490816">Portafolio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Empresas estadounidenses piden reglas claras al nuevo Congreso para invertir</h3>
+    <p>El Consejo de Empresas Americanas (CEA Colombia), que agrupa a m&aacute;s de 115 compa&ntilde;&iacute;as con capital estadounidense y representan el 7,3% del PIB, pidi&oacute; a la nueva legislatura un marco regulatorio estable que incentive la inversi&oacute;n duradera. En paralelo, un informe de Fitch advierte que la incertidumbre pol&iacute;tica y macroecon&oacute;mica amenaza con estrechar m&aacute;rgenes empresariales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con empresas como GM, Kimberly-Clark y Shell ya fuera del pa&iacute;s, la se&ntilde;al del CEA es un term&oacute;metro cr&iacute;tico: el nuevo Congreso (con mayor&iacute;a petrista) definir&aacute; las reglas de juego para la inversi&oacute;n extranjera en el pr&oacute;ximo ciclo presidencial.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/empresas-estadounidenses-exigirieron-reglas-claras-al-congreso-para-atraer-inversiones-a-colombia-vemos-una-oportunidad/">Infobae</a> &middot; <a href="https://www.revistaeyn.com/empresasymanagement/las-empresas-colombianas-transitan-2026-en-un-entorno-de-incertidumbre-senala-fitch-GP29157919">Revista EyN</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Petr&oacute;leo sobre US$103/barril impulsa ingresos fiscales pero enciende alertas de inflaci&oacute;n</h3>
+    <p>El Brent acumula un alza de 49% en marzo impulsado por el conflicto Estados Unidos-Ir&aacute;n. Para Colombia, cada d&oacute;lar adicional en el precio del barril genera cerca de US$744.000 en ingresos fiscales adicionales, pero el encarecimiento de los combustibles presiona la inflaci&oacute;n dom&eacute;stica y podr&iacute;a frenar la reducci&oacute;n de tasas de inter&eacute;s.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El marco fiscal de mediano plazo presupuestaba petr&oacute;leo a US$63. Con el barril sobre US$100, hay un colch&oacute;n fiscal inesperado, pero tambi&eacute;n un riesgo inflacionario que complica la pol&iacute;tica monetaria del Banco de la Rep&uacute;blica.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/petroleo-brent-precio-conflicto-iran-2026-impacto-colombia-IN34820686">El Colombiano</a> &middot; <a href="https://cambiocolombia.com/economia/articulo/2026/3/petroleo-gas-y-dolar-el-impacto-del-coletazo-de-la-guerra-en-el-medio-oriente-en-colombia/">Cambio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Aumento del salario m&iacute;nimo frena inversi&oacute;n de peque&ntilde;as empresas</h3>
+    <p>Seg&uacute;n un an&aacute;lisis publicado el 26 de marzo, el incremento del salario m&iacute;nimo establecido por el Gobierno Petro est&aacute; provocando que las empresas m&aacute;s peque&ntilde;as del pa&iacute;s dejen de invertir. El 50,7% de empresarios atribuye la menor inversi&oacute;n a la incertidumbre pol&iacute;tica, y las tasas de inter&eacute;s elevadas encarecen el cr&eacute;dito.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Las pymes generan el grueso del empleo en Colombia. Si reducen inversi&oacute;n, el impacto se traduce directamente en menor crecimiento econ&oacute;mico y menor generaci&oacute;n de empleo formal, justo en a&ntilde;o electoral.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/aumento-del-salario-minimo-que-establecio-el-gobierno-petro-hizo-que-las-empresas-mas-pequenas-de-colombia-dejaran-de-invertir/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Pacto Hist&oacute;rico lidera el nuevo Congreso con 62 esca&ntilde;os</h3>
+  <p>Tras las legislativas del 8 de marzo, el oficialismo se consolid&oacute; como primera fuerza con 62 curules entre Senado y C&aacute;mara (25 en Senado), superando ampliamente su resultado de 2022. Centro Democr&aacute;tico qued&oacute; segundo con 45 esca&ntilde;os. La nueva composici&oacute;n ser&aacute; clave para la agenda legislativa del cierre del gobierno Petro y el arranque del nuevo periodo presidencial.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN en Espa&ntilde;ol</a> &middot; <a href="https://cnnespanol.cnn.com/2026/03/09/colombia/senado-elecciones-legislativas-orix">CNN en Espa&ntilde;ol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Elecciones presidenciales: campa&ntilde;a se calienta rumbo al 31 de mayo</h3>
+  <p>A dos meses de la primera vuelta presidencial, las encuestas muestran una contienda fragmentada. La aprobaci&oacute;n de Petro se ubica en 54%, y los candidatos intensifican propuestas de seguridad en un contexto donde los grupos armados crecieron 23% en n&uacute;mero de integrantes y las disputas territoriales alcanzaron r&eacute;cord.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a> &middot; <a href="https://www.segurilatam.com/actualidad/elecciones-presidenciales-colombia-2026-propuestas-de-seguridad-de-los-candidatos_20260311.html">Segurilatam</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cierra en baja: TRM en $3.688,46</h3>
+  <p>La TRM para el 26 de marzo se fij&oacute; en $3.688,46, una ca&iacute;da de $12,21 frente al d&iacute;a anterior (-0,33%). En marzo el peso colombiano ha mostrado tendencia alcista frente al d&oacute;lar, beneficiado por los altos precios del petr&oacute;leo. El 53% de los analistas encuestados considera que el d&oacute;lar est&aacute; barato a estos niveles.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/economia/dolar-hoy-26-de-marzo-de-2026-en-colombia-como-esta-la-trm-so35">Noticias Caracol</a> &middot; <a href="https://www.hsbnoticias.com/asi-se-cotiza-el-dolar-en-colombia-hoy-26-de-marzo-de-2026-continuan-los-precios-a-la-baja/">HSB Noticias</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Mercado Libre anuncia inversi&oacute;n r&eacute;cord de US$600 millones en Colombia</h3>
+  <p>La plataforma argentina de e-commerce confirm&oacute; una inversi&oacute;n de US$600 millones para 2026, un aumento del 27% frente a 2025 y la cifra m&aacute;s alta de su historia en el pa&iacute;s. Los recursos se destinar&aacute;n a fortalecer la log&iacute;stica (entregas el mismo d&iacute;a en Bogot&aacute;, expansi&oacute;n a Medell&iacute;n, Cali y Barranquilla), marketing y alianzas financieras. El e-commerce en Colombia apenas alcanza 8% de penetraci&oacute;n, frente al 14% del promedio regional.</p>
+  <span class="source-link"><a href="https://www.semana.com/economia/empresas/articulo/mercado-libre-anuncia-su-mayor-inversion-historica-en-colombia-para-2026/202651/">Semana</a> &middot; <a href="https://www.valoraanalitik.com/mercado-libre-invertira-us600-millones-en-colombia-en-2026-alista-alianzas-y-preve-repunte-del-comercio-electronico/">Valora Anal&iacute;tik</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Ola de fusiones y adquisiciones sacude el arranque de 2026</h3>
+  <p>En apenas 75 d&iacute;as de 2026, una seguidilla de compras, ventas, fusiones y alianzas ha sacudido sectores estrat&eacute;gicos como petr&oacute;leo, telecomunicaciones, miner&iacute;a, comercio, banca, alimentos y materiales de construcci&oacute;n. Los ingresos corporativos crecen 9,2% y las utilidades avanzan 14,1%, ambas cifras en m&aacute;ximos de varios a&ntilde;os. El 30% de los inversionistas internacionales ve buenas oportunidades en Colombia, el doble que hace dos a&ntilde;os.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismos de baja magnitud en Santander sin da&ntilde;os reportados</h3>
+  <p>El Servicio Geol&oacute;gico Colombiano registr&oacute; dos sismos en Santander el 26 de marzo: el primero de magnitud 2,0 a las 12:42 a.m. con epicentro en Rionegro, y el segundo de magnitud 2,1 a las 7:07 a.m. en Los Santos. Ambos a profundidades superiores a 138 km, sin reportes de da&ntilde;os. La zona de Santander mantiene actividad s&iacute;smica recurrente.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-26-de-marzo-de-2026-1005925">Noticias RCN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Deterioro de seguridad: grupos armados crecen 23% y desplazamiento contin&uacute;a</h3>
+  <p>Seg&uacute;n la Fundaci&oacute;n Ideas para la Paz, los miembros de grupos armados aumentaron 23% y las disputas territoriales alcanzaron niveles r&eacute;cord. Human Rights Watch calific&oacute; 2025 como "la crisis humanitaria m&aacute;s grave de la d&eacute;cada". En el Catatumbo, 130 familias fueron desplazadas solo en enero de 2026, y el acumulado nacional supera las 92.000 personas.</p>
+  <span class="source-link"><a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a> &middot; <a href="https://www.hrw.org/es/world-report/2026/country-chapters/colombia">HRW</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Selecci&oacute;n Colombia cae 2-1 ante Croacia en amistoso previo al Mundial</h3>
+  <p>En el estadio Camping World de Orlando, Colombia perdi&oacute; 2-1 frente a Croacia en partido de preparaci&oacute;n para el Mundial 2026. Jhon Arias abri&oacute; el marcador temprano, pero Luka Vuskovic empat&oacute; a los 6 minutos tras una desviaci&oacute;n en Lucum&iacute;, e Igor Matanovic anot&oacute; el gol de la victoria aprovechando un error de Camilo Vargas. Se cort&oacute; un invicto de 15 a&ntilde;os ante selecciones europeas.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/deportes/2026/03/26/colombia-vs-croacia-en-vivo-amistoso-fecha-fifa-la-tricolor-se-mide-ante-la-seleccion-de-luka-modric/">Infobae</a> &middot; <a href="https://www.noticiascaracol.com/golcaracol/seleccion-colombia/colombia-vs-croacia-en-vivo-minuto-a-minuto-del-partido-preparatorio-al-mundial-2026-so35">Gol Caracol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: Nacional l&iacute;der; Millonarios golea y se mete en la pelea</h3>
+  <p>En la fecha 13 de la Liga BetPlay 2026-I, Atl&eacute;tico Nacional mantuvo la cima con 27 puntos tras golear 3-0 a Internacional de Bogot&aacute;. Millonarios aplast&oacute; 4-1 a Once Caldas en Manizales y se ubic&oacute; quinto con 20 puntos. Alianza Valledupar sorprendi&oacute; al vencer 1-0 a Deportivo Cali. La zona de clasificaci&oacute;n sigue muy cerrada.</p>
+  <span class="source-link"><a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/resultados-de-fecha-13-y-tabla-de-posiciones-online-en-liga-betplay-2026-1-clasificacion-en-vivo-264865">Futbolred</a> &middot; <a href="https://www.espn.com.co/futbol/colombia/nota/_/id/14839338/como-quedo-tabla-de-posiciones-liga-betplay">ESPN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Guerra EE.UU.-Ir&aacute;n redefine el panorama energ&eacute;tico y fiscal de Colombia</h3>
+  <p>El conflicto en Medio Oriente ha disparado el Brent 49% en marzo, con la referencia cerrando en US$103/barril. Para Am&eacute;rica Latina, el impacto es mixto: pa&iacute;ses productores como Colombia reciben mayores ingresos fiscales, pero enfrentan presiones inflacionarias por el alza de combustibles. Los aranceles de Trump a&ntilde;aden incertidumbre adicional al comercio global.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/20/latinoamerica/impacto-economico-guerra-iran-america-latina-orix">CNN</a> &middot; <a href="https://www.bloomberglinea.com/mercados/sp-500-cae-y-el-petroleo-repunta-mientras-la-guerra-en-medio-oriente-se-prolonga/">Bloomberg L&iacute;nea</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.688</div>
+    <div class="data-cell-delta green">&#9660; $12,21</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Petr&oacute;leo Brent</div>
+    <div class="data-cell-value">US$103</div>
+    <div class="data-cell-delta red">&#9650; 49% mes</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">TRM inicio mes</div>
+    <div class="data-cell-value">$3.766</div>
+    <div class="data-cell-delta green">&#9660; $78 mes</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Continuaci&oacute;n del proceso de identificaci&oacute;n de v&iacute;ctimas del accidente a&eacute;reo en Putumayo; posibles anuncios sobre investigaci&oacute;n de la causa del siniestro del H&eacute;rcules.</div>
+  <div class="vigilar-item">Reacci&oacute;n de los mercados al alza salarial del 7% para empleados p&uacute;blicos y su impacto en las proyecciones fiscales del cierre de gobierno.</div>
+  <div class="vigilar-item">Precio del petr&oacute;leo y la evoluci&oacute;n del conflicto EE.UU.-Ir&aacute;n: si el Brent sostiene US$100+, Colombia recibir&aacute; ingresos fiscales extraordinarios pero enfrentar&aacute; presi&oacute;n inflacionaria.</div>
+  <div class="vigilar-item">Movimientos de la contienda presidencial rumbo al 31 de mayo: alianzas, encuestas y propuestas de los candidatos sobre seguridad e inversi&oacute;n.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae &middot; CNN en Espa&ntilde;ol &middot; El Tiempo &middot; Semana &middot; Portafolio &middot; Noticias Caracol &middot; Noticias RCN &middot; El Colombiano &middot; Bloomberg L&iacute;nea &middot; Valora Anal&iacute;tik &middot; FIP &middot; HRW &middot; Futbolred &middot; ESPN<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
