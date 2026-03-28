@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 27 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Jueves 27 de marzo de 2026 · La Paz</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Bolivia vence 2-1 a Surinam y clasifica a la final del repechaje mundialista</h3>
+    <p>La selecci&oacute;n boliviana remont&oacute; en el Estadio BBVA de Monterrey con goles de Mois&eacute;s Paniagua y Miguel Terceros tras ir abajo en el marcador. Bolivia enfrentar&aacute; a Irak el martes 31 de marzo por el &uacute;ltimo cupo al Mundial 2026.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Bolivia no clasifica a un Mundial desde 1994. Un boleto mundialista tendr&iacute;a impacto econ&oacute;mico directo en turismo, consumo interno, patrocinios y cohesi&oacute;n social en un momento de tensi&oacute;n pol&iacute;tica y econ&oacute;mica.
+    </div>
+    <span class="source-link"><a href="https://espndeportes.espn.com/futbol/mundial/nota/_/id/16492849/bolivia-vs-surinam-resumen-goles-repechaje-mundial-2026-estadio-monterrey">ESPN</a> · <a href="https://cnnespanol.cnn.com/2026/03/26/deportes/live-news/resultado-bolivia-suriname-repechaje-mundial-orix">CNN</a> · <a href="https://www.infobae.com/deportes/2026/03/26/bolivia-jugara-su-sueno-de-ir-al-mundial-en-la-semifinal-del-repechaje-ante-surinam-hora-tv-y-formaciones/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Divisas del BCB caen a US$ 52 millones tras pago r&eacute;cord de deuda externa</h3>
+    <p>El Gobierno cancel&oacute; m&aacute;s de US$ 500 millones en deuda externa en marzo, el mayor pago en la historia econ&oacute;mica del pa&iacute;s. Las divisas de las reservas internacionales cayeron de US$ 355 millones el 18 de marzo a apenas US$ 52 millones al 20 de marzo, un descenso del 85%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con solo US$ 52 millones en divisas l&iacute;quidas y obligaciones anuales que superan los US$ 7.500 millones, la presi&oacute;n sobre la liquidez en d&oacute;lares se agudiza. Cualquier operaci&oacute;n que requiera divisas enfrenta restricciones cr&iacute;ticas.
+    </div>
+    <span class="source-link"><a href="https://www.urgente.bo/noticia/bcb-reservas-internacional-en-efectivo-caen-us-52-millones">Urgentebo</a> · <a href="https://www.opinion.com.bo/articulo/pais/gobierno-reporta-marzo-mayor-pago-deuda-externa-historia-economica-bolivia/20260327175219990790.html">Opini&oacute;n</a> · <a href="https://abi.bo/bolivia-paga-mas-de-us-500-millones-de-deuda-externa-en-marzo-con-recursos-propios/">ABI</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Moody's sube calificaci&oacute;n crediticia de Bolivia tras compromiso de pago</h3>
+    <p>La agencia Moody's elev&oacute; la calificaci&oacute;n soberana de Bolivia luego de que el Gobierno se comprometiera a cumplir con los pagos de cupones de bonos soberanos en marzo. La mejora se anunci&oacute; el 19 de marzo y fue parcialmente facilitada por el desembolso de deuda externa r&eacute;cord.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La mejora de rating reduce el costo de financiamiento externo y env&iacute;a se&ntilde;ales positivas a inversionistas, aunque la sostenibilidad depende de que el pa&iacute;s mantenga liquidez suficiente para los pr&oacute;ximos vencimientos.
+    </div>
+    <span class="source-link"><a href="https://www.bloomberg.com/news/articles/2026-03-19/bolivia-wins-credit-rating-upgrade-after-coupon-payment-pledge">Bloomberg</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>C&oacute;mputo oficial avanza: segunda vuelta en Santa Cruz y nuevos gobernadores definidos</h3>
+    <p>El c&oacute;mputo oficial de las elecciones subnacionales del 22 de marzo confirma victorias en primera vuelta en Potos&iacute; y Pando. En Santa Cruz se ir&aacute; a segunda vuelta entre Juan Pablo Velasco (28,3%) y Otto Ritter (26,7%). En La Paz gan&oacute; Luis Revilla como gobernador y en Cochabamba lidera Leonardo Loza.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La configuraci&oacute;n del poder subnacional define la gobernabilidad territorial y las relaciones con el Gobierno central de Rodrigo Paz. La segunda vuelta en Santa Cruz ser&aacute; clave para la regi&oacute;n econ&oacute;mica m&aacute;s din&aacute;mica del pa&iacute;s.
+    </div>
+    <span class="source-link"><a href="https://computo.oep.org.bo/">OEP C&oacute;mputo Oficial</a> · <a href="https://www.vision360.bo/noticias/2026/03/22/41980-resultados-preliminares-del-voto-para-gobernadores-proyectan-al-menos-2-victorias-en-primera-vuelta">Visi&oacute;n 360</a> · <a href="https://www.infobae.com/america/america-latina/2026/03/23/elecciones-regionales-en-bolivia-los-aliados-de-rodrigo-paz-ganaron-en-tres-gobernaciones-y-surgen-nuevos-liderazgos-emergentes/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>BCB pide a la Asamblea autorizar conversi&oacute;n de reservas de oro en d&oacute;lares</h3>
+    <p>El Banco Central de Bolivia solicit&oacute; a la Asamblea Legislativa Plurinacional autorizaci&oacute;n para convertir parte de las reservas de oro (que representan el 96% de las RIN, equivalentes a US$ 3.484 millones) en divisas, como paso previo a la liberaci&oacute;n del tipo de cambio.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Esta medida ser&iacute;a la antesala de la unificaci&oacute;n cambiaria. Si se aprueba, Bolivia transitar&iacute;a de un tipo de cambio fijo a uno flexible, con impacto directo en precios, importaciones y costos operativos de todas las empresas.
+    </div>
+    <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/bcb-solicita-alp-que-autorice-convertir-reservas-oro-dolares/20260320000048990350.html">Opini&oacute;n</a> · <a href="https://eju.tv/2026/03/bcb-pide-al-legislativo-autorizar-conversion-de-reservas-de-oro-en-dolares-para-liberar-el-tipo-de-cambio/">eju.tv</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno reestructura Canciller&iacute;a para atraer inversi&oacute;n extranjera</h3>
+  <p>Mediante el Decreto Supremo 5594, el gabinete de Rodrigo Paz reestructur&oacute; el Ministerio de Relaciones Exteriores. El Viceministerio de Comercio Exterior e Integraci&oacute;n pasa a denominarse Viceministerio de Comercio Exterior, Inversiones Extranjeras e Integraci&oacute;n, con nuevas direcciones generales de promoci&oacute;n de inversiones, exportaciones y geopol&iacute;tica.</p>
+  <span class="source-link"><a href="https://abi.bo/gobierno-asigna-nueva-estructura-a-la-cancilleria-para-impulsar-la-inversion-extranjera/">ABI</a> · <a href="https://www.urgente.bo/noticia/gobierno-reestructura-la-cancilleria-mediante-decreto-y-busca-la-inversion-extranjera">Urgentebo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Alcald&iacute;as definidas: Saavedra arrasa en Santa Cruz, Reyes Villa retiene Cochabamba</h3>
+  <p>Los resultados del c&oacute;mputo oficial muestran que Carlos Manuel Saavedra obtuvo un hist&oacute;rico 71,6% en Santa Cruz, Manfred Reyes Villa valid&oacute; su gesti&oacute;n en Cochabamba con 53,1%, y C&eacute;sar Dockweiler lidera en La Paz con 23,4% en un escenario fragmentado. En El Alto, Eliser Roca encabeza con 19,6%.</p>
+  <span class="source-link"><a href="https://computo.oep.org.bo/">OEP C&oacute;mputo Oficial</a> · <a href="https://lapatria.bo/enfoque-nacional/elecciones-subnacionales-en-bolivia-resultados-preliminares-2026/">La Patria</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Banco Mundial proyecta contracci&oacute;n de -1,1% para Bolivia en 2026</h3>
+  <p>Seg&uacute;n el Informe de Perspectivas Econ&oacute;micas Mundiales 2026, Bolivia ser&iacute;a el &uacute;nico pa&iacute;s de la regi&oacute;n cuya econom&iacute;a decrecer&aacute; este a&ntilde;o. La CEPAL, en contraste, prev&eacute; un crecimiento marginal de 0,5%. El Gobierno estima una inflaci&oacute;n de hasta 17% y busca reducir el d&eacute;ficit fiscal al 7%.</p>
+  <span class="source-link"><a href="https://www.urgente.bo/">Urgentebo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Financiero</span>
+  <h3>D&oacute;lar paralelo estable en torno a Bs 9,30; brecha con oficial supera 33%</h3>
+  <p>El d&oacute;lar paralelo cerr&oacute; el viernes 27 de marzo con cotizaciones de Bs 9,30-9,33 para la compra y Bs 9,28-9,30 para la venta, seg&uacute;n distintas fuentes. El BCB publica un valor referencial de Bs 9,21-9,40, mientras el tipo de cambio oficial contin&uacute;a fijo en Bs 6,96, cada vez menos relevante en las operaciones reales.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/27/cotizacion-del-dolar-hoy-27-de-marzo-de-2026/">ATB</a> · <a href="https://www.reduno.com.bo/economia/atencion-el-dolar-paralelo-presenta-variaciones-la-tarde-de-este-viernes-27-de-marzo-202632712151">Red Uno</a> · <a href="https://bolivianblue.net/en">BolivianBlue</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Paz afirma que Bolivia debe convertirse en eje integrador regional</h3>
+  <p>El presidente Rodrigo Paz declar&oacute; que su Gobierno apunta a posicionar a Bolivia como eje integrador de la regi&oacute;n, reorientando la pol&iacute;tica exterior hacia lo econ&oacute;mico: diversificaci&oacute;n productiva, competitividad y acceso a mercados internacionales.</p>
+  <span class="source-link"><a href="https://abi.bo/paz-afirma-que-su-gobierno-apunta-a-que-bolivia-se-convierta-en-un-eje-integrador-de-la-region/">ABI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Nuevo feminicidio registrado en Santa Cruz</h3>
+  <p>Se report&oacute; un nuevo caso de feminicidio en el departamento de Santa Cruz, sumando a la tendencia de violencia de g&eacute;nero que persiste en el pa&iacute;s. Bolivia registra una de las tasas m&aacute;s altas de feminicidios per c&aacute;pita en Am&eacute;rica Latina.</p>
+  <span class="source-link"><a href="https://unitel.bo/">Unitel</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Divisi&oacute;n Profesional aprueba formato 2026: Liga de 30 fechas desde el 5 de abril</h3>
+  <p>El Consejo de la Divisi&oacute;n Profesional aprob&oacute; el calendario oficial de la temporada 2026 con dos torneos: la Liga (todos contra todos, 30 fechas desde el 5 de abril) y la Copa (16 equipos en fase de grupos y eliminatorias en el segundo semestre). Bolivia tendr&aacute; cuatro cupos para la Libertadores 2027.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/23/la-division-profesional-define-su-temporada-2026-con-dos-torneos/">ATB</a> · <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
+    <div class="data-cell-value">6,96</div>
+    <div class="data-cell-delta">Bs — sin cambios</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">9,30</div>
+    <div class="data-cell-delta red">Bs · venta</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">33,6%</div>
+    <div class="data-cell-delta red">estable</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Final Bolivia vs. Irak el 31 de marzo en Monterrey: resultado con impacto econ&oacute;mico y social significativo si se logra la clasificaci&oacute;n al Mundial.</div>
+  <div class="vigilar-item">Tratamiento en la Asamblea Legislativa de la solicitud del BCB para convertir reservas de oro en d&oacute;lares, paso previo a la unificaci&oacute;n cambiaria.</div>
+  <div class="vigilar-item">Nivel de divisas del BCB en US$ 52 millones: cualquier nuevo vencimiento de deuda o demanda de importaciones cr&iacute;ticas (combustibles) genera presi&oacute;n inmediata.</div>
+  <div class="vigilar-item">Definici&oacute;n de fecha para segunda vuelta de gobernaci&oacute;n en Santa Cruz entre Velasco y Ritter, clave para la gobernabilidad del departamento m&aacute;s productivo.</div>
+  <div class="vigilar-item">Inicio de la Liga de la Divisi&oacute;n Profesional el 5 de abril; seguimiento a la posici&oacute;n de los clubes principales en el nuevo formato.</div>
+</div>
+
+<div class="footer">
+  Fuentes: ESPN · CNN · Bloomberg · Infobae · ABI · Urgentebo · Opini&oacute;n · ATB · Red Uno · eju.tv · Visi&oacute;n 360 · La Patria · OEP · FBF · BolivianBlue<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
