@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo - Per&uacute; - 27 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Viernes 27 de marzo de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Consejo Fiscal alerta: leyes del Congreso generan gasto adicional de S/11.400 millones anuales sin financiamiento</h3>
+    <p>El Consejo Fiscal, presidido por Alonso Segura, advirti&oacute; que en apenas dos sesiones plenarias de marzo el Congreso aprob&oacute; 11 normas que crean obligaciones permanentes por S/11.400 millones al a&ntilde;o, sin fuentes claras de financiamiento. Las m&aacute;s costosas: nivelaci&oacute;n de pensiones docentes (S/8.000 millones) y reforma del sistema de pensiones militar-policial. ComexPer&uacute; acus&oacute; al Ejecutivo de &quot;hipotecar el futuro del pa&iacute;s&quot;.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Este desborde fiscal compromete la regla de gasto en a&ntilde;o electoral y puede presionar la calificaci&oacute;n crediticia del Per&uacute;. El FMI ya se sum&oacute; a la alerta, lo que eleva el riesgo de ajuste forzado para el pr&oacute;ximo gobierno.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/27/consejo-fiscal-cuestiona-11-leyes-del-congreso-que-elevan-el-gasto-publico-del-peru/">Infobae</a> &middot; <a href="https://rpp.pe/economia/economia/alonso-segura-consejo-fiscal-alerta-que-leyes-del-congreso-comprometen-el-gasto-publico-noticia-1682063">RPP</a> &middot; <a href="https://diarioelpueblo.com.pe/2026/03/27/alertan-gasto-adicional-de-s-11-400-millones-por-leyes-aprobadas-en-el-congreso/">El Pueblo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuesta Ipsos: L&oacute;pez Aliaga y Fujimori en empate t&eacute;cnico a 16 d&iacute;as de las elecciones</h3>
+    <p>Seg&uacute;n la encuesta Ipsos del 21-22 de marzo, Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular) lidera con 12,3% frente a Keiko Fujimori (Fuerza Popular) con 12,2%, configurando un empate t&eacute;cnico. CPI confirma la tendencia: L&oacute;pez Aliaga 11,7%, Fujimori 11%. Alfonso L&oacute;pez Chau (Ahora Naci&oacute;n) sube a 6,6% y se consolida tercero. El 23,1% del electorado sigue indeciso.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con casi una cuarta parte del electorado sin decidir y dos candidatos virtualmente empatados, una segunda vuelta es pr&aacute;cticamente segura. El perfil econ&oacute;mico del ganador definir&aacute; la orientaci&oacute;n fiscal y regulatoria del pr&oacute;ximo quinquenio.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/elecciones-generales-encuesta-intencion-de-voto-cpi-marzo-noticia-1681706">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/03/26/elecciones-2026-lopez-aliaga-y-fujimori-siguen-empatados-mientras-otros-candidatos-aumentan-su-preferencia-de-voto/">Infobae</a> &middot; <a href="https://www.ipsos.com/es-pe/segundo-simulacro-nacional-y-encuesta-de-intencion-de-voto-marzo-2026-2-encuesta-peru-21-ipsos">Ipsos</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Per&uacute; y Chile endurecen controles en frontera con zanjas y muros en Tacna</h3>
+    <p>La tensi&oacute;n fronteriza escal&oacute; tras el inicio de la construcci&oacute;n del Plan Escudo Fronterizo de Chile (vallas de 5 metros y zanjas de 3 metros en 5 km). En respuesta, el Gobierno Regional de Tacna inici&oacute; una excavaci&oacute;n de 200 metros lineales argumentando mejoras viales para cami&oacute;nes en la zona de Santa Rosa. La Canciller&iacute;a peruana declar&oacute; que no tomar&aacute; acciones mientras Chile construya en su propio territorio.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La militarizaci&oacute;n fronteriza puede afectar el flujo comercial binacional y el tr&aacute;nsito de personas en Tacna-Arica, un corredor econ&oacute;mico clave. La din&aacute;mica migratoria regional seguir&aacute; presionando la relaci&oacute;n bilateral.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/27/peru-y-chile-endurecen-control-en-frontera-en-medio-de-tension-por-muros-y-zanjas/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/03/26/escudo-fronterizo-peruchile-maquinaria-comienza-trabajos-de-excavacion-en-territorio-peruano-en-tacna-hnews-2524548">La Rep&uacute;blica</a> &middot; <a href="https://www.exitosanoticias.pe/actualidad/peru-responde-chile-gobierno-regional-tacna-dispone-realizar-zanja-zona-fronteriza-n172123">Exitosa</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Gobierno prorroga estado de emergencia en Lima y Callao por 30 d&iacute;as m&aacute;s</h3>
+    <p>Mediante el D.S. 044-2026-PCM, el Ejecutivo extendi&oacute; el estado de emergencia en Lima Metropolitana y el Callao desde el 30 de marzo, manteniendo restricciones a libertad de tr&aacute;nsito, reuni&oacute;n e inviolabilidad de domicilio. Es la quinta pr&oacute;rroga desde octubre 2025. Los homicidios de enero a marzo bajaron a 487 frente a 569 del mismo periodo en 2025, pero expertos advierten que la mejora es insuficiente.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La normalizaci&oacute;n del estado de emergencia genera cuestionamientos sobre su efectividad real. La seguridad ciudadana es el segundo problema del pa&iacute;s seg&uacute;n encuestas y define el voto de cara al 12 de abril.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/gobierno/gobierno-prorrogo-por-30-dias-el-estado-de-emergencia-en-lima-y-callao-para-enfrentar-la-criminalidad-noticia-1682067">RPP</a> &middot; <a href="https://www.gob.pe/institucion/presidencia/noticias/1336372-gobierno-prorroga-el-estado-de-emergencia-en-lima-y-callao-para-salvaguardar-la-vida-y-tranquilidad-de-los-ciudadanos">Gob.pe</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>SNI alerta: predictamen de Comisi&oacute;n de Energ&iacute;a y Minas amenaza concesiones mineras</h3>
+    <p>La Sociedad Nacional de Industrias advirti&oacute; que un predictamen de la Comisi&oacute;n de Energ&iacute;a y Minas del Congreso propone reducir los plazos de vigencia de las concesiones mineras, lo que debilitar&iacute;a la seguridad jur&iacute;dica del sector. Esto ocurre mientras la producci&oacute;n de cobre creci&oacute; 3% en enero 2026 (226.256 TMF) pero con menos unidades formales operando.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La miner&iacute;a representa cerca del 60% de las exportaciones peruanas. Cambiar las reglas de concesi&oacute;n en plena campa&ntilde;a electoral env&iacute;a se&ntilde;ales negativas a inversores y podr&iacute;a frenar proyectos como T&iacute;a Mar&iacute;a y Valiente.
+    </div>
+    <span class="source-link"><a href="https://sni.org.pe/sni-predictamen-de-la-comision-de-energia-y-minas-atenta-contra-la-mineria-formal/">SNI</a> &middot; <a href="https://mineriaenergia.com/cambios-a-la-ley-de-mineria-abren-debate-sobre-el-futuro-de-la-inversion-en-el-peru/">Miner&iacute;a &amp; Energ&iacute;a</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Debate presidencial: candidatos exponen propuestas en seguridad y anticorrupci&oacute;n</h3>
+  <p>La tercera jornada del debate presidencial organizado por el JNE se realiz&oacute; el 25 de marzo con 12 candidatos abordando seguridad ciudadana y lucha contra la criminalidad. La segunda fase del ciclo contin&uacute;a el 30-31 de marzo y 1 de abril con ejes de educaci&oacute;n, innovaci&oacute;n, empleo y desarrollo. Los anal&iacute;stas se&ntilde;alan que ning&uacute;n candidato logr&oacute; un momento diferenciador claro.</p>
+  <span class="source-link"><a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-las-propuestas-de-los-candidatos-en-seguridad-ciudadana-y-lucha-contra-la-criminalidad-durante-la-tercera-jornada-noticia-1681695">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/03/26/proximo-debate-presidencial-2026-fechas-temas-y-candidatos-que-se-enfrentaran-en-cada-bloque-del-evento-organizado-por-el-jne/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Ejecutivo oficializa Pol&iacute;tica General de Gobierno 2026 con tres ejes</h3>
+  <p>Mediante D.S. 043-2026-PCM, el gobierno aprob&oacute; la Pol&iacute;tica General de Gobierno 2026 con foco en seguridad ciudadana, continuidad econ&oacute;mica y transici&oacute;n democr&aacute;tica. El documento incluye compromisos espec&iacute;ficos para garantizar elecciones seguras y ordenadas hasta julio.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPer&uacute;</a> &middot; <a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>La Rep&uacute;blica: sin mayor&iacute;a en el Senado, el pr&oacute;ximo gobierno enfrentar&aacute; el mismo ciclo de crisis</h3>
+  <p>Un an&aacute;lisis de La Rep&uacute;blica proyecta que ninguna fuerza pol&iacute;tica lograr&aacute; mayor&iacute;a en el Senado bicameral que inicia en 2026, replicando la fragmentaci&oacute;n del Congreso unicameral actual. Esto anticipa cinco a&ntilde;os m&aacute;s de enfrentamiento entre Ejecutivo y Legislativo.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/25/elecciones-2026-sin-mayoria-en-el-senado-el-proximo-gobierno-enfrentara-el-mismo-ciclo-de-crisis-otros-5-anos-hnews-961625">La Rep&uacute;blica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cierra en S/3,486 con volatilidad por ruido electoral</h3>
+  <p>El tipo de cambio interbancario cerr&oacute; el viernes en S/3,489 promedio (m&aacute;x. 3,498 / m&iacute;n. 3,477). La SUNAT registr&oacute; compra en S/3,458 y venta en S/3,466. Renta 4 proyecta que el d&oacute;lar podr&iacute;a alcanzar S/3,60 hacia julio impulsado por la incertidumbre electoral.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-27-de-marzo-del-2026-noticia-1681883">RPP</a> &middot; <a href="https://larepublica.pe/economia/precio-del-dolar/2026/03/27/precio-del-dolar-hoy-en-peru-27-de-marzo-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-1661504">La Rep&uacute;blica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>CIIT Latam Congress 2026 re&uacute;ne al sector minero-energ&eacute;tico en Lima</h3>
+  <p>El congreso de innovaci&oacute;n tecnol&oacute;gica para miner&iacute;a, energ&iacute;a e industria cerr&oacute; sus dos jornadas (26-27 marzo) en Lima. Paralelamente, el MINEM inaugur&oacute; la II Pasant&iacute;a Minera 2026 con l&iacute;deres de zonas de influencia de T&iacute;a Mar&iacute;a (Arequipa) y Valiente (Hu&aacute;nuco), buscando reducir la conflictividad social.</p>
+  <span class="source-link"><a href="https://proactivo.com.pe/ciit-latam-congress-2026-innovacion-tecnologica-redefine-la-mineria-y-energia-en-peru/">Proactivo</a> &middot; <a href="https://www.rcrperu.com/lideres-de-zonas-de-influencia-de-proyectos-mineros-tia-maria-y-valiente-participan-en-ii-pasantia-minera-2026/">RCR</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Normas legales del 27 de marzo: Ley 32571 declara de inter&eacute;s nacional la creaci&oacute;n de un cosmopuerto</h3>
+  <p>Entre las normas publicadas en El Peruano destaca la Ley 32571, que declara de inter&eacute;s nacional y necesidad p&uacute;blica la creaci&oacute;n de un cosmopuerto en territorio peruano para posicionar al pa&iacute;s como l&iacute;der regional en el &aacute;mbito espacial. Tambi&eacute;n se oficializ&oacute; el nombramiento del embajador ante la Federaci&oacute;n de Rusia.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-27-de-marzo-de-2026">TVPer&uacute;</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1: fecha 9 del Apertura programada tras par&oacute;n FIFA; cl&aacute;sico Universitario vs. Alianza Lima en la mira</h3>
+  <p>La Liga 1 retoma actividad con la fecha 9 del Torneo Apertura tras el par&oacute;n por fecha FIFA. El plato fuerte ser&aacute; el cl&aacute;sico entre Universitario (4to, 16 pts) y Alianza Lima (1ro, 20 pts). Los blanquiazules buscan consolidar el liderato mientras la &quot;U&quot; necesita recortar distancia. Los Chankas comparten la punta.</p>
+  <span class="source-link"><a href="https://www.espn.com.pe/futbol/peru/nota/_/id/16477026/programacion-de-la-fecha-9-del-apertura-liga-1-de-peru">ESPN</a> &middot; <a href="https://www.infobae.com/peru/deportes/2026/03/20/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-8-torneo-apertura-alianza-lima-universitario-los-chankas-cienciano-sporting-cristal-melgar/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Congreso aprueba reglamentos del nuevo Senado y C&aacute;mara de Diputados</h3>
+  <p>El Pleno del Congreso aprob&oacute; los reglamentos internos del futuro Congreso bicameral, incluyendo los de la C&aacute;mara de Diputados y el Senado que entrar&aacute;n en funciones tras las elecciones del 12 de abril. La normativa define procedimientos legislativos, comisiones y mecanismos de control para el periodo 2026-2031.</p>
+  <span class="source-link"><a href="https://comunicaciones.congreso.gob.pe/noticias/pleno-aprueba-reglamentos-del-congreso-de-camara-de-diputados-y-del-senado/">Congreso</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar BCRP</div>
+    <div class="data-cell-value">S/3,489</div>
+    <div class="data-cell-delta red">&#9650; Volatilidad electoral</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar SUNAT</div>
+    <div class="data-cell-value">S/3,466</div>
+    <div class="data-cell-delta">Venta</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Cierre interbancario</div>
+    <div class="data-cell-value">S/3,486</div>
+    <div class="data-cell-delta">Rango: 3,477 - 3,498</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Segunda fase del debate presidencial JNE (30-31 marzo y 1 abril): educaci&oacute;n, innovaci&oacute;n, empleo y desarrollo. Puede mover encuestas a dos semanas del voto.</div>
+  <div class="vigilar-item">Reacci&oacute;n del MEF al informe del Consejo Fiscal sobre los S/11.400 millones de gasto no financiado. Posible veto presidencial a alguna de las 11 leyes.</div>
+  <div class="vigilar-item">Evoluci&oacute;n de las obras fronterizas en Tacna-Arica y posible pronunciamiento de Canciller&iacute;a si Chile ampl&iacute;a el Plan Escudo.</div>
+  <div class="vigilar-item">Tipo de cambio: proyecci&oacute;n de Renta 4 apunta a S/3,60 en julio. Monitorear intervenciones del BCRP ante picos de volatilidad preelectoral.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP &middot; La Rep&uacute;blica &middot; Infobae Per&uacute; &middot; Gesti&oacute;n &middot; TVPer&uacute; &middot; El Comercio &middot; Exitosa &middot; Ipsos &middot; CPI &middot; SNI &middot; Congreso &middot; Proactivo &middot; ESPN<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
