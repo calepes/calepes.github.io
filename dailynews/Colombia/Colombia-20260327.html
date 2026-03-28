@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 27 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Viernes 27 de marzo de 2026 · Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Encuestas presidenciales: Cepeda lidera con 37,5%, Paloma Valencia sube 12 puntos y pelea el segundo lugar</h3>
+    <p>La encuesta Guarumo-Ecoanal&iacute;tica del 25 de marzo sit&uacute;a a Iv&aacute;n Cepeda al frente con 37,5% de intenci&oacute;n de voto para la primera vuelta del 31 de mayo. Abelardo de la Espriella y Paloma Valencia compiten en empate t&eacute;cnico por el segundo cupo a la segunda vuelta. Valencia experiment&oacute; un crecimiento de 13 puntos desde enero (de 6,9% a 19,9%), mientras que De la Espriella cay&oacute; 5 puntos. La encuesta Atlas Intel confirma la tendencia: Cepeda 36,4%, De la Espriella 27,9%, Valencia 17,5%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La carrera por el segundo lugar se ha vuelto impredecible a dos meses de la primera vuelta. La composici&oacute;n del ballotage definir&aacute; el rumbo de pol&iacute;tica econ&oacute;mica, inversiones y regulaci&oacute;n para el periodo 2026-2030.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/28/se-reducen-las-diferencias-entre-ivan-cepeda-abelardo-de-la-espriella-y-paloma-valencia-en-la-intencion-de-voto-para-la-primera-vuelta-esto-dice-la-nueva-encuesta-de-guarumo-y-ecoanalitica/">Infobae</a> · <a href="https://cambiocolombia.com/elecciones-colombia-2026/articulo/2026/3/encuesta-de-cambio-y-el-cnc-paloma-y-oviedo-alzan-vuelo-se-alejan-de-abelardo-y-cambian-el-tablero-de-la-segunda-vuelta/">Cambio</a> · <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Mercado Libre anuncia inversi&oacute;n r&eacute;cord de USD 600 millones en Colombia para 2026</h3>
+    <p>La plataforma argentina de e-commerce destinar&aacute; USD 600 millones en el pa&iacute;s, un 27% m&aacute;s que en 2025 (USD 470 millones) y su mayor apuesta hist&oacute;rica en Colombia. Los recursos ir&aacute;n a fortalecimiento log&iacute;stico, expansi&oacute;n del equipo, marketing y consolidaci&oacute;n de operaciones. M&aacute;s de 30.000 pymes colombianas venden actualmente a trav&eacute;s de la plataforma.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Valida a Colombia como hub de comercio electr&oacute;nico en la regi&oacute;n y se&ntilde;ala confianza del capital extranjero en el mercado interno, en un a&ntilde;o donde las mipymes enfrentan presiones de costos por el alza del salario m&iacute;nimo.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/economia/empresas/articulo/mercado-libre-anuncia-su-mayor-inversion-historica-en-colombia-para-2026/202651/">Semana</a> · <a href="https://www.bloomberglinea.com/latinoamerica/colombia/mercado-libre-destinara-us600-millones-en-colombia-su-mayor-inversion-hasta-ahora-en-el-pais/">Bloomberg L&iacute;nea</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Salario m&iacute;nimo golpea a mipymes: 53% recort&oacute; inversi&oacute;n y comercio pierde 258.000 empleos</h3>
+    <p>El alza del 23,7% del salario m&iacute;nimo a $2.000.000 comienza a mostrar efectos concretos. Seg&uacute;n encuestas sectoriales, el 53,3% de las mipymes report&oacute; recortes en inversi&oacute;n, el 47,3% registr&oacute; ca&iacute;da en producci&oacute;n, y el 61,6% modific&oacute; su estructura laboral. Los sectores de comercio y restaurantes acumulan 258.000 empleos perdidos. El 60,3% de las empresas no planea nuevas contrataciones este a&ntilde;o.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La pol&iacute;tica salarial del gobierno Petro muestra un trade-off entre ingreso formal y empleo total. La destrucci&oacute;n de puestos en mipymes puede alimentar la informalidad y presionar el consumo interno justo en a&ntilde;o electoral.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/aumento-del-salario-minimo-que-establecio-el-gobierno-petro-hizo-que-las-empresas-mas-pequenas-de-colombia-dejaran-de-invertir/">Infobae</a> · <a href="https://www.elcolombiano.com/negocios/salario-minimo-2026-colombia-impacto-empleo-desempleo-KF34027094">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Disidencias de Mordisco proh&iacute;ben ingreso de ONU, OEA y Defensor&iacute;a a sus territorios</h3>
+    <p>El Estado Mayor Central (EMC) de Iv&aacute;n Mordisco anunci&oacute; la restricci&oacute;n de acceso a misiones humanitarias de Naciones Unidas, la OEA y la Defensor&iacute;a del Pueblo a los territorios que controlan, alegando "violaci&oacute;n de confianza y neutralidad". Solo mantienen canal con el CICR bajo condiciones estrictas. La Viceministr&iacute;a de Interior rechaz&oacute; la medida: "no hay un mil&iacute;metro de territorio colombiano que pueda ser vedado por actores armados".</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El bloqueo humanitario afecta a comunidades en Guaviare, Meta, Caquet&aacute;, Vaup&eacute;s y Guain&iacute;a, y complica cualquier escenario de negociaci&oacute;n futura. Eleva el riesgo de crisis humanitaria no documentada en zonas de conflicto activo.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/18/disidencias-de-ivan-mordisco-prohibiran-el-ingreso-de-misiones-de-onu-oea-y-defensoria-a-territorios-por-violacion-a-la-confianza/">Infobae</a> · <a href="https://www.elespectador.com/colombia-20/conflicto/disidencia-farc-de-ivan-mordisco-riesgos-e-impactos-en-comunidades-por-restriccion-de-ingreso-de-onu-y-defensoria/">El Espectador</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Millicom consolida dominio en telecomunicaciones: compra Movistar por USD 214 millones y se convierte en segundo operador</h3>
+    <p>Millicom complet&oacute; la adquisici&oacute;n de Colombia Telecomunicaciones (Movistar) por USD 214,4 millones, sumada a los USD 571 millones por el 100% de UNE-Tigo en enero. Tras la fusi&oacute;n, Tigo alcanza ~41 millones de l&iacute;neas m&oacute;viles, pr&aacute;cticamente igualando a Claro (42 millones). La compa&ntilde;&iacute;a planea despliegue agresivo de fibra &oacute;ptica y 5G con espectro de 80 MHz en banda 3500 MHz.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El mercado de telecomunicaciones colombiano pasa de tres a dos grandes jugadores. La consolidaci&oacute;n podr&iacute;a mejorar la inversi&oacute;n en infraestructura digital pero tambi&eacute;n plantea riesgos de menor competencia para consumidores y empresas.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/02/05/millicom-compro-telefonica-colombia-por-usd-214-millones/">Infobae</a> · <a href="https://www.portafolio.co/negocios/empresas/la-compania-millicom-tigo-anuncia-que-consolida-el-control-de-une-tras-adjudicarse-la-participacion-de-epm-487118">Portafolio</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>14 candidatos inscritos para la presidencia; primera vuelta fijada para el 31 de mayo</h3>
+  <p>Antes del cierre de inscripciones el 13 de marzo, 14 candidatos formalizaron su aspiraci&oacute;n ante la Registradur&iacute;a Nacional. Claudia L&oacute;pez gan&oacute; la consulta de las Soluciones con Leonardo Huerta como f&oacute;rmula vicepresidencial. La aprobaci&oacute;n de Petro se sit&uacute;a en 54% seg&uacute;n &uacute;ltimas mediciones, con desaprobaci&oacute;n del 38%.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/elecciones-legislativas-congreso-presidente-petro-orix">CNN en Espa&ntilde;ol</a> · <a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Empresas estadounidenses piden certidumbre al Congreso para atraer inversi&oacute;n</h3>
+  <p>El Consejo de Empresas Americanas (CEA), que agrupa a m&aacute;s de 115 compa&ntilde;&iacute;as estadounidenses establecidas en Colombia, fij&oacute; como prioridad crear mayor certidumbre jur&iacute;dica y un marco que incentive la inversi&oacute;n duradera. El mensaje llega en un contexto donde el 30% de los inversionistas internacionales considera que Colombia ofrece buenas oportunidades para 2026, el doble frente a hace dos a&ntilde;os.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/empresas-estadounidenses-exigirieron-reglas-claras-al-congreso-para-atraer-inversiones-a-colombia-vemos-una-oportunidad/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cae a m&iacute;nimo de m&aacute;s de un mes: TRM en $3.675,29</h3>
+  <p>La TRM del viernes 27 de marzo qued&oacute; en $3.675,29, una reducci&oacute;n de $13,17 frente al d&iacute;a anterior ($3.688,46). Es el nivel m&aacute;s bajo desde el 19 de febrero. Para el fin de semana (28-30 de marzo) la TRM baja a&uacute;n m&aacute;s: $3.668,89. La tendencia bajista se da en medio de mercados inquietos por la tensi&oacute;n EE.UU.-Ir&aacute;n y el comportamiento del petr&oacute;leo.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-hoy-27-de-marzo-de-2026-1006258">RCN</a> · <a href="https://www.noticiascaracol.com/economia/dolar-hoy-27-de-marzo-de-2026-en-colombia-como-esta-la-trm-so35">Caracol</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Resultados corporativos fuertes: ingresos crecen 9,2% y utilidades 14,1%</h3>
+  <p>La temporada de resultados muestra un momentum robusto en las compa&ntilde;&iacute;as colombianas, con ingresos creciendo 9,2% y utilidades avanzando 14,1%, ambas cifras en m&aacute;ximos de varios a&ntilde;os. Bancolombia destaca las perspectivas de inversi&oacute;n para el segundo trimestre de 2026 como favorables.</p>
+  <span class="source-link"><a href="https://www.bancolombia.com/empresas/capital-inteligente/mercado-capitales/perspectivas-inversion-2026">Bancolombia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Colombia supera 1,8 millones de empresas activas; inversi&oacute;n extranjera duplica percepci&oacute;n positiva</h3>
+  <p>El pa&iacute;s cerr&oacute; 2025 con m&aacute;s de 1,8 millones de empresas activas, un crecimiento del 4% interanual y el registro m&aacute;s alto hasta la fecha. En los primeros 75 d&iacute;as de 2026, una seguidilla de fusiones, compras y alianzas ha sacudido sectores como petr&oacute;leo, telecomunicaciones, miner&iacute;a, banca y alimentos.</p>
+  <span class="source-link"><a href="https://www.enter.co/empresas/colombia-supera-18-millones-de-empresas-la-senal-que-esta-cambiando-la-inversion-extranjera/">Enter.co</a> · <a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Fuerzas Militares neutralizaron 1.590 miembros de grupos armados en lo corrido de 2026</h3>
+  <p>El balance oficial de seguridad reporta 1.439 capturas, 64 sometimientos a la justicia y 33 muertes en operaciones. En el frente antinarc&oacute;ticos, se incautaron m&aacute;s de 55 toneladas de coca&iacute;na, se destruyeron 280 laboratorios y se decomisaron 2.668 artefactos explosivos. Sin embargo, el n&uacute;mero de combatientes ilegales creci&oacute; 23% y las disputas territoriales alcanzaron r&eacute;cord en la &uacute;ltima d&eacute;cada.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/11/fuerzas-militares-neutralizaron-1590-miembros-de-grupos-armados-este-es-el-balance-oficial-de-seguridad-en-colombia/">Infobae</a> · <a href="https://www.lafm.com.co/orden-publico/fuerzas-militares-balance-operaciones-bombardeos-capturas-2026-392923">La FM</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo de magnitud 3,9 en frontera con Ecuador, zona del Volc&aacute;n Chiles</h3>
+  <p>El Servicio Geol&oacute;gico Colombiano report&oacute; un sismo de magnitud 3,9 a las 9:49 a.m. del viernes, con epicentro en Tufi&ntilde;o (Carchi, Ecuador), en el &aacute;rea de influencia del complejo volc&aacute;nico Chiles-Cerro Negro. El movimiento fue superficial (menos de 30 km de profundidad).</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/colombia/otras-ciudades/fuerte-temblor-hoy-en-colombia-reportan-sismo-en-area-de-influencia-del-volcan-chiles-este-27-de-marzo-aqui-los-detalles-3543473">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Zonas de ubicaci&oacute;n temporal del Clan del Golfo en funcionamiento desde el 1 de marzo</h3>
+  <p>Las tres zonas especiales (ZUT) acordadas en Doha entre el Gobierno y el Clan del Golfo (Ej&eacute;rcito Gaitanista) est&aacute;n operativas en Bel&eacute;n de Bajir&aacute; y Ungu&iacute;a (Choc&oacute;) y Tierralta (C&oacute;rdoba). La desmovilizaci&oacute;n es gradual, con suspensi&oacute;n de &oacute;rdenes de captura y extradici&oacute;n para combatientes en las zonas. Qatar, Noruega, Espa&ntilde;a y Suiza act&uacute;an como facilitadores.</p>
+  <span class="source-link"><a href="https://www.trtespanol.com/article/8d1ae85ec5de">TRT Espa&ntilde;ol</a> · <a href="https://www.infobae.com/colombia/2025/12/05/el-acuerdo-de-paz-entre-el-gobierno-de-colombia-y-el-clan-del-golfo-estas-son-las-tres-zonas-de-ubicacion-para-la-desmovilizacion-vigiladas-desde-doha-catar/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 14: Santa Fe vence a Bucaramanga; &Aacute;guilas Doradas gana de penal</h3>
+  <p>En la jornada del viernes por la fecha 14 de la Liga BetPlay 2026-I: Independiente Santa Fe derrot&oacute; 2-1 a Atl&eacute;tico Bucaramanga como visitante, &Aacute;guilas Doradas venci&oacute; 1-0 a Alianza Valledupar con gol de penal de Jorge Rivaldo (min. 70), y Boca Juniors de Cali empat&oacute; 1-1 con Real Cartagena.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/asi-quedo-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-tras-aguilas-doradas-1-0-alianza-so35">Gol Caracol</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-14-liga-betplay-2026-i-265123">FutbolRed</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">TRM Oficial</div>
+    <div class="data-cell-value">$3.675</div>
+    <div class="data-cell-delta green">&#9660; $13,17</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">TRM Fin de Semana</div>
+    <div class="data-cell-value">$3.669</div>
+    <div class="data-cell-delta green">&#9660; $6,40</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tendencia Mes</div>
+    <div class="data-cell-value">Bajista</div>
+    <div class="data-cell-delta green">M&iacute;nimo desde feb 19</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Reacci&oacute;n de mercados el lunes 30 a la TRM de $3.668,89 y movimientos del petr&oacute;leo por tensi&oacute;n EE.UU.-Ir&aacute;n.</div>
+  <div class="vigilar-item">Evoluci&oacute;n de encuestas presidenciales: si Paloma Valencia supera a De la Espriella, cambia el escenario de segunda vuelta.</div>
+  <div class="vigilar-item">Fase 2 de privatizaci&oacute;n de Millicom (abril): cierre de control total sobre Colombia Telecomunicaciones.</div>
+  <div class="vigilar-item">Impacto en terreno de las ZUT del Clan del Golfo y respuesta internacional al bloqueo humanitario de las disidencias de Mordisco.</div>
+  <div class="vigilar-item">Datos de empleo formal de marzo, clave para medir el efecto real del alza del salario m&iacute;nimo en las mipymes.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · El Tiempo · Semana · El Espectador · Portafolio · RCN · Caracol · Bloomberg L&iacute;nea · La FM · CNN · El Colombiano · FutbolRed · Bancolombia<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
