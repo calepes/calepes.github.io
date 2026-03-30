@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 29 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Sábado 29 de marzo de 2026 · Bogotá</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Encuesta Guarumo: se cierra la brecha entre Cepeda, De la Espriella y Valencia</h3>
+    <p>La encuesta Guarumo-Ecoanalítica del 28 de marzo muestra que las diferencias entre Iván Cepeda, Abelardo de la Espriella y Paloma Valencia se reducen de cara a la primera vuelta del 31 de mayo. Cepeda mantiene ventaja, pero Valencia escaló 13 puntos desde enero (de 6,9% a 19,9%) y el CNC la ubica segunda con 22,2%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      A dos meses de la primera vuelta, la carrera se vuelve competitiva. Una segunda vuelta con tres candidatos viables cambia los cálculos de alianzas y puede alterar el rumbo de la política económica post-Petro.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/28/se-reducen-las-diferencias-entre-ivan-cepeda-abelardo-de-la-espriella-y-paloma-valencia-en-la-primera-vuelta-esto-dice-la-nueva-encuesta-de-guarumo-y-ecoanalitica/">Infobae</a> · <a href="https://cambiocolombia.com/elecciones-colombia-2026/articulo/2026/3/encuesta-de-cambio-y-el-cnc-paloma-y-oviedo-alzan-vuelo-se-alejan-de-abelardo-y-cambian-el-tablero-de-la-segunda-vuelta/">Cambio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Pizarro: "Fuerzas Militares debilitadas y Paz Total ha sido un fracaso"</h3>
+    <p>Eduardo Pizarro Leongómez, excomisionado de Reparación, declaró que la política de Paz Total "no tiene un solo éxito" y que las Fuerzas Militares se han debilitado dramáticamente bajo el gobierno Petro. Roy Barreras advirtió que "ejércitos mafiosos" podrían incidir en las elecciones de mayo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El diagnóstico de seguridad se convierte en eje central de la campaña electoral. El deterioro documentado (masacres duplicadas, 27.000 combatientes ilegales) presiona al próximo gobierno a replantear la estrategia de seguridad desde el día uno.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/29/eduardo-pizarro-fuerzas-militares-estan-debilitadas-y-paz-total-ha-sido-un-fracaso/">Infobae</a> · <a href="https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/las-fuerzas-militares-se-han-debilitado-dramáticamente-bajo-este-gobierno-eduardo-pizarro-3543769">El Tiempo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Salario mínimo de $2 millones golpea empleo: comercio y restaurantes pierden 258.000 puestos</h3>
+    <p>El aumento del salario mínimo del 23,7% (a $2.000.000) está generando destrucción de empleo en sectores intensivos en mano de obra. Comercio perdió 149.000 empleos y alojamiento/comida 109.000 en enero. El 53,3% de mipymes recortó inversiones y el 61,6% modificó su estructura laboral.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La destrucción de empleo formal en los sectores más intensivos en mano de obra puede generar presión inflacionaria vía informalidad y reducir la base tributaria justo cuando el fisco necesita ingresos para el cierre de gobierno.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/26/aumento-del-salario-minimo-que-establecio-el-gobierno-petro-hizo-que-las-empresas-mas-pequenas-de-colombia-dejaran-de-invertir/">Infobae</a> · <a href="https://www.elcolombiano.com/negocios/salario-minimo-2026-colombia-impacto-empleo-desempleo-KF34027094">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Mercado Libre anuncia inversión récord de USD 600 millones en Colombia</h3>
+    <p>La empresa argentina de comercio electrónico destinará USD 600 millones en 2026 — un 27% más que en 2025 — a logística, marketing, expansión del equipo y consolidación de operaciones. Actualmente reúne 8 millones de usuarios y más de 30.000 pymes vendedoras en el país.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Es la mayor inversión de una plataforma de e-commerce en la historia de Colombia y contrasta con la cautela de las mipymes locales. Señala confianza del capital extranjero en el consumo digital colombiano pese al ruido electoral.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/economia/empresas/articulo/mercado-libre-anuncia-su-mayor-inversion-historica-en-colombia-para-2026/202651/">Semana</a> · <a href="https://www.valoraanalitik.com/mercado-libre-invertira-us600-millones-en-colombia-en-2026-alista-alianzas-y-preve-repunte-del-comercio-electronico/">Valora Analitik</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>ONU alerta: más de 10.000 colombianos reclutados como mercenarios en guerras globales</h3>
+    <p>El Grupo de Trabajo de la ONU sobre Mercenarios revelo que más de 10.000 colombianos, en su mayoría exmilitares, han sido reclutados para conflictos en Congo, Ucrania y Sudán. La Ley 2569, sancionada por Petro el 17 de marzo, ratifica la Convención de 1989 contra el mercenarismo y fue elogiada por la ONU.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Colombia busca cerrar una vía de riesgo reputacional y legal que la vincula a conflictos globales. La ley es un paso, pero la ONU advierte que sin alternativas laborales para exmilitares, el reclutamiento predatorio continuará.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/28/la-onu-alerto-por-aumento-de-mercenarios-colombianos-y-auge-de-trata-de-connacionales-en-el-exterior/">Infobae</a> · <a href="https://news.un.org/es/story/2026/03/1541291">Noticias ONU</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por sección</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Petro acusado de participación indebida en campaña electoral</h3>
+  <p>Daniel Carvalho pidió investigar al presidente Petro por falta de neutralidad en el debate electoral, al impulsar abiertamente la candidatura de Iván Cepeda como sucesor de su proyecto político. La acusación llega cuando faltan dos meses para la primera vuelta y la tensión institucional se agudiza.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/petro-participa-indebidamente-en-politica-en-colombia-dice-daniel-carvalho-y-pide-investigacion-noticias-hoy/">El Espectador</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Peso colombiano se fortalece: TRM cae a $3.668,89, su nivel más bajo en más de un mes</h3>
+  <p>La TRM para el 29 de marzo se ubicó en $3.668,89, con una baja de $6,40 (0,17%) frente al día anterior. El dólar acumula una caída de casi $100 en marzo, cuando inició en $3.766,30. Analistas atribuyen el fortalecimiento del peso a flujos de inversión extranjera y menor aversión al riesgo regional.</p>
+  <span class="source-link"><a href="https://www.dolarhoy.co/">DolarHoy</a> · <a href="https://dolar.wilkinsonpc.com.co/2026-03-28">WilkinsonPC</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Millicom consolida dominio en telecomunicaciones: Tigo, UNE y Movistar bajo un mismo techo</h3>
+  <p>Tras adquirir el 100% de UNE-Tigo por USD 571 millones y Movistar Colombia por USD 214 millones, Millicom se posiciona como segundo operador del país, muy cerca de Claro. La fase 2 de privatización está programada para abril 2026. En total, Millicom ha desembolsado cerca de USD 785 millones para consolidar su operación colombiana.</p>
+  <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/02/05/millicom-compro-telefonica-colombia-por-usd-214-millones/">Infobae</a> · <a href="https://www.portafolio.co/negocios/empresas/la-compania-millicom-tigo-anuncia-que-consolida-el-control-de-une-tras-adjudicarse-la-participacion-de-epm-487118">Portafolio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Falabella compra participaciones de Corona en Colombia por USD 159 millones</h3>
+  <p>El Grupo Falabella de Chile adquirió las participaciones minoritarias que Corona mantenía en varios de sus negocios en Colombia, consolidando su control operativo en el retail colombiano con una inversión de USD 159 millones.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Masacres se duplican en 2026: Indepaz reporta 33 casos en lo corrido del año</h3>
+  <p>Indepaz documentó 33 masacres entre enero y marzo de 2026, frente a 15 en el mismo periodo de 2025. El confinamiento por conflicto armado afecta a 20.765 personas, triplicando las cifras de desplazamiento forzado. Las Fuerzas Militares reportan la neutralización de 1.590 miembros de grupos armados ilegales.</p>
+  <span class="source-link"><a href="https://www.agenciapi.co/noticia/regiones/masacres-en-colombia-se-duplican-en-2026-indepaz-reporta-33-casos-en-lo-corrido-del-ano">Agencia PI</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Bogotá activa jornada masiva de vacunación contra polio, sarampión y difteria</h3>
+  <p>La Secretaría Distrital de Salud habilitó puntos de vacunación en toda la capital este domingo 29 de marzo para completar esquemas contra poliomielitis, sarampión, difteria, hepatitis B y tos ferina. La jornada se enmarca en la Semana de Vacunacion de las Américas.</p>
+  <span class="source-link"><a href="https://www.radiosantafe.com/2026/03/29/estos-son-los-puntos-de-vacunación-en-bogota-contra-poliomielitis-sarampión-difteria-tos-ferina-y-mas-hoy-29-de-marzo-de-2026/">Radio Santa Fe</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 14: Nacional se despega en la punta; Junior gana en Bogota</h3>
+  <p>Atlético Nacional derrotó 2-1 a Deportivo Pasto y se consolida como líder. Junior venció 1-0 a Inter Bogotá en Techo. Deportivo Cali, Deportes Tolima y Cúcuta Deportivo también sumaron victorias importantes en la jornada del sábado y domingo.</p>
+  <span class="source-link"><a href="https://www.vanguardia.com/deportes/futbol/2026/03/29/tabla-de-posiciones-liga-betplay-2026-tras-los-partidos-del-sabado-victorias-de-cali-tolima-y-cucuta/">Vanguardia</a> · <a href="https://www.semana.com/deportes/articulo/la-tabla-de-la-liga-betplay-tras-las-victorias-de-junior-en-bogota-y-atletico-nacional-en-pasto/202603/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Colombia crea la CONADIH para aplicar el Derecho Internacional Humanitario</h3>
+  <p>La Cancillería anunció la creación de la Comisión Nacional para la Aplicación del Derecho Internacional Humanitario (CONADIH), un organismo interinstitucional que busca fortalecer el cumplimiento de las normas humanitarias en el contexto del conflicto armado interno y las obligaciones internacionales del país.</p>
+  <span class="source-link"><a href="https://www.cancilleria.gov.co/newsroom/news/colombia-crea-conadih-fortalecer-aplicacion-derecho-internacional-humanitario">Cancillería</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar TRM</div>
+    <div class="data-cell-value">$3.668</div>
+    <div class="data-cell-delta green">&#9660; $6,40 (0,17%)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. mensual</div>
+    <div class="data-cell-value">-$97</div>
+    <div class="data-cell-delta green">&#9660; 2,6% en marzo</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Perspectiva 2026</div>
+    <div class="data-cell-value">$3.800-4.000</div>
+    <div class="data-cell-delta">60% de institucionales</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Evolución de encuestas electorales a dos meses de la primera vuelta (31 de mayo): Cepeda lidera, pero Valencia y De la Espriella cierran la brecha. Cualquier alianza podría redefinir el tablero.</div>
+  <div class="vigilar-item">Impacto acumulado del salario mínimo en empleo formal durante el primer trimestre. Las cifras de febrero-marzo serán clave para evaluar si la destrucción de empleo se estabiliza o se profundiza.</div>
+  <div class="vigilar-item">Fase 2 de privatización de Millicom/Movistar programada para abril. La consolidación del segundo operador de telecomunicaciones puede disparar revisiones regulatorias por concentración de mercado.</div>
+  <div class="vigilar-item">Situación de seguridad de cara a las elecciones: la advertencia de Barreras sobre la influencia de grupos armados en las elecciones y el diagnóstico de debilitamiento militar requieren atencion del próximo gobierno.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · El Tiempo · Semana · El Espectador · El Colombiano · Portafolio · Cambio · Noticias ONU · Vanguardia · Radio Santa Fe · Cancillería · Valora Analitik · Agencia PI · FIP<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
