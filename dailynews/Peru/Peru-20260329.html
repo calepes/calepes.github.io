@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Per&uacute; &mdash; 29 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+/* Top 5 */
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+/* Why box */
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+/* Sources */
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+/* Section divider */
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+/* News items */
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+/* Data strip (tipo de cambio) */
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+/* Qu&eacute; vigilar */
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+/* Footer */
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Domingo 29 de marzo de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Encuesta Ipsos: Fujimori y L&oacute;pez Aliaga estancados a dos semanas de las elecciones</h3>
+    <p>La encuesta Ipsos-Per&uacute; 21 publicada el 29 de marzo muestra a Keiko Fujimori con 12,3% y Rafael L&oacute;pez Aliaga con 12,2% de intenci&oacute;n de voto, pr&aacute;cticamente empatados. Carlos &Aacute;lvarez sube al tercer lugar con 7%. Un tercio de los electores a&uacute;n no define su voto (21% voto blanco/nulo y 13% indecisos), lo que deja la elecci&oacute;n del 12 de abril completamente abierta.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La fragmentaci&oacute;n y el alto porcentaje de indecisos elevan la probabilidad de una segunda vuelta con candidatos d&eacute;biles, lo que impactar&iacute;a directamente la estabilidad pol&iacute;tica y econ&oacute;mica del per&iacute;odo 2026-2031.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/29/encuestas-presidenciales-2026-keiko-fujimori-y-lopez-aliaga-se-estancan-mientras-que-carlos-alvarez-sube-al-tercer-lugar-hnews-2577607">La Rep&uacute;blica</a> &middot; <a href="https://rpp.pe/politica/elecciones/keiko-fujimori-y-rafael-lopez-aliaga-siguen-liderando-encuestas-pero-hay-un-cuadruple-empate-en-el-tercer-lugar-segun-ipsos-noticia-1681557">RPP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Debates presidenciales JNE: segunda fase arranca ma&ntilde;ana con los favoritos</h3>
+    <p>La primera fase de debates (23-25 marzo) ya concluy&oacute;, con participaci&oacute;n de los 35 candidatos distribuidos en tres jornadas. Ma&ntilde;ana lunes 30 inicia la segunda fase, donde se esperan los enfrentamientos m&aacute;s directos entre los candidatos con mayor intenci&oacute;n de voto. Analistas destacan que los debates movieron ligeramente las encuestas, beneficiando a &Aacute;lvarez y perjudicando a L&oacute;pez Aliaga.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con el electorado a&uacute;n en definici&oacute;n, la segunda ronda de debates puede ser decisiva para consolidar o desplazar candidaturas. El desempe&ntilde;o en estos encuentros definir&aacute; qui&eacute;n pasa a segunda vuelta.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a> &middot; <a href="https://votoinformado.jne.gob.pe/debate-presidencial">JNE Voto Informado</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Congreso reduce de 30 a 15 a&ntilde;os plazo de caducidad de concesiones mineras</h3>
+    <p>La Comisi&oacute;n de Energ&iacute;a y Minas del Congreso aprob&oacute; un dictamen que reduce a la mitad el plazo de caducidad para concesiones sin producci&oacute;n, eleva el derecho de vigencia a US$12/ha y aumenta penalidades en 400%. La SNI, el IIMP y el Minem han criticado la medida, advirtiendo que el ciclo minero global promedia 28 a&ntilde;os y en Per&uacute; puede tardar entre 40 y 55 a&ntilde;os. Solo el 2,14% de concesiones vigentes tiene actividad productiva.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      De aprobarse en el pleno, esta reforma podr&iacute;a deteriorar la seguridad jur&iacute;dica del sector minero peruano, afectando la cartera de proyectos de exploraci&oacute;n por US$727 millones y la competitividad del pa&iacute;s como destino de inversi&oacute;n.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/concesiones-mineras-ociosas-comision-del-congreso-aprueba-reducir-de-30-a-15-anos-el-plazo-de-caducidad-por-falta-de-produccion-noticia-1680657">RPP</a> &middot; <a href="https://sni.org.pe/sni-predictamen-de-la-comision-de-energia-y-minas-atenta-contra-la-mineria-formal/">SNI</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>BCRP mantiene tasa en 4,25%: inflaci&oacute;n sube a 2,2% y amenaza acercarse al techo del rango meta</h3>
+    <p>El Banco Central de Reserva mantuvo por sexto mes consecutivo la tasa de referencia en 4,25%. La inflaci&oacute;n anual pas&oacute; de 1,7% en enero a 2,2% en febrero, impulsada por alzas en tarifas de agua y precios de alimentos. El BCRP advierte que la inflaci&oacute;n podr&iacute;a ubicarse temporalmente en la parte alta del rango meta (1%-3%) por fen&oacute;menos clim&aacute;ticos y precios energ&eacute;ticos internacionales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La pausa prolongada en recortes de tasa refleja cautela ante presiones inflacionarias que podr&iacute;an complicarse en un a&ntilde;o electoral. Las expectativas de inflaci&oacute;n a 12 meses subieron a 2,1%.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a> &middot; <a href="https://elcomercio.pe/economia/peru/bcr-mantiene-sin-cambios-tasa-de-referencia-de-marzo-en-425-en-un-contexto-de-riesgo-inflacionario-l-ultimas-noticia/">El Comercio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Crisis de extorsiones expulsa a conductores de Lima: 20 choferes emigran a Espa&ntilde;a cada mes</h3>
+    <p>La crisis de extorsiones en el transporte p&uacute;blico de Lima contin&uacute;a. Desde agosto 2024 se registran 125 atentados con 93 fallecidos y 76 lesionados. Veinte conductores emigran mensualmente a Espa&ntilde;a en bloques organizados. VIPUSA perdi&oacute; el 30% de su flota activa. Los transportistas eval&uacute;an un nuevo paro indefinido a fines de abril.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La incapacidad del Estado para contener las extorsiones no solo genera un problema de seguridad, sino un &eacute;xodo laboral que debilita el sistema de transporte p&uacute;blico y se convierte en tema electoral de primer orden.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/03/20/transportistas-de-buses-huyen-a-espana-tras-ola-de-extorsiones-y-asesinatos-llegan-20-choferes-en-bloque-1131380">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com/peru/2026/03/20/espana-se-consolida-como-destino-de-conductores-peruanos-que-huyen-de-la-violencia-y-extorsion-en-el-transporte-de-lima/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Premier Arroyo consolida gabinete: busca estabilidad en la recta final del gobierno Balc&aacute;zar</h3>
+  <p>A dos semanas de su juramentaci&oacute;n como premier en reemplazo de Denisse Miralles (quien dur&oacute; solo 21 d&iacute;as), el general en retiro Luis Arroyo S&aacute;nchez prioriza la estabilidad institucional y una transici&oacute;n democr&aacute;tica ordenada. De los 19 miembros del gabinete, 13 fueron ratificados y cinco son nuevos. El gobierno de Balc&aacute;zar se enfoca en tres ejes: seguridad ciudadana, continuidad econ&oacute;mica y elecciones limpias.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/premier-luis-arroyo-a-semanas-de-las-elecciones-buscamos-estabilidad-y-una-transicion-segura">TVPer&uacute;</a> &middot; <a href="https://gestion.pe/peru/juro-como-nuevo-premier-la-lista-completa-de-ministros-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno aprueba Pol&iacute;tica General de Gobierno 2026: hoja de ruta hasta el 28 de julio</h3>
+  <p>El Consejo de Ministros aprob&oacute; la Pol&iacute;tica General de Gobierno 2026, un instrumento excepcional que orienta la acci&oacute;n del Ejecutivo hasta la transmisi&oacute;n de mando. Las prioridades declaradas son seguridad ciudadana, estabilidad macroecon&oacute;mica y garant&iacute;a del proceso electoral. El gobierno report&oacute; una reducci&oacute;n del 40% en extorsiones y 7% en homicidios entre enero y marzo, cifras cuestionadas por analistas y gremios de transportistas.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPer&uacute;</a> &middot; <a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inflaci&oacute;n de marzo podr&iacute;a rozar el 3% por combustibles y alimentos</h3>
+  <p>Seg&uacute;n estimaciones del BCP y analistas, la inflaci&oacute;n mensual de marzo podr&iacute;a ser elevada, empujando la inflaci&oacute;n anual cerca del techo del rango meta de 3%. Los factores principales son el alza de precios internacionales de combustibles, interrupciones en el suministro de gas y efectos clim&aacute;ticos sobre la producci&oacute;n agr&iacute;cola. El BCRP considera que el efecto ser&aacute; transitorio.</p>
+  <span class="source-link"><a href="https://infomercado.pe/bcr-inflacion-de-marzo-rozara-el-3-por-combustibles-y-alimentos-pero-el-efecto-sera-pasajero/">Infomercado</a> &middot; <a href="https://gestion.pe/tu-dinero/inflacion-se-acelera-que-preve-bcp-para-las-tasas-de-interes-y-el-dolar-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Normas del d&iacute;a: regal&iacute;a minera de febrero distribuida y Plan Nacional de Telesalud aprobado</h3>
+  <p>El Diario Oficial El Peruano public&oacute; la resoluci&oacute;n que aprueba los &iacute;ndices de distribuci&oacute;n de regal&iacute;a minera de febrero 2026 (RM 142-2026-EF/50), y el Minsa aprob&oacute; el Plan Nacional de Telesalud 2026 (RM 293-2026/MINSA), que busca ampliar la cobertura de atenci&oacute;n m&eacute;dica remota en zonas rurales del pa&iacute;s.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-domingo-29-de-marzo-de-2026">TVPer&uacute;</a> &middot; <a href="https://actualidad.educacionenred.pe/2026/03/rm-293-2026-minsa-aprueban-documento-tecnico-plan-nacional-telesalud-340069.html">Educaci&oacute;n en Red</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Sector minero en alerta: reforma de concesiones amenaza US$727 millones en exploraci&oacute;n</h3>
+  <p>En el marco de ProEXPLO 2026, el gremio minero y la SNI advierten que el dictamen de concesiones mineras, de aprobarse, elevar&iacute;a la incertidumbre para nuevas inversiones. La cartera de 80 proyectos de exploraci&oacute;n con US$727,5 millones de inversi&oacute;n estimada podr&iacute;a verse afectada. El Minem tambi&eacute;n cuestion&oacute; la medida, generando una inusual convergencia entre Ejecutivo e industria contra el Legislativo.</p>
+  <span class="source-link"><a href="https://www.redimin.cl/proexplo-2026-pone-en-duda-reforma-que-acorta-concesiones-y-golpea-la-exploracion-minera-en-peru/">Redimin</a> &middot; <a href="https://mineriaenlinea.com/2026/03/peru-recorta-plazos-a-concesiones-mineras-y-desata-choque-por-inversion-formal/">Miner&iacute;a en L&iacute;nea</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Transportistas eval&uacute;an paro indefinido en Lima y Callao a fines de abril</h3>
+  <p>Gremios de transporte p&uacute;blico eval&uacute;an una medida de fuerza indefinida ante la falta de implementaci&oacute;n efectiva de la ley anti-extorsiones. El paro del 5 de marzo fue un anticipo. La crisis ha dejado 93 muertos desde agosto 2024, y la emigraci&oacute;n de conductores agrava la escasez de operadores en rutas cr&iacute;ticas de la capital.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/19/paro-indefinido-en-lima-y-callao-transportistas-cansados-de-extorsiones-y-atentados-evaluan-medida-extrema/">Infobae</a> &middot; <a href="https://elcomercio.pe/lima/transportistas-evaluan-un-nuevo-paro-a-fines-de-abril-el-comercio-recopilo-datos-actualizados-sobre-empresas-rutas-y-puntos-de-extorsion-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1: Alianza Lima l&iacute;der tras pausa por fecha FIFA; Universitario rezagado</h3>
+  <p>La fecha 8 del Torneo Apertura cerr&oacute; antes de la pausa por fecha FIFA con Alianza Lima como l&iacute;der tras vencer 2-0 a Juan Pablo II. Los Chankas sorprenden al superar 3-2 a Sporting Cristal y comparten puntos con Alianza. Universitario, tricampe&oacute;n vigente, qued&oacute; cuarto tras empatar 0-0 con Comerciantes Unidos. Sport Boys gole&oacute; 3-0 a Sport Huancayo.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La Rep&uacute;blica</a> &middot; <a href="https://www.flashscore.es/futbol/peru/liga-1/">Flashscore</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar BCRP</div>
+    <div class="data-cell-value">S/ 3.484</div>
+    <div class="data-cell-delta red">&#9650; +0.03</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">S/ 3.495</div>
+    <div class="data-cell-delta red">&#9650; +0.02</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">0.3%</div>
+    <div class="data-cell-delta green">&#9660; &minus;0.1pp</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Segunda fase de debates presidenciales JNE inicia hoy lunes 30 de marzo. Observar si los favoritos logran diferenciarse o si los indecisos siguen creciendo.</div>
+  <div class="vigilar-item">Pleno del Congreso podr&iacute;a agendar el dictamen de concesiones mineras. Cualquier avance impactar&iacute;a la prima de riesgo del sector y las decisiones de inversi&oacute;n en exploraci&oacute;n.</div>
+  <div class="vigilar-item">Dato de inflaci&oacute;n de marzo se publica esta semana. Si supera 2,8%-3,0% anual, el BCRP enfrentar&iacute;a presi&oacute;n adicional para mantener la tasa en 4,25% durante m&aacute;s tiempo.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP &middot; La Rep&uacute;blica &middot; El Comercio &middot; Gesti&oacute;n &middot; Infobae Per&uacute; &middot; TVPer&uacute; &middot; JNE &middot; BCRP &middot; SNI<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
