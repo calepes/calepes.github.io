@@ -45,12 +45,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Masthead */
 .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
 .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
 
+/* Top 5 */
 .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
 .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
 .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
@@ -58,16 +60,20 @@ body {
 .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
 
+/* Why box */
 .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
 .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
 
+/* Sources */
 .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
 
+/* Section divider */
 .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
 
+/* News items */
 .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -79,6 +85,7 @@ body {
 .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
 
+/* Data strip (tipo de cambio) */
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
 .data-cell:last-child { border-right: none; }
@@ -88,13 +95,16 @@ body {
 .green { color: #16a34a; }
 .red { color: #dc2626; }
 
+/* Qué vigilar */
 .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
 .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
 .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
 
+/* Footer */
 .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
 
+/* Responsive */
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -105,160 +115,169 @@ body {
 </head>
 <body>
 
+<!-- MASTHEAD -->
 <div class="masthead">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
   <h1>Bolivia</h1>
-  <div class="masthead-date">Sabado 29 de marzo de 2026 · La Paz</div>
-  <div class="masthead-tag">Edicion Diaria</div>
+  <div class="masthead-date">S&#225;bado 29 de marzo de 2026 &#183; La Paz</div>
+  <div class="masthead-tag">Edici&#243;n Diaria</div>
 </div>
 
-<div class="top5-header">Top 5 del dia</div>
+<!-- TOP 5 DEL DÍA -->
+<div class="top5-header">Top 5 del d&#237;a</div>
 
 <div class="top5-card">
   <div class="top5-num">01</div>
   <div class="top5-content">
-    <h3>Bolivia a un paso del Mundial: vence 2-1 a Surinam y enfrentara a Irak en la final del repechaje</h3>
-    <p>La seleccion boliviana derroto a Surinam con goles de Moises Paniagua (72') y Miguel Terceros de penal (79') en el Estadio BBVA de Monterrey. Surinam habia abierto el marcador con Van Gelderen al 48'. Bolivia enfrentara a Irak el martes 1 de abril en la final del repechaje intercontinental por el ultimo boleto al Mundial 2026.</p>
+    <h3>Bolivia a un paso del Mundial: enfrentar&#225; a Irak en la final del repechaje el martes 31</h3>
+    <p>Tras remontar 2-1 a Surinam en Monterrey con goles de Mois&#233;s Paniagua (72') y Miguel Terceros (79', penal), la Verde se jugar&#225; el &#250;ltimo boleto mundialista ante Irak el martes 31 de marzo en el Estadio BBVA. Bolivia no disputa un Mundial desde 1994.</p>
     <div class="why-box">
-      <div class="why-label">Por que importa</div>
-      Bolivia no clasifica a un Mundial desde 1994. Una clasificacion tendria un impacto enorme en el animo nacional, la economia del deporte y la imagen pais, ademas de generar un flujo economico significativo por derechos de television y turismo.
+      <div class="why-label">Por qu&#233; importa</div>
+      Una clasificaci&#243;n mundialista tendr&#237;a un impacto econ&#243;mico y an&#237;mico enorme para el pa&#237;s: aumento en consumo, turismo, publicidad y cohesi&#243;n social en un momento de fuerte tensi&#243;n pol&#237;tica y econ&#243;mica.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/deportes/2026/03/26/bolivia-jugara-su-sueno-de-ir-al-mundial-en-la-semifinal-del-repechaje-ante-surinam-hora-tv-y-formaciones/">Infobae</a> · <a href="https://cnnespanol.cnn.com/2026/03/26/deportes/live-news/resultado-bolivia-suriname-repechaje-mundial-orix">CNN</a> · <a href="https://www.conmebol.com/noticias/bolivia-a-un-paso-del-sueno-mundialista/">CONMEBOL</a></span>
+    <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/26/deportes/live-news/resultado-bolivia-suriname-repechaje-mundial-orix">CNN</a> &#183; <a href="https://www.infobae.com/deportes/2026/03/26/bolivia-jugara-su-sueno-de-ir-al-mundial-en-la-semifinal-del-repechaje-ante-surinam-hora-tv-y-formaciones/">Infobae</a> &#183; <a href="https://www.conmebol.com/noticias/bolivia-a-un-paso-del-sueno-mundialista/">CONMEBOL</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">02</div>
   <div class="top5-content">
-    <h3>Siete departamentos iran a segunda vuelta por gobernaciones el 19 de abril</h3>
-    <p>Tras las elecciones subnacionales del 22 de marzo, al menos siete departamentos — Beni, Chuquisaca, Oruro, Tarija, Cochabamba, Santa Cruz y La Paz — no lograron definir gobernador en primera vuelta. En Santa Cruz, Juan Pablo Velasco (Libre) y Otto Ritter (Santa Cruz Para Todos) se perfilan para un balotaje muy cerrado con 95,92% de actas computadas.</p>
+    <h3>TSE confirma segunda vuelta en al menos seis gobernaciones; espera c&#243;mputo de Santa Cruz</h3>
+    <p>El Tribunal Supremo Electoral aguarda los resultados oficiales de Santa Cruz para convocar formalmente al balotaje del 19 de abril. La Paz concluy&#243; el c&#243;mputo al 100%; Pando y Oruro superan el 93%. Solo Cochabamba, Potos&#237; y Pando definieron gobernador en primera vuelta.</p>
     <div class="why-box">
-      <div class="why-label">Por que importa</div>
-      La fragmentacion politica evidenciada en las subnacionales configura un escenario sin actor predominante. Las segundas vueltas definiran el mapa de poder regional y la capacidad del gobierno central de articular politicas con los departamentos.
+      <div class="why-label">Por qu&#233; importa</div>
+      El mapa de poder regional se redefine: el oficialismo de Paz perdi&#243; en 8 de 9 capitales y depende del balotaje para retener influencia departamental, lo que condiciona la gobernabilidad del segundo semestre.
     </div>
-    <span class="source-link"><a href="https://abi.bo/al-menos-siete-departamentos-perfilan-para-segunda-vuelta-por-gobernaciones/">ABI</a> · <a href="https://es.wikipedia.org/wiki/Elecciones_subnacionales_de_Bolivia_de_2026">Wikipedia</a></span>
+    <span class="source-link"><a href="https://www.instantaneas.tic.bo/2026/03/29/politica/elecciones/segunda-vuelta-seis-regiones-espera-computo-santa-cruz/">Instant&#225;neas</a> &#183; <a href="https://fuentedirecta.oep.org.bo/noticia/concluye-el-computo-oficial-de-las-elecciones-subnacionales-2026-para-el-departamento-de-la-paz/">OEP</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">03</div>
   <div class="top5-content">
-    <h3>Gobierno reestructura Cancilleria con Decreto 5594 para atraer inversion extranjera</h3>
-    <p>Mediante el Decreto Supremo 5594, el presidente Rodrigo Paz reestructuro el Ministerio de Relaciones Exteriores. El Viceministerio de Comercio Exterior e Integracion pasa a denominarse Viceministerio de Comercio Exterior, Inversiones Extranjeras e Integracion, con tres direcciones: exportaciones, captacion de inversiones y una nueva area de geopolitica y geoeconomia.</p>
+    <h3>Gobierno logra acuerdo con choferes y suspende paro por crisis de combustible</h3>
+    <p>El Ejecutivo firm&#243; un acuerdo con dirigentes del transporte para suspender la huelga iniciada el mi&#233;rcoles por la calidad de la gasolina distribuida y los retrasos en compensaciones. Cerca del 60% de veh&#237;culos que ingresaron a talleres en febrero presentaron fallas atribuidas al carburante. YPFB anunci&#243; normalizaci&#243;n gradual del despacho de gasolina al 100%.</p>
     <div class="why-box">
-      <div class="why-label">Por que importa</div>
-      Senala un giro estrategico del gobierno hacia una politica exterior con enfoque economico. La creacion de un area especifica de inversion extranjera busca diversificar fuentes de financiamiento en un contexto de reservas internacionales limitadas.
+      <div class="why-label">Por qu&#233; importa</div>
+      La crisis de combustible es estructural: Bolivia importa casi todo el di&#233;sel y m&#225;s de la mitad de la gasolina. La calidad del carburante y la dependencia de divisas para importar ponen en riesgo la cadena log&#237;stica y el costo de vida.
     </div>
-    <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/gobierno-reestructura-cancilleria-decreto-busca-inversion-extranjera/20260328150523990830.html">Opinion</a> · <a href="https://abi.bo/gobierno-asigna-nueva-estructura-a-la-cancilleria-para-impulsar-la-inversion-extranjera/">ABI</a></span>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/27/conflicto-por-el-combustible-en-bolivia-gobierno-logra-acuerdo-con-los-choferes-en-ausencia-del-presidente-de-ypfb/">Infobae</a> &#183; <a href="https://www.infobae.com/america/america-latina/2026/03/28/de-la-escasez-a-la-incertidumbre-claves-para-entender-el-nuevo-capitulo-del-conflicto-por-el-combustible-en-bolivia/">Infobae</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">04</div>
   <div class="top5-content">
-    <h3>Paz anula decreto de importacion de soya con arancel cero tras presion social</h3>
-    <p>El presidente Rodrigo Paz dejo sin efecto el decreto que permitia la importacion de grano de soya con arancel cero. Es el segundo decreto que el gobierno anula en medio de presion del sector productivo, lo que evidencia las tensiones entre la agenda economica del Ejecutivo y los intereses del sector agropecuario.</p>
+    <h3>Alianzas de Rodrigo Paz pierden en 8 de 9 capitales; emergen nuevos liderazgos</h3>
+    <p>Las agrupaciones vinculadas al presidente Paz solo ganaron la alcald&#237;a de Trinidad. En La Paz, C&#233;sar Dockweiler (Innovaci&#243;n Humana) se perfila como nuevo alcalde con 23,38%. En Santa Cruz, Carlos Saavedra arras&#243; con 71,60%. Manfred Reyes Villa valid&#243; su gesti&#243;n en Cochabamba con 53%.</p>
     <div class="why-box">
-      <div class="why-label">Por que importa</div>
-      La marcha atras revela la fragilidad politica del gobierno frente a sectores productivos organizados. Este patron de decreto-retroceso puede afectar la credibilidad de futuras reformas economicas y la previsibilidad regulatoria para inversores.
+      <div class="why-label">Por qu&#233; importa</div>
+      La fragmentaci&#243;n del voto urbano y el surgimiento de candidatos independientes anticipan un escenario legislativo complejo para el gobierno nacional y para las reformas econ&#243;micas pendientes.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/23/bolivia-rodrigo-paz-anula-un-segundo-decreto-en-medio-de-presion-social/">Infobae</a></span>
+    <span class="source-link"><a href="https://www.noticiasfides.com/nacional/politica/alianzas-de-rodrigo-paz-perdieron-en-8-de-9-ciudades-capitales-y-se-disputaran-5-gobernaciones-en-la-2da-vuelta">ANF</a> &#183; <a href="https://www.reduno.com.bo/noticias/alianzas-de-paz-ganan-3-gobernaciones-y-emergen-nuevos-liderazgos-en-elecciones-en-bolivia-202632364213">Red Uno</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">05</div>
   <div class="top5-content">
-    <h3>Acuerdos Bolivia-Brasil en energia, mineria y seguridad fronteriza</h3>
-    <p>Bolivia y Brasil firmaron acuerdos estrategicos que abarcan hidrocarburos, energia, turismo, mineria y seguridad fronteriza. Bolivia mantiene su condicion de principal proveedor de gas natural para Brasil. El presidente Paz anuncio que de estos acuerdos surgiran cambios normativos en los sectores de hidrocarburos, mineria, evaporitas y tierras raras.</p>
+    <h3>D&#243;lar paralelo se cotiza en Bs 9,33 para la venta; brecha con el oficial supera el 34%</h3>
+    <p>Seg&#250;n reportes del 29 de marzo, el d&#243;lar paralelo se situ&#243; en Bs 9,10 (compra) y Bs 9,33 (venta), mientras el tipo de cambio oficial del BCB permanece en Bs 6,86/6,96. La brecha entre ambos mercados se mantiene por encima del 34%, reflejando la persistente escasez de divisas.</p>
     <div class="why-box">
-      <div class="why-label">Por que importa</div>
-      Los acuerdos refuerzan la relacion estrategica con Brasil y abren la puerta a reformas sectoriales que podrian redefinir el modelo extractivo boliviano, especialmente en minerales criticos y litio.
+      <div class="why-label">Por qu&#233; importa</div>
+      La brecha cambiaria encarece importaciones, presiona costos empresariales y erosiona el poder adquisitivo. Es el term&#243;metro m&#225;s visible de la crisis de reservas internacionales que enfrenta el pa&#237;s.
     </div>
-    <span class="source-link"><a href="https://www.eldiario.net/portal/2026/03/17/bolivia-y-brasil-firman-acuerdos-en-hidrocarburos-energia-turismo-y-seguridad/">El Diario</a> · <a href="https://www.instantaneas.tic.bo/2026/03/16/politica/politica-boliviana-internacional/bolivia-brasil-acuerdos-energia-mineria-seguridad/">Instantaneas</a></span>
+    <span class="source-link"><a href="https://www.reduno.com.bo/economia/como-amanece-el-dolar-en-bolivia-este-domingo-29-de-marzo-20263297322">Red Uno</a> &#183; <a href="https://www.dolarbluebolivia.click/">D&#243;lar Blue Bolivia</a></span>
   </div>
 </div>
 
-<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+<!-- DIVIDER -->
+<div class="divider">
+  <span class="divider-text">Noticias por Secci&#243;n</span>
+</div>
+
+<!-- NEWS ITEMS -->
 
 <div class="news-item">
-  <span class="pill pill-pol">Politico</span>
-  <h3>Aliados de Paz ganan en tres gobernaciones; oposicion fragmentada</h3>
-  <p>Las alianzas respaldadas por el presidente Rodrigo Paz lograron victorias en las gobernaciones de La Paz, Tarija y Beni, pero no alcanzaron resultados favorables en plazas clave como Cochabamba y Santa Cruz. El panorama postelectoral muestra un sistema politico disperso con multiples actores locales y sin fuerza hegem&oacute;nica.</p>
-  <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/23/elecciones-regionales-en-bolivia-los-aliados-de-rodrigo-paz-ganaron-en-tres-gobernaciones-y-surgen-nuevos-liderazgos-emergentes/">Infobae</a> · <a href="https://larazon.bo/politico/2026/03/28/renovacion-dispersion-y-desafios-postelectorales-en-bolivia/">La Razon</a></span>
+  <span class="pill pill-pol">Pol&#237;tico</span>
+  <h3>Loza confirmado gobernador de Cochabamba en primera vuelta con 40,4%</h3>
+  <p>El dirigente cocalero y exsenador Leonardo Loza (Unidos por los Pueblos) gan&#243; la gobernaci&#243;n de Cochabamba al superar el 40% de votos v&#225;lidos con m&#225;s de 10 puntos de ventaja sobre Sergio Rodr&#237;guez (APB-S&#250;mate, 23,08%). Cochabamba se consolida como basti&#243;n del evismo para el per&#237;odo 2026-2031.</p>
+  <span class="source-link"><a href="https://www.vision360.bo/noticias/2026/03/28/42314-loza-gana-en-primera-vuelta-y-es-el-nuevo-gobernador-electo-de-cochabamba">Visi&#243;n 360</a> &#183; <a href="https://www.opinion.com.bo/articulo/cochabamba/loza-toma-ventaja-gobernacion-cochabamba-3977-mientras-vikingo-sigue-2366/20260323005027990481.html">Opini&#243;n</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-pol">Politico</span>
-  <h3>Paz responde a Kast por el Dia del Mar: "Bolivia no hace zanjas, hace puentes"</h3>
-  <p>En el acto conmemorativo del Dia del Mar, el presidente Rodrigo Paz respondio indirectamente al presidente chileno Jose Antonio Kast, afirmando: "Nosotros no hacemos zanjas, nosotros hacemos puentes de la integracion para unificar esas cinco naciones que estan en torno a Bolivia". La declaracion marca el tono diplomatico del gobierno frente a la cuestion maritima.</p>
-  <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/24/rodrigo-paz-responde-entre-lineas-a-jose-antonio-kast-bolivia-no-hace-zanjas-sino-puentes-de-integracion/">Infobae</a></span>
+  <span class="pill pill-pol">Pol&#237;tico</span>
+  <h3>Joaquino gana en Potos&#237;; Velasco y Ritter ir&#225;n a balotaje en Santa Cruz</h3>
+  <p>En Potos&#237;, Ren&#233; Joaquino (Alianza Social) se impuso en primera vuelta con 42,22%, superando por m&#225;s de 20 puntos a Marco Copa. En Santa Cruz, Juan Pablo Velasco (Libertad y Rep&#250;blica, 28,3%) y Otto Ritter (Santa Cruz para Todos, 26,71%) definir&#225;n la gobernaci&#243;n en segunda vuelta el 19 de abril.</p>
+  <span class="source-link"><a href="https://lapatria.bo/enfoque-nacional/elecciones-subnacionales-en-bolivia-resultados-preliminares-2026/">La Patria</a> &#183; <a href="https://www.vision360.bo/noticias/2026/03/22/41980-resultados-preliminares-del-voto-para-gobernadores-proyectan-al-menos-2-victorias-en-primera-vuelta">Visi&#243;n 360</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Economico</span>
-  <h3>Dolar paralelo se mantiene estable en torno a Bs 9,30; brecha supera 33%</h3>
-  <p>El dolar en el mercado paralelo boliviano se cotizo entre Bs 9,10 y Bs 9,38 segun la region y la fuente, con un promedio cercano a Bs 9,30 para la compra. El tipo de cambio oficial se mantiene en Bs 6,86 (compra) y Bs 6,96 (venta), lo que situa la brecha cambiaria por encima del 33%. El Banco Central continua su transicion gradual hacia mayor flexibilidad cambiaria.</p>
-  <span class="source-link"><a href="https://www.reduno.com.bo/economia/como-amanece-el-dolar-en-bolivia-este-domingo-29-de-marzo-20263297322">Red Uno</a> · <a href="https://www.atb.com.bo/2026/03/29/cotizacion-del-dolar-hoy-29-de-marzo-de-2026/">ATB</a></span>
+  <span class="pill pill-eco">Econ&#243;mico</span>
+  <h3>Planta de Urea de Bulo Bulo alcanza 1.900 toneladas diarias tras mantenimiento</h3>
+  <p>La Planta de Amoniaco y Urea de Bulo Bulo (Cochabamba), reactivada el 10 de marzo tras 28 d&#237;as de mantenimiento, alcanz&#243; su nivel objetivo de 1.900 toneladas m&#233;tricas diarias. El 85% de la producci&#243;n se exporta a Brasil, Argentina, Paraguay, Per&#250; y Chile; el 15% restante abastece a 17 empresas nacionales del sector agropecuario y qu&#237;mico.</p>
+  <span class="source-link"><a href="https://brujuladigital.net/economia/2026/03/19/planta-de-urea-retoma-operaciones-y-alcanza-produccion-de-1900-toneladas-diarias-58523">Br&#250;jula Digital</a> &#183; <a href="https://erbol.com.bo/econom%C3%ADa/informan-que-la-planta-de-amoniaco-urea-reinici%C3%B3-operaciones-tras-manteniendo-de-28-d%C3%ADas">Erbol</a></span>
 </div>
 
 <div class="news-item">
-  <span class="pill pill-eco">Economico</span>
-  <h3>Gobierno prioriza reformas en hidrocarburos y mineria para 2026, tributaria para 2027</h3>
-  <p>El presidente Paz anuncio que en 2026 se impulsaran cambios normativos en los sectores de hidrocarburos, mineria, evaporitas y tierras raras, mientras que la reforma tributaria se posterga a 2027. El gobierno busca posicionar a Bolivia como actor clave en minerales criticos en un contexto de reconfiguracion geopolitica global.</p>
-  <span class="source-link"><a href="https://larazon.bo/voces/2026/03/14/geopolitica-global-y-el-futuro-de-los-hidrocarburos-en-bolivia/">La Razon</a> · <a href="https://www.economy.com.bo/articulo/economia/bolivia-enfrenta-2026-punto-quiebre-economico/20260223103550021808.html">Economy</a></span>
+  <span class="pill pill-eco">Econ&#243;mico</span>
+  <h3>Bolivia enfrenta punto de quiebre econ&#243;mico: PIB cay&#243; -2,4% en 2025</h3>
+  <p>An&#225;lisis econ&#243;micos se&#241;alan que 2026 es un a&#241;o cr&#237;tico para Bolivia. El PIB se contrajo -2,4% el a&#241;o pasado, la producci&#243;n de gas natural cay&#243; de 60 a menos de 27 millones de metros c&#250;bicos diarios en una d&#233;cada, y el gasto en importaci&#243;n de combustibles supera los USD 1.000 millones semestrales. El Gobierno de Paz reformula el presupuesto general.</p>
+  <span class="source-link"><a href="https://www.economy.com.bo/articulo/economia/bolivia-enfrenta-2026-punto-quiebre-economico/20260223103550021808.html">Economy.com.bo</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-soc">Social</span>
-  <h3>Semana Santa inicia en Bolivia: feriado nacional el viernes 3 de abril</h3>
-  <p>El Domingo de Ramos del 29 de marzo marca el inicio de la Semana Santa 2026. El Viernes Santo, 3 de abril, es feriado nacional con suspension de actividades laborales y administrativas. La celebracion se extiende hasta el Domingo de Pascua, 5 de abril. Se espera alta movilidad en carreteras y destinos turisticos internos.</p>
-  <span class="source-link"><a href="https://lapatria.bo/actualidad/semana-santa-en-bolivia-inicio-el-29-de-marzo-de-2026/">La Patria</a> · <a href="https://www.reduno.com.bo/noticias/se-acerca-el-feriado-largo-cuando-cae-semana-santa-en-bolivia-este-2026-202632373815">Red Uno</a></span>
+  <h3>Bolivia inicia Semana Santa con masiva celebraci&#243;n de Domingo de Ramos</h3>
+  <p>Miles de fieles participaron en procesiones y misas en todo el pa&#237;s para conmemorar el Domingo de Ramos. Sucre, Copacabana, Tarija y San Ignacio de Moxos destacaron por sus ceremonias tradicionales. El feriado nacional ser&#225; el Viernes Santo (3 de abril), con suspensi&#243;n de actividades laborales.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/03/29/semana-santa-comienza-con-domingo-de-ramos/">El Diario</a> &#183; <a href="https://www.redpat.tv/detalle/bolivia-inicia-la-semana-santa-con-masiva-fe-en-el-domingo-de-ramos">Red PAT</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>6.333 profesionales rinden examen de Residencia M&#233;dica 2026</h3>
+  <p>El Ministerio de Salud inform&#243; que 6.333 profesionales de la salud rindieron el Examen de Competencias para la admisi&#243;n a la Residencia M&#233;dica 2026, un proceso que incorpor&#243; mecanismos sin precedentes de transparencia, seguridad y meritocracia.</p>
+  <span class="source-link"><a href="https://www.minsalud.gob.bo/">Ministerio de Salud</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Division Profesional aprueba calendario: Liga 2026 inicia el 5 de abril</h3>
-  <p>El Consejo de la Division Profesional aprobo el calendario oficial de la temporada 2026. La Liga se disputara en formato todos contra todos a 30 fechas a partir del 5 de abril. En el segundo semestre se jugara la Copa de la Division Profesional con 16 equipos en fase de grupos y eliminatorias. El Torneo de Verano concluyo el 1 de marzo.</p>
-  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/23/la-division-profesional-define-su-temporada-2026-con-dos-torneos/">ATB</a> · <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+  <h3>Divisi&#243;n Profesional arrancar&#225; el 5 de abril con formato de 30 fechas</h3>
+  <p>El Consejo de la Divisi&#243;n Profesional aprob&#243; el calendario de la temporada 2026: la Liga se jugar&#225; con formato todos contra todos en 30 fechas (ida y vuelta), seguida de la Copa en el segundo semestre con 16 equipos en fase de grupos y eliminatorias. El Torneo de Verano concluy&#243; el 1 de marzo.</p>
+  <span class="source-link"><a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a> &#183; <a href="https://www.opinion.com.bo/articulo/deportes/oficialmente-futbol-boliviano-regresa-abril-tendra-dos-torneos/20260317000030990163.html">Opini&#243;n</a></span>
 </div>
 
-<div class="news-item">
-  <span class="pill pill-int">Internacional</span>
-  <h3>Paz afirma que Bolivia apunta a ser eje integrador regional</h3>
-  <p>El presidente Rodrigo Paz declaro que su gobierno busca posicionar a Bolivia como un eje integrador de la region, a traves de una nueva politica exterior con enfoque economico y estrategico. Los viajes recientes a paises vecinos, segun el mandatario, derivaran en futuras inversiones con impacto en el desarrollo economico nacional.</p>
-  <span class="source-link"><a href="https://abi.bo/paz-afirma-que-su-gobierno-apunta-a-que-bolivia-se-convierta-en-un-eje-integrador-de-la-region/">ABI</a> · <a href="https://www.atb.com.bo/2026/03/19/rodrigo-paz-destaca-inversiones-y-seguridad-en-mensaje-presidencial/">ATB</a></span>
-</div>
-
+<!-- DATA STRIP -->
 <div class="data-strip">
   <div class="data-cell">
-    <div class="data-cell-label">Dolar Oficial</div>
-    <div class="data-cell-value">Bs 6,96</div>
-    <div class="data-cell-delta">venta — sin cambio</div>
+    <div class="data-cell-label">D&#243;lar Oficial</div>
+    <div class="data-cell-value">6.96</div>
+    <div class="data-cell-delta">Bs (venta) &#183; sin cambio</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">Dolar Paralelo</div>
-    <div class="data-cell-value">Bs 9,30</div>
-    <div class="data-cell-delta red">&#9650; estable</div>
+    <div class="data-cell-label">D&#243;lar Paralelo</div>
+    <div class="data-cell-value red">9.33</div>
+    <div class="data-cell-delta red">Bs (venta)</div>
   </div>
   <div class="data-cell">
     <div class="data-cell-label">Brecha</div>
-    <div class="data-cell-value">33,6%</div>
-    <div class="data-cell-delta red">persistente</div>
+    <div class="data-cell-value red">34.1%</div>
+    <div class="data-cell-delta red">&#9650; persistente</div>
   </div>
 </div>
 
+<!-- QUÉ VIGILAR HOY -->
 <div class="vigilar">
-  <div class="vigilar-header">Que vigilar hoy</div>
-  <div class="vigilar-item">Final del repechaje Bolivia vs. Irak el martes 1 de abril en Monterrey: una clasificacion al Mundial tendria impacto economico y social significativo.</div>
-  <div class="vigilar-item">Definicion de cronograma y logistica para las segundas vueltas de gobernaciones programadas para el 19 de abril en siete departamentos.</div>
-  <div class="vigilar-item">Reaccion del sector productivo ante la anulacion del decreto de soya y posibles nuevas medidas de presion al gobierno.</div>
-  <div class="vigilar-item">Avance de las reformas normativas en hidrocarburos y mineria anunciadas tras los acuerdos con Brasil.</div>
-  <div class="vigilar-item">Comportamiento del dolar paralelo durante la semana de Semana Santa, historicamente de menor actividad comercial.</div>
+  <div class="vigilar-header">Qu&#233; vigilar esta semana</div>
+  <div class="vigilar-item">Final Bolivia vs. Irak el martes 31 de marzo en Monterrey (22:30 BOT). Una clasificaci&#243;n al Mundial impactar&#237;a consumo, publicidad y &#225;nimo nacional.</div>
+  <div class="vigilar-item">Convocatoria formal del TSE a segunda vuelta para gobernaciones (prevista para el 19 de abril) una vez concluya el c&#243;mputo de Santa Cruz.</div>
+  <div class="vigilar-item">Cumplimiento del acuerdo con transportistas: YPFB debe normalizar despacho de gasolina al 100% y compensar da&#241;os por combustible defectuoso.</div>
+  <div class="vigilar-item">Feriado de Viernes Santo (3 de abril): impacto en actividad econ&#243;mica y log&#237;stica de Semana Santa.</div>
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-  Fuentes: Infobae · CNN · CONMEBOL · ABI · La Razon · Opinion · ATB · Red Uno · El Diario · La Patria · FBF · Economy<br>
+  Fuentes: CNN &#183; Infobae &#183; CONMEBOL &#183; Red Uno &#183; ANF &#183; Visi&#243;n 360 &#183; Opini&#243;n &#183; La Patria &#183; Erbol &#183; El Diario &#183; Red PAT &#183; Br&#250;jula Digital &#183; FBF &#183; OEP &#183; Economy.com.bo<br>
   Briefing generado con Claude — Solo para uso informativo
 </div>
 
