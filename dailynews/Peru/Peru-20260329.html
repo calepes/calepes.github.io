@@ -29,9 +29,7 @@
   --pill-int: #374151;
   --pill-int-bg: #f3f4f6;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -42,36 +40,24 @@ body {
   padding: 32px 20px;
   -webkit-font-smoothing: antialiased;
 }
-
-/* Masthead */
 .masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
 .masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
-
-/* Top 5 */
 .top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
 .top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
 .top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
 .top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
-
-/* Why box */
 .why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
 .why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
-
-/* Sources */
 .source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-
-/* Section divider */
 .divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
-/* News items */
 .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -82,8 +68,6 @@ body {
 .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
 .news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
 .news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
-
-/* Data strip (tipo de cambio) */
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
 .data-cell:last-child { border-right: none; }
@@ -92,17 +76,11 @@ body {
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
 .green { color: #16a34a; }
 .red { color: #dc2626; }
-
-/* Qu&eacute; vigilar */
 .vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
 .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
 .vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
-
-/* Footer */
 .footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
-
-/* Responsive */
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -113,7 +91,6 @@ body {
 </head>
 <body>
 
-<!-- MASTHEAD -->
 <div class="masthead">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
   <h1>Per&uacute;</h1>
@@ -121,136 +98,173 @@ body {
   <div class="masthead-tag">Edici&oacute;n Diaria</div>
 </div>
 
-<!-- TOP 5 -->
-<div class="top5-header">Top 5 del d&iacute;a</div>
+<div class="top5-header">Top 5 del D&iacute;a</div>
 
 <div class="top5-card">
   <div class="top5-num">01</div>
   <div class="top5-content">
-    <h3>Encuestas IPSOS y Datum confirman a Fujimori primera; Carlos &Aacute;lvarez irrumpe como tercero</h3>
-    <p>A 14 d&iacute;as de las elecciones del 12 de abril, Keiko Fujimori (Fuerza Popular) lidera con 11% seg&uacute;n IPSOS y 13% seg&uacute;n Datum. Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular) cae a 9% (IPSOS) / 11.7% (Datum). Carlos &Aacute;lvarez (Pa&iacute;s para Todos) sube a 7% y se consolida como tercero tras la primera semana de debates del JNE. El 57% de los electores a&uacute;n no define su voto.</p>
+    <h3>Encuesta IPSOS: Fujimori y L&oacute;pez Aliaga se estancan; Carlos &Aacute;lvarez sube al tercer lugar</h3>
+    <p>La &uacute;ltima encuesta de IPSOS para Per&uacute;21 muestra a Keiko Fujimori con 11% y Rafael L&oacute;pez Aliaga con 9%, ambos estancados. Carlos &Aacute;lvarez (Pa&iacute;s para Todos) subi&oacute; de 5% a 7%, posicion&aacute;ndose tercero. En el simulacro de votaci&oacute;n, Fujimori y L&oacute;pez Aliaga empatan con 17.3% y 17.2% respectivamente. El 51% de los peruanos a&uacute;n no tiene candidato definido a dos semanas de las elecciones.</p>
     <div class="why-box">
       <div class="why-label">Por qu&eacute; importa</div>
-      La fragmentaci&oacute;n del voto y la alta indecisi&oacute;n hacen pr&aacute;cticamente segura una segunda vuelta con resultado ajustado. El ascenso de &Aacute;lvarez podr&iacute;a redistribuir votos en el bloque de centro y alterar las alianzas postelectorales.
+      Con las elecciones generales el 12 de abril, la alta indecisi&oacute;n (51%) y el estancamiento de los dos punteros sugieren un escenario de segunda vuelta muy abierto. La volatilidad electoral puede generar incertidumbre en mercados financieros y decisiones de inversi&oacute;n.
     </div>
-    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/29/encuestas-presidenciales-2026-keiko-fujimori-y-lopez-aliaga-se-estancan-mientras-que-carlos-alvarez-sube-al-tercer-lugar-hnews-2577607">La Rep&uacute;blica</a> &middot; <a href="https://rpp.pe/politica/elecciones/encuesta-ipsos-carlos-alvarez-y-jorge-nieto-suben-en-las-preferencias-electorales-tras-primera-semana-de-debates-noticia-1682124">RPP</a> &middot; <a href="https://trome.com/actualidad/politica/encuesta-datum-domingo-29-de-marzo-keiko-fujimori-en-el-primer-lugar-y-carlos-alvarez-sube-a-la-tercera-posicion-elecciones-generales-2026-noticia/">Trome</a></span>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/29/encuestas-presidenciales-2026-keiko-fujimori-y-lopez-aliaga-se-estancan-mientras-que-carlos-alvarez-sube-al-tercer-lugar-hnews-2577607">La Rep&uacute;blica</a> &middot; <a href="https://encuestas.com.pe/encuesta-presidencial-ipsos-29-marzo-2026/">Encuestas Per&uacute;</a> &middot; <a href="https://www.infobae.com/peru/2026/03/29/elecciones-2026-un-tercio-de-peruanos-aun-no-decide-su-voto-y-rafael-lopez-aliaga-sigue-cayendo-en-la-preferencia-de-electores/">Infobae</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">02</div>
   <div class="top5-content">
-    <h3>Clausuran el Estadio Nacional; Sporting Cristal reubica partidos de Libertadores</h3>
-    <p>La Municipalidad de Lima ejecut&oacute; la clausura temporal del Estadio Nacional tras los conciertos &ldquo;Una Noche de Salsa 14&rdquo; (27 y 28 de marzo) que se extendieron hasta las 4:27 a.m., violando normas de orden p&uacute;blico. La productora Tropimusic Entertainment enfrenta multas por S/ 110,000. El IPD respald&oacute; la medida y se&ntilde;al&oacute; a los organizadores. Sporting Cristal deber&aacute; jugar en el Estadio Miguel Grau sus partidos de fase de grupos de Copa Libertadores, empezando por Cerro Porte&ntilde;o el 8 de abril.</p>
+    <h3>Clausuran temporalmente el Estadio Nacional por incumplimientos en conciertos</h3>
+    <p>La Municipalidad de Lima clausur&oacute; temporalmente el Estadio Nacional tras verificar m&uacute;ltiples infracciones durante conciertos realizados el 27 y 28 de marzo. Las presentaciones se extendieron hasta las 4:27 a.m., generando ruidos excesivos, aglomeraci&oacute;n y acumulaci&oacute;n de residuos. Se impusieron multas por S/ 110,000. El IPD respald&oacute; la medida y se&ntilde;al&oacute; a los organizadores.</p>
     <div class="why-box">
       <div class="why-label">Por qu&eacute; importa</div>
-      La clausura expone fallas en la gesti&oacute;n de eventos del principal recinto deportivo del pa&iacute;s y afecta directamente la log&iacute;stica de la representaci&oacute;n peruana en torneos internacionales.
+      La clausura obliga a Sporting Cristal a reubicar sus partidos de Copa Libertadores 2026 al Estadio Miguel Grau del Callao. El caso expone debilidades en la fiscalizaci&oacute;n de eventos masivos y pone en riesgo compromisos deportivos internacionales de Lima.
     </div>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/29/municipalidad-de-lima-clausura-el-estadio-nacional-por-orden-publico/">Infobae</a> &middot; <a href="https://rpp.pe/lima/actualidad/municipalidad-de-lima-ordeno-la-clausura-temporal-del-estadio-nacional-por-incumplimientos-normativos-noticia-1682136">RPP</a> &middot; <a href="https://libero.pe/futbol-peruano/sporting-cristal/2026/03/29/sporting-cristal-jugara-en-mitico-estadio-copa-libertadores-2026-clausura-del-estadio-nacional-1004908">L&iacute;bero</a></span>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/29/municipalidad-de-lima-clausura-el-estadio-nacional-por-orden-publico/">Infobae</a> &middot; <a href="https://rpp.pe/lima/actualidad/municipalidad-de-lima-ordeno-la-clausura-temporal-del-estadio-nacional-por-incumplimientos-normativos-noticia-1682136">RPP</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/locales/estadio-nacional-clausurado-por-incumplimientos-en-eventos-y-recibe-multas-por-s110-000">TVPer&uacute;</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">03</div>
   <div class="top5-content">
-    <h3>BBVA Research rebaja proyecci&oacute;n de PIB peruano a 2.9% para 2026</h3>
-    <p>La revisi&oacute;n a la baja (desde 3.1%) se debe a tres shocks de oferta: deterioro de condiciones clim&aacute;ticas, interrupci&oacute;n del suministro de gas de Camisea en marzo, y alza de precios internacionales del petr&oacute;leo por tensiones en Medio Oriente. La inflaci&oacute;n se proyecta en 2.6% a fin de a&ntilde;o, dentro del rango meta. Para 2027 se espera un repunte a 3.1%.</p>
+    <h3>Gobierno gradua anticipadamente a 5,655 nuevos polic&iacute;as para enfrentar criminalidad</h3>
+    <p>Mediante Decreto Supremo N&deg; 002-2026-IN, el Ejecutivo autoriz&oacute; el egreso excepcional de 5,655 cadetes de las escuelas de la PNP, pertenecientes a la Promoci&oacute;n 2024-II &ldquo;Protecci&oacute;n Ciudadana&rdquo;. Los nuevos suboficiales est&aacute;n especializados en Orden y Seguridad e Investigaci&oacute;n Criminal, y se suman a los aproximadamente 140,000 efectivos activos.</p>
     <div class="why-box">
       <div class="why-label">Por qu&eacute; importa</div>
-      La rebaja refleja vulnerabilidad ante shocks externos e internos. Sumada a la incertidumbre electoral, podr&iacute;a retrasar decisiones de inversi&oacute;n privada en el corto plazo.
+      El adelanto de graduaci&oacute;n responde a la presi&oacute;n social por la inseguridad y al contexto preelectoral. Representa un incremento de 4% en la fuerza policial, aunque expertos cuestionan si la formaci&oacute;n acelerada garantiza la calidad del servicio.
     </div>
-    <span class="source-link"><a href="https://www.bbva.com/es/pe/economia-y-finanzas/bbva-research-rebaja-su-prevision-de-crecimiento-para-la-economia-peruana-a-29-en-2026/">BBVA Noticias</a> &middot; <a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a></span>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/20/ejecutivo-autoriza-incorporacion-inmediata-mas-de-5-mil-policias-por-crisis-de-seguridad/">Infobae</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/locales/mas-de-5600-nuevos-policias-se-integran-al-servicio-para-fortalecer-la-lucha-contra-el-crimen">TVPer&uacute;</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">04</div>
   <div class="top5-content">
-    <h3>MINSA aprueba Plan Nacional de Telesalud 2026</h3>
-    <p>Mediante la Resoluci&oacute;n Ministerial 293-2026/MINSA, el Ministerio de Salud estableci&oacute; la hoja de ruta para descentralizar servicios de salud con herramientas digitales. El plan prioriza cuatro ejes: telemedicina, telegesti&oacute;n, teleinformaci&oacute;n (TeleIEC) y telecapacitaci&oacute;n. Participaron 25 gobiernos regionales y las cuatro DIRIS de Lima Metropolitana en su elaboraci&oacute;n.</p>
+    <h3>BCRP mantiene tasa de inter&eacute;s en 4.25% por sexta vez consecutiva</h3>
+    <p>El Banco Central de Reserva del Per&uacute; decidi&oacute; mantener la tasa de referencia en 4.25% en marzo, su sexto mes sin cambios. La inflaci&oacute;n anual subi&oacute; de 1.7% en enero a 2.2% en febrero, impulsada por alzas en tarifas de agua y alimentos. El BCRP anticipa que la inflaci&oacute;n podr&iacute;a ubicarse temporalmente en el tramo superior del rango meta por fen&oacute;menos clim&aacute;ticos y precios de energ&iacute;a.</p>
     <div class="why-box">
       <div class="why-label">Por qu&eacute; importa</div>
-      Per&uacute; mantiene brechas cr&iacute;ticas de acceso a salud entre regiones urbanas y rurales. El plan abre oportunidades concretas para proveedores de tecnolog&iacute;a y soluciones de telesalud en zonas desatendidas.
+      La pausa prolongada en recortes de tasa se&ntilde;ala cautela del BCRP ante riesgos inflacionarios. El mercado descuenta que no habr&aacute; recortes adicionales en 2026, lo que mantiene el costo del cr&eacute;dito estable pero limita el est&iacute;mulo a la actividad econ&oacute;mica.
     </div>
-    <span class="source-link"><a href="https://www.gob.pe/institucion/minsa/noticias/1372310-ministerio-de-salud-aprueba-el-plan-nacional-de-telesalud-2026-y-marca-un-hito-en-la-transformacion-digital-de-la-salud-en-el-peru">Gob.pe (MINSA)</a> &middot; <a href="https://www.infobae.com/peru/2026/03/29/minsa-aprueba-el-plan-nacional-de-telesalud-2026-para-descentralizar-servicios-de-salud-y-ampliar-la-atencion-medica-en-todo-el-pais/">Infobae</a></span>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a> &middot; <a href="https://elcomercio.pe/economia/peru/bcr-mantiene-sin-cambios-tasa-de-referencia-de-marzo-en-425-en-un-contexto-de-riesgo-inflacionario-l-ultimas-noticia/">El Comercio</a></span>
   </div>
 </div>
 
 <div class="top5-card">
   <div class="top5-num">05</div>
   <div class="top5-content">
-    <h3>Seis planchas presidenciales incumplen rendici&oacute;n de gastos de campa&ntilde;a ante ONPE</h3>
-    <p>De 39 organizaciones pol&iacute;ticas, solo 33 presentaron su primer informe de ingresos y gastos ante la Oficina Nacional de Procesos Electorales. El gasto total declarado asciende a S/ 15 millones, de los cuales Alianza para el Progreso (C&eacute;sar Acu&ntilde;a) concentra S/ 7.2 millones, casi la mitad. Acci&oacute;n Popular y PRIN reportaron S/ 0 en ingresos y gastos. Los incumplidores incluyen Un Camino Diferente, Cooperaci&oacute;n Popular y Partido Patri&oacute;tico del Per&uacute;, entre otros.</p>
+    <h3>Extorsi&oacute;n alcanza al 25% de peruanos y se expande hacia regiones y zonas rurales</h3>
+    <p>Seg&uacute;n nuevos datos, el 76% de los peruanos considera la extorsi&oacute;n como el delito m&aacute;s preocupante. M&aacute;s de 6 millones de personas han sido v&iacute;ctimas o conocen afectados en los &uacute;ltimos tres meses. Aunque el gobierno reporta una reducci&oacute;n del 40% en Lima, la incidencia se ha incrementado en el centro, sur y oriente del pa&iacute;s.</p>
     <div class="why-box">
       <div class="why-label">Por qu&eacute; importa</div>
-      La alta concentraci&oacute;n del gasto en un solo partido y el incumplimiento de seis organizaciones plantean dudas sobre transparencia y equidad en la recta final de la campa&ntilde;a.
+      La descentralizaci&oacute;n del crimen organizado hacia regiones y zonas rurales complica la respuesta del Estado y afecta directamente el clima de negocios, especialmente en sectores como transporte, construcci&oacute;n y comercio. Es el tema central del debate electoral.
     </div>
-    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/29/elecciones-2026-6-planchas-presidenciales-no-presentaron-informe-de-gastos-en-campana-ante-la-onpe-hnews-2563397">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com/peru/2026/03/29/estas-son-las-planchas-presidenciales-que-cumplieron-con-presentar-su-primer-reporte-de-gastos-de-campana/">Infobae</a></span>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/24/extorsion-alcanza-al-25-de-peruanos-supera-los-6-millones-de-afectados-y-se-expande-de-lima-hacia-regiones-y-zonas-rurales/">Infobae</a> &middot; <a href="https://larepublica.pe/sociedad/2026/03/24/76-de-peruanos-considera-la-extorsion-como-el-delito-mas-preocupantehnews-1432848">La Rep&uacute;blica</a></span>
   </div>
 </div>
 
-<!-- DIVIDER -->
 <div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
 
-<!-- NEWS ITEMS -->
 <div class="news-item">
   <span class="pill pill-pol">Pol&iacute;tico</span>
-  <h3>Debates presidenciales del JNE entran en segunda semana con nuevos temas</h3>
-  <p>Los debates organizados por el Jurado Nacional de Elecciones contin&uacute;an el lunes 30 de marzo con la segunda semana de presentaciones. Los 34 candidatos abordar&aacute;n dos ejes tem&aacute;ticos adicionales: Educaci&oacute;n, Innovaci&oacute;n y Tecnolog&iacute;a, y Empleo, Desarrollo y Emprendimiento. Las jornadas se transmiten desde el Centro de Convenciones de Lima por JNE Media, Canal 552 de Movistar y TV Per&uacute;.</p>
-  <span class="source-link"><a href="https://elcomercio.pe/politica/elecciones/debate-presidencial-2026-en-vivo-lunes-30-de-marzo-candidatos-propuestas-planes-de-gobierno-y-pullas-en-debate-del-jne-lboposting-noticia/">El Comercio</a> &middot; <a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a></span>
+  <h3>Gobierno aprueba Pol&iacute;tica General de Gobierno 2026 con tres ejes prioritarios</h3>
+  <p>El Consejo de Ministros del presidente Jos&eacute; Mar&iacute;a Balc&aacute;zar aprob&oacute; la Pol&iacute;tica General de Gobierno 2026, instrumento rector que orienta la acci&oacute;n del Ejecutivo hasta el 28 de julio. Los tres ejes son: seguridad ciudadana, continuidad econ&oacute;mica y transici&oacute;n democr&aacute;tica ordenada. El documento prioriza la eficiencia del gasto p&uacute;blico y condiciones adecuadas para elecciones sin incidentes.</p>
+  <span class="source-link"><a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gesti&oacute;n</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPer&uacute;</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Segunda jornada de debates presidenciales inicia el 30 de marzo</h3>
+  <p>Tras completar la primera ronda de tres fechas, el JNE program&oacute; la segunda jornada de debates presidenciales para el 30 y 31 de marzo y 1 de abril. Los temas ser&aacute;n empleo, educaci&oacute;n, innovaci&oacute;n y desarrollo. Los 35 candidatos presidenciales participan en un formato de bloques con transmisi&oacute;n en vivo por TVPer&uacute; desde las 7:30 p.m.</p>
+  <span class="source-link"><a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/03/29/a-que-hora-empieza-el-debate-presidencial-del-lunes-30-y-como-verlo-en-vivo-en-todo-el-pais/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Balc&aacute;zar promete subir sueldo de polic&iacute;as al nivel de ministros</h3>
+  <p>El presidente Jos&eacute; Mar&iacute;a Balc&aacute;zar anunci&oacute; su intenci&oacute;n de equiparar los salarios de los polic&iacute;as con los de altos funcionarios del Estado, incluyendo ministros. La declaraci&oacute;n se produce en el contexto de la graduaci&oacute;n excepcional de nuevos efectivos y la creciente presi&oacute;n por la inseguridad ciudadana.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/26/jose-balcazar-promete-subir-sueldo-a-policias-al-nivel-del-presidente-o-ministros-hay-que-corresponder-ese-esfuerzo/">Infobae</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-eco">Econ&oacute;mico</span>
-  <h3>D&oacute;lar se mantiene estable en S/ 3.486 pese a incertidumbre electoral</h3>
-  <p>El tipo de cambio interbancario cerr&oacute; la semana en S/ 3.486 (venta SUNAT), con un rango intrad&iacute;a entre S/ 3.477 y S/ 3.498. La estabilidad relativa del sol se sostiene por las intervenciones del BCRP y el super&aacute;vit de cuenta corriente proyectado por encima de 3.5% del PIB, aunque la proximidad de las elecciones limita movimientos especulativos.</p>
-  <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-a-cuanto-esta-el-tipo-de-cambio-del-domingo-29-de-marzo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> &middot; <a href="https://eltiempo.pe/economia/cual-es-el-precio-del-dolar-en-peru-hoy-domingo-29-de-marzo-de-2026/">El Tiempo</a></span>
+  <h3>Actividad minera gener&oacute; S/ 3,024 millones para departamentos en enero 2026</h3>
+  <p>Seg&uacute;n el MINEM, las transferencias por canon, regal&iacute;as y otros conceptos mineros sumaron m&aacute;s de S/ 3,024 millones en enero. &Aacute;ncash fue el principal beneficiario con S/ 620 millones (20.5% del total). La producci&oacute;n cuprifera creci&oacute; 3% interanual a 226,256 TMF, impulsada por Antamina (+24.5%) y Antapaccay (+36.7%), aunque Cerro Verde (-5.7%) y Southern Per&uacute; (-9.6%) retrocedieron.</p>
+  <span class="source-link"><a href="https://www.rcrperu.com/minem-actividad-minera-genero-recursos-para-los-departamentos-por-mas-de-s-3024-millones-en-enero-de-2026-2/">RCR Per&uacute;</a> &middot; <a href="https://www.rumbominero.com/peru/noticias/mineria/recaudacion-minera-fiscal-alcanzo-enero-del-2026/">Rumbo Minero</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inflaci&oacute;n anual sube a 2.2% en febrero por tarifas de agua y alimentos</h3>
+  <p>La inflaci&oacute;n mensual de febrero fue 0.69%, impulsada por incrementos en tarifas de agua y precios de alimentos. La inflaci&oacute;n anual pas&oacute; de 1.7% a 2.2%, manteni&eacute;ndose dentro del rango meta del BCRP. Las expectativas a doce meses subieron ligeramente de 2.0% a 2.1%. Factores clim&aacute;ticos y energ&eacute;ticos podr&iacute;an presionar al alza en los pr&oacute;ximos meses.</p>
+  <span class="source-link"><a href="https://gestion.pe/tu-dinero/inflacion-se-acelera-que-preve-bcp-para-las-tasas-de-interes-y-el-dolar-noticia/">Gesti&oacute;n</a> &middot; <a href="https://rpp.pe/economia/economia/bcrp-mantiene-la-tasa-de-interes-de-referencia-en-425-en-marzo-noticia-1679872">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Miner&iacute;a formal pierde operadores: 35% menos unidades produciendo oro</h3>
+  <p>A inicios de 2026, solo 212 titulares de la gran, mediana y peque&ntilde;a miner&iacute;a reportaron producci&oacute;n de oro, una ca&iacute;da de 35.8% frente a las 288 compa&ntilde;&iacute;as de un a&ntilde;o atr&aacute;s. La tendencia sugiere un avance de la miner&iacute;a ilegal frente a la formal, un problema estructural que ninguno de los candidatos presidenciales ha abordado con propuestas concretas.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/peru-empieza-2026-con-menos-unidades-formales-produciendo-cobre-y-oro-mineria-ilegal-acelera/">Miner&iacute;a &amp; Energ&iacute;a</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>CIIT Latam Congress 2026 re&uacute;ne a l&iacute;deres de miner&iacute;a y tecnolog&iacute;a en Lima</h3>
+  <p>Los d&iacute;as 26 y 27 de marzo, el Country Club Lima Hotel en San Isidro alberg&oacute; el CIIT Latam Congress 2026, donde l&iacute;deres empresariales y expertos analizaron los desaf&iacute;os de la transformaci&oacute;n digital en miner&iacute;a y energ&iacute;a. El evento anticipa EXPOCOBRE 2026 (abril) y el XVI Simposio Internacional de Miner&iacute;a (mayo).</p>
+  <span class="source-link"><a href="https://proactivo.com.pe/ciit-latam-congress-2026-innovacion-tecnologica-redefine-la-mineria-y-energia-en-peru/">Proactivo</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-soc">Social</span>
-  <h3>SENAMHI emite pron&oacute;stico clim&aacute;tico con lluvias intensas en sierra y selva</h3>
-  <p>El Servicio Nacional de Meteorolog&iacute;a e Hidrolog&iacute;a emiti&oacute; su pron&oacute;stico del domingo 29 de marzo advirtiendo lluvias moderadas a fuertes en la sierra central y selva norte del pa&iacute;s. Las condiciones clim&aacute;ticas adversas, parte de los factores que llevaron a BBVA Research a recortar su proyecci&oacute;n de PIB, contin&uacute;an afectando actividades agr&iacute;colas y de transporte.</p>
-  <span class="source-link"><a href="https://rpp.pe/peru/actualidad/senamhi-pronostico-del-clima-hoy-domingo-29-de-marzo-2026-noticia-1682115">RPP</a></span>
+  <h3>Normas del d&iacute;a: protecci&oacute;n del sitio arqueol&oacute;gico Yanachaca y cambios en AGRO RURAL</h3>
+  <p>Entre las normas publicadas en El Peruano el 29 de marzo destacan la determinaci&oacute;n de protecci&oacute;n provisional del Sitio Arqueol&oacute;gico Yanachaca en &Aacute;ncash, cambios en designaciones del programa AGRO RURAL, y la aprobaci&oacute;n de &iacute;ndices de distribuci&oacute;n de regal&iacute;a minera correspondientes a febrero de 2026.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-domingo-29-de-marzo-de-2026">TVPer&uacute;</a></span>
 </div>
 
 <div class="news-item">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Universitario venci&oacute; 2-1 a LDU de Quito en amistoso preparatorio</h3>
-  <p>En el Estadio Monumental, Universitario de Deportes super&oacute; 2-1 a LDU de Quito en amistoso de preparaci&oacute;n durante el receso por fecha FIFA. Mat&iacute;as Di Benedetto abri&oacute; el marcador de cabeza al minuto 5 y Sekou Gassama anot&oacute; su primer gol con la camiseta crema al minuto 65. Fernando Cornejo hab&iacute;a empatado transitoriamente para los ecuatorianos al minuto 9.</p>
-  <span class="source-link"><a href="https://rpp.pe/futbol/mas-futbol/universitario-vs-ldu-quito-cremas-ganaron-2-1-con-goles-de-matias-di-benedetto-y-sekou-gassama-video-partidos-de-hoy-noticia-1682105">RPP</a> &middot; <a href="https://jornada.com.pe/universitario-supero-por-2-1-a-ldu-en-amistoso/">Jornada</a></span>
+  <h3>Sporting Cristal mudar&aacute; a Estadio Miguel Grau para Copa Libertadores tras clausura del Nacional</h3>
+  <p>La clausura del Estadio Nacional oblig&oacute; a Sporting Cristal a reubicar su partido de Copa Libertadores 2026 contra Cerro Porte&ntilde;o (8 de abril) al Estadio Miguel Grau del Callao. El club debi&oacute; coordinar de emergencia con la CONMEBOL para confirmar la nueva sede del Grupo F de la competici&oacute;n continental.</p>
+  <span class="source-link"><a href="https://libero.pe/futbol-peruano/sporting-cristal/2026/03/29/sporting-cristal-jugara-en-mitico-estadio-copa-libertadores-2026-clausura-del-estadio-nacional-1004908">L&iacute;bero</a> &middot; <a href="https://www.infobae.com/peru/deportes/2026/03/29/sporting-cristal-vs-cerro-porteno-por-copa-libertadores-2026-podria-cambiar-de-escenario-tras-la-clausura-del-estadio-nacional/">Infobae</a></span>
 </div>
 
-<!-- DATA STRIP -->
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 2: primera fecha con tres partidos; Llacuabamba golea 3-0 a Mannucci</h3>
+  <p>La Liga 2 continu&oacute; su primera fecha el domingo con tres encuentros. El resultado m&aacute;s destacado fue la goleada de Deportivo Llacuabamba sobre Carlos A. Mannucci por 3-0. Tambi&eacute;n jugaron Uni&oacute;n Minas vs. Bent&iacute;n Tacna Heroica y Comerciantes FC vs. Reserva Sport Huancayo.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/29/partidos-de-hoy-domingo-29-de-marzo-de-2026-programacion-canales-tv-y-resultados-en-vivo/">Infobae</a></span>
+</div>
+
 <div class="data-strip">
   <div class="data-cell">
     <div class="data-cell-label">D&oacute;lar Compra</div>
     <div class="data-cell-value">S/ 3.481</div>
-    <div class="data-cell-delta green">&#9660; -0.02</div>
+    <div class="data-cell-delta green">Estable</div>
   </div>
   <div class="data-cell">
     <div class="data-cell-label">D&oacute;lar Venta</div>
     <div class="data-cell-value">S/ 3.486</div>
-    <div class="data-cell-delta green">&#9660; -0.01</div>
+    <div class="data-cell-delta green">Estable</div>
   </div>
   <div class="data-cell">
-    <div class="data-cell-label">PIB 2026 (est.)</div>
-    <div class="data-cell-value">2.9%</div>
-    <div class="data-cell-delta red">&#9660; -0.2pp</div>
+    <div class="data-cell-label">Tasa BCRP</div>
+    <div class="data-cell-value">4.25%</div>
+    <div class="data-cell-delta">Sin cambios</div>
   </div>
 </div>
 
-<!-- QU&Eacute; VIGILAR -->
 <div class="vigilar">
   <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
-  <div class="vigilar-item">Inicio de la segunda semana de debates presidenciales del JNE (lunes 30 de marzo), con temas de educaci&oacute;n y empleo que podr&iacute;an mover encuestas.</div>
-  <div class="vigilar-item">Respuesta del IPD sobre la clausura del Estadio Nacional: tiene 48 horas para presentar descargos y evaluar el levantamiento de la medida.</div>
-  <div class="vigilar-item">Evoluci&oacute;n del tipo de cambio en la apertura de semana, con incertidumbre electoral a 13 d&iacute;as de la primera vuelta y shocks de oferta a&uacute;n activos.</div>
+  <div class="vigilar-item">Segunda jornada de debates presidenciales del JNE inicia hoy lunes 30 de marzo a las 7:30 p.m. con temas de empleo y educaci&oacute;n. Posibles movimientos en encuestas posteriores.</div>
+  <div class="vigilar-item">Resoluci&oacute;n de la clausura del Estadio Nacional: el IPD tiene 48 horas para presentar descargos. Impacto directo en la programaci&oacute;n de Copa Libertadores y eventos masivos en Lima.</div>
+  <div class="vigilar-item">Monitorear datos de inflaci&oacute;n de marzo y eventual impacto de fen&oacute;menos clim&aacute;ticos en precios de alimentos. El BCRP advirti&oacute; posible presi&oacute;n al alza temporal.</div>
+  <div class="vigilar-item">Despliegue de los 5,655 nuevos polic&iacute;as en zonas cr&iacute;ticas: efecto real en la percepci&oacute;n de seguridad y en estad&iacute;sticas de extorsi&oacute;n fuera de Lima.</div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-  Fuentes: RPP &middot; La Rep&uacute;blica &middot; Infobae &middot; El Comercio &middot; Trome &middot; L&iacute;bero &middot; Gesti&oacute;n &middot; Diario Correo &middot; BBVA Research &middot; TVPer&uacute; &middot; El Tiempo &middot; Jornada<br>
+  Fuentes: RPP &middot; La Rep&uacute;blica &middot; El Comercio &middot; Infobae Per&uacute; &middot; Gesti&oacute;n &middot; TVPer&uacute; &middot; L&iacute;bero &middot; Miner&iacute;a &amp; Energ&iacute;a &middot; Proactivo &middot; Encuestas Per&uacute;<br>
   Briefing generado con Claude &mdash; Solo para uso informativo
 </div>
 
