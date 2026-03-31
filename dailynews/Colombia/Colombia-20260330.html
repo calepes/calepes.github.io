@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 30 de marzo de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Lunes 30 de marzo de 2026 &middot; Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro anuncia el fin del servicio militar obligatorio en Colombia</h3>
+    <p>El presidente Gustavo Petro declar&oacute; que el servicio militar en Colombia ya es voluntario en la pr&aacute;ctica, gracias al esquema de salario vital implementado por su gobierno. &ldquo;No solo es voluntario, sino que se inscriben m&aacute;s j&oacute;venes que nunca y con alegr&iacute;a&rdquo;, escribi&oacute; Petro en su cuenta de X. Sin embargo, el marco legal vigente (Ley 2384 de 2024) a&uacute;n mantiene la figura del servicio obligatorio con una duraci&oacute;n de 12 a 18 meses.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Aunque el anuncio tiene un fuerte componente narrativo de cierre de mandato, el cambio real es administrativo, no legislativo. El pr&oacute;ximo gobierno deber&aacute; decidir si formaliza la reforma por ley o revierte los incentivos, lo que impactar&aacute; directamente la capacidad operativa de las Fuerzas Armadas en un contexto de seguridad deteriorada.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/gustavo-petro-anuncia-que-se-acaba-el-servicio-militar-obligatorio-en-colombia-estos-son-los-detalles/202614/">Semana</a> &middot; <a href="https://www.elpais.com.co/politica/gustavo-petro-hablo-sobre-el-modelo-militar-en-colombia-prometi-acabar-el-servicio-militar-obligatorio-3016.html">El Pa&iacute;s</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Encuestas presidenciales: Cepeda lidera y Valencia y De la Espriella pelean la segunda plaza</h3>
+    <p>La encuesta Guarumo-Ecoanal&iacute;tica publicada el 28 de marzo muestra a Iv&aacute;n Cepeda (Pacto Hist&oacute;rico) liderando la intenci&oacute;n de voto con un 37,5%, seguido por Abelardo de la Espriella y Paloma Valencia en empate t&eacute;cnico por el paso a segunda vuelta. Valencia ha crecido de 5 a cerca del 20% tras ganar su consulta interpartidista. Alto porcentaje de indecisos mantiene la incertidumbre.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      A dos meses de la primera vuelta del 31 de mayo, el escenario se define entre continuismo petrista con Cepeda y dos opciones de centroderecha fragmentadas. La din&aacute;mica de consolidaci&oacute;n de uno de ellos como rival &uacute;nico de Cepeda definir&aacute; el tono econ&oacute;mico y regulatorio del pr&oacute;ximo cuatrienio.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/28/se-reducen-las-diferencias-entre-ivan-cepeda-abelardo-de-la-espriella-y-paloma-valencia-en-la-intencion-de-voto-para-la-primera-vuelta-esto-dice-la-nueva-encuesta-de-guarumo-y-ecoanalitica/">Infobae</a> &middot; <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>OCDE advierte riesgo de duopolio tras la fusi&oacute;n Tigo-Movistar</h3>
+    <p>En el marco del Colombia Digital Summit 2026, la OCDE present&oacute; un diagn&oacute;stico cr&iacute;tico del mercado de telecomunicaciones. Tras la compra de Movistar por parte de Millicom (USD 214 millones), Claro y la nueva entidad Tigo-Movistar concentran cerca del 90% del mercado m&oacute;vil. La OCDE recomienda medidas regulatorias estrictas y revisi&oacute;n de marcos de acceso mayorista para evitar alzas de precios y deterioro del servicio.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La concentraci&oacute;n en telecomunicaciones impacta costos de operaci&oacute;n para todo el sector empresarial colombiano. Un duopolio sin contrapesos regulatorios podr&iacute;a elevar tarifas corporativas y reducir opciones de conectividad, especialmente en zonas fuera de las grandes ciudades.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/economia/sectores/fusion-tigo-movistar-reconfigura-el-mercado-de-colombia-ganan-escala-frente-a-claro-pero-se-intensifican-riesgos-para-la-competencia-dice-la-ocde-3542630">El Tiempo</a> &middot; <a href="https://www.semana.com/economia/empresas/articulo/ocde-advierte-alta-concentracion-en-telecomunicaciones-en-colombia-debilidad-regulatoria/202653/">Semana</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Aranceles del 10% de Trump entran en vigor y golpean exportaciones colombianas</h3>
+    <p>El recargo arancelario del 10% impuesto por la administraci&oacute;n Trump bajo la Secci&oacute;n 122 de la Trade Act sigue vigente desde el 24 de febrero, afectando cerca del 30% de las exportaciones colombianas a Estados Unidos. Flores cortadas y aceite de palma enfrentan el recargo sin ning&uacute;n colch&oacute;n arancelario previo. Los gremios advierten que est&aacute;n en riesgo 5 millones de empleos vinculados a exportaciones de 3.000 empresas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El impacto directo en el sector floricultor y agroindustrial es inmediato en temporada alta (Semana Santa). Adem&aacute;s, la incertidumbre regulatoria en EE.UU. dificulta la planificaci&oacute;n de inversiones y contratos de exportaci&oacute;n a mediano plazo.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/aranceles-latinoamerica-colombia-trump-lista-de-paises-JE27017394">El Colombiano</a> &middot; <a href="https://www.larepublica.co/economia/las-reacciones-en-colombia-tras-la-imposicion-de-aranceles-de-10-por-parte-de-donald-trump-4101083">La Rep&uacute;blica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>D&oacute;lar cierra en $3.670 con tendencia bajista sostenida en marzo</h3>
+    <p>La TRM para el 30 de marzo se fij&oacute; en $3.668,89, cerrando el mercado en $3.670,08 (subida marginal de $1,19 en la jornada). En el mes, el peso colombiano se apreci&oacute; casi $100 frente al d&oacute;lar, pasando de $3.766 a inicios de marzo a niveles de $3.650-3.670. Frente a marzo de 2025, el d&oacute;lar acumula una ca&iacute;da del 12,5% (m&aacute;s de $520).</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La apreciaci&oacute;n del peso beneficia a importadores y reduce presiones inflacionarias, pero comprime m&aacute;rgenes para exportadores que ya enfrentan el arancel del 10% en EE.UU. Analistas ven soporte t&eacute;cnico en la zona de $3.600-3.630 si la coyuntura geopol&iacute;tica se estabiliza.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/noticias/2026/03/30/dolar-hoy-en-colombia-cotizacion-de-cierre-del-30-de-marzo/">Infobae</a> &middot; <a href="https://www.noticiascaracol.com/economia/dolar-hoy-30-de-marzo-de-2026-en-colombia-como-esta-la-trm-so35">Noticias Caracol</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Pacto Hist&oacute;rico se consolida como primera fuerza en el nuevo Congreso</h3>
+  <p>Tras las elecciones legislativas del 8 de marzo, el Pacto Hist&oacute;rico obtuvo 62 esca&ntilde;os entre Senado y C&aacute;mara (25 en Senado), seguido del Centro Democr&aacute;tico con 45 curules. La participaci&oacute;n super&oacute; el 50%, tres puntos m&aacute;s que en 2022. El nuevo Congreso se posesionar&aacute; el 20 de julio, pero la composici&oacute;n ya define el terreno legislativo para el pr&oacute;ximo presidente.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/09/colombia/senado-elecciones-legislativas-orix">CNN</a> &middot; <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-del-congreso-2026-siga-el-minuto-a-minuto-de-los-elegidos-para-el-senado-y-camara-de-representantes-en-colombia-3538321">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno oficializa aumento salarial del 7% para empleados p&uacute;blicos</h3>
+  <p>Mediante cerca de 20 decretos expedidos el 25 de marzo, el Gobierno Nacional formaliz&oacute; un incremento del 7% para todos los servidores p&uacute;blicos en 2026, compuesto por el IPC de 2025 m&aacute;s un adicional de 1,9 puntos porcentuales. La medida cubre a funcionarios de la Rama Ejecutiva, fuerzas p&uacute;blicas y organismos aut&oacute;nomos.</p>
+  <span class="source-link"><a href="https://www.portafolio.co/economia/gobierno/el-gobierno-petro-anuncio-el-aumento-oficial-que-tendran-los-trabajadores-publicos-para-el-2026-de-cuanto-fue-490816">Portafolio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Megamovidas empresariales marcan el arranque de 2026</h3>
+  <p>En 75 d&iacute;as de 2026 se han concretado adquisiciones clave: Millicom compra Movistar por USD 214 millones, Grupo Gilinski entra al negocio petrolero regional y Cemex vende activos de cemento en el pa&iacute;s. Los ingresos corporativos crecen 9,2% y las utilidades 14,1%, ambas cifras en m&aacute;ximos de varios a&ntilde;os. La inversi&oacute;n extranjera directa supera los USD 15.000 millones anuales.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> &middot; <a href="https://www.enter.co/empresas/colombia-supera-18-millones-de-empresas-la-senal-que-esta-cambiando-la-inversion-extranjera/">Enter.co</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Mercado Libre anuncia su mayor inversi&oacute;n hist&oacute;rica en Colombia</h3>
+  <p>La plataforma de comercio electr&oacute;nico argentina anunci&oacute; que destinar&aacute; recursos significativos para fortalecer su ecosistema tecnol&oacute;gico y log&iacute;stico en Colombia, con el objetivo de mejorar la experiencia de sus 8 millones de compradores y vendedores en el pa&iacute;s. La inversi&oacute;n incluye expansi&oacute;n de centros de distribuci&oacute;n y mejora de infraestructura fintech.</p>
+  <span class="source-link"><a href="https://www.semana.com/economia/empresas/articulo/mercado-libre-anuncia-su-mayor-inversion-historica-en-colombia-para-2026/202651/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>MinTIC presenta hoja de ruta de espectro 2026-2029</h3>
+  <p>El Gobierno present&oacute; el plan de modernizaci&oacute;n de la gesti&oacute;n del espectro radioel&eacute;ctrico para el per&iacute;odo 2026-2029, un marco clave para la asignaci&oacute;n de frecuencias 5G y la regulaci&oacute;n del nuevo mercado consolidado de telecomunicaciones post-fusi&oacute;n Tigo-Movistar.</p>
+  <span class="source-link"><a href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/428278:Gobierno-Petro-presenta-la-hoja-de-ruta-que-modernizara-la-gestion-del-espectro-en-Colombia-entre-2026-y-2029">MinTIC</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Semana Santa arranca con m&aacute;s de 2,5 millones de veh&iacute;culos en carreteras</h3>
+  <p>El Lunes Santo marca el inicio de la Semana Santa 2026 (30 de marzo al 5 de abril). Las autoridades estiman que m&aacute;s de 2,5 millones de veh&iacute;culos saldr&aacute;n de las principales ciudades. Bogot&aacute; espera recibir 500.000 visitantes y Cali activ&oacute; la programaci&oacute;n &ldquo;Semana Santa Viva 2026&rdquo; con 55.000 visitantes esperados. Se suspende parcialmente el pico y placa en varias ciudades.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/vida/religion/semana-santa-en-colombia-2026-estas-son-las-fechas-que-conmemoran-la-tradicion-catolica-y-algunos-puntos-de-interes-en-la-capital-3542607">El Tiempo</a> &middot; <a href="https://www.infobae.com/colombia/2026/03/27/pico-y-placa-en-colombia-cambios-y-suspensiones-en-bogota-medellin-cartagena-bucaramanga-y-cali-durante-semana-santa-2026/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Actividad s&iacute;smica: al menos 20 temblores registrados en Colombia</h3>
+  <p>El Servicio Geol&oacute;gico Colombiano report&oacute; al menos 20 sismos durante la jornada del 30 de marzo, con el de mayor magnitud alcanzando 3.5. Los dem&aacute;s oscilaron entre 2.0 y 2.6. No se reportaron da&ntilde;os materiales ni v&iacute;ctimas.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-30-de-marzo-de-2026-1007305">Noticias RCN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 14: Nacional l&iacute;der con 30 puntos, Pasto sorprende segundo</h3>
+  <p>Resultados de la jornada: Medell&iacute;n 2-1 Am&eacute;rica, Deportivo Pasto 1-2 Nacional, Deportivo Cali 1-0 Pereira, Tolima 3-1 Jaguares, Bucaramanga 1-2 Santa Fe, &Aacute;guilas 1-0 Alianza. Nacional consolida el liderato con 30 puntos, seguido de Pasto (27) y Junior (25). La clasificaci&oacute;n a cuadrangulares se define en las &uacute;ltimas cinco fechas.</p>
+  <span class="source-link"><a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-14-liga-betplay-2026-i-265123">Futbolred</a> &middot; <a href="https://www.espn.com.co/futbol/colombia/nota/_/id/14839338/como-quedo-tabla-de-posiciones-liga-betplay">ESPN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Corte Suprema de EE.UU. limit&oacute; a Trump en aranceles, pero el recargo del 10% contin&uacute;a</h3>
+  <p>La Corte Suprema estadounidense determin&oacute; que la IEEPA no faculta al presidente para imponer aranceles, pero Trump invoc&oacute; la Secci&oacute;n 122 de la Trade Act para mantener el recargo del 10% desde el 24 de febrero. Colombia, junto con el resto de Am&eacute;rica Latina, sigue sujeta a esta tarifa temporal cuya duraci&oacute;n m&aacute;xima legal es de 150 d&iacute;as.</p>
+  <span class="source-link"><a href="https://cambiocolombia.com/economia/articulo/2026/2/que-cambia-para-colombia-tras-nueva-imposicion-de-aranceles-de-donald-trump/">Cambio Colombia</a> &middot; <a href="https://www.elcolombiano.com/negocios/impacto-aranceles-trump-colombia-empleos-exportaciones-ED30113142">El Colombiano</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.669</div>
+    <div class="data-cell-delta green">&#9660; $35,98 sem</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">TRM 31 mar</div>
+    <div class="data-cell-value">$3.670</div>
+    <div class="data-cell-delta green">&#9660; $97 mes</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Var. anual</div>
+    <div class="data-cell-value">-12,5%</div>
+    <div class="data-cell-delta green">&#9660; $522 vs 2025</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Movimientos de alianzas entre candidatos presidenciales previo a Semana Santa: posibles adhesiones de fuerzas pol&iacute;ticas menores a Valencia o De la Espriella que alteren el equilibrio rumbo a primera vuelta del 31 de mayo.</div>
+  <div class="vigilar-item">Fase 2 de privatizaci&oacute;n de Colombia Telecomunicaciones (abril): si Millicom alcanza el 100% de Coltel, se cierra definitivamente la salida de Telef&oacute;nica del mercado colombiano.</div>
+  <div class="vigilar-item">Vencimiento del arancel temporal del 10% de Trump (Secci&oacute;n 122, m&aacute;ximo 150 d&iacute;as desde el 24 de febrero): gremios exportadores presionan por negociaci&oacute;n bilateral antes de julio.</div>
+  <div class="vigilar-item">Comportamiento del d&oacute;lar en abril: si perfora el soporte de $3.600, exportadores enfrentar&aacute;n doble presi&oacute;n (peso fuerte + aranceles). Consenso institucional apunta a cierre de a&ntilde;o entre $3.800-$4.000.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Semana &middot; El Tiempo &middot; Infobae &middot; El Colombiano &middot; Portafolio &middot; CNN &middot; Noticias RCN &middot; Noticias Caracol &middot; La Rep&uacute;blica &middot; Futbolred &middot; ESPN &middot; MinTIC &middot; Cambio Colombia<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
