@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis Competitivo — Billeteras Digitales en Bolivia 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --yape: #7b2d8e;
+  --altoke: #e65100;
+  --zas: #1565c0;
+  --yasta: #2e7d32;
+  --bille: #00695c;
+  --yolo: #c62828;
+  --tigo: #0d47a1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(28px, 6vw, 42px); font-weight: 600; line-height: 1.15; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+/* Sections */
+.divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 12px; }
+.card h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+.card p, .card li { font-size: 14px; color: #52525b; line-height: 1.6; }
+.card ul { padding-left: 18px; margin-top: 6px; }
+.card li { margin-bottom: 4px; }
+
+/* Player badge */
+.player-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.player-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.player-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+.player-bank { font-size: 11px; color: var(--muted); font-weight: 400; }
+
+/* Comparison table */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 16px 0; }
+.comp-table th { background: var(--ink); color: white; padding: 10px 8px; text-align: left; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.comp-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:nth-child(even) td { background: #fafafa; }
+.dim-label { font-weight: 600; color: var(--ink); white-space: nowrap; min-width: 100px; }
+
+/* Scroll wrapper for table on mobile */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 10px; }
+.table-scroll .comp-table { margin: 0; min-width: 700px; }
+
+/* Insight box */
+.insight-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 14px 16px; margin-top: 12px; border-radius: 0 6px 6px 0; }
+.insight-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.insight-box p { font-size: 13px; line-height: 1.55; color: #52525b; }
+
+/* Vigilar */
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fca5a5; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fca5a5; font-weight: 600; }
+
+/* Score strip */
+.score-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0; margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.score-cell { background: var(--surface); padding: 14px 10px; text-align: center; border-right: 1px solid var(--border); }
+.score-cell:last-child { border-right: none; }
+.score-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 4px; }
+.score-value { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 700; }
+.score-sub { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+/* Footer */
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; margin-top: 32px; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .score-strip { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Inteligencia Competitiva</div>
+  <h1>Billeteras Digitales en Bolivia</h1>
+  <div class="masthead-date">Marzo 2026 &middot; Santa Cruz de la Sierra</div>
+  <div class="masthead-tag">An&aacute;lisis Comparativo</div>
+</div>
+
+<!-- RESUMEN EJECUTIVO -->
+<div class="card">
+  <h3>Resumen Ejecutivo</h3>
+  <p>El mercado boliviano de billeteras digitales se transform&oacute; radicalmente entre 2024 y 2026. Bolivia pas&oacute; de 20% a 45% de usuarios frecuentes de billeteras digitales en un solo a&ntilde;o (2023-2024), el mayor crecimiento de toda Latinoam&eacute;rica seg&uacute;n el &Iacute;ndice de Inclusi&oacute;n Financiera de Credicorp. Hoy operan al menos siete billeteras m&oacute;viles independientes, cada una respaldada por un banco regulado. Este informe analiza las seis principales: Yape (BCP), Altoke (BancoSol), Zas (Banco Econ&oacute;mico), Yasta (Banco Uni&oacute;n), Bille (BNB) y Yolo Pago (Banco Ganadero), m&aacute;s Tigo Money como referencia hist&oacute;rica.</p>
+</div>
+
+<!-- PANORAMA DE MERCADO -->
+<div class="divider"><span class="divider-text">Panorama de Mercado</span></div>
+
+<div class="score-strip">
+  <div class="score-cell">
+    <div class="score-label">Usuarios Yape</div>
+    <div class="score-value">3.7M+</div>
+    <div class="score-sub">L&iacute;der absoluto</div>
+  </div>
+  <div class="score-cell">
+    <div class="score-label">Comercios Yape</div>
+    <div class="score-value">1.7M</div>
+    <div class="score-sub">Afiliados</div>
+  </div>
+  <div class="score-cell">
+    <div class="score-label">Billeteras activas</div>
+    <div class="score-value">7+</div>
+    <div class="score-sub">En el mercado</div>
+  </div>
+  <div class="score-cell">
+    <div class="score-label">Crecimiento QR</div>
+    <div class="score-value">70%</div>
+    <div class="score-sub">De transferencias 2023</div>
+  </div>
+  <div class="score-cell">
+    <div class="score-label">Penetraci&oacute;n</div>
+    <div class="score-value">45%</div>
+    <div class="score-sub">Usuarios frecuentes 2024</div>
+  </div>
+  <div class="score-cell">
+    <div class="score-label">Meta Yape 2028</div>
+    <div class="score-value">6M</div>
+    <div class="score-sub">50% de Bolivia</div>
+  </div>
+</div>
+
+<div class="card">
+  <p>El valor de las transacciones con billeteras m&oacute;viles creci&oacute; 3.962% entre 2014 y 2023, de Bs 304 millones a Bs 12.349 millones. El n&uacute;mero de operaciones subi&oacute; 4.900%, de 2,1 millones a 105 millones. El 70% de las &oacute;rdenes electr&oacute;nicas de transferencia en 2023 se hicieron v&iacute;a QR. A pesar de este avance, el 100% de la poblaci&oacute;n a&uacute;n usa efectivo como m&eacute;todo primario de pago.</p>
+</div>
+
+<!-- TABLA COMPARATIVA PRINCIPAL -->
+<div class="divider"><span class="divider-text">Comparativa de Jugadores</span></div>
+
+<div class="table-scroll">
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Dimensi&oacute;n</th>
+      <th style="color:#ce93d8;">Yape</th>
+      <th style="color:#ffab91;">Altoke</th>
+      <th style="color:#90caf9;">Zas</th>
+      <th style="color:#a5d6a7;">Yasta</th>
+      <th style="color:#80cbc4;">Bille</th>
+      <th style="color:#ef9a9a;">Yolo Pago</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dim-label">Banco respaldo</td>
+      <td>BCP Bolivia (Credicorp)</td>
+      <td>BancoSol</td>
+      <td>Banco Econ&oacute;mico</td>
+      <td>Banco Uni&oacute;n (estatal)</td>
+      <td>BNB</td>
+      <td>Banco Ganadero</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Lanzamiento</td>
+      <td>2023</td>
+      <td>Mayo 2024</td>
+      <td>Junio 2025</td>
+      <td>Julio 2024</td>
+      <td>Julio 2024</td>
+      <td>2021-2022</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Usuarios estimados</td>
+      <td>3.7M+ (dic 2025)</td>
+      <td>~300K-500K est.</td>
+      <td>Reci&eacute;n lanzada</td>
+      <td>No revelado</td>
+      <td>No revelado</td>
+      <td>1.6M descargas</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Costo</td>
+      <td>100% gratis</td>
+      <td>Sin costo mantenimiento</td>
+      <td>Sin costo</td>
+      <td>100% gratis</td>
+      <td>Gratis</td>
+      <td>Gratis</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Requisito</td>
+      <td>CI + celular</td>
+      <td>CI + celular</td>
+      <td>CI + celular</td>
+      <td>CI boliviano</td>
+      <td>CI + prueba de vida</td>
+      <td>CI boliviano, +18</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Cuenta bancaria requerida</td>
+      <td>No</td>
+      <td>No (crea cuenta digital)</td>
+      <td>No (crea cuenta nueva)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ESTRATEGIA DE MARCA -->
+<div class="divider"><span class="divider-text">Estrategia de Marca</span></div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yape);"></span>
+    <span class="player-name">Yape</span>
+    <span class="player-bank">&mdash; BCP Bolivia</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> La billetera m&aacute;s usada de Bolivia. Heredera de la marca peruana con fuerte reconocimiento regional. Tono juvenil, inclusivo y aspiracional. Apunta a ser sin&oacute;nimo de pagos m&oacute;viles en Bolivia, igual que lo es en Per&uacute;.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Masivo. Desde jovenes urbanos hasta comerciantes informales y poblaci&oacute;n no bancarizada en zonas rurales.</p>
+  <p><strong>Narrativa:</strong> &ldquo;Con Yape, todo es posible.&rdquo; Fuerte vinculaci&oacute;n emocional con la selecci&oacute;n boliviana (patrocinio deportivo) y eventos culturales. Estrategia de marca basada en volumen, visibilidad y efecto de red.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--altoke);"></span>
+    <span class="player-name">Altoke</span>
+    <span class="player-bank">&mdash; BancoSol</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> &ldquo;100% boliviana, dise&ntilde;ada por y para bolivianos.&rdquo; Apela al orgullo nacional y a la identidad del comerciante boliviano. Evoca los mercados tradicionales y la cultura del intercambio.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Microempresarios, comerciantes de ferias y mercados, emprendedores de la base de la pir&aacute;mide. Fuerte foco en mujeres empresarias (programa Avanza Mujer de BancoSol).</p>
+  <p><strong>Narrativa:</strong> Valoriza el comercio boliviano y posiciona la billetera como un aliado del crecimiento del negocio, no solo como herramienta de pago. Tono cercano, comunitario, con lanzamientos en ferias y mercados.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--zas);"></span>
+    <span class="player-name">Zas</span>
+    <span class="player-bank">&mdash; Banco Econ&oacute;mico</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> El &uacute;ltimo entrante (junio 2025). Se diferencia con funcionalidades para gesti&oacute;n comercial: m&uacute;ltiples vendedores, QR visible sin abrir la app, reportes detallados. Tono moderno y orientado a eficiencia.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Comercios con varios vendedores, emprendedores que necesitan control financiero detallado, clientes existentes de Banco Econ&oacute;mico en Santa Cruz.</p>
+  <p><strong>Narrativa:</strong> &ldquo;Experiencia bancaria integral, &aacute;gil y segura para quienes mueven la econom&iacute;a desde sus negocios.&rdquo; Tono m&aacute;s corporativo y funcional que emocional.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yasta);"></span>
+    <span class="player-name">Yasta</span>
+    <span class="player-bank">&mdash; Banco Uni&oacute;n</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> &ldquo;La billetera de los bolivianos.&rdquo; Desarrollada &iacute;ntegramente por ingenieros bolivianos. Fuerte mensaje de inclusi&oacute;n financiera y soberan&iacute;a tecnol&oacute;gica, apalancando el respaldo del banco estatal m&aacute;s grande.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Poblaci&oacute;n no bancarizada, sectores populares, beneficiarios de programas estatales. Presencia en ferias departamentales (Expocruz, La Paz Expone, Riberalta).</p>
+  <p><strong>Narrativa:</strong> Orgullo nacional + inclusi&oacute;n. Alianza con SEGIP para pagos de c&eacute;dula de identidad y licencia de conducir como diferenciador &uacute;nico. Presencia f&iacute;sica en eventos con stands interactivos y promoci&oacute;n gamificada (Yastapesos).</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--bille);"></span>
+    <span class="player-name">Bille</span>
+    <span class="player-bank">&mdash; BNB</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> Extensi&oacute;n digital del segundo banco m&aacute;s grande de Bolivia. Sin una narrativa de marca diferenciada fuerte; se apoya en la confianza institucional del BNB. M&oacute;dulo &ldquo;Mi Negocio&rdquo; para vendedores.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Clientes actuales del BNB que buscan simplicidad, m&aacute;s nuevos usuarios sin cuenta bancaria.</p>
+  <p><strong>Narrativa:</strong> Funcional y conservadora. &ldquo;Haz m&aacute;s con tu dinero desde tu tel&eacute;fono.&rdquo; Menor inversi&oacute;n visible en marketing de marca comparado con competidores.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yolo);"></span>
+    <span class="player-name">Yolo Pago</span>
+    <span class="player-bank">&mdash; Banco Ganadero</span>
+  </div>
+  <p><strong>Posicionamiento:</strong> &ldquo;La billetera m&aacute;s simple de Bolivia.&rdquo; Primera billetera en Bolivia en recibir remesas internacionales directamente en el celular (alianza con Ria, entre otros). Fuerte en Santa Cruz con la base del Banco Ganadero.</p>
+  <p><strong>P&uacute;blico objetivo:</strong> Receptores de remesas (comunidad boliviana en Argentina, Chile, Espa&ntilde;a), comerciantes y usuarios urbanos que valoran simplicidad.</p>
+  <p><strong>Narrativa:</strong> Simplicidad extrema + remesas. Posicionamiento diferenciado en el corredor de remesas desde el Cono Sur.</p>
+</div>
+
+<!-- FUNCIONALIDADES -->
+<div class="divider"><span class="divider-text">Comparativa de Funcionalidades</span></div>
+
+<div class="table-scroll">
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Funcionalidad</th>
+      <th>Yape</th>
+      <th>Altoke</th>
+      <th>Zas</th>
+      <th>Yasta</th>
+      <th>Bille</th>
+      <th>Yolo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dim-label">Pagos QR</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Cobros QR offline</td>
+      <td>No</td>
+      <td>Si</td>
+      <td>Si (QR sin login)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Transferencias interbancarias</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si (hasta Bs 70K)</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Pago servicios b&aacute;sicos</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>En desarrollo</td>
+      <td>Si</td>
+      <td>Si</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Recarga celular</td>
+      <td>Si (Entel, Tigo)</td>
+      <td>Si</td>
+      <td>No confirmado</td>
+      <td>Si (Entel, Tigo, Viva)</td>
+      <td>Si (Entel, Viva, Tigo)</td>
+      <td>Si</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Retiro ATM sin tarjeta</td>
+      <td>Si (ATM BCP)</td>
+      <td>Si (ATM BancoSol)</td>
+      <td>Si (ATM Bco. Econ&oacute;mico)</td>
+      <td>Si (ATM Bco. Uni&oacute;n)</td>
+      <td>Si (ATM BNB)</td>
+      <td>Si (ATM Bco. Ganadero)</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Reporte ingresos/gastos</td>
+      <td>B&aacute;sico</td>
+      <td>Si (diario)</td>
+      <td>Si (diario/semanal/mensual)</td>
+      <td>B&aacute;sico</td>
+      <td>Si</td>
+      <td>Si</td>
+    </tr>
+    <tr>
+      <td class="dim-label">M&uacute;ltiples vendedores</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (diferenciador)</td>
+      <td>No</td>
+      <td>Si (Mi Negocio)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">M&uacute;ltiples cuentas</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (personal + negocio)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Recepci&oacute;n remesas</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (Ria y otros)</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Pago c&eacute;dula/licencia (SEGIP)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (exclusivo)</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Pasanaku digital</td>
+      <td>No</td>
+      <td>Si (exclusivo)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Env&iacute;o SMS a no usuarios</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (retiro ATM via SMS)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Ahorro con inter&eacute;s</td>
+      <td>No</td>
+      <td>Si (2% anual)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Cr&eacute;ditos</td>
+      <td>Planeado 2026</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Navegaci&oacute;n gratis (zero-rating)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si (con Entel)</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="dim-label">Verificaci&oacute;n biom&eacute;trica SEGIP</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Si</td>
+      <td>Prueba de vida</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- PUNTOS FISICOS -->
+<div class="divider"><span class="divider-text">Red de Puntos F&iacute;sicos</span></div>
+
+<div class="table-scroll">
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Billetera</th>
+      <th>Red de cash-in/cash-out</th>
+      <th>Ventaja competitiva</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dim-label" style="color:var(--yape);">Yape</td>
+      <td>Agentes BCP a nivel nacional + ATMs BCP. Red extensa en zonas urbanas y periurbanas. M&aacute;s de 500K negocios afiliados que funcionan como puntos de dep&oacute;sito.</td>
+      <td>La red de agentes m&aacute;s capilar del mercado. Presencia en tiendas de barrio, farmacias y ferreter&iacute;as a nivel nacional.</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--altoke);">Altoke</td>
+      <td>Agencias BancoSol + ATMs BancoSol + Sol Amigo + Sol Amigo Express (corresponsales).</td>
+      <td>BancoSol tiene la red de microfinanzas m&aacute;s densa del pa&iacute;s, con fuerte presencia en mercados populares y zonas periurbanas. Equipo de promotores en 8 ciudades.</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--zas);">Zas</td>
+      <td>ATMs y agencias del Banco Econ&oacute;mico. Dep&oacute;sitos directos en cajeros de dep&oacute;sito.</td>
+      <td>Red concentrada en Santa Cruz y eje troncal. Menor cobertura rural que competidores.</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--yasta);">Yasta</td>
+      <td>ATMs Banco Uni&oacute;n (red m&aacute;s amplia del pa&iacute;s, urbana y rural). Corresponsales no financieros.</td>
+      <td>Banco Uni&oacute;n tiene la red de ATMs m&aacute;s extensa de Bolivia, incluyendo zonas rurales donde otros bancos no llegan. Ventaja cr&iacute;tica para inclusi&oacute;n.</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--bille);">Bille</td>
+      <td>100+ agencias BNB + 250+ ATMs + BNB Express (oficinas externas) + Corresponsales no financieros.</td>
+      <td>Segundo banco m&aacute;s grande. Buena cobertura en ciudades principales, menor en zonas rurales comparado con Banco Uni&oacute;n.</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--yolo);">Yolo Pago</td>
+      <td>ATMs Banco Ganadero + 600+ Puntos Yolo (corresponsales). Dep&oacute;sito en cajeros autom&aacute;ticos.</td>
+      <td>Red de Puntos Yolo expandida en el oriente boliviano. Fuerte en Santa Cruz, Cochabamba y ciudades intermedias.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ESTRATEGIA DIGITAL -->
+<div class="divider"><span class="divider-text">Estrategia Digital</span></div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yape);"></span>
+    <span class="player-name">Yape</span>
+  </div>
+  <p><strong>App:</strong> Disponible en Android y iOS. UX pulida heredada de la experiencia peruana. Canal WhatsApp oficial (+591 72007654) para soporte. Registro 100% digital con CI.</p>
+  <p><strong>Redes sociales:</strong> @yapebolivia con alta actividad en TikTok, Instagram y Facebook. Contenido de marca ligado a selecci&oacute;n boliviana, eventos culturales y tendencias locales. Alta presencia org&aacute;nica en redes.</p>
+  <p><strong>Estrategia:</strong> Marketing de volumen + efecto de red. Campan&ntilde;as de referidos, presencia en eventos masivos, patrocinios deportivos. La marca m&aacute;s reconocida del segmento con ventaja significativa en share of voice digital.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--altoke);"></span>
+    <span class="player-name">Altoke</span>
+  </div>
+  <p><strong>App:</strong> Android e iOS. Rating 2.9 en App Store (125 calificaciones). Reportes de intermitencias seg&uacute;n reviews. Onboarding en menos de 10 minutos.</p>
+  <p><strong>Redes sociales:</strong> Menor presencia org&aacute;nica que Yape. Estrategia basada en influencers locales y contenido en TikTok (Adrian Aramayo, entre otros). Lanzamientos experienciales en ferias (Fexpocruz, Chuquiago Marka).</p>
+  <p><strong>Estrategia:</strong> Marketing relacional + fuerza de calle. Equipo de promotores capacitados en 8 ciudades. Menor inversi&oacute;n digital, mayor foco en campo y adopci&oacute;n presencial en mercados.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--zas);"></span>
+    <span class="player-name">Zas</span>
+  </div>
+  <p><strong>App:</strong> Android e iOS. Lanzada junio 2025. A&uacute;n en fase de adopci&oacute;n temprana. Diferenciador t&eacute;cnico: QR de cobro editable sin iniciar sesi&oacute;n.</p>
+  <p><strong>Redes sociales:</strong> Estrategia digital incipiente. Comunicaci&oacute;n centrada en el ecosistema digital del Banco Econ&oacute;mico. Menor visibilidad en redes comparado con Yape y Altoke.</p>
+  <p><strong>Estrategia:</strong> Enfoque en funcionalidades para comercios como diferenciador. Apuesta por conversi&oacute;n de base existente de clientes Banco Econ&oacute;mico. Posicionamiento t&eacute;cnico sobre emocional.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yasta);"></span>
+    <span class="player-name">Yasta</span>
+  </div>
+  <p><strong>App:</strong> Android e iOS. Fuerte inversi&oacute;n en UX de seguridad (biometr&iacute;a SEGIP). Navegaci&oacute;n gratis para usuarios Entel (zero-rating), eliminando barrera de datos m&oacute;viles.</p>
+  <p><strong>Redes sociales:</strong> Presencia en ferias departamentales con stands interactivos y gamificaci&oacute;n (cabina de Yastapesos). Activaciones en Expocruz 2024 con alta visibilidad.</p>
+  <p><strong>Estrategia:</strong> Alianzas estrat&eacute;gicas institucionales (SEGIP, Entel) + presencia f&iacute;sica en eventos. Menor sofisticaci&oacute;n en marketing digital pero fuerte en canal presencial y captaci&oacute;n estatal.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--bille);"></span>
+    <span class="player-name">Bille</span>
+  </div>
+  <p><strong>App:</strong> Android e iOS (v1.1.5, mayo 2025). M&oacute;dulo &ldquo;Mi Negocio&rdquo; para vendedores. Pocas calificaciones en tiendas de apps. Registro con c&eacute;dula + prueba de vida.</p>
+  <p><strong>Estrategia:</strong> Bajo perfil en marketing digital. Dependiente de la marca paraguas BNB. Sin campa&ntilde;as agresivas de adquisici&oacute;n visibles. Apuesta conservadora por conversi&oacute;n de base bancaria existente.</p>
+</div>
+
+<div class="card">
+  <div class="player-badge">
+    <span class="player-dot" style="background:var(--yolo);"></span>
+    <span class="player-name">Yolo Pago</span>
+  </div>
+  <p><strong>App:</strong> Android (1.6M descargas, 67K/mes) e iOS. Rating 3.16 en Google Play. La billetera con m&aacute;s tiempo en el mercado despu&eacute;s de Tigo Money.</p>
+  <p><strong>Redes sociales:</strong> 11.6K seguidores en Facebook. Presencia en TikTok con contenido de remesas. Cobertura medi&aacute;tica en Unitel para la funcionalidad de remesas.</p>
+  <p><strong>Estrategia:</strong> Nicho espec&iacute;fico en remesas como driver de adquisici&oacute;n. Alianza con Ria Money Transfer para recepci&oacute;n directa. Marketing centrado en comunidad boliviana en el exterior.</p>
+</div>
+
+<!-- PROPUESTA DE VALOR -->
+<div class="divider"><span class="divider-text">Propuesta de Valor Diferenciada</span></div>
+
+<div class="table-scroll">
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Billetera</th>
+      <th>Diferenciador clave</th>
+      <th>Propuesta de valor en una frase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dim-label" style="color:var(--yape);">Yape</td>
+      <td>Efecto de red + escala + roadmap a cr&eacute;ditos. 3.7M usuarios crean un ecosistema dif&iacute;cil de replicar. Cr&eacute;ditos digitales en 2026.</td>
+      <td>&ldquo;Donde todos ya est&aacute;n. Si tu vecino, tu casera y tu taxista usan Yape, t&uacute; tambi&eacute;n.&rdquo;</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--altoke);">Altoke</td>
+      <td>ADN microfinanzas + Pasanaku digital + ahorro al 2%. Conocimiento profundo del microempresario boliviano. Red Sol Amigo en mercados.</td>
+      <td>&ldquo;El aliado digital que entiende tu negocio porque BancoSol ya te conoce.&rdquo;</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--zas);">Zas</td>
+      <td>Gesti&oacute;n comercial avanzada: m&uacute;ltiples vendedores, m&uacute;ltiples cuentas, QR sin login, reportes granulares, env&iacute;o de dinero v&iacute;a SMS.</td>
+      <td>&ldquo;La billetera que piensa como un comerciante con varios vendedores y sucursales.&rdquo;</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--yasta);">Yasta</td>
+      <td>Alianza SEGIP + zero-rating Entel + biometr&iacute;a validada + red ATM m&aacute;s amplia (Banco Uni&oacute;n). Pago de c&eacute;dula/licencia exclusivo.</td>
+      <td>&ldquo;La billetera del Estado que te deja pagar tu carnet y sacar plata en cualquier pueblo.&rdquo;</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--bille);">Bille</td>
+      <td>Respaldo del BNB (segundo banco m&aacute;s grande) + m&oacute;dulo Mi Negocio para vendedores. Sin diferenciador &uacute;nico fuerte vs. competidores.</td>
+      <td>&ldquo;La billetera segura del banco que ya conoces, con lo b&aacute;sico bien hecho.&rdquo;</td>
+    </tr>
+    <tr>
+      <td class="dim-label" style="color:var(--yolo);">Yolo Pago</td>
+      <td>&Uacute;nica billetera con recepci&oacute;n de remesas internacionales directas (Ria). Operativa 24/7 para cobro de giros.</td>
+      <td>&ldquo;Tu familia te manda plata desde Argentina o Chile y la cobras al instante en tu celular.&rdquo;</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ANALISIS ESTRATEGICO -->
+<div class="divider"><span class="divider-text">An&aacute;lisis Estrat&eacute;gico</span></div>
+
+<div class="card">
+  <h3>Ventaja competitiva de Yape</h3>
+  <p>Yape tiene una ventaja estructural que se amplifica con cada nuevo usuario: el efecto de red. Con 3.7M de usuarios y 1.7M de comercios, la propuesta de valor no es ya la funcionalidad (que todos comparten) sino la ubicuidad. El roadmap hacia cr&eacute;ditos digitales en 2026 a&ntilde;ade una capa de monetizaci&oacute;n y fidelizaci&oacute;n que ning&uacute;n competidor ha anunciado. La meta de 5.5M de usuarios en 2026 y 6M en 2028 (50% de la poblaci&oacute;n) posicionar&iacute;a a Yape como infraestructura financiera de facto del pa&iacute;s.</p>
+  <div class="insight-box">
+    <div class="insight-label">Implicancia estrat&eacute;gica</div>
+    <p>Los competidores no pueden ganar en escala. Deben competir en nichos espec&iacute;ficos (remesas, microfinanzas, gesti&oacute;n comercial, servicios estatales) o arriesgar ser commoditizados como &ldquo;la otra billetera que tambi&eacute;n tiene QR.&rdquo;</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Amenazas y oportunidades para Yape</h3>
+  <ul>
+    <li><strong>Altoke:</strong> Amenaza real en el segmento micro. BancoSol conoce al microempresario boliviano mejor que cualquier otro banco. El pasanaku digital y el ahorro con inter&eacute;s son funcionalidades culturalmente relevantes. Si Altoke ejecuta bien, puede defender su base de clientes BancoSol.</li>
+    <li><strong>Zas:</strong> Amenaza baja a corto plazo (lanzamiento reciente) pero la funcionalidad de m&uacute;ltiples vendedores es un pain point real de comercios medianos. Si Zas captura el nicho de comercios con 3+ vendedores, es dif&iacute;cil de revertir.</li>
+    <li><strong>Yasta:</strong> Amenaza institucional. La alianza SEGIP + Entel (zero-rating) + red ATM Banco Uni&oacute;n crea una combinaci&oacute;n que ning&uacute;n privado puede replicar. Si el gobierno impulsa pagos de bonos sociales v&iacute;a Yasta, podr&iacute;a ganar millones de usuarios cautivos.</li>
+    <li><strong>Yolo Pago:</strong> Amenaza de nicho en remesas. Con 1.6M de descargas y alianza con Ria, tiene el corredor Bolivia-Argentina/Chile bien cubierto. Potencial de expansi&oacute;n si suma m&aacute;s corredores de remesas.</li>
+    <li><strong>Bille:</strong> Amenaza baja. Sin diferenciador claro ni estrategia de adquisici&oacute;n agresiva. Dependiente de la inercia de la base BNB.</li>
+  </ul>
+</div>
+
+<!-- QUE VIGILAR -->
+<div class="vigilar">
+  <div class="vigilar-header">Puntos cr&iacute;ticos a vigilar</div>
+  <div class="vigilar-item">Lanzamiento de cr&eacute;ditos digitales de Yape (previsto mediados 2026): si se ejecuta bien, profundiza el moat competitivo de forma significativa.</div>
+  <div class="vigilar-item">Expansi&oacute;n de Yasta como canal de pago de bonos estatales y servicios SEGIP: podr&iacute;a crear una base cautiva masiva con apalancamiento estatal.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del rating de apps (Altoke 2.9, Yolo 3.16): problemas t&eacute;cnicos persistentes debilitan retenci&oacute;n y abren oportunidad para Yape de capturar usuarios insatisfechos.</div>
+  <div class="vigilar-item">Regulaci&oacute;n de l&iacute;mites transaccionales e interoperabilidad: cambios regulatorios de ASFI o BCB podr&iacute;an nivelar o alterar din&aacute;micas competitivas.</div>
+  <div class="vigilar-item">Tigo Money: el jugador hist&oacute;rico (99.9% del mercado pre-2023) sigue operando. Su base heredada y cobro de comisiones podr&iacute;an ser un ancla negativa o un activo por capturar.</div>
+  <div class="vigilar-item">Funcionalidad de pasanaku digital de Altoke: si escala, valida un modelo culturalmente &uacute;nico que Yape no puede copiar sin riesgo reputacional.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>An&aacute;lisis Competitivo &mdash; Billeteras Digitales Bolivia</strong><br>
+  Preparado para Country Head, Yape Bolivia &middot; Marzo 2026<br>
+  Fuentes: Latam Fintech Hub, Credicorp IIF 2024-2025, ASFI, ACCL, app stores, comunicados de prensa de BancoSol, Banco Econ&oacute;mico, Banco Uni&oacute;n, BNB, Banco Ganadero<br>
+  apps.lepesqueur.net/dailynews
+</div>
+
+</body>
+</html>
