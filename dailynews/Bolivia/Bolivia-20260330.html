@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 30 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Domingo 30 de marzo de 2026 · La Paz</div>
+  <span class="masthead-tag">Edici&oacute;n Diaria</span>
+</header>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<article class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Paz anuncia paquete de cinco leyes estrat&eacute;gicas y refuerza agenda anticorrupci&oacute;n</h3>
+    <p>El presidente Rodrigo Paz confirm&oacute; durante el Domingo de Ramos que esta semana arrancar&aacute; la socializaci&oacute;n de cinco leyes prioritarias: hidrocarburos, energ&iacute;a, miner&iacute;a, inversiones y evapor&iacute;ticos (litio). El ministro de la Presidencia, Jos&eacute; Luis Lupo, dijo que el Ejecutivo trabajar&aacute; &ldquo;ley por ley&rdquo; con la Asamblea Legislativa, sectores sociales y gremiales. Paz tambi&eacute;n reforzó su discurso anticorrupci&oacute;n y adelant&oacute; el plan de distribuci&oacute;n de recursos 50/50 entre el Estado central y las entidades territoriales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Estas cinco leyes definen el marco para atraer inversi&oacute;n extranjera en sectores cr&iacute;ticos como litio e hidrocarburos. Su aprobaci&oacute;n en abril marcar&iacute;a un giro hist&oacute;rico en la pol&iacute;tica econ&oacute;mica boliviana y podr&iacute;a impactar directamente la disponibilidad de divisas y la reactivaci&oacute;n productiva.
+    </div>
+    <span class="source-link"><a href="https://www.aygun.com.bo/rodrigo-paz-anuncia-leyes-anticorrupcion-bolivia/">Ayg&uuml;n</a> · <a href="https://www.ebnoticias.com/paz-anuncia-medidas-contra-la-corrupcion-y-nuevos-paquetes-de-leyes-para-reactivar-la-economia/">EB Noticias</a> · <a href="https://lapatria.bo/enfoque-nacional/rodrigo-paz-anuncia-paquete-de-leyes-para-bolivia/">La Patria</a></span>
+  </div>
+</article>
+
+<article class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Bolivia enfrenta a Irak en la final del repechaje por el &uacute;ltimo cupo al Mundial 2026</h3>
+    <p>La selecci&oacute;n boliviana se juega el pase al Mundial en el Estadio BBVA de Monterrey este 31 de marzo contra Irak. Bolivia, que no disputa una Copa del Mundo desde Estados Unidos 1994, lleg&oacute; tras vencer 2-1 a Surinam en semifinales con una remontada en los &uacute;ltimos 20 minutos. De clasificarse, integrar&aacute; el Grupo I junto a Francia, Senegal y Noruega. Centenares de hinchas realizaron un banderazo frente al hotel de la selecci&oacute;n en Monterrey.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Una clasificaci&oacute;n mundialista tras 32 a&ntilde;os tendr&iacute;a un impacto an&iacute;mico y econ&oacute;mico enorme: aumento del consumo, visibilidad internacional y cohesi&oacute;n social en un momento de transici&oacute;n pol&iacute;tica. El partido domina la agenda p&uacute;blica del pa&iacute;s.
+    </div>
+    <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/30/deportes/bolivia-iraq-repechaje-mundial-2026-orix">CNN</a> · <a href="https://www.infobae.com/peru/deportes/2026/03/30/a-que-hora-juega-bolivia-vs-irak-partido-estadio-bbva-monterrey-final-repechaje-mundial-2026-horario/">Infobae</a> · <a href="https://espndeportes.espn.com/futbol/nota/_/id/16494815/bolivia-vs-irak-repechaje-mundial-2026-equipo-fecha-hora-y-tv-en-vivo">ESPN</a></span>
+  </div>
+</article>
+
+<article class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>C&oacute;mputos oficiales confirman segundas vueltas en La Paz, Santa Cruz y Tarija</h3>
+    <p>Tras las elecciones subnacionales del 22 de marzo, los c&oacute;mputos oficiales definieron el mapa pol&iacute;tico departamental. En La Paz, Luis Revilla (Patria Sol) y Ren&eacute; Yahuasi (NGP) ir&aacute;n a segunda vuelta el 19 de abril. En Santa Cruz, con el 99,71% del escrutinio, Juan Pablo Velasco (Libre, 28,37%) y Otto Ritter (Santa Cruz Para Todos, 27,02%) tambi&eacute;n disputar&aacute;n balotaje. En Tarija se confirm&oacute; la segunda vuelta entre Adri&aacute;n Oliva y Mar&iacute;a Ren&eacute; Soruco.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Tres de los nueve departamentos a&uacute;n no tienen gobernador definido. Los resultados de abril determinar&aacute;n la correlaci&oacute;n de fuerzas entre el gobierno central y los territorios, y la viabilidad del plan 50/50 de distribuci&oacute;n de recursos anunciado por Paz.
+    </div>
+    <span class="source-link"><a href="https://abi.bo/concluye-el-computo-en-la-paz-revilla-y-yahuasi-van-a-segunda-vuelta-por-la-gobernacion/">ABI</a> · <a href="https://www.urgente.bo/noticia/ocho-dias-despues-del-voto-el-oep-no-termino-con-el-computo-en-santa-cruz">Urgente</a> · <a href="https://abi.bo/tarija-concluye-el-computo-oficial-y-confirma-segunda-vuelta-por-la-gobernacion-entre-oliva-y-soruco/">ABI</a></span>
+  </div>
+</article>
+
+<article class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Gabriela de Paiva hace historia como primera gobernadora electa de Bolivia</h3>
+    <p>El c&oacute;mputo oficial en Pando confirm&oacute; a Gabriela de Paiva Padilla (Libre Pando) como gobernadora con el 46,93% de los votos (22.659 sufragios), convirti&eacute;ndose en la primera mujer electa gobernadora por voto popular en la historia del pa&iacute;s. Ingeniera electromec&aacute;nica de 32 a&ntilde;os, De Paiva ha declarado como prioridades la electrificaci&oacute;n del departamento y la conectividad vial.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Un hito de representaci&oacute;n pol&iacute;tica que marca un giro generacional y de g&eacute;nero en la pol&iacute;tica subnacional. Su agenda de electrificaci&oacute;n y conectividad en Pando podr&iacute;a abrir oportunidades para empresas de infraestructura y energ&iacute;a.
+    </div>
+    <span class="source-link"><a href="https://abi.bo/pando-concluye-el-computo-oficial-y-elige-a-gabrila-de-paiva-como-su-gobernadora/">ABI</a> · <a href="https://www.opinion.com.bo/articulo/pais/primera-gobernadora-historia-bolivia-quien-es-gabriela-paiva-padilla/20260323200527990540.html">Opini&oacute;n</a> · <a href="https://www.urgente.bo/noticia/gabriela-de-paiva-la-gobernadora-multifacetica-cuya-prioridad-es-la-electrificacion-en-pando">Urgente</a></span>
+  </div>
+</article>
+
+<article class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Reservas internacionales bajo presi&oacute;n: BCB reconoce insuficiencia para cubrir egresos de 2026</h3>
+    <p>Seg&uacute;n el seguimiento al Programa Monetario del BCB, las Reservas Internacionales Netas (RIN) siguen en descenso pese a una leve mejor&iacute;a en los primeros meses del gobierno de Paz. Los egresos proyectados para 2026 ascienden a USD 7.547 millones, monto que supera la capacidad actual de las reservas. El pago de deuda externa y los subsidios a importaciones de hidrocarburos son los principales factores de drenaje.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La insuficiencia de reservas condiciona la pol&iacute;tica cambiaria y la capacidad del Estado para sostener el d&oacute;lar referencial. Es la variable macro m&aacute;s cr&iacute;tica para la estabilidad financiera y afecta directamente la brecha cambiaria y el costo de importaciones.
+    </div>
+    <span class="source-link"><a href="https://www.bcb.gob.bo/?q=content/seguimiento-al-programa-monetario-2026-febrero">BCB</a> · <a href="https://www.solidariatvbolivia.com/2026/03/27/las-reservas-internacionales-de-bolivia-registran-un-descenso-tras-el-cumplimiento-de-obligaciones-externas/">Solidaria TV</a></span>
+  </div>
+</article>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<article class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Loza confirmado ganador en Cochabamba; nuevos rostros marcan giro pol&iacute;tico post-subnacionales</h3>
+  <p>El c&oacute;mputo oficial confirm&oacute; a Leonardo Loza (A-UPP) como gobernador de Cochabamba con 426.593 votos (40,43%). Los analistas destacan que las subnacionales 2026 trajeron una renovaci&oacute;n generacional significativa y una fragmentaci&oacute;n del voto que obligar&aacute; al gobierno central a gobernar con pactos y concertaci&oacute;n territorial.</p>
+  <span class="source-link"><a href="https://abi.bo/computo-oficial-confirma-a-loza-como-ganador-de-las-elecciones-en-cochabamba/">ABI</a> · <a href="https://www.eldiario.net/portal/2026/03/30/nuevo-escenario-politico-permitira-gobernar-con-pactos-y-concertacion/">El Diario</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno inicia socializaci&oacute;n de leyes prioritarias con la ALP y sectores sociales</h3>
+  <p>El ministro de la Presidencia, Jos&eacute; Luis Lupo, anunci&oacute; que esta semana arranca la socializaci&oacute;n simult&aacute;nea de las leyes de hidrocarburos, energ&iacute;a, miner&iacute;a, inversiones y evapor&iacute;ticos. El proceso incluir&aacute; a la Asamblea Legislativa, gremios empresariales y organizaciones de la sociedad civil, con el objetivo de llevar las leyes a debate legislativo en abril.</p>
+  <span class="source-link"><a href="https://www.aygun.com.bo/socializacion-leyes-bolivia-gobierno/">Ayg&uuml;n</a> · <a href="https://americaeconomica.com/noticia/bolivia/bolivia-acelera-cinco-leyes-clave-para-reactivar-la-economia-y-abrir-el-litio-a-la-inversion.html">Am&eacute;rica Econ&oacute;mica</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar paralelo se estabiliza cerca de Bs 9,30; BCB publica referencial diario</h3>
+  <p>El d&oacute;lar paralelo cerr&oacute; el domingo cotiz&aacute;ndose en torno a Bs 9,29-9,32 seg&uacute;n diversas fuentes de mercado. El BCB contin&uacute;a publicando el valor referencial diario basado en operaciones reales de las entidades financieras, en el marco del nuevo r&eacute;gimen cambiario vigente desde diciembre 2025. La brecha con el tipo oficial (Bs 6,96) sigue siendo amplia.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/30/cotizacion-del-dolar-hoy-30-de-marzo-de-2026/">ATB</a> · <a href="https://bolivianblue.net/en">BolivianBlue</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Debate sobre concentraci&oacute;n de oro en las RIN del BCB</h3>
+  <p>Analistas plantean la necesidad de diversificar la composici&oacute;n de las Reservas Internacionales Netas, actualmente con alta concentraci&oacute;n en oro. La discusi&oacute;n cobra relevancia en un contexto donde el BCB busca fortalecer las reservas como objetivo central del Programa Monetario 2026, mientras mantiene una pol&iacute;tica monetaria contractiva para contener la inflaci&oacute;n.</p>
+  <span class="source-link"><a href="https://www.noticiasfides.com/opinion/disminuir-concentracion-de-oro-de-reservas-internacionales-netas-del-bcb__30-03-2026">ANF</a> · <a href="https://www.bcb.gob.bo/?q=content/seguimiento-al-programa-monetario-2026-febrero">BCB</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Apertura del litio a inversi&oacute;n privada: eje central de la ley de evapor&iacute;ticos</h3>
+  <p>Dentro del paquete legislativo anunciado por el gobierno, la nueva ley de evapor&iacute;ticos busca abrir la explotaci&oacute;n e industrializaci&oacute;n del litio a la inversi&oacute;n extranjera. El presidente Paz declar&oacute; que &ldquo;hacer plata no es pecado&rdquo;, marcando un giro discursivo respecto a administraciones anteriores. El litio boliviano, concentrado en el salar de Uyuni, sigue siendo uno de los mayores dep&oacute;sitos del mundo sin explotaci&oacute;n comercial a escala.</p>
+  <span class="source-link"><a href="https://americaeconomica.com/noticia/bolivia/bolivia-acelera-cinco-leyes-clave-para-reactivar-la-economia-y-abrir-el-litio-a-la-inversion.html">Am&eacute;rica Econ&oacute;mica</a> · <a href="https://www.atb.com.bo/2026/03/29/rodrigo-paz-detalla-ejes-de-paquete-de-leyes-enfocado-en-inversion-y-medio-ambiente/">ATB</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Divisi&oacute;n Profesional arrancar&aacute; el 5 de abril con formato todos contra todos</h3>
+  <p>El Consejo de la Divisi&oacute;n Profesional aprob&oacute; el calendario oficial: la Liga 2026 inicia el 5 de abril con 30 fechas (ida y vuelta). En el segundo semestre se disputar&aacute; la Copa con 16 equipos en formato de grupos y eliminaci&oacute;n directa. Bolivia tendr&aacute; cuatro cupos para la Copa Libertadores 2027. El Torneo de Verano, que se disput&oacute; entre enero y marzo, ya concluy&oacute;.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/03/23/la-division-profesional-define-su-temporada-2026-con-dos-torneos/">ATB</a> · <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+</article>
+
+<article class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Fiebre mundialista une al pa&iacute;s: banderazo masivo en Monterrey</h3>
+  <p>Miles de bolivianos en M&eacute;xico y en las principales ciudades del pa&iacute;s vivieron la v&iacute;spera de la final del repechaje con expectativa hist&oacute;rica. En Monterrey, centenares de hinchas realizaron un banderazo frente al hotel Marriott donde se hospeda la selecci&oacute;n. La cobertura medi&aacute;tica acapara la agenda informativa del pa&iacute;s.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/03/30/deportes/bolivia-iraq-repechaje-mundial-2026-orix">CNN</a> · <a href="https://www.infobae.com/deportes/2026/03/31/bolivia-jugara-el-repechaje-ante-irak-en-buscara-volver-a-jugar-un-mundial-luego-de-32-anos-hora-tv-y-todo-lo-que-hay-que-saber/">Infobae</a></span>
+</article>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Referencial BCB</div>
+    <div class="data-cell-value">9.30</div>
+    <div class="data-cell-delta">Bs compra/venta</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">9.32</div>
+    <div class="data-cell-delta red">compra · 9.29 venta</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha vs Oficial</div>
+    <div class="data-cell-value">~34%</div>
+    <div class="data-cell-delta red">Oficial: Bs 6.96</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Resultado Bolivia vs. Irak en Monterrey (31 de marzo, 21:00 hora local): una clasificaci&oacute;n al Mundial transformar&iacute;a el &aacute;nimo nacional y podr&iacute;a dar impulso pol&iacute;tico al gobierno de Paz.</div>
+  <div class="vigilar-item">Inicio de la socializaci&oacute;n de las cinco leyes estrat&eacute;gicas con la ALP y sectores productivos: la recepci&oacute;n del sector privado y los movimientos sociales definir&aacute; la velocidad legislativa.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del d&oacute;lar paralelo durante la semana: cualquier se&ntilde;al de volatilidad podr&iacute;a presionar al BCB a intervenir con mayor agresividad en el mercado referencial.</div>
+  <div class="vigilar-item">Preparativos para las segundas vueltas del 19 de abril en La Paz, Santa Cruz y Tarija: alianzas y negociaciones definir&aacute;n la gobernabilidad territorial del pr&oacute;ximo quinquenio.</div>
+</div>
+
+<footer class="footer">
+  Fuentes: ABI · ATB · CNN · El Diario · ESPN · Infobae · ANF · Opini&oacute;n · Urgente · BCB · La Patria · Am&eacute;rica Econ&oacute;mica · FBF · BolivianBlue<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</body>
+</html>
