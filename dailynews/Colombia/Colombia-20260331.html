@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 31 marzo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Martes 31 de marzo de 2026 · Bogot&aacute;</div>
+  <span class="masthead-tag">Edici&oacute;n Diaria</span>
+</header>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Banco de la Rep&uacute;blica sube tasa a 11,25% y desata crisis con el Gobierno</h3>
+    <p>La Junta Directiva del Banco de la Rep&uacute;blica decidi&oacute; por mayor&iacute;a incrementar en 100 puntos b&aacute;sicos la tasa de inter&eacute;s de pol&iacute;tica monetaria, llev&aacute;ndola al 11,25%. Cuatro directores votaron a favor, dos por una reducci&oacute;n de 50 pb y uno por mantenerla. La decisi&oacute;n responde a la persistencia de la inflaci&oacute;n b&aacute;sica y expectativas inflacionarias elevadas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El alza de 100 pb encarece el cr&eacute;dito de consumo, hipotecario y empresarial en un contexto de crecimiento d&eacute;bil (1,5% en enero). La ruptura institucional entre Gobierno y banco central eleva la percepci&oacute;n de riesgo pa&iacute;s y puede afectar la calificaci&oacute;n soberana.
+    </div>
+    <span class="source-link"><a href="https://www.banrep.gov.co/es/noticias/junta-directiva-marzo-2026">Banco de la Rep&uacute;blica</a> · <a href="https://www.bloomberg.com/news/articles/2026-03-31/colombia-sube-tasa-de-interes-a-11-25-y-escala-tension-con-petro">Bloomberg</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Petro retira al Gobierno de la junta del BanRep y propone reformar su gobernanza</h3>
+    <p>El presidente Gustavo Petro anunci&oacute; que el Gobierno se retira de las sesiones de la Junta Directiva del Banco de la Rep&uacute;blica. El ministro de Hacienda, Germ&aacute;n &Aacute;vila, calific&oacute; la decisi&oacute;n de &ldquo;irresponsable&rdquo; y confirm&oacute; que no participar&aacute; en pr&oacute;ximas reuniones. El Ejecutivo buscar&aacute; modificar el mecanismo constitucional de fijaci&oacute;n de tasas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La propuesta de reformar la autonom&iacute;a del banco central toca un pilar de la estabilidad macroecon&oacute;mica colombiana. Candidatos presidenciales de todos los espectros rechazaron la medida, vinculando el conflicto al debate sobre la constituyente que promueve el petrismo.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/gustavo-petro-anuncia-que-el-gobierno-se-retira-de-la-junta-del-banco-de-la-republica-envio-fuerte-mensaje/202616/">Semana</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-reaccionan-a-la-ruptura-del-presidente-gustavo-petro-con-el-banco-de-la-republica-para-eso-quiere-la-constituyente-3544523">El Tiempo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Petr&oacute;leo Brent se dispara a USD 118 por conflicto en Ir&aacute;n</h3>
+    <p>El barril de Brent subi&oacute; 4,9% en la jornada hasta tocar USD 118,45, su nivel m&aacute;s alto desde 2022. En marzo, el crudo pas&oacute; de USD 72 a m&aacute;s de USD 116, un alza superior al 50% que constituye el mayor incremento mensual en la historia del referencial, impulsado por la escalada del conflicto en Ir&aacute;n.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El petr&oacute;leo caro mejora los ingresos fiscales y las regal&iacute;as de Colombia en el corto plazo, pero presiona al alza los costos de combustibles dom&eacute;sticos y ampl&iacute;a el d&eacute;ficit del Fondo de Estabilizaci&oacute;n de Precios de los Combustibles (FEPC), alimentando la inflaci&oacute;n.
+    </div>
+    <span class="source-link"><a href="https://www.elpais.com.co/economia/precio-del-petroleo-sigue-escalando-que-pasa-con-el-dolar-este-31-de-marzo-de-2026-3130.html">El Pa&iacute;s</a> · <a href="https://www.elcolombiano.com/negocios/petroleo-brent-precio-conflicto-iran-2026-impacto-colombia-IN34820686">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Peso colombiano lidera revaluaci&oacute;n en Latinoam&eacute;rica en marzo</h3>
+    <p>El peso colombiano cerr&oacute; marzo con una apreciaci&oacute;n de 2,31% frente al d&oacute;lar, la mayor entre las monedas latinoamericanas. La TRM del 31 de marzo fue de $3.669,96 y el d&oacute;lar cerr&oacute; en promedio a $3.659,92, una ca&iacute;da de $10,04. El fortalecimiento se debi&oacute; al repunte del petr&oacute;leo y mayores ventas de divisas, que compensaron el deterioro del entorno pol&iacute;tico.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Un peso m&aacute;s fuerte abarata importaciones y servicio de deuda externa, pero la mejora cambiaria est&aacute; atada al choque petrolero externo, no a fundamentos internos. Si el conflicto ir&aacute;ni se desescala, el peso podr&iacute;a revertir las ganancias r&aacute;pidamente.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/el-peso-colombiano-lidero-la-revaluacion-de-las-monedas-latinoamericanas-frente-al-dolar-en-marzo-de-2026-a-que-se-debio/">Infobae</a> · <a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-en-el-cierre-de-hoy-31-de-marzo-de-2026-1007593">RCN</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Producci&oacute;n de petr&oacute;leo y gas cae en lo corrido de 2026; importaciones de gas al 23%</h3>
+    <p>El Gobierno revel&oacute; que la producci&oacute;n promedio de crudo en 2026 es de 740.684 barriles diarios, frente a 762.675 en igual periodo de 2025. En gas, la producci&oacute;n de febrero cay&oacute; 2,35% mensual y 9,82% interanual en el bimestre. Las importaciones de gas natural ya representan el 22,82% del consumo nacional.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Colombia no logra capitalizar los precios altos del crudo por la ca&iacute;da de producci&oacute;n. La creciente dependencia de gas importado eleva costos energ&eacute;ticos industriales y vulnera la seguridad energ&eacute;tica del pa&iacute;s en un contexto geopol&iacute;tico vol&aacute;til.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/31/gobierno-petro-revelo-como-esta-la-produccion-de-petroleo-y-gas-en-colombia-en-2026-el-balance-es-negativo-frente-a-2025/">Infobae</a> · <a href="https://www.valoraanalitik.com/produccion-de-petroleo-y-gas-en-colombia-cae-en-lo-corrido-de-2026-crecen-importaciones/">Valora Anal&iacute;tik</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Carrera presidencial: Cepeda lidera, Valencia y De la Espriella en empate t&eacute;cnico</h3>
+  <p>A dos meses de la primera vuelta del 31 de mayo, la encuesta Guarumo-Ecoanal&iacute;tica ubica a Iv&aacute;n Cepeda (Pacto Hist&oacute;rico) con 37,5% de intenci&oacute;n de voto, seguido por Abelardo de la Espriella y Paloma Valencia (Centro Democr&aacute;tico) en empate t&eacute;cnico. En escenario de segunda vuelta, Valencia alcanza 42,9% frente a 43,3% de Cepeda. Un 16,7% de los encuestados sigue indeciso.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/28/se-reducen-las-diferencias-entre-ivan-cepeda-abelardo-de-la-espriella-y-paloma-valencia-en-la-intencion-de-voto-para-la-primera-vuelta-esto-dice-la-nueva-encuesta-de-guarumo-y-ecoanalitica/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro anuncia fin del servicio militar obligatorio; marco legal sigue vigente</h3>
+  <p>El presidente Petro asegur&oacute; que el servicio militar en Colombia ya opera como voluntario gracias al &ldquo;salario vital&rdquo; que reciben los soldados, y que se inscriben m&aacute;s j&oacute;venes que nunca. Sin embargo, la normativa legal que obliga a los hombres a definir su situaci&oacute;n militar no ha sido derogada. El anuncio se ampara en el Decreto 1075 de 2025, que regula pr&oacute;rrogas voluntarias.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/31/por-que-gustavo-petro-afirmo-que-el-servicio-militar-dejo-de-ser-obligatorio-en-colombia-si-la-exigencia-legal-se-mantiene/">Infobae</a> · <a href="https://www.semana.com/politica/articulo/gustavo-petro-anuncia-que-se-acaba-el-servicio-militar-obligatorio-en-colombia-estos-son-los-detalles/202614/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Actividad econ&oacute;mica creci&oacute; apenas 1,5% en enero de 2026</h3>
+  <p>El ISE del DANE mostr&oacute; un crecimiento de 1,5% interanual en enero, impulsado principalmente por servicios mientras otras ramas productivas registraron resultados negativos. BBVA Research proyecta crecimiento de 2,8% para 2026 y 1,8% para 2027, condicionado por desequilibrios macro, inflaci&oacute;n persistente y tasas altas.</p>
+  <span class="source-link"><a href="https://www.elcolombiano.com/negocios/actividad-economia-crecio-ise-dane-enero-MC34729234">El Colombiano</a> · <a href="https://www.bbvaresearch.com/en/publicaciones/colombia-economic-outlook-march-2026/">BBVA Research</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Megamovidas empresariales sacuden el arranque de 2026</h3>
+  <p>En 75 d&iacute;as de 2026, una cadena de fusiones y adquisiciones ha reconfigurado sectores clave: la venta de activos de Cemex en materiales de construcci&oacute;n, la integraci&oacute;n Tigo-Movistar en telecomunicaciones y la entrada del Grupo Gilinski al negocio petrolero regional destacan como los movimientos m&aacute;s relevantes. El nuevo Congreso ser&aacute; clave para definir el clima de inversi&oacute;n.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> · <a href="https://www.semana.com/economia/empresas/articulo/el-nuevo-congreso-sera-clave-para-impulsar-comercio-e-inversion-en-colombia/202620/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Financiero</span>
+  <h3>Gasolina podr&iacute;a subir nuevamente por alza del petr&oacute;leo y d&eacute;ficit fiscal</h3>
+  <p>El disparo del Brent por encima de USD 118 reaviva la presi&oacute;n para ajustar los precios internos de la gasolina. El d&eacute;ficit acumulado del FEPC y la necesidad de ingresos fiscales adicionales hacen probable un nuevo incremento en el corto plazo, seg&uacute;n analistas del sector energ&eacute;tico.</p>
+  <span class="source-link"><a href="https://www.elpais.com.co/colombia/gasolina-subiria-en-colombia-alerta-por-fuerte-presion-del-petroleo-y-millonario-deficit-3015.html">El Pa&iacute;s</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo sentido en m&uacute;ltiples regiones de Colombia</h3>
+  <p>Un sismo se registr&oacute; el martes 31 de marzo y fue percibido en varias regiones del pa&iacute;s, generando alarma entre la poblaci&oacute;n. Las autoridades no reportaron da&ntilde;os estructurales significativos ni v&iacute;ctimas.</p>
+  <span class="source-link"><a href="https://www.candelaestereo.com/actualidad/temblor-hoy-en-colombia-martes-31-de-marzo-2026-magnitud-y-epicentro/">Candela Est&eacute;reo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: Atl&eacute;tico Nacional l&iacute;der con 30 puntos tras fecha 14</h3>
+  <p>Atl&eacute;tico Nacional se impuso 1-2 ante Deportivo Pasto en el estadio Departamental Libertad y lleg&oacute; a 30 puntos en 13 partidos, consolid&aacute;ndose como l&iacute;der de la Liga BetPlay Dimayor 2026-I. Millonarios empat&oacute; 2-2 con Fortaleza en El Camp&iacute;n. Faltan cinco fechas para el cierre de la fase regular, con los ocho mejores clasific&aacute;ndose a cuartos de final.</p>
+  <span class="source-link"><a href="https://www.vanguardia.com/deportes/futbol/2026/03/31/tabla-de-posiciones-liga-betplay-2026-i-asi-quedo-tras-finalizar-la-fecha-14-del-futbol-colombiano/">Vanguardia</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-14-liga-betplay-2026-i-265123">FutbolRed</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Conflicto en Ir&aacute;n escala y sacude mercados globales</h3>
+  <p>La crisis en Oriente Medio, centrada en el conflicto iran&iacute;, provoc&oacute; el mayor salto mensual hist&oacute;rico del petr&oacute;leo Brent. La incertidumbre geopol&iacute;tica ha generado volatilidad en divisas y materias primas a nivel global, con impacto directo sobre las econom&iacute;as petroleras de Am&eacute;rica Latina.</p>
+  <span class="source-link"><a href="https://www.elheraldo.co/economia/2026/03/27/el-petroleo-brent-cierra-la-semana-a-11257-dolares-el-precio-mas-alto-desde-2022/">El Heraldo</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.669</div>
+    <div class="data-cell-delta green">&#9660; $10,04</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brent (USD/bbl)</div>
+    <div class="data-cell-value">$118,4</div>
+    <div class="data-cell-delta red">&#9650; 4,9%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BanRep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">&#9650; +100 pb</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Reacci&oacute;n de los mercados al choque Gobierno-BanRep: movimientos en TES, CDS y calificadoras podr&iacute;an anticipar un deterioro en la percepci&oacute;n crediticia de Colombia.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del conflicto en Ir&aacute;n y su impacto sobre el Brent: cualquier desescalada podr&iacute;a revertir la apreciaci&oacute;n del peso y reducir ingresos fiscales proyectados.</div>
+  <div class="vigilar-item">Posibles anuncios del Gobierno sobre reforma al r&eacute;gimen del Banco de la Rep&uacute;blica o convocatoria a constituyente en las pr&oacute;ximas semanas.</div>
+  <div class="vigilar-item">Datos de inflaci&oacute;n de marzo (pr&oacute;xima publicaci&oacute;n del DANE) que justificar&aacute;n o cuestion&aacute;ran el alza de tasas del banco central.</div>
+  <div class="vigilar-item">Movimientos en encuestas presidenciales: la crisis institucional puede beneficiar a candidatos de oposici&oacute;n a dos meses de la primera vuelta.</div>
+</div>
+
+<footer class="footer">
+  Fuentes: Banco de la Rep&uacute;blica · Bloomberg · Infobae · El Tiempo · Semana · El Pa&iacute;s · El Colombiano · RCN · Valora Anal&iacute;tik · BBVA Research · El Heraldo · FutbolRed · Vanguardia<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</body>
+</html>
