@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 31 de marzo de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Peru</h1>
+  <div class="masthead-date">Martes 31 de marzo de 2026 · Lima</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Quinta jornada del debate presidencial del JNE: 11 candidatos exponen planes sobre empleo y educacion</h3>
+    <p>Once candidatos participaron en la quinta fecha del ciclo de debates organizado por el Jurado Nacional de Elecciones en el Centro de Convenciones de Lima. Durante casi tres horas, los aspirantes polemizaron sobre empleo, desarrollo, emprendimiento, educacion, innovacion y tecnologia. Vladimir Cerron (Peru Libre) no se presento debido a la orden de captura que pesa en su contra. Analistas destacaron a Marisol Perez Tello como la figura mas solida de la jornada.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      A 12 dias de la primera vuelta del 12 de abril, los debates son la ultima oportunidad de los candidatos para mover la intencion de voto en un escenario altamente fragmentado donde un tercio del electorado sigue indeciso.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/31/debate-presidencial-2026-en-vivo-estos-son-los-candidatos-que-participan-hoy-31-de-marzo-minuto-a-minuto/">Infobae</a> · <a href="https://elcomercio.pe/politica/debate-presidencial-jne-2026-en-vivo-hoy-martes-31-fechas-candidatos-temas-y-planes-de-gobierno-a-poco-de-las-elecciones-generales-peru-2026-noticia/">El Comercio</a> · <a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>MEF anuncia cartera estrategica de mas de US$ 66,000 millones en proyectos de inversion</h3>
+    <p>El Ministerio de Economia y Finanzas presento una cartera de mas de 50 proyectos estrategicos en mineria, energia, transporte, hidrocarburos, salud y agricultura. Para 2026, se estima una ejecucion cercana a US$ 4,700 millones. El sector minero lidera con US$ 2,600 millones, seguido de energia con US$ 1,105 millones y transporte con US$ 1,005 millones. Destaca el avance de la Linea 2 del Metro de Lima (mas de 70% de avance fisico) y la Central Solar Babilonia en Arequipa.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La inyeccion de US$ 4,700 millones en 2026 busca dinamizar la economia en ano electoral. La diversificacion sectorial (mineria, energia limpia, transporte) senala una apuesta por reactivar la inversion privada como motor de crecimiento.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/economia/mef-promueve-cartera-de-proyectos-claves-por-mas-de-us-66000-millones-en-que-sectores-noticia/">Gestion</a> · <a href="https://andina.pe/agencia/noticia-mef-impulsa-proyectos-estrategicos-mas-66000-millones-para-dinamizar-economia-1069205.aspx">Andina</a> · <a href="https://peruconstruye.net/2026/03/31/mef-cartera-proyectos-millones/">Peru Construye</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Southern Peru y Metso firman contrato por mas de US$ 100 millones para Tia Maria</h3>
+    <p>Southern Peru Copper Corporation y Metso firmaron un contrato valorado en mas de 100 millones de euros para el suministro de tecnologia de extraccion por solventes y electrodeposicion (SX-EW) para el proyecto minero Tia Maria en Arequipa. La planta producira 120,000 toneladas anuales de catodos de cobre de alta pureza (grado A LME). Metso ya completo la ingenieria basica del proyecto.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Tia Maria ha sido uno de los proyectos mineros mas polemicos de Peru durante mas de una decada. La firma de este contrato de equipamiento clave marca un avance concreto hacia la construccion, consolidando la apuesta de Peru por expandir su produccion cuprifera.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/economia/empresas/metso-firma-contrato-con-southern-peru-por-mas-de-us-100-mlls-para-tia-maria-noticia/">Gestion</a> · <a href="https://mineriaenergia.com/tia-maria-southern-peru-y-metso-firman-contrato-por-mas-de-us-100-millones/">Mineria &amp; Energia</a> · <a href="https://energiminas.com/2026/03/30/metso-gana-un-importante-contrato-greenfield-para-suministrar-tecnologia-de-refinacion-de-cobre-a-southern-peru-copper-corporation/">Energiminas</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Minem presenta cartera de exploracion minera 2026: 69 proyectos por US$ 757 millones</h3>
+    <p>El Ministerio de Energia y Minas presento la nueva Cartera de Proyectos de Exploracion Minera 2026, compuesta por 69 proyectos con una inversion conjunta de US$ 757 millones. El objetivo es impulsar la exploracion de nuevas areas con potencial de desarrollo y extender la vida util de unidades mineras existentes. La inversion minera en enero 2026 alcanzo US$ 398 millones, un incremento de 8.9% interanual, impulsada por infraestructura (+83.3%) y exploracion (+32.9%).</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La exploracion minera es el indicador adelantado de la produccion futura. El crecimiento de 8.9% en inversion minera en enero confirma una tendencia positiva que puede sostener la recaudacion fiscal y las exportaciones en los proximos anos.
+    </div>
+    <span class="source-link"><a href="https://mineria-pa.com/2026/03/31/peru-minem-presenta-nueva-cartera-de-proyectos-de-exploracion-minera-2026/">Mineria Pan-Americana</a> · <a href="https://www.rumbominero.com/peru/noticias/mineria/cartera-de-proyectos-de-exploracion-minera-2026/">Rumbo Minero</a> · <a href="https://iimp.org.pe/noticias/interna/la-inversion-minera-en-peru-avanza-y-registra-us-398-millones-en-enero-de-2026">IIMP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Encuestas a 12 dias de la primera vuelta: Fujimori y Lopez Aliaga lideran pero la indecision domina</h3>
+    <p>Segun Ipsos/Peru 21, Keiko Fujimori lidera con 11% de intencion de voto, seguida de Rafael Lopez Aliaga con 9% (en descenso). Carlos Alvarez (Pais para Todos) subio al tercer lugar con 7%. Un tercio de los peruanos aun no decide su voto. Con 36 candidatos en contienda, el escenario sigue altamente fragmentado y cualquier movimiento puede alterar quien pasa a segunda vuelta el 7 de junio.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Con umbrales tan bajos para pasar a segunda vuelta, el resultado del 12 de abril es impredecible. El perfil del proximo presidente definira la politica economica, regulatoria y minera del Peru para los proximos cinco anos, un factor clave para inversionistas y empresas.
+    </div>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/03/29/encuestas-presidenciales-2026-keiko-fujimori-y-lopez-aliaga-se-estancan-mientras-que-carlos-alvarez-sube-al-tercer-lugar-hnews-2577607">La Republica</a> · <a href="https://www.infobae.com/peru/2026/03/29/elecciones-2026-un-tercio-de-peruanos-aun-no-decide-su-voto-y-rafael-lopez-aliaga-sigue-cayendo-en-la-preferencia-de-electores/">Infobae</a> · <a href="https://rpp.pe/politica/elecciones/keiko-fujimori-y-rafael-lopez-aliaga-siguen-liderando-encuestas-pero-hay-un-cuadruple-empate-en-el-tercer-lugar-segun-ipsos-noticia-1681557">RPP</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Seccion</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Ultima jornada del debate presidencial sera el 1 de abril: cierre antes del silencio electoral</h3>
+  <p>El JNE programo la sexta y ultima fecha del ciclo de debates para el miercoles 1 de abril, en la que los candidatos restantes tendran su ultima oportunidad de dirigirse al pais en cadena nacional antes de que entre en vigencia el silencio electoral previo a los comicios del 12 de abril.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/politica/debate-presidencial-jne-2026-en-vivo-hoy-martes-31-fechas-candidatos-temas-y-planes-de-gobierno-a-poco-de-las-elecciones-generales-peru-2026-noticia/">El Comercio</a> · <a href="https://rpp.pe/politica/elecciones/debate-presidencial-2026-peru-fechas-candidatos-y-temas-del-jne-noticia-1681282">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Encuesta revela que tres candidatos de izquierda podrian disputar la segunda vuelta</h3>
+  <p>Una encuesta nacional difundida el 24 de marzo mostro que candidatos de izquierda como Alfonso Lopez-Chau (Ahora Nacion, 6.6%) y Jorge Nieto (Partido del Buen Gobierno, 3.9%) comienzan a consolidar respaldo, ampliando el abanico de posibles finalistas para el balotaje de junio. La fragmentacion del voto de derecha favorece esta dinamica.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/03/24/elecciones-2026-encuesta-nacional-revela-que-3-candidatos-de-izquierda-podrian-pasar-a-segunda-vuelta/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Inversion minera en enero 2026 crece 8.9% interanual y alcanza US$ 398 millones</h3>
+  <p>La inversion minera en Peru durante enero de 2026 registro US$ 398 millones, superando en 8.9% al mismo mes del ano anterior. Los rubros de infraestructura (+83.3%) y exploracion (+32.9%) lideraron el crecimiento, reflejando mayor confianza del sector en el pais.</p>
+  <span class="source-link"><a href="https://iimp.org.pe/noticias/interna/la-inversion-minera-en-peru-avanza-y-registra-us-398-millones-en-enero-de-2026">IIMP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Construccion de la Central Solar Babilonia arranca en Arequipa</h3>
+  <p>Dentro de la cartera energetica del MEF, se dio inicio a la construccion de la Central Solar Babilonia en Arequipa, que producira energia limpia para aproximadamente 350,000 hogares y generara unos 800 empleos durante la fase de construccion. La inversion estimada en el sector energia para 2026 alcanza los US$ 1,105 millones.</p>
+  <span class="source-link"><a href="https://peruconstruye.net/2026/03/31/mef-cartera-proyectos-millones/">Peru Construye</a> · <a href="https://andina.pe/agencia/noticia-mef-impulsa-proyectos-estrategicos-mas-66000-millones-para-dinamizar-economia-1069205.aspx">Andina</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Peru proyecta cifra record de US$ 7,000 millones en inversiones mineras durante 2026</h3>
+  <p>Segun proyecciones del sector, Peru podria alcanzar un record historico de US$ 7,000 millones en inversiones mineras durante 2026, impulsado por la expansion de operaciones existentes (Las Bambas, Quellaveco, Cerro Verde) y el avance de nuevos proyectos como San Gabriel (Moquegua) y Trapiche (Apurimac).</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/peru-puede-alcanzar-cifra-record-de-us-7000-millones-en-inversiones-mineras-durante-2026/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Peru empato 2-2 con Honduras en amistoso FIFA en Madrid</h3>
+  <p>La seleccion peruana dirigida por Mano Menezes empato 2-2 con Honduras en el estadio Municipal de Butarque en Madrid. Jairo Velez (Alianza Lima) anoto un doblete (minutos 6 y 58), pero Luis Palma (44') y Darlin Mencia (90'+4) igualaron para los catrachos. Peru tenia el partido controlado hasta el gol en el ultimo minuto del descuento.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/03/31/peru-vs-honduras-en-vivo-hoy-minuto-a-minuto-partido-amistoso-leganes-fecha-fifa-2026-goles-resumen-resultado/">Infobae</a> · <a href="https://rpp.pe/futbol/seleccion-peruana/peru-vs-honduras-en-vivo-que-canales-tv-transmiten-amistoso-fifa-2026-via-america-atv-y-movistar-partidos-de-hoy-noticia-1682323">RPP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 Apertura: Alianza Lima y Los Chankas lideran tras la fecha 8</h3>
+  <p>En la fecha 8 del Torneo Apertura de la Liga 1 2026, Alianza Lima vencio 2-0 a Juan Pablo II y Los Chankas superaron 3-2 a Sporting Cristal, manteniendose como lideres del campeonato. Sport Boys goleo 3-0 a Sport Huancayo y Comerciantes Unidos empato 0-0 con Universitario.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/03/20/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-8-del-torneo-apertura-696980">La Republica</a> · <a href="https://www.infobae.com/peru/deportes/2026/03/20/resultados-de-la-fecha-8-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Compra</div>
+    <div class="data-cell-value">S/ 3.480</div>
+    <div class="data-cell-delta green">&#9660; 0.02</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Venta</div>
+    <div class="data-cell-value">S/ 3.495</div>
+    <div class="data-cell-delta green">&#9660; 0.01</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Cierre BCRP</div>
+    <div class="data-cell-value">S/ 3.478</div>
+    <div class="data-cell-delta green">&#9660; 0.02</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Sexta y ultima jornada del debate presidencial del JNE (1 de abril) — cierre oficial del ciclo antes del silencio electoral.</div>
+  <div class="vigilar-item">Reaccion del mercado y encuestas post-debate: cualquier movimiento en la intencion de voto puede redefinir quien pasa a segunda vuelta el 12 de abril.</div>
+  <div class="vigilar-item">Seguimiento al contrato Metso-Southern Peru para Tia Maria y posible reaccion social en Arequipa ante el avance del proyecto.</div>
+  <div class="vigilar-item">Ejecucion de la cartera de US$ 4,700 millones del MEF: monitorear si los desembolsos se aceleran antes del cambio de gobierno.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · El Comercio · RPP · Gestion · La Republica · Andina · TVPeru · Mineria &amp; Energia · Rumbo Minero · Ipsos · Peru Construye · IIMP<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
