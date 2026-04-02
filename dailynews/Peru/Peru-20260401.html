@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Peru — 1 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Peru</h1>
+  <div class="masthead-date">Miercoles 1 de abril de 2026 · Lima</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Debate presidencial cierra ciclo del JNE con cruces tensos entre candidatos</h3>
+    <p>La ultima jornada del debate presidencial 2026, organizada por el Jurado Nacional de Elecciones, reunio a 11 candidatos en el Centro de Convenciones de Lima. Los ejes tematicos fueron empleo, desarrollo, emprendimiento y educacion. La sesion estuvo marcada por enfrentamientos directos: Marisol Perez Tello califico a Lopez Aliaga de "mentiroso" y a Keiko Fujimori de "ociosa", mientras que un cruce entre la candidata de Un Camino Diferente y Jose Luna Galvez escalo en torno al tema de la empleabilidad juvenil y la desacreditacion universitaria por Sunedu.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      A 11 dias de la primera vuelta (12 de abril), el cierre del ciclo oficial de debates marca la recta final de una campana altamente fragmentada donde ningun candidato supera el 12% de intencion de voto. El tono agresivo refleja la urgencia por captar al 40% de electores indecisos.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/peru/politica/debate-presidencial-2026-en-vivo-hoy-1-de-abril-los-11-candidatos-que-participan-noticia/">Gestion</a> · <a href="https://www.infobae.com/peru/2026/03/31/ultimo-debate-presidencial-2026-1-de-abril-estos-son-los-11-candidatos-y-temas-que-cierran-el-ciclo-del-jne/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/04/01/debate-presidencial-2026-en-vivo-alfonso-lopezchau-cesar-acuna-y-jorge-nieto-se-enfrentan-hnews-2453464">La Republica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>SBS autoriza a Revolut Bank Peru como primer banco 100% digital del pais</h3>
+    <p>La Superintendencia de Banca, Seguros y AFP otorgo mediante Resolucion SBS 00949-2026 la autorizacion de organizacion a Revolut Bank Peru S.A., la fintech britanica que opera en 40 paises. Tambien se autorizo a Kori Financiera. La SBS creo ademas la Coordinacion Ejecutiva de Organizacion de Empresas (CEO) para agilizar el ingreso de nuevas entidades al sistema financiero peruano.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La entrada de un neobank global como Revolut intensificara la competencia en banca digital y presionara las comisiones y tasas de los bancos incumbentes. Para el ecosistema fintech peruano, es una senal de que el regulador apuesta por mas competencia en un mercado con baja bancarizacion.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/sbs-autoriza-a-revolut-bank-para-organizarse-como-primer-banco-100-por-ciento-digital-en-mercado-financiero-de-peru-noticia-1682500">RPP</a> · <a href="https://www.infobae.com/peru/2026/03/31/nuevas-entidades-financieras-en-peru-revolut-bank-peru-y-a-kori-financiera-reciben-autorizacion-de-la-sbs/">Infobae</a> · <a href="https://elcomercio.pe/economia/peru/sbs-otorga-autorizacion-de-organizacion-a-revolut-bank-peru-y-a-kori-financiera-l-ultimas-noticia/">El Comercio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Arranca primera temporada de pesca de anchoveta con la cuota mas baja en una decada</h3>
+    <p>El Ministerio de la Produccion autorizo el inicio de la Primera Temporada de Pesca 2026 de anchoveta en la zona Norte-Centro con un limite maximo de captura de 1.914.049 toneladas, la cifra mas baja desde 2016 (excluyendo 2023, cuando no hubo temporada). La reduccion obedece al impacto del fenomeno El Nino, que el ENFEN pronostica con intensidad debil a moderada entre febrero y diciembre de 2026.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La pesca de anchoveta genera un valor agregado estimado de S/ 769 millones (0,13% del PBI) y USD 855 millones en divisas. Una cuota reducida implica menor produccion de harina de pescado, impacto en exportaciones y presion sobre los mas de 47.000 empleos directos e indirectos del sector.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/01/anchoveta-primera-temporada-norte-centro-2026-se-abre-con-apenas-19-millones-de-toneladas-la-mas-baja-en-una-decada/">Infobae</a> · <a href="https://gestion.pe/economia/autorizan-el-inicio-de-primera-temporada-de-pesca-de-anchoveta-para-zona-norte-centro-noticia/">Gestion</a> · <a href="https://diariodechimbote.com/2026/04/01/autorizan-inicio-de-la-primera-temporada-de-pesca-de-anchoveta-con-una-cuota-de-1-91-millones-de-toneladas/">Diario de Chimbote</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Ley CAS promulgada: gratificaciones y CTS para 348.750 trabajadores del Estado</h3>
+    <p>El presidente Jose Maria Balcazar promulgo la ley que modifica el regimen CAS (Decreto Legislativo 1057), otorgando a los trabajadores bajo esta modalidad el derecho a gratificaciones por Fiestas Patrias y Navidad (equivalentes a un sueldo adicional cada una) y a Compensacion por Tiempo de Servicios (CTS). El Congreso habia aprobado la norma con 95 votos a favor y ninguno en contra, pese a las advertencias del MEF sobre su costo fiscal.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El impacto fiscal estimado es de S/ 2.800 millones anuales. En plena campana electoral, la norma amplifica la presion sobre el presupuesto publico y sienta un precedente de expansion de beneficios laborales en el sector estatal que el proximo gobierno debera financiar.
+    </div>
+    <span class="source-link"><a href="https://www.gob.pe/institucion/presidencia/noticias/1369853-presidente-balcazar-promulga-ley-que-reconoce-gratificaciones-y-cts-a-trabajadores-cas">Presidencia del Peru</a> · <a href="https://rpp.pe/economia/economia/trabajadores-cas-gobierno-promulga-ley-de-gratificaciones-y-cts-este-2026-noticia-1681400">RPP</a> · <a href="https://www.infobae.com/peru/2026/03/21/presidente-jose-balcazar-promulga-ley-que-otorga-gratificaciones-y-cts-a-trabajadores-cas-pese-a-advertencias-del-mef/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Peru ratifica convenio de cooperacion economica y tecnica con China</h3>
+    <p>Mediante Decreto Supremo 017-2026-RE, publicado en El Peruano, el gobierno ratifico el Convenio de Cooperacion Economica y Tecnica con la Republica Popular China, firmado el 4 de agosto de 2025. El acuerdo establece marcos de intercambio de conocimientos y asistencia tecnica entre ambos paises en materia economica.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      China es el principal socio comercial del Peru. La ratificacion formaliza un canal de cooperacion tecnica que complementa el TLC vigente y el reciente protocolo de optimizacion, en un momento donde la relacion bilateral se profundiza con inversiones en mineria e infraestructura.
+    </div>
+    <span class="source-link"><a href="https://www.estudio-castillo.com/2026/04/01/decreto-supremo-n-017-2026-re/">Estudio Castillo</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-miercoles-1-de-abril-de-2026">TVPeru</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Seccion</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Encuestas a 11 dias de la primera vuelta: Fujimori lidera con 11%, alta fragmentacion</h3>
+  <p>Segun la encuesta Datum mas reciente, Keiko Fujimori (Fuerza Popular) encabeza la intencion de voto con 11%, seguida por Rafael Lopez Aliaga (Renovacion Popular) con 9% y Carlos Alvarez (Pais Para Todos) con 7%. Alfonso Lopez-Chau (Ahora Nacion) marca 6,6% y Jorge Nieto (Partido del Buen Gobierno) 5%. Mas del 40% del electorado permanece indeciso, haciendo que la primera vuelta del 12 de abril sea altamente impredecible. La segunda vuelta esta prevista para el 7 de junio.</p>
+  <span class="source-link"><a href="https://rpp.pe/politica/elecciones/datum-fujimori-lopez-aliaga-y-lopez-chau-lideran-la-intencion-de-voto-pero-mas-de-50-de-electores-aun-no-se-decide-noticia-1681228">RPP</a> · <a href="https://www.bloomberglinea.com/latinoamerica/peru/elecciones-peru-2026-que-dicen-las-encuestas-de-ipsos-y-cpi-a-17-dias-del-voto/">Bloomberg Linea</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Peru retorna al Congreso bicameral: 60 senadores y 130 diputados en juego</h3>
+  <p>Las elecciones del 12 de abril marcaran el retorno del Peru al sistema bicameral despues de mas de tres decadas, con la eleccion simultanea de 130 diputados y 60 senadores. El cambio restructura el Poder Legislativo en un contexto de profunda crisis institucional, con dos destituciones presidenciales en la legislatura saliente y un elevado descredito del Congreso.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://panoramapais.com/politica/elecciones-presidenciales-en-peru-2026-fechas-clave/30/03/2026/">Panorama Pais</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Indecopi en fase decisiva sobre dumping de alambron de acero chino</h3>
+  <p>La investigacion de Indecopi sobre presuntas practicas de dumping en importaciones de alambron de acero sin alear proveniente de China ha entrado en su etapa final. Aceros Arequipa (CAASA) denuncio precios de dumping durante julio 2023 - junio 2024. Actualmente Peru no tiene derechos antidumping vigentes en este segmento y mantiene un arancel de 0% para estos productos, lo que deja a la industria siderurgica local sin proteccion.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/dumping-en-alambron-chino-se-discute-en-indecopi-las-partes-podrian-no-quedar-contentas-noticia/">Gestion</a> · <a href="https://mineriaenergia.com/alambron-chino-y-dumping-el-peru-entra-en-una-fase-decisiva-para-su-industria-siderurgica/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>MINEM y Women in Mining fortalecen alianza para participacion femenina en mineria</h3>
+  <p>El Ministerio de Energia y Minas y WIM Peru suscribieron un Convenio Marco de Cooperacion Institucional para intercambiar conocimientos en materia minera, ambiental, economica y social, con enfoque de genero. El viceministro de Minas, Juan Samanez, y Nahil Hirsh, presidenta de WIM Peru, firmaron el documento que incluye programas de sensibilizacion y soporte tecnico.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/minem-y-wim-peru-fortalecen-alianza-estrategica-para-impulsar-mayor-participacion-femenina-en-la-industria-minera/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Crisis energetica evidencia brechas estructurales en gas e infraestructura</h3>
+  <p>La reciente crisis energetica en Peru ha puesto de manifiesto limitaciones estructurales en el sistema de abastecimiento de gas natural y liquidos de hidrocarburos. La ausencia de ductos redundantes impide garantizar el flujo continuo de gas ante fallas en la infraestructura principal, un problema que expone la vulnerabilidad del sistema electrico nacional.</p>
+  <span class="source-link"><a href="https://www.rumbominero.com/peru/noticias/noticias-energia/crisis-energetica-en-peru-evidencia-brechas-estructurales-en-gas-e-infraestructura/">Rumbo Minero</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Cartera de exploracion minera 2026 alcanza USD 757 millones en 69 proyectos</h3>
+  <p>La Cartera de Proyectos de Exploracion Minera 2026 esta conformada por 69 proyectos con una inversion conjunta de USD 757 millones, segun el MINEM. El objetivo es impulsar la exploracion de nuevas areas con potencial de desarrollo, en un contexto de precios favorables para el cobre y el oro que sostienen el interes de inversionistas en el sector.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/cartera-de-proyectos-de-exploracion-minera-2026-esta-valorizada-en-mas-de-us-757-millones/">Mineria &amp; Energia</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Apertura</div>
+    <div class="data-cell-value">S/ 3,460</div>
+    <div class="data-cell-delta green">SUNAT compra 3,486</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Cierre</div>
+    <div class="data-cell-value">S/ 3,4535</div>
+    <div class="data-cell-delta green">&#9660; 0,59%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tendencia</div>
+    <div class="data-cell-value">Baja</div>
+    <div class="data-cell-delta">vs. S/ 3,4775 (dia previo)</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Reacciones post-debate y movimientos en encuestas a 10 dias de la primera vuelta del 12 de abril; comienza la veda electoral para sondeos publicados.</div>
+  <div class="vigilar-item">Decision final de Indecopi sobre derechos antidumping al alambron chino, que podria redefinir la competencia en el mercado siderurgico local.</div>
+  <div class="vigilar-item">Impacto de El Nino en la biomasa de anchoveta durante las primeras semanas de faena; desviaciones tempranas respecto a la cuota podrian anticipar ajustes.</div>
+  <div class="vigilar-item">Volatilidad cambiaria proyectada hacia S/ 3,60 en julio por ruido electoral, segun Renta4 SAB; monitorear flujos de capital extranjero.</div>
+  <div class="vigilar-item">Avance regulatorio de Revolut Bank Peru hacia la licencia de funcionamiento; timeline y condiciones que establezca la SBS para operar.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Gestion · Infobae Peru · RPP · El Comercio · La Republica · TVPeru · Bloomberg Linea · Rumbo Minero · Mineria &amp; Energia · Diario de Chimbote · Presidencia del Peru<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
