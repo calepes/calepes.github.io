@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 1 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Miércoles 1 de abril de 2026 · Bogotá</div>
+  <span class="masthead-tag">Edición Diaria</span>
+</div>
+
+<div class="top5-header">Top 5 del día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro rompe con el Banco de la República tras alza de tasa a 11,25%</h3>
+    <p>La junta directiva del Banco de la República elevó la tasa de interés en 100 puntos básicos hasta el 11,25%, con cuatro votos a favor y la oposición del ministro de Hacienda Germán Ávila, quien abandonó la sesión calificando el alza de "desproporcionada". El presidente Petro anunció en redes sociales la ruptura del Gobierno con la entidad, acusándola de "asfixiar deliberadamente" la economía colombiana y de actuar como "banco de oposición".</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Es la primera vez en décadas que un gobierno colombiano rompe formalmente con el banco central. La decisión eleva el costo del crédito para empresas y consumidores, y abre un frente de incertidumbre institucional a dos meses de las elecciones presidenciales.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/economia/sector-financiero/choque-en-el-banco-de-la-republica-gobierno-rompe-filas-mientras-la-mayoria-de-la-junta-directiva-vota-por-subir-la-tasa-hasta-el-11-3544508">El Tiempo</a> · <a href="https://www.elespectador.com/economia/macroeconomia/suben-las-tasas-de-interes-como-leer-la-crisis-entre-el-gobierno-petro-y-el-banco-de-la-republica-noticias-hoy/">El Espectador</a> · <a href="https://www.semana.com/politica/articulo/gustavo-petro-revelo-primera-consecuencia-tras-ruptura-con-el-banco-de-la-republica-pidio-autorregular-el-consumo-de-gasolina/202627/">Semana</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Gasolina sube $375 por galón desde el 1 de abril</h3>
+    <p>El precio del galón de gasolina corriente aumentó $376 en promedio nacional, ubicándose en $15.449, mientras que el ACPM subió $81 hasta $11.082. En Bogotá el galón llegó a $15.891 y en Villavicencio a $15.991. El ajuste responde al alza del crudo Brent, que superó los US$100 por barril por tensiones en Medio Oriente, y revierte parcialmente las dos rebajas de $500 aplicadas entre febrero y marzo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El incremento presiona directamente la inflación y el costo de vida, especialmente el transporte de carga y pasajeros. Con la tasa de interés al alza simultáneamente, se configura un escenario de doble presión sobre el consumo y la actividad económica.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/el-precio-de-la-gasolina-en-colombia-se-dispara-tras-incremento-de-375-el-galon-aumenta-su-valor-desde-el-1-de-abril/">Infobae</a> · <a href="https://www.lafm.com.co/economia/gasolina-colombia-sube-300-pesos-abril-1-ciudades-395037">La FM</a> · <a href="https://www.colombia.com/actualidad/nacionales/a-partir-de-1-de-abril-suben-precios-de-gasolina-y-acpm-en-colombia-576916">Colombia.com</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Carrera electoral se intensifica: Cepeda y De la Espriella lideran encuestas</h3>
+    <p>A dos meses de las elecciones presidenciales del 31 de mayo, las encuestas muestran a Iván Cepeda (35%) y Abelardo de la Espriella (21%) en los primeros lugares, mientras Paloma Valencia sube 12 puntos hasta el 16%. Según Atlas Intel, hay empate técnico entre De la Espriella (28%) y Cepeda (26,5%). La disputa Petro-Banrep ya se filtró en la campaña, con candidatos posicionándose sobre la independencia del banco central.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La definición del próximo presidente marcará la política económica, la relación con el banco central y el rumbo de los procesos de paz. La polarización entre continuismo y cambio de rumbo es el eje central de la contienda.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-reaccionan-a-la-ruptura-del-presidente-gustavo-petro-con-el-banco-de-la-republica-para-eso-quiere-la-constituyente-3544523">El Tiempo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Ataque con drones en Jamundí deja militares heridos</h3>
+    <p>Disidencias de las FARC lanzaron un ataque con drones cargados de explosivos contra una base militar en Jamundí (Valle del Cauca), dejando varios soldados heridos. El incidente se suma a los más de 422 ataques con drones registrados desde abril de 2024 por parte de grupos armados ilegales. El inicio de 2026 muestra un crecimiento del 23,5% en integrantes de grupos armados, superando los 27.000 combatientes.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La escalada en el uso de drones como arma evidencia una sofisticación táctica de los grupos armados que desafía la capacidad operativa de las Fuerzas Militares. El suroccidente colombiano concentra rutas estratégicas del narcotráfico.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/31/ataque-con-drones-en-jamundi-deja-militares-heridos-y-evidencia-escalada-de-violencia-en-el-suroccidente/">Infobae</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Semana Santa moviliza 12 millones de viajeros y activa plan vial masivo</h3>
+    <p>Colombia vive el inicio de Semana Santa con una proyección de más de 12 millones de viajeros. El Gobierno desplegó 6.450 operarios y 700 equipos de emergencia en 7.499 km de vías concesionadas. Solo en Cundinamarca se esperan 3,7 millones de vehículos. Bogotá suspendió el pico y placa para jueves y viernes santo y activó reversibles en la Autopista Sur y la carrera séptima.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La movilidad masiva es un termómetro de la confianza del consumidor y del gasto discrecional. En 2025, 246 personas fallecieron en siniestros viales durante Semana Santa; las cifras de este año serán indicador clave de la gestión de seguridad vial.
+    </div>
+    <span class="source-link"><a href="https://www.canalcapital.gov.co/actualidad/semana-santa-2026-cifras-viajeros-ciudades-turismo/">Canal Capital</a> · <a href="https://www.infobae.com/colombia/2026/03/29/gobierno-anuncio-restricciones-y-planes-especiales-de-movilidad-en-vias-clave-durante-semana-santa-2026/">Infobae</a> · <a href="https://bogota.gov.co/mi-ciudad/movilidad/plan-exodo-y-movilidad-en-bogota-hoy-jueves-santo-2-de-abril-de-2026">Bogota.gov.co</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Candidatos reaccionan a la ruptura Petro-Banrep</h3>
+  <p>Los principales candidatos presidenciales se pronunciaron sobre la crisis. Varios cuestionaron si la propuesta de Asamblea Constituyente de Petro busca eliminar la independencia del banco central. María Fernanda Cabal calificó la salida del Gobierno como un acto de "adolescente caprichoso". La ruptura se convirtió en tema de campaña, con posiciones divididas entre quienes respaldan la autonomía del Banrep y quienes comparten la crítica de Petro a las tasas altas.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/maria-fernanda-cabal-cuestiono-salida-del-gobierno-petro-de-la-junta-del-banco-de-la-republica-no-puede-comportarse-como-un-adolescente-caprichoso/">Infobae</a> · <a href="https://www.eltiempo.com/politica/gobierno/que-esta-en-juego-con-el-choque-entre-el-gobierno-y-el-banco-de-la-republica-el-debate-politico-alrededor-de-la-ruptura-de-relaciones-3544622">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Petro pide autorregular el consumo de gasolina</h3>
+  <p>Como primera consecuencia declarada de la ruptura con el Banrep, el presidente Petro pidió a los colombianos "autorregular" el consumo de gasolina y diésel, argumentando la necesidad de un plan de mitigación frente al conflicto en Medio Oriente y lo que denominó la política restrictiva del banco central contra la producción y el empleo.</p>
+  <span class="source-link"><a href="https://www.semana.com/politica/articulo/gustavo-petro-revelo-primera-consecuencia-tras-ruptura-con-el-banco-de-la-republica-pidio-autorregular-el-consumo-de-gasolina/202627/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Banrep defiende alza: inflación en 5,29% sigue lejos de la meta</h3>
+  <p>El gerente del Banco de la República, Leonardo Villar, defendió la decisión de subir tasas señalando que la inflación anual de febrero (5,29%) permanece muy por encima de la meta del 3%. Indicó que la entidad actúa conforme a su mandato constitucional de preservar el poder adquisitivo de la moneda, y que los riesgos externos por la crisis en Medio Oriente justifican la cautela monetaria.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/31/el-banco-de-la-republica-respondio-al-gobierno-petro-luego-de-subir-la-tasa-de-interes-la-mision-es-mantener-el-poder-adquisitivo/">Infobae</a> · <a href="https://www.elespectador.com/economia/macroeconomia/suben-las-tasas-de-interes-como-leer-la-crisis-entre-el-gobierno-petro-y-el-banco-de-la-republica-noticias-hoy/">El Espectador</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Dólar cierra en $3.660, su nivel más bajo en más de un mes</h3>
+  <p>La tasa representativa del mercado (TRM) cerró el 1 de abril en $3.660,10, el nivel más bajo desde el 17 de febrero. Sin embargo, la TRM vigente del 2 al 6 de abril se fijó en $3.675,81, un incremento de $15,71 (+0,43%). El peso colombiano se ha beneficiado de un período de apreciación en el primer trimestre, aunque el choque Gobierno-Banrep introduce volatilidad.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/economia/finanzas-personales/precio-del-dolar-hoy-1-de-abril-de-2026-en-colombia-noticias-hoy/">El Espectador</a> · <a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-miercoles-1-de-abril-576925">Colombia.com</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Megamovidas empresariales marcan el arranque de 2026</h3>
+  <p>En los primeros 75 días del año se acumularon operaciones de gran escala: Millicom desembolsó US$785 millones para consolidar la operación Tigo-Movistar; el Grupo Gilinski adquirió cerca del 20% de GeoPark por US$107 millones a través de Colden Investments; y Grupo Falabella compró las participaciones minoritarias de Corona en sus negocios colombianos por US$159 millones. Los sectores de telecomunicaciones, petróleo y retail concentran el mayor flujo de capital.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Serie sísmica: al menos 10 temblores sacuden a Colombia</h3>
+  <p>El Servicio Geológico Colombiano registró al menos diez sismos a lo largo de la jornada del 1 de abril, el primero a la 1:22 a.m. y el más reciente a las 7:27 a.m. No se reportaron daños ni víctimas. La actividad sísmica ha mantenido en alerta a varias regiones del país en las últimas semanas.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-1-de-abril-de-2026-1008022">Noticias RCN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Crisis humanitaria: 20.765 personas confinadas en dos meses</h3>
+  <p>Según la Defensoría del Pueblo, entre enero y febrero de 2026 se registraron tres eventos de confinamiento que afectaron a 20.765 personas, triplicando las cifras de desplazamiento forzado. Además, 22 eventos de desplazamiento impactaron a 6.006 colombianos. Los grupos armados ilegales continúan expandiéndose, alcanzando más de 27.000 integrantes (+23,5% respecto a 2024).</p>
+  <span class="source-link"><a href="https://www.elpais.com.co/judicial/cambios-en-la-guerra-el-confinamiento-impacto-a-20765-personas-en-los-dos-primeros-meses-de-2026-y-triplico-al-desplazamiento-0138.html">El País Cali</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Llaneros sorprende a Santa Fe 1-0 en El Campín</h3>
+  <p>En la fecha 15 de la Liga BetPlay 2026-I, Llaneros venció 1-0 a Independiente Santa Fe en El Campín con gol de Jhon Vásquez al minuto 48. Santa Fe jugó con 10 hombres desde el minuto 33 tras la expulsión de Christian Mafla. Con este resultado, Llaneros subió al noveno puesto con 20 puntos. Atlético Nacional lidera la tabla con 31 unidades.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/santa-fe-vs-llaneros-en-vivo-siga-el-minuto-a-minuto-del-partido-por-liga-betplay-i-2026-so35">Gol Caracol</a> · <a href="https://www.semana.com/deportes/articulo/estocada-de-llaneros-a-santa-fe-sacude-la-liga-betplay-golpe-seco-en-el-campin/202600/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Mundial 2026: Colombia conoce su calendario en el Grupo K</h3>
+  <p>La Selección Colombia definió su calendario completo para la fase de grupos del Mundial 2026: debuta el 17 de junio contra Uzbekistán en el Estadio Azteca (Ciudad de México), el 23 de junio enfrenta a RD Congo en Guadalajara, y cierra el 27 de junio ante Portugal de Cristiano Ronaldo en Miami. El torneo se disputará del 11 de junio al 19 de julio en Estados Unidos, México y Canadá.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/deportes/2026/04/01/este-es-el-calendrio-completo-de-los-partidos-de-la-seleccion-colombia-en-la-primer-fase-del-mundial-2026-hora-fechas-y-estadios/">Infobae</a> · <a href="https://fcf.com.co/2025/12/06/este-es-el-calendario-de-la-seleccion-colombia-masculina-de-mayores-en-el-mundial-2026/">FCF</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Artemis II: la humanidad vuelve a orbitar la Luna tras 50 años</h3>
+  <p>La NASA lanzó exitosamente la misión Artemis II desde el Centro Espacial Kennedy el 1 de abril, enviando a cuatro astronautas en la primera misión tripulada alrededor de la Luna en más de medio siglo. La misión de 10 días incluye a Victor Glover (primer hombre negro), Christina Koch (primera mujer) y Jeremy Hansen (primer no estadounidense) en salir de la órbita terrestre hacia la Luna.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/04/01/ciencia/live-news/noticias-mision-artemis-ii-trax">CNN</a> · <a href="https://www.infobae.com/america/ciencia-america/2026/04/01/lanzamiento-de-la-mision-artemis-ii-en-vivo-las-ultimas-noticias-del-viaje-de-la-nasa-a-la-luna/">Infobae</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar TRM</div>
+    <div class="data-cell-value">$3.660</div>
+    <div class="data-cell-delta green">&#9660; Mínimo en 6 semanas</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">TRM 2-6 Abr</div>
+    <div class="data-cell-value">$3.676</div>
+    <div class="data-cell-delta red">&#9650; +$15,71 (+0,43%)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa Banrep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">&#9650; +100 pb</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Reacción de los mercados financieros tras la ruptura Gobierno-Banrep: volatilidad en deuda pública y tipo de cambio durante Semana Santa.</div>
+  <div class="vigilar-item">Cifras de siniestralidad vial durante el éxodo de Semana Santa: el Gobierno busca reducir los 246 fallecidos de 2025.</div>
+  <div class="vigilar-item">Evolución del precio del petróleo Brent (actualmente sobre US$100/barril) y su impacto en próximos ajustes de combustibles.</div>
+  <div class="vigilar-item">Movimientos en la campaña presidencial tras el choque institucional: posicionamiento de candidatos sobre independencia del banco central.</div>
+</div>
+
+<div class="footer">
+  Fuentes: El Tiempo · El Espectador · Semana · Infobae · Noticias RCN · Caracol · La FM · Colombia.com · Canal Capital · FIP · El País Cali · El Colombiano · CNN<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
