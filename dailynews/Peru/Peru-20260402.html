@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Per&uacute; — 2 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Jueves 2 de abril de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>A 10 d&iacute;as de la primera vuelta: Keiko Fujimori lidera con 11%, L&oacute;pez Aliaga cae a 9%</h3>
+    <p>Las &uacute;ltimas encuestas de Ipsos confirman que Keiko Fujimori (Fuerza Popular) encabeza la intenci&oacute;n de voto con 11%, seguida por Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular) que baja un punto a 9%. El comediante Carlos &Aacute;lvarez sube dos puntos y alcanza el 7%, mientras un tercio de los electores a&uacute;n no define su voto. Ning&uacute;n candidato supera el 15%.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La fragmentaci&oacute;n extrema del voto y la alta indecisi&oacute;n a menos de dos semanas de los comicios hacen pr&aacute;cticamente segura una segunda vuelta el 7 de junio. El resultado definir&aacute; la pol&iacute;tica econ&oacute;mica del pa&iacute;s por los pr&oacute;ximos cinco a&ntilde;os.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/03/lopez-aliaga-baja-en-las-encuestas-keiko-fujimori-lidera-mientras-carlos-alvarez-y-roberto-sanchez-disputan-tercer-lugar/">Infobae</a> &middot; <a href="https://www.ipsos.com/es-pe/segundo-simulacro-nacional-y-encuesta-de-intencion-de-voto-marzo-2026-2-encuesta-peru-21-ipsos">Ipsos</a> &middot; <a href="https://larepublica.pe/politica/2026/03/29/encuestas-presidenciales-2026-keiko-fujimori-y-lopez-aliaga-se-estancan-mientras-que-carlos-alvarez-sube-al-tercer-lugar-hnews-2577607">La Rep&uacute;blica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Per&uacute; negocia con EE.UU. para ser &ldquo;socio alineado&rdquo; y reducir aranceles del 10%</h3>
+    <p>El Mincetur mantiene di&aacute;logos t&eacute;cnicos con Washington para lograr ajustes en los aranceles rec&iacute;procos del 10% impuestos por Trump. En noviembre se logr&oacute; excluir 79 productos agr&iacute;colas (palta, caf&eacute;), pero a&uacute;n se busca reducci&oacute;n para uvas, esp&aacute;rragos y ar&aacute;ndanos. EE.UU. envi&oacute; carta a Per&uacute; y otros socios con plazo para negociar.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Las agroexportaciones a EE.UU. suman US$9,529 millones (3.3% del PBI). El arancel del 10% podr&iacute;a recortar US$760 millones en exportaciones y poner en riesgo m&aacute;s de 1.5 millones de empleos en el sector, seg&uacute;n la Canciller&iacute;a.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/economia/peru-aun-negocia-con-estados-unidos-por-aranceles-de-donald-trump-quiere-ser-socio-alineado-noticia/">Gesti&oacute;n</a> &middot; <a href="https://gestion.pe/mundo/eeuu/ultimatum-de-trump-eeuu-envia-carta-a-peru-y-otros-socios-comerciales-ante-fecha-clave-para-aranceles-noticia/">Gesti&oacute;n</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>BBVA Research recorta proyecci&oacute;n de crecimiento de Per&uacute; de 3.1% a 2.9% para 2026</h3>
+    <p>El informe Peru Economic Outlook de marzo 2026 de BBVA Research revis&oacute; a la baja la estimaci&oacute;n de crecimiento del PBI peruano, de 3.1% a 2.9%, citando tres shocks negativos de oferta simult&aacute;neos que afectan la econom&iacute;a. La expansi&oacute;n del gasto se sostiene principalmente en alimentos, salud y transporte.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Una rebaja de 0.2 puntos porcentuales en las proyecciones de un banco de referencia se&ntilde;ala deterioro en las condiciones productivas. Combinada con la incertidumbre electoral y los aranceles, la desaceleraci&oacute;n podr&iacute;a presionar la recaudaci&oacute;n fiscal y la inversi&oacute;n privada.
+    </div>
+    <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/peru-economic-outlook-march-2026/">BBVA Research</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Congreso aprueba reglamentos del sistema bicameral: C&aacute;mara de Diputados y Senado</h3>
+    <p>El Pleno del Congreso aprob&oacute; los reglamentos del nuevo Congreso bicameral, la C&aacute;mara de Diputados (75 votos a favor) y el Senado (75 votos a favor). Per&uacute; retorna al bicameralismo tras m&aacute;s de tres d&eacute;cadas con parlamento unicameral. El nuevo sistema busca mejorar la calidad legislativa y la representaci&oacute;n territorial.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El nuevo marco legislativo definir&aacute; c&oacute;mo se procesan leyes, presupuestos y control pol&iacute;tico a partir de julio 2026. Las empresas deben anticipar cambios en tiempos de aprobaci&oacute;n regulatoria con dos c&aacute;maras en lugar de una.
+    </div>
+    <span class="source-link"><a href="https://comunicaciones.congreso.gob.pe/noticias/pleno-aprueba-reglamentos-del-congreso-de-camara-de-diputados-y-del-senado/">Congreso del Per&uacute;</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Pr&oacute;rroga de estado de emergencia en Loreto, La Libertad y distritos por lluvias</h3>
+    <p>El Ejecutivo prorrog&oacute; el estado de emergencia por 60 d&iacute;as a partir del 6 de abril en las provincias de Putumayo y Mariscal Ram&oacute;n Castilla (Loreto) y en la provincia de Pataz (La Libertad). Tambi&eacute;n se extendi&oacute; el estado de emergencia en m&uacute;ltiples distritos por peligro inminente ante intensas precipitaciones pluviales.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Loreto concentra 23 conflictos sociales activos, el mayor n&uacute;mero del pa&iacute;s. Pataz alberga operaciones mineras relevantes. Las emergencias clim&aacute;ticas afectan log&iacute;stica, transporte e infraestructura en zonas productivas cr&iacute;ticas.
+    </div>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-2-de-abril-de-2026">TVPer&uacute;</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>ONPE califica elecciones de abril como &ldquo;las m&aacute;s complejas de la historia&rdquo;</h3>
+  <p>La Oficina Nacional de Procesos Electorales advirti&oacute; que los comicios del 12 de abril ser&aacute;n los m&aacute;s complejos jam&aacute;s organizados en Per&uacute;: una sola c&eacute;dula mostrar&aacute; m&aacute;s de 40 partidos pol&iacute;ticos para elegir presidente, 130 diputados, 60 senadores y representantes ante el Parlamento Andino.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> &middot; <a href="https://encuestas.com.pe/encuesta-presidencial-online-02-abril-2026/">Encuestas Per&uacute;</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Nombramiento de nuevo embajador del Per&uacute; en Honduras</h3>
+  <p>Mediante norma legal publicada el 2 de abril, se design&oacute; a C&eacute;sar Max Larrain Tafur como Embajador Extraordinario y Plenipotenciario del Per&uacute; en Honduras, en el marco de la rotaci&oacute;n diplom&aacute;tica del gobierno Boluarte.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-2-de-abril-de-2026">TVPer&uacute;</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cierra en S/3.45 con tendencia a la baja por apreciaci&oacute;n del sol</h3>
+  <p>El tipo de cambio interbancario cerr&oacute; el jueves con promedio de S/3.4497, m&aacute;ximo de S/3.4990 y m&iacute;nimo de S/3.4750. La SUNAT fij&oacute; la cotizaci&oacute;n en S/3.455 (compra) y S/3.467 (venta). El sol se apreci&oacute; 0.69% frente al d&oacute;lar respecto a la jornada previa, seg&uacute;n el BCRP.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-02-de-abril-del-2026-noticia-1682620">RPP</a> &middot; <a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-a-cuanto-esta-el-tipo-de-cambio-este-jueves-2-de-abril-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Rio2 reduce deuda de mina Condestable y reestructura equipo directivo</h3>
+  <p>La minera Rio2 pag&oacute; US$20 millones para reducir la deuda de su operaci&oacute;n en mina Condestable (Per&uacute;) y anunci&oacute; cambios en su equipo directivo para fortalecer las operaciones. La reestructuraci&oacute;n busca optimizar la producci&oacute;n de cobre en un momento de precios favorables del metal.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/empresas/rio2-reduce-deuda-de-mina-condestable-en-peru-y-reestructura-su-equipo-directivo-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Cartera de exploraci&oacute;n minera 2026: 69 proyectos por US$757 millones</h3>
+  <p>El Ministerio de Energ&iacute;a y Minas present&oacute; la nueva Cartera de Proyectos de Exploraci&oacute;n Minera 2026 con 69 proyectos que suman una inversi&oacute;n de US$757 millones. La cartera 2026-2028 contempla compromisos por US$6,880 millones en nuevos proyectos mineros.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/cartera-de-proyectos-de-exploracion-minera-2026-esta-valorizada-en-mas-de-us-757-millones/">Miner&iacute;a &amp; Energ&iacute;a</a> &middot; <a href="https://www.redimin.cl/exploracion-minera-en-peru-cartera-2026-suma-69-proyectos-por-us757-millones-y-abre-nuevo-ciclo-de-inversion/">Redimin</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Defensor&iacute;a reporta promedio de 230 acciones de protesta mensuales en el pa&iacute;s</h3>
+  <p>Desde noviembre 2024, Per&uacute; registra un promedio mensual de 230 huelgas, bloqueos y movilizaciones. Los conflictos socioambientales representan el 51.3% del total (99 casos), con la miner&iacute;a involucrada en el 33.2%. Loreto (23 casos), Puno (21) y &Aacute;ncash (17) concentran la mayor conflictividad.</p>
+  <span class="source-link"><a href="https://www.defensoria.gob.pe/documentos/reporte-de-conflictos-sociales-n-o-264-febrero-2026/">Defensor&iacute;a del Pueblo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>EXPOCOBRE 2026 se celebrar&aacute; en Lima a finales de abril con 20,000 asistentes previstos</h3>
+  <p>La III Conferencia del Cobre y Feria Minera Internacional fue oficializada como evento de inter&eacute;s nacional. Se realizar&aacute; del 27 al 29 de abril en Lima, con participaci&oacute;n esperada de 1,000 empresas de distintos pa&iacute;ses y alrededor de 20,000 asistentes, consolidando a Per&uacute; como hub minero regional.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/expocobre-2026-obtiene-reconocimiento-oficial-como-evento-internacional-en-el-peru/">Miner&iacute;a &amp; Energ&iacute;a</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1: arranca la fecha 9 del Apertura con cl&aacute;sico Universitario vs. Alianza Lima</h3>
+  <p>La novena jornada del Torneo Apertura 2026 inicia el viernes 3 de abril con el cl&aacute;sico entre Universitario y Alianza Lima. Los Chankas y Alianza Lima comparten la cima de la tabla con 20 puntos, mientras Universitario marcha cuarto con 16 unidades y necesita sumar para no perder contacto con los l&iacute;deres.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/04/03/resultados-de-la-fecha-9-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a> &middot; <a href="https://larepublica.pe/deportes/2026/04/03/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-9-del-torneo-apertura-36375">La Rep&uacute;blica</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar SUNAT Compra</div>
+    <div class="data-cell-value">S/3.455</div>
+    <div class="data-cell-delta green">&#9660; 0.69%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar SUNAT Venta</div>
+    <div class="data-cell-value">S/3.467</div>
+    <div class="data-cell-delta green">&#9660; vs. d&iacute;a prev.</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Proyecci&oacute;n PBI 2026</div>
+    <div class="data-cell-value">2.9%</div>
+    <div class="data-cell-delta red">&#9660; 0.2pp BBVA</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Respuesta de EE.UU. a las negociaciones arancelarias con Per&uacute;: el plazo para socios alineados podr&iacute;a definir el futuro de US$9,500 millones en exportaciones.</div>
+  <div class="vigilar-item">Encuestas de &uacute;ltima semana antes de la veda electoral del 12 de abril: movimientos en intenci&oacute;n de voto de los indecisos (33%) definir&aacute;n qui&eacute;n pasa a segunda vuelta.</div>
+  <div class="vigilar-item">Impacto de las lluvias en zonas de emergencia: posibles interrupciones log&iacute;sticas en Loreto y La Libertad que afecten cadenas de suministro y operaciones mineras en Pataz.</div>
+  <div class="vigilar-item">EXPOCOBRE 2026 (27-29 abril): anuncios de inversi&oacute;n y acuerdos comerciales en el sector cobre que podr&iacute;an reforzar la cartera minera de US$6,880 millones.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP &middot; El Comercio &middot; La Rep&uacute;blica &middot; Infobae Per&uacute; &middot; Gesti&oacute;n &middot; TVPer&uacute; &middot; Ipsos &middot; BBVA Research &middot; Defensor&iacute;a del Pueblo &middot; Congreso del Per&uacute; &middot; MINEM<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
