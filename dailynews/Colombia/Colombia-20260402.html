@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 2 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Jueves 2 de abril de 2026 &middot; Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro escala confrontaci&oacute;n con el Banco de la Rep&uacute;blica tras alza de tasas al 11,25%</h3>
+    <p>El presidente Gustavo Petro calific&oacute; de &ldquo;inconstitucional&rdquo; la decisi&oacute;n de la Junta Directiva del Banco de la Rep&uacute;blica de subir la tasa de inter&eacute;s en 100 puntos b&aacute;sicos hasta el 11,25%, el segundo aumento consecutivo del a&ntilde;o que acumula 200 pb. El ministro de Hacienda, Germ&aacute;n &Aacute;vila, anunci&oacute; que se retirar&aacute; de las pr&oacute;ximas sesiones de la junta. Petro pidi&oacute; &ldquo;al pueblo quitarle la mayor&iacute;a al uribismo&rdquo; en la junta directiva.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La ruptura entre el Ejecutivo y el banco central eleva la incertidumbre regulatoria y podr&iacute;a afectar la confianza de inversionistas en un a&ntilde;o electoral. Tasas al 11,25% encarecen el cr&eacute;dito productivo y de consumo, impactando directamente el crecimiento econ&oacute;mico.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/gustavo-petro-califico-decision-del-banco-de-la-republica-de-aumentar-las-tasas-de-interes-como-inconstitucional-y-publico-las-soluciones-que-el-implementaria/">Infobae</a> &middot; <a href="https://cnnespanol.cnn.com/2026/04/01/colombia/petro-tasas-interes-banco-trump-orix">CNN</a> &middot; <a href="https://www.vanguardia.com/economia/2026/03/31/banco-de-la-republica-subio-la-tasa-de-interes-al-1125-minhacienda-salio-de-la-reunion/">Vanguardia</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Petro esboza plan de emergencia econ&oacute;mica ante conflicto en Medio Oriente</h3>
+    <p>El presidente present&oacute; un paquete de medidas para mitigar el impacto del conflicto en Medio Oriente sobre la econom&iacute;a colombiana. Entre las acciones: campa&ntilde;a de reducci&oacute;n de demanda de hidrocarburos (gas, gasolina y di&eacute;sel), subsidios a fertilizantes y ma&iacute;z en lugar de combustibles, y pol&iacute;tica de vivienda con tasas bajas para sectores populares y fuerza p&uacute;blica.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Colombia es importador neto de combustibles refinados. Un conflicto prolongado en Medio Oriente disparar&iacute;a el precio del crudo y afectar&iacute;a la balanza energ&eacute;tica, el costo de transporte y la inflaci&oacute;n de alimentos.
+    </div>
+    <span class="source-link"><a href="https://www.prensa-latina.cu/2026/04/02/presidente-de-colombia-esboza-plan-ante-desafios-externos-e-internos/">Prensa Latina</a> &middot; <a href="https://www.eje21.com.co/2026/04/petro-plantea-medidas-para-mitigar-efectos-de-la-guerra-de-iran-en-la-economia-colombiana/">Eje21</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Impuesto al patrimonio para personas jur&iacute;dicas: primera cuota vence el 1 de abril</h3>
+    <p>Entr&oacute; en vigor el pago de la primera cuota (50%) del nuevo impuesto al patrimonio para empresas, establecido por el Decreto 173 de 2026. Aplica a personas jur&iacute;dicas con patrimonio l&iacute;quido igual o superior a 200.000 UVT (~$10.475 millones). Tarifa general del 0,5% y del 1,6% para sectores financiero y extractivo. Unas 3.000 empresas antioque&ntilde;as pagar&aacute;n cerca de $1 bill&oacute;n.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El tributo no es deducible del impuesto de renta, lo que genera una doble carga fiscal que reduce liquidez, flujo de caja y capacidad de inversi&oacute;n de las empresas m&aacute;s grandes del pa&iacute;s en pleno a&ntilde;o electoral.
+    </div>
+    <span class="source-link"><a href="https://www.ambitojuridico.com/noticias/blog-contable-yo-tributario/impuesto-al-patrimonio-para-personas-juridicas-en-colombia">Ambito Jur&iacute;dico</a> &middot; <a href="https://www.elcolombiano.com/negocios/impuesto-patrimonio-empresas-antioquia-2026-DG35114623">El Colombiano</a> &middot; <a href="https://www.infobae.com/colombia/2026/03/13/las-fechas-en-que-las-empresas-deberan-pagar-las-cuotas-del-impuesto-al-patrimonio-decretado-por-el-gobierno-petro/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Primera ruta mar&iacute;tima de di&eacute;sel desde Reficar a Buenaventura y Tumaco</h3>
+    <p>El Gobierno anunci&oacute; el primer despacho de 40.000 barriles de di&eacute;sel desde la refiner&iacute;a de Cartagena (Reficar) hacia Buenaventura y Tumaco por v&iacute;a mar&iacute;tima, inaugurando una nueva ruta log&iacute;stica para el abastecimiento del Pac&iacute;fico colombiano. La medida responde a la crisis de desabastecimiento en Nari&ntilde;o tras fallas de Ecopetrol y el mantenimiento del oleoducto Yumbo-Buenaventura.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El Pac&iacute;fico colombiano ha sufrido escasez cr&oacute;nica de combustibles. Esta ruta diversifica la cadena log&iacute;stica y reduce la dependencia del transporte terrestre, aunque expone la fragilidad de la infraestructura energ&eacute;tica nacional.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/gobierno-petro-dice-que-dio-el-primer-paso-para-garantizar-el-abastecimiento-de-combustibles-en-el-pacifico-colombiano/202611/">Semana</a> &middot; <a href="https://www.lafm.com.co/economia/nueva-ruta-de-combustibles-para-el-pacifico-colombiano-desde-reficar-ecopetrol-395196">La FM</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Carrera presidencial 2026: Cepeda lidera encuestas, Valencia crece y De la Espriella cae</h3>
+    <p>Seg&uacute;n la encuesta GAD3/RCN publicada en abril, Iv&aacute;n Cepeda lidera la intenci&oacute;n de voto con 35%, seguido por Abelardo de la Espriella con 21% (cae 5 puntos) y Paloma Valencia con 16% (sube 12 puntos). En segunda vuelta, el escenario Cepeda vs. Valencia muestra empate t&eacute;cnico: 43% vs. 40%. Las elecciones se realizar&aacute;n el 31 de mayo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      A menos de dos meses de la primera vuelta, la contienda se polariza. La din&aacute;mica electoral influir&aacute; en decisiones de pol&iacute;tica p&uacute;blica del Gobierno saliente y en la percepci&oacute;n de riesgo-pa&iacute;s de los mercados.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a> &middot; <a href="https://www.lasillavacia.com/silla-nacional/asi-van-los-candidatos-presidenciales-en-las-encuestas/">La Silla Vac&iacute;a</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro reconoce fracaso en la integraci&oacute;n pluralista de su gobierno</h3>
+  <p>En un mensaje publicado a la medianoche del 1 de abril, el presidente admiti&oacute; que su &ldquo;intento de integrar de manera pluralista&rdquo; su gabinete &ldquo;fracas&oacute;&rdquo;. La declaraci&oacute;n genera debate sobre el legado de su administraci&oacute;n a menos de cuatro meses del cambio de gobierno.</p>
+  <span class="source-link"><a href="https://www.elpais.com.co/politica/presidente-petro-reconoce-que-fracaso-en-parte-de-su-gobierno-tras-mensaje-de-medianoche-que-genero-polemica-0252.html">El Pa&iacute;s Cali</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro promueve cese al fuego en Medio Oriente desde la CELAC</h3>
+  <p>Colombia lidera junto a otros pa&iacute;ses latinoamericanos una iniciativa ante la ONU para exigir el cese al fuego en Medio Oriente. El presidente present&oacute; dos propuestas formales en el marco de la cumbre de la CELAC.</p>
+  <span class="source-link"><a href="https://www.semana.com/amp/politica/articulo/gustavo-petro-se-mete-en-la-discusion-sobre-medio-oriente-las-dos-propuestas-que-presentara-ante-la-onu/202614/">Semana</a> &middot; <a href="https://www.nodal.am/2026/03/colombia-gustavo-petro-confirmo-que-junto-a-otras-naciones-de-america-latina-pediran-el-cese-al-fuego-en-medio-oriente/">NODAL</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>CDTs proyectan rendimientos superiores al 13% tras alza de tasas</h3>
+  <p>La subida de la tasa de referencia al 11,25% impulsa los rendimientos de los certificados de dep&oacute;sito a t&eacute;rmino (CDT) por encima del 13% efectivo anual. El encarecimiento del cr&eacute;dito, sin embargo, afectar&aacute; a hogares y empresas con deuda a tasa variable.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/asi-sera-la-rentabilidad-de-los-cdt-en-colombia-desde-abril-con-la-subida-de-la-tasa-de-interes-del-banco-de-la-republica/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inflaci&oacute;n en 5,29% sigue lejos de la meta del 3%</h3>
+  <p>La inflaci&oacute;n anual de febrero se ubic&oacute; en 5,29%, motivo principal del Banco de la Rep&uacute;blica para endurecer la pol&iacute;tica monetaria. El dato contrasta con la postura del Gobierno, que apuesta por est&iacute;mulos al crecimiento.</p>
+  <span class="source-link">Fuente: Banco de la Rep&uacute;blica, reportado por m&uacute;ltiples medios</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Ola de fusiones y adquisiciones sacude sectores estrat&eacute;gicos en 2026</h3>
+  <p>En los primeros 75 d&iacute;as del a&ntilde;o se registr&oacute; una seguidilla de operaciones en petr&oacute;leo, telecomunicaciones, miner&iacute;a, banca y alimentos. Millicom desembols&oacute; cerca de US$785 millones para consolidar operaciones, y el Grupo Gilinski adquiri&oacute; el 20% de GeoPark por US$107 millones.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Ecopetrol: ganancias se desploman, dividendos menores para accionistas</h3>
+  <p>Las ganancias de Ecopetrol registraron un desplome significativo, lo que reducir&aacute; los ingresos de los accionistas, incluyendo al Estado como accionista mayoritario. La empresa tambi&eacute;n enfrenta un proceso sancionatorio por fallas en el abastecimiento de ACPM en Nari&ntilde;o.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/03/07/desplome-en-las-ganancias-de-ecopetrol-reducira-los-ingresos-de-los-accionistas-esto-recibiran/">Infobae</a> &middot; <a href="https://www.lafm.com.co/economia/minminas-ecopetrol-combustobles-narino-inician-proceso-contra-petrolera-tras-crisis-de-abastecimiento-2026-392333">La FM</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Semana Santa: Colombia en Jueves Santo con festivo nacional</h3>
+  <p>El 2 de abril es festivo por Jueves Santo, con procesiones tradicionales en Popay&aacute;n, Mompox y Cartagena. La mayor&iacute;a de instituciones p&uacute;blicas, bancos y centros educativos suspenden actividades. Bogot&aacute; ofrece programaci&oacute;n cultural con recorridos por el centro hist&oacute;rico.</p>
+  <span class="source-link"><a href="https://bogota.gov.co/que-hacer/cultura/actividades-de-semana-santa-2026-en-bogota-programacion-cultural">Bogot&aacute;.gov</a> &middot; <a href="https://cambiocolombia.com/pais/articulo/2026/4/semana-santa-nueve-pueblos-y-ciudades-en-colombia-donde-la-fe-y-la-tradicion-se-mantienen/">CAMBIO</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Seguridad: grupos armados crecieron 23,5% y suman 27.000 integrantes</h3>
+  <p>Seg&uacute;n la Fundaci&oacute;n Ideas para la Paz (FIP), a diciembre de 2025 los grupos armados ilegales sumaban m&aacute;s de 27.000 integrantes, un crecimiento del 23,5% respecto a 2024. Se reportan disputas territoriales r&eacute;cord y desplazamientos forzados, con 130 familias desplazadas solo en Catatumbo en enero de 2026.</p>
+  <span class="source-link"><a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a> &middot; <a href="https://www.publimetro.co/noticias/2026/01/31/el-mapa-del-miedo-en-2026-grupos-armados-en-colombia-crecen-a-niveles-criticos/">Publimetro</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: jornada entre semana con cuatro partidos programados</h3>
+  <p>El mi&eacute;rcoles 1 de abril se jugaron: Alianza Valledupar 0-0 Deportivo Pasto, Santa Fe 0-1 Llaneros FC y Atl&eacute;tico Nacional 0-0 C&uacute;cuta Deportivo. Para el jueves 2 de abril se programaron: Boyac&aacute; Chic&oacute; vs. Pereira, Am&eacute;rica vs. Bucaramanga, Jaguares vs. Millonarios y Medell&iacute;n vs. Once Caldas. Nacional lidera con 31 puntos.</p>
+  <span class="source-link"><a href="https://www.clarosports.com/colombia/liga-bet-play/tabla-de-posiciones-de-la-liga-betplay-dimayor-2026-i-en-directo-resultados-y-horarios-del-futbol-colombiano/">ClaroSports</a> &middot; <a href="https://www.infobae.com/colombia/deportes/2026/04/03/tabla-de-posiciones-de-la-liga-betplay-america-de-cali-se-mantiene-dentro-los-8-y-millonarios-complico-su-clasificacion/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Aranceles de EE.UU.: Colombia sostiene exportaciones pese al 10-15% de Trump</h3>
+  <p>A un a&ntilde;o de la imposici&oacute;n de aranceles por parte de la administraci&oacute;n Trump (10-15% sobre productos colombianos), Colombia ha logrado sostener e incrementar sus exportaciones hacia EE.UU. El sector pesquero creci&oacute; m&aacute;s del 11%, mientras caf&eacute; y flores siguen liderando. La Corte Suprema de EE.UU. invalid&oacute; parte de los aranceles generalizados.</p>
+  <span class="source-link"><a href="https://www.larepublica.co/economia/las-reacciones-en-colombia-tras-la-imposicion-de-aranceles-de-10-por-parte-de-donald-trump-4101083">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com/colombia/2026/02/20/cual-sera-el-impacto-para-colombia-de-la-caida-de-los-aranceles-estadounidenses-decretados-por-donald-trump/">Infobae</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.675</div>
+    <div class="data-cell-delta red">&#9650; +15,71 (+0,43%)</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BanRep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">&#9650; +100 pb</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Inflaci&oacute;n anual</div>
+    <div class="data-cell-value">5,29%</div>
+    <div class="data-cell-delta red">Meta: 3,0%</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Reacci&oacute;n de mercados al enfrentamiento Gobierno-BanRep: posible impacto en prima de riesgo y flujo de capitales tras el retiro del MinHacienda de la junta directiva.</div>
+  <div class="vigilar-item">Resultados de la Liga BetPlay en Jueves Santo: cuatro partidos clave que definir&aacute;n la parte alta de la tabla de posiciones.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del conflicto en Medio Oriente y su efecto sobre precios del crudo Brent, relevante para la balanza fiscal colombiana que depende de Ecopetrol.</div>
+  <div class="vigilar-item">Cumplimiento del nuevo esquema log&iacute;stico de combustibles Reficar-Buenaventura: si se consolida, alivia el desabastecimiento cr&oacute;nico en el Pac&iacute;fico.</div>
+  <div class="vigilar-item">Movimientos electorales a 59 d&iacute;as de la primera vuelta: alianzas, encuestas y definici&oacute;n del voto de indecisos que a&uacute;n supera el 20%.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae &middot; Semana &middot; El Tiempo &middot; El Colombiano &middot; La Rep&uacute;blica &middot; CNN en Espa&ntilde;ol &middot; Prensa Latina &middot; La FM &middot; Vanguardia &middot; El Pa&iacute;s Cali &middot; FIP &middot; La Silla Vac&iacute;a &middot; ClaroSports &middot; CAMBIO<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
