@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 2 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Jueves 2 de abril de 2026 · La Paz</div>
+  <span class="masthead-tag">Edici&oacute;n Diaria</span>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Gobierno denuncia mafia internacional que adulteraba combustible importado por Bolivia</h3>
+    <p>El presidente Rodrigo Paz revel&oacute; la existencia de una red criminal que operaba entre Bolivia, Chile, Argentina y Paraguay, dedicada al robo, adulteraci&oacute;n y sabotaje de gasolina y di&eacute;sel. La organizaci&oacute;n, liderada por Marcelo Arce Mosqueira, extra&iacute;a entre 700 y 1.000 litros por cisterna, mezclaba el combustible con agua y aceite usado, y lo reintroduc&iacute;a contaminado. Las fiscal&iacute;as de Bolivia y Chile ya coordinan la investigaci&oacute;n conjunta. El da&ntilde;o econ&oacute;mico estimado asciende a USD 150 millones.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Esta denuncia explica en parte el desabastecimiento y la baja calidad de combustible que sufri&oacute; el pa&iacute;s durante meses. La cooperaci&oacute;n internacional activa podr&iacute;a acelerar la normalizaci&oacute;n del suministro, pero tambi&eacute;n abre un frente jur&iacute;dico con implicaciones geopol&iacute;ticas.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/04/01/rodrigo-paz-denuncio-una-mafia-internacional-de-combustibles-que-operaba-entre-bolivia-chile-argentina-y-paraguay/">Infobae</a> · <a href="https://www.emol.com/noticias/Internacional/2026/03/31/1195946/bolivia-mafia-internacional-hidrocarburos-paz.html">Emol</a> · <a href="https://lapatria.bo/actualidad/bolivia-y-chile-identifican-cabecillas-de-red-criminal-que-adulteraba-combustible/">La Patria</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>TSE confirma que no habr&aacute; segunda vuelta en La Paz: Revilla ser&aacute; proclamado gobernador</h3>
+    <p>El Tribunal Supremo Electoral acept&oacute; la declinaci&oacute;n de Nueva Generaci&oacute;n Patri&oacute;tica (NGP) y confirm&oacute; que Luis Revilla, de Alianza Patria, ser&aacute; proclamado gobernador del departamento de La Paz sin necesidad de balotaje. NGP rompi&oacute; v&iacute;nculos con su candidato Ren&eacute; Yahuasi y comunic&oacute; formalmente su retiro al &oacute;rgano electoral.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Revilla asume la gobernaci&oacute;n del departamento m&aacute;s influyente del pa&iacute;s sin pasar por segunda vuelta, lo que le otorga margen de maniobra inmediato pero con un mandato de apenas 20% de los votos, lo que podr&iacute;a limitar su legitimidad pol&iacute;tica.
+    </div>
+    <span class="source-link"><a href="https://abi.bo/tse-acepta-declinacion-de-ngp-y-confirma-que-no-habra-segunda-vuelta-revilla-sera-proclamado-gobernador-en-la-paz/">ABI</a> · <a href="https://elmundo.com.bo/no-habra-segunda-vuelta-en-la-paz-ngp-declina-su-participacion/">El Mundo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Gobierno emite Decreto 5598: abre autogeneraci&oacute;n el&eacute;ctrica con gas y elimina monopolio de ENDE en interconexiones</h3>
+    <p>El Decreto Supremo 5598 revoca la prohibici&oacute;n de autogeneraci&oacute;n el&eacute;ctrica con gas natural para la industria y permite que cualquier agente del mercado el&eacute;ctrico realice transacciones de excedentes con sistemas el&eacute;ctricos de otros pa&iacute;ses, rompiendo el monopolio de ENDE. Cainco celebr&oacute; la medida como un impulso a la competitividad y la diversificaci&oacute;n productiva.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Este decreto marca un giro regulatorio significativo: reduce presi&oacute;n sobre el sistema el&eacute;ctrico nacional, abre la puerta a exportaciones de energ&iacute;a por actores privados y mejora condiciones de competitividad industrial. Es una se&ntilde;al clara de apertura econ&oacute;mica.
+    </div>
+    <span class="source-link"><a href="https://www.eldiario.net/portal/2026/04/02/celebran-autorizacion-para-autogeneracion-electrica-en-base-a-gas-natural-en-la-industria-2/">El Diario</a> · <a href="https://lapatria.bo/enfoque-nacional/cainco-celebra-emision-del-decreto-supremo-5598-sobre-gas-natural/">La Patria</a> · <a href="https://eju.tv/2026/04/gobierno-elimina-monopolio-de-ende-en-interconexiones-electricas-y-abre-mercado-a-privados/">eju.tv</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Paz promete ley minera &aacute;gil para atraer inversiones tras reuni&oacute;n con Fedecomin</h3>
+    <p>El presidente Rodrigo Paz se reuni&oacute; con la Federaci&oacute;n Departamental de Cooperativas Mineras de La Paz y se comprometi&oacute; a impulsar una nueva ley minera &aacute;gil que atraiga inversi&oacute;n. Esto se suma a la cartera de proyectos presentada en la convenci&oacute;n PDAC que despert&oacute; inter&eacute;s de unas 20 empresas de Canad&aacute; y Estados Unidos para desarrollar iniciativas con Comibol.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La miner&iacute;a representa cerca del 60% de las exportaciones bolivianas. Una ley moderna podr&iacute;a destrabar inversiones en litio, cobre y plata, sectores clave para la transici&oacute;n energ&eacute;tica global y la diversificaci&oacute;n de ingresos del pa&iacute;s.
+    </div>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/04/02/en-reunion-con-fedecomin-paz-promete-ley-minera-agil-y-que-atraiga-inversiones/">La Raz&oacute;n</a> · <a href="https://www.ebnoticias.com/presidente-paz-se-reune-con-fedecomin-la-paz-y-plantea-una-ley-minera-agil-para-atraer-inversiones/">EB Noticias</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Bolivia eliminada del Mundial 2026 tras caer 2-1 ante Irak en la final del repechaje</h3>
+    <p>La selecci&oacute;n boliviana cay&oacute; 2-1 ante Irak en el Estadio BBVA de Monterrey en la final del repechaje intercontinental. Ali Al-Hamadi abri&oacute; el marcador (min. 10), Mois&eacute;s Paniagua igual&oacute; (min. 38), pero Aymen Hussein sentenci&oacute; el partido en la segunda mitad. Bolivia extiende a 32 a&ntilde;os su ausencia mundialista; el plantel retorn&oacute; al pa&iacute;s el 2 de abril.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      M&aacute;s all&aacute; de lo deportivo, la eliminaci&oacute;n enfr&iacute;a las expectativas econ&oacute;micas asociadas a una eventual clasificaci&oacute;n (turismo, consumo, marca pa&iacute;s). El presidente Paz pidi&oacute; recibir a los jugadores como h&eacute;roes, buscando capitalizar el sentimiento nacional.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/deportes/2026/03/31/bolivia-jugara-el-repechaje-ante-irak-en-buscara-volver-a-jugar-un-mundial-luego-de-32-anos-hora-tv-y-todo-lo-que-hay-que-saber/">Infobae</a> · <a href="https://correodelsur.com/deporte/20260331/se-termino-el-sueno-bolivia-queda-fuera-del-mundial-tras-caer-ante-irak.html">Correo del Sur</a> · <a href="https://www.atb.com.bo/2026/04/02/la-verde-regresa-al-pais-tras-quedar-fuera-del-mundial-2026/">ATB</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Claudia Cronenbold asume como primera mujer presidenta de YPFB</h3>
+  <p>La ingeniera Claudia Cronenbold Harn&eacute;s fue posesionada como nueva presidenta ejecutiva de YPFB, en reemplazo de Yussef Akly Flores. Cronenbold, exdirectora corporativa de Petrobras en Colombia y expresidenta de la C&aacute;mara Boliviana de Hidrocarburos, asume en medio de la crisis de gasolina desestabilizada. El Gobierno anunci&oacute; nuevos contratos con proveedores de mayor octanaje y un cronograma de limpieza de tanques en estaciones de servicio.</p>
+  <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/03/31/el-gobierno-de-bolivia-reemplazo-al-presidente-de-ypfb-y-anuncio-medidas-ante-la-crisis-por-combustible-de-baja-calidad/">Infobae</a> · <a href="https://lapatria.bo/actualidad/claudia-cronenbold-asume-presidencia-de-ypfb/">La Patria</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Gobierno inicia socializaci&oacute;n de leyes prioritarias en hidrocarburos, energ&iacute;a, miner&iacute;a e inversiones</h3>
+  <p>El Ejecutivo lanz&oacute; el proceso de socializaci&oacute;n de las leyes consideradas prioritarias para la agenda normativa, con la participaci&oacute;n de la Asamblea Legislativa, sectores gremiales y sociedad civil. El objetivo es lograr las primeras aprobaciones durante abril, abarcando hidrocarburos, miner&iacute;a, energ&iacute;a y seguridad jur&iacute;dica para inversiones.</p>
+  <span class="source-link"><a href="https://www.aygun.com.bo/socializacion-leyes-bolivia-gobierno/">Ayg&uuml;n Bolivia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>BID mantiene paquete de USD 4.500 millones para Bolivia (2026-2028)</h3>
+  <p>El financiamiento confirmado por el BID en enero sigue como ancla de la estrategia macroecon&oacute;mica del gobierno. El primer desembolso de aproximadamente USD 2.000 millones apoya un programa de estabilizaci&oacute;n con protecci&oacute;n social. Los fondos tienen monitoreo continuo del BID y no son de libre disposici&oacute;n. Este paquete es casi seis veces mayor al del per&iacute;odo anterior.</p>
+  <span class="source-link"><a href="https://m.lostiempos.com/actualidad/economia/20260113/bolivia-recibira-us-4500-millones-del-bid-2026-2028">Los Tiempos</a> · <a href="https://www.iadb.org/en/news/idb-group-bolivia-agree-major-45-billion-support-package">BID</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Airbus elige Alcantar&iacute; para pruebas de certificaci&oacute;n en altitud del A321 XLR</h3>
+  <p>Expertos internacionales de Airbus iniciaron en el aeropuerto de Alcantar&iacute; (Sucre, 3.104 m s.n.m.) seis d&iacute;as de evaluaciones t&eacute;cnicas del A321 XLR bajo condiciones extremas de altitud. Naabol proporcion&oacute; soporte log&iacute;stico completo. Las pruebas eval&uacute;an tiempos de operaci&oacute;n, consumo de combustible y procedimientos de tripulaci&oacute;n en condiciones reales.</p>
+  <span class="source-link"><a href="https://naabol.gob.bo/naabol-impulsa-pruebas-internacionales-del-avion-airbus-a321-xlr-en-el-aeropuerto-de-alcantari/">Naabol</a> · <a href="https://www.swissinfo.ch/spa/airbus-prueba-uno-de-sus-aviones-en-un-aeropuerto-de-bolivia-a-3.104-metros-de-altitud/91202761">SWI</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Arranca la Liga de la Divisi&oacute;n Profesional 2026</h3>
+  <p>La temporada 2026 del f&uacute;tbol boliviano se inaugur&oacute; con Bol&iacute;var vs. Totora Real Oruro en el Hernando Siles e Independiente vs. Nacional Potos&iacute; en el estadio Patria de Sucre. El torneo se jugar&aacute; en formato todos contra todos a 30 fechas. Para el s&aacute;bado est&aacute;n programados Always Ready vs. Real Tomayapo, Real Potos&iacute; vs. Aurora (regreso tras cinco a&ntilde;os) y San Antonio vs. Oriente Petrolero.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/04/02/vuelve-la-liga-boliviana-con-ocho-compromisos-para-la-primera-fecha/">El Diario</a> · <a href="https://www.instantaneas.tic.bo/2026/04/02/deportes/liga-boliviana-2026-inicio-viernes-santo-partidos/">Instant&aacute;neas</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Gobierno busca formalizar casi 4.000 permisos mineros sin licencia ambiental</h3>
+  <p>El gobierno de Paz impulsa un decreto para regularizar cerca de 4.000 permisos mineros que operan actualmente sin licencia ambiental. La medida busca acelerar la formalizaci&oacute;n del sector, aunque genera preocupaci&oacute;n en organizaciones ambientales que advierten sobre los riesgos de flexibilizar controles.</p>
+  <span class="source-link"><a href="https://apcbolivia.org/2026/03/bolivia-el-gobierno-de-paz-busca-formalizar-por-decreto-casi-4000-permisos-mineros-sin-licencia-ambiental/">APC Bolivia</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
+    <div class="data-cell-value">6,86</div>
+    <div class="data-cell-delta red">&#9650; +1,3% vs. d&iacute;a previo</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value">9,37</div>
+    <div class="data-cell-delta red">&#9650; estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">36,6%</div>
+    <div class="data-cell-delta red">alta</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Avance de la investigaci&oacute;n bilateral Bolivia-Chile sobre la red de adulteraci&oacute;n de combustibles y posibles detenciones adicionales.</div>
+  <div class="vigilar-item">Primeras medidas operativas de Claudia Cronenbold al frente de YPFB: contratos con nuevos proveedores de gasolina y cronograma de limpieza de tanques.</div>
+  <div class="vigilar-item">Reacci&oacute;n del sector industrial al Decreto 5598 y primeros movimientos de actores privados hacia interconexiones el&eacute;ctricas internacionales.</div>
+  <div class="vigilar-item">Proceso de socializaci&oacute;n de leyes de hidrocarburos y miner&iacute;a en la Asamblea Legislativa: calendario y posiciones de bancadas.</div>
+  <div class="vigilar-item">Cotizaci&oacute;n del d&oacute;lar paralelo ante la persistente brecha del 36% con el tipo de cambio oficial referencial.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Infobae · ABI · La Raz&oacute;n · Correo del Sur · La Patria · El Diario · ATB · eju.tv · Naabol · Los Tiempos · Ayg&uuml;n Bolivia · APC Bolivia · Emol · SWI · BID<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
