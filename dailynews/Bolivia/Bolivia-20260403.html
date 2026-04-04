@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 3 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #991b1b;
+  --accent-soft: #fef2f2;
+  --accent-mid: #fecaca;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Viernes 3 de abril de 2026 &middot; La Paz</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Ministro de Econom&iacute;a celebra aprobaci&oacute;n de ley que elimina el ITF: &laquo;Es desmontar distorsiones&raquo;</h3>
+    <p>El ministro de Econom&iacute;a destac&oacute; la promulgaci&oacute;n inminente de la ley que abroga el Impuesto a las Transacciones Financieras (ITF), vigente desde 2006 con una tasa de 0,3% sobre operaciones en d&oacute;lares. La medida, aprobada por el Senado el 31 de marzo, busca incentivar la bancarizaci&oacute;n en moneda extranjera y reducir la brecha cambiaria.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Eliminar el ITF reduce el costo de operar en d&oacute;lares dentro del sistema financiero formal, lo que podr&iacute;a atraer dep&oacute;sitos en moneda extranjera que hoy circulan en el mercado paralelo y aliviar la presi&oacute;n sobre la brecha cambiaria.
+    </div>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/04/03/ministro-de-economia-destaca-aprobacion-de-ley-que-elimina-el-itf-es-desmontar-distorsiones/">La Raz&oacute;n</a> &middot; <a href="https://eju.tv/2026/04/menos-impuestos-y-mas-liquidez-impacto-economico-de-eliminar-el-itf/">eju.tv</a> &middot; <a href="https://www.atb.com.bo/2026/03/31/senado-aprueba-eliminacion-del-itf-y-proyecto-pasa-a-promulgacion/">ATB</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Cruce diplom&aacute;tico entre Bolivia y Reino Unido por Malvinas; Argentina respalda a La Paz</h3>
+    <p>El embajador brit&aacute;nico calific&oacute; de &laquo;decepcionante&raquo; la declaraci&oacute;n del viceministro Carlos Paz Ide en el acto por el D&iacute;a de Malvinas, donde Bolivia reafirm&oacute; que la soberan&iacute;a de las islas es &laquo;una causa regional&raquo;. La Canciller&iacute;a boliviana rechaz&oacute; las cr&iacute;ticas y Argentina sali&oacute; en defensa de Bolivia, calificando las expresiones brit&aacute;nicas como &laquo;desafortunadas&raquo;.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El incidente tensiona la relaci&oacute;n bilateral con el Reino Unido en un momento en que Bolivia busca reinsertarse en mercados internacionales. A la vez, fortalece el eje diplom&aacute;tico con Argentina, socio clave para el comercio energ&eacute;tico y de gas.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/agencias/2026/04/03/reino-unido-califica-de-decepcionante-declaracion-de-bolivia-sobre-las-islas-malvinas/">Infobae</a> &middot; <a href="https://www.urgente.bo/noticia/reino-unido-cuestiona-la-postura-boliviana-sobre-las-malvinas-y-cancilleria-responde">Urgentebo</a> &middot; <a href="https://www.canal26.com/politica/2026/04/03/tension-diplomatica-argentina-respaldo-a-bolivia-tras-el-fuerte-cruce-con-el-reino-unido-por-malvinas/">Canal 26</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Empresarios rechazan demanda salarial de la COB del 20% y advierten impacto inflacionario</h3>
+    <p>La C&aacute;mara Nacional de Industrias (CNI) manifest&oacute; su &laquo;rechazo absoluto&raquo; al pliego petitorio de la Central Obrera Boliviana, que exige un incremento del 20% al salario m&iacute;nimo y al haber b&aacute;sico. La COB hab&iacute;a entregado el pliego al Gobierno el 1 de abril con un plazo de diez d&iacute;as para responder. Los empresarios alertan sobre posibles efectos de alta inflaci&oacute;n y destrucci&oacute;n de empleo formal.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Con el salario m&iacute;nimo reci&eacute;n ajustado a Bs 3.300 en enero, un nuevo incremento del 20% elevar&iacute;a costos laborales en un contexto donde la inflaci&oacute;n de 2025 fue la m&aacute;s alta en cuatro d&eacute;cadas. La respuesta del Gobierno definir&aacute; el clima laboral del semestre.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/04/02/empresarios-de-bolivia-rechazaron-el-pedido-de-la-cob-para-aumentar-el-salario-en-un-20-y-advierten-de-un-impacto-inflacionario/">Infobae</a> &middot; <a href="https://www.eldiario.net/portal/2026/04/01/cob-exige-incremento-del-20-y-entrega-su-pliego-petitorio/">El Diario</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Gobierno abre mercado el&eacute;ctrico a privados para exportaci&oacute;n de energ&iacute;a con Decreto Supremo 5598</h3>
+    <p>El Gobierno public&oacute; el Decreto Supremo 5598, que permite a agentes p&uacute;blicos, privados o mixtos participar directamente en el intercambio internacional de electricidad, una atribuci&oacute;n antes exclusiva de la estatal ENDE. Se garantiza que el abastecimiento interno debe quedar cubierto antes de autorizar cualquier exportaci&oacute;n.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      Es una se&ntilde;al clara de apertura econ&oacute;mica del gobierno de Paz. Habilitar la inversi&oacute;n privada en exportaci&oacute;n el&eacute;ctrica puede atraer capital extranjero y generar divisas frescas, un recurso cr&iacute;tico para un pa&iacute;s con reservas internacionales comprometidas.
+    </div>
+    <span class="source-link"><a href="https://ultimasnoticias.com.ve/mundo/bolivia-abre-el-mercado-electrico-a-la-inversion-privada-para-la-exportacion-de-energia/">Ultimas Noticias</a> &middot; <a href="http://spanish.peopledaily.com.cn/n3/2026/0402/c31617-20442669.html">People's Daily</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Cronenbold asume YPFB y el presidente Paz denuncia mafia internacional de combustibles</h3>
+    <p>Claudia Cronenbold asumi&oacute; como presidenta ejecutiva de YPFB, reemplazando a Yussef Akly tras el esc&aacute;ndalo de gasolina adulterada que afect&oacute; a m&aacute;s de 10.000 veh&iacute;culos. Paralelamente, el presidente Paz denunci&oacute; una red criminal que adulteraba combustible importado desde puertos chilenos (Arica e Iquique), generando p&eacute;rdidas de USD 150 millones al pa&iacute;s.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La crisis de combustibles es el mayor desaf&iacute;o operativo del gobierno. La denuncia de una mafia internacional escala el tema a nivel geopol&iacute;tico y podr&iacute;a derivar en acciones coordinadas con Chile, Argentina y Paraguay para desarticular redes de contrabando.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/04/01/rodrigo-paz-denuncio-una-mafia-internacional-de-combustibles-que-operaba-entre-bolivia-chile-argentina-y-paraguay/">Infobae</a> &middot; <a href="https://www.infobae.com/america/america-latina/2026/03/31/bolivia-cambia-al-presidente-de-la-estatal-ypfb-en-medio-del-escandalo-por-el-combustible/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>TSE proclama a Luis Revilla gobernador de La Paz tras declinaci&oacute;n de NGP</h3>
+  <p>El Tribunal Supremo Electoral acept&oacute; la renuncia de Nueva Generaci&oacute;n Patri&oacute;tica al balotaje previsto para el 19 de abril, dejando a Luis Revilla (Alianza Patria) como gobernador electo sin necesidad de segunda vuelta. Revilla hab&iacute;a obtenido el 20,02% en la primera ronda del 22 de marzo. Evo Morales convoc&oacute; movilizaciones en defensa del balotaje, calificando la decisi&oacute;n como un atentado a la democracia.</p>
+  <span class="source-link"><a href="https://abi.bo/tse-acepta-declinacion-de-ngp-y-confirma-que-no-habra-segunda-vuelta-revilla-sera-proclamado-gobernador-en-la-paz/">ABI</a> &middot; <a href="https://www.vision360.bo/noticias/2026/04/02/42589-resolucion-del-tse-proclama-a-luis-revilla-como-gobernador-de-la-paz">Visi&oacute;n 360</a> &middot; <a href="https://larazon.bo/nacional/2026/04/01/morales-convoca-a-movilizaciones-en-defensa-del-balotaje-en-la-paz/">La Raz&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Gobierno apunta a reforma estructural en hidrocarburos para terminar con el &laquo;aislamiento econ&oacute;mico&raquo;</h3>
+  <p>El Ejecutivo anunci&oacute; una hoja de ruta para reestructurar el sector de hidrocarburos, que incluye la revisi&oacute;n de contratos, incentivos a la exploraci&oacute;n privada y la modernizaci&oacute;n de la cadena de distribuci&oacute;n de combustibles. La reforma busca reducir la dependencia de importaciones de di&eacute;sel y gasolina, responsables de un d&eacute;ficit comercial energ&eacute;tico creciente.</p>
+  <span class="source-link"><a href="https://www.economy.com.bo/articulo/economia/gobierno-apunta-reforma-estructural-hidrocarburos/20260401155347022123.html">Economy</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Financiero</span>
+  <h3>BID ratifica paquete de USD 4.500 millones para Bolivia (2026-2028)</h3>
+  <p>El Banco Interamericano de Desarrollo confirm&oacute; el compromiso de hasta USD 4.500 millones para el trienio 2026-2028, casi seis veces m&aacute;s que el per&iacute;odo anterior. En el primer a&ntilde;o se desplegar&aacute;n unos USD 2.000 millones para un programa de estabilizaci&oacute;n que proteja a los segmentos m&aacute;s vulnerables y restaure la estabilidad macroecon&oacute;mica. Se cre&oacute; la plataforma &laquo;Bolivia Crece&raquo; para supervisar la ejecuci&oacute;n.</p>
+  <span class="source-link"><a href="https://m.lostiempos.com/actualidad/economia/20260113/bolivia-recibira-us-4500-millones-del-bid-2026-2028">Los Tiempos</a> &middot; <a href="https://www.iadb.org/en/news/idb-group-bolivia-agree-major-45-billion-support-package">BID</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Banco Mundial proyecta recesi&oacute;n de -1,1% para Bolivia en 2026; CEPAL estima +0,5%</h3>
+  <p>Las proyecciones internacionales para la econom&iacute;a boliviana divergen. El Banco Mundial anticipa una contracci&oacute;n del 1,1% del PIB, mientras la CEPAL prev&eacute; un crecimiento marginal del 0,5%. La disparidad refleja la incertidumbre sobre el ritmo de las reformas estructurales y el impacto del retiro de subsidios a combustibles.</p>
+  <span class="source-link"><a href="https://www.infobae.com/noticias/2026/04/03/precio-del-dolar-hoy-en-bolivia-cotizacion-de-cierre-del-3-de-abril/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Morales convoca movilizaciones y exige que se respete la segunda vuelta en La Paz</h3>
+  <p>El expresidente Evo Morales llam&oacute; a la poblaci&oacute;n a movilizarse para exigir que se realice el balotaje en la Gobernaci&oacute;n de La Paz, argumentando que &laquo;la democracia est&aacute; siendo anulada&raquo;. La tensi&oacute;n pol&iacute;tica se suma a las demandas sindicales de la COB, configurando un escenario de potencial conflictividad social en abril.</p>
+  <span class="source-link"><a href="https://larazon.bo/nacional/2026/04/01/morales-convoca-a-movilizaciones-en-defensa-del-balotaje-en-la-paz/">La Raz&oacute;n</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Arranca la Liga de la Divisi&oacute;n Profesional 2026 con ocho partidos en la primera fecha</h3>
+  <p>La temporada 2026 del f&uacute;tbol boliviano inici&oacute; el viernes 3 de abril con la primera fecha del Torneo de la Liga. Bol&iacute;var recibi&oacute; a Totora Real Oruro en el Hernando Siles, mientras Independiente enfrent&oacute; a Nacional Potos&iacute; en Sucre. El torneo se disputar&aacute; en 30 fechas bajo formato de todos contra todos, con 16 equipos compitiendo por el t&iacute;tulo.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/04/02/vuelve-la-liga-boliviana-con-ocho-compromisos-para-la-primera-fecha/">El Diario</a> &middot; <a href="https://www.bolivia.com/futbol/liga-boliviana/este-es-el-fixture-del-torneo-de-la-liga-de-la-division-profesional-576970">Bolivia.com</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Presidente Paz exhort&oacute; a recibir como &laquo;h&eacute;roes&raquo; a la Selecci&oacute;n tras participaci&oacute;n en repechaje mundialista</h3>
+  <p>El presidente Rodrigo Paz hizo un llamado a la poblaci&oacute;n a recibir a la Selecci&oacute;n boliviana como &laquo;verdaderos h&eacute;roes&raquo; luego de su participaci&oacute;n en el repechaje para el Mundial 2026. El gesto pol&iacute;tico busca capitalizar el respaldo ciudadano al equipo nacional en un contexto de desaf&iacute;os econ&oacute;micos y sociales.</p>
+  <span class="source-link">Fuente: medios bolivianos, sin link directo disponible</span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Oficial (BCB)</div>
+    <div class="data-cell-value">Bs 6,96</div>
+    <div class="data-cell-delta">sin variaci&oacute;n</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar Referencial</div>
+    <div class="data-cell-value">Bs 9,30</div>
+    <div class="data-cell-delta red">&#9650; vs 6,96 oficial</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">~34%</div>
+    <div class="data-cell-delta red">&#9660; desde ~38% en mar.</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Plazo de 10 d&iacute;as de la COB al Gobierno por el incremento salarial del 20%: la respuesta definir&aacute; si hay escalada sindical o negociaci&oacute;n.</div>
+  <div class="vigilar-item">Promulgaci&oacute;n de la ley que elimina el ITF: su entrada en vigor efectiva y el impacto en flujos de d&oacute;lares hacia el sistema bancario formal.</div>
+  <div class="vigilar-item">Posibles movilizaciones convocadas por Morales en defensa del balotaje en La Paz: medir&aacute;n su capacidad de convocatoria real post-elecciones.</div>
+  <div class="vigilar-item">Avances de Claudia Cronenbold al frente de YPFB: primeros anuncios sobre la normalizaci&oacute;n del suministro de combustibles y las indemnizaciones pendientes.</div>
+  <div class="vigilar-item">Resultados de la primera fecha del f&uacute;tbol profesional: termin&oacute;metro del &aacute;nimo social tras meses de crisis econ&oacute;mica.</div>
+</div>
+
+<div class="footer">
+  Fuentes: La Raz&oacute;n &middot; Infobae &middot; ABI &middot; Urgentebo &middot; El Diario &middot; ATB &middot; eju.tv &middot; Visi&oacute;n 360 &middot; Los Tiempos &middot; Red Uno &middot; Bolivia.com &middot; BCB<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
