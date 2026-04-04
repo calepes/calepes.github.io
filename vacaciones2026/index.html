@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacaciones 2026 - Comparativa</title>
+<meta name="description" content="Comparativa de hoteles para vacaciones familiares Jun/Jul 2026">
+<style>
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  --text-large-title: 700 34px/41px var(--font-family);
+  --text-title1: 700 28px/34px var(--font-family);
+  --text-title2: 700 22px/28px var(--font-family);
+  --text-title3: 600 20px/25px var(--font-family);
+  --text-headline: 600 17px/22px var(--font-family);
+  --text-body: 400 17px/22px var(--font-family);
+  --text-subhead: 400 15px/20px var(--font-family);
+  --text-footnote: 400 13px/18px var(--font-family);
+  --text-caption1: 400 12px/16px var(--font-family);
+  --text-caption2: 400 11px/13px var(--font-family);
+  --color-label: #000;
+  --color-secondary-label: rgba(60,60,67,0.6);
+  --color-tertiary-label: rgba(60,60,67,0.3);
+  --color-separator: rgba(60,60,67,0.12);
+  --color-blue: #007AFF;
+  --color-green: #34C759;
+  --color-red: #FF3B30;
+  --color-orange: #FF9500;
+  --color-purple: #AF52DE;
+  --color-teal: #5AC8FA;
+  --color-accent: var(--color-blue);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-orange);
+  --color-error: var(--color-red);
+  --color-fill: rgba(120,120,128,0.2);
+  --color-tertiary-fill: rgba(118,118,128,0.12);
+  --page-gradient: linear-gradient(160deg, #D6EAF8 0%, #D4DEE7 35%, #E8EDF2 70%, #F2F2F7 100%);
+  --card-bg: rgba(255,255,255,0.72);
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-border: rgba(255,255,255,0.45);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --shadow-ambient: rgba(0,0,0,0.05);
+  --shadow-card: 0 4px 16px rgba(0,0,0,0.05), inset 0 0.5px 0 rgba(255,255,255,0.7);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --chrome-bg: rgba(255,255,255,0.72);
+  --chrome-shadow: 0 8px 32px rgba(0,0,0,0.10), inset 0 0.5px 0 rgba(255,255,255,0.8);
+  --orb-primary: radial-gradient(circle, rgba(0,122,255,0.12) 0%, transparent 70%);
+  --orb-secondary: radial-gradient(circle, rgba(52,199,89,0.08) 0%, transparent 70%);
+  --orb-tertiary: radial-gradient(circle, rgba(255,149,0,0.07) 0%, transparent 70%);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --ease-default: cubic-bezier(0.25,0.1,0.25,1);
+  --ease-spring: cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-label: #FFF;
+    --color-secondary-label: rgba(235,235,245,0.6);
+    --color-tertiary-label: rgba(235,235,245,0.3);
+    --color-separator: rgba(84,84,88,0.36);
+    --color-blue: #0A84FF;
+    --color-green: #30D158;
+    --color-red: #FF453A;
+    --color-orange: #FF9F0A;
+    --color-purple: #BF5AF2;
+    --color-teal: #64D2FF;
+    --color-fill: rgba(120,120,128,0.36);
+    --color-tertiary-fill: rgba(118,118,128,0.24);
+    --page-gradient: linear-gradient(160deg, #000 0%, #0a0a1a 40%, #0d1117 100%);
+    --card-bg: rgba(30,30,30,0.78);
+    --glass-bg: rgba(44,44,46,0.65);
+    --glass-border: rgba(255,255,255,0.08);
+    --inset-highlight: rgba(255,255,255,0.04);
+    --shadow-ambient: rgba(0,0,0,0.3);
+    --shadow-card: 0 4px 16px rgba(0,0,0,0.3), inset 0 0.5px 0 rgba(255,255,255,0.04);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+    --chrome-bg: rgba(28,28,30,0.82);
+    --chrome-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 0.5px 0 rgba(255,255,255,0.06);
+    --orb-primary: radial-gradient(circle, rgba(0,122,255,0.07) 0%, transparent 70%);
+    --orb-secondary: radial-gradient(circle, rgba(52,199,89,0.05) 0%, transparent 70%);
+    --orb-tertiary: radial-gradient(circle, rgba(255,149,0,0.04) 0%, transparent 70%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-family);
+  background: var(--page-gradient);
+  color: var(--color-label);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.orb { position: absolute; border-radius: 50%; }
+.orb-1 { top: -120px; right: -80px; width: 420px; height: 420px; background: var(--orb-primary); }
+.orb-2 { bottom: -80px; left: -60px; width: 340px; height: 340px; background: var(--orb-secondary); }
+.orb-3 { top: 40%; left: 50%; width: 300px; height: 300px; background: var(--orb-tertiary); }
+
+.content { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: var(--space-lg); padding-bottom: 100px; }
+
+/* Header */
+.header { text-align: center; padding: var(--space-2xl) 0 var(--space-xl); }
+.header-icon { font-size: 48px; margin-bottom: var(--space-md); }
+.header h1 { font: var(--text-large-title); letter-spacing: -0.5px; margin-bottom: var(--space-xs); }
+.header p { font: var(--text-body); color: var(--color-secondary-label); }
+.header .dates { font: var(--text-headline); color: var(--color-accent); margin-top: var(--space-sm); }
+
+/* Glass */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* Section */
+.section { margin-bottom: var(--space-lg); }
+.section-title {
+  font: var(--text-title2);
+  letter-spacing: -0.4px;
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-xs);
+}
+
+/* Hotel Cards */
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); }
+.hotel-card { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default; }
+.hotel-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg), inset 0 0.5px 0 var(--inset-highlight); }
+.hotel-card.recommended { border: 1.5px solid var(--color-accent); }
+.hotel-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-sm); }
+.hotel-name { font: var(--text-title3); letter-spacing: -0.3px; }
+.hotel-dest { font: var(--text-caption1); color: var(--color-secondary-label); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 2px; }
+.hotel-rank {
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700; flex-shrink: 0;
+  background: var(--color-tertiary-fill); color: var(--color-secondary-label);
+}
+.hotel-card.recommended .hotel-rank { background: var(--color-accent); color: #fff; }
+
+/* Badge */
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 600; color: #fff;
+  border-radius: var(--radius-sm); padding: 2px 8px;
+}
+.badge-success { background: var(--color-success); }
+.badge-warning { background: var(--color-warning); }
+.badge-error { background: var(--color-error); }
+.badge-accent { background: var(--color-accent); }
+.badge-purple { background: var(--color-purple); }
+
+/* Criteria rows */
+.criteria-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.criteria-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 0.5px solid var(--color-separator);
+  font: var(--text-subhead);
+}
+.criteria-row:last-child { border-bottom: none; }
+.criteria-label { color: var(--color-secondary-label); flex-shrink: 0; }
+.criteria-value { text-align: right; font-weight: 500; }
+
+/* Stars */
+.stars { color: var(--color-orange); letter-spacing: 1px; }
+
+/* Score bar */
+.score-bar-wrap { display: flex; align-items: center; gap: var(--space-sm); }
+.score-bar {
+  flex: 1; height: 6px; border-radius: 3px;
+  background: var(--color-tertiary-fill); overflow: hidden;
+}
+.score-fill { height: 100%; border-radius: 3px; transition: width 0.8s var(--ease-default); }
+
+/* Comparison table */
+.comparison-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.comparison-table table { width: 100%; border-collapse: collapse; font: var(--text-subhead); }
+.comparison-table th {
+  font: var(--text-caption1); text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--color-secondary-label); padding: var(--space-sm) var(--space-md);
+  text-align: left; white-space: nowrap;
+}
+.comparison-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-top: 0.5px solid var(--color-separator);
+  vertical-align: top;
+}
+.comparison-table tr:first-child td { border-top: none; }
+.comparison-table .hotel-col { font-weight: 600; white-space: nowrap; min-width: 100px; }
+
+/* Price section */
+.price-card { padding: var(--space-lg); }
+.price-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: var(--space-md) 0;
+  border-bottom: 0.5px solid var(--color-separator);
+}
+.price-row:last-child { border-bottom: none; }
+.price-hotel { font: var(--text-headline); }
+.price-amount { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; font-variant-numeric: tabular-nums; }
+.price-sub { font: var(--text-footnote); color: var(--color-secondary-label); }
+
+/* Recommendation */
+.reco-card { padding: var(--space-lg); border: 1.5px solid var(--color-accent); }
+.reco-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+.reco-icon { font-size: 28px; }
+.reco-title { font: var(--text-title2); letter-spacing: -0.4px; }
+.reco-body { font: var(--text-body); color: var(--color-secondary-label); line-height: 1.5; }
+.reco-body strong { color: var(--color-label); }
+.reco-actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-accent); color: #fff; border: none;
+  border-radius: var(--radius-full); font: var(--text-headline);
+  cursor: pointer; min-height: 44px; text-decoration: none;
+  transition: filter 0.2s ease;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+
+/* Tab bar / pills */
+.pill-row { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; margin-bottom: var(--space-lg); flex-wrap: wrap; }
+.pill-row::-webkit-scrollbar { display: none; }
+.pill {
+  height: 32px; padding: 0 13px; border-radius: var(--radius-full);
+  border: 0.5px solid var(--glass-border); font-size: 13px; font-weight: 500;
+  cursor: pointer; font-family: inherit; white-space: nowrap;
+  background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  color: var(--color-label); transition: all 0.25s ease;
+}
+.pill.active { background: var(--color-accent); color: #fff; border-color: transparent; }
+
+/* Accordion */
+.accordion-header {
+  padding: 14px 16px; display: flex; justify-content: space-between;
+  align-items: center; cursor: pointer; user-select: none;
+}
+.acc-arrow {
+  font-size: 9px; color: var(--color-tertiary-label);
+  display: inline-block; transition: transform 0.25s ease; margin-left: 6px;
+}
+.acc-arrow.open { transform: rotate(90deg); }
+.accordion-body {
+  max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height 0.4s var(--ease-default), opacity 0.3s ease;
+  border-top: 0.5px solid transparent;
+}
+.accordion-body.open { max-height: 2000px; opacity: 1; border-top-color: var(--color-separator); }
+.accordion-content { padding: var(--space-md); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s var(--ease-default); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Footer */
+.footer { text-align: center; padding: var(--space-xl) 0; font: var(--text-footnote); color: var(--color-tertiary-label); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .content { padding: var(--space-md); }
+  .header h1 { font-size: 28px; }
+  .hotel-grid { grid-template-columns: 1fr; }
+  .price-row { flex-direction: column; gap: var(--space-xs); }
+}
+</style>
+</head>
+<body>
+<div class="ambient">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="content">
+  <!-- HEADER -->
+  <div class="header reveal">
+    <div class="header-icon">&#127796;</div>
+    <h1>Vacaciones 2026</h1>
+    <p>Comparativa de hoteles All Inclusive para la familia</p>
+    <div class="dates">27 junio &ndash; 3 julio &middot; 6 noches</div>
+  </div>
+
+  <!-- HOTEL CARDS -->
+  <div class="section">
+    <h2 class="section-title reveal">Los 4 finalistas</h2>
+    <div class="hotel-grid">
+
+      <!-- Dreams Aventuras -->
+      <div class="glass hotel-card recommended reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Dreams Aventuras</div>
+            <div class="hotel-dest">Riviera Maya, Mexico</div>
+          </div>
+          <div class="hotel-rank">1</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-accent">Recomendado</span>
+          <span class="badge badge-success">Precio real</span>
+        </div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Hyatt (Unlimited-Luxury)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Cata</span><span class="criteria-value">&#10003; Explorer&apos;s Club (3+)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Anto</span><span class="criteria-value">&#10003; Explorer&apos;s Club (3-12)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa ni&ntilde;os</span><span class="criteria-value">&#10003; Caleta protegida</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">6+ (sin reserva)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Pulsera AI</span><span class="criteria-value">No necesita</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 5h30m</span></div>
+          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~60 min al sur</span></div>
+          <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-warning)">Solo 7 hab.</span></div>
+          <div class="criteria-row"><span class="criteria-label">Cancelaci&oacute;n</span><span class="criteria-value" style="color:var(--color-success)">Gratis hasta 13 jun</span></div>
+        </div>
+      </div>
+
+      <!-- Club Med -->
+      <div class="glass hotel-card reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Club Med Canc&uacute;n</div>
+            <div class="hotel-dest">Canc&uacute;n, Mexico</div>
+          </div>
+          <div class="hotel-rank">2</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-purple">Premium familiar</span>
+        </div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Club Med</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value stars">&#9733;&#9733;&#9733;&#9733;</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Cata</span><span class="criteria-value">&#10003; Baby Club (2+)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Anto</span><span class="criteria-value">&#10003; Mini Club (4-10)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa ni&ntilde;os</span><span class="criteria-value">&#9888; Oleaje moderado</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">4+ (buffet + &agrave; la carte)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Pulsera AI</span><span class="criteria-value">No necesita</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 5h30m</span></div>
+          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~25 min</span></div>
+          <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-success)">Disponible</span></div>
+          <div class="criteria-row"><span class="criteria-label">Promo</span><span class="criteria-value" style="color:var(--color-warning)">50% off &mdash; vence 29 abr</span></div>
+        </div>
+      </div>
+
+      <!-- Barcelo -->
+      <div class="glass hotel-card reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Barcel&oacute; B&aacute;varo Palace</div>
+            <div class="hotel-dest">Punta Cana, Rep. Dominicana</div>
+          </div>
+          <div class="hotel-rank">3</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-success">Paquete cerrado</span>
+        </div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Barcel&oacute; Hotel Group</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Cata</span><span class="criteria-value" style="color:var(--color-error)">&#10007; Sin club formal</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Anto</span><span class="criteria-value" style="color:var(--color-error)">&#10007; Sin club formal</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa ni&ntilde;os</span><span class="criteria-value">&#10003; Arena blanca, poca corriente</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">11 restaurantes</span></div>
+          <div class="criteria-row"><span class="criteria-label">Pulsera AI</span><span class="criteria-value">S&iacute; (usa pulsera)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 6h</span></div>
+          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~30 min</span></div>
+          <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-success)">Disponible</span></div>
+          <div class="criteria-row"><span class="criteria-label">Extras</span><span class="criteria-value">Casino + parque acu&aacute;tico</span></div>
+        </div>
+      </div>
+
+      <!-- Tamarijn -->
+      <div class="glass hotel-card reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Tamarijn Aruba</div>
+            <div class="hotel-dest">Oranjestad, Aruba</div>
+          </div>
+          <div class="hotel-rank">4</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-warning">Verificar kids club</span>
+        </div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Divi Resorts</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value stars">&#9733;&#9733;&#9733;&#9733;</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Cata</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Sea Turtles (4+) &mdash; confirmar</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club Anto</span><span class="criteria-value">&#10003; Sea Turtles (4-12)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa ni&ntilde;os</span><span class="criteria-value">&#9888; Oleaje variable</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">4 restaurantes</span></div>
+          <div class="criteria-row"><span class="criteria-label">Pulsera AI</span><span class="criteria-value">S&iacute; (usa pulsera)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 5h10m</span></div>
+          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~15 min</span></div>
+          <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-error)">Queens agotadas</span></div>
+          <div class="criteria-row"><span class="criteria-label">Ambiente</span><span class="criteria-value">Relajado, caribe&ntilde;o</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORE COMPARISON -->
+  <div class="section">
+    <h2 class="section-title reveal">Puntuaci&oacute;n por criterio</h2>
+    <div class="glass reveal" style="padding:var(--space-lg)">
+      <div class="criteria-list">
+        <div class="criteria-row" style="border:none;padding-bottom:0"><span class="criteria-label" style="font:var(--text-caption1);text-transform:uppercase;letter-spacing:0.5px">CRITERIO</span><span style="font:var(--text-caption1);text-transform:uppercase;letter-spacing:0.5px;color:var(--color-secondary-label)">Dreams / Club Med / Barcel&oacute; / Tamarijn</span></div>
+
+        <div class="criteria-row"><span class="criteria-label">Kids Club</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-error)">2</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-warning)">4</span>
+          </div>
+        </div>
+        <div class="criteria-row"><span class="criteria-label">Experiencia adultos</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span>
+          </div>
+        </div>
+        <div class="criteria-row"><span class="criteria-label">Playa para ni&ntilde;os</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-warning)">3</span>
+          </div>
+        </div>
+        <div class="criteria-row"><span class="criteria-label">Log&iacute;stica viaje</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span>
+          </div>
+        </div>
+        <div class="criteria-row"><span class="criteria-label">Reputaci&oacute;n</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-warning)">3</span>
+          </div>
+        </div>
+        <div class="criteria-row"><span class="criteria-label">Disponibilidad</span>
+          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
+            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
+            <span style="color:var(--color-error)">2</span>
+          </div>
+        </div>
+        <div class="criteria-row" style="border-top:1.5px solid var(--color-separator);padding-top:var(--space-md)">
+          <span class="criteria-label" style="font-weight:700">PROMEDIO</span>
+          <div style="display:flex;gap:4px;font-size:15px;font-weight:700">
+            <span style="color:var(--color-accent)">4.7</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>4.2</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>3.8</span><span style="color:var(--color-secondary-label)">/</span>
+            <span>3.5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICES -->
+  <div class="section">
+    <h2 class="section-title reveal">Precio total familia (vuelo + hotel)</h2>
+    <div class="glass price-card reveal">
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Dreams Aventuras</div>
+          <div class="price-sub">Booking.com + LATAM directo &middot; Precio real</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount" style="color:var(--color-success)">$3,921</div>
+          <div class="price-sub">~Bs 27,290</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Barcel&oacute; B&aacute;varo Palace</div>
+          <div class="price-sub">Despegar paquete cerrado &middot; Precio real</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount">$4,912</div>
+          <div class="price-sub">~Bs 34,188</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Club Med Canc&uacute;n</div>
+          <div class="price-sub">Estimado (grupos FB) + LATAM directo</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount">$5,677</div>
+          <div class="price-sub">~Bs 39,512</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Tamarijn Aruba</div>
+          <div class="price-sub">Hotels.com + Avianca 1 escala</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount" style="color:var(--color-error)">$7,097</div>
+          <div class="price-sub">~Bs 49,395</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-md);padding-top:var(--space-md);border-top:0.5px solid var(--color-separator)">
+        <div class="price-sub" style="text-align:center">Referencia: cotizaci&oacute;n esTropical desde VVI m&aacute;s barata era Bs 47,958. Todas estas opciones desde Lima son m&aacute;s baratas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS ACCORDIONS -->
+  <div class="section">
+    <h2 class="section-title reveal">Detalles por categor&iacute;a</h2>
+
+    <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
+      <div class="accordion-header" onclick="toggle(this)">
+        <span style="font:var(--text-headline)">&#127965; Playas y entorno <span class="acc-arrow">&#9654;</span></span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content comparison-table">
+          <table>
+            <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
+            <tr><td class="hotel-col">Tipo playa</td><td>Caleta protegida</td><td>Playa abierta</td><td>Arena blanca larga</td><td>Arena blanca larga</td></tr>
+            <tr><td class="hotel-col">Mar ni&ntilde;os</td><td style="color:var(--color-success)">Excelente</td><td>Moderado</td><td style="color:var(--color-success)">Bueno</td><td>Variable</td></tr>
+            <tr><td class="hotel-col">Snorkel</td><td style="color:var(--color-success)">Arrecife natural</td><td>Limitado</td><td>Excursi&oacute;n</td><td>Bueno</td></tr>
+            <tr><td class="hotel-col">Piscinas</td><td>3</td><td>3</td><td>5+ con toboganes</td><td>2</td></tr>
+            <tr><td class="hotel-col">Excursiones</td><td>Cenotes, Xcaret</td><td>Chich&eacute;n Itz&aacute;</td><td>Isla Saona</td><td>Arikok Park</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
+      <div class="accordion-header" onclick="toggle(this)">
+        <span style="font:var(--text-headline)">&#9992;&#65039; Vuelos desde Lima <span class="acc-arrow">&#9654;</span></span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content comparison-table">
+          <table>
+            <tr><th>Destino</th><th>Mejor precio</th><th>Aerol&iacute;nea</th><th>Tipo</th><th>Duraci&oacute;n</th></tr>
+            <tr><td class="hotel-col">Canc&uacute;n (CUN)</td><td>$1,864</td><td>LATAM</td><td style="color:var(--color-success)">Directo</td><td>5h 30m</td></tr>
+            <tr><td class="hotel-col">Punta Cana (PUJ)</td><td>$1,942</td><td>LATAM</td><td style="color:var(--color-success)">Directo</td><td>6h</td></tr>
+            <tr><td class="hotel-col">Aruba (AUA)</td><td>$1,708</td><td>Avianca</td><td>1 escala (BOG)</td><td>~8h</td></tr>
+            <tr><td class="hotel-col">Aruba (AUA)</td><td>$1,946</td><td>LATAM</td><td style="color:var(--color-success)">Directo</td><td>5h 10m</td></tr>
+          </table>
+          <p style="font:var(--text-footnote);color:var(--color-secondary-label);margin-top:var(--space-md)">Precios totales para 4 pasajeros, ida y vuelta. Fuente: Google Flights, 3 abr 2026.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass reveal" style="overflow:hidden">
+      <div class="accordion-header" onclick="toggle(this)">
+        <span style="font:var(--text-headline)">&#128118; Kids Clubs en detalle <span class="acc-arrow">&#9654;</span></span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content comparison-table">
+          <table>
+            <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
+            <tr><td class="hotel-col">Nombre</td><td>Explorer&apos;s Club</td><td>Baby/Mini Club</td><td>&mdash;</td><td>Sea Turtles</td></tr>
+            <tr><td class="hotel-col">Edad m&iacute;n.</td><td style="color:var(--color-success)">3 a&ntilde;os</td><td style="color:var(--color-success)">2 a&ntilde;os</td><td>&mdash;</td><td>4 a&ntilde;os</td></tr>
+            <tr><td class="hotel-col">Horario</td><td>9am&ndash;10pm</td><td>8:30am&ndash;9pm</td><td>&mdash;</td><td>9am&ndash;5pm</td></tr>
+            <tr><td class="hotel-col">Costo</td><td>Incluido</td><td>Incluido</td><td>&mdash;</td><td>Incluido</td></tr>
+            <tr><td class="hotel-col">Actividades</td><td>Eco, cocina, camping, mini-spa</td><td>Trapecio, circo, vela, teatro</td><td>Piscinas generales</td><td>Kites, pintura, pel&iacute;culas</td></tr>
+            <tr><td class="hotel-col">Babysitting</td><td>~$10/hr</td><td>Disponible</td><td>Disponible</td><td>Consultar</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div class="section">
+    <div class="glass reco-card reveal">
+      <div class="reco-header">
+        <span class="reco-icon">&#127775;</span>
+        <span class="reco-title">Recomendaci&oacute;n</span>
+      </div>
+      <div class="reco-body">
+        <strong>Dreams Aventuras Riviera Maya</strong> tiene el mejor balance en todos los criterios: kids club para Antonia y Catalina, playa segura (caleta protegida), experiencia premium Hyatt sin pulsera, y el precio m&aacute;s bajo con cotizaci&oacute;n real.<br><br>
+        <strong>&#9888; Solo quedan 7 habitaciones</strong> &mdash; pero tiene cancelaci&oacute;n gratuita hasta el 13 de junio. Se puede reservar ahora sin riesgo y seguir evaluando.<br><br>
+        Si prefieren algo m&aacute;s animado y con mejor programa deportivo, <strong>Club Med Canc&uacute;n</strong> es la alternativa premium &mdash; pero hay que cotizar directo antes del 29 de abril para la promo del 50%.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer reveal">
+    Cotizaciones al 3 de abril 2026 &middot; Precios pueden variar &middot; Desde Lima (LIM)
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.acc-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+function staggerReveal(selector, baseDelay) {
+  baseDelay = baseDelay || 0.06;
+  var items = document.querySelectorAll(selector);
+  items.forEach(function(el, i) {
+    el.style.transitionDelay = (baseDelay + i * 0.04) + 's';
+    requestAnimationFrame(function() { el.classList.add('visible'); });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() { staggerReveal('.reveal'); });
+</script>
+</body>
+</html>
