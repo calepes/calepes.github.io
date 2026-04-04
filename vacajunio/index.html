@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<!-- v3 — Full comparison -->
+<!-- v4 — Updated with Dreams Punta Cana research + full VVI-LIM costs -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vacaciones 2026 - Comparativa Completa</title>
 <meta name="description" content="Comparativa completa de hoteles All Inclusive para vacaciones familiares Jun/Jul 2026">
@@ -113,18 +113,13 @@ body {
 
 .content { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: var(--space-lg); padding-bottom: 100px; }
 
-/* Header */
 .header { text-align: center; padding: var(--space-2xl) 0 var(--space-xl); }
 .header-icon { font-size: 56px; margin-bottom: var(--space-md); }
 .header h1 { font: var(--text-large-title); letter-spacing: -0.5px; margin-bottom: var(--space-xs); }
 .header p { font: var(--text-body); color: var(--color-secondary-label); }
 .header .dates { font: var(--text-headline); color: var(--color-accent); margin-top: var(--space-sm); }
-.header .family-info {
-  font: var(--text-footnote); color: var(--color-tertiary-label);
-  margin-top: var(--space-sm);
-}
+.header .family-info { font: var(--text-footnote); color: var(--color-tertiary-label); margin-top: var(--space-sm); }
 
-/* Glass */
 .glass {
   background: var(--card-bg);
   backdrop-filter: blur(20px) saturate(180%);
@@ -134,7 +129,6 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-/* Section */
 .section { margin-bottom: var(--space-lg); }
 .section-title {
   font: var(--text-title2);
@@ -143,8 +137,7 @@ body {
   padding-left: var(--space-xs);
 }
 
-/* Hotel Cards */
-.hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-md); }
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-md); }
 .hotel-card { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default; }
 .hotel-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg), inset 0 0.5px 0 var(--inset-highlight); }
 .hotel-card.recommended { border: 1.5px solid var(--color-accent); }
@@ -159,19 +152,17 @@ body {
 }
 .hotel-card.recommended .hotel-rank { background: var(--color-accent); color: #fff; }
 
-/* Badge */
 .badge {
   display: inline-block; font-size: 11px; font-weight: 600; color: #fff;
   border-radius: var(--radius-sm); padding: 2px 8px;
 }
 .badge-success { background: var(--color-success); }
 .badge-warning { background: var(--color-warning); }
-.badge-error { background: var(--color-error); }
+.badge-error { background: var(--color-red); }
 .badge-accent { background: var(--color-accent); }
 .badge-purple { background: var(--color-purple); }
 .badge-teal { background: var(--color-teal); color: #000; }
 
-/* Criteria rows */
 .criteria-list { display: flex; flex-direction: column; gap: var(--space-sm); }
 .criteria-row {
   display: flex; justify-content: space-between; align-items: center;
@@ -183,33 +174,12 @@ body {
 .criteria-label { color: var(--color-secondary-label); flex-shrink: 0; }
 .criteria-value { text-align: right; font-weight: 500; }
 
-/* Stars */
-.stars { color: var(--color-orange); letter-spacing: 1px; }
+.hotel-desc {
+  font: var(--text-subhead); color: var(--color-secondary-label);
+  line-height: 1.5; padding: var(--space-sm) 0;
+  border-bottom: 0.5px solid var(--color-separator);
+}
 
-/* Score bar */
-.score-bar-wrap { display: flex; align-items: center; gap: var(--space-sm); }
-.score-bar {
-  flex: 1; height: 6px; border-radius: 3px;
-  background: var(--color-tertiary-fill); overflow: hidden;
-}
-.score-fill { height: 100%; border-radius: 3px; transition: width 0.8s var(--ease-default); }
-
-/* Score grid */
-.score-grid {
-  display: grid; grid-template-columns: 1fr; gap: var(--space-md);
-}
-.score-category { margin-bottom: var(--space-sm); }
-.score-category-title {
-  font: var(--text-caption1); text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--color-secondary-label); margin-bottom: var(--space-sm);
-}
-.score-hotel-row {
-  display: flex; align-items: center; gap: var(--space-sm); margin-bottom: 6px;
-}
-.score-hotel-name { font: var(--text-footnote); font-weight: 500; width: 110px; flex-shrink: 0; }
-.score-num { font: var(--text-footnote); font-weight: 700; width: 28px; text-align: right; }
-
-/* Comparison table */
 .comparison-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .comparison-table table { width: 100%; border-collapse: collapse; font: var(--text-subhead); }
 .comparison-table th {
@@ -225,7 +195,6 @@ body {
 .comparison-table tr:first-child td { border-top: none; }
 .comparison-table .hotel-col { font-weight: 600; white-space: nowrap; min-width: 100px; }
 
-/* Price section */
 .price-card { padding: var(--space-lg); }
 .price-row {
   display: flex; justify-content: space-between; align-items: baseline;
@@ -238,25 +207,13 @@ body {
 .price-sub { font: var(--text-footnote); color: var(--color-secondary-label); }
 .price-detail { font: var(--text-caption1); color: var(--color-tertiary-label); margin-top: 2px; }
 
-/* Recommendation */
 .reco-card { padding: var(--space-lg); border: 1.5px solid var(--color-accent); }
 .reco-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
 .reco-icon { font-size: 28px; }
 .reco-title { font: var(--text-title2); letter-spacing: -0.4px; }
 .reco-body { font: var(--text-body); color: var(--color-secondary-label); line-height: 1.5; }
 .reco-body strong { color: var(--color-label); }
-.reco-actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
-.btn-primary {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
-  background: var(--color-accent); color: #fff; border: none;
-  border-radius: var(--radius-full); font: var(--text-headline);
-  cursor: pointer; min-height: 44px; text-decoration: none;
-  transition: filter 0.2s ease;
-}
-.btn-primary:hover { filter: brightness(1.1); }
 
-/* Accordion */
 .accordion-header {
   font: var(--text-headline);
   padding: 14px 16px; display: flex; justify-content: space-between;
@@ -272,10 +229,9 @@ body {
   transition: max-height 0.4s var(--ease-default), opacity 0.3s ease;
   border-top: 0.5px solid transparent;
 }
-.accordion-body.open { max-height: 4000px; opacity: 1; border-top-color: var(--color-separator); }
+.accordion-body.open { max-height: 6000px; opacity: 1; border-top-color: var(--color-separator); }
 .accordion-content { padding: var(--space-md); }
 
-/* Alert box */
 .alert-box {
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
@@ -287,7 +243,6 @@ body {
 .alert-box.info { background: rgba(0,122,255,0.08); border: 0.5px solid rgba(0,122,255,0.2); }
 .alert-box.ok { background: rgba(52,199,89,0.08); border: 0.5px solid rgba(52,199,89,0.2); }
 
-/* Detail list inside accordions */
 .detail-list { list-style: none; padding: 0; }
 .detail-list li {
   padding: var(--space-sm) 0;
@@ -298,33 +253,31 @@ body {
 .detail-list .dl-label { font-weight: 600; display: block; margin-bottom: 2px; }
 .detail-list .dl-value { color: var(--color-secondary-label); }
 
-/* Mini stat */
 .mini-stats {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: var(--space-sm); margin-bottom: var(--space-md);
 }
 .mini-stat {
   text-align: center; padding: var(--space-sm);
   background: var(--color-tertiary-fill); border-radius: var(--radius-md);
 }
-.mini-stat .stat-num { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
-.mini-stat .stat-label { font: var(--text-caption1); color: var(--color-secondary-label); margin-top: 2px; }
+.mini-stat .stat-num { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+.mini-stat .stat-label { font: var(--text-caption2); color: var(--color-secondary-label); margin-top: 2px; }
 
-/* Reveal */
 .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s var(--ease-default); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* Footer */
 .footer { text-align: center; padding: var(--space-xl) 0; font: var(--text-footnote); color: var(--color-tertiary-label); }
 
-/* Responsive */
+.vs-label { font: var(--text-caption1); text-transform: uppercase; letter-spacing: 0.8px; color: var(--color-tertiary-label); text-align: center; padding: var(--space-sm) 0; }
+
 @media (max-width: 600px) {
   .content { padding: var(--space-md); }
   .header h1 { font-size: 28px; }
   .hotel-grid { grid-template-columns: 1fr; }
   .price-row { flex-direction: column; gap: var(--space-xs); }
-  .score-hotel-name { width: 80px; font-size: 11px; }
   .comparison-table { font-size: 13px; }
+  .mini-stats { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
@@ -336,18 +289,52 @@ body {
 </div>
 
 <div class="content">
-  <!-- ====== 1. HEADER ====== -->
+
+  <!-- ====== HEADER ====== -->
   <div class="header reveal">
     <div class="header-icon">&#127796;</div>
     <h1>Vacaciones 2026</h1>
-    <p>Comparativa All Inclusive &mdash; 4 hoteles finalistas</p>
+    <p>Comparativa All Inclusive &mdash; 6 hoteles, 3 destinos</p>
     <div class="dates">27 junio &ndash; 3 julio &middot; 6 noches</div>
-    <div class="family-info">Cal, Noe, Antonia (8) y Catalina (casi 4) &middot; Desde Lima, Per&uacute;</div>
+    <div class="family-info">Cal, Noe, Antonia (8) y Catalina (casi 4) &middot; Desde Santa Cruz v&iacute;a Lima</div>
   </div>
 
-  <!-- ====== 2. HOTEL CARDS ====== -->
+  <!-- ====== RESUMEN RAPIDO ====== -->
   <div class="section">
-    <h2 class="section-title reveal">Los 4 finalistas</h2>
+    <div class="glass reveal" style="padding:var(--space-lg)">
+      <div class="mini-stats">
+        <div class="mini-stat">
+          <div class="stat-num" style="color:var(--color-accent)">6</div>
+          <div class="stat-label">Hoteles</div>
+        </div>
+        <div class="mini-stat">
+          <div class="stat-num" style="color:var(--color-success)">$5,566</div>
+          <div class="stat-label">M&aacute;s barato</div>
+        </div>
+        <div class="mini-stat">
+          <div class="stat-num" style="color:var(--color-error)">$8,967</div>
+          <div class="stat-label">M&aacute;s caro</div>
+        </div>
+        <div class="mini-stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Destinos</div>
+        </div>
+        <div class="mini-stat">
+          <div class="stat-num" style="color:var(--color-success)">5 de 6</div>
+          <div class="stat-label">Kids club Catalina</div>
+        </div>
+        <div class="mini-stat">
+          <div class="stat-num" style="color:var(--color-warning)">2026</div>
+          <div class="stat-label">A&ntilde;o r&eacute;cord sargazo</div>
+        </div>
+      </div>
+      <div class="alert-box info">Todos los precios incluyen: hotel AI 6 noches + vuelo LIM&rarr;destino R/T + vuelo VVI&rarr;LIM R/T ($1,645 BoA directo). Cargo extra de ni&ntilde;os incluido donde aplica. TC: 6.96 Bs/USD.</div>
+    </div>
+  </div>
+
+  <!-- ====== HOTEL CARDS ====== -->
+  <div class="section">
+    <h2 class="section-title reveal">Los 6 finalistas</h2>
     <div class="hotel-grid">
 
       <!-- #1 Dreams Aventuras -->
@@ -360,657 +347,432 @@ body {
           <div class="hotel-rank">1</div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <span class="badge badge-accent">Recomendado</span>
-          <span class="badge badge-success">Precio real</span>
+          <span class="badge badge-accent">Mejor precio</span>
+          <span class="badge badge-success">Cotizado real</span>
         </div>
+        <div class="hotel-desc">Resort mediano (305 hab.) en Puerto Aventuras, comunidad privada con marina. Playa tipo caleta &mdash; agua tranquila ideal para ni&ntilde;os peque&ntilde;os. Cadena Hyatt con concepto Unlimited-Luxury: todo incluido sin pulsera, restaurantes sin reserva, room service 24h incluido. Habitaciones compactas (~41m&sup2;) pero funcionales.</div>
         <div class="criteria-list">
           <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Hyatt &middot; Unlimited-Luxury</span></div>
           <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">4.5&#9733; &middot; 305 hab.</span></div>
-          <div class="criteria-row"><span class="criteria-label">Scores</span><span class="criteria-value">Google 4.1 &middot; TA 4.0 &middot; Booking 7.8</span></div>
           <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Explorer&apos;s Club 3-12</span></div>
-          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Caleta protegida</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value" style="color:var(--color-success)">Caleta protegida, sin oleaje</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Alto riesgo (protecci&oacute;n parcial)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Waterpark</span><span class="criteria-value">No</span></div>
           <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">6 + grill + snack</span></div>
-          <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n</span><span class="criteria-value">39-41 m&sup2;</span></div>
-          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 5h30 &rarr; CUN</span></div>
-          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~60 min al sur</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;CUN</span><span class="criteria-value">LATAM directo 5h30</span></div>
           <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Solo 7 hab.</span></div>
-          <div class="criteria-row"><span class="criteria-label">Cancel.</span><span class="criteria-value" style="color:var(--color-success)">Gratis hasta 13 jun</span></div>
-          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700;color:var(--color-success)">$3,921</span></div>
+          <div class="criteria-row"><span class="criteria-label">Cancelaci&oacute;n</span><span class="criteria-value" style="color:var(--color-success)">Gratis hasta 13 jun</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700;color:var(--color-success)">$5,566 &middot; Bs 38,739</span></div>
         </div>
       </div>
 
-      <!-- #2 Club Med -->
+      <!-- #2 Dreams Macao Beach -->
+      <div class="glass hotel-card recommended reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Dreams Macao Beach</div>
+            <div class="hotel-dest">Playa Macao, Punta Cana, RD</div>
+          </div>
+          <div class="hotel-rank">2</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-accent">Top Punta Cana</span>
+          <span class="badge badge-teal">Mejor playa sargazo</span>
+        </div>
+        <div class="hotel-desc">Resort grande (500 suites) en Playa Macao, una de las mejores playas naturales de RD. Gran atractivo: <strong>waterpark con toboganes y lazy river</strong>. Playa Macao tiene mayormente pasto marino (seagrass), NO sargassum &mdash; ventaja enorme en 2026. Family Suites y villas de 2 dormitorios disponibles. 40 min del aeropuerto PUJ.</div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Hyatt &middot; Unlimited-Luxury</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">5&#9733; &middot; 500 suites</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Explorer&apos;s Club 3-12</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value" style="color:var(--color-success)">Macao &mdash; menos sargazo de PC</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Bajo (seagrass, no sargassum)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Waterpark</span><span class="criteria-value" style="color:var(--color-accent)">&#10003; Toboganes + lazy river</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">6 a la carte + buffet + food truck</span></div>
+          <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n</span><span class="criteria-value">Jr Suite 56m&sup2; / Family Suite / Villa 2 dorm</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;PUJ</span><span class="criteria-value">LATAM directo ~5h</span></div>
+          <div class="criteria-row"><span class="criteria-label">Ni&ntilde;os extra</span><span class="criteria-value" style="color:var(--color-warning)">~$67/ni&ntilde;o/noche ($804 total)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">$5,959&ndash;7,629 &middot; Bs 41K&ndash;53K</span></div>
+        </div>
+      </div>
+
+      <!-- #3 Dreams Flora -->
+      <div class="glass hotel-card reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Dreams Flora</div>
+            <div class="hotel-dest">Cabeza de Toro, Punta Cana, RD</div>
+          </div>
+          <div class="hotel-rank">3</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-success">M&aacute;s barato Punta Cana</span>
+          <span class="badge badge-purple">Nuevo (2023)</span>
+        </div>
+        <div class="hotel-desc">Resort moderno inaugurado en 2023 con 520 suites, todos con balc&oacute;n privado. Tiene waterpark con piscina y 2 toboganes. 8 restaurantes + 11 bares. Ubicado en Cabeza de Toro, solo 20 min del aeropuerto. Rese&ntilde;as destacan que los ni&ntilde;os &quot;no quer&iacute;an salir del kids club&quot;. Buen valor por el precio.</div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Hyatt &middot; Unlimited-Luxury</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">5&#9733; &middot; 520 suites</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Explorer&apos;s Club 3-12</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value">Cabeza de Toro, agradable</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-warning)">Moderado (limpieza diaria)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Waterpark</span><span class="criteria-value" style="color:var(--color-accent)">&#10003; Lazy river + 2 toboganes</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">8 restaurantes + 11 bares</span></div>
+          <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n</span><span class="criteria-value">Jr Suite Pool View 54m&sup2;, 2 dobles</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;PUJ</span><span class="criteria-value">LATAM directo ~5h</span></div>
+          <div class="criteria-row"><span class="criteria-label">Ni&ntilde;os extra</span><span class="criteria-value" style="color:var(--color-warning)">~$67/ni&ntilde;o/noche ($804 total)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">$5,329&ndash;6,949 &middot; Bs 37K&ndash;48K</span></div>
+        </div>
+      </div>
+
+      <!-- #4 Dreams Royal Beach -->
+      <div class="glass hotel-card reveal">
+        <div class="hotel-top">
+          <div>
+            <div class="hotel-name">Dreams Royal Beach</div>
+            <div class="hotel-dest">B&aacute;varo, Punta Cana, RD</div>
+          </div>
+          <div class="hotel-rank">4</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="badge badge-purple">Mejor rating TA</span>
+          <span class="badge badge-success">Precio real Booking</span>
+        </div>
+        <div class="hotel-desc">El mejor calificado de los Dreams en Punta Cana: <strong>4.5/5 en TripAdvisor</strong> y 8.8/10 en Booking (familias: 9.3/10). Family rooms para hasta 6 personas. Toboganes de agua y m&uacute;ltiples piscinas. Ubicado en Playa B&aacute;varo &mdash; arena blanca espectacular pero zona moderada-alta de sargazo. 7 restaurantes + 10 bares con licores premium.</div>
+        <div class="criteria-list">
+          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Hyatt &middot; Unlimited-Luxury</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">5&#9733; &middot; 4.5/5 TA &middot; Booking 8.8</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Explorer&apos;s Club 3-12</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value">B&aacute;varo &mdash; top arena Caribe</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Moderado-Alto (B&aacute;varo)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Waterpark</span><span class="criteria-value">Toboganes de agua</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">7 rest. + 10 bares top-shelf</span></div>
+          <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n</span><span class="criteria-value">Family Room 6 pax / Deluxe 53m&sup2;</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;PUJ</span><span class="criteria-value">LATAM directo ~5h</span></div>
+          <div class="criteria-row"><span class="criteria-label">Ni&ntilde;os extra</span><span class="criteria-value" style="color:var(--color-error)">$67/ni&ntilde;o/noche confirmado ($804)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">$7,010&ndash;7,731 &middot; Bs 49K&ndash;54K</span></div>
+        </div>
+      </div>
+
+      <!-- #5 Club Med Cancun -->
       <div class="glass hotel-card reveal">
         <div class="hotel-top">
           <div>
             <div class="hotel-name">Club Med Canc&uacute;n</div>
             <div class="hotel-dest">Punta Nizuc, Canc&uacute;n, M&eacute;xico</div>
           </div>
-          <div class="hotel-rank">2</div>
+          <div class="hotel-rank">5</div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <span class="badge badge-purple">Premium familiar</span>
-          <span class="badge badge-warning">Renovaci&oacute;n</span>
+          <span class="badge badge-purple">Mejor actividades</span>
+          <span class="badge badge-error">Piscina cerrada</span>
         </div>
+        <div class="hotel-desc">El resort con m&aacute;s actividades del Caribe: 32 incluidas (trapecio, circo, vela, p&aacute;del, tiro con arco). Shows nocturnos semi-profesionales tipo Cirque du Soleil. Habitaci&oacute;n familiar grande (50-60m&sup2;) con dormitorio separado para ni&ntilde;as. <strong>Pero:</strong> piscina principal cerrada por renovaci&oacute;n, resort enorme (8-10 min caminando entre zonas), y si Catalina tiene 3 a&ntilde;os al viajar el Petit Club cuesta ~$600 extra.</div>
         <div class="criteria-list">
           <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Club Med</span></div>
           <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">4&#9733; premium &middot; ~460 hab.</span></div>
-          <div class="criteria-row"><span class="criteria-label">Scores</span><span class="criteria-value">TA 4.0 (20K+ reviews)</span></div>
           <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-success)">&#10003; Mini Club 4-10 gratis</span></div>
-          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value">&#9888; Punta Nizuc, oleaje mixto</span></div>
-          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">4 + 5 bares</span></div>
-          <div class="criteria-row"><span class="criteria-label">Actividades</span><span class="criteria-value" style="color:var(--color-accent)">32 incluidas (trapecio, circo...)</span></div>
-          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 5h30 &rarr; CUN</span></div>
-          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~25 min</span></div>
+          <div class="criteria-row"><span class="criteria-label">Petit Club (Cata 3)</span><span class="criteria-value" style="color:var(--color-warning)">~$100/d&iacute;a extra</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value">Punta Nizuc, oleaje mixto</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-warning)">Moderado (menos que Riviera Maya)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Alerta</span><span class="criteria-value" style="color:var(--color-error)">Piscina principal CERRADA</span></div>
+          <div class="criteria-row"><span class="criteria-label">Actividades</span><span class="criteria-value" style="color:var(--color-accent)">32 incluidas (mejor del Caribe)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n</span><span class="criteria-value" style="color:var(--color-success)">50-60m&sup2; con dorm. separado</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;CUN</span><span class="criteria-value">LATAM directo 5h30</span></div>
           <div class="criteria-row"><span class="criteria-label">Promo</span><span class="criteria-value" style="color:var(--color-warning)">50% off &mdash; vence 29 abr</span></div>
-          <div class="criteria-row"><span class="criteria-label">Alerta</span><span class="criteria-value" style="color:var(--color-error)">Piscina principal cerrada</span></div>
-          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">~$5,677</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">~$7,322 &middot; Bs ~51K</span></div>
         </div>
       </div>
 
-      <!-- #3 Barcelo -->
+      <!-- #6 Barcelo Bavaro -->
       <div class="glass hotel-card reveal">
         <div class="hotel-top">
           <div>
             <div class="hotel-name">Barcel&oacute; B&aacute;varo Palace</div>
             <div class="hotel-dest">Playa B&aacute;varo, Punta Cana, RD</div>
           </div>
-          <div class="hotel-rank">3</div>
+          <div class="hotel-rank">6</div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <span class="badge badge-success">Paquete real Despegar</span>
+          <span class="badge badge-warning">WiFi de pago</span>
         </div>
+        <div class="hotel-desc">Mega-resort de 1,400 habitaciones con casino 24h, golf 18 hoyos, bolera, y water park infantil. Gran infraestructura pero experiencia diluida por el tama&ntilde;o. Check-in de 1-2 horas, buffets mediocres, y WiFi solo gratis con Premium Level (cuesta m&aacute;s). La ventaja: paquete cerrado en Despegar con vuelo incluido, sin sorpresas de precio.</div>
         <div class="criteria-list">
           <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Barcel&oacute; Hotel Group</span></div>
-          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">5&#9733; &middot; ~1,400 hab.</span></div>
-          <div class="criteria-row"><span class="criteria-label">Scores</span><span class="criteria-value">Booking 8.1 &middot; TA 4.0</span></div>
-          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Barcy Club &mdash; edad incierta</span></div>
-          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value" style="color:var(--color-success)">&#10003; B&aacute;varo, top Caribe</span></div>
-          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">2 buffets + 7 a la carte</span></div>
+          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">5&#9733; &middot; 1,400 hab.</span></div>
+          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Barcy Club &mdash; edad incierta (3-5?)</span></div>
+          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value" style="color:var(--color-success)">B&aacute;varo, top Caribe</span></div>
+          <div class="criteria-row"><span class="criteria-label">Sargazo jun</span><span class="criteria-value" style="color:var(--color-warning)">Moderado-Alto</span></div>
           <div class="criteria-row"><span class="criteria-label">Extras</span><span class="criteria-value">Casino, golf, bolera, water park</span></div>
-          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">LATAM directo 6h &rarr; PUJ</span></div>
-          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~30 min</span></div>
+          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">2 buffets + 7 a la carte</span></div>
           <div class="criteria-row"><span class="criteria-label">WiFi</span><span class="criteria-value" style="color:var(--color-error)">DE PAGO (gratis solo Premium)</span></div>
-          <div class="criteria-row"><span class="criteria-label">Disponibilidad</span><span class="criteria-value" style="color:var(--color-success)">Disponible</span></div>
-          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">$4,912</span></div>
+          <div class="criteria-row"><span class="criteria-label">Room service</span><span class="criteria-value" style="color:var(--color-error)">NO incluido</span></div>
+          <div class="criteria-row"><span class="criteria-label">Vuelo LIM&rarr;PUJ</span><span class="criteria-value">LATAM directo ~5h</span></div>
+          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700">$6,557 &middot; Bs 45,636</span></div>
         </div>
       </div>
 
-      <!-- #4 Tamarijn -->
-      <div class="glass hotel-card reveal">
-        <div class="hotel-top">
-          <div>
-            <div class="hotel-name">Tamarijn Aruba</div>
-            <div class="hotel-dest">Druif Beach, Oranjestad, Aruba</div>
-          </div>
-          <div class="hotel-rank">4</div>
-        </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <span class="badge badge-error">M&aacute;s caro</span>
-          <span class="badge badge-warning">Confirmar kids club</span>
-        </div>
-        <div class="criteria-list">
-          <div class="criteria-row"><span class="criteria-label">Cadena</span><span class="criteria-value">Divi Resorts</span></div>
-          <div class="criteria-row"><span class="criteria-label">Categor&iacute;a</span><span class="criteria-value">4&#9733; &middot; 236 hab.</span></div>
-          <div class="criteria-row"><span class="criteria-label">Scores</span><span class="criteria-value">TA ~4.0 (datos limitados)</span></div>
-          <div class="criteria-row"><span class="criteria-label">Kids Club</span><span class="criteria-value" style="color:var(--color-warning)">&#9888; Sea Turtles 4+ &mdash; confirmar Cata</span></div>
-          <div class="criteria-row"><span class="criteria-label">Playa</span><span class="criteria-value">&#9888; Druif Beach, oleaje variable</span></div>
-          <div class="criteria-row"><span class="criteria-label">Restaurantes</span><span class="criteria-value">4 propios + Divi hermano</span></div>
-          <div class="criteria-row"><span class="criteria-label">Vuelo</span><span class="criteria-value">Avianca 1 escala BOG ~8h</span></div>
-          <div class="criteria-row"><span class="criteria-label">Transfer</span><span class="criteria-value">~15 min</span></div>
-          <div class="criteria-row"><span class="criteria-label">Hab. Queen</span><span class="criteria-value" style="color:var(--color-error)">AGOTADAS &mdash; solo King + sof&aacute;</span></div>
-          <div class="criteria-row"><span class="criteria-label">Ni&ntilde;os</span><span class="criteria-value" style="color:var(--color-warning)">$50/noche c/u (3-12)</span></div>
-          <div class="criteria-row"><span class="criteria-label">Ventaja</span><span class="criteria-value" style="color:var(--color-success)">Sin sargazo, clima seco</span></div>
-          <div class="criteria-row"><span class="criteria-label">Total</span><span class="criteria-value" style="font-weight:700;color:var(--color-error)">~$7,097</span></div>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- ====== 3-9. SECCIONES DETALLE (ACCORDIONS) ====== -->
+  <!-- ====== COMPARATIVAS ====== -->
   <div class="section">
     <h2 class="section-title reveal">Comparativa por criterio</h2>
 
-    <!-- 3. GASTRONOMIA -->
+    <!-- KIDS CLUB -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#127869; Gastronom&iacute;a <span class="acc-arrow">&#9654;</span></span>
+        <span style="font:var(--text-headline)">&#128118; Kids Club &mdash; &iquest;D&oacute;nde entra Catalina? <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
           <div class="comparison-table">
             <table>
-              <tr>
-                <th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th>
-              </tr>
-              <tr>
-                <td class="hotel-col">Restaurantes</td>
-                <td>6 + grill + snack</td>
-                <td>4 + crepes all-day</td>
-                <td>2 buffets + 7 a la carte</td>
-                <td>4 + restaurantes Divi</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Mejor seg&uacute;n reviews</td>
-                <td>Gohan (sushi)</td>
-                <td>La Estancia (parrilla)</td>
-                <td>Mexico Lindo</td>
-                <td>&mdash;</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Buffet</td>
-                <td>World Cafe (intl)</td>
-                <td>La Hacienda (5 salones)</td>
-                <td>Miramar + Boh&iacute;o</td>
-                <td>Buffet principal</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">A la carte</td>
-                <td>Portofino, El Patio, Oceana, Gohan, Seaside Grill</td>
-                <td>Taco Arte, La Estancia, La Creperie</td>
-                <td>El Coral, Santa Fe, La Dolce Vita, Kyoto, Mexico Lindo, La Fuente</td>
-                <td>Varios compartidos con Divi</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Solo adultos</td>
-                <td style="color:var(--color-accent)">Oceana (mariscos)</td>
-                <td>No</td>
-                <td>La Comedie (solo Premium)</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Bares</td>
-                <td>4</td>
-                <td>5</td>
-                <td>14</td>
-                <td>Varios</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Reserva requerida</td>
-                <td style="color:var(--color-success)">No</td>
-                <td>No</td>
-                <td>S&iacute; (a la carte)</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">L&iacute;mite cenas</td>
-                <td style="color:var(--color-success)">Sin l&iacute;mite</td>
-                <td style="color:var(--color-success)">Sin l&iacute;mite</td>
-                <td style="color:var(--color-warning)">4/semana a la carte</td>
-                <td style="color:var(--color-success)">Sin l&iacute;mite</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Bebidas premium</td>
-                <td style="color:var(--color-success)">Ilimitadas</td>
-                <td style="color:var(--color-warning)">No top-shelf</td>
-                <td style="color:var(--color-warning)">Calidad 6/10</td>
-                <td>Est&aacute;ndar</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Room service 24h</td>
-                <td style="color:var(--color-success)">Incluido</td>
-                <td>No</td>
-                <td style="color:var(--color-error)">NO incluido</td>
-                <td>Limitado</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Opciones ni&ntilde;os</td>
-                <td>Men&uacute; infantil</td>
-                <td style="color:var(--color-success)">Baby Corner buffet + helado/churros ilimitados</td>
-                <td>Men&uacute; infantil</td>
-                <td>Men&uacute; infantil</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Calidad (reviews)</td>
-                <td style="color:var(--color-warning)">Inconsistente (#1 queja)</td>
-                <td>Buena (no gourmet)</td>
-                <td style="color:var(--color-warning)">Buffets mediocres</td>
-                <td>Aceptable</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Pulsera</td>
-                <td style="color:var(--color-success)">No</td>
-                <td style="color:var(--color-success)">No</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-              </tr>
-            </table>
-          </div>
-          <div class="alert-box warn" style="margin-top:var(--space-md)">&#9888; Dreams y Barcel&oacute; comparten la queja principal: comida inconsistente. Club Med destaca por el buffet con 5 salones tem&aacute;ticos y Baby Corner dedicado.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. KIDS CLUB -->
-    <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
-      <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#128118; Kids Club <span class="acc-arrow">&#9654;</span></span>
-      </div>
-      <div class="accordion-body">
-        <div class="accordion-content">
-          <div class="comparison-table">
-            <table>
-              <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
+              <tr><th></th><th>D. Aventuras</th><th>D. Macao</th><th>D. Flora</th><th>D. Royal</th><th>Club Med</th><th>Barcel&oacute;</th></tr>
               <tr>
                 <td class="hotel-col">Nombre</td>
-                <td>Explorer&apos;s Club</td>
-                <td>Baby Club / Petit Club / Mini Club</td>
-                <td>Barcy Kids Club</td>
-                <td>Sea Turtles Club</td>
+                <td>Explorer&apos;s Club</td><td>Explorer&apos;s Club</td><td>Explorer&apos;s Club</td><td>Explorer&apos;s Club</td>
+                <td>Baby/Petit/Mini Club</td><td>Barcy Club</td>
               </tr>
               <tr>
                 <td class="hotel-col">Edad m&iacute;n.</td>
-                <td style="color:var(--color-success)">3 a&ntilde;os</td>
-                <td style="color:var(--color-success)">Baby (4-23m), Petit (2-3), Mini (4-10)</td>
-                <td style="color:var(--color-warning)">3, 4 o 5 seg&uacute;n fuente</td>
-                <td style="color:var(--color-warning)">4 a&ntilde;os</td>
+                <td style="color:var(--color-success)">3</td><td style="color:var(--color-success)">3</td><td style="color:var(--color-success)">3</td><td style="color:var(--color-success)">3</td>
+                <td style="color:var(--color-success)">Desde 0 (Baby)</td><td style="color:var(--color-warning)">3-5 (incierto)</td>
               </tr>
               <tr>
-                <td class="hotel-col">Catalina (casi 4)</td>
-                <td style="color:var(--color-success)">&#10003; Entra seguro</td>
-                <td style="color:var(--color-warning)">Si tiene 4: Mini gratis. Si tiene 3: Petit ~$100/d&iacute;a</td>
-                <td style="color:var(--color-warning)">&#9888; Confirmar edad</td>
-                <td style="color:var(--color-warning)">&#9888; En el l&iacute;mite</td>
+                <td class="hotel-col">Catalina (3)</td>
+                <td style="color:var(--color-success)">&#10003; Entra</td><td style="color:var(--color-success)">&#10003; Entra</td><td style="color:var(--color-success)">&#10003; Entra</td><td style="color:var(--color-success)">&#10003; Entra</td>
+                <td style="color:var(--color-warning)">Petit ~$100/d&iacute;a</td><td style="color:var(--color-warning)">&#9888; Confirmar</td>
               </tr>
               <tr>
                 <td class="hotel-col">Antonia (8)</td>
-                <td style="color:var(--color-success)">&#10003; Explorer&apos;s 3-12</td>
-                <td style="color:var(--color-success)">&#10003; Mini Club 4-10</td>
-                <td style="color:var(--color-success)">&#10003; Barcy Club</td>
-                <td style="color:var(--color-success)">&#10003; Sea Turtles 4-12</td>
+                <td style="color:var(--color-success)">&#10003;</td><td style="color:var(--color-success)">&#10003;</td><td style="color:var(--color-success)">&#10003;</td><td style="color:var(--color-success)">&#10003;</td>
+                <td style="color:var(--color-success)">&#10003; Mini 4-10</td><td style="color:var(--color-success)">&#10003;</td>
               </tr>
               <tr>
                 <td class="hotel-col">Horario</td>
-                <td>9am &ndash; 10pm</td>
-                <td>9am &ndash; 5:30pm + 7:30 &ndash; 9pm</td>
-                <td>Por confirmar</td>
-                <td>9am &ndash; 5pm</td>
+                <td>9am&ndash;10pm</td><td>9:30am&ndash;10pm</td><td>9am&ndash;9:30pm</td><td>Extendido</td>
+                <td>9am&ndash;5:30pm + noche</td><td>Por confirmar</td>
               </tr>
               <tr>
                 <td class="hotel-col">Costo</td>
-                <td style="color:var(--color-success)">Incluido</td>
-                <td>Mini: gratis. Baby/Petit: ~$100/d&iacute;a</td>
-                <td style="color:var(--color-success)">Incluido</td>
-                <td style="color:var(--color-success)">Incluido</td>
+                <td style="color:var(--color-success)">Incluido</td><td style="color:var(--color-success)">Incluido</td><td style="color:var(--color-success)">Incluido</td><td style="color:var(--color-success)">Incluido</td>
+                <td>Mini gratis, Petit $$$</td><td style="color:var(--color-success)">Incluido</td>
               </tr>
               <tr>
-                <td class="hotel-col">Staff</td>
-                <td>Certificado Cruz Roja CPR</td>
-                <td style="color:var(--color-accent)">GO&apos;s trilinges (ES/EN/FR)</td>
-                <td>Est&aacute;ndar</td>
-                <td>Est&aacute;ndar</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Actividades</td>
-                <td>Pi&ntilde;atas, snorkel, cocina con chef, camping playa, mini-spa, trampol&iacute;n, pel&iacute;culas</td>
-                <td style="color:var(--color-accent)">Trapecio, circo, vela, teatro, campus Maya, restaurante propio, show nocturno de ni&ntilde;os</td>
-                <td>Barcy Water Park (inflables), videoconsolas, piscina de pelotas, Barcy Card puntos</td>
-                <td>Kites, face painting, tie-dye, pel&iacute;culas, bingo</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Babysitting</td>
-                <td>~$10/hr</td>
-                <td>Disponible</td>
-                <td>Disponible</td>
-                <td>Consultar</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Alerta</td>
-                <td style="color:var(--color-error)">Potty-trained estricto</td>
-                <td>Si Cata tiene 3: ~$600 extra/semana</td>
-                <td style="color:var(--color-warning)">Pirates Island (toboganes) NO incluido en b&aacute;sico. Altura m&iacute;n 1.20m</td>
-                <td>&mdash;</td>
+                <td class="hotel-col">Requisito</td>
+                <td style="color:var(--color-error)">Potty-trained</td><td style="color:var(--color-error)">Potty-trained</td><td style="color:var(--color-error)">Potty-trained</td><td style="color:var(--color-error)">Potty-trained</td>
+                <td>No estricto</td><td>Por confirmar</td>
               </tr>
             </table>
           </div>
-          <div class="alert-box info" style="margin-top:var(--space-md)">&#128161; Dreams es el &uacute;nico donde Catalina entra al kids club sin costo adicional ni ambig&uuml;edad &mdash; siempre y cuando est&eacute; potty-trained. Club Med tiene el programa m&aacute;s ambicioso pero puede costar ~$600 extra si Cata a&uacute;n tiene 3 a&ntilde;os.</div>
+          <div class="alert-box info" style="margin-top:var(--space-md)">&#128161; Los 4 Dreams aceptan a Catalina (3+) en Explorer&apos;s Club GRATIS &mdash; pero debe estar 100% potty-trained. Club Med es el &uacute;nico con programa formal para menores de 3 (Baby Club), pero cuesta ~$600/semana extra.</div>
         </div>
       </div>
     </div>
 
-    <!-- 5. PLAYA Y MAR -->
+    <!-- PLAYA Y SARGAZO -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#127965; Playa y mar <span class="acc-arrow">&#9654;</span></span>
+        <span style="font:var(--text-headline)">&#127965; Playa, sargazo y piscinas <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
           <div class="comparison-table">
             <table>
-              <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
+              <tr><th></th><th>D. Aventuras</th><th>D. Macao</th><th>D. Flora</th><th>D. Royal</th><th>Club Med</th><th>Barcel&oacute;</th></tr>
               <tr>
                 <td class="hotel-col">Playa</td>
-                <td>Bah&iacute;a protegida (rompeolas)</td>
-                <td>Punta Nizuc (3 playas)</td>
-                <td>Playa B&aacute;varo</td>
-                <td>Druif Beach</td>
+                <td>Caleta marina privada</td><td>Playa Macao (natural)</td><td>Cabeza de Toro</td><td>B&aacute;varo Beach</td>
+                <td>Punta Nizuc (3 playas)</td><td>Playa B&aacute;varo</td>
               </tr>
               <tr>
                 <td class="hotel-col">Tipo de agua</td>
-                <td>Caleta tipo laguna, cristalina, poco profunda</td>
-                <td>Lado protegido: glass-calm. Lado abierto: oleaje</td>
-                <td>Turquesa, oleaje bajo-moderado (arrecife protege)</td>
-                <td>Arena blanca, oleaje variable</td>
+                <td style="color:var(--color-success)">Laguna cristalina, poco profunda</td>
+                <td>Mar abierto, corrientes posibles</td>
+                <td>Tranquila</td>
+                <td>Oleaje bajo-moderado</td>
+                <td>Mixto (lado protegido + abierto)</td>
+                <td>Oleaje bajo (arrecife)</td>
               </tr>
               <tr>
                 <td class="hotel-col">Seguridad ni&ntilde;os</td>
-                <td style="color:var(--color-success)">&#10003;&#10003;&#10003; Ideal</td>
-                <td style="color:var(--color-success)">&#10003;&#10003; Lado protegido bueno</td>
-                <td style="color:var(--color-success)">&#10003;&#10003; Buena</td>
-                <td style="color:var(--color-warning)">&#10003; Variable</td>
+                <td style="color:var(--color-success)">&#10003;&#10003;&#10003;</td>
+                <td style="color:var(--color-warning)">&#10003;&#10003; Supervisar</td>
+                <td style="color:var(--color-success)">&#10003;&#10003;&#10003;</td>
+                <td style="color:var(--color-success)">&#10003;&#10003;</td>
+                <td style="color:var(--color-success)">&#10003;&#10003;</td>
+                <td style="color:var(--color-success)">&#10003;&#10003;</td>
               </tr>
               <tr>
-                <td class="hotel-col">Snorkel</td>
-                <td>Decente (no clase mundial)</td>
-                <td>Limitado</td>
-                <td>Solo excursi&oacute;n</td>
-                <td>Bueno</td>
+                <td class="hotel-col">Sargazo jun-jul</td>
+                <td style="color:var(--color-warning)">&#9888; ALTO</td>
+                <td style="color:var(--color-success)">&#10003; BAJO (seagrass)</td>
+                <td style="color:var(--color-warning)">MODERADO</td>
+                <td style="color:var(--color-error)">&#9888; MOD-ALTO</td>
+                <td style="color:var(--color-warning)">MODERADO</td>
+                <td style="color:var(--color-error)">&#9888; MOD-ALTO</td>
               </tr>
               <tr>
-                <td class="hotel-col">Sargazo junio</td>
-                <td style="color:var(--color-warning)">&#9888; Temporada pico. Protecci&oacute;n parcial (jetties)</td>
-                <td style="color:var(--color-warning)">&#9888; Punta Nizuc menos afectado, pero 2026 severo</td>
-                <td style="color:var(--color-success)">Bajo &mdash; B&aacute;varo menos afectada</td>
-                <td style="color:var(--color-success)">&#10003; Sin sargazo</td>
+                <td class="hotel-col">Waterpark</td>
+                <td>No</td>
+                <td style="color:var(--color-accent)">&#10003; Toboganes + lazy river</td>
+                <td style="color:var(--color-accent)">&#10003; Lazy river + 2 toboganes</td>
+                <td>Toboganes</td>
+                <td style="color:var(--color-error)">Piscina ppal CERRADA</td>
+                <td>&#10003; Water park infantil</td>
               </tr>
               <tr>
                 <td class="hotel-col">Piscinas</td>
-                <td>3</td>
-                <td style="color:var(--color-error)">Principal CERRADA (renovaci&oacute;n)</td>
-                <td>5+ con toboganes infantiles</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Excursiones cercanas</td>
-                <td>Cenotes, Xcaret, Xel-H&aacute;</td>
-                <td>Chich&eacute;n Itz&aacute;, cenotes</td>
-                <td>Isla Saona, Altos de Chav&oacute;n</td>
-                <td>Arikok National Park, Baby Beach</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Nota especial</td>
-                <td>Puerto Aventuras: comunidad cerrada con marina privada. NO es mar abierto</td>
-                <td>&quot;Una de las mejores playas de Canc&uacute;n&quot;</td>
-                <td>Vendedores ambulantes presentes pero manejables</td>
-                <td>Iguanas en la playa (famoso)</td>
+                <td>3</td><td>M&uacute;ltiples</td><td>Infinity + infantil</td><td>M&uacute;ltiples</td>
+                <td style="color:var(--color-error)">Reducidas (renovaci&oacute;n)</td><td>5+</td>
               </tr>
             </table>
           </div>
-          <div class="alert-box danger" style="margin-top:var(--space-md)">&#9888; Sargazo 2026 pronosticado severo en Riviera Maya y Canc&uacute;n (mayo-agosto). Puerto Aventuras (Dreams) tiene protecci&oacute;n parcial. Punta Cana y Aruba son menos afectados. Esto es el factor de riesgo m&aacute;s importante de M&eacute;xico.</div>
+          <div class="alert-box danger" style="margin-top:var(--space-md)">&#9888; 2026 se perfila como a&ntilde;o r&eacute;cord de sargazo. <strong>Dreams Macao</strong> es el &uacute;nico con sargazo bajo confirmado (seagrass natural vs sargassum). La Riviera Maya y B&aacute;varo son las zonas m&aacute;s afectadas.</div>
         </div>
       </div>
     </div>
 
-    <!-- 6. AMENIDADES ADULTOS -->
+    <!-- GASTRONOMIA -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#127946; Amenidades adultos <span class="acc-arrow">&#9654;</span></span>
+        <span style="font:var(--text-headline)">&#127869; Gastronom&iacute;a y bebidas <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
           <div class="comparison-table">
             <table>
-              <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
-              <tr>
-                <td class="hotel-col">Deportes incluidos</td>
-                <td>Veleros, snorkel, kayaks, catamaranes, windsurf, buceo intro (piscina)</td>
-                <td style="color:var(--color-accent)">Trapecio, circo, tiro con arco, vela, kayak, paddle, windsurf, pickleball, p&aacute;del, tenis, yoga (32 actividades)</td>
-                <td>B&aacute;sicos. Golf: costo extra</td>
-                <td>Deportes acu&aacute;ticos b&aacute;sicos</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Spa</td>
-                <td>Dreams Spa by Pevonia (5 salas, sauna) &mdash; COSTO EXTRA</td>
-                <td>Incluido en tarifa</td>
-                <td>U-Spa 14 salas &mdash; costo extra</td>
-                <td>B&aacute;sico</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Entretenimiento nocturno</td>
-                <td>Shows, m&uacute;sica en vivo</td>
-                <td style="color:var(--color-accent)">Shows semi-profesionales tipo Cirque du Soleil. Show diferente cada noche. GO&apos;s lideran todo. Lo mejor del resort (4.5/5)</td>
-                <td>2 discotecas, shows</td>
-                <td>Entretenimiento b&aacute;sico</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Casino</td>
-                <td>No</td>
-                <td>No</td>
-                <td style="color:var(--color-accent)">S&iacute;, 24 horas</td>
-                <td>No (hay casinos en Aruba)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Fitness/Gym</td>
-                <td>S&iacute;</td>
-                <td>S&iacute; + Sports &amp; Wellness Island (nueva 2024)</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Golf</td>
-                <td>No</td>
-                <td>No</td>
-                <td style="color:var(--color-accent)">The Lakes, 18 hoyos (P.B. Dye)</td>
-                <td>No (hay en Aruba)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Otros</td>
-                <td>Restaurante solo adultos (Oceana)</td>
-                <td>Escuela de circo, p&aacute;del</td>
-                <td>Bolera, tren B&aacute;varo Express cada 20 min</td>
-                <td>Acceso a instalaciones Divi hermano</td>
-              </tr>
+              <tr><th></th><th>Dreams (los 4)</th><th>Club Med</th><th>Barcel&oacute;</th></tr>
+              <tr><td class="hotel-col">Restaurantes</td><td>6-8 a la carte + buffet</td><td>4 + crepes all-day</td><td>2 buffets + 7 a la carte</td></tr>
+              <tr><td class="hotel-col">Reserva requerida</td><td style="color:var(--color-success)">No</td><td>No</td><td>S&iacute; (a la carte)</td></tr>
+              <tr><td class="hotel-col">L&iacute;mite cenas a la carte</td><td style="color:var(--color-success)">Sin l&iacute;mite</td><td style="color:var(--color-success)">Sin l&iacute;mite</td><td style="color:var(--color-warning)">4/semana</td></tr>
+              <tr><td class="hotel-col">Bebidas premium</td><td style="color:var(--color-success)">Top-shelf ilimitadas</td><td style="color:var(--color-warning)">No top-shelf</td><td style="color:var(--color-warning)">Calidad 6/10</td></tr>
+              <tr><td class="hotel-col">Room service 24h</td><td style="color:var(--color-success)">Incluido</td><td>No</td><td style="color:var(--color-error)">NO incluido</td></tr>
+              <tr><td class="hotel-col">Minibar diario</td><td style="color:var(--color-success)">Reabastecido</td><td>S&iacute;</td><td>S&iacute;</td></tr>
+              <tr><td class="hotel-col">Pulsera</td><td style="color:var(--color-success)">No</td><td style="color:var(--color-success)">No</td><td>S&iacute;</td></tr>
             </table>
           </div>
-          <div class="alert-box ok" style="margin-top:var(--space-md)">&#127775; Club Med destaca por lejos en actividades adultos: 32 actividades incluidas y shows nocturnos nivel semi-profesional. Barcel&oacute; gana en infraestructura (casino, golf, bolera).</div>
+          <div class="alert-box ok" style="margin-top:var(--space-md)">&#127775; Los Dreams tienen la mejor experiencia gastron&oacute;mica AI: sin reserva, sin l&iacute;mite de cenas, bebidas premium, room service 24h incluido, y sin pulsera. Barcel&oacute; penaliza con l&iacute;mite de 4 cenas/semana y room service de pago.</div>
         </div>
       </div>
     </div>
 
-    <!-- 7. HABITACIONES -->
+    <!-- HABITACIONES -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#128719; Habitaciones <span class="acc-arrow">&#9654;</span></span>
+        <span style="font:var(--text-headline)">&#128719; Habitaciones para la familia <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
           <div class="comparison-table">
             <table>
-              <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
+              <tr><th></th><th>D. Aventuras</th><th>D. Macao</th><th>D. Flora</th><th>D. Royal</th><th>Club Med</th><th>Barcel&oacute;</th></tr>
               <tr>
                 <td class="hotel-col">Tama&ntilde;o</td>
-                <td>39-41 m&sup2; (Family Room)</td>
-                <td style="color:var(--color-accent)">50-60+ m&sup2; (Family Superior / Deluxe)</td>
-                <td>37-67 m&sup2; (seg&uacute;n tipo)</td>
-                <td>41 m&sup2; (Premium King)</td>
+                <td>41m&sup2;</td><td>56m&sup2;</td><td>54m&sup2;</td><td>53m&sup2;</td>
+                <td style="color:var(--color-accent)">50-60m&sup2;</td><td>37-67m&sup2;</td>
               </tr>
               <tr>
                 <td class="hotel-col">Tipo recomendado</td>
-                <td>Family Room 41m&sup2; (cama plegable)</td>
-                <td>Family Superior Ocean Front 50m&sup2; (dormitorio separado ni&ntilde;os)</td>
-                <td>Junior Suite 57m&sup2; o Family Duplex 55m&sup2; (2 niveles)</td>
-                <td>Premium King 443 sq ft + sof&aacute;-cama</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Balc&oacute;n</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-                <td>S&iacute; (con jacuzzi &mdash; reportes de desgaste)</td>
-                <td>Terraza oceanfront</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Minibar</td>
-                <td style="color:var(--color-success)">Reabastecido diario</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Cafetera</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-                <td>S&iacute;</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">WiFi</td>
-                <td style="color:var(--color-success)">Gratis</td>
-                <td style="color:var(--color-success)">Gratis</td>
-                <td style="color:var(--color-error)">DE PAGO (gratis solo Premium Level)</td>
-                <td style="color:var(--color-success)">Gratis</td>
+                <td>Family Room</td><td>Jr Suite 2 dobles o Family Suite</td><td>Jr Suite Pool View 2 dobles</td><td>Family Room 6 pax</td>
+                <td>Family Superior</td><td>Jr Suite 57m&sup2;</td>
               </tr>
               <tr>
                 <td class="hotel-col">Dormitorio separado</td>
-                <td>No (cama plegable en mismo espacio)</td>
-                <td style="color:var(--color-success)">S&iacute; (Family Superior y Deluxe)</td>
-                <td>S&iacute; en Family Duplex (2 niveles)</td>
-                <td>No</td>
+                <td>No</td><td>S&iacute; (Villa 2 dorm)</td><td>No</td><td>No</td>
+                <td style="color:var(--color-success)">S&iacute;</td><td>S&iacute; (Duplex)</td>
               </tr>
               <tr>
-                <td class="hotel-col">Estado/Condici&oacute;n</td>
-                <td style="color:var(--color-warning)">Mobiliario desgastado seg&uacute;n reviews</td>
-                <td>Aguamarina renovado. Resto: algunas viejas</td>
-                <td style="color:var(--color-warning)">Desgaste en jacuzzis y paredes delgadas</td>
-                <td>Todas oceanfront</td>
+                <td class="hotel-col">WiFi</td>
+                <td style="color:var(--color-success)">Gratis</td><td style="color:var(--color-success)">Gratis</td><td style="color:var(--color-success)">Gratis</td><td style="color:var(--color-success)">Gratis</td>
+                <td style="color:var(--color-success)">Gratis</td><td style="color:var(--color-error)">DE PAGO</td>
+              </tr>
+              <tr>
+                <td class="hotel-col">Balc&oacute;n</td>
+                <td>S&iacute;</td><td>S&iacute;</td><td>S&iacute;</td><td>S&iacute;</td>
+                <td>S&iacute;</td><td>S&iacute;</td>
               </tr>
             </table>
           </div>
-          <div class="alert-box info" style="margin-top:var(--space-md)">&#128161; Club Med ofrece la mejor opci&oacute;n de habitaci&oacute;n familiar: dormitorio separado para las ni&ntilde;as (50-60m&sup2;). Dreams y Tamarijn son m&aacute;s compactos (~40m&sup2;).</div>
+          <div class="alert-box info" style="margin-top:var(--space-md)">&#128161; Dreams Macao y Flora tienen las suites m&aacute;s amplias (~54-56m&sup2;) de los Dreams. Club Med ofrece dormitorio separado para las ni&ntilde;as. Dreams Aventuras es el m&aacute;s compacto (41m&sup2;).</div>
         </div>
       </div>
     </div>
 
-    <!-- 8. LOGISTICA -->
+    <!-- LOGISTICA -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
         <span style="font:var(--text-headline)">&#9992;&#65039; Log&iacute;stica de viaje <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
+          <div class="alert-box info" style="margin-bottom:var(--space-md)">&#9992; <strong>VVI &rarr; LIM:</strong> BoA directo, 2h30, 26 jun ida / 4 jul vuelta. $1,645 los 4 (maleta incluida). Este costo ya est&aacute; sumado en todos los totales.</div>
           <div class="comparison-table">
             <table>
-              <tr><th></th><th>Dreams</th><th>Club Med</th><th>Barcel&oacute;</th><th>Tamarijn</th></tr>
-              <tr>
-                <td class="hotel-col">Aeropuerto</td>
-                <td>CUN (Canc&uacute;n)</td>
-                <td>CUN (Canc&uacute;n)</td>
-                <td>PUJ (Punta Cana)</td>
-                <td>AUA (Aruba)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Vuelo</td>
-                <td style="color:var(--color-success)">LATAM directo</td>
-                <td style="color:var(--color-success)">LATAM directo</td>
-                <td style="color:var(--color-success)">LATAM directo</td>
-                <td>Avianca 1 escala (BOG)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Duraci&oacute;n vuelo</td>
-                <td>5h 30min</td>
-                <td>5h 30min</td>
-                <td>6h</td>
-                <td>~8h (con escala)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Costo vuelo (4 pax)</td>
-                <td>$1,864</td>
-                <td>$1,864</td>
-                <td>$1,942</td>
-                <td>$1,708 (Avianca) / $1,946 (LATAM directo)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Transfer aeropuerto</td>
-                <td>~60 min al sur</td>
-                <td style="color:var(--color-success)">~25 min</td>
-                <td>~30 min</td>
-                <td style="color:var(--color-success)">~15 min</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Idioma local</td>
-                <td>Espa&ntilde;ol</td>
-                <td>Espa&ntilde;ol (staff trilingie ES/EN/FR)</td>
-                <td>Espa&ntilde;ol</td>
-                <td>Papiamento / Ingl&eacute;s / Espa&ntilde;ol</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Zona horaria vs Lima</td>
-                <td>-1h (CDT)</td>
-                <td>-1h (CDT)</td>
-                <td>-1h (AST)</td>
-                <td>-1h (AST)</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Visa</td>
-                <td style="color:var(--color-success)">No (Bolivia y Per&uacute;)</td>
-                <td style="color:var(--color-success)">No</td>
-                <td style="color:var(--color-success)">No (tarjeta tur&iacute;stica)</td>
-                <td style="color:var(--color-success)">No</td>
-              </tr>
-              <tr>
-                <td class="hotel-col">Moneda</td>
-                <td>Peso MX</td>
-                <td>Peso MX</td>
-                <td>Peso DOM / USD</td>
-                <td>Flor&iacute;n arubano / USD</td>
-              </tr>
+              <tr><th></th><th>M&eacute;xico (Dreams Av / Club Med)</th><th>Punta Cana (Dreams x3 / Barcel&oacute;)</th></tr>
+              <tr><td class="hotel-col">Aeropuerto</td><td>CUN (Canc&uacute;n)</td><td>PUJ (Punta Cana)</td></tr>
+              <tr><td class="hotel-col">Vuelo desde Lima</td><td>LATAM directo, 5h30</td><td>LATAM/Arajet/SKY directo, ~5h</td></tr>
+              <tr><td class="hotel-col">Costo vuelo LIM R/T (4 pax)</td><td>~$1,864 (LATAM)</td><td>$1,200-1,800 (Arajet m&aacute;s barato)</td></tr>
+              <tr><td class="hotel-col">Transfer aeropuerto</td><td>25 min (Club Med) / 60 min (Dreams Av)</td><td>20-40 min seg&uacute;n hotel</td></tr>
+              <tr><td class="hotel-col">Visa</td><td style="color:var(--color-success)">No requerida</td><td style="color:var(--color-success)">No (tarjeta tur&iacute;stica)</td></tr>
+              <tr><td class="hotel-col">Zona horaria vs Bolivia</td><td>-1h</td><td>0h (misma hora)</td></tr>
+              <tr><td class="hotel-col">Idioma</td><td>Espa&ntilde;ol</td><td>Espa&ntilde;ol</td></tr>
             </table>
           </div>
-          <p style="font:var(--text-footnote);color:var(--color-secondary-label);margin-top:var(--space-md)">Precios de vuelo totales para 4 pasajeros, ida y vuelta. Fuente: Google Flights, 3 abril 2026.</p>
+          <div class="alert-box ok" style="margin-top:var(--space-md)">&#127775; Punta Cana tiene vuelos m&aacute;s baratos desde Lima (Arajet desde ~$308/persona) y misma zona horaria que Bolivia. M&eacute;xico tiene m&aacute;s opciones de aerol&iacute;nea pero cuesta un poco m&aacute;s.</div>
         </div>
       </div>
     </div>
 
-    <!-- 9. PROBLEMAS REPORTADOS -->
+    <!-- PROBLEMAS REPORTADOS -->
     <div class="glass reveal" style="overflow:hidden;margin-bottom:var(--space-md)">
       <div class="accordion-header" onclick="toggle(this)">
-        <span style="font:var(--text-headline)">&#9888;&#65039; Problemas reportados <span class="acc-arrow">&#9654;</span></span>
+        <span style="font:var(--text-headline)">&#9888;&#65039; Problemas reportados por hu&eacute;spedes <span class="acc-arrow">&#9654;</span></span>
       </div>
       <div class="accordion-body">
         <div class="accordion-content">
 
-          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-accent)">Dreams Aventuras</div>
+          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-accent)">Dreams Aventuras (Riviera Maya)</div>
           <ul class="detail-list" style="margin-bottom:var(--space-lg)">
-            <li><span class="dl-label" style="color:var(--color-error)">Comida inconsistente</span><span class="dl-value">Queja #1 en reviews. Calidad variable entre restaurantes y d&iacute;as.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Tumbonas insuficientes</span><span class="dl-value">Dif&iacute;cil conseguir lugar en piscina en temporada alta.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Ruido constante</span><span class="dl-value">M&uacute;sica y juegos organizados todo el d&iacute;a. No es resort &quot;zen&quot;.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Mobiliario desgastado</span><span class="dl-value">Algunos muebles y acabados necesitan renovaci&oacute;n.</span></li>
-            <li><span class="dl-label">No todos los restaurantes abren cada noche</span><span class="dl-value">Rotaci&oacute;n de apertura.</span></li>
-            <li><span class="dl-label" style="color:var(--color-error)">Sargazo junio</span><span class="dl-value">Temporada pico mayo-agosto. Protecci&oacute;n parcial con jetties y barreras. 2026 pronosticado severo.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Kids club: potty-trained obligatorio</span><span class="dl-value">Catalina debe estar 100% entrenada o no entra.</span></li>
+            <li><span class="dl-label" style="color:var(--color-error)">Sargazo junio</span><span class="dl-value">Temporada pico mayo-agosto. 2026 pronosticado severo. Protecci&oacute;n parcial con jetties.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Comida inconsistente</span><span class="dl-value">Queja #1 en reviews. Calidad variable.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Habitaci&oacute;n compacta</span><span class="dl-value">41m&sup2; con 4 personas es ajustado.</span></li>
+            <li><span class="dl-label">Ruido constante</span><span class="dl-value">M&uacute;sica y actividades todo el d&iacute;a. No es resort &quot;zen&quot;.</span></li>
+          </ul>
+
+          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-teal)">Dreams Macao Beach (Punta Cana)</div>
+          <ul class="detail-list" style="margin-bottom:var(--space-lg)">
+            <li><span class="dl-label" style="color:var(--color-warning)">Corrientes fuertes</span><span class="dl-value">Playa Macao es mar abierto. Hay que supervisar a las ni&ntilde;as en el agua.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Cargo extra ni&ntilde;os</span><span class="dl-value">~$67/ni&ntilde;o/noche que no aparece en el precio inicial. $804 extra por las dos.</span></li>
+            <li><span class="dl-label">40 min del aeropuerto</span><span class="dl-value">El m&aacute;s lejos de PUJ. Transfer necesario.</span></li>
+          </ul>
+
+          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-purple)">Dreams Flora (Punta Cana)</div>
+          <ul class="detail-list" style="margin-bottom:var(--space-lg)">
+            <li><span class="dl-label" style="color:var(--color-warning)">Sargazo moderado</span><span class="dl-value">Cabeza de Toro tiene presencia de sargazo seg&uacute;n reviews 2025. Limpieza diaria.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Cargo extra ni&ntilde;os</span><span class="dl-value">Mismo cargo ~$67/ni&ntilde;o/noche. Confirmar al reservar.</span></li>
+            <li><span class="dl-label">Resort a&uacute;n joven</span><span class="dl-value">Abri&oacute; 2023, pocos reviews comparativos a&uacute;n.</span></li>
+          </ul>
+
+          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-green)">Dreams Royal Beach (Punta Cana)</div>
+          <ul class="detail-list" style="margin-bottom:var(--space-lg)">
+            <li><span class="dl-label" style="color:var(--color-error)">Sargazo B&aacute;varo</span><span class="dl-value">Zona hist&oacute;ricamente afectada. Reviews mencionan seaweed como factor variable.</span></li>
+            <li><span class="dl-label" style="color:var(--color-error)">Cargo ni&ntilde;os confirmado</span><span class="dl-value">$67/ni&ntilde;o/noche confirmado en Booking.com. NO aparece en precio inicial. Pago en check-in.</span></li>
+            <li><span class="dl-label">El m&aacute;s caro de los Dreams</span><span class="dl-value">$7,010-7,731 total. Compite con Club Med en precio.</span></li>
           </ul>
 
           <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-purple)">Club Med Canc&uacute;n</div>
           <ul class="detail-list" style="margin-bottom:var(--space-lg)">
-            <li><span class="dl-label" style="color:var(--color-error)">Renovaci&oacute;n Fase 3</span><span class="dl-value">Piscina principal CERRADA + construcci&oacute;n visible en junio 2026. Ruido de obras posible.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Resort enorme</span><span class="dl-value">8-10 minutos caminando entre zonas. Con ni&ntilde;as peque&ntilde;as puede cansar.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Mosquitos</span><span class="dl-value">Junio es temporada de lluvias = m&aacute;s mosquitos que lo habitual.</span></li>
-            <li><span class="dl-label">Habitaciones fuera de Aguamarina</span><span class="dl-value">Solo las de Aguamarina est&aacute;n renovadas. Otras pueden ser viejas.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Petit Club Catalina</span><span class="dl-value">Si tiene 3 a&ntilde;os al viajar: ~$100/d&iacute;a = ~$600 extra por la semana.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Sargazo junio</span><span class="dl-value">Punta Nizuc hist&oacute;ricamente menos afectado. Pero 2026 pronosticado severo.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Precio estimado</span><span class="dl-value">No es cotizaci&oacute;n formal. Precio real puede variar.</span></li>
+            <li><span class="dl-label" style="color:var(--color-error)">Piscina principal CERRADA</span><span class="dl-value">Renovaci&oacute;n Fase 3. Construcci&oacute;n visible y ruido posible.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Resort enorme</span><span class="dl-value">8-10 min caminando entre zonas. Cansador con ni&ntilde;as peque&ntilde;as.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Petit Club ~$600 extra</span><span class="dl-value">Si Catalina tiene 3 a&ntilde;os al viajar, el programa dedicado cuesta ~$100/d&iacute;a.</span></li>
           </ul>
 
-          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-green)">Barcel&oacute; B&aacute;varo Palace</div>
-          <ul class="detail-list" style="margin-bottom:var(--space-lg)">
-            <li><span class="dl-label" style="color:var(--color-error)">Check-in 1-2 horas</span><span class="dl-value">Proceso extremadamente lento por el tama&ntilde;o del resort (~1,400 hab.).</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Comida inconsistente</span><span class="dl-value">Buffets mediocres. A la carte mejor pero limitado a 4 cenas/semana.</span></li>
-            <li><span class="dl-label" style="color:var(--color-error)">WiFi de pago</span><span class="dl-value">Gratis solo con Premium Level. Para nivel b&aacute;sico hay que pagar.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Resort ENORME</span><span class="dl-value">Cansa caminar con ni&ntilde;as. Hay tren interno (B&aacute;varo Express cada 20 min).</span></li>
-            <li><span class="dl-label">Paredes delgadas</span><span class="dl-value">Se escucha ruido de habitaciones vecinas.</span></li>
-            <li><span class="dl-label" style="color:var(--color-error)">Room service NO incluido</span><span class="dl-value">A diferencia de Dreams, hay que pagar por room service.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Bebidas calidad 6/10</span><span class="dl-value">Licores de calidad b&aacute;sica.</span></li>
-            <li><span class="dl-label">Mantenimiento deficiente</span><span class="dl-value">Polvo, jacuzzis deteriorados seg&uacute;n reviews recientes.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Kids club: edad incierta</span><span class="dl-value">Barcy Club acepta 3, 4 o 5 a&ntilde;os seg&uacute;n la fuente. Confirmar antes de reservar.</span></li>
-          </ul>
-
-          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-orange)">Tamarijn Aruba</div>
+          <div style="font:var(--text-headline);margin-bottom:var(--space-sm);color:var(--color-orange)">Barcel&oacute; B&aacute;varo Palace</div>
           <ul class="detail-list">
-            <li><span class="dl-label" style="color:var(--color-error)">Habitaciones Queen agotadas</span><span class="dl-value">Solo queda King con sof&aacute;-cama. No ideal para 2 adultos + 2 ni&ntilde;as.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Kids Club solo 4+</span><span class="dl-value">Sea Turtles Club desde 4 a&ntilde;os. Catalina (casi 4) en el l&iacute;mite.</span></li>
-            <li><span class="dl-label" style="color:var(--color-error)">El m&aacute;s caro</span><span class="dl-value">$7,097 total &mdash; casi el doble que Dreams.</span></li>
-            <li><span class="dl-label" style="color:var(--color-warning)">Cargo extra por ni&ntilde;os</span><span class="dl-value">$50/noche por cada ni&ntilde;a (3-12 a&ntilde;os) = $600 adicional.</span></li>
-            <li><span class="dl-label">Vuelo con escala</span><span class="dl-value">Avianca v&iacute;a Bogot&aacute;, ~8 horas total. Con ni&ntilde;as peque&ntilde;as es largo.</span></li>
-            <li><span class="dl-label">Datos limitados</span><span class="dl-value">La investigaci&oacute;n fue interrumpida. Menos informaci&oacute;n disponible que los otros 3.</span></li>
+            <li><span class="dl-label" style="color:var(--color-error)">WiFi de pago + Room service de pago</span><span class="dl-value">Las dos cosas que los Dreams incluyen gratis.</span></li>
+            <li><span class="dl-label" style="color:var(--color-error)">Check-in 1-2 horas</span><span class="dl-value">Resort gigante = proceso lent&iacute;simo.</span></li>
+            <li><span class="dl-label" style="color:var(--color-warning)">Kids club edad incierta</span><span class="dl-value">Barcy Club dice 3, 4 o 5 a&ntilde;os seg&uacute;n la fuente. Hay que confirmar.</span></li>
           </ul>
 
         </div>
@@ -1018,167 +780,72 @@ body {
     </div>
   </div>
 
-  <!-- ====== 10. PUNTUACION ====== -->
+  <!-- ====== PRECIO TOTAL ====== -->
   <div class="section">
-    <h2 class="section-title reveal">Puntuaci&oacute;n por criterio</h2>
-    <div class="glass reveal" style="padding:var(--space-lg)">
-
-      <div class="mini-stats">
-        <div class="mini-stat">
-          <div class="stat-num" style="color:var(--color-accent)">4.6</div>
-          <div class="stat-label">Dreams</div>
-        </div>
-        <div class="mini-stat">
-          <div class="stat-num" style="color:var(--color-purple)">4.1</div>
-          <div class="stat-label">Club Med</div>
-        </div>
-        <div class="mini-stat">
-          <div class="stat-num" style="color:var(--color-green)">3.5</div>
-          <div class="stat-label">Barcel&oacute;</div>
-        </div>
-        <div class="mini-stat">
-          <div class="stat-num" style="color:var(--color-orange)">3.0</div>
-          <div class="stat-label">Tamarijn</div>
-        </div>
-      </div>
-
-      <div class="criteria-list">
-        <div class="criteria-row" style="border:none;padding-bottom:0">
-          <span class="criteria-label" style="font:var(--text-caption1);text-transform:uppercase;letter-spacing:0.5px">CRITERIO (1-5)</span>
-          <span style="font:var(--text-caption1);text-transform:uppercase;letter-spacing:0.5px;color:var(--color-secondary-label)">Dreams / Club Med / Barcel&oacute; / Tamarijn</span>
-        </div>
-
-        <div class="criteria-row"><span class="criteria-label">Kids Club (ambas)</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-error)">2</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Playa para ni&ntilde;os</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Gastronom&iacute;a</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Actividades adultos</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Habitaci&oacute;n familiar</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Log&iacute;stica viaje</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-error)">2</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Sargazo / clima</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Reputaci&oacute;n / reviews</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Disponibilidad</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-error)">2</span>
-          </div>
-        </div>
-        <div class="criteria-row"><span class="criteria-label">Precio</span>
-          <div style="display:flex;gap:4px;font-size:13px;font-weight:600">
-            <span style="color:var(--color-accent)">5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>4</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-error)">1</span>
-          </div>
-        </div>
-
-        <div class="criteria-row" style="border-top:1.5px solid var(--color-separator);padding-top:var(--space-md)">
-          <span class="criteria-label" style="font-weight:700">PROMEDIO</span>
-          <div style="display:flex;gap:4px;font-size:15px;font-weight:700">
-            <span style="color:var(--color-accent)">4.1</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-purple)">4.1</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>3.8</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">2.8</span>
-          </div>
-        </div>
-
-        <div class="criteria-row" style="border:none;padding-top:var(--space-sm)">
-          <span class="criteria-label" style="font-weight:700">PONDERADO (precio x2)</span>
-          <div style="display:flex;gap:4px;font-size:15px;font-weight:700">
-            <span style="color:var(--color-accent)">4.6</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-purple)">4.1</span><span style="color:var(--color-secondary-label)">/</span>
-            <span>3.5</span><span style="color:var(--color-secondary-label)">/</span>
-            <span style="color:var(--color-warning)">3.0</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 11. PRECIO ====== -->
-  <div class="section">
-    <h2 class="section-title reveal">Precio total familia</h2>
+    <h2 class="section-title reveal">Precio total familia (VVI &rarr; LIM &rarr; destino &rarr; hotel)</h2>
     <div class="glass price-card reveal">
 
       <div class="price-row">
         <div>
-          <div class="price-hotel" style="color:var(--color-accent)">&#127942; Dreams Aventuras</div>
-          <div class="price-sub">Booking.com (35% dto Getaway Deal) + LATAM directo</div>
-          <div class="price-detail">Hotel $2,057 (ni&ntilde;os gratis) + Vuelo $1,864 = total</div>
+          <div class="price-hotel" style="color:var(--color-success)">&#127942; Dreams Flora</div>
+          <div class="price-sub">Estimaci&oacute;n KAYAK/Booking + Arajet + BoA</div>
+          <div class="price-detail">Hotel $1,680-2,700 + ni&ntilde;os $804 + vuelo PUJ $1,200 + VVI-LIM $1,645</div>
         </div>
         <div style="text-align:right">
-          <div class="price-amount" style="color:var(--color-success)">$3,921</div>
-          <div class="price-sub">~Bs 27,290</div>
+          <div class="price-amount" style="color:var(--color-success)">$5,329&ndash;6,349</div>
+          <div class="price-sub">Bs 37,100&ndash;44,200</div>
+          <div class="badge badge-warning" style="margin-top:4px">Estimado</div>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="price-hotel" style="color:var(--color-accent)">&#11088; Dreams Aventuras</div>
+          <div class="price-sub">Booking.com cotizado real + LATAM + BoA</div>
+          <div class="price-detail">Hotel $2,057 (ni&ntilde;os gratis) + vuelo CUN $1,864 + VVI-LIM $1,645</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount" style="color:var(--color-accent)">$5,566</div>
+          <div class="price-sub">Bs 38,739</div>
           <div class="badge badge-success" style="margin-top:4px">Precio real</div>
         </div>
       </div>
 
       <div class="price-row">
         <div>
-          <div class="price-hotel">Barcel&oacute; B&aacute;varo Palace</div>
-          <div class="price-sub">Paquete cerrado Despegar (vuelo + hotel)</div>
-          <div class="price-detail">Paquete completo $4,912</div>
+          <div class="price-hotel">Dreams Macao Beach</div>
+          <div class="price-sub">Estimaci&oacute;n Google Hotels/KAYAK + Arajet + BoA</div>
+          <div class="price-detail">Hotel $2,310-3,380 + ni&ntilde;os $804 + vuelo PUJ $1,200 + VVI-LIM $1,645</div>
         </div>
         <div style="text-align:right">
-          <div class="price-amount">$4,912</div>
-          <div class="price-sub">~Bs 34,188</div>
+          <div class="price-amount">$5,959&ndash;7,029</div>
+          <div class="price-sub">Bs 41,500&ndash;48,900</div>
+          <div class="badge badge-warning" style="margin-top:4px">Estimado</div>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Barcel&oacute; B&aacute;varo Palace</div>
+          <div class="price-sub">Paquete Despegar cotizado real + BoA</div>
+          <div class="price-detail">Paquete $4,912 (vuelo+hotel) + VVI-LIM $1,645</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount">$6,557</div>
+          <div class="price-sub">Bs 45,636</div>
+          <div class="badge badge-success" style="margin-top:4px">Precio real</div>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="price-hotel">Dreams Royal Beach</div>
+          <div class="price-sub">Booking.com real + Arajet + BoA</div>
+          <div class="price-detail">Hotel $3,482 + ni&ntilde;os $804 + vuelo PUJ $1,200 + VVI-LIM $1,645</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-amount">$7,131</div>
+          <div class="price-sub">Bs 49,632</div>
           <div class="badge badge-success" style="margin-top:4px">Precio real</div>
         </div>
       </div>
@@ -1186,61 +853,52 @@ body {
       <div class="price-row">
         <div>
           <div class="price-hotel">Club Med Canc&uacute;n</div>
-          <div class="price-sub">Estimado (grupos FB / precios p&uacute;blicos) + LATAM directo</div>
-          <div class="price-detail">Hotel ~$3,813 est. + Vuelo $1,864 = total. Promo 50% podr&iacute;a bajar</div>
+          <div class="price-sub">Estimado (grupos FB) + LATAM + BoA</div>
+          <div class="price-detail">Hotel ~$3,813 + Petit Cata $600 + vuelo CUN $1,864 + VVI-LIM $1,645</div>
         </div>
         <div style="text-align:right">
-          <div class="price-amount">~$5,677</div>
-          <div class="price-sub">~Bs 39,512</div>
+          <div class="price-amount">~$7,922</div>
+          <div class="price-sub">Bs ~55,140</div>
           <div class="badge badge-warning" style="margin-top:4px">Estimado</div>
         </div>
       </div>
 
-      <div class="price-row">
-        <div>
-          <div class="price-hotel">Tamarijn Aruba</div>
-          <div class="price-sub">Hotels.com (parcial) + Avianca 1 escala (BOG)</div>
-          <div class="price-detail">Hotel ~$5,389 + Vuelo $1,708 = total. Ni&ntilde;os $50/noche c/u extra</div>
-        </div>
-        <div style="text-align:right">
-          <div class="price-amount" style="color:var(--color-error)">~$7,097</div>
-          <div class="price-sub">~Bs 49,395</div>
-          <div class="badge badge-error" style="margin-top:4px">+81% vs Dreams</div>
-        </div>
-      </div>
-
       <div style="margin-top:var(--space-md);padding-top:var(--space-md);border-top:0.5px solid var(--color-separator)">
-        <div class="price-sub" style="text-align:center">Referencia: cotizaci&oacute;n esTropical desde VVI (Santa Cruz) m&aacute;s barata era Bs 47,958. Todas estas opciones desde Lima son significativamente m&aacute;s baratas.</div>
+        <div class="price-sub" style="text-align:center">Referencia: cotizaci&oacute;n esTropical desde VVI m&aacute;s barata: Bs 47,958 (Grand Oasis Canc&uacute;n 4&#9733;). Salir desde Lima ahorra Bs 10,000&ndash;20,000.</div>
       </div>
     </div>
   </div>
 
-  <!-- ====== 12. RECOMENDACION ====== -->
+  <!-- ====== RECOMENDACION ====== -->
   <div class="section">
     <div class="glass reco-card reveal">
       <h2 class="reco-header">
         <span class="reco-icon">&#127775;</span>
-        <span class="reco-title">Recomendaci&oacute;n final</span>
+        <span class="reco-title">&iquest;Cu&aacute;l elegir?</span>
       </h2>
       <div class="reco-body">
-        <strong>Dreams Aventuras Riviera Maya</strong> gana la comparativa por el mejor balance general: kids club confirmado para ambas ni&ntilde;as (Explorer&apos;s Club 3-12), playa tipo caleta ideal para Catalina y Antonia, experiencia Hyatt Unlimited-Luxury sin pulsera, y el precio m&aacute;s bajo con cotizaci&oacute;n real ($3,921).<br><br>
+        <strong>Si el precio manda &rarr; Dreams Aventuras</strong> ($5,566, precio real confirmado). Es el &uacute;nico con cotizaci&oacute;n firme, cancelaci&oacute;n gratis hasta el 13 de junio, y playa tipo caleta ideal para las ni&ntilde;as. Riesgo: sargazo alto en Riviera Maya y habitaci&oacute;n compacta (41m&sup2;).<br><br>
 
-        <strong>&#9888; Solo quedan 7 habitaciones</strong> con cancelaci&oacute;n gratuita hasta el 13 de junio. Se puede reservar ahora sin riesgo y seguir evaluando.<br><br>
+        <strong>Si te preocupa el sargazo &rarr; Dreams Macao Beach</strong> ($5,959&ndash;7,029). Es el &uacute;nico hotel con sargazo bajo confirmado (Playa Macao tiene seagrass, no sargassum). Tiene el mejor waterpark (toboganes + lazy river) y suites amplias (56m&sup2;). Precio un poco m&aacute;s alto pero es estimaci&oacute;n &mdash; hay que cotizar formal.<br><br>
 
-        <strong>Riesgos a considerar:</strong> sargazo en junio (pronosticado severo en 2026, aunque Puerto Aventuras tiene protecci&oacute;n parcial), comida inconsistente seg&uacute;n reviews, y habitaci&oacute;n compacta (41m&sup2;).<br><br>
+        <strong>Si quieres lo m&aacute;s nuevo y barato en Punta Cana &rarr; Dreams Flora</strong> ($5,329&ndash;6,349). Resort de 2023, moderno, 8 restaurantes, 2 toboganes. El m&aacute;s barato potencialmente, pero sargazo moderado y precio es estimaci&oacute;n.<br><br>
 
-        <strong>Alternativa premium:</strong> <strong>Club Med Canc&uacute;n</strong> tiene mejor programa de actividades (32 incluidas, shows nocturnos semi-profesionales), habitaci&oacute;n familiar m&aacute;s grande (50-60m&sup2; con dormitorio separado), y los mejores GO&apos;s del Caribe. Pero la piscina principal estar&aacute; cerrada por renovaci&oacute;n, cuesta $1,756 m&aacute;s, y el precio es estimado (no cotizaci&oacute;n formal). Hay que cotizar directo antes del 29 de abril para la promo Endless Summer Sale del 50%.<br><br>
+        <strong>Si quieres el mejor rating &rarr; Dreams Royal Beach</strong> ($7,131). El mejor calificado (4.5/5 TA, familias 9.3/10 Booking). Family rooms para 6 personas. Pero es el m&aacute;s caro de los Dreams y B&aacute;varo tiene sargazo moderado-alto.<br><br>
 
-        <strong>Descartados:</strong> Barcel&oacute; penaliza por WiFi de pago, kids club incierto, y check-in de 1-2 horas. Tamarijn es el m&aacute;s caro (+81% vs Dreams), sin vuelo directo, y con habitaciones Queen agotadas.
+        <strong>Si quieres la mejor experiencia familiar completa &rarr; Club Med</strong> (~$7,922). 32 actividades incluidas, shows semi-profesionales, dormitorio separado para ni&ntilde;as. Pero piscina cerrada por renovaci&oacute;n y el m&aacute;s caro de todos.<br><br>
+
+        <strong style="color:var(--color-error)">Dato clave:</strong> Todos los Dreams cobran ~$67/ni&ntilde;o/noche extra que no aparece en el precio inicial de las OTAs. Excepto Dreams Aventuras donde los ni&ntilde;os aparecen gratis en la cotizaci&oacute;n de Booking.com &mdash; posiblemente porque es Riviera Maya vs Punta Cana. Confirmar antes de reservar.<br><br>
+
+        <strong style="color:var(--color-warning)">Acci&oacute;n sugerida:</strong> Reservar Dreams Aventuras ahora (cancelaci&oacute;n gratis hasta 13 jun, solo quedan 7 hab.) mientras se cotiza formalmente Dreams Macao para comparar. Si Macao sale mejor, se cancela Aventuras sin costo.
       </div>
     </div>
   </div>
 
-  <!-- ====== 13. FOOTER ====== -->
+  <!-- ====== FOOTER ====== -->
   <div class="footer reveal">
-    Cotizaciones al 3 de abril 2026 &middot; Precios pueden variar &middot; Origen: Lima (LIM), Per&uacute;<br>
+    Cotizaciones al 4 de abril 2026 &middot; Precios pueden variar &middot; Origen: VVI (Santa Cruz) v&iacute;a LIM (Lima)<br>
     2 adultos + 2 ni&ntilde;os (Antonia 8, Catalina casi 4) &middot; 6 noches All Inclusive<br>
-    TC referencia: 1 USD = ~6.96 Bs
+    TC referencia: 1 USD = ~6.96 Bs &middot; Vuelo VVI-LIM: $1,645 BoA directo incluido en todos los totales
   </div>
 </div>
 
