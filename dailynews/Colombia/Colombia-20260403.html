@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 3 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Viernes 3 de abril de 2026 · Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Gobierno rompe relaciones con el Banco de la Rep&uacute;blica tras alza de tasas al 11,25%</h3>
+    <p>El ministro de Hacienda, Germ&aacute;n &Aacute;vila, abandon&oacute; la sesi&oacute;n de la Junta Directiva del Banco de la Rep&uacute;blica tras la decisi&oacute;n de subir la tasa de inter&eacute;s en 100 puntos b&aacute;sicos hasta el 11,25%. La votaci&oacute;n fue 4-2-1: cuatro miembros apoyaron el alza, dos votaron por recortar 50 pb y uno por mantenerla. El presidente Petro acus&oacute; a la Junta de &ldquo;matar la econom&iacute;a colombiana&rdquo; y de favorecer a los tenedores de deuda p&uacute;blica.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La ruptura institucional entre el Ejecutivo y el banco central genera incertidumbre sobre la coordinaci&oacute;n de pol&iacute;tica econ&oacute;mica en a&ntilde;o electoral. El costo del cr&eacute;dito seguir&aacute; subiendo, impactando directamente el consumo, la inversi&oacute;n empresarial y la cartera hipotecaria.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/gobierno-rompe-relaciones-con-banco-de-la-republica-junta-alza-tasas-HG35115288">El Colombiano</a> · <a href="https://www.lasillavacia.com/silla-nacional/ruptura-de-petro-con-banco-de-la-republica-bloquea-politica-anti-inflacion/">La Silla Vac&iacute;a</a> · <a href="https://periodicovirtual.com/historica-ruptura-german-avila-se-retira-de-la-junta-del-banrep-por-desproporcionado-aumento-de-tasas/">Peri&oacute;dico Virtual</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Violencia se dispara en el norte de Antioquia: 70 homicidios y moto bomba en Brice&ntilde;o</h3>
+    <p>En lo corrido de 2026 se registran 70 homicidios en el norte de Antioquia, frente a 46 en el mismo per&iacute;odo de 2025. El 3 de abril, una motocicleta cargada de explosivos deton&oacute; frente a la estaci&oacute;n de Polic&iacute;a de Brice&ntilde;o, dejando un uniformado herido. La zona es disputada por el Clan del Golfo, disidencias de las FARC (frentes 18 y 36) y el ELN.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El deterioro de seguridad en Antioquia evidencia la intensificaci&oacute;n de disputas territoriales entre grupos armados ilegales y cuestiona la efectividad de la estrategia de seguridad del Gobierno en una regi&oacute;n estrat&eacute;gica para el tr&aacute;fico de drogas y miner&iacute;a ilegal.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/04/violencia-se-dispara-en-el-norte-de-antioquia-70-homicidios-y-disputa-entre-grupos-armados-alertan-al-ejercito/">Infobae</a> · <a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/4/calarca-fuerzas-tropas-influencia-proceso-paz/">Cambio</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Paz Total bajo la lupa: disidencias crecen 194% y cuatro de cada diez reinciden</h3>
+    <p>Un informe de Semana revela que el 40% de los miembros de grupos armados que recibieron beneficios judiciales bajo la Paz Total reincidieron. Las disidencias de las FARC pasaron de 3.275 a 9.634 miembros entre 2022 y 2026. La Fundaci&oacute;n para el Estado de Derecho pidi&oacute; a la Fiscal&iacute;a reactivar la orden de captura contra alias Calarcá por evidencia de &oacute;rdenes directas de homicidio.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El fortalecimiento de los grupos armados ilegales bajo la pol&iacute;tica de Paz Total se convierte en argumento central de la campa&ntilde;a presidencial 2026 y pone en cuesti&oacute;n la viabilidad de los procesos de negociaci&oacute;n en los &uacute;ltimos meses del gobierno Petro.
+    </div>
+    <span class="source-link"><a href="https://www.semana.com/nacion/articulo/fracaso-la-paz-total-cuatro-de-cada-diez-criminales-en-los-que-confio-el-gobierno-petro-volvieron-a-delinquir-semana-revela-alarmante-radiografia/202637/">Semana</a> · <a href="https://www.infobae.com/colombia/2026/04/01/fundacion-para-el-estado-de-derecho-pidio-a-la-fiscalia-reactivar-orden-de-captura-contra-alias-calarca-alertan-incumplimiento-del-proceso-de-paz/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Elecciones 2026: Cepeda lidera encuestas con 35%, De la Espriella cae a 21%</h3>
+    <p>Tras las consultas interpartidistas de marzo, la encuesta RCN muestra a Iv&aacute;n Cepeda liderando con 35% de intenci&oacute;n de voto, seguido de Abelardo de la Espriella con 21% y Paloma Valencia con 16%. La primera vuelta presidencial est&aacute; programada para el 31 de mayo de 2026. Los analistas anticipan una probable segunda vuelta.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      A menos de dos meses de la primera vuelta, el mapa electoral muestra ventaja de la izquierda pero sin mayor&iacute;a absoluta. La incertidumbre pol&iacute;tica pesa sobre decisiones de inversi&oacute;n y planificaci&oacute;n empresarial en un contexto de tasas altas y tensi&oacute;n institucional.
+    </div>
+    <span class="source-link"><a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a> · <a href="https://www.lasillavacia.com/silla-nacional/asi-van-los-candidatos-presidenciales-en-las-encuestas/">La Silla Vac&iacute;a</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>D&oacute;lar cierra en $3.665 y acumula ca&iacute;da de 11,3% interanual</h3>
+    <p>La TRM oficial para el 3 de abril se fij&oacute; en $3.675,81, mientras que la cotizaci&oacute;n de cierre del mercado spot lleg&oacute; a $3.665,87. Frente al mismo d&iacute;a del a&ntilde;o anterior, el d&oacute;lar baj&oacute; $470 pesos (11,3%). Frente al mes anterior, la ca&iacute;da fue de 2,5%. Los analistas proyectan estabilidad en abril con promedio de $3.610 y cierre de mes en $3.580.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La apreciaci&oacute;n del peso colombiano abarata importaciones y reduce presi&oacute;n inflacionaria, pero contrasta con la postura hawkish del BanRep. El calendario tributario de grandes contribuyentes (13-27 abril) podr&iacute;a generar demanda temporal de d&oacute;lares.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/03/dolar-hoy-en-colombia-cotizacion-de-cierre-del-3-de-abril/">Infobae</a> · <a href="https://www.bloomberglinea.com/latinoamerica/colombia/en-cuanto-estara-las-proyecciones-para-el-precio-del-dolar-en-colombia-en-abril-2026/">Bloomberg L&iacute;nea</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro reconoce &ldquo;fracaso&rdquo; parcial de su gobierno y llama a defender el proyecto pol&iacute;tico en 2026</h3>
+  <p>En un mensaje publicado en la medianoche, el presidente Petro reconoci&oacute; que su &ldquo;intento de integrar de forma pluralista&rdquo; el gobierno &ldquo;fracas&oacute;&rdquo;, aunque afirm&oacute; que el proyecto debe continuar con &ldquo;movimientos sociales reales y no ficciones pol&iacute;ticas&rdquo;. El mensaje fue interpretado como un posicionamiento de cara a la sucesi&oacute;n presidencial.</p>
+  <span class="source-link"><a href="https://www.elpais.com.co/politica/presidente-petro-reconoce-que-fracaso-en-parte-de-su-gobierno-tras-mensaje-de-medianoche-que-genero-polemica-0252.html">El Pa&iacute;s (Cali)</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro presenta plan de contingencia ante impacto del conflicto en Medio Oriente</h3>
+  <p>El presidente esboz&oacute; medidas para mitigar los efectos del conflicto en Medio Oriente sobre la econom&iacute;a colombiana. La estrategia prioriza la protecci&oacute;n de la producci&oacute;n, el empleo y la contenci&oacute;n de la inflaci&oacute;n.</p>
+  <span class="source-link"><a href="https://www.prensa-latina.cu/2026/04/02/presidente-de-colombia-esboza-plan-ante-desafios-externos-e-internos/">Prensa Latina</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Reforma laboral: recargo festivo sube a 90% y jornada baja a 42 horas desde julio</h3>
+  <p>En el contexto de Semana Santa, la reforma laboral vigente desde julio de 2025 establece que el recargo dominical y festivo ser&aacute; del 90% en 2026 (subir&aacute; al 100% en 2027). Desde julio de 2026, la jornada laboral se reducir&aacute; de 48 a 42 horas semanales y se eliminar&aacute; el beneficio del &ldquo;D&iacute;a de la Familia&rdquo;.</p>
+  <span class="source-link"><a href="https://www.elpais.com.co/economia/reforma-laboral-2026-adios-al-dia-de-la-familia-y-cuando-entra-en-vigor-0442.html">El Pa&iacute;s (Cali)</a> · <a href="https://www.infobae.com/colombia/2026/01/01/este-2026-entrara-en-vigencia-la-jornada-laboral-de-42-horas-en-colombia-asi-quedara-el-pago-por-hora-de-trabajo/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Impuesto al patrimonio para personas jur&iacute;dicas entra en vigor desde el 1 de abril</h3>
+  <p>Desde el 1 de abril de 2026, las personas jur&iacute;dicas en Colombia deben pagar el impuesto al patrimonio. Analistas advierten sobre impactos en la inversi&oacute;n, la liquidez empresarial y presiones inflacionarias derivadas del nuevo tributo.</p>
+  <span class="source-link"><a href="https://www.portafolio.co/economia/menor-inversion-y-caja-pero-mas-inflacion-efectos-del-nuevo-impuesto-al-patrimonio-para-empresas-491078">Portafolio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Grupo Falabella consolida operaciones en Colombia con compra de participaciones de Corona por US$159 millones</h3>
+  <p>El grupo chileno Falabella adquiri&oacute; las participaciones minoritarias que Corona manten&iacute;a en varios de sus negocios en Colombia por 159 millones de d&oacute;lares, consolidando el control total de sus operaciones de retail y servicios financieros en el pa&iacute;s.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>MinTIC presenta hoja de ruta del espectro radioel&eacute;ctrico 2026-2029</h3>
+  <p>El Gobierno Petro present&oacute; la hoja de ruta que modernizar&aacute; la gesti&oacute;n del espectro radioel&eacute;ctrico en Colombia entre 2026 y 2029, un plan que busca impulsar la conectividad y la transformaci&oacute;n digital del pa&iacute;s.</p>
+  <span class="source-link"><a href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/428278:Gobierno-Petro-presenta-la-hoja-de-ruta-que-modernizara-la-gestion-del-espectro-en-Colombia-entre-2026-y-2029">MinTIC</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Semana Santa: masiva participaci&oacute;n en procesiones de Popay&aacute;n, Buga y Zipaquir&aacute;</h3>
+  <p>Cientos de fieles participaron en las procesiones de Viernes Santo en Popay&aacute;n, Buga, Zipaquir&aacute; y otros municipios del pa&iacute;s. Jueves y Viernes Santo son d&iacute;as festivos nacionales, con recargo laboral del 90% para quienes trabajaron.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/emisiones/emision-noticias-rcn-12-30-p-m-viernes-3-de-abril-de-2026-1008562">Noticias RCN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sicarios atacan vivienda en Jamund&iacute; durante noche de Jueves Santo</h3>
+  <p>Una familia en Jamund&iacute; (Valle del Cauca) fue v&iacute;ctima de un ataque de sicarios que dispararon indiscriminadamente contra la vivienda donde se encontraban jugando bingo en la noche del Jueves Santo. Las autoridades investigan los hechos.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/emisiones/emision-noticias-rcn-12-30-p-m-viernes-3-de-abril-de-2026-1008562">Noticias RCN</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 15: Cali vence a Junior y Millonarios complica su clasificaci&oacute;n</h3>
+  <p>Deportivo Cali se impuso 2-1 a Junior en el Romelio Mart&iacute;nez de Barranquilla. Once Caldas e Independiente Medell&iacute;n empataron 1-1 en Manizales. Atl&eacute;tico Nacional lidera con 31 puntos (14 partidos), seguido por Deportivo Pasto (28 pts, 15 PJ) y Deportes Tolima (26 pts, 14 PJ). Millonarios, con una posici&oacute;n comprometida, a&uacute;n lucha por clasificar a los playoffs.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/como-quedo-la-tabla-de-posiciones-de-la-liga-betplay-i-2026-tras-junior-1-2-cali-so35">Gol Caracol</a> · <a href="https://www.clarosports.com/colombia/liga-bet-play/tabla-de-posiciones-de-la-liga-betplay-dimayor-2026-i-en-directo-resultados-y-horarios-del-futbol-colombiano/">Claro Sports</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.675</div>
+    <div class="data-cell-delta green">&#9660; 2,5% vs mes ant.</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BanRep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">&#9650; 100 pb</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar interanual</div>
+    <div class="data-cell-value">-$470</div>
+    <div class="data-cell-delta green">&#9660; 11,3%</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Reacci&oacute;n de los mercados al choque Gobierno-BanRep: prima de riesgo, TES y comportamiento del peso tras la ruptura institucional.</div>
+  <div class="vigilar-item">Calendario tributario: grandes contribuyentes declaran renta entre el 13 y 27 de abril. Posible presi&oacute;n sobre liquidez y tipo de cambio.</div>
+  <div class="vigilar-item">Movimientos de campa&ntilde;a: a 58 d&iacute;as de la primera vuelta, observar alianzas y posiciones de candidatos frente a la crisis BanRep-Ejecutivo.</div>
+  <div class="vigilar-item">Situaci&oacute;n humanitaria en norte de Antioquia: seguimiento del atentado en Brice&ntilde;o y posible respuesta militar del Ej&eacute;rcito ante la escalada.</div>
+</div>
+
+<div class="footer">
+  Fuentes: El Colombiano · La Silla Vac&iacute;a · Infobae · Semana · El Tiempo · El Pa&iacute;s · Portafolio · Noticias RCN · Gol Caracol · Bloomberg L&iacute;nea · MinTIC · Prensa Latina<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
