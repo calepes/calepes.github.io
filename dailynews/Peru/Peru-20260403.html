@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Perú — 3 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Peru</h1>
+  <div class="masthead-date">Viernes 3 de abril de 2026 · Lima</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del día</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Fujimori lidera y Álvarez desplaza a López Aliaga al tercer lugar a 9 días de la elección</h3>
+    <p>La encuesta Ipsos del 2-3 de abril sitúa a Keiko Fujimori con 18,6% de votos válidos, seguida por Carlos Álvarez con 12,1%. Rafael López Aliaga cae al tercer lugar tras perder seis puntos en las últimas semanas. La fragmentación persiste con 35 candidatos y niveles de indecisión superiores al respaldo individual de cualquier postulante.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      La caída de López Aliaga y el ascenso de Álvarez reconfiguran el escenario de segunda vuelta. Una eventual definición Fujimori-Álvarez tendría implicancias muy distintas para la política económica, regulación financiera y apertura a inversión extranjera que un balotaje Fujimori-López Aliaga.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/03/lopez-aliaga-baja-en-las-encuestas-keiko-fujimori-lidera-mientras-carlos-alvarez-y-roberto-sanchez-disputan-tercer-lugar/">Infobae</a> · <a href="https://rpp.pe/politica/elecciones/ipsos-keiko-fujimori-y-carlos-alvarez-lideran-intencion-de-voto-mientras-que-lopez-aliaga-cae-al-tercer-lugar-a-ocho-dias-de-las-elecciones-noticia-1682864">RPP</a> · <a href="https://larepublica.pe/politica/2026/04/03/encuesta-presidencial-iep-keiko-fujimori-esta-estancada-mientras-que-rafael-lopez-aliaga-carlos-alvarez-y-roberto-sanchez-empatados-hnews-140412">La República</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Aranceles de Trump del 10% entran en vigor el 5 de abril; Perú negocia exenciones sectoriales</h3>
+    <p>Los aranceles recíprocos del 10% impuestos por Estados Unidos a las importaciones peruanas se activarán este sábado 5 de abril. El gobierno peruano negocia ser reconocido como "socio alineado" para lograr exenciones en productos clave como palta y café. Los sectores agroindustrial y textil serán los más afectados. Perú es el tercer proveedor de frutas y hortalizas de EE.UU.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      El impacto directo en exportaciones agroindustriales y textiles puede afectar empleo en regiones clave. La capacidad negociadora del gobierno saliente queda limitada a semanas antes de la transición, lo que genera incertidumbre sobre la continuidad de las conversaciones bilaterales.
+    </div>
+    <span class="source-link"><a href="https://gestion.pe/economia/peru-aun-negocia-con-estados-unidos-por-aranceles-de-donald-trump-quiere-ser-socio-alineado-noticia/">Gestión</a> · <a href="https://gestion.pe/opinion/aranceles-economia-comercio-exterior-elecciones-2026-proteccionismo-de-trump-que-riesgos-enfrenta-el-peru-noticia/">Gestión</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>JNE concluye ciclo de debates presidenciales: empleo y emprendimiento en el cierre</h3>
+    <p>El Jurado Nacional de Elecciones completó su sexto y último debate el 1 de abril con 11 candidatos discutiendo empleo, desarrollo y emprendimiento. José Williams propuso formalizar 1,3 millones de trabajadores; César Acuña apuntó a un crecimiento del 6% anual; López Chau y Rosario Fernández priorizaron la formalización laboral. Los debates han provocado movimientos en la intención de voto.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Las propuestas sobre formalización y crecimiento económico definen el menú de políticas del próximo quinquenio. El impacto de los debates en las encuestas confirma que el elector aún está decidiendo, lo que hace la última semana de campaña especialmente volátil.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/elecciones-2026-las-propuestas-de-los-candidatos-sobre-empleo-desarrollo-y-emprendimiento-durante-el-debate-presidencial-noticia-1682608">RPP</a> · <a href="https://diariocorreo.pe/politica/debate-2026-lopez-chau-acuna-y-nieto-intercambian-propuestas-para-promover-el-empleo-formal-en-el-pais-noticia/">Correo</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>BCRP mantiene tasa en 4,25% mientras inflación se acelera a 2,2% interanual</h3>
+    <p>El Banco Central de Reserva del Perú mantiene la tasa de referencia en 4,25% por sexto mes consecutivo. La inflación total y subyacente se aceleraron hasta 2,2% interanual en febrero, ubicándose en el tramo superior del rango meta. Factores de presión incluyen el conflicto en Medio Oriente (petróleo), riesgo de El Niño moderado y disrupciones en la oferta local de gas natural.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Si la inflación sigue acelerándose, el BCRP podría verse obligado a subir la tasa, encareciendo el crédito en un momento de transición política. Empresas con deuda en soles deben monitorear el sesgo de la política monetaria en las próximas reuniones.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/bcrp-inicia-el-2026-manteniendo-su-tasa-de-interes-en-425-ante-una-inflacion-controlada-noticia-1670855">RPP</a> · <a href="https://gestion.pe/tu-dinero/inflacion-se-acelera-que-preve-bcp-para-las-tasas-de-interes-y-el-dolar-noticia/">Gestión</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>ONPE aprueba 26 ODPE para elecciones primarias regionales y municipales 2026</h3>
+    <p>La Oficina Nacional de Procesos Electorales aprobó la conformación de 26 Oficinas Descentralizadas de Procesos Electorales (ODPE) para la organización y ejecución de las elecciones primarias regionales y municipales 2026. La medida fue publicada en las normas legales del viernes 3 de abril en el diario oficial El Peruano.</p>
+    <div class="why-box">
+      <div class="why-label">Por qué importa</div>
+      Esta es la primera vez que se realizarán elecciones primarias obligatorias para gobiernos regionales y municipales. La infraestructura electoral desplegada indica que el calendario se cumplirá, lo que obliga a partidos y movimientos regionales a preparar candidaturas con anticipación.
+    </div>
+    <span class="source-link"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-viernes-3-abril-del-2026-1069634.aspx">Andina</a> · <a href="https://www.elperuano.pe/noticia/292667-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-viernes-3-de-abril-del-2026">El Peruano</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>IEP confirma empate técnico entre López Aliaga, Álvarez y Sánchez por el segundo lugar</h3>
+  <p>La encuesta del Instituto de Estudios Peruanos (IEP) del 3 de abril muestra a Fujimori estancada en 10%, mientras López Aliaga (8,7%), Álvarez (6,9%) y Roberto Sánchez (6,7%) se encuentran en empate técnico. El voto en blanco y la indecisión superan al candidato más votado, reflejando una ciudadanía fragmentada y desconfiada a días de la primera vuelta del 12 de abril.</p>
+  <span class="source-link"><a href="https://encuestas.com.pe/encuesta-presidencial-iep-03-abril-2026/">Encuestas Perú</a> · <a href="https://larepublica.pe/politica/2026/04/03/encuesta-presidencial-iep-keiko-fujimori-esta-estancada-mientras-que-rafael-lopez-aliaga-carlos-alvarez-y-roberto-sanchez-empatados-hnews-140412">La República</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Político</span>
+  <h3>Retorno del Senado: primera elección bicameral en más de tres décadas</h3>
+  <p>Las elecciones del 12 de abril marcarán el retorno al Congreso bicameral con la elección de 60 senadores y 130 diputados, después de más de 30 años de sistema unicameral. La ONPE ya tiene desplegadas 126 oficinas descentralizadas en todo el territorio nacional para la organización logística del proceso.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://eg2026.onpe.gob.pe/">ONPE</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Dólar estable en torno a S/ 3,45-3,50; sol muestra fortaleza relativa</h3>
+  <p>El tipo de cambio cerró la semana en el rango de S/ 3,455 (compra) a S/ 3,467 (venta) según SUNAT. El sol peruano muestra estabilidad pese a la incertidumbre electoral y los aranceles de Trump, acumulando una apreciación moderada en las últimas semanas. El BCRP interviene activamente para evitar volatilidad excesiva.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-03-de-abril-del-2026-noticia-1682742">RPP</a> · <a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-a-cuanto-esta-el-dolar-y-tipo-de-cambio-este-viernes-3-de-abril-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Inversión privada proyectada en 3,5% para 2026; minería como motor principal</h3>
+  <p>El BCRP estima un crecimiento de la inversión privada de 3,5% para 2026, con 51 proyectos mineros en cartera por US$ 54.600 millones. Once proyectos mineros iniciarán construcción entre 2025-2026 con inversiones superiores a US$ 8.000 millones. El cobre representa el 73% de la inversión planificada, con proyectos clave como Tía María, Zafranal y Pampa de Pongo.</p>
+  <span class="source-link"><a href="https://andina.pe/agencia/noticia-inversion-privada-continuara-impulsando-pbi-del-peru-el-2026-1063345.aspx">Andina</a> · <a href="https://www.ey.com/es_pe/insights/mining-metals/mining-metals-investment-guide">EY Perú</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Sector empresarial en modo cautela ante transición de gobierno</h3>
+  <p>Algunas fusiones y adquisiciones se han postergado mientras los inversores analizan riesgos legales y políticos de la transición. Pese a ello, las grandes compañías de consumo mantienen planes de inversión para 2026. Volcan planea fuertes inversiones en el proyecto Romina y en sus minas Carahuacra y San Cristóbal. El sector inmobiliario proyecta crecimientos de dos dígitos.</p>
+  <span class="source-link"><a href="https://altavoz.pe/economia/entorno-empresarial-en-peru-incertidumbre-y-desafios-para-las-inversiones-en-2026/">Altavoz</a> · <a href="https://semanaeconomica.com/sectores-empresas/consumo-masivo/las-grandes-companias-apuestan-por-inversiones-y-transformacion-en-un-2026-decisivo">Semana Económica</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Derechos humanos, la deuda pendiente que hereda el próximo gobierno</h3>
+  <p>Según Human Rights Watch, la agenda de derechos humanos ha tenido escasa centralidad en los programas y debates de la mayoría de candidatos presidenciales. La deuda incluye justicia transicional, reparación a víctimas de las protestas de 2022-2023 y la reforma del sistema previsional que generó protestas juveniles en 2025 tras la aprobación de la Ley 32123.</p>
+  <span class="source-link"><a href="https://www.hrw.org/es/world-report/2026/country-chapters/peru">HRW</a> · <a href="https://www.pares.com.co/el-legado-de-protesta-social-y-vulneracion-a-la-vida-en-peru-la-deuda-que-recibe-el-proximo-gobierno/">Pares</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 Fecha 9: CD Moquegua sorprende a Sporting Cristal; Alianza Lima y Chankas líderes</h3>
+  <p>CD Moquegua dio el golpe de la jornada al vencer 2-1 a Sporting Cristal en el Alberto Gallardo, con goles de Edgar Lastre y Cristian Mejía (Martín Távara descontó). Alianza Lima y Los Chankas comparten el liderato del Torneo Apertura con 20 puntos cada uno. La fecha 9 continúa con el clásico Universitario vs Alianza Lima programado para el sábado 4 de abril.</p>
+  <span class="source-link"><a href="https://larepublica.pe/deportes/2026/04/03/tabla-de-la-liga-1-2026-posiciones-y-resultados-de-los-partidos-de-hoy-por-la-fecha-9-del-torneo-apertura-36375">La República</a> · <a href="https://www.infobae.com/peru/deportes/2026/04/03/resultados-de-la-fecha-9-del-torneo-apertura-de-la-liga-1-2026-asi-van-los-partidos/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Comercio bilateral Perú-EE.UU. creció 3% pese a tensión arancelaria</h3>
+  <p>Pese al esquema arancelario de Trump, el flujo comercial bilateral alcanzó US$ 1.200 millones en noviembre 2025, un crecimiento del 3% respecto al año anterior. Perú logró récord de US$ 90.100 millones en exportaciones durante 2025. El gobierno busca exenciones puntuales para palta y café mientras se prepara para la entrada en vigor del arancel general del 10% este 5 de abril.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/comercio-mundial-se-enfriaria-en-2026-peru-podra-mitigar-un-golpe-directo-a-su-economia-noticia/">Gestión</a> · <a href="https://importando.net/noticias/aranceles-de-trump-al-10-que-significa-para-los-exportadores-peruanos/">Importando.net</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Compra</div>
+    <div class="data-cell-value">S/ 3.455</div>
+    <div class="data-cell-delta green">&#9660; 0.03%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Venta</div>
+    <div class="data-cell-value">S/ 3.467</div>
+    <div class="data-cell-delta green">&#9660; 0.06%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BCRP</div>
+    <div class="data-cell-value">4.25%</div>
+    <div class="data-cell-delta">sin cambio</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Entrada en vigor de aranceles del 10% de EE.UU. a Perú el sábado 5 de abril; posibles anuncios de exenciones sectoriales.</div>
+  <div class="vigilar-item">Última semana de campaña antes de la primera vuelta del 12 de abril: movimientos en encuestas y definición de potenciales binomios de segunda vuelta.</div>
+  <div class="vigilar-item">Clásico del fútbol peruano Universitario vs Alianza Lima este sábado 4 de abril por la fecha 9 del Torneo Apertura.</div>
+  <div class="vigilar-item">Evolución de la inflación subyacente y señales del BCRP sobre posible ajuste de tasa de referencia ante presiones de precios.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP · La República · El Comercio · Infobae Perú · Gestión · Andina · Correo · El Peruano · EY Perú · HRW<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
