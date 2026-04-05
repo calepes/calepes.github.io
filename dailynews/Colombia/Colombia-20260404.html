@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 4 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #c4841d;
+  --accent-soft: #fff7ed;
+  --accent-mid: #fed7aa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">S&aacute;bado 4 de abril de 2026 &middot; Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del d&iacute;a</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Petro escala el choque con el Banco de la Rep&uacute;blica: califica alza de tasas como &laquo;acto electoral&raquo;</h3>
+    <p>El presidente Gustavo Petro arremeti&oacute; nuevamente contra la Junta Directiva del Banco de la Rep&uacute;blica, calificando la reciente subida de 100 puntos b&aacute;sicos en la tasa de inter&eacute;s (a 11,25%) como &laquo;un acto electoral y no cient&iacute;fico&raquo;. Acus&oacute; a miembros de la junta de tener v&iacute;nculos pol&iacute;ticos con el expresidente Duque y la candidata Paloma Valencia, y calific&oacute; la defensa de la autonom&iacute;a del banco como &laquo;una est&uacute;pida alianza entre rentistas y pol&iacute;ticos&raquo;. La codirectora Edna Bonilla respondi&oacute; pidiendo &laquo;m&iacute;nimos de lealtad y respeto&raquo;.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La crisis institucional entre el Ejecutivo y el banco central genera incertidumbre en mercados y refuerza la narrativa de la Constituyente como mecanismo para modificar la autonom&iacute;a del emisor, tema central de la campa&ntilde;a electoral.
+    </div>
+    <span class="source-link"><a href="https://www.radiosantafe.com/2026/04/04/acto-electoral-petro-cuestiona-la-independencia-del-banco-de-la-republica-y-arremete-contra-el-congreso/">Radio Santa Fe</a> &middot; <a href="https://www.semana.com/politica/articulo/gustavo-petro-vuelve-a-arremeter-contra-el-banco-de-la-republica-lo-que-hizo-la-junta-es-un-acto-electoral-y-no-cientifico/202627/">Semana</a> &middot; <a href="https://www.infobae.com/colombia/2026/04/04/edna-bonilla-respondio-a-petro-por-polemicas-declaraciones-sobre-el-banco-de-la-republica-hay-unos-minimos-de-lealtad-y-respeto-que-usted-desconoce/">Infobae</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Consejo de Estado podr&iacute;a anular suspensi&oacute;n de capturas a 23 cabecillas criminales en Medell&iacute;n</h3>
+    <p>El Consejo de Estado analiza la demanda de nulidad contra la Resoluci&oacute;n 00072 de la Fiscal&iacute;a que suspendi&oacute; &oacute;rdenes de captura de 23 jefes de bandas del Valle de Aburr&aacute;, siete de los cuales ya est&aacute;n en libertad. La medida, enmarcada en la Paz Total, fue calificada por Proantioquia como una &laquo;afrenta&raquo;. El gobernador de Antioquia y el Concejo de Medell&iacute;n tambi&eacute;n demandaron la resoluci&oacute;n.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La decisi&oacute;n afecta la percepci&oacute;n de seguridad en la segunda ciudad del pa&iacute;s y se convierte en tema de campa&ntilde;a: el candidato De la Espriella la us&oacute; para atacar al Gobierno, llam&aacute;ndolos &laquo;jefes de campa&ntilde;a&raquo; del oficialismo.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/03/consejo-de-estado-tendria-en-sus-manos-el-futuro-de-la-resolucion-que-levanto-capturas-de-23-cabecillas-en-medellin-estos-son-los-escenarios/">Infobae</a> &middot; <a href="https://www.semana.com/nacion/articulo/proantioquia-califica-como-afrenta-la-suspension-de-capturas-a-jefes-criminales-por-parte-de-la-fiscalia/202626/">Semana</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Tasa de inter&eacute;s en 11,25%: empresas respaldan al Banco de la Rep&uacute;blica y ministro de Hacienda queda en la cuerda floja</h3>
+    <p>Gremios y empresas colombianas cerraron filas en defensa de la autonom&iacute;a del Banco de la Rep&uacute;blica tras la subida de tasas. La posici&oacute;n del ministro de Hacienda se debilit&oacute; ante la escalada verbal del presidente. Los CDT alcanzan tasas superiores al 13% E.A. y la rentabilidad de los dep&oacute;sitos mejora, pero el cr&eacute;dito se encarece para hogares y empresas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      El alza acumulada de 200 pb en 2026 encarece el financiamiento empresarial y de consumo, frenando la inversi&oacute;n. El enfrentamiento pol&iacute;tico a&ntilde;ade una prima de riesgo institucional que podr&iacute;a afectar el tipo de cambio y los spreads soberanos.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/01/las-empresas-colombianas-respaldaron-al-banco-de-la-republica-y-ahora-el-ministro-de-hacienda-de-petro-esta-en-la-cuerda-floja/">Infobae</a> &middot; <a href="https://www.lafm.com.co/economia/cdt-colombia-abril-2026-tasas-altas-bancos-rentabilidad-inversion-395128">La FM</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Carrera presidencial: encuestas muestran empate t&eacute;cnico Cepeda-De la Espriella a 57 d&iacute;as de la primera vuelta</h3>
+    <p>Las encuestas m&aacute;s recientes muestran resultados mixtos: Guarumo/Ecoanal&iacute;tica da ventaja a Iv&aacute;n Cepeda con 33% frente a 18% de Abelardo de la Espriella, mientras Atlas Intel reporta un empate t&eacute;cnico (28% vs. 26,5%). Paloma Valencia creci&oacute; 12 puntos y Abelardo cay&oacute; 5 en la &uacute;ltima medici&oacute;n de RCN. La primera vuelta est&aacute; programada para el 31 de mayo.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La dispersi&oacute;n entre encuestas refleja alta volatilidad electoral. El crecimiento de Valencia podr&iacute;a dividir el voto de centroderecha y alterar la composici&oacute;n de la segunda vuelta, factor clave para el clima de inversi&oacute;n.
+    </div>
+    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-guarumo-y-ecoanalitica-ivan-cepeda-33-abelardo-de-la-espriella-18-paloma-valencia-6-y-vicky-davila-3526808">El Tiempo</a> &middot; <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Corte Suprema de EE.UU. anul&oacute; aranceles de Trump: alivio para exportadores colombianos</h3>
+    <p>La Corte Suprema de Estados Unidos invalid&oacute; los aranceles generalizados impuestos por Donald Trump bajo poderes de emergencia, incluyendo el 10% aplicado a Colombia. La medida beneficia especialmente al sector floricultor y cafetero (40% de exportaciones a EE.UU., m&aacute;s de 453.000 familias). El Gobierno celebr&oacute; la decisi&oacute;n como un impacto positivo para el 29% de las exportaciones que estaban gravadas.</p>
+    <div class="why-box">
+      <div class="why-label">Por qu&eacute; importa</div>
+      La ca&iacute;da de los aranceles elimina una fuente de incertidumbre para los sectores exportadores colombianos y reduce presi&oacute;n sobre el tipo de cambio, aunque el fallo podr&iacute;a ser contestado por la administraci&oacute;n Trump con nuevas medidas.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/02/20/cual-sera-el-impacto-para-colombia-de-la-caida-de-los-aranceles-estadounidenses-decretados-por-donald-trump/">Infobae</a> &middot; <a href="https://www.cronista.com/colombia/finanzas-y-economia/adios-a-los-aranceles-de-trump-el-gobierno-espera-que-la-baja-impacte-positivamente-a-los-exportadores-colombianos/">Cronista</a></span>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro impulsa Asamblea Constituyente y vincula la propuesta a la autonom&iacute;a del Banco de la Rep&uacute;blica</h3>
+  <p>El senador Antonio Sanguino propuso formalmente que la autonom&iacute;a del banco central sea revisada mediante una Asamblea Constituyente, con respaldo del Ejecutivo. El ministro de Trabajo descart&oacute; que la Constituyente implique revocar el Congreso, pero candidatos de oposici&oacute;n advirtieron que el mecanismo busca concentrar poder. La recolecci&oacute;n de firmas tiene plazo de tres meses y deber&aacute; presentarse ante el nuevo Congreso tras julio.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/02/ministro-explico-el-alcance-de-una-asamblea-constituyente-ante-tension-con-el-banco-de-la-republica-descarto-revocatoria-del-congreso/">Infobae</a> &middot; <a href="https://www.infobae.com/colombia/2026/04/01/antonio-sanguino-planteo-debate-sobre-el-alcance-real-de-la-autonomia-del-banco-de-la-republica-no-seria-un-gran-tema-para-una-constituyente/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Aprobaci&oacute;n de Petro en 54%: el presidente entra a la recta final con agenda polarizante</h3>
+  <p>Seg&uacute;n las mediciones m&aacute;s recientes, un 54% de colombianos aprueba la gesti&oacute;n de Petro frente a un 38% de desaprobaci&oacute;n. El mandatario ha intensificado su actividad en redes sociales durante Semana Santa, generando al menos 10 frases de alto impacto medi&aacute;tico en X que reavivaron m&uacute;ltiples debates.</p>
+  <span class="source-link"><a href="https://www.semana.com/politica/articulo/gustavo-petro-no-suelta-el-x-en-estos-dias-santos-10-frases-que-han-causado-revuelo/202600/">Semana</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Peso colombiano se fortaleci&oacute; 2,1% en marzo frente al d&oacute;lar</h3>
+  <p>El peso colombiano fue una de las pocas monedas de la regi&oacute;n que gan&oacute; terreno frente al d&oacute;lar en marzo, con una valorizaci&oacute;n de 2,1%. La TRM se ubica en $3.675,81 para el periodo del 2 al 6 de abril, por debajo del umbral de los $4.000 que marc&oacute; meses atr&aacute;s. La fortaleza relativa del peso se atribuye a flujos de portafolio y al atractivo de las tasas altas.</p>
+  <span class="source-link"><a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-jueves-2-de-abril-577072">Colombia.com</a> &middot; <a href="https://capitalcolombia.com/index.php?consulta=2026&pag=ano&sec=trm_precio_dolar_en_colombia">CapitalColombia</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>MinTIC presenta hoja de ruta de espectro 2026-2029</h3>
+  <p>El Gobierno present&oacute; el plan de modernizaci&oacute;n de la gesti&oacute;n del espectro radioel&eacute;ctrico para el periodo 2026-2029, que busca optimizar la asignaci&oacute;n de frecuencias para telecomunicaciones m&oacute;viles e impulsar la conectividad en zonas rurales.</p>
+  <span class="source-link"><a href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/428278:Gobierno-Petro-presenta-la-hoja-de-ruta-que-modernizara-la-gestion-del-espectro-en-Colombia-entre-2026-y-2029">MinTIC</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Ola de fusiones y adquisiciones sacude el arranque de 2026</h3>
+  <p>En 75 d&iacute;as de 2026, una seguidilla de compras, ventas, fusiones y alianzas ha sacudido los sectores de petr&oacute;leo, telecomunicaciones, miner&iacute;a, comercio, banca, alimentos y materiales de construcci&oacute;n. Cerca del 30% de los inversionistas internacionales considera que Colombia ofrece buenas oportunidades, el doble frente al 15% que ten&iacute;a esa percepci&oacute;n hace dos a&ntilde;os. StartCo 2026 reunir&aacute; m&aacute;s de 350 startups en Medell&iacute;n el 16-17 de abril con oportunidades por USD 18 millones.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> &middot; <a href="https://www.elcolombiano.com/negocios/startco-350-startups-inversion-colombia-medellin-AF35124062">El Colombiano</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Actividad s&iacute;smica en varias regiones sin da&ntilde;os graves</h3>
+  <p>Colombia registr&oacute; una serie de movimientos s&iacute;smicos en los primeros d&iacute;as de abril, concentrados en Santander, Antioquia y Cundinamarca, sin reportes de da&ntilde;os significativos. El Servicio Geol&oacute;gico Colombiano mantiene el monitoreo activo en estas zonas de alta actividad tect&oacute;nica.</p>
+  <span class="source-link"><a href="https://www.hsbnoticias.com/donde-ha-temblado-colombia-abril-2026-reporte-sismos/">HSB Noticias</a> &middot; <a href="https://www.candelaestereo.com/actualidad/temblor-hoy-en-colombia-sabado-4-de-abril-2026-magnitud-y-epicentro/">Candela</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Deterioro de seguridad: grupos armados crecieron 23,5% en 2025</h3>
+  <p>Seg&uacute;n la Fundaci&oacute;n Ideas para la Paz, las estructuras armadas ilegales sumaron m&aacute;s de 27.000 miembros a diciembre de 2025, un aumento de 23,5% interanual. Los desplazamientos masivos (79.500 v&iacute;ctimas entre enero y agosto de 2025) y los ataques con drones explosivos (+138%) configuran el panorama de seguridad m&aacute;s fr&aacute;gil en a&ntilde;os.</p>
+  <span class="source-link"><a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a> &middot; <a href="https://www.hrw.org/es/world-report/2026/country-chapters/colombia">HRW</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: Nacional l&iacute;der con 31 puntos tras la fecha 15</h3>
+  <p>Atl&eacute;tico Nacional lidera la Liga BetPlay 2026-I con 31 puntos tras 15 fechas. Lo siguen Deportivo Pasto (28), Deportes Tolima (26), Once Caldas (25) y Junior (25). Resultados destacados de la fecha 15: Am&eacute;rica 2-0 Bucaramanga, Tolima 4-1 &Aacute;guilas Doradas, Jaguares 1-0 Millonarios. Nacional empat&oacute; 0-0 con C&uacute;cuta Deportivo.</p>
+  <span class="source-link"><a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-15-liga-betplay-2026-i-265331">FutbolRed</a> &middot; <a href="https://www.elespectador.com/deportes/futbol-colombiano/asi-quedo-la-tabla-de-posiciones-de-la-liga-betplay-2026-i-tras-finalizar-la-fecha-15/">El Espectador</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">D&oacute;lar (TRM)</div>
+    <div class="data-cell-value">$3.675</div>
+    <div class="data-cell-delta green">&#9660; $15,71</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BanRep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">&#9650; +100 pb</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Peso vs USD (mar)</div>
+    <div class="data-cell-value">+2,1%</div>
+    <div class="data-cell-delta green">Fortalecimiento</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Fallo del Consejo de Estado sobre la resoluci&oacute;n de suspensi&oacute;n de capturas de 23 cabecillas en Medell&iacute;n: podr&iacute;a revertir la medida y reactivar el debate sobre la Paz Total.</div>
+  <div class="vigilar-item">Evoluci&oacute;n del enfrentamiento Petro-Banco de la Rep&uacute;blica: una eventual sesi&oacute;n extraordinaria de la junta directiva o nueva declaraci&oacute;n oficial podr&iacute;a mover el d&oacute;lar el lunes.</div>
+  <div class="vigilar-item">Encuestas electorales de abril: la volatilidad en las mediciones Cepeda-De la Espriella-Valencia definir&aacute; el tono de campa&ntilde;a a 57 d&iacute;as de la primera vuelta.</div>
+  <div class="vigilar-item">Impacto real de la ca&iacute;da de aranceles de EE.UU. en flujos de exportaci&oacute;n colombianos, especialmente en flores y caf&eacute;.</div>
+</div>
+
+<div class="footer">
+  Fuentes: Semana &middot; Infobae &middot; El Tiempo &middot; El Colombiano &middot; El Espectador &middot; Radio Santa Fe &middot; FutbolRed &middot; FIP &middot; MinTIC &middot; HRW &middot; Colombia.com<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</body>
+</html>
