@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Perú — 4 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #18181b;
+  --paper: #fafafa;
+  --accent: #1a4a6b;
+  --accent-soft: #eff6ff;
+  --accent-mid: #bfdbfe;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --muted: #78716c;
+  --pill-pol: #1e40af;
+  --pill-pol-bg: #eff6ff;
+  --pill-eco: #065f46;
+  --pill-eco-bg: #ecfdf5;
+  --pill-emp: #7c2d12;
+  --pill-emp-bg: #fff7ed;
+  --pill-soc: #6b21a8;
+  --pill-soc-bg: #faf5ff;
+  --pill-dep: #0369a1;
+  --pill-dep-bg: #f0f9ff;
+  --pill-int: #374151;
+  --pill-int-bg: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 3px solid var(--ink); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 8px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+.masthead-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-top: 10px; }
+
+.top5-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 16px; }
+.top5-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; transition: box-shadow 0.2s; }
+.top5-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.top5-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.3; }
+.top5-content h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.top5-content p { font-size: 14px; color: #52525b; line-height: 1.55; font-weight: 400; }
+
+.why-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; }
+.why-label { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+
+.source-link { color: var(--muted); font-size: 11px; margin-top: 6px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 32px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 14px; color: #52525b; line-height: 1.55; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.data-cell { background: var(--surface); padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
+.data-cell:last-child { border-right: none; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; margin-top: 2px; }
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+
+.vigilar { background: var(--ink); color: white; padding: 24px; border-radius: 10px; margin: 32px 0; }
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; opacity: 0.9; }
+.vigilar-item { font-size: 14px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 2; }
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .data-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Peru</h1>
+  <div class="masthead-date">Sabado 4 de abril de 2026 · Lima</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<div class="top5-header">Top 5 del dia</div>
+
+<div class="top5-card">
+  <div class="top5-num">01</div>
+  <div class="top5-content">
+    <h3>Encuesta Ipsos a 8 dias de elecciones: Keiko lidera con 13%, Carlos Alvarez sube al segundo lugar</h3>
+    <p>La encuesta nacional de Ipsos (aplicada el 1-2 de abril) muestra a Keiko Fujimori (Fuerza Popular) con 13% de intencion de voto valido, seguida por Carlos Alvarez (Pais para Todos) con 9%, quien desplazo a Rafael Lopez Aliaga (8%) al tercer lugar. La fragmentacion es extrema: 35 candidatos compiten y ninguno supera el 20%. El efecto de los debates presidenciales fue determinante en el reacomodo.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      Con elecciones el 12 de abril, una segunda vuelta es practicamente segura. La fragmentacion sin precedentes y el ascenso de Alvarez podrian redefinir las alianzas de segunda vuelta y el perfil del proximo gobierno.
+    </div>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/ipsos-keiko-fujimori-y-carlos-alvarez-lideran-intencion-de-voto-mientras-que-lopez-aliaga-cae-al-tercer-lugar-a-ocho-dias-de-las-elecciones-noticia-1682864">RPP</a> · <a href="https://www.infobae.com/peru/2026/04/04/carlos-alvarez-le-arrebata-el-segundo-lugar-a-rafael-lopez-aliaga-en-ultima-encuesta-de-ipsos/">Infobae</a> · <a href="https://www.ipsos.com/es-pe/tercer-simulacro-nacional-y-encuesta-de-intencion-de-voto-abril-2026-encuesta-peru-21-ipsos">Ipsos</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">02</div>
+  <div class="top5-content">
+    <h3>Aranceles de Trump del 10% entran en vigor el 5 de abril: agroexportacion sera la mas golpeada</h3>
+    <p>Los aranceles del 10% impuestos por EE.UU. a Peru comienzan a aplicarse desde el sabado 5 de abril. El sector agroexportador, que destina el 36% de sus envios a EE.UU. (US$4,031 millones en 2024), sera el principal afectado. Se estima una reduccion de US$760 millones en exportaciones (0.26% del PBI) y un recorte de 0.2 puntos al crecimiento proyectado de 3.1%. La Cancilleria peruana presento nota oficial al Departamento de Estado solicitando revision.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La medida impacta directamente la agroexportacion y el textil, aunque la tasa del 10% es menor que la de competidores asiaticos (30%+), lo que podria generar oportunidades de redireccion comercial para Peru.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2025/04/02/donald-trump-anuncia-aranceles-del-10-para-peru-que-significa-esta-medida-y-a-que-sectores-afectara/">Infobae</a> · <a href="https://rpp.pe/economia/economia/aranceles-de-donald-trump-del-10-al-peru-como-impactara-en-la-economia-del-pais-y-al-pbi-informe-noticia-1626173">RPP</a> · <a href="https://gestion.pe/economia/nuevo-arancel-global-de-trump-tras-fallo-judicial-como-afecta-al-peru-noticia/">Gestion</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">03</div>
+  <div class="top5-content">
+    <h3>Semana Santa movilizo 1.9 millones de viajeros con impacto de US$220 millones</h3>
+    <p>Mincetur proyecto que el feriado largo de Semana Santa (jueves 2 y viernes 3 de abril) movilizaria 1.9 millones de turistas internos, con un impacto economico de US$220 millones. La Camara de Comercio de Lima estimo S/906 millones en movimiento turistico. Lima concentro el 21.3% del flujo, seguida de Ica (9.9%), La Libertad (9.6%) y Cajamarca (9.4%). El gasto promedio por visitante subio a S/450, un alza de 7.14% frente a 2025.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El turismo interno sigue siendo motor de la economia regional y muestra señales de recuperacion sostenida. El incremento del gasto por visitante refleja una mayor confianza del consumidor peruano.
+    </div>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/semana-santa-2026-turismo-movilizara-s-906-millones-a-nivel-nacional-segun-la-ccl-ultimas-noticia/">El Comercio</a> · <a href="https://gestion.pe/economia/semana-santa-2026-generara-impacto-de-us-220-millones-para-la-economia-estima-mincetur-noticia/">Gestion</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">04</div>
+  <div class="top5-content">
+    <h3>Gobierno aprueba Plan Nacional de Seguridad Ciudadana 2026-2028 frente a crisis de extorsion</h3>
+    <p>El Ministerio del Interior aprobo el Plan Sectorial de Seguridad Ciudadana 2026-2028, que complementa el Plan Nacional contra el Crimen. Entre enero y marzo de 2026, la policia resolvio 21 atentados extorsivos solo en el sector transporte de Lima. Sin embargo, analistas señalan que la capacidad de investigacion criminal sigue siendo insuficiente, con escasez de personal especializado en inteligencia policial. Peru cerro 2025 como su año mas violento con mas de 25,000 extorsiones y casi 2,500 homicidios.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      La seguridad ciudadana es el tema numero uno de los candidatos presidenciales. La eficacia real del nuevo plan dependera de recursos y continuidad mas alla del cambio de gobierno en julio.
+    </div>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/gobierno-aprueba-plan-nacional-de-seguridad-ciudadana-2026-2028">TVPeru</a> · <a href="https://larepublica.pe/politica/2026/04/03/policia-resuelve-21-atentados-extorsivos-pero-investigacion-criminal-es-insuficiente-inseguridad-hnews-150861">La Republica</a></span>
+  </div>
+</div>
+
+<div class="top5-card">
+  <div class="top5-num">05</div>
+  <div class="top5-content">
+    <h3>Universitario derroto 1-0 a Alianza Lima en el clasico del Apertura 2026</h3>
+    <p>Universitario de Deportes se impuso 1-0 ante Alianza Lima en el clasico del futbol peruano por la fecha 9 del Torneo Apertura de la Liga 1 2026, disputado en el estadio Monumental. El unico gol llego a los 52 minutos, obra de Martin Perez Guedes de cabeza tras centro de Alex Valera. El partido tuvo polemica arbitral cuando el VAR revirtio una expulsion a Advincula, dejandolo solo con amarilla tras un codazo sobre Concha. El resultado rompio el invicto blanquiazul y acerco a los cremas a los lideres.</p>
+    <div class="why-box">
+      <div class="why-label">Por que importa</div>
+      El clasico define el animo del Apertura. Universitario se mete en la pelea por el liderato mientras Alianza Lima sufre su primer traspie, lo que podria cambiar la dinamica de la tabla.
+    </div>
+    <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/04/04/universitario-vs-alianza-lima-en-vivo-hoy-minuto-a-minuto-partido-clasico-monumental-torneo-apertura-liga-1-2026-goles-resumen-resultado/">Infobae</a> · <a href="https://elcomercio.pe/deporte-total/futbol-peruano/alianza-lima-vs-universitario-en-vivo-online-gratis-via-liga-1-max-horarios-canales-tv-y-donde-ver-partido-por-liga-1-video-noticia/">El Comercio</a></span>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Noticias por Seccion</span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>IEP confirma estancamiento de Keiko y empate tecnico por el segundo lugar</h3>
+  <p>La encuesta del Instituto de Estudios Peruanos (IEP) muestra que Keiko Fujimori se estanca en el liderato, mientras Lopez Aliaga, Carlos Alvarez y Roberto Sanchez se encuentran en empate tecnico por la segunda posicion. La volatilidad del electorado a una semana de los comicios hace impredecible que candidatos pasaran a segunda vuelta.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/03/encuesta-presidencial-iep-keiko-fujimori-esta-estancada-mientras-que-rafael-lopez-aliaga-carlos-alvarez-y-roberto-sanchez-empatados-hnews-140412">La Republica</a> · <a href="https://www.infobae.com/peru/2026/04/03/como-van-los-candidatos-de-peru-en-las-ultimas-encuestas-presidenciales-esto-dicen-las-cifras-de-ipsos-datum-y-cpi/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Peru retorna al Congreso bicameral tras mas de tres decadas</h3>
+  <p>Las elecciones del 12 de abril marcaran el retorno del Senado peruano, con 60 senadores a elegir ademas de diputados y representantes al Parlamento Andino. Sera la primera vez desde 1992 que Peru opera con dos camaras legislativas, lo que transformara la dinamica de aprobacion de leyes y fiscalizacion.</p>
+  <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://portal.andina.pe/edpespeciales/2026/especial_elecciones_generales_2026/index.html">Andina</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Dolar cerro la semana con tendencia a la baja pese a feriado bancario</h3>
+  <p>El BCRP no publico tipo de cambio oficial el viernes 3 de abril por feriado de Semana Santa. Al cierre del jueves 2, la SUNAT registro S/3.455 (compra) y S/3.467 (venta). En el mercado paralelo, el dolar Bloomberg se situaba en S/3.4468. Analistas proyectan un rango de S/3.35-3.45 para los proximos meses, con presion bajista por el diferencial de tasas y un sol fortalecido.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-02-de-abril-del-2026-noticia-1682620">RPP</a> · <a href="https://www.infobae.com/peru/2026/04/03/dolar-hoy-en-peru-cotizacion-de-apertura-del-3-de-abril/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Cartera de exploracion minera 2026 suma 69 proyectos por US$757 millones</h3>
+  <p>El MINEM presento la Cartera de Proyectos de Exploracion Minera 2026 con 69 proyectos valorados en US$757 millones, un incremento de 4.1% (US$29.5 millones) respecto a agosto 2025, con 32 nuevos proyectos incorporados. La produccion de cobre crecio 3% en enero de 2026 (226,256 TMF), aunque las unidades formales de oro cayeron 35.8% interanual. EXPOCOBRE 2026 se realizara en Lima del 27 al 29 de abril.</p>
+  <span class="source-link"><a href="https://mineriaenergia.com/cartera-de-proyectos-de-exploracion-minera-2026-esta-valorizada-en-mas-de-us-757-millones/">Mineria &amp; Energia</a> · <a href="https://www.redimin.cl/exploracion-minera-en-peru-cartera-2026-suma-69-proyectos-por-us757-millones-y-abre-nuevo-ciclo-de-inversion/">Redimin</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismos de 4.5 y 3.6 de magnitud sacudieron Tumbes y Arequipa</h3>
+  <p>El Instituto Geofisico del Peru (IGP) reporto un sismo de magnitud 4.5 a las 7:23 a.m. con epicentro a 132 km al norte de Zarumilla (Tumbes), y otro de 3.6 a las 9:39 a.m. a 14 km al noroeste de Chala (Arequipa). No se reportaron daños materiales ni victimas.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/respuestas/hoy-temblor-en-peru-en-vivo-ultimos-sismos-3-y-4-abril-2026-hora-magnitud-y-epicentro-del-reporte-segun-el-igp-instituto-geofisico-del-peru-lima-callao-ica-lbposting-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Fecha 9 del Apertura: Cusco FC goleo a Melgar y Garcilaso supero a Sport Boys</h3>
+  <p>Ademas del clasico, la fecha 9 dejo otros resultados: Cusco FC vencio 3-1 a Melgar en Arequipa y Deportivo Garcilaso supero 3-2 a Sport Boys. El viernes, Cienciano gano 3-2 a ADT, Alianza Atletico empato 2-2 con Atletico Grau, y CD Moquegua dio la sorpresa al derrotar 2-1 a Sporting Cristal. Los Chankas y Alianza Lima comparten el liderato del Apertura.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/04/04/melgar-vs-cusco-fc-en-vivo-hoy-l1-max-movistar-tv-fecha-9-torneo-apertura-liga-1-2026-goles-resumen-resultado/">Infobae</a> · <a href="https://www.infobae.com/peru/deportes/2026/04/03/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-9-alianza-lima-universitario-los-chankas-cienciano-sporting-cristal-melgar/">Infobae</a></span>
+</div>
+
+<div class="news-item">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Cancilleria solicita revision de aranceles ante Departamento de Estado de EE.UU.</h3>
+  <p>La embajada peruana en Washington presento nota oficial invocando la Seccion 4C de la orden ejecutiva de Trump, que permite reconsiderar aranceles si un socio comercial demuestra mayor apertura. El canciller Elmer Schialer califico la medida del 10% como injusta y señalo que el gobierno ya implementa acciones diplomaticas para mitigar el impacto.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/trump-anuncio-pausa-de-aranceles-y-un-10-a-los-paises-que-negociaron-que-pasara-con-peru-esto-dice-cancilleria-trump-1-donald-trump-guerra-comercial-peru-en-guerra-comercial-aranceles-noticia/">El Comercio</a></span>
+</div>
+
+<div class="data-strip">
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar SUNAT</div>
+    <div class="data-cell-value">S/ 3.467</div>
+    <div class="data-cell-delta green">&#9660; 0.69%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Dolar Bloomberg</div>
+    <div class="data-cell-value">S/ 3.447</div>
+    <div class="data-cell-delta green">&#9660; estable</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Proyeccion 2026</div>
+    <div class="data-cell-value">S/ 3.34</div>
+    <div class="data-cell-delta">consenso analistas</div>
+  </div>
+</div>
+
+<div class="vigilar">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Entrada en vigor de aranceles del 10% de EE.UU. el 5 de abril: reaccion del mercado y exportadores peruanos el lunes.</div>
+  <div class="vigilar-item">Ultima semana de campaña antes de elecciones del 12 de abril: movimientos de alianzas y posibles desistimientos entre candidatos.</div>
+  <div class="vigilar-item">Retorno de actividad bancaria tras feriado de Semana Santa: comportamiento del tipo de cambio post-feriado y flujos de capital.</div>
+  <div class="vigilar-item">EXPOCOBRE 2026 (27-29 abril en Lima): señales de inversion minera y anuncios de nuevos proyectos cuprIferos.</div>
+</div>
+
+<div class="footer">
+  Fuentes: RPP · Infobae Peru · El Comercio · Gestion · La Republica · Ipsos · TVPeru · Mineria &amp; Energia · Andina<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</body>
+</html>
