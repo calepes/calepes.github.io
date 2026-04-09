@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Ejecutivo — Per&uacute; — 8 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #E4EAF0 0%, #D4DEE7 25%, #DAE0E8 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay:0.04s">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Per&uacute;</h1>
+  <div class="masthead-date">Mi&eacute;rcoles 8 de abril de 2026 &middot; Lima</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay:0.08s">Top 5 del D&iacute;a</div>
+
+<div class="carousel-container reveal" style="transition-delay:0.12s">
+  <div class="carousel-track" id="carousel">
+
+    <!-- Card 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">EE.UU. impone aranceles de hasta 50% a manufacturas de cobre peruano</div>
+        </div>
+        <div class="swipe-body">Una proclama presidencial de la administraci&oacute;n Trump actualiza el tratamiento arancelario para importaciones de cobre manufacturado. Los productos afectados incluyen alambres, barras, perfiles, chapas y accesorios de cobre, comprometiendo cerca de USD 500 millones en exportaciones al mercado estadounidense. Las materias primas (minerales, c&aacute;todos, chatarra) quedan exentas.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Per&uacute; es el segundo productor mundial de cobre. El arancel golpea selectivamente las exportaciones con mayor valor agregado &mdash;trefilado, laminado, extrusi&oacute;n&mdash;, desincentivando la industrializaci&oacute;n minera que el pa&iacute;s busca promover. Sin trato preferencial, Per&uacute; queda en desventaja frente a competidores como Chile y M&eacute;xico.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/08/estados-unidos-impone-aranceles-de-hasta-50-a-manufacturas-de-cobre-peruano-cerca-de-usd-500-millones-en-exportaciones-afectadas/">Infobae</a> &middot; <a href="https://rpp.pe/economia/economia/estados-unidos-impone-aranceles-de-hasta-50-a-manufacturas-de-cobre-peruano-noticia-1683447">RPP</a> &middot; <a href="https://elcomercio.pe/economia/peru/estados-unidos-impone-aranceles-de-hasta-50-a-manufacturas-de-cobre-peruano-l-ultimas-noticia/">El Comercio</a></div>
+      </div>
+    </div>
+
+    <!-- Card 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Elecciones 2026: 35 candidatos a 4 d&iacute;as del voto con Keiko Fujimori al frente</div>
+        </div>
+        <div class="swipe-body">Per&uacute; tendr&aacute; la c&eacute;dula presidencial m&aacute;s extensa de su historia el domingo 12 de abril. Las &uacute;ltimas encuestas permitidas (Ipsos, Datum, CPI) ubican a Keiko Fujimori (Fuerza Popular) liderando con 14-19% seg&uacute;n la encuestadora, seguida por Carlos &Aacute;lvarez y Rafael L&oacute;pez Aliaga disputando el segundo lugar. Los cierres de campa&ntilde;a se concentran entre el 8 y 9 de abril.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Con 35 candidatos y un electorado fragmentado, la segunda vuelta es pr&aacute;cticamente inevitable. El pr&oacute;ximo gobierno heredar&aacute; crisis institucional, inseguridad y la relaci&oacute;n comercial con EE.UU. bajo tensi&oacute;n. La polarizaci&oacute;n extrema y el voto viciado (que supera el 20%) podr&iacute;an definir qui&eacute;n pasa al ballotage.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/06/ultimas-encuestas-permitidas-en-peru-de-ipsos-datum-y-cpi-publicadas-el-domingo-5-de-abril-para-las-elecciones-2026/">Infobae</a> &middot; <a href="https://cnnespanol.cnn.com/2026/04/08/latinoamerica/peru-record-candidatos-presenciales-35-elecciones-orix">CNN</a> &middot; <a href="https://gestion.pe/peru/politica/elecciones-2026-candidatos-alistan-cierres-de-campana-electoral-el-8-y-9-de-abril-noticia/">Gesti&oacute;n</a></div>
+      </div>
+    </div>
+
+    <!-- Card 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Inseguridad y crimen organizado: el factor que decidir&aacute; el voto</div>
+        </div>
+        <div class="swipe-body">Un 72% de peruanos considera la inseguridad (57%) y la corrupci&oacute;n (15%) como los problemas m&aacute;s graves del pa&iacute;s. En lo que va de 2026, se registran 696 homicidios (baja de 10.3%), pero las extorsiones &mdash;especialmente cobro de cupos en Lima&mdash; siguen generando zozobra. Solo en febrero hubo 196 homicidios, el 76% por arma de fuego.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          La extorsi&oacute;n al transporte p&uacute;blico ha dejado 93 fallecidos y 76 heridos en 125 atentados en Lima entre 2024-2025. El pr&oacute;ximo presidente necesitar&aacute; resultados r&aacute;pidos en seguridad para sostener gobernabilidad. Ning&uacute;n candidato ha presentado un plan convincente seg&uacute;n analistas.
+        </div>
+        <div class="swipe-source"><a href="http://cnnespanol.cnn.com/2026/04/08/latinoamerica/peru-crimen-inseguridad-elecciones-orix">CNN</a> &middot; <a href="https://rpp.pe/peru/actualidad/la-inseguridad-ciudadana-en-el-peru-los-desafios-que-heredara-el-proximo-gobierno-informe-noticia-1683103">RPP</a></div>
+      </div>
+    </div>
+
+    <!-- Card 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">D&oacute;lar se desplom&oacute; a S/3.386: sol peruano se fortalece</div>
+        </div>
+        <div class="swipe-body">El tipo de cambio interbancario cerr&oacute; en S/3.386 el mi&eacute;rcoles, con un m&iacute;nimo intrad&iacute;a de S/3.379. En la semana, el d&oacute;lar acumula una ca&iacute;da de 1.14%, con analistas proyectando un cierre de a&ntilde;o en torno a S/3.34. La tendencia a la baja favorece a importadores y reduce presiones inflacionarias.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          El fortalecimiento del sol ocurre en un contexto de flujos mineros positivos y expectativa de estabilidad pol&iacute;tica post-electoral. Para empresas con costos en d&oacute;lares (como operadores fintech), la tendencia es favorable. El BCRP no ha necesitado intervenir, se&ntilde;al de confianza del mercado.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/08/dolar-hoy-en-peru-cotizacion-de-apertura-del-8-de-abril/">Infobae</a> &middot; <a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-a-cuanto-esta-el-tipo-de-cambio-del-miercoles-8-de-abril-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a></div>
+      </div>
+    </div>
+
+    <!-- Card 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">BCRP mantiene tasa en 4.25% por sexto mes; inflaci&oacute;n anclada en 2%</div>
+        </div>
+        <div class="swipe-body">El Banco Central mantiene la tasa de referencia en 4.25% desde noviembre 2025, respaldado por una inflaci&oacute;n que cerr&oacute; diciembre en 1.5% y se proyecta en 2% para 2026. El BCP estima un recorte a 4.0% en el segundo semestre. La actividad econ&oacute;mica muestra dinamismo moderado con inversi&oacute;n privada como motor.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          La estabilidad monetaria es el principal activo macro de Per&uacute; en un contexto regional vol&aacute;til. Un eventual recorte de tasas en el segundo semestre abaratar&iacute;a el cr&eacute;dito, impulsando consumo e inversi&oacute;n justo cuando el nuevo gobierno necesite tracci&oacute;n econ&oacute;mica.
+        </div>
+        <div class="swipe-source"><a href="https://rpp.pe/economia/economia/bcrp-inicia-el-2026-manteniendo-su-tasa-de-interes-en-425-ante-una-inflacion-controlada-noticia-1670855">RPP</a> &middot; <a href="https://gestion.pe/tu-dinero/inflacion-se-acelera-que-preve-bcp-para-las-tasas-de-interes-y-el-dolar-noticia/">Gesti&oacute;n</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay:0.16s">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay:0.20s">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Cierres de campa&ntilde;a: Keiko en Villa El Salvador, L&oacute;pez Aliaga en Jes&uacute;s Mar&iacute;a</h3>
+  <p>Los candidatos presidenciales agotan los &uacute;ltimos actos proselitistas antes de la veda electoral que inicia el viernes 10. Keiko Fujimori cerrar&aacute; el jueves 9 en Villa El Salvador, zona sur de Lima donde concentra su electorado. Rafael L&oacute;pez Aliaga lo har&aacute; en la avenida La Peruanidad. Roberto S&aacute;nchez (Juntos por el Per&uacute;) cerr&oacute; el mi&eacute;rcoles en la Plaza 2 de Mayo. M&aacute;s de 45,000 efectivos de las Fuerzas Armadas ser&aacute;n desplegados para la jornada electoral.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/08/elecciones-2026-roberto-sanchez-cierra-campana-en-lima-keiko-fujimori-y-lopez-chau-lo-hacen-este-jueves-hnews-104104">La Rep&uacute;blica</a> &middot; <a href="https://gestion.pe/peru/politica/elecciones-2026-candidatos-alistan-cierres-de-campana-electoral-el-8-y-9-de-abril-noticia/">Gesti&oacute;n</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.24s">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Ley de Salud Mental: nueva norma precisa competencias de diagn&oacute;stico</h3>
+  <p>El Poder Ejecutivo public&oacute; la Ley N&deg; 32575, que modifica el Art&iacute;culo 25 de la Ley N&deg; 30947 de Salud Mental para precisar la competencia de los profesionales de la salud en materia de diagn&oacute;stico. La norma fue publicada en El Peruano el 8 de abril.</p>
+  <span class="source-link"><a href="https://www.elperuano.pe/noticia/292989-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-miercoles-8-de-abril-del-2026">El Peruano</a> &middot; <a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-miercoles-8-abril-del-2026-1070266.aspx">Andina</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.28s">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>MTC subsidiar&aacute; transporte urbano para usuarios vulnerables en Lima y Callao</h3>
+  <p>El Ministerio de Transportes incorpor&oacute; la secci&oacute;n 4-A a la pol&iacute;tica de subsidios del transporte urbano, priorizando subsidios a la demanda mediante transferencias, vales o tarjetas para usuarios en situaci&oacute;n de vulnerabilidad en Lima Metropolitana y el Callao.</p>
+  <span class="source-link"><a href="https://www.elperuano.pe/noticia/292989-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-miercoles-8-de-abril-del-2026">El Peruano</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.32s">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Cartera de exploraci&oacute;n minera 2026 alcanza USD 757 millones (+4.1%)</h3>
+  <p>El Minem present&oacute; 69 proyectos de exploraci&oacute;n minera con inversi&oacute;n conjunta de USD 757 millones, un incremento de USD 29.5 millones respecto a agosto 2025 tras incorporar 32 nuevos proyectos. Destacan Sombrero (USD 106M), Trapiche (USD 36.8M) y Elida (USD 15M). En paralelo, el MEF impulsa una cartera general de USD 66,000 millones con &eacute;nfasis en miner&iacute;a.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/economia/peru/minen-presenta-cartera-de-proyectos-de-exploracion-minera-2026-valorizada-en-mas-de-us757-millones-l-ultimas-noticia/">El Comercio</a> &middot; <a href="https://mineriaenergia.com/cartera-de-proyectos-de-exploracion-minera-2026-esta-valorizada-en-mas-de-us-757-millones/">Miner&iacute;a &amp; Energ&iacute;a</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.36s">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Concesi&oacute;n de telecomunicaciones a Fiber Networks por 20 a&ntilde;os</h3>
+  <p>Mediante Resoluci&oacute;n Ministerial N&deg; 174-2026-MTC/01.03, se otorg&oacute; a Fiber Networks &amp; Solutions E.I.R.L. una concesi&oacute;n &uacute;nica para servicios p&uacute;blicos de telecomunicaciones en todo el territorio peruano por dos d&eacute;cadas.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-miercoles-8-de-abril-de-2026">TVPer&uacute;</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.40s">
+  <span class="pill pill-soc">Social</span>
+  <h3>Nuevo Superintendente de Migraciones y Gerente General del Ministerio P&uacute;blico</h3>
+  <p>Se design&oacute; a Juan Ramiro Alvarado Gomez como Superintendente Nacional de Migraciones (RS N&deg; 085-2026-IN) y a Mart&iacute;n Jim Mijichich Loli como Gerente General del Ministerio P&uacute;blico, ambos a partir del 8 de abril.</p>
+  <span class="source-link"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-miercoles-8-abril-del-2026-1070266.aspx">Andina</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.44s">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 Fecha 9: Universitario venci&oacute; 1-0 a Alianza en el cl&aacute;sico; Los Chankas l&iacute;der</h3>
+  <p>En la fecha 9 del Torneo Apertura, Universitario derrot&oacute; 1-0 a Alianza Lima en el cl&aacute;sico del f&uacute;tbol peruano. Los Chankas se mantiene como &uacute;nico l&iacute;der y gran sorpresa del campeonato. Otros resultados: Cusco FC 3-1 Melgar, Deportivo Garcilaso 3-2 Sport Boys, CD Moquegua 2-1 Sporting Cristal, Alianza Atl&eacute;tico 2-2 Atl&eacute;tico Grau.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/04/04/universitario-vs-alianza-lima-en-vivo-hoy-minuto-a-minuto-partido-clasico-monumental-torneo-apertura-liga-1-2026-goles-resumen-resultado/">Infobae</a> &middot; <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-peru-2026-en-vivo-hoy-ver-partidos-y-resultados-de-fecha-9-torneo-apertura-universitario-vs-alianza-lima-sporting-cristal-los-chankas-noticia/">Depor</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.48s">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Comercio mundial se enfr&iacute;a: Per&uacute; busca mitigar impacto de guerra arancelaria</h3>
+  <p>Adem&aacute;s del arancel al cobre, Per&uacute; enfrenta un arancel base de 10% impuesto por EE.UU. desde 2025. Analistas advierten que el comercio mundial se enfriar&aacute; en 2026, y Per&uacute; deber&aacute; diversificar mercados para mitigar el golpe. Las exportaciones con valor agregado son las m&aacute;s afectadas, mientras que las materias primas conservan acceso.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/comercio-mundial-se-enfriaria-en-2026-peru-podra-mitigar-un-golpe-directo-a-su-economia-noticia/">Gesti&oacute;n</a> &middot; <a href="https://eef.com.pe/site/blog/per%C3%BA-frente-a-la-guerra-comercial-global-aranceles-desaf%C3%ADos-y-estrategias-de-adaptaci%C3%B3n">EEF</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay:0.52s">
+  <div class="data-cell glass">
+    <div class="data-cell-label">D&oacute;lar BCRP</div>
+    <div class="data-cell-value">S/3.386</div>
+    <div class="data-cell-delta green">&#9660; 0.12%</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">D&oacute;lar SBS</div>
+    <div class="data-cell-value">S/3.399</div>
+    <div class="data-cell-delta green">&#9660; venta</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Tasa BCRP</div>
+    <div class="data-cell-value">4.25%</div>
+    <div class="data-cell-delta">sin cambio</div>
+  </div>
+</div>
+
+<!-- QUE VIGILAR -->
+<div class="vigilar reveal" style="transition-delay:0.56s">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">&Uacute;ltimos cierres de campa&ntilde;a presidencial (jueves 9): Keiko Fujimori en Villa El Salvador, L&oacute;pez Aliaga en Jes&uacute;s Mar&iacute;a, L&oacute;pez Chau por confirmar sede. A partir del viernes 10, silencio electoral.</div>
+  <div class="vigilar-item">Reacci&oacute;n del sector minero-exportador al arancel de 50% sobre manufacturas de cobre. Posibles pronunciamientos de SNMPE y ADEX sobre impacto en cadena de valor.</div>
+  <div class="vigilar-item">Despliegue de 45,000 efectivos militares para seguridad electoral del domingo 12. Suspensi&oacute;n de clases viernes 10 y lunes 13 en colegios habilitados como locales de votaci&oacute;n.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay:0.60s">
+  Fuentes: RPP &middot; Infobae Per&uacute; &middot; El Comercio &middot; Gesti&oacute;n &middot; La Rep&uacute;blica &middot; CNN &middot; Andina &middot; El Peruano &middot; TVPer&uacute; &middot; Depor &middot; Miner&iacute;a &amp; Energ&iacute;a<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
