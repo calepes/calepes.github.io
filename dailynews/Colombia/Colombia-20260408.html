@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 8 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F2EBE0 0%, #E8DDD0 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay:0.04s">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Miércoles 8 de abril de 2026 · Bogotá</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay:0.08s">Top 5 del Día</div>
+
+<div class="carousel-container reveal" style="transition-delay:0.12s">
+  <div class="carousel-track" id="carousel">
+
+    <!-- Card 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Petro amenaza con nueva emergencia económica y anuncia subsidios tras alza de tasas</div>
+        </div>
+        <div class="swipe-body">En alocución presidencial, Gustavo Petro anunció subsidios a fertilizantes y crédito con tasas compensadas para el agro y pymes a través de Bancóldex, como respuesta al aumento de la tasa de interés del Banco de la República a 11,25%. Advirtió que, de no funcionar estas medidas, decretará una nueva emergencia económica. Además, confirmó que presentará una ley de financiamiento con mensaje de urgencia al Congreso que recoge medidas de la emergencia suspendida por la Corte Constitucional.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La confrontación entre el Ejecutivo y el Banco de la República genera incertidumbre institucional a menos de dos meses de las elecciones. Una nueva emergencia económica podría alterar el marco fiscal y las condiciones de inversión en el cierre del gobierno Petro.
+        </div>
+        <div class="swipe-source"><a href="https://www.lasillavacia.com/en-vivo/petro-anuncia-medidas-por-tasa-de-banrep-y-advierte-nueva-emergencia-economica/">La Silla Vacía</a> · <a href="https://www.eltiempo.com/politica/gobierno/presidente-petro-confirma-medidas-tras-subida-de-tasa-de-interes-por-el-banco-de-la-republica-subsidio-a-fertilizantes-y-credito-a-tasas-compensadas-3546078">El Tiempo</a> · <a href="https://www.pulzo.com/economia/petro-anuncia-subsidios-creditos-alza-tasas-banco-republica-PP5128904">Pulzo</a></div>
+      </div>
+    </div>
+
+    <!-- Card 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Cese al fuego EE.UU.-Irán desploma petróleo 18% y el dólar cae en Colombia</div>
+        </div>
+        <div class="swipe-body">Donald Trump anunció un alto al fuego de dos semanas con Irán, condicionado a la reapertura del estrecho de Ormuz. El crudo WTI cayó 18% hasta situarse por debajo de USD 93 por barril tras haber superado los USD 117 horas antes. En Colombia, el dólar cerró en $3.641,20, una caída de $37,6 frente a la TRM del día ($3.678,19), con la bolsa retrocediendo 0,43%.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Colombia depende críticamente de los ingresos petroleros. Un barril por debajo de USD 93 presiona las finanzas públicas y a Ecopetrol. El alivio cambiario es temporal: si el cese al fuego no se extiende, el crudo podría volver a dispararse y el peso perdería lo ganado.
+        </div>
+        <div class="swipe-source"><a href="https://www.elpais.com.co/economia/asi-se-cotiza-el-dolar-despues-del-cese-al-fuego-con-iran-principales-bolsas-repuntan-0806.html">El País</a> · <a href="https://www.elnuevosiglo.com.co/economia/el-petroleo-cae-y-bolsas-operan-con-fuertes-ganancias-por-cese-el-fuego-en-iran">El Nuevo Siglo</a> · <a href="https://www.noticiasrcn.com/economia/cierre-del-dolar-hoy-miercoles-8-de-abril-de-2026-en-colombia-1009996">RCN</a></div>
+      </div>
+    </div>
+
+    <!-- Card 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Senado debate tragedia del Hércules C-130: avión no tenía seguro y flota opera al 61%</div>
+        </div>
+        <div class="swipe-body">La Comisión Sexta del Senado realizó debate de control político por el accidente del Hércules FAC 1016 en Putumayo que dejó 69 militares muertos. Se reveló que la aeronave no estaba asegurada por un déficit de $258.224 millones en pólizas de la FAC. Las Fuerzas Militares solicitaron $53,4 billones para 2026 pero solo recibieron $21,2 billones, dejando la disponibilidad real de la flota aérea en apenas 61%.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          El debate expone una crisis estructural de financiamiento en defensa. La brecha entre presupuesto solicitado y asignado compromete la capacidad operativa de las Fuerzas Militares en un momento de deterioro de seguridad, con grupos armados creciendo 23% en efectivos según la FIP.
+        </div>
+        <div class="swipe-source"><a href="https://senado.gov.co/index.php/el-senado/noticias/7241-senado-debate-responsabilidades-por-accidente-del-hercules-c-130-en-puerto-leguizamo">Senado</a> · <a href="https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/arranca-en-el-senado-debate-de-control-politico-por-el-accidente-del-hercules-en-putumayo-un-avion-chatarra-no-era-3545928">El Tiempo</a> · <a href="https://www.semana.com/politica/articulo/debate-sobre-accidente-del-avion-hercules-deja-en-evidencia-necesidades-presupuestales-de-las-fuerzas-militares/202656/">Semana</a></div>
+      </div>
+    </div>
+
+    <!-- Card 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Drogas La Rebaja será red pública de salud: 800 locales se convertirán en puestos de atención</div>
+        </div>
+        <div class="swipe-body">Petro confirmó que la cadena Drogas La Rebaja, incautada a los Rodríguez Orejuela del cartel de Cali, pasó formalmente a ser propiedad del Estado. Sus más de 800 locales serán convertidos en puestos de salud, dispensarios y puntos de entrega de medicamentos públicos, coordinados con el Ministerio de Salud. Analistas cuestionan la viabilidad de ejecutar la transformación en los cuatro meses restantes de gobierno.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Es la mayor conversión de activos del narcotráfico en infraestructura social en la historia del país. Si se concreta, podría reducir costos de intermediación farmacéutica, pero la ejecución en plazo tan corto genera dudas sobre continuidad con el próximo gobierno.
+        </div>
+        <div class="swipe-source"><a href="https://www.semana.com/politica/articulo/gustavo-petro-anuncio-que-reconocida-cadena-de-droguerias-paso-a-ser-propiedad-del-estado-tendra-revolcon-en-su-funcionamiento/202640/">Semana</a> · <a href="https://www.vanguardia.com/colombia/2026/04/08/drogas-la-rebaja-sera-red-publica-de-salud-asi-avanzara-el-cambio-que-anuncio-petro/">Vanguardia</a> · <a href="https://www.elcolombiano.com/colombia/gustavo-petro-salud-drogas-la-rebaja-medicamentos-ON35294875">El Colombiano</a></div>
+      </div>
+    </div>
+
+    <!-- Card 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Escándalo Calarcá sacude al Ejército: 32 asociaciones militares alertan crisis de seguridad</div>
+        </div>
+        <div class="swipe-body">Los computadores incautados a alias Calarcá, cabecilla de disidencias FARC, revelaron presuntos vínculos entre el grupo armado y funcionarios estatales, incluyendo un general del Ejército y un exfuncionario de la Dirección Nacional de Inteligencia. Un total de 32 asociaciones de militares y policías en retiro emitieron un comunicado alertando sobre una crisis estructural de seguridad. La Fiscalía mantiene suspendidas las órdenes de captura contra Calarcá por 15 días más.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La presunta infiltración de disidencias en instituciones de seguridad del Estado erosiona la confianza interna de las Fuerzas Militares y complica el proceso de paz. La suspensión de capturas genera debate sobre la prioridad entre justicia y negociación en plena campaña electoral.
+        </div>
+        <div class="swipe-source"><a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/4/militares-y-policias-en-retiro-alertan-crisis-de-seguridad-en-colombia-tras-hallazgo-de-equipos-de-calarca/">Cambio</a> · <a href="https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/militares-en-retiro-advierten-crisis-estructural-en-la-seguridad-por-hallazgos-en-equipos-de-alias-calarca-3545066">El Tiempo</a> · <a href="https://www.semana.com/semana-tv/semana-el-debate/articulo/advierten-lo-que-estaria-pasando-al-interior-del-ejercito-por-escandalo-de-computadores-de-calarca-es-una-verguenza/202650/">Semana</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay:0.16s">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay:0.20s">
+  <span class="pill pill-pol">Político</span>
+  <h3>Elecciones 2026: Cepeda lidera con 35%, Partido Liberal definirá apoyo el 20 de abril</h3>
+  <p>La última encuesta GAD3 mantiene a Iván Cepeda con 35% de intención de voto, seguido por Abelardo de la Espriella con 21% y Paloma Valencia con 16%, que sube 12 puntos. El Partido Liberal confirmó que el 20 de abril definirá a qué candidato respaldará para la primera vuelta del 31 de mayo. Colombia Justa Libres anunció respaldo a De la Espriella.</p>
+  <span class="source-link"><a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a> · <a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/">La Silla Vacía</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.24s">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Petro presenta ley de financiamiento con urgencia: busca revivir medidas de emergencia suspendida</h3>
+  <p>El gobierno anunció que presentará ante el Congreso un proyecto de ley de financiamiento con mensaje de urgencia, que recoge las medidas de la emergencia económica suspendida por la Corte Constitucional. Incluye un impuesto temporal al patrimonio para entidades con activos superiores a 200.000 UVT (cerca de $10,5 billones), con tasa general de 0,5% que sube a 1,6% para entidades financieras y extractivas. Sería la tercera reforma tributaria del gobierno Petro.</p>
+  <span class="source-link"><a href="https://meridiano70.co/2026/04/08/reforma-tributaria-petro-colombia/">Meridiano 70</a> · <a href="https://www.vanguardia.com/economia/2026/04/08/via-reforma-tributaria-petro-reviviria-emergencia-economica-suspendida-cuales-son-los-efectos-en-santander/">Vanguardia</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.28s">
+  <span class="pill pill-pol">Político</span>
+  <h3>Salarios de militares subirán 7% en 2026</h3>
+  <p>El Gobierno confirmó un incremento del 7% en los salarios de los integrantes del Ejército Nacional para 2026, aplicable a oficiales y suboficiales en todo el país como parte de la política de actualización salarial de servidores públicos. La medida llega en medio de las tensiones por el escándalo Calarcá y el debate presupuestal de defensa.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/08/el-salario-de-los-militares-en-colombia-subira-7-en-2026-anuncio-el-gobierno-petro-asi-quedarian-los-sueldos/">Infobae</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.32s">
+  <span class="pill pill-soc">Social</span>
+  <h3>Asesinatos de líderes sociales caen 56% en el primer trimestre de 2026</h3>
+  <p>Según cifras oficiales, durante los primeros tres meses de 2026 se registraron 36 asesinatos de líderes sociales en Colombia, lo que representa una disminución del 56% frente al mismo período del año anterior. No obstante, la violencia territorial persiste con un aumento del 23% en miembros de grupos armados y récord en disputas por control de rutas de narcotráfico.</p>
+  <span class="source-link"><a href="https://www.elnuevosiglo.com.co/nacion/asesinatos-contra-lideres-sociales-presenta-disminucion-de-56-en-el-primer-trimestre-de-2026">El Nuevo Siglo</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.36s">
+  <span class="pill pill-soc">Social</span>
+  <h3>Colombia conmemora el Día de las Víctimas del Conflicto Armado</h3>
+  <p>El 9 de abril, Día Nacional de la Memoria y Solidaridad con las Víctimas, se conmemora en 20 ciudades con actos simbólicos, marchas y encuentros culturales. El evento central se realizó en la Plaza de Bolívar de Bogotá con la participación de la Orquesta Filarmónica y un coro infantil de 88 niños en el Teatro Jorge Eliécer Gaitán. La fecha recuerda el asesinato de Gaitán en 1948.</p>
+  <span class="source-link"><a href="https://www.diariodelsur.com.co/colombia-dia-victimas-9-abril-2026/">Diario del Sur</a> · <a href="https://www.radionacional.co/actualidad/paz/dia-de-las-victimas-9-abril-voces-de-paz-desde-los-territorios">Radio Nacional</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.40s">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Irán confirma cese bilateral y abre el estrecho de Ormuz: mercados globales respiran</h3>
+  <p>Irán confirmó el cese al fuego bilateral anunciado por Trump y se comprometió a permitir el paso por el estrecho de Ormuz, por donde transita una quinta parte del crudo mundial. Las bolsas globales operaron con fuertes ganancias mientras el petróleo se desplomó. El acuerdo es por dos semanas y queda sujeto a negociaciones para un arreglo definitivo.</p>
+  <span class="source-link"><a href="https://www.elcolombiano.com/internacional/iran-confirma-cese-fuego-bilateral-anunciado-trump-permitira-ormuz-OF35305902">El Colombiano</a> · <a href="https://cnnespanol.cnn.com/2026/04/08/mundo/ee-uu-iran-alto-fuego-sostienen-conversaciones-trax">CNN</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.44s">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay: Nacional, Tolima y Cali ganan en la fecha 6; Medellín vence al América en clásico</h3>
+  <p>En la jornada reciente de la Liga BetPlay 2026-I se destacaron: Deportes Tolima 4-1 Águilas Doradas, Independiente Medellín 2-1 América de Cali en el clásico antioqueño, Deportivo Cali 1-0 Deportivo Pereira, Deportivo Pasto 1-2 Atlético Nacional y Millonarios 2-2 Fortaleza. Santa Fe sorprendió con victoria 2-1 sobre Bucaramanga como visitante.</p>
+  <span class="source-link"><a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/clasificacion-de-liga-betplay-dimayor-2026-i-resultados-y-tabla-de-posiciones-jornada-6-primera-a-262415">FutbolRed</a> · <a href="https://espndeportes.espn.com/futbol/colombia/nota/_/id/16099541/liga-betplay-2026-asi-quedo-el-calendario-completo-de-las-19-fechas">ESPN</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.48s">
+  <span class="pill pill-soc">Social</span>
+  <h3>Once sismos sacudieron Colombia el 8 de abril, sin daños reportados</h3>
+  <p>El Servicio Geológico Colombiano registró al menos 11 temblores durante la jornada del 8 de abril, con magnitudes entre 2,0 y 2,9 y profundidades de hasta 145 kilómetros. No se reportaron daños materiales ni víctimas. La actividad sísmica se concentró en varias regiones del país.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-8-de-abril-de-2026-1009949">Noticias RCN</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay:0.52s">
+  <div class="data-cell glass">
+    <div class="data-cell-label">TRM Oficial</div>
+    <div class="data-cell-value">$3.678</div>
+    <div class="data-cell-delta red">+$13,78 (+0,38%)</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Cierre Mercado</div>
+    <div class="data-cell-value">$3.641</div>
+    <div class="data-cell-delta green">-$37,6 vs TRM</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Petróleo WTI</div>
+    <div class="data-cell-value">~$93</div>
+    <div class="data-cell-delta green">-18% en el día</div>
+  </div>
+</div>
+
+<!-- QUÉ VIGILAR -->
+<div class="vigilar reveal" style="transition-delay:0.56s">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Evolución del cese al fuego EE.UU.-Irán y su impacto en el precio del crudo: si el acuerdo se rompe, el petróleo podría superar USD 120 nuevamente y presionar al peso colombiano.</div>
+  <div class="vigilar-item">Reacción del Congreso a la ley de financiamiento de urgencia de Petro: un rechazo legislativo podría activar una nueva declaratoria de emergencia económica en las últimas semanas de gobierno.</div>
+  <div class="vigilar-item">Definición del Partido Liberal sobre su candidato presidencial el 20 de abril: el respaldo liberal podría reconfigurar la carrera hacia la primera vuelta del 31 de mayo.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay:0.60s">
+  Fuentes: El Tiempo · Semana · La Silla Vacía · El Colombiano · RCN · El País · Infobae · Cambio · Vanguardia · FIP · Senado de Colombia · CNN<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
