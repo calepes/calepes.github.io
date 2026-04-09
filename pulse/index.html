@@ -19,16 +19,14 @@
 </head>
 <body>
   <div id="root"></div>
-
   <script src="https://esm.sh/react@19?bundle"></script>
   <script src="https://esm.sh/react-dom@19?bundle"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
   <script type="text/babel" data-type="module">
     const { useState, useEffect, useRef } = React;
 
 // ═══════════════════════════════════════
-// CONFIG
+// CONFIG — Change these after deploy
 // ═══════════════════════════════════════
 const API_BASE = "https://pulse-api.carlos-cb4.workers.dev";
 const API_TOKEN = "70b36409c9c69848d5ff65b002eca43871fc1b99f396739c553fbda522be143b";
@@ -57,6 +55,8 @@ const API = {
   saveCoachLog: (entryId, messages) =>
     api("/api/coach-logs", { method: "POST", body: JSON.stringify({ entry_id: entryId || null, messages }) }),
   getCoachContext: () => api("/api/coach/context"),
+  getConfig: () => api("/api/config"),
+  updateConfig: (data) => api("/api/config", { method: "PUT", body: JSON.stringify(data) }),
 };
 
 // Offline fallback
@@ -155,10 +155,10 @@ function Nav({ t, title, onBack, right }) {
   );
 }
 
-function StressSel({ t, value, onChange }) {
+function StressSel({ t, value, onChange, levels }) {
   return (
     <div style={{ display: "flex", gap: 8 }}>
-      {stressLevels.map((s) => (
+      {(levels || stressLevels).map((s) => (
         <button key={s.level} onClick={() => onChange(s.level)} style={{
           flex: 1, ...mkG(t), border: value === s.level ? `1.5px solid ${t.blue}` : `0.5px solid ${t.cardBorder}`,
           background: value === s.level ? `${t.blue}12` : t.cardBg, padding: "14px 4px", cursor: "pointer",
@@ -229,6 +229,7 @@ function CoachChat({ t, situation, entryId, onClose }) {
   const [sysPrompt, setSysPrompt] = useState(null);
   const endRef = useRef(null);
 
+  // Fetch dynamic context-rich prompt on mount
   useEffect(() => {
     (async () => {
       let prompt = FALLBACK_PROMPT;
@@ -317,7 +318,7 @@ function CoachChat({ t, situation, entryId, onClose }) {
 // MAIN APP
 // ═══════════════════════════════════════
 function Pulse() {
-  const [isDark, setIsDark] = useState(() => window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const [isDark, setIsDark] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches);
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const h = (e) => setIsDark(e.matches);
@@ -332,34 +333,63 @@ function Pulse() {
   const [online, setOnline] = useState(true);
   const [toast, setToast] = useState({ message: "", type: "" });
 
+  // Form
   const [stress, setStress] = useState(0);
   const [reaction, setReaction] = useState("");
   const [triggers, setTriggers] = useState([]);
   const [situation, setSituation] = useState("");
 
+  // Coach & Detail
   const [coachSit, setCoachSit] = useState("");
   const [coachEntryId, setCoachEntryId] = useState(null);
   const [showCoach, setShowCoach] = useState(false);
   const [selEntry, setSelEntry] = useState(null);
 
+  // Stats
   const [stats, setStats] = useState({ count: 0, avgStress: null, goodReactions: 0, badReactions: 0, topTrigger: null });
 
+  // Config
+  const [config, setConfig] = useState(null);
+  const [dynTriggers, setDynTriggers] = useState(triggerOpts);
+  const [dynStress, setDynStress] = useState(stressLevels);
+  const [dynReactions, setDynReactions] = useState(reactionOpts);
+
+  // Settings form
+  const [cfgName, setCfgName] = useState("");
+  const [cfgRole, setCfgRole] = useState("");
+  const [cfgContext, setCfgContext] = useState("");
+  const [cfgPersonality, setCfgPersonality] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  // Reveal
   const [vis, setVis] = useState(false);
   useEffect(() => { setVis(false); const tm = setTimeout(() => setVis(true), 60); return () => clearTimeout(tm); }, [view]);
   const r = (i) => rv(vis, i);
 
+  // Show toast
   function flash(message, type = "success") {
     setToast({ message, type });
     setTimeout(() => setToast({ message: "", type: "" }), 2500);
   }
 
+  // Load data
   useEffect(() => { loadData(); }, []);
 
   async function loadData() {
     try {
-      const [entryRes, statRes] = await Promise.all([API.getEntries(), API.getWeekStats()]);
+      const [entryRes, statRes, configRes] = await Promise.all([API.getEntries(), API.getWeekStats(), API.getConfig()]);
       setEntries(entryRes.entries);
       setStats(statRes.stats);
+      if (configRes.config) {
+        setConfig(configRes.config);
+        if (configRes.config.triggers) setDynTriggers(configRes.config.triggers);
+        if (configRes.config.stress_labels) setDynStress(configRes.config.stress_labels);
+        if (configRes.config.reaction_options) setDynReactions(configRes.config.reaction_options);
+        setCfgName(configRes.config.user_name || "");
+        setCfgRole(configRes.config.user_role || "");
+        setCfgContext(configRes.config.org_context || "");
+        setCfgPersonality(configRes.config.coach_personality || "");
+      }
       setLocal(entryRes.entries);
       setOnline(true);
     } catch {
@@ -388,6 +418,7 @@ function Pulse() {
   async function handleSave() {
     if (!stress || !reaction) return;
     const entry = { id: Date.now().toString(), stress, reaction, triggers, situation: situation.trim() };
+    // Optimistic update
     const withDate = { ...entry, created_at: new Date().toISOString() };
     const updated = [withDate, ...entries];
     setEntries(updated);
@@ -398,7 +429,7 @@ function Pulse() {
     try {
       await API.createEntry(entry);
       flash("Guardado \u2713");
-      loadData();
+      loadData(); // refresh stats
     } catch {
       flash("Guardado offline", "error");
     }
@@ -413,9 +444,9 @@ function Pulse() {
   }
 
   function coachFor(e) {
-    const tl = (e.triggers || []).map((x) => triggerOpts.find((o) => o.id === x)?.label).filter(Boolean).join(", ");
-    const rl = reactionOpts.find((o) => o.id === e.reaction)?.label || "";
-    const sl = stressLevels.find((s) => s.level === e.stress)?.label || "";
+    const tl = (e.triggers || []).map((x) => dynTriggers.find((o) => o.id === x)?.label).filter(Boolean).join(", ");
+    const rl = dynReactions.find((o) => o.id === e.reaction)?.label || "";
+    const sl = dynStress.find((s) => s.level === e.stress)?.label || "";
     let m = `Tuve un momento de estr\u00e9s ${sl.toLowerCase()}. `;
     if (tl) m += `Trigger: ${tl}. `;
     m += `Reacci\u00f3n: ${rl.toLowerCase()}. `;
@@ -425,15 +456,16 @@ function Pulse() {
     setShowCoach(true);
   }
 
+  // Derived
   const avg = stats.avgStress || "\u2014";
-  const topT = stats.topTrigger ? (triggerOpts.find((o) => o.id === stats.topTrigger)?.label || stats.topTrigger) : "\u2014";
+  const topT = stats.topTrigger ? (dynTriggers.find((o) => o.id === stats.topTrigger)?.label || stats.topTrigger) : "\u2014";
 
   if (!loaded) return <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}><BG t={t} /><span style={{ color: t.lbl3, fontSize: 15, fontFamily: font }}>Cargando...</span></div>;
   if (showCoach) return <CoachChat t={t} situation={coachSit} entryId={coachEntryId} onClose={() => { setShowCoach(false); setCoachEntryId(null); }} />;
 
-  // DETAIL
+  // ─── DETAIL ───
   if (view === "detail" && selEntry) {
-    const e = selEntry, sl = stressLevels.find((s) => s.level === e.stress), rl = reactionOpts.find((o) => o.id === e.reaction);
+    const e = selEntry, sl = dynStress.find((s) => s.level === e.stress), rl = dynReactions.find((o) => o.id === e.reaction);
     return (
       <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
         <Nav t={t} title="Detalle" onBack={() => setView("history")} />
@@ -445,7 +477,7 @@ function Pulse() {
             </div>
             <div style={{ marginBottom: 18 }}><span style={cap(t)}>Estr\u00e9s</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 600, color: t.lbl1, fontFamily: font }}>{sl?.label}</p></div>
             <div style={{ marginBottom: 18 }}><span style={cap(t)}>Reacci\u00f3n</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 500, color: t.lbl1, fontFamily: font }}>{rl?.emoji} {rl?.label}</p></div>
-            {(e.triggers || []).length > 0 && <div style={{ marginBottom: 18 }}><span style={cap(t)}>Triggers</span><div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>{e.triggers.map((x) => <span key={x} style={{ ...mkC(t, true), padding: "6px 12px", fontSize: 13, cursor: "default" }}>{triggerOpts.find((o) => o.id === x)?.label}</span>)}</div></div>}
+            {(e.triggers || []).length > 0 && <div style={{ marginBottom: 18 }}><span style={cap(t)}>Triggers</span><div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>{e.triggers.map((x) => <span key={x} style={{ ...mkC(t, true), padding: "6px 12px", fontSize: 13, cursor: "default" }}>{dynTriggers.find((o) => o.id === x)?.label}</span>)}</div></div>}
             {e.situation && <div><span style={cap(t)}>Qu\u00e9 pas\u00f3</span><p style={{ margin: "4px 0 0", fontSize: 15, color: t.lbl2, lineHeight: 1.5, fontFamily: font }}>{e.situation}</p></div>}
           </div>
           <div style={{ display: "flex", gap: 8, ...r(1) }}>
@@ -457,7 +489,7 @@ function Pulse() {
     );
   }
 
-  // HISTORY
+  // ─── HISTORY ───
   if (view === "history") {
     return (
       <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
@@ -470,16 +502,16 @@ function Pulse() {
     );
   }
 
-  // LOG
+  // ─── LOG ───
   if (view === "log") {
     const ok = stress > 0 && reaction;
     return (
       <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
         <Nav t={t} title="Registrar" onBack={() => { resetForm(); setView("home"); }} />
         <div style={{ padding: "0 20px 30px", display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={r(0)}><label style={cap(t)}>{"\u00bfQu\u00e9 tan fuerte fue?"}</label><StressSel t={t} value={stress} onChange={setStress} /></div>
-          <div style={r(1)}><label style={cap(t)}>{"\u00bfC\u00f3mo reaccionaste?"}</label><Chips t={t} options={reactionOpts} value={reaction} onChange={setReaction} /></div>
-          <div style={r(2)}><label style={cap(t)}>{"\u00bfQu\u00e9 lo provoc\u00f3?"}</label><Chips t={t} options={triggerOpts} value={triggers} onChange={setTriggers} multi /></div>
+          <div style={r(0)}><label style={cap(t)}>{"\u00bfQu\u00e9 tan fuerte fue?"}</label><StressSel t={t} value={stress} onChange={setStress} levels={dynStress} /></div>
+          <div style={r(1)}><label style={cap(t)}>{"\u00bfC\u00f3mo reaccionaste?"}</label><Chips t={t} options={dynReactions} value={reaction} onChange={setReaction} /></div>
+          <div style={r(2)}><label style={cap(t)}>{"\u00bfQu\u00e9 lo provoc\u00f3?"}</label><Chips t={t} options={dynTriggers} value={triggers} onChange={setTriggers} multi /></div>
           <div style={r(3)}><label style={cap(t)}>{"\u00bfQu\u00e9 pas\u00f3?"}</label>
             <textarea value={situation} onChange={(e) => setSituation(e.target.value)} placeholder="Describ\u00ed brevemente..." rows={3}
               style={{ width: "100%", padding: "14px 16px", borderRadius: 14, ...mkG(t), color: t.lbl1, fontSize: 15, resize: "none", outline: "none", fontFamily: font, lineHeight: 1.5, boxSizing: "border-box" }} />
@@ -501,7 +533,37 @@ function Pulse() {
     );
   }
 
-  // HOME
+  // ─── SETTINGS ───
+  if (view === "settings") {
+    async function handleSaveConfig() {
+      setSaving(true);
+      try {
+        await API.updateConfig({ user_name: cfgName, user_role: cfgRole, org_context: cfgContext, coach_personality: cfgPersonality });
+        flash("Configuraci\u00f3n guardada \u2713");
+        loadData();
+      } catch { flash("Error al guardar", "error"); }
+      setSaving(false);
+    }
+    const inputStyle = { width: "100%", padding: "14px 16px", borderRadius: 14, ...mkG(t), color: t.lbl1, fontSize: 15, resize: "vertical", outline: "none", fontFamily: font, lineHeight: 1.5, boxSizing: "border-box", border: `0.5px solid ${t.cardBorder}` };
+    return (
+      <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
+        <Nav t={t} title="Ajustes" onBack={() => setView("home")} />
+        <div style={{ padding: "0 20px 30px", display: "flex", flexDirection: "column", gap: 24 }}>
+          <div style={r(0)}><label style={cap(t)}>Nombre</label><input value={cfgName} onChange={(e) => setCfgName(e.target.value)} style={inputStyle} /></div>
+          <div style={r(1)}><label style={cap(t)}>Rol</label><input value={cfgRole} onChange={(e) => setCfgRole(e.target.value)} style={inputStyle} /></div>
+          <div style={r(2)}><label style={cap(t)}>Contexto organizacional</label><textarea value={cfgContext} onChange={(e) => setCfgContext(e.target.value)} rows={5} style={inputStyle} /></div>
+          <div style={r(3)}><label style={cap(t)}>Personalidad del coach</label><textarea value={cfgPersonality} onChange={(e) => setCfgPersonality(e.target.value)} rows={4} style={inputStyle} /></div>
+          <button onClick={handleSaveConfig} disabled={saving} style={{
+            padding: 16, borderRadius: 14, border: "none", background: t.blue,
+            color: "#FFF", fontSize: 17, fontWeight: 600, cursor: "pointer",
+            fontFamily: font, minHeight: 50, opacity: saving ? 0.6 : 1, ...r(4),
+          }}>{saving ? "Guardando..." : "Guardar"}</button>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── HOME ───
   return (
     <div style={{ minHeight: "100vh", fontFamily: font, paddingBottom: 30 }}><BG t={t} /><Toast t={t} {...toast} />
       <div style={{ padding: "32px 20px 8px", ...r(0) }}>
@@ -510,7 +572,10 @@ function Pulse() {
             <h1 style={{ fontSize: 34, fontWeight: 700, margin: 0, letterSpacing: -0.5, color: t.lbl1 }}>Pulse</h1>
             <p style={{ fontSize: 15, color: t.lbl2, margin: "4px 0 0" }}>Tu espacio para pausar y pensar</p>
           </div>
-          {!online && <span style={{ ...mkC(t, false), padding: "6px 10px", fontSize: 11, color: t.orange, cursor: "default" }}>offline</span>}
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            {!online && <span style={{ ...mkC(t, false), padding: "6px 10px", fontSize: 11, color: t.orange, cursor: "default" }}>offline</span>}
+            <button onClick={() => setView("settings")} style={{ background: "none", border: "none", color: t.lbl2, fontSize: 20, cursor: "pointer", padding: 4 }}>{"\u2699"}</button>
+          </div>
         </div>
       </div>
 
@@ -556,14 +621,10 @@ function Pulse() {
   );
 }
 
-// ═══════════════════════════════════════
-// RENDER + SERVICE WORKER
-// ═══════════════════════════════════════
-ReactDOM.createRoot(document.getElementById("root")).render(<Pulse />);
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js").catch(() => {});
-}
+    ReactDOM.createRoot(document.getElementById("root")).render(<Pulse />);
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    }
   </script>
 </body>
 </html>
