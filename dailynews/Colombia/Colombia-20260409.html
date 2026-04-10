@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 9 abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E0 0%, #E8DDD0 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay: 0s;">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Jueves 9 de abril de 2026 · Bogota</div>
+  <div class="masthead-tag">Edicion Diaria</div>
+</div>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay: 0.04s;">Top 5 del Dia</div>
+
+<div class="carousel-container reveal" style="transition-delay: 0.08s;">
+  <div class="carousel-track" id="carousel">
+
+    <!-- Card 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Corte Constitucional tumba la emergencia economica de Petro</div>
+        </div>
+        <div class="swipe-body">La Sala Plena de la Corte Constitucional declaro inexequible el Decreto 1390 de diciembre de 2025, que habia declarado el Estado de Emergencia Economica. La votacion fue 6-2, con ponencia del magistrado Carlos Camargo Assis. La Corte determino que el decreto no cumplio requisitos de imprevisibilidad y excepcionalidad. Petro reacciono: "Nos quieren ahorcar porque somos un Gobierno diferente".</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por que importa</strong>
+          Sin emergencia, el Gobierno pierde la via rapida para recaudar ~$11 billones en impuestos. Las finanzas publicas enfrentan un hueco fiscal significativo a menos de dos meses de las elecciones, lo que limita la capacidad de maniobra del Ejecutivo.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/09/la-corte-constitucional-tumbo-la-emergencia-economica-decretada-por-el-gobierno-petro/">Infobae</a> · <a href="https://www.elpais.com.co/colombia/emergencia-economica-del-presidente-gustavo-petro-se-cae-en-la-corte-asi-fue-la-votacion-que-freno-el-decreto-0958.html">El Pais</a> · <a href="https://www.vanguardia.com/colombia/2026/04/09/que-pasa-ahora-corte-tumba-decreto-de-emergencia-de-petro-y-frena-nuevos-impuestos/">Vanguardia</a></div>
+      </div>
+    </div>
+
+    <!-- Card 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Paro nacional por avaluos catastrales paraliza vias en al menos 10 departamentos</div>
+        </div>
+        <div class="swipe-body">Campesinos, gremios y veedurias ciudadanas bloquearon corredores estrategicos en Santander, Boyaca, Quindio, Cundinamarca, Antioquia y Casanare en rechazo al incremento del impuesto predial tras la actualizacion catastral del IGAC. Ciudadanos denuncian aumentos de hasta 300% en 527 municipios. En Bogota hubo manifestaciones en la Avenida Jimenez y la via a La Calera.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por que importa</strong>
+          El malestar por el predial se suma al clima electoral y podria convertirse en bandera de oposicion. Los bloqueos afectan la cadena de suministros y el transporte de carga en una economia ya presionada por la incertidumbre fiscal.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/09/paro-nacional-este-9-de-abril-por-aumento-en-los-avaluos-catastrales-estos-son-los-puntos-de-concentracion-que-podrian-generar-afectaciones-en-la-movilidad/">Infobae</a> · <a href="https://www.eltiempo.com/colombia/otras-ciudades/paro-nacional-de-este-jueves-9-de-abril-estos-son-los-puntos-en-los-que-se-preve-que-habra-afectaciones-en-la-movilidad-3546351">El Tiempo</a> · <a href="https://www.semana.com/nacion/articulo/paro-nacional-9-de-abril-puntos-de-concentracion-y-vias-cerradas-en-las-principales-ciudades/202627/">Semana</a></div>
+      </div>
+    </div>
+
+    <!-- Card 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Inflacion se acelera a 5,56% anual en marzo, por encima de las previsiones</div>
+        </div>
+        <div class="swipe-body">El DANE revelo que la inflacion anual de marzo llego a 5,56%, frente al 5,29% de febrero. La variacion mensual fue de 0,78%. Los mayores incrementos se concentraron en informacion y comunicacion (+2,96%), alimentos (+1,27%) y restaurantes y hoteles (9,92% anual). Tomate lidero alzas individuales con +13,58% mensual.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por que importa</strong>
+          La aceleracion inflacionaria reduce el margen del Banco de la Republica para bajar tasas de interes. Con el IPC subiendo y las finanzas publicas en tension tras el fallo de la Corte, el panorama macroeconomico se complica para consumidores y empresas.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/09/inflacion-de-marzo-de-2026-el-dane-revelo-como-afecto-el-aumento-del-salario-minimo-al-ipc-clave-para-la-tasa-de-interes-de-los-bancos/">Infobae</a> · <a href="https://www.elcolombiano.com/negocios/inflacion-colombia-marzo-2026-dane-EC35376662">El Colombiano</a> · <a href="https://www.valoraanalitik.com/inflacion-en-colombia-se-volvio-a-acelerar-marzo/">Valora Analitik</a></div>
+      </div>
+    </div>
+
+    <!-- Card 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Carrera presidencial 2026: Cepeda lidera encuestas a 52 dias de la eleccion</div>
+        </div>
+        <div class="swipe-body">Ivan Cepeda encabeza todas las encuestas con 34-36% de intencion de voto. Abelardo de la Espriella oscila entre 15-28% segun la encuestadora, y Paloma Valencia sube con fuerza al rango de 17-22%. El Partido Liberal definira su respaldo oficial el 20 de abril. La campana de Sergio Fajardo inscribio comite para recoger firmas contra la constituyente de Petro.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por que importa</strong>
+          A menos de dos meses de la eleccion del 31 de mayo, las alianzas partidarias y el debate sobre la constituyente estan redefiniendo el tablero. La decision del Partido Liberal podria inclinar la balanza en la segunda vuelta.
+        </div>
+        <div class="swipe-source"><a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/">La Silla Vacia</a> · <a href="https://www.infobae.com/colombia/2026/04/07/elecciones-presidenciales-el-partido-liberal-descarta-respaldos-a-cepeda-y-de-la-espriella/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/encuesta-presidenciales-2026-candidatos-rcn-PI34789042">El Colombiano</a></div>
+      </div>
+    </div>
+
+    <!-- Card 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Dolar toca minimo de dos meses: TRM en $3.640,63</div>
+        </div>
+        <div class="swipe-body">La TRM del jueves se fijo en $3.640,63, el nivel mas bajo desde el 4 de febrero. El dolar cerro en casas de cambio a $3.643,02 (+$2,39 vs TRM), con un rango intradiario de $3.632,50 a $3.670. El promedio de compra fue $3.607,50 y el de venta $3.707,50. Frente a abril 2025, el peso se ha apreciado 17,5%.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por que importa</strong>
+          El fortalecimiento del peso abarata importaciones y reduce la presion inflacionaria por el canal cambiario, pero las tensiones globales por el precio del crudo y la incertidumbre electoral podrian revertir la tendencia.
+        </div>
+        <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/precio-cierre-dolar-tendencia-colombia-9-abril-2026-1010360">RCN</a> · <a href="https://www.infobae.com/colombia/2026/04/09/dolar-hoy-en-colombia-cotizacion-de-cierre-del-9-de-abril/">Infobae</a> · <a href="https://www.elespectador.com/economia/macroeconomia/precio-del-dolar-hoy-9-de-abril-de-2026-en-colombia-noticias-hoy/">El Espectador</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver mas →</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay: 0.12s;">
+  <span class="divider-text">Noticias por Seccion</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay: 0.16s;">
+  <span class="pill pill-pol">Politico</span>
+  <h3>Petro impulsa constituyente mientras oposicion contrarrecoge firmas</h3>
+  <p>El presidente Gustavo Petro y practicamente todo su gabinete ya firmaron la solicitud para convocar una asamblea nacional constituyente. En paralelo, la campana de Sergio Fajardo inscribio ante la Registraduria un comite promotor llamado "Referendo por la estabilidad institucional 2026-2030" para recoger firmas que bloqueen la posibilidad de convocar una constituyente durante el proximo mandato presidencial.</p>
+  <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/petro-busca-constituyente-para-cambiar-al-estado-y-cepeda-y-quilcue-tienen-nexos-con-la-propuesta-por-firmas-noticias-hoy/">El Espectador</a> · <a href="https://www.lasillavacia.com/en-vivo/campana-de-fajardo-recoge-firmas-para-frenar-la-constituyente-de-petro/">La Silla Vacia</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.20s;">
+  <span class="pill pill-eco">Economico</span>
+  <h3>Gobierno anuncia incremento salarial del 7% para militares</h3>
+  <p>El Gobierno del presidente Petro confirmo un ajuste salarial del 7% para los integrantes del Ejercito Nacional en 2026. La medida impacta a oficiales y suboficiales en todo el pais. El aumento llega en un momento de presion fiscal, cuando la Corte acaba de cerrar la via de la emergencia economica para recaudar recursos adicionales.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/08/el-salario-de-los-militares-en-colombia-subira-7-en-2026-anuncio-el-gobierno-petro-asi-quedarian-los-sueldos/">Infobae</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.24s;">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Megamovidas corporativas marcan el arranque de 2026</h3>
+  <p>Tres operaciones definen el panorama empresarial: la venta de activos de Cemex en la region, la consolidacion del sector de telecomunicaciones con la integracion entre Tigo y Movistar, y la entrada del Grupo Gilinski al negocio petrolero regional. Ademas, seis empresas colombianas (Rappi, Addi, Bold, Habi, Siigo y Erco Energy) integran la red global de Endeavor, representando capital por mas de US$20.200 millones.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> · <a href="https://www.elcolombiano.com/negocios/colombia-empresas-endeavor-2026-rappi-addi-bold-habi-siigo-erco-GH35326725">El Colombiano</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.28s;">
+  <span class="pill pill-soc">Social</span>
+  <h3>Asesinatos de lideres sociales bajan 56% en el primer trimestre</h3>
+  <p>Segun datos oficiales, durante los primeros tres meses de 2026 se registraron 36 asesinatos de lideres sociales, una caida del 56% respecto al mismo periodo del ano anterior. Se logro prevenir ataques contra 27 lideres. Sin embargo, 11 uniformados permanecen secuestrados por el ELN y disidencias de las FARC, y las estructuras armadas ilegales suman mas de 27.000 integrantes (+23,5% interanual).</p>
+  <span class="source-link"><a href="https://www.elnuevosiglo.com.co/nacion/asesinatos-contra-lideres-sociales-presenta-disminucion-de-56-en-el-primer-trimestre-de-2026">El Nuevo Siglo</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.32s;">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga BetPlay fecha 9: Millonarios golea 5-1 y el liderato sigue apretado</h3>
+  <p>Resultados de la fecha 9 de la Liga BetPlay 2026-I: Millonarios 5-1 Pereira fue la goleada de la jornada. Otros marcadores: Once Caldas 3-0 Boyaca Chico, America 3-0 Alianza FC (de visitante), Junior 2-0 Jaguares, Bucaramanga 2-1 Medellin, Pasto 3-2 Cucuta, Tolima 1-0 Nacional, y Fortaleza 1-1 Santa Fe. Internacional de Bogota y Pasto lideran con 18 puntos.</p>
+  <span class="source-link"><a href="https://www.agenciapi.co/noticia/deportes/liga-betplay-2026-i-asi-termino-la-fecha-9-resultados-tabla-y-lo-que-deja-la-jornada">Agencia PI</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-9-liga-betplay-2026-i-263287">FutbolRed</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.36s;">
+  <span class="pill pill-soc">Social</span>
+  <h3>Actividad sismica: al menos 10 temblores registrados durante la jornada</h3>
+  <p>El Servicio Geologico Colombiano reporto al menos 10 sismos durante el jueves, varios de ellos superando los 3,0 de magnitud. No se reportaron danos materiales significativos ni victimas, pero la actividad sismica genero alerta en las zonas afectadas.</p>
+  <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-9-de-abril-de-2026-1010297">RCN</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay: 0.40s;">
+  <div class="data-cell glass">
+    <div class="data-cell-label">TRM Oficial</div>
+    <div class="data-cell-value">$3.640</div>
+    <div class="data-cell-delta green">Minimo 2 meses</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Cierre Dolar</div>
+    <div class="data-cell-value">$3.643</div>
+    <div class="data-cell-delta red">&#9650; $2,39</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">IPC Anual</div>
+    <div class="data-cell-value">5,56%</div>
+    <div class="data-cell-delta red">&#9650; 0,27pp</div>
+  </div>
+</div>
+
+<!-- QUE VIGILAR -->
+<div class="vigilar reveal" style="transition-delay: 0.44s;">
+  <div class="vigilar-header">Que vigilar hoy</div>
+  <div class="vigilar-item">Reaccion de los mercados al fallo de la Corte sobre la emergencia economica: posible presion sobre bonos soberanos y calificadoras de riesgo ante el hueco fiscal sin via de solucion rapida.</div>
+  <div class="vigilar-item">Continuidad de los bloqueos por el predial: si las protestas escalan, el impacto en cadenas de suministro y precios de alimentos podria amplificarse en los proximos dias.</div>
+  <div class="vigilar-item">Decision del Partido Liberal el 20 de abril sobre candidato presidencial: su respaldo podria reconfigurar las alianzas de cara a la primera vuelta del 31 de mayo.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay: 0.48s;">
+  Fuentes: Infobae · El Tiempo · Semana · El Espectador · RCN · La FM · El Colombiano · Portafolio · La Silla Vacia · Vanguardia · FIP · DANE · Valora Analitik<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
