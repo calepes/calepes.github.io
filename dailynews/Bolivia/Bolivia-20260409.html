@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 9 abril 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay:0.04s">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Jueves 9 de abril de 2026 · La Paz</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</div>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay:0.08s">Top 5 del D&iacute;a</div>
+
+<div class="carousel-container reveal" style="transition-delay:0.12s">
+  <div class="carousel-track" id="carousel">
+
+    <!-- Card 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Medinaceli enfrenta interpelaci&oacute;n en la ALP por sobreprecio en crudo</div>
+        </div>
+        <div class="swipe-body">El ministro de Hidrocarburos, Mauricio Medinaceli, se present&oacute; ante el pleno de la Asamblea Legislativa Plurinacional para responder a 15 preguntas sobre presuntos sobreprecios en la importaci&oacute;n de petr&oacute;leo crudo, tras sustituir a Botrading S.A. por Trafigura como intermediario. Medinaceli rechaz&oacute; acusaciones de corrupci&oacute;n y declar&oacute; que &ldquo;no tiene nada que ocultar&rdquo;.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          La interpelaci&oacute;n pone en riesgo la continuidad del ministro en un momento cr&iacute;tico: Bolivia depende de importaciones de crudo para abastecer su demanda interna y cualquier cambio en la cartera de Hidrocarburos podr&iacute;a alterar contratos y cadenas de suministro.
+        </div>
+        <div class="swipe-source"><a href="https://www.atb.com.bo/2026/04/09/se-reinstala-interpelacion-a-ministro-de-hidrocarburos-por-presunto-sobreprecio-en-compra-de-crudo-2/">ATB</a> · <a href="https://www.urgente.bo/noticia/alp-retoma-sesion-de-interpelacion-medinaceli-dice-que-no-tiene-nada-que-ocultar">Urgentebo</a> · <a href="https://elmundo.com.bo/reclamos-y-gritos-asi-se-lleva-la-interpelacion-a-medinaceli/">El Mundo</a></div>
+      </div>
+    </div>
+
+    <!-- Card 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Tres bloqueos y da&ntilde;os por lluvias a&iacute;slan a Santa Cruz</div>
+        </div>
+        <div class="swipe-body">La capital oriental amaneci&oacute; con al menos tres puntos de bloqueo que restringen sus accesos principales: en Portachuelo (demandas electorales), en la ruta Warnes-Montero (exigencia de obras) y en Yapacani (calidad de combustible). La ruta antigua a Cochabamba tambi&eacute;n est&aacute; parcialmente intransitable por deterioro de la v&iacute;a tras lluvias persistentes.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Santa Cruz concentra m&aacute;s del 30% del PIB nacional. El aislamiento vial encarece el transporte de mercanc&iacute;as, afecta la cadena de abastecimiento y genera p&eacute;rdidas directas en el comercio interdepartamental.
+        </div>
+        <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/04/09/tres-bloqueos-y-danos-por-lluvias-aislan-a-santa-cruz-y-limitan-salidas-desde-la-terminal/">La Raz&oacute;n</a> · <a href="https://eldeber.com.bo/santa-cruz/confirman-dos-puntos-bloqueos-ruta-norte-integrado_1775596507">El Deber</a></div>
+      </div>
+    </div>
+
+    <!-- Card 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Bolivia cancela convenio militar con Ir&aacute;n firmado bajo Arce</div>
+        </div>
+        <div class="swipe-body">El Ministerio de Defensa confirm&oacute; que Bolivia dej&oacute; sin efecto el convenio de cooperaci&oacute;n militar con Ir&aacute;n suscrito en 2023, que inclu&iacute;a mantenimiento de aeronaves, adquisici&oacute;n de lanchas, desarrollo de drones y asistencia tecnol&oacute;gica. El ministro Marcelo Salinas indic&oacute; que el contrato fue denunciado hace cuatro meses.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Marca el giro m&aacute;s claro en pol&iacute;tica exterior del gobierno de Rodrigo Paz. El acercamiento a EE.UU. e Israel y el alejamiento de Ir&aacute;n reconfiguran las alianzas estrat&eacute;gicas de Bolivia, con potencial impacto en cooperaci&oacute;n econ&oacute;mica y acceso a financiamiento internacional.
+        </div>
+        <div class="swipe-source"><a href="https://eldeber.com.bo/pais/bolivia-rompe-acuerdo-militar-iran-consolida-giro-politica-exterior_1775674199">El Deber</a> · <a href="https://www.lanacion.com.ar/el-mundo/bolivia-cancela-el-acuerdo-militar-con-iran-cuestionado-por-la-argentina-nid08042026/">La Naci&oacute;n (AR)</a> · <a href="https://www.infodefensa.com/texto-diario/mostrar/5838966/bolivia-confirma-convenio-militar-iran-concluido-hace-cuatro-meses">Infodefensa</a></div>
+      </div>
+    </div>
+
+    <!-- Card 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">D&oacute;lar paralelo en Bs 9,32; brecha con el oficial supera el 34%</div>
+        </div>
+        <div class="swipe-body">El d&oacute;lar blue cotiz&oacute; a Bs 9,32 para la venta y Bs 9,30 para la compra, mientras el tipo de cambio oficial del BCB se mantiene en Bs 6,96 (venta) y Bs 6,86 (compra). La brecha entre ambos mercados supera el 34%. El BCB ratific&oacute; d&iacute;as atr&aacute;s el valor referencial como parte de la transici&oacute;n hacia un r&eacute;gimen de tipo de cambio flexible.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Una brecha cambiaria persistente por encima del 30% genera distorsiones en precios, incentiva la informalidad y erosiona el poder adquisitivo. Para empresas con operaciones en d&oacute;lares, el costo real de importaci&oacute;n sigue siendo significativamente superior al tipo oficial.
+        </div>
+        <div class="swipe-source"><a href="https://www.dolar-bolivia.com/">Dolar-Bolivia</a> · <a href="https://www.atb.com.bo/2026/04/09/cotizacion-del-dolar-hoy-9-de-abril-de-2026/">ATB</a> · <a href="https://larazon.bo/economia-y-empresa/2026/04/07/bcb-ratifica-valor-referencial-del-dolar-en-transicion-a-tipo-de-cambio-flexible/">La Raz&oacute;n</a></div>
+      </div>
+    </div>
+
+    <!-- Card 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Debate final Velasco vs. Ritter antes de segunda vuelta en Santa Cruz</div>
+        </div>
+        <div class="swipe-body">Unitel transmitir&aacute; el debate decisivo entre Juan Pablo Velasco (Libre, 28,57%) y Otto Ritter (Santa Cruz Para Todos, 26,98%) previo a la segunda vuelta por la Gobernaci&oacute;n de Santa Cruz el 19 de abril. Camacho qued&oacute; tercero con 21,92% y no clasific&oacute;. Otto Ritter ocupa la primera franja en la papeleta.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Santa Cruz es el departamento m&aacute;s poblado y de mayor peso econ&oacute;mico. El resultado del balotaje definir&aacute; la relaci&oacute;n del gobierno departamental con el Ejecutivo nacional y la orientaci&oacute;n de pol&iacute;ticas de inversi&oacute;n p&uacute;blica en el oriente.
+        </div>
+        <div class="swipe-source"><a href="https://www.instantaneas.tic.bo/2026/04/09/politica/elecciones/debate-final-gobernacion-santa-cruz-velasco-ritter-unitel/">Instant&aacute;neas</a> · <a href="https://www.eldiario.net/portal/2026/04/09/otto-ritter-en-primera-franja-en-papeleta-para-segunda-vuelta-2/">El Diario</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay:0.16s">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay:0.20s">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Arce se declara preso pol&iacute;tico y denuncia tortura psicol&oacute;gica</h3>
+  <p>El expresidente Luis Arce, encarcelado desde diciembre por presunto desv&iacute;o de capitales, se declar&oacute; &ldquo;preso pol&iacute;tico&rdquo; desde el penal de San Pedro en La Paz. Denunci&oacute; condiciones inhumanas de reclusi&oacute;n e irrupciones nocturnas de agentes para fotografiarlo. El Ministerio de Gobierno rechaz&oacute; las acusaciones y afirm&oacute; que se respetan sus derechos.</p>
+  <span class="source-link"><a href="https://www.infobae.com/america/agencias/2026/04/06/el-expresidente-de-bolivia-luis-arce-se-reivindica-como-preso-politico-del-gobierno-de-rodrigo-paz/">Infobae</a> · <a href="https://www.swissinfo.ch/spa/gobierno-de-bolivia-rechaza-denuncia-de-arce-sobre-vulneraci%C3%B3n-de-sus-derechos-en-prisi%C3%B3n/91215994">SWI</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.24s">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Compensaciones por gasolina desestabilizada alcanzan Bs 8,9 millones</h3>
+  <p>El Sistema de Registro y Evaluaci&oacute;n de Contingencias report&oacute; que las compensaciones a m&aacute;s de 5.100 veh&iacute;culos da&ntilde;ados por gasolina de mala calidad ya superan Bs 8,9 millones (USD 1,2 millones). El plazo para reclamos v&iacute;a WhatsApp vence el 15 de abril y para casos especiales el 30 de abril. Medinaceli garantiz&oacute; la distribuci&oacute;n de &ldquo;nueva gasolina&rdquo; y public&oacute; los contratos de YPFB.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/04/05/pagos-por-danos-a-causa-de-gasolina-alcanzan-bs-89-millones-segun-el-srec/">ATB</a> · <a href="https://www.energypress.com.bo/2026/04/06/compensaciones-por-gasolina-desestabilizada-alcanzaron-a-5-111-vehiculos-a-nivel-nacional/">EnergyPress</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.28s">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>BCB ratifica valor referencial del d&oacute;lar en transici&oacute;n a tipo de cambio flexible</h3>
+  <p>El Banco Central de Bolivia ratific&oacute; el valor referencial del d&oacute;lar que publica diariamente desde el 1 de diciembre de 2025, calculado sobre la base de operaciones efectivas de compra y venta de entidades financieras. El Banco Mundial anticipa una recesi&oacute;n de -1,1% del PIB para Bolivia en 2026, mientras la CEPAL prev&eacute; un crecimiento marginal del 0,5%.</p>
+  <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/04/07/bcb-ratifica-valor-referencial-del-dolar-en-transicion-a-tipo-de-cambio-flexible/">La Raz&oacute;n</a> · <a href="https://eju.tv/2026/04/bcb-ratifica-valor-referencial-del-dolar-para-transitar-hacia-un-tipo-de-cambio-flexible/">eju.tv</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.32s">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Oruro levant&oacute; paro de transporte tras acuerdo sobre calidad de combustible</h3>
+  <p>Tras dos d&iacute;as de paro indefinido que paraliz&oacute; la conexi&oacute;n terrestre entre occidente y oriente, los choferes de Oruro levantaron las medidas de presi&oacute;n luego de firmar un acta de compromiso con el Gobierno. El acuerdo incluye distribuci&oacute;n del 100% de gasolina Especial en Oruro, controles de calidad por lotes y comisiones de fiscalizaci&oacute;n con participaci&oacute;n del sector transporte.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/04/08/choferes-levantan-paro-tras-acuerdo-con-gobierno/">El Diario</a> · <a href="https://www.bolivianueva.com.bo/paro-transporte-oruro-acuerdo-calidad-combustible/">Bolivia Nueva</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.36s">
+  <span class="pill pill-soc">Social</span>
+  <h3>Tercer simulacro del apag&oacute;n anal&oacute;gico programado para el 30 de abril</h3>
+  <p>La ATT anunci&oacute; que el 30 de abril se realizar&aacute; el tercer simulacro del apag&oacute;n anal&oacute;gico en el eje troncal (La Paz, El Alto, Cochabamba, Santa Cruz y ciudades sat&eacute;lite) de 08:00 a 14:00. El apag&oacute;n definitivo est&aacute; previsto para mayo de 2026 en la primera fase. Los usuarios deber&aacute;n verificar si sus televisores son compatibles con se&ntilde;al digital o requieren decodificador.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/04/09/bolivia-realizara-tercer-simulacro-del-apagon-analogico-el-30-de-abril-en-el-eje-troncal/">ATB</a> · <a href="https://elmundo.com.bo/att-fija-el-30-de-abril-para-el-tercer-simulacro-del-apagon-analogico-en-el-eje-troncal-del-pais/">El Mundo</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.40s">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Arranc&oacute; la Liga de la Divisi&oacute;n Profesional 2026 con nuevo criterio de desempate</h3>
+  <p>La primera fecha del Torneo de la Liga se disput&oacute; con resultados: San Antonio Bulo Bulo 2-0 Oriente Petrolero, FC Universitario de Vinto 1-2 The Strongest, GV San Jos&eacute; 1-2 ABB, y Real Potos&iacute; 0-0 Aurora. Desde esta temporada, las victorias reemplazan a la diferencia de goles como primer criterio de desempate. El torneo tendr&aacute; 30 fechas en formato todos contra todos.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/04/09/las-victorias-pasan-a-ser-el-principal-criterio-de-desempate-en-el-futbol-boliviano/">ATB</a> · <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay:0.44s">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Cinco departamentos ir&aacute;n a segunda vuelta por gobernaciones el 19 de abril</h3>
+  <p>El TSE convoc&oacute; a balotaje en cinco de los nueve departamentos para el 19 de abril. En Santa Cruz, Velasco y Ritter definir&aacute;n la gobernaci&oacute;n; La Paz qued&oacute; fuera del balotaje. Bolivia Verifica alert&oacute; sobre encuestas falsas circulando en redes sociales sobre la segunda vuelta cruze&ntilde;a.</p>
+  <span class="source-link"><a href="https://www.swissinfo.ch/spa/convocan-a-segunda-vuelta-para-elegir-gobernadores-en-cinco-regiones-de-bolivia/91185059">SWI</a> · <a href="https://boliviaverifica.bo/falso-no-existen-encuestas-de-segunda-vuelta-para-la-gobernacion-de-santa-cruz/">Bolivia Verifica</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay:0.48s">
+  <div class="data-cell glass">
+    <div class="data-cell-label">D&oacute;lar Oficial</div>
+    <div class="data-cell-value">6,96</div>
+    <div class="data-cell-delta" style="color:var(--muted)">Bs (venta BCB)</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">D&oacute;lar Paralelo</div>
+    <div class="data-cell-value red">9,32</div>
+    <div class="data-cell-delta red">&#9650; 1,67% semanal</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value red">33,9%</div>
+    <div class="data-cell-delta" style="color:var(--muted)">Oficial vs. Paralelo</div>
+  </div>
+</div>
+
+<!-- QU&Eacute; VIGILAR -->
+<div class="vigilar reveal" style="transition-delay:0.52s">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Desenlace de la interpelaci&oacute;n a Medinaceli: si la ALP vota censura, habr&aacute; cambio de ministro en plena crisis de combustibles.</div>
+  <div class="vigilar-item">Evoluci&oacute;n de los bloqueos en Santa Cruz: si no se levantan, el impacto log&iacute;stico escalar&aacute; en la pr&oacute;xima semana.</div>
+  <div class="vigilar-item">Debate Velasco-Ritter el domingo por Unitel: definir&aacute; el tono de la campa&ntilde;a final hacia el balotaje del 19 de abril.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay:0.56s">
+  Fuentes: ATB · El Deber · La Raz&oacute;n · Urgentebo · Infobae · El Mundo · El Diario · EnergyPress · Bolivia Verifica · SWI · Infodefensa · Dolar-Bolivia<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
