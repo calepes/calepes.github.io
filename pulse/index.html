@@ -23,7 +23,7 @@
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel" data-type="module">
-    const { useState, useEffect, useRef } = React;
+const { useState, useEffect, useRef } = React;
 
 // ═══════════════════════════════════════
 // CONFIG — Change these after deploy
@@ -88,17 +88,17 @@ const dark = {
 // DATA
 // ═══════════════════════════════════════
 const stressLevels = [
-  { level: 1, emoji: "\u{1F60C}", label: "Bajo" }, { level: 2, emoji: "\u{1F610}", label: "Medio" },
-  { level: 3, emoji: "\u{1F624}", label: "Alto" }, { level: 4, emoji: "\u{1F525}", label: "Cr\u00edtico" },
+  { level: 1, emoji: "😌", label: "Bajo" }, { level: 2, emoji: "😐", label: "Medio" },
+  { level: 3, emoji: "😤", label: "Alto" }, { level: 4, emoji: "🔥", label: "Crítico" },
 ];
 const reactionOpts = [
-  { id: "snapped", label: "Reaccion\u00e9 mal", emoji: "\u{1F4A5}" }, { id: "absorbed", label: "Absorb\u00ed todo", emoji: "\u{1FAE0}" },
-  { id: "paused", label: "Logr\u00e9 pausar", emoji: "\u23F8\uFE0F" }, { id: "redirected", label: "Redirig\u00ed bien", emoji: "\u{1F3AF}" },
+  { id: "snapped", label: "Reaccioné mal", emoji: "💥" }, { id: "absorbed", label: "Absorbí todo", emoji: "🫠" },
+  { id: "paused", label: "Logré pausar", emoji: "⏸️" }, { id: "redirected", label: "Redirigí bien", emoji: "🎯" },
 ];
 const triggerOpts = [
   { id: "boss-bo", label: "Jefe Bolivia" }, { id: "boss-yape", label: "Jefe Yape" },
   { id: "team", label: "Equipo" }, { id: "deadline", label: "Deadline" },
-  { id: "misalign", label: "Desalineaci\u00f3n" }, { id: "other", label: "Otro" },
+  { id: "misalign", label: "Desalineación" }, { id: "other", label: "Otro" },
 ];
 
 const font = "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif";
@@ -147,7 +147,7 @@ function Nav({ t, title, onBack, right }) {
   return (
     <div style={{ padding: "12px 20px", position: "sticky", top: 0, zIndex: 10 }}>
       <div style={{ ...mkN(t), display: "flex", alignItems: "center", width: "100%", padding: "10px 16px", gap: 10 }}>
-        {onBack && <button onClick={onBack} style={{ background: "none", border: "none", color: t.blue, fontSize: 20, cursor: "pointer", fontFamily: font, padding: "4px 8px 4px 0", lineHeight: 1 }}>{"\u2039"}</button>}
+        {onBack && <button onClick={onBack} style={{ background: "none", border: "none", color: t.blue, fontSize: 20, cursor: "pointer", fontFamily: font, padding: "4px 8px 4px 0", lineHeight: 1 }}>‹</button>}
         <span style={{ fontSize: 17, fontWeight: 600, color: t.lbl1, letterSpacing: -0.2, flex: 1, fontFamily: font }}>{title}</span>
         {right}
       </div>
@@ -220,7 +220,7 @@ function Toast({ t, message, type }) {
 // ═══════════════════════════════════════
 // COACH
 // ═══════════════════════════════════════
-const FALLBACK_PROMPT = "Eres un coach ejecutivo experto en liderazgo bajo presi\u00f3n. Tu cliente es Cal, Country Head de Yape Bolivia, que lidia con doble reporte (jefe local en Bolivia y Yape/Per\u00fa) con desalineaci\u00f3n estrat\u00e9gica y cultural.\n\nTu rol:\n1. Ay\u00fadale a ver la situaci\u00f3n desde otro \u00e1ngulo\n2. Sugiere c\u00f3mo podr\u00eda haber respondido mejor\n3. Dale una frase concreta para la pr\u00f3xima vez\n4. S\u00e9 directo, pr\u00e1ctico y emp\u00e1tico\n\nResponde en espa\u00f1ol. M\u00e1ximo 3-4 p\u00e1rrafos.";
+const FALLBACK_PROMPT = "Eres un coach ejecutivo experto en liderazgo bajo presión. Tu cliente es Cal, Country Head de Yape Bolivia, que lidia con doble reporte (jefe local en Bolivia y Yape/Perú) con desalineación estratégica y cultural.\n\nTu rol:\n1. Ayúdale a ver la situación desde otro ángulo\n2. Sugiere cómo podría haber respondido mejor\n3. Dale una frase concreta para la próxima vez\n4. Sé directo, práctico y empático\n\nResponde en español. Máximo 3-4 párrafos.";
 
 function CoachChat({ t, situation, entryId, onClose }) {
   const [msgs, setMsgs] = useState([]);
@@ -260,7 +260,7 @@ function CoachChat({ t, situation, entryId, onClose }) {
       const updated = [...next, { role: "assistant", content: reply }];
       setMsgs(updated);
       try { await API.saveCoachLog(entryId, updated); } catch {}
-    } catch { setMsgs([...next, { role: "assistant", content: "Error de conexi\u00f3n." }]); }
+    } catch { setMsgs([...next, { role: "assistant", content: "Error de conexión." }]); }
     setLoading(false);
   }
 
@@ -271,17 +271,17 @@ function CoachChat({ t, situation, entryId, onClose }) {
       <div style={{ padding: "12px 20px" }}>
         <div style={{ ...mkN(t), padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 20 }}>{"\u{1F9E0}"}</span>
+            <span style={{ fontSize: 20 }}>🧠</span>
             <span style={{ color: t.lbl1, fontWeight: 600, fontSize: 17, letterSpacing: -0.2 }}>Coach</span>
           </div>
-          <button onClick={onClose} style={{ ...mkG(t), width: 36, height: 36, borderRadius: 9999, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: t.lbl2, fontSize: 16 }}>{"\u2715"}</button>
+          <button onClick={onClose} style={{ ...mkG(t), width: 36, height: 36, borderRadius: 9999, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: t.lbl2, fontSize: 16 }}>✕</button>
         </div>
       </div>
       <div style={{ flex: 1, overflowY: "auto", padding: "8px 20px", display: "flex", flexDirection: "column", gap: 10 }}>
         {msgs.length === 0 && !loading && (
           <div style={{ ...mkG(t), padding: 20, textAlign: "center", marginTop: 40 }}>
-            <p style={{ fontSize: 28, margin: "0 0 8px" }}>{"\u{1F9E0}"}</p>
-            <p style={{ fontSize: 15, color: t.lbl2, margin: 0, lineHeight: 1.5 }}>Contame qu\u00e9 pas\u00f3 o qu\u00e9 est\u00e1s a punto de enfrentar.</p>
+            <p style={{ fontSize: 28, margin: "0 0 8px" }}>🧠</p>
+            <p style={{ fontSize: 15, color: t.lbl2, margin: 0, lineHeight: 1.5 }}>Contame qué pasó o qué estás a punto de enfrentar.</p>
           </div>
         )}
         {msgs.map((m, i) => (
@@ -302,12 +302,12 @@ function CoachChat({ t, situation, entryId, onClose }) {
       <div style={{ padding: "12px 20px 28px" }}>
         <div style={{ ...mkN(t), display: "flex", alignItems: "center", padding: "6px 6px 6px 16px", gap: 8 }}>
           <input value={inp} onChange={(e) => setInp(e.target.value)} onKeyDown={(e) => e.key === "Enter" && can && run(inp.trim())}
-            placeholder="Escrib\u00ed ac\u00e1..." style={{ flex: 1, background: "none", border: "none", color: t.lbl1, fontSize: 15, fontFamily: font, outline: "none", padding: "8px 0" }} />
+            placeholder="Escribí acá..." style={{ flex: 1, background: "none", border: "none", color: t.lbl1, fontSize: 15, fontFamily: font, outline: "none", padding: "8px 0" }} />
           <button onClick={() => can && run(inp.trim())} disabled={!can} style={{
             width: 36, height: 36, borderRadius: 9999, background: can ? t.blue : t.inputBg,
             border: "none", color: "#FFF", fontSize: 16, cursor: can ? "pointer" : "default",
             display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s ease",
-          }}>{"\u2191"}</button>
+          }}>↑</button>
         </div>
       </div>
     </div>
@@ -428,7 +428,7 @@ function Pulse() {
 
     try {
       await API.createEntry(entry);
-      flash("Guardado \u2713");
+      flash("Guardado ✓");
       loadData(); // refresh stats
     } catch {
       flash("Guardado offline", "error");
@@ -447,18 +447,18 @@ function Pulse() {
     const tl = (e.triggers || []).map((x) => dynTriggers.find((o) => o.id === x)?.label).filter(Boolean).join(", ");
     const rl = dynReactions.find((o) => o.id === e.reaction)?.label || "";
     const sl = dynStress.find((s) => s.level === e.stress)?.label || "";
-    let m = `Tuve un momento de estr\u00e9s ${sl.toLowerCase()}. `;
+    let m = `Tuve un momento de estrés ${sl.toLowerCase()}. `;
     if (tl) m += `Trigger: ${tl}. `;
-    m += `Reacci\u00f3n: ${rl.toLowerCase()}. `;
-    if (e.situation) m += `Lo que pas\u00f3: ${e.situation}`;
+    m += `Reacción: ${rl.toLowerCase()}. `;
+    if (e.situation) m += `Lo que pasó: ${e.situation}`;
     setCoachSit(m);
     setCoachEntryId(e.id);
     setShowCoach(true);
   }
 
   // Derived
-  const avg = stats.avgStress || "\u2014";
-  const topT = stats.topTrigger ? (dynTriggers.find((o) => o.id === stats.topTrigger)?.label || stats.topTrigger) : "\u2014";
+  const avg = stats.avgStress || "—";
+  const topT = stats.topTrigger ? (dynTriggers.find((o) => o.id === stats.topTrigger)?.label || stats.topTrigger) : "—";
 
   if (!loaded) return <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}><BG t={t} /><span style={{ color: t.lbl3, fontSize: 15, fontFamily: font }}>Cargando...</span></div>;
   if (showCoach) return <CoachChat t={t} situation={coachSit} entryId={coachEntryId} onClose={() => { setShowCoach(false); setCoachEntryId(null); }} />;
@@ -475,14 +475,14 @@ function Pulse() {
               <span style={{ fontSize: 13, color: t.lbl3, fontFamily: font }}>{new Date(e.created_at || e.date).toLocaleString("es", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</span>
               <span style={{ fontSize: 32 }}>{sl?.emoji}</span>
             </div>
-            <div style={{ marginBottom: 18 }}><span style={cap(t)}>Estr\u00e9s</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 600, color: t.lbl1, fontFamily: font }}>{sl?.label}</p></div>
-            <div style={{ marginBottom: 18 }}><span style={cap(t)}>Reacci\u00f3n</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 500, color: t.lbl1, fontFamily: font }}>{rl?.emoji} {rl?.label}</p></div>
+            <div style={{ marginBottom: 18 }}><span style={cap(t)}>Estrés</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 600, color: t.lbl1, fontFamily: font }}>{sl?.label}</p></div>
+            <div style={{ marginBottom: 18 }}><span style={cap(t)}>Reacción</span><p style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 500, color: t.lbl1, fontFamily: font }}>{rl?.emoji} {rl?.label}</p></div>
             {(e.triggers || []).length > 0 && <div style={{ marginBottom: 18 }}><span style={cap(t)}>Triggers</span><div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>{e.triggers.map((x) => <span key={x} style={{ ...mkC(t, true), padding: "6px 12px", fontSize: 13, cursor: "default" }}>{dynTriggers.find((o) => o.id === x)?.label}</span>)}</div></div>}
-            {e.situation && <div><span style={cap(t)}>Qu\u00e9 pas\u00f3</span><p style={{ margin: "4px 0 0", fontSize: 15, color: t.lbl2, lineHeight: 1.5, fontFamily: font }}>{e.situation}</p></div>}
+            {e.situation && <div><span style={cap(t)}>Qué pasó</span><p style={{ margin: "4px 0 0", fontSize: 15, color: t.lbl2, lineHeight: 1.5, fontFamily: font }}>{e.situation}</p></div>}
           </div>
           <div style={{ display: "flex", gap: 8, ...r(1) }}>
-            <button onClick={() => coachFor(e)} style={{ flex: 1, padding: 16, borderRadius: 14, border: "none", background: t.blue, color: "#FFF", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: font, minHeight: 50 }}>{"\u{1F9E0}"} Analizar con Coach</button>
-            <button onClick={() => handleDelete(e.id)} style={{ ...mkG(t), padding: 16, width: 50, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: t.red, fontSize: 16, minHeight: 50 }}>{"\u{1F5D1}"}</button>
+            <button onClick={() => coachFor(e)} style={{ flex: 1, padding: 16, borderRadius: 14, border: "none", background: t.blue, color: "#FFF", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: font, minHeight: 50 }}>🧠 Analizar con Coach</button>
+            <button onClick={() => handleDelete(e.id)} style={{ ...mkG(t), padding: 16, width: 50, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: t.red, fontSize: 16, minHeight: 50 }}>🗑</button>
           </div>
         </div>
       </div>
@@ -495,7 +495,7 @@ function Pulse() {
       <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
         <Nav t={t} title="Historial" onBack={() => setView("home")} right={<span style={{ fontSize: 13, color: t.lbl3 }}>{entries.length}</span>} />
         <div style={{ padding: "0 20px 30px", display: "flex", flexDirection: "column", gap: 8 }}>
-          {entries.length === 0 ? <div style={{ ...mkG(t), padding: 40, textAlign: "center" }}><p style={{ fontSize: 15, color: t.lbl3, margin: 0 }}>A\u00fan no hay registros</p></div>
+          {entries.length === 0 ? <div style={{ ...mkG(t), padding: 40, textAlign: "center" }}><p style={{ fontSize: 15, color: t.lbl3, margin: 0 }}>Aún no hay registros</p></div>
             : entries.map((e, i) => <Row key={e.id} t={t} entry={e} onClick={() => { setSelEntry(e); setView("detail"); }} sx={r(i)} />)}
         </div>
       </div>
@@ -509,11 +509,11 @@ function Pulse() {
       <div style={{ minHeight: "100vh", fontFamily: font }}><BG t={t} /><Toast t={t} {...toast} />
         <Nav t={t} title="Registrar" onBack={() => { resetForm(); setView("home"); }} />
         <div style={{ padding: "0 20px 30px", display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={r(0)}><label style={cap(t)}>{"\u00bfQu\u00e9 tan fuerte fue?"}</label><StressSel t={t} value={stress} onChange={setStress} levels={dynStress} /></div>
-          <div style={r(1)}><label style={cap(t)}>{"\u00bfC\u00f3mo reaccionaste?"}</label><Chips t={t} options={dynReactions} value={reaction} onChange={setReaction} /></div>
-          <div style={r(2)}><label style={cap(t)}>{"\u00bfQu\u00e9 lo provoc\u00f3?"}</label><Chips t={t} options={dynTriggers} value={triggers} onChange={setTriggers} multi /></div>
-          <div style={r(3)}><label style={cap(t)}>{"\u00bfQu\u00e9 pas\u00f3?"}</label>
-            <textarea value={situation} onChange={(e) => setSituation(e.target.value)} placeholder="Describ\u00ed brevemente..." rows={3}
+          <div style={r(0)}><label style={cap(t)}>¿Qué tan fuerte fue?</label><StressSel t={t} value={stress} onChange={setStress} levels={dynStress} /></div>
+          <div style={r(1)}><label style={cap(t)}>¿Cómo reaccionaste?</label><Chips t={t} options={dynReactions} value={reaction} onChange={setReaction} /></div>
+          <div style={r(2)}><label style={cap(t)}>¿Qué lo provocó?</label><Chips t={t} options={dynTriggers} value={triggers} onChange={setTriggers} multi /></div>
+          <div style={r(3)}><label style={cap(t)}>¿Qué pasó?</label>
+            <textarea value={situation} onChange={(e) => setSituation(e.target.value)} placeholder="Describí brevemente..." rows={3}
               style={{ width: "100%", padding: "14px 16px", borderRadius: 14, ...mkG(t), color: t.lbl1, fontSize: 15, resize: "none", outline: "none", fontFamily: font, lineHeight: 1.5, boxSizing: "border-box" }} />
           </div>
           <div style={{ display: "flex", gap: 8, ...r(4) }}>
@@ -526,7 +526,7 @@ function Pulse() {
               ...mkG(t), padding: 16, width: 56, cursor: ok ? "pointer" : "default",
               border: `0.5px solid ${t.blue}40`, color: t.blue, fontSize: 18,
               display: "flex", alignItems: "center", justifyContent: "center", minHeight: 50,
-            }}>{"\u{1F9E0}"}</button>}
+            }}>🧠</button>}
           </div>
         </div>
       </div>
@@ -539,7 +539,7 @@ function Pulse() {
       setSaving(true);
       try {
         await API.updateConfig({ user_name: cfgName, user_role: cfgRole, org_context: cfgContext, coach_personality: cfgPersonality });
-        flash("Configuraci\u00f3n guardada \u2713");
+        flash("Configuración guardada ✓");
         loadData();
       } catch { flash("Error al guardar", "error"); }
       setSaving(false);
@@ -574,17 +574,17 @@ function Pulse() {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             {!online && <span style={{ ...mkC(t, false), padding: "6px 10px", fontSize: 11, color: t.orange, cursor: "default" }}>offline</span>}
-            <button onClick={() => setView("settings")} style={{ background: "none", border: "none", color: t.lbl2, fontSize: 20, cursor: "pointer", padding: 4 }}>{"\u2699"}</button>
+            <button onClick={() => setView("settings")} style={{ background: "none", border: "none", color: t.lbl2, fontSize: 20, cursor: "pointer", padding: 4 }}>⚙</button>
           </div>
         </div>
       </div>
 
       <div style={{ padding: "16px 20px", display: "flex", gap: 10, ...r(1) }}>
         <button onClick={() => setView("log")} style={{ flex: 1, padding: "20px 16px", borderRadius: 16, background: t.blue, border: "none", color: "#FFF", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 8, fontFamily: font, minHeight: 44 }}>
-          <span style={{ fontSize: 24 }}>{"\u{1F4DD}"}</span><span style={{ fontSize: 15, fontWeight: 600 }}>Registrar</span><span style={{ fontSize: 12, opacity: 0.8 }}>30 segundos</span>
+          <span style={{ fontSize: 24 }}>📝</span><span style={{ fontSize: 15, fontWeight: 600 }}>Registrar</span><span style={{ fontSize: 12, opacity: 0.8 }}>30 segundos</span>
         </button>
         <button onClick={() => { setCoachSit(""); setCoachEntryId(null); setShowCoach(true); }} style={{ flex: 1, ...mkG(t), padding: "20px 16px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 8, fontFamily: font, minHeight: 44 }}>
-          <span style={{ fontSize: 24 }}>{"\u{1F9E0}"}</span><span style={{ fontSize: 15, fontWeight: 600, color: t.lbl1 }}>Coach IA</span><span style={{ fontSize: 12, color: t.lbl2 }}>Repensar algo</span>
+          <span style={{ fontSize: 24 }}>🧠</span><span style={{ fontSize: 15, fontWeight: 600, color: t.lbl1 }}>Coach IA</span><span style={{ fontSize: 12, color: t.lbl2 }}>Repensar algo</span>
         </button>
       </div>
 
@@ -592,7 +592,7 @@ function Pulse() {
         <h2 style={{ ...cap(t), margin: "0 0 12px", ...r(2) }}>Esta semana</h2>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
           {[
-            { l: "Estr\u00e9s promedio", v: avg !== null ? `${avg}/4` : "\u2014", i: 3 },
+            { l: "Estrés promedio", v: avg !== null ? `${avg}/4` : "—", i: 3 },
             { l: "Trigger top", v: topT, i: 4 },
             { l: "Buenas reacciones", v: stats.goodReactions, c: t.green, i: 5 },
             { l: "A mejorar", v: stats.badReactions, c: stats.badReactions > stats.goodReactions ? t.red : t.orange, i: 6 },
@@ -612,7 +612,7 @@ function Pulse() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {entries.length === 0
-            ? <div style={{ ...mkG(t), padding: "32px 20px", textAlign: "center", ...r(8) }}><p style={{ fontSize: 28, margin: "0 0 8px" }}>{"\u{1F3AF}"}</p><p style={{ fontSize: 15, color: t.lbl2, margin: 0 }}>Registr\u00e1 tu primer momento para ver patrones</p></div>
+            ? <div style={{ ...mkG(t), padding: "32px 20px", textAlign: "center", ...r(8) }}><p style={{ fontSize: 28, margin: "0 0 8px" }}>🎯</p><p style={{ fontSize: 15, color: t.lbl2, margin: 0 }}>Registrá tu primer momento para ver patrones</p></div>
             : entries.slice(0, 3).map((e) => <Row key={e.id} t={t} entry={e} onClick={() => { setSelEntry(e); setView("detail"); }} />)
           }
         </div>
