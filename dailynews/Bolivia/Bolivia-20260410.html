@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Briefing Bolivia — 10 abril 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --accent: #991b1b;
@@ -52,7 +50,7 @@ body {
   box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
 }
 
-.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; }
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
 .masthead-date { font-size: 13px; color: var(--muted); }
@@ -152,111 +150,110 @@ body {
 <div class="wrap">
 
 <!-- MASTHEAD -->
-<div class="masthead glass reveal" style="transition-delay: 0.04s;">
+<div class="masthead reveal" style="transition-delay:0.04s">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
   <h1>Bolivia</h1>
   <div class="masthead-date">Viernes 10 de abril de 2026 · La Paz</div>
-  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+  <div class="masthead-tag">Edición Diaria</div>
 </div>
 
 <!-- TOP 5 -->
-<div class="section-header reveal" style="transition-delay: 0.08s;">Top 5 del D&iacute;a</div>
+<div class="section-header reveal" style="transition-delay:0.08s">Top 5 del Día</div>
 
-<div class="carousel-container reveal" style="transition-delay: 0.12s;">
+<div class="carousel-container reveal" style="transition-delay:0.12s">
   <div class="carousel-track" id="carousel">
 
-    <!-- Card 01 -->
+    <!-- CARD 01 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">01</div>
-          <div class="swipe-title">Banco Mundial proyecta contracci&oacute;n de 3,2% del PIB para Bolivia en 2026</div>
+          <div class="swipe-title">Banco Mundial proyecta contracción del 3,2% del PIB boliviano en 2026</div>
         </div>
-        <div class="swipe-body">El organismo internacional prev&eacute; que Bolivia registrar&aacute; su peor desempe&ntilde;o econ&oacute;mico en a&ntilde;os, con una ca&iacute;da del 3,2% del PIB. En 2025 la econom&iacute;a ya cay&oacute; un 2,1%, confirmando dos a&ntilde;os consecutivos de contracci&oacute;n. El BM anticipa un posible repunte de 4% en 2027.</div>
+        <div class="swipe-body">El organismo multilateral prevé que Bolivia tendrá el peor desempeño económico de la región este año, con una caída del 3,2% tras el -2,1% registrado en 2025. Anticipa un rebote del 4% recién en 2027, condicionado a reformas estructurales.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por qu&eacute; importa</strong>
-          Bolivia ser&iacute;a el pa&iacute;s con peor desempe&ntilde;o de la regi&oacute;n. La magnitud de la contracci&oacute;n complica la capacidad del Gobierno de financiar servicios b&aacute;sicos y honrar compromisos de deuda, mientras la inflaci&oacute;n proyectada del 17% erosiona el poder adquisitivo.
+          <strong>Por qué importa</strong>
+          Dos años consecutivos de recesión presionan el mercado laboral, la recaudación fiscal y la capacidad del gobierno para financiar sus reformas. Para cualquier operación comercial en Bolivia, el dato condiciona decisiones de inversión y crédito.
         </div>
-        <div class="swipe-source"><a href="https://www.atb.com.bo/2026/04/10/banco-mundial-proyecta-contraccion-economica-en-bolivia-para-2026/">ATB Digital</a> · <a href="https://brujuladigital.net/economia/2026/04/08/bm-preve-que-la-economia-boliviana-se-contraiga-en-32-este-2026-59270">Br&uacute;jula Digital</a> · <a href="https://lapatria.bo/dinero-negocios/bolivia-enfrentara-recesion-del-32-en-2026-advierte-bm/">La Patria</a></div>
+        <div class="swipe-source"><a href="https://www.atb.com.bo/2026/04/10/banco-mundial-proyecta-contraccion-economica-en-bolivia-para-2026/">ATB Digital</a> · <a href="https://lapatria.bo/dinero-negocios/bolivia-enfrentara-recesion-del-32-en-2026-advierte-bm/">La Patria</a> · <a href="https://www.urgente.bo/noticia/bolivia-tendra-el-mayor-crecimiento-negativo-en-la-region-este-ano-segun-el-banco-mundial">Urgentebo</a></div>
       </div>
     </div>
 
-    <!-- Card 02 -->
+    <!-- CARD 02 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">02</div>
-          <div class="swipe-title">Gobierno elimina restricciones a tarjetas de cr&eacute;dito y d&eacute;bito para pagos internacionales</div>
+          <div class="swipe-title">Medinaceli supera moción de censura; Ley de Hidrocarburos lista para la Asamblea</div>
         </div>
-        <div class="swipe-body">Desde el 7 de abril, m&aacute;s de 2,7 millones de bolivianos pueden volver a usar sus tarjetas sin restricciones para compras en el exterior y plataformas digitales. Las tarjetas de cr&eacute;dito operan seg&uacute;n capacidad de pago; las de d&eacute;bito tienen un piso de USD 500. Las operaciones se realizan al tipo de cambio referencial del BCB.</div>
+        <div class="swipe-body">La Asamblea Legislativa interpeló al ministro de Hidrocarburos Mauricio Medinaceli por la crisis de combustibles, pero no logró los votos para censurarlo. Medinaceli confirmó que el proyecto de nueva Ley de Hidrocarburos, con cinco pilares de reforma, está listo y será remitido al Legislativo.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por qu&eacute; importa</strong>
-          Tras tres a&ntilde;os de restricciones cambiarias, esta medida marca un cambio de pol&iacute;tica significativo del gobierno de Paz. Reactiva el comercio digital y se&ntilde;aliza apertura econ&oacute;mica, aunque el tipo de cambio referencial (no el paralelo) genera incertidumbre sobre c&oacute;mo absorber&aacute;n las entidades financieras la diferencia.
+          <strong>Por qué importa</strong>
+          La supervivencia política de Medinaceli despeja el camino para la reforma energética más ambiciosa en dos décadas. La nueva ley busca reactivar la exploración, abrir inversión privada y reposicionar a YPFB como productora, afectando directamente la disponibilidad de combustibles y gas.
         </div>
-        <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/04/07/bolivia-habilita-las-compras-con-tarjetas-bancarias-en-el-exterior-luego-de-tres-anos-de-restricciones/">Infobae</a> · <a href="https://www.economiayfinanzas.gob.bo/node/19451">MEFP</a> · <a href="https://brujuladigital.net/economia/2026/04/09/los-bolivianos-ya-pueden-hacer-transacciones-internacionales-con-tarjetas-de-debito-y-credito-59329">Br&uacute;jula Digital</a></div>
+        <div class="swipe-source"><a href="https://www.economy.com.bo/articulo/economia/gobierno-nueva-ley-hidrocarburos-busca-revertir-declinacion-reordenar-modelo-energetico/20260410161209022207.html">Economy</a> · <a href="https://www.lostiempos.com/actualidad/economia/20260409/medinaceli-tiene-listo-proyecto-nueva-ley-hidrocarburos">Los Tiempos</a></div>
       </div>
     </div>
 
-    <!-- Card 03 -->
+    <!-- CARD 03 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">03</div>
-          <div class="swipe-title">Debates del balotaje ma&ntilde;ana en cinco departamentos simult&aacute;neamente</div>
+          <div class="swipe-title">Condenan a 10 años de cárcel al exministro Santos Cruz por caso coimas</div>
         </div>
-        <div class="swipe-body">El TSE confirm&oacute; debates simult&aacute;neos el 12 de abril a las 21:00 en Santa Cruz, Tarija, Oruro, Beni y Chuquisaca. Los candidatos a gobernaciones debatir&aacute;n seis ejes: econom&iacute;a y finanzas, salud y educaci&oacute;n, pacto fiscal, desarrollo productivo, conectividad e infraestructura, y medio ambiente. La segunda vuelta es el 19 de abril.</div>
+        <div class="swipe-body">El Tribunal Segundo de Sentencia Anticorrupción sentenció al exministro de Medio Ambiente Juan Santos Cruz a 10 años y al exviceministro Carmelo Valda a 6 años de prisión. El esquema de cobros ilegales a cambio de adjudicaciones generó un daño superior a Bs 19 millones. Cinco exfuncionarios del MAS resultaron condenados.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por qu&eacute; importa</strong>
-          Con 59 agrupaciones pol&iacute;ticas gobernando municipios y ninguna fuerza con hegemon&iacute;a nacional, estas gobernaciones definir&aacute;n el mapa de poder subnacional. Los debates son la &uacute;ltima oportunidad de los candidatos antes del silencio electoral del 15 de abril.
+          <strong>Por qué importa</strong>
+          Es la primera sentencia firme de alto perfil contra exfuncionarios del gobierno de Arce. Refuerza la narrativa anticorrupción del gobierno Paz y puede acelerar otros procesos pendientes, incluido el del propio expresidente.
         </div>
-        <div class="swipe-source"><a href="https://www.atb.com.bo/2026/04/10/debates-del-balotaje-se-centraran-en-seis-ejes-clave-para-las-gobernaciones/">ATB Digital</a> · <a href="https://eldeber.com.bo/pais/segunda-vuelta-debate-candidatos-gobernacion-sera-12-abril_1774914234">El Deber</a> · <a href="https://rtvu.uto.edu.bo/2026/04/10/tse-confirma-debates-simultaneos-en-cinco-departamentos-rumbo-a-la-segunda-vuelta-de-las-elecciones-subnacionales-2026/">RTVU</a></div>
+        <div class="swipe-source"><a href="https://www.urgente.bo/noticia/exministro-juan-santos-cruz-es-condenado-10-anos-de-prision-por-enriquecerse-con-coimas">Urgentebo</a> · <a href="https://eju.tv/2026/04/exministros-juan-santos-es-sentenciado-a-10-anos-y-el-exviceministro-valda-a-6-por-el-caso-coimas/">Eju.tv</a> · <a href="https://www.lostiempos.com/actualidad/pais/20260410/exministro-santos-es-condenado-10-anos-carcel-corrupcion-caso-coimas">Los Tiempos</a></div>
       </div>
     </div>
 
-    <!-- Card 04 -->
+    <!-- CARD 04 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">04</div>
-          <div class="swipe-title">Crisis energ&eacute;tica se profundiza: producci&oacute;n de gas cae a menos de la mitad del pico hist&oacute;rico</div>
+          <div class="swipe-title">TSE confirma debates del balotaje en 5 departamentos para el domingo 12</div>
         </div>
-        <div class="swipe-body">La producci&oacute;n de gas natural cay&oacute; de 60 MMmcd en 2015 a 25-26 MMmcd actualmente, mientras el 60-65% de la electricidad depende de este recurso. La importaci&oacute;n de combustibles requiere d&oacute;lares que el Gobierno no tiene en cantidad suficiente. Expertos estiman que para 2028 Bolivia dejar&aacute; de exportar gas y necesitar&aacute; USD 5.000 millones anuales para importar combustibles.</div>
+        <div class="swipe-body">El Tribunal Supremo Electoral fijó debates simultáneos el 12 de abril a las 21:00 para las gobernaciones de Santa Cruz, Tarija, Oruro, Beni y Chuquisaca. Los seis ejes temáticos serán salud, educación, infraestructura, medioambiente, pacto fiscal y seguridad. La segunda vuelta electoral será el 19 de abril.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por qu&eacute; importa</strong>
-          La ca&iacute;da productiva amenaza tanto el suministro el&eacute;ctrico como la principal fuente hist&oacute;rica de divisas del pa&iacute;s. Sin inversi&oacute;n privada significativa en exploraci&oacute;n, el d&eacute;ficit energ&eacute;tico se convertir&aacute; en un cuello de botella estructural para cualquier recuperaci&oacute;n econ&oacute;mica.
+          <strong>Por qué importa</strong>
+          Cinco gobernaciones en disputa definen el mapa de poder subnacional. Los resultados determinarán la capacidad del gobierno central de implementar reformas con o sin apoyo regional, especialmente en Santa Cruz, el motor económico del país.
         </div>
-        <div class="swipe-source"><a href="https://www.energypress.com.bo/2026/04/06/la-tormenta-perfecta-del-combustible-en-bolivia/">EnergyPress</a> · <a href="https://cbe.com.bo/noticia/bolivia-cerca-de-enfrentar-una-crisis-energetica">CBE</a></div>
+        <div class="swipe-source"><a href="https://www.eldia.com.bo/2026-04-09/politica/segunda-vuelta-tse-confirma-debates-en-simultaneo-el-12-de-abril-a-las-2100.html">El Día</a> · <a href="https://eldeber.com.bo/pais/segunda-vuelta-debate-candidatos-gobernacion-sera-12-abril_1774914234">El Deber</a> · <a href="https://abi.bo/segunda-vuelta-en-cinco-departamentos-tse-define-calendario-sorteo-de-jurados-y-debates/">ABI</a></div>
       </div>
     </div>
 
-    <!-- Card 05 -->
+    <!-- CARD 05 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">05</div>
-          <div class="swipe-title">BCB ratifica transici&oacute;n a tipo de cambio flexible con valor referencial del d&oacute;lar</div>
+          <div class="swipe-title">Bolivia da por concluido el convenio de cooperación militar con Irán</div>
         </div>
-        <div class="swipe-body">El Banco Central de Bolivia mantiene el esquema de publicaci&oacute;n diaria del valor referencial del d&oacute;lar, calculado sobre operaciones efectivas de las entidades financieras. El referencial se ubica en torno a Bs 9,00 (compra) y Bs 9,40 (venta), mientras el paralelo cotiza alrededor de Bs 9,28-9,32. La brecha entre ambos se ha reducido significativamente.</div>
+        <div class="swipe-body">El ministro de Defensa Marcelo Salinas confirmó que el acuerdo militar con Irán, firmado por el gobierno Arce en julio de 2023, fue concluido hace cuatro meses. La Embajada iraní minimizó el alcance del convenio. La decisión consolida el giro en política exterior del gobierno Paz.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por qu&eacute; importa</strong>
-          La convergencia entre el tipo de cambio referencial y el paralelo es una se&ntilde;al positiva de normalizaci&oacute;n cambiaria. El abandono del tipo de cambio fijo de Bs 6,96 ya es un hecho operativo, aunque persiste como referencia nominal. La transici&oacute;n ordenada es cr&iacute;tica para restaurar confianza en el sistema financiero.
+          <strong>Por qué importa</strong>
+          El fin del acuerdo con Irán es una señal de realineamiento geopolítico que puede facilitar relaciones con EE.UU. y Argentina, cruciales para financiamiento externo y comercio. Reduce un foco de tensión diplomática regional.
         </div>
-        <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/04/07/bcb-ratifica-valor-referencial-del-dolar-en-transicion-a-tipo-de-cambio-flexible/">La Raz&oacute;n</a> · <a href="https://www.atb.com.bo/2026/04/10/cotizacion-del-dolar-hoy-10-de-abril-de-2026/">ATB Digital</a></div>
+        <div class="swipe-source"><a href="https://eldeber.com.bo/pais/bolivia-rompe-acuerdo-militar-iran-consolida-giro-politica-exterior_1775674199">El Deber</a> · <a href="https://www.lanacion.com.ar/el-mundo/bolivia-cancela-el-acuerdo-militar-con-iran-cuestionado-por-la-argentina-nid08042026/">La Nación</a> · <a href="https://abi.bo/ministro-de-defensa-afirma-que-el-convenio-militar-de-bolivia-con-iran-fue-concluido/">ABI</a></div>
       </div>
     </div>
 
   </div>
-
   <div class="dots">
     <div class="dot active"></div>
     <div class="dot"></div>
@@ -264,94 +261,88 @@ body {
     <div class="dot"></div>
     <div class="dot"></div>
   </div>
-  <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+  <div class="swipe-hint">Desliza para ver más →</div>
 </div>
 
 <!-- DIVIDER -->
-<div class="divider reveal" style="transition-delay: 0.16s;">
-  <span class="divider-text">Noticias por Secci&oacute;n</span>
+<div class="divider reveal" style="transition-delay:0.16s">
+  <span class="divider-text">Noticias por Sección</span>
 </div>
 
 <!-- NEWS ITEMS -->
-<div class="news-item glass reveal" style="transition-delay: 0.20s;">
-  <span class="pill pill-eco">Econ&oacute;mico</span>
-  <h3>BID confirma paquete de USD 4.500 millones para Bolivia en el per&iacute;odo 2026-2028</h3>
-  <p>El financiamiento es casi seis veces mayor al per&iacute;odo anterior. En el primer a&ntilde;o se desplegar&aacute;n USD 2.000 millones para un programa de estabilizaci&oacute;n que incluye protecci&oacute;n social, inversi&oacute;n privada, infraestructura y apoyo presupuestario. Se anunci&oacute; la creaci&oacute;n de la plataforma "Bolivia Crece".</p>
-  <span class="source-link"><a href="https://m.lostiempos.com/actualidad/economia/20260113/bolivia-recibira-us-4500-millones-del-bid-2026-2028">Los Tiempos</a> · <a href="https://eldeber.com.bo/pais/presidente-bid-bolivia-estamos-construyendo-paquete-us-4-500-millones-2026-2028_1768330722">El Deber</a></span>
+
+<div class="news-item glass reveal" style="transition-delay:0.20s">
+  <span class="pill pill-pol">Político</span>
+  <h3>Avanza amparo constitucional a favor del expresidente Arce</h3>
+  <p>La Sala Constitucional Tercera de El Alto aceptó tramitar el recurso de amparo presentado por la defensa de Luis Arce y fijó audiencia para el 8 de mayo. El expresidente, detenido desde diciembre de 2025 por el caso Fondo Indígena, se declaró "preso político" en una carta desde la cárcel de San Pedro denunciando "tortura psicológica".</p>
+  <span class="source-link"><a href="https://www.prensa-latina.cu/2026/04/10/avanza-amparo-constitucional-en-favor-de-expresidente-de-bolivia/">Prensa Latina</a> · <a href="https://unitel.bo/noticias/seguridad/defensa-de-arce-senala-que-presento-amparo-constitucional-para-un-juicio-de-responsablidades-KE19844824">Unitel</a></span>
 </div>
 
-<div class="news-item glass reveal" style="transition-delay: 0.24s;">
-  <span class="pill pill-eco">Financiero</span>
-  <h3>D&oacute;lar sube 1,72% en una jornada: cierra en Bs 6,85 promedio seg&uacute;n Infobae</h3>
-  <p>El d&oacute;lar abri&oacute; a Bs 6,85 en promedio, con un alza de 1,72% frente a los Bs 6,73 del d&iacute;a anterior, seg&uacute;n Infobae. El euro cerr&oacute; a Bs 8,05, con un salto de 2,52%. La volatilidad refleja la transici&oacute;n hacia el r&eacute;gimen de tipo de cambio flexible.</p>
-  <span class="source-link"><a href="https://www.infobae.com/noticias/2026/04/10/precio-del-dolar-hoy-en-bolivia-cotizacion-de-apertura-del-10-de-abril/">Infobae</a></span>
+<div class="news-item glass reveal" style="transition-delay:0.24s">
+  <span class="pill pill-eco">Económico</span>
+  <h3>BCB ratifica valor referencial del dólar en transición a tipo de cambio flexible</h3>
+  <p>El Banco Central de Bolivia mantiene el valor referencial del dólar en torno a Bs 9,21 para compra y Bs 9,44 para venta. Desde el 6 de abril, el cálculo incorpora las operaciones que representan posición en bancos corresponsales del exterior, en el marco de la transición hacia un régimen de tipo de cambio flexible iniciada en diciembre de 2025.</p>
+  <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/04/07/bcb-ratifica-valor-referencial-del-dolar-en-transicion-a-tipo-de-cambio-flexible/">La Razón</a> · <a href="https://abi.bo/bcb-ratifica-el-valor-referencial-del-dolar-estadounidense-y-reporta-cotizacion-de-bs-9-para-la-compra/">ABI</a></span>
 </div>
 
-<div class="news-item glass reveal" style="transition-delay: 0.28s;">
-  <span class="pill pill-pol">Pol&iacute;tico</span>
-  <h3>Fragmentaci&oacute;n pol&iacute;tica: 59 agrupaciones gobernar&aacute;n 330 municipios bolivianos</h3>
-  <p>Ning&uacute;n partido logr&oacute; hegemon&iacute;a nacional tras las subnacionales. Las nueve capitales m&aacute;s El Alto quedaron repartidas entre diez organizaciones. VOS, la fuerza m&aacute;s votada a nivel nacional, solo controla dos alcald&iacute;as.</p>
-  <span class="source-link"><a href="https://www.instantaneas.tic.bo/2026/04/05/politica/elecciones/fragmentacion-politica-59-agrupaciones-municipios-bolivia/">Instant&aacute;neas</a></span>
+<div class="news-item glass reveal" style="transition-delay:0.28s">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Decreto Supremo 5600 elimina contratación directa y ordena auditorías</h3>
+  <p>El presidente Rodrigo Paz promulgó el Decreto Supremo 5600 que desmantela 161 decretos previos que, según el gobierno, "facilitaron el robo de más de 100 millones de dólares al Estado". La norma elimina la contratación directa en entidades públicas y ordena auditar gestiones anteriores para transparentar procesos.</p>
+  <span class="source-link"><a href="https://larepublica.pe/mundo/2026/04/07/rodrigo-paz-elimina-la-contratacion-directa-con-el-estado-en-bolivia-y-se-ordena-auditar-las-gestiones-anteriores-101584">La República</a> · <a href="https://abi.bo/paz-afirma-que-la-nueva-norma-desmantela-decretos-que-facilitaron-el-robo-de-mas-de-us-100-millones-al-estado/">ABI</a></span>
 </div>
 
-<div class="news-item glass reveal" style="transition-delay: 0.32s;">
-  <span class="pill pill-eco">Econ&oacute;mico</span>
-  <h3>Gobierno apunta a d&eacute;ficit fiscal de 7% e inflaci&oacute;n de hasta 17% para 2026</h3>
-  <p>Las metas fiscales del gobierno de Paz contemplan una reducci&oacute;n del d&eacute;ficit al 7% del PIB, mientras se proyecta una inflaci&oacute;n de hasta el 17%. Ambas cifras reflejan la magnitud del ajuste macroecon&oacute;mico en curso.</p>
-  <span class="source-link">Fuente: medios locales, sin link directo disponible</span>
+<div class="news-item glass reveal" style="transition-delay:0.32s">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>YPFB alerta: Bolivia podría importar gas desde 2031 sin nueva exploración</h3>
+  <p>En su rendición pública de cuentas 2025, YPFB proyectó que la producción de gas caerá de 26,71 MMm3/d en 2026 a 14,07 MMm3/d en 2031, mientras la demanda interna se mantiene en 15 MMm3/d. La nueva presidenta de YPFB, Carla Cronembold, enfrenta el desafío de revertir la declinación con los cinco proyectos de ley en socialización: Hidrocarburos, Energía Eléctrica, Minería, Inversiones y Evaporíticos.</p>
+  <span class="source-link"><a href="https://www.redimin.cl/ypfb-alerta-que-bolivia-podria-importar-gas-desde-2031-sin-nueva-exploracion/">Redimin</a> · <a href="https://www.economy.com.bo/articulo/economia/gobierno-apunta-reforma-estructural-hidrocarburos/20260401155347022123.html">Economy</a></span>
 </div>
 
-<div class="news-item glass reveal" style="transition-delay: 0.36s;">
-  <span class="pill pill-soc">Social</span>
-  <h3>Crisis tur&iacute;stica: peor inicio de temporada desde 2002 por apagones y escasez de combustible</h3>
-  <p>Los apagones frecuentes, la escasez de combustible y el cierre de hoteles configuran el peor arranque tur&iacute;stico en m&aacute;s de dos d&eacute;cadas (excluyendo a&ntilde;os de pandemia). El sector hotelero reporta ca&iacute;das significativas en ocupaci&oacute;n.</p>
-  <span class="source-link"><a href="https://www.eldia.com.bo/files/docs/el-dia-2026-04-05.pdf">El D&iacute;a</a></span>
+<div class="news-item glass reveal" style="transition-delay:0.36s">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Embajada de Irán minimiza convenio militar y niega acuerdo vinculante</h3>
+  <p>Tras la confirmación boliviana de haber concluido el convenio militar, la Embajada iraní en La Paz negó la existencia de un acuerdo militar vinculante y aclaró que la cooperación se limitaba a intercambios técnicos sin carácter obligatorio. La respuesta contrasta con la versión del gobierno, que lo presenta como un giro definitivo en política exterior.</p>
+  <span class="source-link"><a href="https://larazon.bo/nacional/2026/04/09/embajada-de-iran-niega-acuerdo-militar-con-bolivia-y-aclara-alcance-de-cooperacion/">La Razón</a></span>
 </div>
 
-<div class="news-item glass reveal" style="transition-delay: 0.40s;">
-  <span class="pill pill-pol">Pol&iacute;tico</span>
-  <h3>Bolivia Verifica desmiente encuestas falsas de segunda vuelta para gobernaci&oacute;n de Santa Cruz</h3>
-  <p>El portal de fact-checking alert&oacute; sobre la circulaci&oacute;n de supuestas encuestas de intenci&oacute;n de voto para el balotaje en Santa Cruz que no existen. No se han realizado encuestas oficiales para la segunda vuelta.</p>
-  <span class="source-link"><a href="https://boliviaverifica.bo/falso-no-existen-encuestas-de-segunda-vuelta-para-la-gobernacion-de-santa-cruz/">Bolivia Verifica</a></span>
-</div>
-
-<div class="news-item glass reveal" style="transition-delay: 0.44s;">
+<div class="news-item glass reveal" style="transition-delay:0.40s">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Arranca el Torneo de la Liga: GV San Jos&eacute; cae ante ABB y Strongest vence a Universitario</h3>
-  <p>La primera fecha del Torneo de la Liga de la Divisi&oacute;n Profesional inici&oacute; el 5 de abril. GV San Jos&eacute; perdi&oacute; 1-2 contra ABB, y FC Universitario cay&oacute; 1-2 ante The Strongest. El torneo se jugar&aacute; en 30 fechas bajo formato todos contra todos.</p>
-  <span class="source-link"><a href="https://www.flashscore.es/futbol/bolivia/division-profesional/">Flashscore</a> · <a href="https://www.bolivia.com/futbol/">Bolivia.com</a></span>
+  <h3>División Profesional 2026 en marcha con formato todos contra todos</h3>
+  <p>La temporada 2026 de la División Profesional de fútbol boliviano arrancó la primera semana de abril con el formato de todos contra todos en 30 fechas. El campeón y subcampeón clasificarán directamente a la fase de grupos de la Copa Libertadores 2027. El último de la tabla acumulada descenderá de forma directa.</p>
+  <span class="source-link"><a href="https://www.bolivia.com/futbol/liga-boliviana/este-es-el-fixture-del-torneo-de-la-liga-de-la-division-profesional-576970">Bolivia.com</a> · <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
 </div>
 
 <!-- DATA STRIP -->
-<div class="data-strip reveal" style="transition-delay: 0.48s;">
+<div class="data-strip reveal" style="transition-delay:0.44s">
   <div class="data-cell glass">
-    <div class="data-cell-label">D&oacute;lar Referencial</div>
-    <div class="data-cell-value">9.21</div>
-    <div class="data-cell-delta red">Compra BCB</div>
+    <div class="data-cell-label">Dólar BCB Venta</div>
+    <div class="data-cell-value">Bs 9,44</div>
+    <div class="data-cell-delta red">Ref. flexible</div>
   </div>
   <div class="data-cell glass">
-    <div class="data-cell-label">D&oacute;lar Paralelo</div>
-    <div class="data-cell-value">9.32</div>
-    <div class="data-cell-delta red">Venta</div>
+    <div class="data-cell-label">Dólar Paralelo</div>
+    <div class="data-cell-value">Bs 9,32</div>
+    <div class="data-cell-delta green">&#9660; estable</div>
   </div>
   <div class="data-cell glass">
     <div class="data-cell-label">Brecha</div>
-    <div class="data-cell-value">~1.2%</div>
-    <div class="data-cell-delta green">En baja</div>
+    <div class="data-cell-value">~1,3%</div>
+    <div class="data-cell-delta green">Convergencia</div>
   </div>
 </div>
 
-<!-- QUE VIGILAR -->
-<div class="vigilar reveal" style="transition-delay: 0.52s;">
-  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
-  <div class="vigilar-item">Debates del balotaje ma&ntilde;ana 12 de abril a las 21:00 en cinco departamentos. Definir&aacute;n narrativa final antes del silencio electoral del 15 de abril.</div>
-  <div class="vigilar-item">Reacci&oacute;n del mercado cambiario tras la liberaci&oacute;n de tarjetas. La demanda de d&oacute;lares a trav&eacute;s del sistema bancario podr&iacute;a presionar el tipo de cambio referencial en las pr&oacute;ximas jornadas.</div>
-  <div class="vigilar-item">Desembolso inicial del BID. Los primeros USD 2.000 millones del paquete de estabilizaci&oacute;n son cr&iacute;ticos para financiar importaci&oacute;n de combustibles y contener la crisis energ&eacute;tica.</div>
+<!-- QUÉ VIGILAR -->
+<div class="vigilar reveal" style="transition-delay:0.48s">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Debates del balotaje el domingo 12 de abril: la performance de los candidatos en Santa Cruz (Velasco vs. Ritter) puede mover expectativas de inversión regional.</div>
+  <div class="vigilar-item">Avance de la nueva Ley de Hidrocarburos en la Asamblea: el timing de aprobación marcará si YPFB puede lanzar rondas de exploración antes de fin de año.</div>
+  <div class="vigilar-item">Audiencia del amparo de Arce fijada para el 8 de mayo: cualquier decisión preliminar podría polarizar el clima político en pleno proceso electoral subnacional.</div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer reveal" style="transition-delay: 0.56s;">
-  ATB Digital · El Deber · La Raz&oacute;n · Infobae · Br&uacute;jula Digital · EnergyPress · Bolivia Verifica · Los Tiempos · La Patria<br>
+<div class="footer reveal" style="transition-delay:0.52s">
+  Fuentes: ATB Digital · La Razón · El Deber · ABI · Urgentebo · Los Tiempos · Economy · Prensa Latina · Unitel · La Patria · Eju.tv · La República · Bolivia.com · FBF<br>
   Briefing generado con Claude — Solo para uso informativo
 </div>
 
