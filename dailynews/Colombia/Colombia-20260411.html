@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 11 abril 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F2EBE0 0%, #E8DDD0 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<header class="masthead reveal" style="transition-delay: 0.04s;">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">S&aacute;bado 11 de abril de 2026 &middot; Bogot&aacute;</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
+</header>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay: 0.08s;">Top 5 del D&iacute;a</div>
+
+<div class="carousel-container reveal" style="transition-delay: 0.12s;">
+  <div class="carousel-track" id="carousel">
+
+    <!-- CARD 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Crisis diplom&aacute;tica con Ecuador escala: aranceles al 100% y retiro de embajadora</div>
+        </div>
+        <div class="swipe-body">Colombia oficializ&oacute; aranceles del 100% a importaciones ecuatorianas en respuesta a la misma medida impuesta por el presidente Daniel Noboa. Petro orden&oacute; el retorno inmediato de la embajadora Mar&iacute;a Antonia Velasco desde Quito. M&aacute;s de 5.000 empleos directos se han perdido en la zona fronteriza, seg&uacute;n la C&aacute;mara de Comercio Colombo-Ecuatoriana. El comercio bilateral vale USD 2.000 millones anuales.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          La guerra arancelaria golpea directamente a exportadores del suroccidente colombiano, especialmente en Nari&ntilde;o y Valle del Cauca. Una escalada prolongada podr&iacute;a fracturar la Comunidad Andina y afectar cadenas de suministro regionales clave.
+        </div>
+        <div class="swipe-source"><a href="https://cnnespanol.cnn.com/2026/04/09/latinoamerica/tension-colombia-ecuador-embajador-crisis-orix">CNN</a> &middot; <a href="https://www.infobae.com/colombia/2026/04/11/se-han-perdido-mas-de-5000-empleos-crisis-en-frontera-por-aranceles-entre-colombia-y-ecuador/">Infobae</a> &middot; <a href="https://www.publimetro.co/noticias/2026/04/10/maxima-tension-petro-ordena-arancel-del-100-a-ecuador-y-retira-a-su-embajadora-de-quito/">Publimetro</a></div>
+      </div>
+    </div>
+
+    <!-- CARD 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Tribunal ordena a Petro retractarse por acusaciones de fraude electoral; presidente se niega</div>
+        </div>
+        <div class="swipe-body">El Tribunal Administrativo de Cundinamarca orden&oacute; al presidente rectificar sus publicaciones en redes sociales sobre supuesto fraude en las elecciones de 2014, 2022 y 2026. Le dio tres d&iacute;as para cumplir. Petro rechaz&oacute; la orden invocando objeci&oacute;n de conciencia y afirmando que sus derechos fundamentales prevalecen sobre la decisi&oacute;n judicial.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          A 50 d&iacute;as de la primera vuelta presidencial, las acusaciones de fraude sin sustento erosionan la confianza institucional en el proceso electoral. El desacato abre un frente judicial adicional para Petro en la recta final de su mandato.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/10/tribunal-administrativo-de-cundinamarca-ordeno-a-petro-rectificar-afirmaciones-sobre-fraude-electoral-en-2014-2022-y-2026/">Infobae</a> &middot; <a href="https://www.publimetro.co/noticias/2026/04/11/petro-reacciono-a-la-orden-de-retractarse-por-fraude-electoral-no-le-ensenare-a-la-sociedad-a-arrodillarse/">Publimetro</a> &middot; <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/asi-le-respondio-petro-a-tribunal-que-le-ordeno-retractarse-por-hablar-de-fraude-electoral-noticias-hoy/">El Espectador</a></div>
+      </div>
+    </div>
+
+    <!-- CARD 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Encuesta AtlasIntel: Cepeda lidera primera vuelta pero pierde en segunda</div>
+        </div>
+        <div class="swipe-body">La encuesta de AtlasIntel (6-9 de abril, 3.617 encuestados) ubica a Iv&aacute;n Cepeda con 37,8% de intenci&oacute;n de voto en primera vuelta, seguido por Abelardo de la Espriella (27,2%) y Paloma Valencia (22,9%). Sin embargo, en segunda vuelta Cepeda perder&iacute;a tanto contra De la Espriella (48,8% vs 39,8%) como contra Valencia (47,1% vs 39,6%).</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          Con la primera vuelta a menos de dos meses (31 de mayo), los n&uacute;meros confirman que el voto anti-continuismo es mayoritario cuando se consolida. La fragmentaci&oacute;n de la derecha y el centro definir&aacute; qui&eacute;n enfrenta a Cepeda en el balotaje.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/09/encuesta-atlas-intel-ivan-cepeda-lidera-intencion-de-voto-pero-perderia-en-segunda-vuelta-con-abelardo-de-la-espriella-y-paloma-valencia/">Infobae</a> &middot; <a href="https://www.valoraanalitik.com/encuesta-atlasintel-valencia-y-cepeda-crecen/">Valora Analitik</a></div>
+      </div>
+    </div>
+
+    <!-- CARD 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Gobierno decreta aumento salarial del 7% para la Fuerza P&uacute;blica</div>
+        </div>
+        <div class="swipe-body">Mediante decreto 038 del 7 de abril, el Gobierno fij&oacute; un aumento diferenciado para oficiales y suboficiales: 7% para los rangos superiores y hasta 23% para soldados profesionales (sueldo base queda en $2.451.267). El ajuste es retroactivo a enero de 2026. La medida beneficia a la totalidad de los efectivos de las Fuerzas Militares y la Polic&iacute;a Nacional.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          En a&ntilde;o electoral, el aumento busca consolidar la relaci&oacute;n del gobierno con la Fuerza P&uacute;blica. El impacto fiscal del retroactivo se suma a las presiones presupuestarias ya existentes para financiar el cierre de mandato de Petro.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/04/08/el-salario-de-los-militares-en-colombia-subira-7-en-2026-anuncio-el-gobierno-petro-asi-quedarian-los-sueldos/">Infobae</a> &middot; <a href="https://www.larepublica.co/economia/asi-se-define-el-sistema-salarial-de-militares-tras-el-aumento-de-7-decretado-para-2026-4367731">La Rep&uacute;blica</a></div>
+      </div>
+    </div>
+
+    <!-- CARD 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Nacional vence 3-2 a Medell&iacute;n en cl&aacute;sico paisa y clasifica a playoffs</div>
+        </div>
+        <div class="swipe-body">Atl&eacute;tico Nacional remontó para ganar 3-2 al Independiente Medell&iacute;n en la fecha 16 de la Liga BetPlay I-2026 con goles de Bryan Castrill&oacute;n, Carlos Bacca y Luis Fernando Muriel. Nacional lidera la tabla con 34 puntos y se convierte en el primer equipo clasificado a los playoffs. Deportivo Pasto es el segundo clasificado con 31 puntos.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qu&eacute; importa</strong>
+          El cl&aacute;sico paisa defini&oacute; al primer clasificado del semestre y pone a Nacional como principal candidato al t&iacute;tulo. La remontada en los &uacute;ltimos minutos intensifica la rivalidad en Antioquia de cara al tramo final de la fase regular.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/deportes/2026/04/11/medellin-vs-nacional-en-vivo-liga-betplay-siga-aqui-el-minuto-a-minuto-del-clasico-paisa/">Infobae</a> &middot; <a href="https://www.pulzo.com/deportes/futbol/como-quedo-tabla-posiciones-liga-betplay-2026-tras-medellin-vs-nacional-PP5135749A">Pulzo</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay: 0.16s;">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay: 0.20s;">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro incumpli&oacute; 71% de sus promesas de gobierno a cuatro meses del fin de mandato</h3>
+  <p>Un informe de seguimiento legislativo indica que de las 214 promesas realizadas por Petro al inicio de su mandato, solo 62 (29%) tienen alg&uacute;n grado de cumplimiento. Las mayores brechas est&aacute;n en reforma agraria, transici&oacute;n energ&eacute;tica y paz total. El balance se publica en plena campa&ntilde;a donde el candidato oficialista Iv&aacute;n Cepeda busca defender el legado del gobierno.</p>
+  <span class="source-link"><a href="https://www.semana.com/politica/articulo/a-cuatro-meses-de-acabar-su-mandato-el-presidente-gustavo-petro-ha-incumplido-el-71-de-sus-promesas-de-gobierno-segun-informe/202621/">Semana</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.24s;">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Uribe alerta sobre el impacto econ&oacute;mico de la crisis con Ecuador y pide soluci&oacute;n diplom&aacute;tica</h3>
+  <p>El expresidente &Aacute;lvaro Uribe advirti&oacute; que Ipiales est&aacute; &ldquo;en ruina&rdquo;, que empresas en Cali se encuentran &ldquo;seriamente afectadas&rdquo; y que miles de empleos se pierden por la guerra arancelaria. Sugiri&oacute; que la candidata Paloma Valencia podr&iacute;a restablecer las relaciones con Ecuador y alert&oacute; sobre el riesgo de desintegraci&oacute;n de la Comunidad Andina.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/11/alvaro-uribe-alerto-sobre-las-consecuencias-de-las-decisiones-del-gobierno-petro-en-crisis-comercial-con-ecuador-miles-de-empleos-se-pierden/">Infobae</a> &middot; <a href="https://www.semana.com/politica/articulo/alvaro-uribe-prende-las-alarmas-por-decisiones-del-gobierno-petro-que-golpean-la-frontera-con-ecuador/202659/">Semana</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.28s;">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>TRM cierra semana en $3.631 tras ca&iacute;da acumulada de 3% en el a&ntilde;o</h3>
+  <p>La tasa representativa del mercado para el 11 de abril qued&oacute; fijada en $3.631,49, bajando $11,44 frente al cierre del viernes ($3.642,93). En lo corrido de 2026, el d&oacute;lar acumula una ca&iacute;da de $114 pesos (-3,04%), impulsada por la estabilidad del precio del petr&oacute;leo por encima de USD 80/barril y la pol&iacute;tica monetaria cautelosa del Banco de la Rep&uacute;blica.</p>
+  <span class="source-link"><a href="https://www.noticiascaracol.com/economia/dolar-hoy-10-de-abril-de-2026-en-colombia-como-esta-la-trm-so35">Caracol</a> &middot; <a href="https://www.calendariodecolombia.com/economia/comportamiento-del-dolar-en-colombia-en-abril-de-2026-analisis-y-proyecciones">Calendario de Colombia</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.32s;">
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>BanRep mantiene estrategia de reducci&oacute;n gradual de tasas con tasa de referencia en 9,25%</h3>
+  <p>El Banco de la Rep&uacute;blica contin&uacute;a su ciclo de recortes graduales con la tasa de intervenci&oacute;n estable en 9,25%. La estrategia responde a una inflaci&oacute;n que ha comenzado a ceder tras los choques de a&ntilde;os previos, aunque el fuerte incremento del salario m&iacute;nimo (23,7%) y el consumo p&uacute;blico mantienen las presiones sobre los precios.</p>
+  <span class="source-link"><a href="https://www.bbvaresearch.com/en/publicaciones/colombia-banrep-rate-stable-at-925-government-announces-measures-to-finance-2026/">BBVA Research</a> &middot; <a href="https://www.banrep.gov.co/es">Banco de la Rep&uacute;blica</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.36s;">
+  <span class="pill pill-soc">Social</span>
+  <h3>Polic&iacute;a presenta balance antinarc&oacute;ticos: 124 toneladas de coca&iacute;na incautadas en primer trimestre</h3>
+  <p>La Polic&iacute;a Nacional revel&oacute; que en el primer trimestre de 2026 se incautaron 124 toneladas de coca&iacute;na y 99 de marihuana. La Armada sum&oacute; 154 toneladas de estupefacientes y 423 capturas. Se destruyeron 2.035 hect&aacute;reas de cultivos il&iacute;citos. El balance se da en medio de cr&iacute;ticas de Ecuador por falta de compromiso colombiano contra el narcotr&aacute;fico.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/07/policia-de-colombia-presento-balance-de-la-lucha-contra-el-narcotrafico-y-como-ha-afectado-a-las-estructuras-criminales/">Infobae</a> &middot; <a href="https://www.elpais.com.co/judicial/policia-antinarcoticos-entrego-balance-del-primer-trimestre-se-incautaron-124-toneladas-de-cocaina-0742.html">El Pa&iacute;s</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.40s;">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Petro transforma cierre de mandato en ofensiva proselitista a favor de Cepeda</h3>
+  <p>Seg&uacute;n El Colombiano, el presidente ha convertido el tramo final de su gobierno en una plataforma de campa&ntilde;a para su candidato Iv&aacute;n Cepeda. Hitos como el aumento del salario m&iacute;nimo en 23,7% y el decreto de alza salarial militar se leen en clave electoral. Las encuestas muestran que la estrategia no alcanza para cerrar la brecha en segunda vuelta.</p>
+  <span class="source-link"><a href="https://www.elcolombiano.com/colombia/gustavo-petro-mueve-hilos-de-la-campana-2026-EF32262446">El Colombiano</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.44s;">
+  <span class="pill pill-int">Internacional</span>
+  <h3>MinTIC presenta hoja de ruta para gesti&oacute;n del espectro 2026-2029</h3>
+  <p>El Ministerio de Tecnolog&iacute;as de la Informaci&oacute;n y las Comunicaciones present&oacute; el plan que modernizar&aacute; la gesti&oacute;n del espectro radioel&eacute;ctrico en Colombia entre 2026 y 2029. La hoja de ruta busca optimizar el uso de frecuencias para impulsar la conectividad digital en el territorio nacional.</p>
+  <span class="source-link"><a href="https://mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/428278:Gobierno-Petro-presenta-la-hoja-de-ruta-que-modernizara-la-gestion-del-espectro-en-Colombia-entre-2026-y-2029">MinTIC</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.48s;">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Junior golea 3-0 a &Aacute;guilas Doradas en fecha 16 de la Liga BetPlay</h3>
+  <p>Junior de Barranquilla se impuso con autoridad 3-0 a &Aacute;guilas Doradas en el otro partido destacado de la jornada sabatina. La tabla de posiciones la lidera Nacional con 34 puntos, seguido de Pasto (31), Tolima (27) y Once Caldas (26). Quedan tres fechas para el cierre de la fase regular del primer semestre.</p>
+  <span class="source-link"><a href="https://espndeportes.espn.com/futbol/colombia/nota/_/id/14839338/como-quedo-tabla-de-posiciones-liga-betplay">ESPN</a> &middot; <a href="https://www.clarosports.com/colombia/liga-bet-play/tabla-de-posiciones-de-la-liga-betplay-dimayor-2026-i-en-directo-resultados-y-horarios-del-futbol-colombiano/">Claro Sports</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay: 0.52s;">
+  <div class="data-cell glass">
+    <div class="data-cell-label">D&oacute;lar TRM</div>
+    <div class="data-cell-value">$3.631</div>
+    <div class="data-cell-delta green">&#9660; $11,44</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">TRM Anterior</div>
+    <div class="data-cell-value">$3.643</div>
+    <div class="data-cell-delta">10 abr</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Var. YTD</div>
+    <div class="data-cell-value">-3,04%</div>
+    <div class="data-cell-delta green">&#9660; $114</div>
+  </div>
+</div>
+
+<!-- QUE VIGILAR -->
+<div class="vigilar reveal" style="transition-delay: 0.56s;">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Respuesta formal de Colombia al plazo de 3 d&iacute;as del Tribunal de Cundinamarca sobre la retractaci&oacute;n de Petro por fraude electoral. Un desacato abrir&iacute;a consecuencias jur&iacute;dicas adicionales.</div>
+  <div class="vigilar-item">Evoluci&oacute;n de la guerra arancelaria Colombia-Ecuador: posibles medidas de contenci&oacute;n o mediaci&oacute;n a trav&eacute;s de la Comunidad Andina o canales diplom&aacute;ticos bilaterales.</div>
+  <div class="vigilar-item">Movimientos electorales de cara a la primera vuelta del 31 de mayo: posibles alianzas entre candidatos de centro y derecha para consolidar el voto anti-continuismo en segunda vuelta.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer reveal" style="transition-delay: 0.60s;">
+  Fuentes: Infobae &middot; CNN &middot; Semana &middot; El Espectador &middot; El Colombiano &middot; Publimetro &middot; BBVA Research &middot; Banco de la Rep&uacute;blica &middot; ESPN &middot; Pulzo &middot; Valora Analitik &middot; MinTIC &middot; El Pa&iacute;s<br>
+  Briefing generado con Claude &mdash; Solo para uso informativo
+</footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
