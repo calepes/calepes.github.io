@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 11 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay: 0.04s;">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Sábado 11 de abril de 2026 · La Paz</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay: 0.08s;">Top 5 del Día</div>
+
+<div class="carousel-container reveal" style="transition-delay: 0.12s;">
+  <div class="carousel-track" id="carousel">
+
+    <!-- Card 01 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Paz cuestiona la nacionalización de hidrocarburos y alista paquete de leyes</div>
+        </div>
+        <div class="swipe-body">El presidente Rodrigo Paz afirmó que la nacionalización "fracasó" y que Bolivia se quedó sin gas: "Nos engañaron". Anunció que el Gabinete cerró el jueves un paquete legislativo en hidrocarburos, minería y anticorrupción que será remitido "una por una" a la Asamblea Legislativa Plurinacional. La nueva ley de hidrocarburos busca atraer inversión extranjera y reestructurar YPFB.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Es la señal más clara de giro de modelo económico: si las leyes avanzan, Bolivia abre la puerta a contratos de exploración con transnacionales por primera vez en dos décadas. Impacto directo en regalías, empleo y flujo de divisas.
+        </div>
+        <div class="swipe-source"><a href="https://correodelsur.com/economia/20260411/paz-cuestiona-la-nacionalizacion-de-los-hidrocarburos-no-tenemos-gas-nos-enganaron.html">Correo del Sur</a> · <a href="https://eju.tv/2026/04/paz-cuestiona-la-nacionalizacion-de-los-hidrocarburos-y-alista-paquete-de-leyes/">eju.tv</a> · <a href="https://eldeber.com.bo/pais/rodrigo-paz-iniciara-semana-presentando-prometido-paquete-leyes-hidrocarburos-mineria-anticorrupcion_1774816029">El Deber</a></div>
+      </div>
+    </div>
+
+    <!-- Card 02 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Hoy se celebran debates simultáneos en cinco departamentos rumbo al balotaje</div>
+        </div>
+        <div class="swipe-body">El TSE confirmó debates simultáneos para el domingo 12 de abril a las 21:00 en Santa Cruz, Tarija, Oruro, Beni y Chuquisaca, con los diez candidatos a gobernador que disputarán la segunda vuelta el 19 de abril. Los ejes temáticos incluyen economía, salud, educación, pacto fiscal, desarrollo productivo, conectividad y medio ambiente.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Son las últimas elecciones del ciclo 2025-2026 y definen el mapa de poder territorial. En Santa Cruz, la gobernación más rica del país, compiten Velasco (Libre) y Ritter (SCZ Para Todos); el resultado marcará la relación entre Gobierno central y regiones.
+        </div>
+        <div class="swipe-source"><a href="https://eldeber.com.bo/pais/segunda-vuelta-debate-candidatos-gobernacion-sera-12-abril_1774914234">El Deber</a> · <a href="https://www.infobae.com/america/america-latina/2026/04/12/cinco-regiones-de-bolivia-celebran-debates-simultaneos-de-los-candidatos-a-gobernadores-de-cara-al-balotaje/">Infobae</a></div>
+      </div>
+    </div>
+
+    <!-- Card 03 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Caso Coimas: exministro Santos Cruz sentenciado a 10 años de prisión</div>
+        </div>
+        <div class="swipe-body">El Tribunal Segundo de Sentencia en lo Penal Anticorrupción de La Paz condenó al exministro de Medio Ambiente Juan Santos Cruz a 10 años de cárcel y al exviceministro Carmelo Valda a 6 años. El caso reveló una estructura de cobros ilegales para favorecer adjudicaciones de obras, con un daño al Estado superior a Bs 19 millones. Tres coimplicados recibieron 6 años cada uno.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Es la condena más severa a un exministro del gobierno de Arce hasta la fecha. Refuerza la narrativa anticorrupción de Paz y consolida el precedente judicial contra exfuncionarios del MAS. El viceministro García anunció que se procederá a confiscar los bienes obtenidos ilícitamente.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/04/11/condenaron-a-10-anos-de-carcel-al-ex-ministro-de-medioambiente-de-bolivia-acusado-de-recibir-sobornos/">Infobae</a> · <a href="https://www.atb.com.bo/2026/04/10/caso-coimas-condenan-a-10-anos-al-exministro-juan-santos-cruz-y-a-seis-al-exviceministro-valda/">ATB</a></div>
+      </div>
+    </div>
+
+    <!-- Card 04 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Avanza amparo constitucional en favor del expresidente Arce</div>
+        </div>
+        <div class="swipe-body">La Sala Constitucional Tercera de El Alto aceptó el amparo presentado por la defensa de Luis Arce y fijó audiencia virtual para el 8 de mayo. La defensa busca anular el proceso penal del caso Fondo Indígena y que Arce sea juzgado bajo la Ley 2445 de juicio de responsabilidades. Arce, preso desde diciembre de 2025, se declaró "preso político" en carta manuscrita desde San Pedro.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Si el amparo prospera, podría trasladar el caso a un juicio de responsabilidades ante la Asamblea Legislativa, cambiando radicalmente la dinámica judicial y política. La situación de Arce es termómetro de la independencia judicial bajo el nuevo gobierno.
+        </div>
+        <div class="swipe-source"><a href="https://www.prensa-latina.cu/2026/04/10/avanza-amparo-constitucional-en-favor-de-expresidente-de-bolivia/">Prensa Latina</a> · <a href="https://www.infobae.com/america/agencias/2026/04/06/el-expresidente-de-bolivia-luis-arce-se-reivindica-como-preso-politico-del-gobierno-de-rodrigo-paz/">Infobae</a></div>
+      </div>
+    </div>
+
+    <!-- Card 05 -->
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Alertan vacíos en control de bienes incautados del caso Marset</div>
+        </div>
+        <div class="swipe-body">El analista de seguridad Omar Durán advirtió fallas en la custodia estatal de los bienes del narcotraficante Sebastián Marset, valorados en más de USD 15 millones, que incluyen 16 aeronaves, cinco viviendas y armamento. El fiscal de Santa Cruz confirmó que cajas fuertes halladas estaban vacías y que al menos un inmueble fue saqueado tras el allanamiento.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Los vacíos en la cadena de custodia ponen en riesgo la recuperación de activos ilícitos y la credibilidad del operativo antidroga más grande de la historia reciente de Bolivia. Si no se corrige, podría derivar en impunidad patrimonial.
+        </div>
+        <div class="swipe-source"><a href="https://eju.tv/2026/04/experto-advierte-vacios-en-control-de-bienes-incautados-en-caso-marset/">eju.tv</a> · <a href="https://www.infobae.com/america/america-latina/2026/03/18/investigan-denuncias-de-robo-y-saqueo-en-propiedades-de-marset-durante-los-operativos-en-bolivia/">Infobae</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay: 0.16s;">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay: 0.20s;">
+  <span class="pill pill-pol">Político</span>
+  <h3>Gobierno anuncia que "más corruptos están tras las rejas" y defiende ofensiva judicial</h3>
+  <p>El presidente Paz declaró que no protegerá a nadie: "Los corruptos tienen que caer, sean del anterior gobierno o del actual". La sentencia a Santos Cruz se suma a la detención de un exfuncionario de YPFB y a los procesos derivados del caso Marset. El discurso anticorrupción se perfila como eje central de la agenda legislativa.</p>
+  <span class="source-link"><a href="https://eju.tv/2026/04/no-vamos-a-proteger-a-nadie-paz-dice-que-corruptos-tienen-que-caer-sean-del-anterior-gobierno-o-del-actual/">eju.tv</a> · <a href="https://www.vision360.bo/noticias/2026/03/29/42346-paz-asegura-que-mas-corruptos-estan-tras-las-rejas-y-anuncia-paquete-de-normas-estrategicas">Visión 360</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.24s;">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Transnacionales exigen seguridad fiscal y jurídica para invertir en hidrocarburos</h3>
+  <p>En el contexto de la CERAWeek 2026 y las reformas propuestas por Paz, las grandes petroleras condicionan su entrada a Bolivia a reglas claras de fiscalidad y protección de inversiones. Las reservas probadas de gas cayeron 57% desde 2013 (de 10,45 a 3,7 TCF) y YPFB alerta que sin nueva exploración Bolivia podría importar gas desde 2031. El campo Bermejo-X46D en Tarija (con inversión proyectada de USD 518 millones) es la principal apuesta exploratoria.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/04/04/transnacionales-de-hidrocarburos-piden-seguridad-fiscal-y-juridica-para-invertir/">El Diario</a> · <a href="https://elpais.bo/reportajes/20260408_hidrocarburos-nuevo-gobierno-nueva-ley-nuevo-rumbo.html">El País de Tarija</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.28s;">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Asamblea de CRE aprueba gestión 2025 y activa plan de inversión</h3>
+  <p>La Asamblea General de Delegados de la Cooperativa Rural de Electrificación (CRE) se reunió en Fexpocruz con 165 delegados y aprobó por unanimidad el informe de gestión 2025 y el presupuesto 2026. Entre las inversiones destacan el refuerzo del Sistema Eléctrico Regional Aislado de Ángel Sandoval (San Matías) con dos generadores nuevos, renovación de medidores y acomedidas. Se mantienen programas sociales: incentivo escolar de USD 100, becas universitarias y descuento del 25% en Medco.</p>
+  <span class="source-link"><a href="https://eldeber.com.bo/santa-cruz/asamblea-cre-aprueba-gestion-activa-plan-inversion-programas-sociales_1775947644">El Deber</a> · <a href="https://www.eldia.com.bo/2026-04-11/santa-cruz/asamblea-de-cre-aprobo-informe-economico-tecnico-y-solidario-de-la-cooperativa.html">El Día</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.32s;">
+  <span class="pill pill-pol">Político</span>
+  <h3>Segunda vuelta: cinco gobernaciones definen candidatos y ejes de debate</h3>
+  <p>El TSE confirmó que la segunda vuelta por las gobernaciones de Santa Cruz, Tarija, Oruro, Beni y Chuquisaca será el 19 de abril. En Santa Cruz compiten Juan Pablo Velasco (Libre, 423.340 votos) y Otto Ritter (SCZ Para Todos, 399.592). En La Paz, Revilla y Yahuasi disputarán el cargo. Potosí y Pando ya tienen gobernadores electos desde la primera ronda del 22 de marzo. La campaña está permitida hasta el 15 de abril.</p>
+  <span class="source-link"><a href="https://www.swissinfo.ch/spa/convocan-a-segunda-vuelta-para-elegir-gobernadores-en-cinco-regiones-de-bolivia/91185059">Swissinfo</a> · <a href="https://abi.bo/concluye-el-computo-en-la-paz-revilla-y-yahuasi-van-a-segunda-vuelta-por-la-gobernacion/">ABI</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.36s;">
+  <span class="pill pill-soc">Social</span>
+  <h3>Senamhi pronostica lluvias y tormentas eléctricas en varias capitales</h3>
+  <p>El Servicio Nacional de Meteorología e Hidrología anticipó una jornada con nubosidad variable, lluvias y tormentas eléctricas en diversas capitales departamentales para el sábado 11 de abril. Las precipitaciones afectan particularmente la región oriental y los valles interandinos.</p>
+  <span class="source-link"><a href="https://www.atb.com.bo/2026/04/11/nubosidad-lluvias-y-tormentas-marcaran-la-jornada-en-el-pais/">ATB</a></span>
+</div>
+
+<div class="news-item glass reveal" style="transition-delay: 0.40s;">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Análisis: Bolivia y Perú en abril 2026, paralelismos y contrastes</h3>
+  <p>Columnas de opinión en El Día y Visión 360 analizan las trayectorias paralelas de Bolivia y Perú: ambos países con nuevos gobiernos de centroderecha, crisis de institucionalidad heredada y reformas económicas en curso. El análisis subraya los desafíos comunes en atracción de inversión minera y energética frente a marcos regulatorios inestables.</p>
+  <span class="source-link"><a href="https://www.eldia.com.bo/2026-04-11/opinion/lo-que-pienso/bolivia-y-peru-en-abril-2026.html">El Día</a> · <a href="https://www.vision360.bo/noticias/2026/04/11/43058-bolivia-y-peru-en-abril-2026">Visión 360</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay: 0.44s;">
+  <div class="data-cell glass">
+    <div class="data-cell-label">Dólar Oficial</div>
+    <div class="data-cell-value">Bs 6.96</div>
+    <div class="data-cell-delta">BCB referencial</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Dólar Paralelo</div>
+    <div class="data-cell-value">Bs 9.30</div>
+    <div class="data-cell-delta red">Compra 9.32 / Venta 9.28</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">33.6%</div>
+    <div class="data-cell-delta red">&#9660; vs 34.5% inicio abr</div>
+  </div>
+</div>
+
+<!-- QUÉ VIGILAR -->
+<div class="vigilar reveal" style="transition-delay: 0.48s;">
+  <div class="vigilar-header">Qué vigilar hoy</div>
+  <div class="vigilar-item">Debates de candidatos a gobernador esta noche (21:00) en cinco departamentos: contenido y tono marcarán la recta final hacia el balotaje del 19 de abril.</div>
+  <div class="vigilar-item">Ingreso del paquete de leyes de hidrocarburos, minería y anticorrupción a la Asamblea Legislativa la próxima semana; reacción de bancadas opositoras y del sector privado.</div>
+  <div class="vigilar-item">Audiencia del amparo constitucional de Arce fijada para el 8 de mayo: la defensa podría solicitar medidas cautelares previas que alteren el calendario judicial.</div>
+  <div class="vigilar-item">Evolución del dólar paralelo: la brecha se redujo levemente desde inicio de abril (de 34.5% a 33.6%), pero sigue por encima de los niveles de febrero.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay: 0.52s;">
+  Fuentes: Correo del Sur · El Deber · Infobae · eju.tv · ATB · ABI · Prensa Latina · El Diario · La Patria · Visión 360 · El Día · Swissinfo<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
