@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing Peru — 12 abril 2026</title>
+<title>Briefing Ejecutivo Per&uacute; &mdash; 12 abril 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --accent: #1a4a6b;
@@ -26,9 +26,7 @@
   --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
   --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   background: linear-gradient(160deg, #E4E8F0 0%, #D4DEE7 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
   color: var(--ink);
@@ -37,12 +35,10 @@ body {
   min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
   overflow-x: hidden;
 }
-
 .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
 .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
 .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
 .wrap { position: relative; z-index: 1; }
-
 .glass {
   background: var(--card-bg);
   backdrop-filter: blur(20px) saturate(180%);
@@ -51,22 +47,18 @@ body {
   border: 0.5px solid var(--glass-border);
   box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
 }
-
 .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
 .masthead-date { font-size: 13px; color: var(--muted); }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
 .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
 .carousel-container { position: relative; margin-bottom: 32px; }
 .carousel-track {
   display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
-
 .swipe-card {
   flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
   background: var(--card-bg-strong);
@@ -84,17 +76,13 @@ body {
 .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
 .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
 .swipe-source a { color: var(--accent); text-decoration: none; }
-
 .dots { display: flex; justify-content: center; gap: 8px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
 .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-
 .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
 .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
 .news-item { padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -107,7 +95,6 @@ body {
 .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
 .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
 .data-cell { padding: 20px 14px; text-align: center; }
 .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
@@ -115,7 +102,6 @@ body {
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
 .green { color: #34C759; }
 .red { color: #FF3B30; }
-
 .vigilar {
   background: rgba(29,29,31,0.82);
   backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -128,16 +114,12 @@ body {
 .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
 .vigilar-item:last-child { margin-bottom: 0; }
-
 .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
 .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
 }
-
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -145,106 +127,110 @@ body {
 </style>
 </head>
 <body>
-
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
-
 <div class="wrap">
 
-<div class="masthead reveal" style="transition-delay:0.04s">
+<!-- MASTHEAD -->
+<div class="masthead reveal" style="transition-delay:0s">
   <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-  <h1>Peru</h1>
+  <h1>Per&uacute;</h1>
   <div class="masthead-date">Domingo 12 de abril de 2026 &middot; Lima</div>
-  <div class="masthead-tag">Edicion Diaria</div>
+  <div class="masthead-tag">Edici&oacute;n Diaria</div>
 </div>
 
-<div class="section-header reveal" style="transition-delay:0.08s">Top 5 del Dia</div>
-
-<div class="carousel-container reveal" style="transition-delay:0.12s">
+<!-- TOP 5 -->
+<div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+<div class="carousel-container reveal" style="transition-delay:0.08s">
   <div class="carousel-track" id="carousel">
 
+    <!-- Card 01 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">01</div>
-          <div class="swipe-title">Peru vota: 27 millones de electores eligen presidente, senadores y diputados</div>
+          <div class="swipe-title">Keiko Fujimori y L&oacute;pez Aliaga ir&iacute;an a segunda vuelta seg&uacute;n conteo r&aacute;pido de Datum</div>
         </div>
-        <div class="swipe-body">Las Elecciones Generales 2026 se celebraron con la participacion de mas de 27 millones de peruanos. La jornada marca el retorno del sistema bicameral tras mas de tres decadas: se eligieron 60 senadores y 130 diputados, ademas de presidente, vicepresidentes y representantes del Parlamento Andino. Treinta y cinco candidatos compitieron por la presidencia en la primera vuelta mas fragmentada de la historia reciente.</div>
+        <div class="swipe-body">Con el 100% de las actas procesadas por Datum Internacional, Keiko Fujimori (Fuerza Popular) obtuvo 16,8% y Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular) 12,9%. En tercer lugar, Jorge Nieto (Buen Gobierno) con 11,6% y Ricardo Belmont (Obras) con 10,1%. Ipsos, por su parte, ubic&oacute; a Roberto S&aacute;nchez (Juntos por el Per&uacute;) con 12,1% en segundo lugar, generando discrepancia entre encuestadoras sobre qui&eacute;n pasar&iacute;a a la segunda vuelta.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por que importa</strong>
-          La reinstauracion del Senado cambia la dinamica legislativa del pais. Con ocho presidentes en la ultima decada, estas elecciones son un punto de inflexion para la estabilidad institucional peruana. La fragmentacion extrema (35 candidatos) refleja la profunda crisis de representacion politica.
+          <strong>Por qu&eacute; importa</strong>
+          La fragmentaci&oacute;n extrema &mdash;ning&uacute;n candidato super&oacute; el 17%&mdash; anticipa una segunda vuelta el 7 de junio altamente competitiva. Las discrepancias entre Datum e Ipsos sobre el segundo lugar podr&iacute;an generar tensiones pol&iacute;ticas en las pr&oacute;ximas semanas mientras avanza el conteo oficial de la ONPE.
         </div>
-        <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/04/12/elecciones-generales-2026-mas-de-27-millones-de-peruanos-acuden-hoy-a-las-urnas-hnews-996480">La Republica</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/politica/en-vivo-elecciones-generales-peru-2026-incidencias-cobertura-minuto-a-minuto-y-resultados-este-12-de-abril">TVPeru</a></div>
+        <div class="swipe-source"><a href="https://gestion.pe/peru/politica/conteo-rapido-elecciones-2026-keiko-fujimori-y-rafael-lopez-aliaga-van-a-la-segunda-vuelta-noticia/">Gesti&oacute;n</a> &middot; <a href="https://www.infobae.com/peru/2026/04/12/elecciones-peru-2026-en-vivo-hoy-12-de-abril-ultimas-noticias-y-minuto-a-minuto-incidencias-y-resultados-de-las-votaciones-fotos-video/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/04/12/flash-electoral-keiko-166-sanchez-121-y-belmont-118-ocupan-primeros-lugares-segun-conteo-rapido-de-ipsos-hnews-523344">La Rep&uacute;blica</a></div>
       </div>
     </div>
 
+    <!-- Card 02 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">02</div>
-          <div class="swipe-title">Flash electoral: Keiko primera con 16,6%, cuadruple empate por el segundo lugar</div>
+          <div class="swipe-title">Fiscal&iacute;a y Polic&iacute;a Anticorrupci&oacute;n allanan la ONPE por caos log&iacute;stico electoral</div>
         </div>
-        <div class="swipe-body">Segun Ipsos, Keiko Fujimori (Fuerza Popular) lidera con 16,6%, seguida por Roberto Sanchez (Juntos por el Peru, 12,1%), Ricardo Belmont (11,8%), Rafael Lopez Aliaga (11%) y Jorge Nieto (10,7%). Datum situa a Fujimori en 16,5% y a Lopez Aliaga en segundo con 12,8%. El margen de error hace que cuatro candidatos esten empatados estadisticamente por el segundo cupo a la segunda vuelta del 7 de junio.</div>
+        <div class="swipe-body">La Quinta Fiscal&iacute;a Anticorrupci&oacute;n de Lima y agentes de la PNP ingresaron a la sede central de la ONPE para recopilar informaci&oacute;n sobre las demoras en la instalaci&oacute;n de mesas de sufragio. Un total de 211 mesas no se instalaron a tiempo, dejando a m&aacute;s de 63.000 electores sin posibilidad de votar. El 90% de las incidencias se concentraron en Lima Metropolitana. Rafael L&oacute;pez Aliaga present&oacute; denuncia penal contra Piero Corvetto, jefe de la ONPE.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por que importa</strong>
-          Keiko Fujimori va a su cuarta segunda vuelta presidencial. Pero el verdadero drama esta en quien la acompana: el rival definira la polarizacion del ballotage. Un candidato de izquierda (Sanchez) versus uno de derecha conservadora (Lopez Aliaga) cambian completamente el escenario de junio.
+          <strong>Por qu&eacute; importa</strong>
+          Un allanamiento fiscal a un organismo electoral el mismo d&iacute;a de los comicios es un hecho sin precedentes en la historia democr&aacute;tica del Per&uacute;. La crisis institucional de la ONPE podr&iacute;a alimentar narrativas de fraude y minar la legitimidad del proceso, complicando la gobernabilidad del pr&oacute;ximo gobierno.
         </div>
-        <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/04/12/flash-electoral-keiko-166-sanchez-121-y-belmont-118-ocupan-primeros-lugares-segun-conteo-rapido-de-ipsos-hnews-523344">La Republica</a> &middot; <a href="https://elcomercio.pe/elecciones/flash-electoral-elecciones-peru-2026-en-vivo-resultados-de-boca-de-urna-y-conteo-rapido-de-datum-este-12-de-abril-ultimas-noticia/">El Comercio</a></div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/12/fiscalia-y-pnp-allanan-la-onpe-por-retrasos-en-material-electoral-piero-corvetto-podria-ser-incluido-en-investigacion/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/04/12/elecciones-2026-fiscalia-realiza-diligencias-preliminares-en-la-onpe-ante-el-retraso-de-instalacion-de-mesas-hnews-177900">La Rep&uacute;blica</a></div>
       </div>
     </div>
 
+    <!-- Card 03 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">03</div>
-          <div class="swipe-title">Escandalo ONPE: 63.000 electores excluidos por falta de material en Lima</div>
+          <div class="swipe-title">JNE ordena ampliar la votaci&oacute;n al lunes 13 de abril para 63.000 electores afectados</div>
         </div>
-        <div class="swipe-body">La ONPE confirmo que 63.300 votantes en Lima Metropolitana no pudieron ejercer su voto por la no instalacion de 211 mesas de sufragio. La empresa transportista Servicios Generales Galaga incumplio el plazo de entrega de material electoral, afectando principalmente a Villa El Salvador, San Juan de Miraflores, Lurin y Pachacamac. La Contraloria inicio una auditoria de oficio a la ONPE.</div>
+        <div class="swipe-body">El Jurado Nacional de Elecciones dispuso que las mesas de sufragio que no pudieron instalarse el domingo operen el lunes 13 de abril de 7:00 a.m. a 6:00 p.m. Los distritos afectados incluyen San Juan de Miraflores (3 locales), Lur&iacute;n (7) y Pachac&aacute;mac (5), adem&aacute;s de mesas en Orlando y Patterson, EE.UU. El JNE tambi&eacute;n paraliz&oacute; la difusi&oacute;n oficial de resultados hasta que estas mesas concluyan.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por que importa</strong>
-          Con una diferencia de apenas 1-2 puntos entre cuatro candidatos por el segundo lugar, 63.000 votos no emitidos en distritos populares de Lima podrian alterar quien pasa a segunda vuelta. La crisis logistica alimenta narrativas de fraude y erosiona aun mas la confianza en las instituciones electorales.
+          <strong>Por qu&eacute; importa</strong>
+          La extensi&oacute;n de una jornada electoral a un segundo d&iacute;a es excepcional y genera incertidumbre jur&iacute;dica. La paralizaci&oacute;n del conteo oficial retrasa la confirmaci&oacute;n de los candidatos que pasar&iacute;an a segunda vuelta, en un contexto donde la diferencia entre el segundo y tercer lugar es m&iacute;nima.
         </div>
-        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/12/mas-de-63-mil-peruanos-se-quedaron-sin-votar-en-las-elecciones-2026-reporto-la-onpe/">Infobae</a> &middot; <a href="https://rpp.pe/politica/elecciones/elecciones-2026-mas-de-27-millones-de-peruanos-eligen-a-sus-nuevas-autoridades-live-3316">RPP</a></div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/13/este-lunes-13-podran-votar-los-63-mil-electores-afectados-jne-amplia-las-elecciones/">Infobae</a> &middot; <a href="https://rpp.pe/politica/elecciones/elecciones-2026-el-jne-dispone-que-electores-que-no-sufragaron-por-problemas-logisticos-voten-este-lunes-13-de-abril-noticia-1684054">RPP</a></div>
       </div>
     </div>
 
+    <!-- Card 04 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">04</div>
-          <div class="swipe-title">JNE extiende votacion al lunes 13 de abril para afectados</div>
+          <div class="swipe-title">Per&uacute; retorna a la bicameralidad: Fuerza Popular liderar&iacute;a el nuevo Congreso</div>
         </div>
-        <div class="swipe-body">El Jurado Nacional de Elecciones dispuso que los electores que no pudieron votar por fallas logisticas de la ONPE podran hacerlo el lunes 13 de abril. Simultaneamente, el JNE ordeno suspender la difusion de resultados de conteo hasta que concluya la votacion en todas las mesas pendientes. Piero Corvetto, jefe de la ONPE, declaro: "Me someto a toda investigacion".</div>
+        <div class="swipe-body">Por primera vez desde 1990, los peruanos eligieron 60 senadores y 130 diputados para un Congreso bicameral. Seg&uacute;n Datum, Fuerza Popular liderar&iacute;a el Senado con 22 esca&ntilde;os, seguido de Juntos por el Per&uacute; (11) y Renovaci&oacute;n Popular (8). En Diputados, la distribuci&oacute;n ser&iacute;a similar: Fuerza Popular (41), Juntos por el Per&uacute; (22) y Renovaci&oacute;n Popular (20). Partidos como APP, Somos Per&uacute; y Per&uacute; Libre quedar&iacute;an sin representaci&oacute;n.</div>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por que importa</strong>
-          Extender elecciones a un segundo dia es inedito en Peru. La suspension de difusion de resultados genera un vacio informativo que puede ser llenado por desinformacion. El precedente complica la legitimidad del proceso ante los candidatos que no pasen a segunda vuelta.
+          <strong>Por qu&eacute; importa</strong>
+          El retorno a la bicameralidad reconfigura la din&aacute;mica legislativa del pa&iacute;s. Fuerza Popular como primera fuerza en ambas c&aacute;maras le dar&iacute;a a Keiko Fujimori un respaldo parlamentario significativo de cara a una eventual segunda vuelta y posterior gobierno. La fragmentaci&oacute;n en m&uacute;ltiples bancadas requerir&aacute; alianzas para gobernar.
         </div>
-        <div class="swipe-source"><a href="https://rpp.pe/politica/elecciones/elecciones-2026-el-jne-dispone-que-electores-que-no-sufragaron-por-problemas-logisticos-voten-este-lunes-13-de-abril-noticia-1684054">RPP</a> &middot; <a href="https://elcomercio.pe/elecciones/elecciones-2026-en-vivo-hoy-12-de-abril-ultimas-noticias-incidencias-resultados-y-proyeccion-de-segunda-vuelta-electoral-lbposting-noticia/">El Comercio</a></div>
+        <div class="swipe-source"><a href="https://www.americatv.com.pe/noticias/actualidad/fuerza-popular-tendria-mas-escanos-senado-y-diputados-2026-n517399">Am&eacute;rica TV</a> &middot; <a href="https://elcomercio.pe/politica/congreso-2026-2031-asi-quedaria-la-composicion-de-la-nueva-era-bicameral-con-diputados-y-senadores-elecciones-2026-noticia/">El Comercio</a></div>
       </div>
     </div>
 
+    <!-- Card 05 -->
     <div class="swipe-card">
       <div>
         <div class="swipe-top">
           <div class="swipe-num">05</div>
-          <div class="swipe-title">Lopez Aliaga denuncia penalmente a Corvetto y exige su detencion</div>
+          <div class="swipe-title">Contralor&iacute;a interviene la ONPE y solicita informaci&oacute;n documentada sobre fallas log&iacute;sticas</div>
         </div>
-        <div class="swipe-body">El candidato presidencial Rafael Lopez Aliaga presento una denuncia penal contra Piero Corvetto, jefe de la ONPE, por omision de funciones y califico la situacion como "un insulto". Lopez Aliaga, quien figura en empate tecnico por el segundo lugar, pidio la "detencion inmediata" del funcionario. La Fiscalia coordino acciones por las demoras desde temprano en la jornada.</div>
+        <div class="swipe-body">La Contralor&iacute;a General de la Rep&uacute;blica despleg&oacute; m&aacute;s de 30 auditores en Lima Metropolitana y realiz&oacute; una intervenci&oacute;n formal en la sede de la ONPE. Exigi&oacute; informaci&oacute;n sobre la distribuci&oacute;n del material electoral, reportes GPS de las unidades de transporte, horarios de instalaci&oacute;n de mesas y detalles de la puesta en cero del sistema de c&oacute;mputo. La Junta Nacional de Justicia evalu&oacute; la ratificaci&oacute;n de Piero Corvetto en el cargo.</p>
       </div>
       <div>
         <div class="swipe-why">
-          <strong>Por que importa</strong>
-          La judicializacion del proceso electoral en caliente marca el tono de lo que viene. Si Lopez Aliaga queda fuera de la segunda vuelta por margen estrecho, la crisis logistica sera su argumento central para impugnar resultados, prolongando la incertidumbre politica.
+          <strong>Por qu&eacute; importa</strong>
+          Tres poderes del Estado &mdash;Fiscal&iacute;a, Contralor&iacute;a y JNJ&mdash; actuando simult&aacute;neamente contra la ONPE configura una crisis institucional del sistema electoral. La investigaci&oacute;n sobre la trazabilidad GPS del material electoral busca descartar sabotaje o negligencia grave, un tema que marcar&aacute; el debate p&uacute;blico en las pr&oacute;ximas semanas.
         </div>
-        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/12/rafael-lopez-aliaga-denuncia-penalmente-a-piero-corvetto-jefe-de-la-onpe-por-demoras-en-comicios-piden-detencion-inmediata/">Infobae</a> &middot; <a href="https://trome.com/actualidad/politica/elecciones-2026-piero-corvetto-jefe-de-la-onpe-es-denunciado-por-retraso-en-las-mesas-de-sufragio-debe-ser-apresado-por-la-fiscalia-video-elecciones-presidenciales-noticia/">Trome</a></div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/12/contraloria-interviene-sede-de-la-onpe-por-retraso-en-instalacion-de-mesas-de-votacion/">Infobae</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/politica/elecciones-generales-2026-contraloria-despliega-auditores-en-lima-metropolitana-ante-incidencias-en-jornada-electoral">TVPer&uacute;</a></div>
       </div>
     </div>
 
@@ -256,90 +242,108 @@ body {
     <div class="dot"></div>
     <div class="dot"></div>
   </div>
-  <div class="swipe-hint">Desliza para ver mas &rarr;</div>
+  <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
 </div>
 
-<div class="divider reveal" style="transition-delay:0.16s">
-  <span class="divider-text">Noticias por Seccion</span>
+<!-- DIVIDER -->
+<div class="divider reveal" style="transition-delay:0.12s">
+  <span class="divider-text">Noticias por Secci&oacute;n</span>
+</div>
+
+<!-- NEWS ITEMS -->
+<div class="news-item glass reveal" style="transition-delay:0.16s">
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>27 millones de peruanos acudieron a las urnas en jornada hist&oacute;rica</h3>
+  <p>M&aacute;s de 27,3 millones de electores estuvieron habilitados para votar en las Elecciones Generales 2026, eligiendo presidente, vicepresidentes, senadores, diputados y representantes al Parlamento Andino. La participaci&oacute;n se vio empa&ntilde;ada por las demoras log&iacute;sticas, con reportes de hasta 4 horas de espera para la instalaci&oacute;n de mesas en distritos del sur de Lima. El gobierno de transici&oacute;n pidi&oacute; serenidad y confianza en las instituciones.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/12/elecciones-generales-2026-mas-de-27-millones-de-peruanos-acuden-hoy-a-las-urnas-hnews-996480">La Rep&uacute;blica</a> &middot; <a href="https://diariocorreo.pe/politica/elecciones-2026-gobierno-pide-serenidad-y-confiar-en-las-instituciones-noticia/">Correo</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.20s">
-  <span class="pill pill-pol">Politico</span>
-  <h3>Retorno del bicameralismo: Peru elige 60 senadores por primera vez en 34 anos</h3>
-  <p>Las elecciones marcaron el regreso del Senado, disuelto en 1992 por Alberto Fujimori. Los peruanos votaron en cinco cedulas simultaneas: presidente, vicepresidentes, senadores, diputados y Parlamento Andino. Resultados preliminares muestran a Renovacion Popular liderando en el Senado, seguido por el Partido del Buen Gobierno y Fuerza Popular.</p>
-  <span class="source-link"><a href="https://eg2026.onpe.gob.pe/bicameralidad/">ONPE</a> &middot; <a href="https://www.infobae.com/peru/2026/04/12/elecciones-2026-en-vivo-onpe-difunde-resultados-de-senadores-y-diputados-para-el-nuevo-congreso-bicameral/">Infobae</a></span>
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>Discrepancia entre encuestadoras sobre el segundo lugar genera tensi&oacute;n</h3>
+  <p>Mientras Datum ubica a Rafael L&oacute;pez Aliaga (12,9%) en segundo lugar, Ipsos coloca a Roberto S&aacute;nchez de Juntos por el Per&uacute; (12,1%) como segundo, con Belmont tercero (11,8%). La diferencia entre el segundo y quinto lugar es de apenas 3 puntos porcentuales, lo que hace que el conteo oficial de la ONPE sea determinante para definir al rival de Keiko Fujimori en junio.</p>
+  <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/12/flash-electoral-keiko-166-sanchez-121-y-belmont-118-ocupan-primeros-lugares-segun-conteo-rapido-de-ipsos-hnews-523344">La Rep&uacute;blica</a> &middot; <a href="https://elcomercio.pe/elecciones/flash-electoral-elecciones-peru-2026-en-vivo-resultados-de-boca-de-urna-y-conteo-rapido-de-datum-este-12-de-abril-ultimas-noticia/">El Comercio</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.24s">
-  <span class="pill pill-pol">Politico</span>
-  <h3>Fiscalia actua de oficio por irregularidades en la jornada electoral</h3>
-  <p>El Ministerio Publico coordino acciones desde la manana del domingo ante los reportes de demoras en la entrega de material electoral en Lima. La Contraloria General tambien inicio una auditoria a las oficinas centrales de la ONPE. Se identificaron 75 instituciones educativas afectadas en Villa El Salvador y San Juan de Miraflores, con el 90% de los incidentes concentrados en Lima Metropolitana.</p>
-  <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/12/elecciones-2026-fiscalia-de-peru-coordina-acciones-por-demoras-en-la-entrega-de-material-que-genera-retrasos-en-mesas-de-votacion-en-lima/">Infobae</a> &middot; <a href="https://www.infobae.com/peru/2026/04/13/elecciones-2026-contraloria-pide-a-onpe-informacion-sobre-entrega-de-material-electoral-y-apertura-de-mesas-de-sufragio/">Infobae</a></span>
+  <span class="pill pill-pol">Pol&iacute;tico</span>
+  <h3>ONPE reconoce perjuicio a miles de electores y Corvetto bajo presi&oacute;n</h3>
+  <p>El jefe de la ONPE, Piero Corvetto, reconoci&oacute; que 211 mesas a nivel nacional no lograron instalarse, afectando a m&aacute;s de 63.000 electores. Las fallas se atribuyeron a la empresa contratista del despliegue log&iacute;stico: laptops faltantes, impresoras malogradas y problemas de conectividad. La Junta Nacional de Justicia anunci&oacute; que evaluar&aacute; la continuidad de Corvetto, mientras la Fiscal&iacute;a ejecut&oacute; diligencias en la sede institucional.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/elecciones-generales-2026-onpe-reconoce-perjuicio-a-miles-de-electores-en-lima">TVPer&uacute;</a> &middot; <a href="https://www.tvperu.gob.pe/noticias/politica/fiscalia-ejecuta-diligencias-en-la-onpe-por-retraso-en-instalacion-de-mesas-de-sufragio">TVPer&uacute;</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.28s">
-  <span class="pill pill-pol">Politico</span>
-  <h3>Mapa electoral: asi votaron las regiones en primera vuelta</h3>
-  <p>El voto regional muestra una fragmentacion marcada. Keiko Fujimori domina en regiones del centro y sur andino, mientras que Lopez Aliaga tiene fortaleza en Lima y costa norte. Roberto Sanchez capta el voto del sur profundo y Ricardo Belmont sorprende en zonas urbanas de clase media. La dispersion del voto refleja la ausencia de partidos con arraigo nacional.</p>
-  <span class="source-link"><a href="https://gestion.pe/peru/politica/mapa-electoral-2026-asi-votaron-los-peruanos-a-nivel-regional-noticia/">Gestion</a></span>
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>D&oacute;lar cerr&oacute; la semana preelectoral en S/ 3,387 con tendencia a la baja</h3>
+  <p>El tipo de cambio interbancario cerr&oacute; el viernes 10 de abril en S/ 3,387 (venta SUNAT), acumulando una ca&iacute;da semanal desde S/ 3,453 del lunes 6 de abril. Analistas consultados por el BCRP proyectan que el d&oacute;lar podr&iacute;a cerrar 2026 en S/ 3,34, lo que reflejar&iacute;a un fortalecimiento sostenido del sol. El mercado cambiario se mantuvo cerrado el domingo electoral.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-10-de-abril-del-2026-noticia-1683696">RPP</a> &middot; <a href="https://www.americatv.com.pe/noticias/actualidad/cuanto-esta-dolar-precio-moneda-verde-bcr-tipo-cambio-cotizacion-n474082">Am&eacute;rica TV</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.32s">
-  <span class="pill pill-eco">Economico</span>
-  <h3>Dolar cierra la semana preelectoral en S/ 3,395</h3>
-  <p>El tipo de cambio cerro el viernes 10 de abril en S/ 3,395, segun el BCRP. Durante la semana, el dolar fluctuo entre un maximo de S/ 3,4529 (3 de abril, tras aranceles de EE.UU.) y un minimo de S/ 3,372 (10 de abril). Los analistas proyectan volatilidad postelectoral dependiendo de quien pase a segunda vuelta: un escenario Fujimori vs. candidato de izquierda presionaria al sol al alza.</p>
-  <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-10-de-abril-del-2026-noticia-1683696">RPP</a> &middot; <a href="https://www.americatv.com.pe/noticias/actualidad/cuanto-esta-dolar-precio-moneda-verde-bcr-tipo-cambio-cotizacion-n474082">America TV</a></span>
+  <span class="pill pill-eco">Econ&oacute;mico</span>
+  <h3>Inversi&oacute;n privada habr&iacute;a crecido a doble d&iacute;gito a inicios de 2026</h3>
+  <p>Seg&uacute;n el Instituto Peruano de Econom&iacute;a (IPE), la inversi&oacute;n privada registr&oacute; un crecimiento de dos d&iacute;gitos en el primer trimestre de 2026. Las empresas han anunciado inversiones por US$ 11.500 millones para el a&ntilde;o, lideradas por miner&iacute;a (US$ 7.653 millones con proyectos como T&iacute;a Mar&iacute;a y Antamina) y concesiones viales (US$ 400 millones seg&uacute;n Ositr&aacute;n).</p>
+  <span class="source-link"><a href="https://ipe.org.pe/inversion-privada-habria-crecido-a-doble-digito-a-inicios-de-2026/">IPE</a> &middot; <a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gesti&oacute;n</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.36s">
   <span class="pill pill-emp">Empresarial</span>
-  <h3>Franquicias en Peru moveran US$ 1.600 millones en 2026</h3>
-  <p>La Camara de Comercio de Lima proyecto que el mercado de franquicias alcanzara US$ 1.600 millones este ano, un crecimiento de 8% interanual. Se espera el ingreso de 15 a 21 nuevas franquicias internacionales, principalmente de Colombia, Mexico y Ecuador. La gastronomia lidera con 68% de participacion, impulsada por pollerias, cafeterias y cadenas de comida rapida.</p>
-  <span class="source-link"><a href="https://rpp.pe/economia/economia/ccl-franquicias-moveran-1-600-millones-de-dolares-en-2026-gracias-a-expansion-de-marcas-locales-y-nuevos-formatos-noticia-1683218">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/04/07/cada-vez-mas-empresas-alquilan-el-nombre-de-otras-para-operar-en-peru-un-negocio-nada-despreciable-usd-1600-millones-en-2026/">Infobae</a></span>
+  <h3>Concesionarias viales y retail dinamizan la inversi&oacute;n en infraestructura</h3>
+  <p>Las concesionarias viales proyectan inversiones superiores a US$ 400 millones en 2026 para obras, mantenimiento y mejoras en las principales carreteras del pa&iacute;s, seg&uacute;n Ositr&aacute;n. El sector retail acompa&ntilde;a con S/ 1.700 millones en nuevos centros comerciales y ampliaciones. No se registraron noticias empresariales extraordinarias durante la jornada electoral del domingo.</p>
+  <span class="source-link"><a href="https://peruconstruye.net/2026/04/08/concesionarias-viales-inversiones-carreteras-peru-2026/">Per&uacute; Construye</a> &middot; <a href="https://semanaeconomica.com/sectores-empresas/consumo-masivo/las-grandes-companias-apuestan-por-inversiones-y-transformacion-en-un-2026-decisivo">Semana Econ&oacute;mica</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.40s">
   <span class="pill pill-soc">Social</span>
-  <h3>Corvetto anuncia exoneracion de multas para electores afectados</h3>
-  <p>El jefe de la ONPE pidio disculpas publicas a los mas de 63.000 electores que no pudieron votar y anuncio que seran exonerados de la multa por no sufragar. La medida busca mitigar el impacto social y legal sobre los ciudadanos perjudicados por la negligencia logistica de la entidad. Los afectados podran votar el lunes 13 de abril.</p>
-  <span class="source-link"><a href="https://diariocorreo.pe/politica/corvetto-pide-disculpas-y-anuncia-exoneracion-de-multas-para-electores-afectados-por-retrasos-durante-los-comicios-noticia/">Correo</a></span>
+  <h3>Caos en centros de votaci&oacute;n del sur de Lima afect&oacute; a miles de ciudadanos</h3>
+  <p>Los distritos de San Juan de Miraflores, Lur&iacute;n y Pachac&aacute;mac fueron los m&aacute;s afectados por la falta de material electoral. Reportes ciudadanos documentaron hasta 3 horas de demora, ausencia de equipos tecnol&oacute;gicos y fallas de conectividad. El Ministerio de Trabajo dispuso facilidades laborales para que los electores afectados puedan acudir a votar el lunes 13 sin perjuicio en sus centros de trabajo.</p>
+  <span class="source-link"><a href="https://larepublica.pe/sociedad/2026/04/12/lugar-de-votacion-2026-incidentes-en-mesas-de-sufragio-falta-de-material-electoral-miembros-de-mesa-ausentes-y-otros-reportes-ciudadanos-durante-las-elecciones-presidenciales-en-peru-1028772">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com/peru/2026/04/12/retrasos-en-las-elecciones-peru-2026-cuantas-mesas-de-sufragio-faltan-instalar-en-cada-distrito-de-lima/">Infobae</a></span>
 </div>
 
 <div class="news-item glass reveal" style="transition-delay:0.44s">
   <span class="pill pill-dep">Deportes</span>
-  <h3>Liga 1: jornada suspendida por elecciones</h3>
-  <p>No se disputaron partidos de la Liga 1 el domingo 12 de abril debido a las Elecciones Generales. La fecha 9 del Torneo Apertura se retomara la semana del 14 de abril, con partidos como ADT vs. Alianza Lima y Sport Boys vs. Melgar programados para el lunes y martes.</p>
-  <span class="source-link"><a href="https://www.espn.com/soccer/schedule/_/league/per.1">ESPN</a></span>
+  <h3>Liga 1: jornada suspendida por elecciones generales</h3>
+  <p>No se disputaron partidos de la Liga 1 el domingo 12 de abril debido a la jornada electoral. La actividad del Torneo Apertura se reanuda el martes 14 de abril con partidos programados: CD Moquegua vs. Juan Pablo II, ADT vs. Alianza Lima y Sport Boys vs. Melgar.</p>
+  <span class="source-link"><a href="https://www.futbolperuano.com/liga-1/resultados">F&uacute;tbol Peruano</a></span>
 </div>
 
-<div class="data-strip reveal" style="transition-delay:0.48s">
+<div class="news-item glass reveal" style="transition-delay:0.48s">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Cobertura internacional destaca crisis log&iacute;stica y resultado fragmentado</h3>
+  <p>CNN en Espa&ntilde;ol despleg&oacute; cobertura en vivo minuto a minuto de los comicios peruanos. La crisis log&iacute;stica de la ONPE y el allanamiento fiscal fueron los elementos m&aacute;s destacados en medios internacionales. La Agencia Andina coordin&oacute; un especial informativo consolidando datos oficiales de ONPE, JNE y dem&aacute;s organismos electorales.</p>
+  <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/04/12/latinoamerica/live-news/elecciones-presidenciales-peru-resultados-orix">CNN</a> &middot; <a href="https://portal.andina.pe/edpespeciales/2026/especial_elecciones_generales_2026/index.html">Andina</a></span>
+</div>
+
+<!-- DATA STRIP -->
+<div class="data-strip reveal" style="transition-delay:0.52s">
   <div class="data-cell glass">
-    <div class="data-cell-label">Dolar Oficial</div>
-    <div class="data-cell-value">S/ 3.395</div>
-    <div class="data-cell-delta green">-0.06 sem</div>
+    <div class="data-cell-label">D&oacute;lar Compra</div>
+    <div class="data-cell-value">S/ 3.374</div>
+    <div class="data-cell-delta green">-1.9% sem</div>
   </div>
   <div class="data-cell glass">
-    <div class="data-cell-label">Dolar Paralelo</div>
-    <div class="data-cell-value">S/ 3.40</div>
-    <div class="data-cell-delta green">-0.05 sem</div>
+    <div class="data-cell-label">D&oacute;lar Venta</div>
+    <div class="data-cell-value">S/ 3.387</div>
+    <div class="data-cell-delta green">-1.9% sem</div>
   </div>
   <div class="data-cell glass">
-    <div class="data-cell-label">Brecha</div>
-    <div class="data-cell-value">0.1%</div>
-    <div class="data-cell-delta">estable</div>
+    <div class="data-cell-label">Proyecci&oacute;n 2026</div>
+    <div class="data-cell-value">S/ 3.34</div>
+    <div class="data-cell-delta green">-1.4%</div>
   </div>
 </div>
 
-<div class="vigilar reveal" style="transition-delay:0.52s">
-  <div class="vigilar-header">Que vigilar hoy</div>
-  <div class="vigilar-item">Votacion complementaria del lunes 13 en las 211 mesas no instaladas: cualquier nuevo incidente logistico escalaria la crisis institucional de la ONPE</div>
-  <div class="vigilar-item">Conteo rapido de ONPE durante la noche/madrugada: confirmara o cambiara el orden del flash electoral, especialmente en el disputado segundo lugar</div>
-  <div class="vigilar-item">Reaccion de mercados el lunes 14: el tipo de cambio reflejara la percepcion de riesgo segun los candidatos que pasen a segunda vuelta</div>
-  <div class="vigilar-item">Posibles impugnaciones de candidatos que queden fuera por margen estrecho, especialmente Lopez Aliaga, quien ya inicio acciones legales</div>
+<!-- QU&Eacute; VIGILAR -->
+<div class="vigilar reveal" style="transition-delay:0.56s">
+  <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+  <div class="vigilar-item">Votaci&oacute;n complementaria en Lima sur (63.000 electores) y su impacto en la definici&oacute;n del segundo lugar entre L&oacute;pez Aliaga, S&aacute;nchez y Nieto</div>
+  <div class="vigilar-item">Avance del conteo oficial de la ONPE &mdash;actualmente al 46%&mdash; y posible reclasificaci&oacute;n de candidatos en segunda y tercera posici&oacute;n</div>
+  <div class="vigilar-item">Reacci&oacute;n de los mercados al resultado electoral: apertura del d&oacute;lar el lunes con Keiko Fujimori como primera fuerza y un Congreso fragmentado</div>
 </div>
 
-<div class="footer reveal" style="transition-delay:0.56s">
-  Fuentes: La Republica &middot; El Comercio &middot; Infobae Peru &middot; RPP &middot; Gestion &middot; TVPeru &middot; Trome &middot; Correo &middot; ESPN &middot; CNN<br>
+<!-- FOOTER -->
+<div class="footer reveal" style="transition-delay:0.60s">
+  Fuentes: Infobae &middot; La Rep&uacute;blica &middot; El Comercio &middot; Gesti&oacute;n &middot; RPP &middot; TVPer&uacute; &middot; CNN &middot; Am&eacute;rica TV &middot; Andina &middot; Correo &middot; Trome &middot; IPE &middot; Per&uacute; Construye<br>
   Briefing generado con Claude &mdash; Solo para uso informativo
 </div>
 
@@ -357,6 +361,5 @@ body {
   }),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
