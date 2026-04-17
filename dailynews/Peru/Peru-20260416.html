@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — Jueves 16 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Jueves 16 de abril de 2026 · Lima</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">ONPE al 93%: Fujimori y Roberto Sánchez perfilan segunda vuelta</div>
+          </div>
+          <div class="swipe-body">Con el 93,06% de actas contabilizadas al cierre del jueves, Keiko Fujimori (Fuerza Popular) lidera con 17,06% de votos válidos, seguida de Roberto Sánchez (Juntos por el Perú) con 11,97%. Rafael López Aliaga cae al tercer lugar con 11,93% y queda fuera del balotaje. La segunda vuelta está programada para el domingo 7 de junio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Configura una polarización inédita entre la derecha fujimorista y una izquierda socialdemócrata con arrastre regional. El escenario reabre la incertidumbre sobre política minera, fiscal y de seguridad para los próximos cinco años.
+          </div>
+          <div class="swipe-source"><a href="https://resultadoelectoral.onpe.gob.pe/">ONPE</a> · <a href="https://larepublica.pe/politica/2026/04/15/resultados-de-elecciones-2026-en-vivo-onpe-al-916-confirma-a-fujimori-lider-y-sanchez-toma-ventaja-rumbo-a-segunda-vuelta-hnews-1319250">La República</a> · <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-tras-elecciones-2026-quienes-pasan-a-segunda-vuelta-keiko-fujimori-rafael-lopez-aliaga-roberto-sanchez-jorge-nieto-lbposting-noticia/">El Comercio</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">López Aliaga denuncia fraude y pide anular elecciones; observadores lo rechazan</div>
+          </div>
+          <div class="swipe-body">Rafael López Aliaga encabezó una protesta frente al JNE y entregó un ultimátum de 24 horas para suspender el proceso, alegando que "le robaron 500.000 votos" sin aportar pruebas. Llamó a expulsar a las misiones de la UE y la OEA, que en informes preliminares descartaron fraude. El JNE presentó denuncia penal por las fallas logísticas y apunta al jefe de la ONPE, Piero Corvetto.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Reintroduce el riesgo de violencia poselectoral y desgasta la legitimidad institucional justo cuando el país necesita ordenar la transición al 28 de julio. Marca la narrativa del tramo final de campaña rumbo a junio.
+          </div>
+          <div class="swipe-source"><a href="https://www.proceso.com.mx/internacional/2026/4/15/estalla-conflicto-poselectoral-en-peru-por-denuncia-de-fraude-de-candidato-ultraderechista-372253.html">Proceso</a> · <a href="https://larepublica.pe/politica/2026/04/16/juntos-por-el-peru-sobre-narrativa-de-fraude-no-es-defender-la-democracia-es-empujar-al-pais-al-caos-hnews-346768">La República</a> · <a href="https://www.infobae.com/peru/2026/04/14/mision-de-observacion-de-la-union-europea-afirma-que-no-tiene-indicios-sobre-un-supuesto-fraude-electoral/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Congreso otorga voto de confianza al gabinete de Balcázar</div>
+          </div>
+          <div class="swipe-body">El pleno del Congreso aprobó la cuestión de confianza solicitada por el premier Luis Enrique Arroyo Sánchez, a cargo del gobierno de transición que encabeza el presidente interino José María Balcázar. El gabinete Miralles tendrá tres meses para ejecutar la agenda de seguridad, ejecución presupuestal y traspaso ordenado al nuevo gobierno el 28 de julio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Da aire político al Ejecutivo interino en medio del ruido poselectoral y aleja el riesgo de una tercera caída de gobierno en el ciclo 2021-2026. La prioridad declarada es seguridad ciudadana frente al récord de sicariato y extorsión.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/politica/gobierno/jose-maria-balcazar-tomo-juramento-al-gabinete-de-denisse-miralles-estos-son-todos-los-nuevos-ministros-noticia-1677338">RPP</a> · <a href="https://comunicaciones.congreso.gob.pe/noticias/legisladores-piden-al-ejecutivo-acciones-contra-la-seguridad-e-impulsar-infraestructura-y-desarrollo-regional/">Congreso</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Dólar cierra al alza en S/ 3,4440 tras resultados electorales</div>
+          </div>
+          <div class="swipe-body">El tipo de cambio cerró en S/ 3,4440 este jueves, con un máximo intradía de S/ 3,4470 y volumen negociado de US$ 390 millones en el interbancario, 83% más que el día previo. La moneda se aprecia tras perfilar una segunda vuelta entre Fujimori y Sánchez, después de haber retrocedido bajo S/ 3,40 en semanas anteriores. En la casa de cambio Ocoña cotizó a S/ 3,38 compra y S/ 3,405 venta.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El mercado está descontando el riesgo político de un balotaje con candidatos de orillas opuestas. Empresas con deuda en dólares y pasivos importadores deben recalibrar coberturas para el tramo abril-junio.
+          </div>
+          <div class="swipe-source"><a href="https://elcomercio.pe/economia/peru/precio-del-dolar-cierra-en-s34440-para-este-jueves-16-de-abril-del-2026-l-compra-y-venta-l-bcr-l-tipo-de-cambio-l-ultimas-noticia/">El Comercio</a> · <a href="https://larepublica.pe/economia/2026/04/16/precio-del-dolar-hoy-en-peru-jueves-16-de-abril-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-687975">La República</a> · <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-16-de-abril-del-2026-noticia-1684551">RPP</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">PNP captura a 13 integrantes de banda de sicariato y extorsión en Ancón</div>
+          </div>
+          <div class="swipe-body">Un megaoperativo de la Policía Nacional del Perú intervino este jueves el kilómetro 39 de la Panamericana Norte, en Ancón, y detuvo a 13 sujetos vinculados a extorsión y sicariato. La acción se produce mientras legisladores critican al Ministerio del Interior por la falta de resultados frente a la ola criminal en Arequipa y Lima Norte.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La seguridad ciudadana es hoy el principal issue electoral y el talón de Aquiles del Ejecutivo interino. Las bandas de extorsión afectan transporte, comercio, construcción y sector educación, con costo directo sobre la actividad empresarial.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/tag/sicariato">La República</a> · <a href="https://www.tvperu.gob.pe/noticias/tags/sicariato">TVPerú</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>OEA y UE descartan fraude: solo advierten fallas logísticas</h3>
+    <p>La Misión de Observación Electoral de la OEA y la delegación de la Unión Europea coincidieron en que no hay elementos objetivos que sustenten una narrativa de fraude. Atribuyen la desinformación al retraso en la apertura de mesas y a campañas en redes sociales. La OEA recomienda fortalecer la ONPE para la segunda vuelta.</p>
+    <span class="source-link"><a href="https://www.oas.org/fpdb/press/2026_MOE_Peru_Generales_Primer-Informe-(1).pdf">OEA</a> · <a href="https://www.infobae.com/peru/2026/04/14/mision-de-observacion-de-la-union-europea-afirma-que-no-tiene-indicios-sobre-un-supuesto-fraude-electoral/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>BCR mantiene tasa de referencia en 4,25% por séptimo mes consecutivo</h3>
+    <p>En su reunión del 9 de abril, el Directorio del Banco Central de Reserva dejó la tasa en 4,25% por séptimo mes al hilo. La inflación anual subió de 2,2% en febrero a 3,8% en marzo por choques de oferta —combustibles, interrupción del suministro de gas y clima adverso—, por encima del rango meta. El BCR proyecta convergencia al 2% hacia 2027.</p>
+    <span class="source-link"><a href="https://www.bcrp.gob.pe/docs/Transparencia/Notas-Informativas/2026/nota-informativa-2026-04-09.pdf">BCRP</a> · <a href="https://elcomercio.pe/economia/bcr-mantiene-la-tasa-de-interes-de-referencia-en-425-en-abril-noticia/">El Comercio</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Inversión minera 2026 proyectada en US$ 6.400 millones, con ocho proyectos en ejecución</h3>
+    <p>El Ministerio de Energía y Minas y gremios privados ratifican que 2026 sería el mejor año de inversión minera de la última década, con un flujo cercano a US$ 6.400 millones (+10%) y ocho proyectos iniciando construcción por un total de US$ 7.619 millones. EXPOMINA Perú 2026 se realizará del 9 al 11 de septiembre en el Jockey.</p>
+    <span class="source-link"><a href="https://www.rumbominero.com/peru/noticias/mineria/inversion-minera-2026-2/">Rumbo Minero</a> · <a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gestión</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Extorsión golpea Arequipa: legisladores exigen respuesta al Ministerio del Interior</h3>
+    <p>Congresistas de distintas bancadas demandaron al titular del Interior, Vicente Tiburcio, un plan específico para Arequipa, donde el sicariato y la extorsión han subido de manera sostenida desde 2025. El reclamo se suma a pedidos de impulso de infraestructura y desarrollo regional como anclas frente a la economía criminal.</p>
+    <span class="source-link"><a href="https://comunicaciones.congreso.gob.pe/noticias/legisladores-piden-al-ejecutivo-acciones-contra-la-seguridad-e-impulsar-infraestructura-y-desarrollo-regional/">Congreso</a> · <a href="https://www.infobae.com/peru/2026/01/03/sicariato-y-extorsiones-baten-record-en-2025-las-cifras-que-marcaron-la-seguridad-ciudadana-y-las-politicas-implementadas/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga 1: UTC y Sport Huancayo empatan 2-2; Solano critica a la selección peruana</h3>
+    <p>En el cierre de la fecha 10 del Torneo Apertura (miércoles 15), UTC Cajamarca igualó 2-2 con Sport Huancayo. La fecha 11 arranca este fin de semana con Alianza Lima como líder tras vencer 1-0 a ADT. En paralelo, Nolberto Solano endureció el tono sobre la bicolor: "No tenemos futbolistas" y marcó distancia del posible regreso de Paolo Guerrero.</p>
+    <span class="source-link"><a href="https://libero.pe/futbol-peruano/liga-1/2026/04/16/partidos-liga-1-peru-torneo-apertura-en-fecha-11-programacion-resultados-1529024">Líbero</a> · <a href="https://rpp.pe/futbol/seleccion-peruana/nolberto-solano-y-su-cruda-critica-a-la-seleccion-peruana-no-tenemos-futbolistas-noticia-1684652">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Ecuador y Chile observan de cerca la transición peruana</h3>
+    <p>Cancilleres de Ecuador y Chile emitieron mensajes de respaldo al proceso electoral peruano tras los informes de observadores internacionales. En Lima, la Cancillería confirma que el presidente Balcázar mantiene la agenda diplomática prevista, incluida la participación peruana en la próxima reunión de la Alianza del Pacífico.</p>
+    <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/04/16/latinoamerica/live-news/peru-elecciones-resultados-quienes-segunda-vuelta-orix">CNN en Español</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar BCR</div>
+      <div class="data-cell-value">3,4440</div>
+      <div class="data-cell-delta red">+0,014</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Ocoña (venta)</div>
+      <div class="data-cell-value">3,405</div>
+      <div class="data-cell-delta red">+0,005</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Tasa BCR</div>
+      <div class="data-cell-value">4,25%</div>
+      <div class="data-cell-delta">sin cambio</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Pronunciamiento del JNE sobre el pedido de nulidad de López Aliaga: marcará el tono de la transición de primera a segunda vuelta.</div>
+    <div class="vigilar-item">Cierre del tipo de cambio: si el dólar supera S/ 3,45, presiona costos importadores y refuerza expectativas inflacionarias.</div>
+    <div class="vigilar-item">Agenda parlamentaria de seguridad: Interior debe presentar el plan contra extorsión en Lima Norte y Arequipa solicitado por el Congreso.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: El Comercio · La República · RPP · Infobae · Gestión · BCRP · ONPE · CNN en Español<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
