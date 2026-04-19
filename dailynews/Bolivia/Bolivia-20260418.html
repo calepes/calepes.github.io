@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — Sábado 18 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <header class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Sábado 18 de abril de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </header>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Cinco departamentos cierran campaña y el país entra en ley seca rumbo al balotaje</div>
+          </div>
+          <div class="swipe-body">Santa Cruz, Beni, Tarija, Oruro y Chuquisaca cumplieron su primer día completo bajo silencio electoral y ley seca antes de la segunda vuelta por la Gobernación de este domingo 19. Rigen suspensión de transporte terrestre y aéreo interdepartamental y prohibición de toda propaganda hasta las 18:00 del domingo. El TSE, presidido por Gustavo Ávila, trasladó a su pleno a Santa Cruz para supervisar la jornada tras los incidentes de la primera vuelta.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El resultado definirá el control político de las cinco gobernaciones y marcará el primer test territorial para el gobierno de Rodrigo Paz. Santa Cruz (Velasco vs. Ritter) concentra el mayor peso económico del país.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/04/17/las-restricciones-electorales-entran-en-vigor-antes-de-la-jornada-de-votaciones-en-bolivia/">Infobae</a> · <a href="https://unitel.bo/noticias/asi-decidimos/cuenta-regresiva-para-el-balotaje-cinco-regiones-ingresan-en-el-silencio-electoral-y-desde-el-viernes-rige-la-ley-seca-LH20053697">Unitel</a> · <a href="https://abi.bo/todo-lo-que-debes-saber-para-la-jornada-electoral-prohibiciones-horarios-y-restricciones-vigentes/">ABI</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">FMI proyecta recesión de 3,3% e inflación de 20,7% para Bolivia en 2026</div>
+          </div>
+          <div class="swipe-body">El World Economic Outlook difundido esta semana coloca a Bolivia como el país con peor desempeño de Sudamérica: contracción del PIB del 3,3% e inflación del 20,7%, por encima del 19,5% de 2025. El Director del Hemisferio Occidental del FMI afirmó que Bolivia "ha dejado atrás el camino de la insostenibilidad", pero el propio gobierno evalúa un crédito de entre 2.600 y 3.300 millones de dólares.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Sostiene el encuadre de crisis macro que condiciona cualquier promesa de reactivación del gobierno Paz. Un eventual acuerdo con el FMI sería el primer programa formal en más de dos décadas.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/economia/fmi-proyecta-bolivia-crecera-3-3-2026-caida-economica-2025_1776177454">El Deber</a> · <a href="https://unitel.bo/noticias/economia/fmi-proyecta-una-contraccion-de-33-en-la-economia-de-bolivia-para-la-gestion-2026-OC20002279">Unitel</a> · <a href="https://brujuladigital.net/economia/2026/04/14/el-fmi-preve-caida-economica-e-inflacion-elevada-en-bolivia-para-este-2026-59494">Brújula Digital</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Hugo Dellien gana el Bolivia Open y es el primer boliviano campeón del torneo</div>
+          </div>
+          <div class="swipe-body">En la cancha central del Santa Cruz Lawn Tennis Club, Hugo Dellien derrotó a Juan Carlos Prado por 6-4 y 7-5 y se quedó con el título del Bolivia Open 2026, el Challenger con la bolsa más alta en la historia del tenis nacional (US$110.000). En la quinta edición del torneo, dominada hasta ahora por argentinos, Dellien rompió la sequía en una final inédita entre bolivianos.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Hito deportivo con retorno directo en ranking ATP y patrocinios para el tenis boliviano; consolida a Dellien como referente y valida el formato Challenger ya con dos finalistas locales.
+          </div>
+          <div class="swipe-source"><a href="https://www.lostiempos.com/deportes/tenis/20260418/hugo-dellien-vence-prado-se-corona-campeon-del-bolivia-open-2026">Los Tiempos</a> · <a href="https://eldia.com.bo/2026-04-16/deportes/dellien-y-prado-acceden-a-semifinales-del-bolivia-open.html">El Día</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">El dólar paralelo cierra la semana cerca de Bs 9,50 con una brecha de 36% frente al oficial</div>
+          </div>
+          <div class="swipe-body">En plataformas P2P —hoy la vía principal para acceder a divisas— el dólar paralelo se negocia en torno a Bs 9,50, mientras el BCB mantiene el tipo oficial en Bs 6,96. La brecha es del 36,2% y el mercado acumula semanas de relativa estabilidad, lejos de los picos superiores a Bs 12 registrados en 2025, aunque las restricciones del BCB al acceso formal a dólares siguen vigentes.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El paralelo es hoy el verdadero precio al que operan importadores, servicios e inflación importada. Su estabilidad reciente es la mejor señal para Paz, pero la brecha sigue alta frente a una semana electoral.
+          </div>
+          <div class="swipe-source"><a href="https://dolarparalelobolivia.net/">Dólar Paralelo Bolivia</a> · <a href="https://eldeber.com.bo/economia/dolar-paralelo-enfria-abre-2026-lejos-extremos-2025_1767281324">El Deber</a> · <a href="https://www.bcb.gob.bo/">BCB</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Crisis del combustible: choferes mantienen paro indefinido y YPFB admite 10.000 denuncias</div>
+          </div>
+          <div class="swipe-body">La Federación Departamental de Choferes de Oruro se mantiene en paro indefinido tras romper el diálogo con el gobierno y con YPFB por la exigencia de gasolina premium en todos los surtidores y por el pago del seguro por daños mecánicos asociados a combustible de mala calidad. YPFB reconoce más de 10.000 denuncias presentadas y pagos por US$357.000 en indemnizaciones, con reclamos individuales de entre US$100 y US$5.000.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El conflicto combina escasez, calidad y subsidios en retirada; es el principal frente social abierto del gobierno Paz y amenaza con contaminar el arranque del segundo ciclo electoral.
+          </div>
+          <div class="swipe-source"><a href="https://www.eldiario.net/portal/2026/04/07/choferes-rompen-dialogo-y-continua-el-paro-indefinido/">El Diario</a> · <a href="https://www.vision360.bo/noticias/2026/04/08/42906-gobierno-no-logra-desarticular-el-conflicto-con-los-choferes-del-pais-debido-a-la-gasolina-de-mala-calidad">Visión 360</a> · <a href="https://www.infobae.com/america/america-latina/2026/03/28/de-la-escasez-a-la-incertidumbre-claves-para-entender-el-nuevo-capitulo-del-conflicto-por-el-combustible-en-bolivia/">Infobae</a></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <article class="news-item reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>TSE pleno se traslada a Santa Cruz tras revelación sobre Monasterio y ánforas quemadas en San Javier</h3>
+    <p>El presidente del TSE, Gustavo Ávila, admitió su cercanía personal con Marco Monasterio, titular del TED Santa Cruz, y reveló que en la primera vuelta hubo ánforas quemadas y tensiones internas que derivaron en la anulación de mesas y en cinco personas procesadas. El pleno del TSE se instaló en Santa Cruz para supervisar el balotaje del domingo.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/yo-elijo/me-dolio-santa-cruz-pase-esta-situacion-avila-revela-hubo-anforas-quemadas-tensiones-ted_1776526569">El Deber</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>OEA despliega misión de observación electoral para la segunda vuelta</h3>
+    <p>La Organización de los Estados Americanos confirmó el envío de una misión de observadores para los comicios regionales del domingo. Acompañará los procesos en Santa Cruz, Beni, Tarija, Oruro y Chuquisaca, con énfasis en la cadena de custodia del material electoral y el cómputo departamental.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/04/16/elecciones-regionales-en-bolivia-observadores-de-la-oea-evaluaran-la-segunda-vuelta-en-cinco-departamentos/">Infobae</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Diputados avanza con el "perdonazo tributario" del gobierno Paz</h3>
+    <p>La Comisión de Planificación aprobó el proyecto de Ley de Transparencia y Alivio Tributario. Plantea condonación total de deudas (capital, intereses y multas) hasta el 31 de diciembre de 2017 por obligaciones menores a 10 millones de bolivianos y, para deudas posteriores, eliminación de intereses y multas con facilidades de pago a 24 meses. La prescripción tributaria se reduce de ocho a cuatro años.</p>
+    <span class="source-link"><a href="https://www.atb.com.bo/2026/04/01/comision-aprueba-ley-del-perdonazo-tributario/">ATB</a> · <a href="https://www.economiayfinanzas.gob.bo/node/19055">MEFP</a> · <a href="https://www.vision360.bo/noticias/2026/04/04/42693-paz-sobre-alcance-del-perdonazo-tributario-para-que-los-voy-a-corretear-prefiero-que-reinviertan-en-bolivia">Visión 360</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>YPFB advierte que Bolivia podría importar gas desde 2031 con reservas en 3,7 TCF</h3>
+    <p>La estatal YPFB confirmó que las reservas probadas de gas cayeron a 3,7 TCF y proyectó que la producción bajará de 26,71 MMm³/d en 2026 a 14,07 MMm³/d en 2031, frente a una demanda interna estable en torno a 15 MMm³/d. Sin nuevos descubrimientos, el país pasaría de exportador a importador neto antes del fin de la década. En paralelo, anunció inversiones superiores a US$12 millones en redes domiciliarias en el Gran Chaco tarijeño y avances del 83% en el pozo BJO-X46D.</p>
+    <span class="source-link"><a href="https://prensamercosur.org/2026/04/01/reservas-de-gas-caen-a-37-tcf-y-ypfb-advierte-que-bolivia-podria-importar-gas-desde-2031/">Prensa Mercosur</a> · <a href="https://abi.bo/ypfb-avanza-en-tarija-con-inversion-estrategica-y-una-solida-proyeccion/">ABI</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Hallan el cadáver de una mujer dentro de una bolsa de yute en La Paz</h3>
+    <p>La Policía activó una investigación por presunto feminicidio tras el hallazgo del cuerpo de una mujer sobre la avenida La Portada, dentro de una bolsa de yute y envuelto en plásticos. El examen forense debe determinar la causa de muerte y las autoridades trabajan en identificar a la víctima y a los responsables del traslado del cuerpo.</p>
+    <span class="source-link"><a href="https://eldia.com.bo/2026-04-17/pais/hallan-el-cadaver-de-una-mujer-en-una-bolsa-de-yute-y-activan-investigacion.html">El Día</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Selección femenina cae 1-2 con Uruguay y queda sin triunfos en la Liga de Naciones</h3>
+    <p>Bolivia perdió 1-2 ante Uruguay en El Alto por la fecha previa de la Copa de Naciones femenina, en su camino rumbo al Mundial Brasil 2027. El equipo suma apenas un punto en la competición y este sábado enfrenta a Venezuela en Cabudare, con la obligación de sumar para no quedar descolgado.</p>
+    <span class="source-link"><a href="https://elinformadorve.com/17/04/2026/deportes/copa-de-naciones-femenina-la-vinotinto-obligada-a-ganarle-a-bolivia-en-la-noche-de-este-sabado-18-de-abril-en-el-estadio-metropolitano-de-cabudare/">El Informador</a></span>
+  </article>
+
+  <div class="data-strip reveal">
+    <div class="data-cell">
+      <div class="data-cell-label">Dólar Oficial BCB</div>
+      <div class="data-cell-value">Bs 6,96</div>
+      <div class="data-cell-delta">sin cambios</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">Bs 9,50</div>
+      <div class="data-cell-delta green">estable</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value">+36,2%</div>
+      <div class="data-cell-delta">vs oficial</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Segunda vuelta en Santa Cruz, Beni, Tarija, Oruro y Chuquisaca: resultados preliminares del Sirepre desde las 20:00.</div>
+    <div class="vigilar-item">Reacción del dólar paralelo y del mercado P2P al cierre electoral, especialmente si Santa Cruz y Tarija definen alineamientos con el Ejecutivo.</div>
+    <div class="vigilar-item">Continuidad del paro de choferes en Oruro y posibles bloqueos, con el gobierno Paz evaluando nuevas concesiones sobre gasolina premium.</div>
+  </div>
+
+  <footer class="footer">
+    Fuentes: Unitel · El Deber · Los Tiempos · ABI · Infobae · Visión 360 · ANF · El Día · Brújula Digital · El Diario · Prensa Mercosur<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
