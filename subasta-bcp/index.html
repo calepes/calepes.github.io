@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subasta BCP Enalta · Análisis de Pujas · Santa Cruz 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ede0;
+    --paper-2:#ebe1cf;
+    --ink:#15233b;
+    --ink-soft:#3a4a66;
+    --rule:#c9bfa7;
+    --rule-soft:#d8cfb8;
+    --accent:#c2410c;
+    --accent-2:#9a3412;
+    --tier-a:#7c2d12;
+    --tier-a-bg:#fde6c8;
+    --tier-b:#1e3a5f;
+    --tier-b-bg:#e2dcc8;
+    --tier-c:#52525b;
+    --tier-c-bg:#dfd6c0;
+    --gold:#a16207;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(at 20% 10%, rgba(194,65,12,0.04) 0%, transparent 50%),
+      radial-gradient(at 80% 90%, rgba(21,35,59,0.04) 0%, transparent 50%);
+  }
+
+  /* Top utility bar */
+  .topbar{
+    background:var(--ink);
+    color:var(--paper);
+    padding:8px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--accent);
+  }
+  .topbar span:nth-child(2){color:var(--accent)}
+  @media(max-width:600px){
+    .topbar{font-size:9px;padding:6px 14px}
+    .topbar span:nth-child(3){display:none}
+  }
+
+  /* Hero */
+  .hero{
+    padding:60px 24px 50px;
+    max-width:1280px;
+    margin:0 auto;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:30px;
+    right:24px;
+    width:120px;
+    height:120px;
+    border:1px solid var(--accent);
+    border-radius:50%;
+    opacity:0.3;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:50px;
+    right:44px;
+    width:80px;
+    height:80px;
+    background:var(--accent);
+    border-radius:50%;
+    opacity:0.08;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:32px;
+    height:1px;
+    background:var(--accent);
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:clamp(38px,7vw,84px);
+    line-height:0.95;
+    letter-spacing:-0.03em;
+    margin-bottom:24px;
+    font-variation-settings:"opsz" 144;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--accent);
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:32px;
+    margin-top:32px;
+    padding-top:24px;
+    border-top:1px solid var(--rule-soft);
+  }
+  .meta-item{
+    display:flex;
+    flex-direction:column;
+  }
+  .meta-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .meta-value{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:500;
+  }
+
+  /* Stats strip */
+  .stats{
+    background:var(--ink);
+    color:var(--paper);
+    padding:40px 24px;
+  }
+  .stats-inner{
+    max-width:1280px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  @media(max-width:700px){.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px 16px}}
+  .stat{position:relative;padding-left:16px}
+  .stat::before{
+    content:"";
+    position:absolute;
+    left:0;top:6px;bottom:6px;
+    width:2px;
+    background:var(--accent);
+  }
+  .stat-num{
+    font-family:'Fraunces',serif;
+    font-size:48px;
+    font-weight:300;
+    line-height:1;
+    letter-spacing:-0.02em;
+    margin-bottom:6px;
+  }
+  .stat-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(244,237,224,0.7);
+  }
+
+  /* Section headers */
+  .section{
+    max-width:1280px;
+    margin:0 auto;
+    padding:80px 24px 40px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:40px;
+    padding-bottom:18px;
+    border-bottom:2px solid var(--ink);
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,44px);
+    line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .section-head h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .section-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--ink-soft);
+  }
+
+  /* Top picks grid */
+  .picks{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .pick{
+    background:var(--paper);
+    padding:28px 24px;
+    position:relative;
+    transition:background 0.3s;
+    display:flex;
+    flex-direction:column;
+    min-height:280px;
+  }
+  .pick:hover{background:var(--paper-2)}
+  .pick-rank{
+    font-family:'Fraunces',serif;
+    font-size:80px;
+    font-weight:200;
+    line-height:0.8;
+    color:var(--accent);
+    opacity:0.18;
+    position:absolute;
+    top:14px;
+    right:18px;
+    pointer-events:none;
+    font-variation-settings:"opsz" 144;
+  }
+  .pick-artist{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .pick-title{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:8px;
+    font-style:italic;
+  }
+  .pick-meta{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:auto;
+    padding-bottom:18px;
+  }
+  .pick-prices{
+    border-top:1px dashed var(--rule);
+    padding-top:14px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+  }
+  .pick-price{
+    display:flex;
+    flex-direction:column;
+  }
+  .pick-price-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:2px;
+  }
+  .pick-price-val{
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    font-weight:600;
+  }
+  .pick-price-val.tope{color:var(--accent-2)}
+  .pick-rationale{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--rule);
+    font-size:12px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  /* Filters */
+  .controls{
+    background:var(--paper-2);
+    padding:20px 24px;
+    border:1px solid var(--rule);
+    border-bottom:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .search-box{
+    flex:1;
+    min-width:200px;
+    position:relative;
+  }
+  .search-box input{
+    width:100%;
+    padding:10px 14px 10px 36px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    font-family:'Manrope',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    outline:none;
+    transition:border 0.2s;
+  }
+  .search-box input:focus{border-color:var(--accent)}
+  .search-box::before{
+    content:"⌕";
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--ink-soft);
+    font-size:18px;
+  }
+  .filter-group{
+    display:flex;
+    gap:4px;
+    background:var(--paper);
+    padding:4px;
+    border:1px solid var(--rule);
+  }
+  .filter-btn{
+    padding:8px 14px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    transition:all 0.2s;
+  }
+  .filter-btn:hover{color:var(--ink)}
+  .filter-btn.active{background:var(--ink);color:var(--paper)}
+  .filter-btn[data-tier="A"].active{background:var(--tier-a)}
+  .filter-btn[data-tier="B"].active{background:var(--tier-b)}
+  .filter-btn[data-tier="C"].active{background:var(--tier-c)}
+
+  /* Table */
+  .table-wrap{
+    border:1px solid var(--rule);
+    background:var(--paper);
+    overflow-x:auto;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    min-width:760px;
+  }
+  thead{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  thead th{
+    text-align:left;
+    padding:14px 12px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    font-weight:500;
+    border-bottom:1px solid var(--accent);
+    white-space:nowrap;
+  }
+  thead th.num{text-align:right}
+  tbody tr{
+    border-bottom:1px solid var(--rule-soft);
+    transition:background 0.15s;
+  }
+  tbody tr:hover{background:var(--paper-2)}
+  tbody tr.featured{
+    background:linear-gradient(90deg, rgba(194,65,12,0.06) 0%, transparent 60%);
+  }
+  tbody tr.featured:hover{
+    background:linear-gradient(90deg, rgba(194,65,12,0.12) 0%, var(--paper-2) 60%);
+  }
+  tbody td{
+    padding:14px 12px;
+    vertical-align:middle;
+  }
+  .artist-cell{
+    font-weight:600;
+    font-size:13px;
+  }
+  .featured-mark{
+    color:var(--accent);
+    font-size:11px;
+    margin-left:4px;
+    vertical-align:middle;
+  }
+  .work-cell{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .work-meta{
+    display:block;
+    font-family:'Manrope',sans-serif;
+    font-style:normal;
+    font-size:10px;
+    color:var(--ink-soft);
+    margin-top:2px;
+    letter-spacing:0.02em;
+  }
+  td.num{
+    text-align:right;
+    font-family:'JetBrains Mono',monospace;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  td.tope-cell{
+    color:var(--accent-2);
+    font-weight:600;
+  }
+  .tier{
+    display:inline-block;
+    padding:3px 10px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.1em;
+    border-radius:2px;
+  }
+  .tier-A{background:var(--tier-a-bg);color:var(--tier-a)}
+  .tier-B{background:var(--tier-b-bg);color:var(--tier-b)}
+  .tier-C{background:var(--tier-c-bg);color:var(--tier-c)}
+  .ratio{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+
+  .empty-row{
+    text-align:center;
+    padding:40px;
+    color:var(--ink-soft);
+    font-style:italic;
+    font-family:'Fraunces',serif;
+  }
+
+  /* Methodology */
+  .methodology{
+    max-width:1280px;
+    margin:0 auto;
+    padding:60px 24px 40px;
+    border-top:1px solid var(--rule);
+  }
+  .method-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:32px;
+    margin-top:24px;
+  }
+  .method-item h4{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+  .method-item p{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .caveats{
+    margin-top:48px;
+    padding:24px;
+    background:var(--paper-2);
+    border-left:3px solid var(--accent);
+  }
+  .caveats h4{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-style:italic;
+    margin-bottom:12px;
+    color:var(--ink);
+  }
+  .caveats ul{
+    list-style:none;
+    padding:0;
+  }
+  .caveats li{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    padding-left:20px;
+    position:relative;
+    margin-bottom:8px;
+  }
+  .caveats li::before{
+    content:"§";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-family:'Fraunces',serif;
+    font-weight:600;
+  }
+
+  /* Footer */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:40px 24px;
+    margin-top:60px;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+  }
+  footer span{color:var(--accent)}
+
+  /* Responsive */
+  @media(max-width:600px){
+    .hero{padding:40px 20px 30px}
+    .hero::before, .hero::after{display:none}
+    .hero-meta{gap:20px}
+    .meta-value{font-size:15px}
+    .stats{padding:30px 20px}
+    .stat-num{font-size:36px}
+    .section{padding:50px 20px 30px}
+    .pick{padding:22px 18px;min-height:auto}
+    .pick-rank{font-size:60px}
+    .pick-title{font-size:18px}
+    .controls{padding:16px;flex-direction:column;align-items:stretch}
+    .filter-group{justify-content:space-between}
+    table{font-size:12px}
+    thead th, tbody td{padding:10px 8px}
+    .work-cell{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>BCP Enalta · Altamira</span>
+  <span>● Análisis privado</span>
+  <span>29 abril 2026 · 19:30</span>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Subasta de Arte · Santa Cruz · Beneficio Operación Sonrisa</div>
+  <h1>Análisis<br>de <em>pujas</em><br>razonadas</h1>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Sede</span>
+      <span class="meta-value">Green Tower SCZ</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Obras en catálogo</span>
+      <span class="meta-value">88 piezas · 35 artistas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Pago</span>
+      <span class="meta-value">USD o Bs al cambio oficial</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Preparado para</span>
+      <span class="meta-value">Cal · uso privado</span>
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">88</div>
+      <div class="stat-label">Obras analizadas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-a">22</div>
+      <div class="stat-label">Tier A · asimetría fuerte</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-b">63</div>
+      <div class="stat-label">Tier B · valor razonable</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-c">3</div>
+      <div class="stat-label">Tier C · cerca de mercado</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Top 8 <em>picks</em> priorizados</h2>
+    <span class="section-num">/01</span>
+  </div>
+  <div class="picks" id="picks-grid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Catálogo <em>completo</em></h2>
+    <span class="section-num">/02</span>
+  </div>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Buscar artista u obra...">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-tier="all">Todos</button>
+      <button class="filter-btn" data-tier="A">Tier A</button>
+      <button class="filter-btn" data-tier="B">Tier B</button>
+      <button class="filter-btn" data-tier="C">Tier C</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Artista</th>
+          <th>Obra</th>
+          <th class="num">Base</th>
+          <th class="num">Mercado est.</th>
+          <th class="num">Tope puja</th>
+          <th>Tier</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="methodology">
+  <div class="section-head">
+    <h2>Metodología <em>&amp; advertencias</em></h2>
+    <span class="section-num">/03</span>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-item">
+      <h4>Base</h4>
+      <p>Precio inicial de catálogo en USD, tal como aparece publicado. Es punto de partida, no valor objetivo. En subastas benéficas el base bajo es deliberadamente "anzuelo" para activar pujas.</p>
+    </div>
+    <div class="method-item">
+      <h4>Mercado estimado</h4>
+      <p>Rango razonable de venta en galería primaria o colección privada para pieza comparable: trayectoria del artista, técnica, formato y estado del mercado boliviano de arte. Estimación profesional, no transacciones verificadas.</p>
+    </div>
+    <div class="method-item">
+      <h4>Tope de puja</h4>
+      <p>Precio máximo en que la pieza sigue siendo "buen valor": típicamente 60–70% del mercado mínimo. Si la sala supera este número, retirarse. Disciplina antes que emoción.</p>
+    </div>
+    <div class="method-item">
+      <h4>Sistema de tiers</h4>
+      <p><strong>A</strong> ratio mercado/base ≥ 3× (asimetría fuerte). <strong>B</strong> entre 1.5× y 3× (valor razonable). <strong>C</strong> menor a 1.5× (base ya cerca de mercado). Las piezas con base $1 son siempre Tier A por construcción.</p>
+    </div>
+  </div>
+
+  <div class="caveats">
+    <h4>Advertencias importantes</h4>
+    <ul>
+      <li>Los rangos de mercado son estimación profesional, no data verificada. El mercado de arte boliviano es opaco — la mayoría de estos artistas no tienen historial transaccional público en plataformas tipo Artprice.</li>
+      <li>En subasta benéfica los precios pueden ir <em>sobre</em> mercado por motivación filantrópica del comprador. Si la sala se calienta con una pieza, retirarse al tope sin negociar internamente.</li>
+      <li>Pagar en bolivianos al tipo oficial (Bs 6.96/USD) frente a la paridad paralela (~Bs 9.60) reduce el costo real ~30%. Considerar también puntos Visa Iridium en pago con tarjeta.</li>
+      <li>Tier A en el tope: ~50% probabilidad de mantener valor positivo. Tier B en el tope: paridad. Tier C: ya se está pagando precio de mercado.</li>
+      <li>La edición del año pasado en La Paz tuvo una pieza con base de $1 que cerró en $600 — el "señuelo" funciona. Definir tope antes de entrar a la sala y no moverlo.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  Análisis preparado · <span>BCP Enalta</span> · Subasta Santa Cruz · 29.04.2026
+</footer>
+
+<script>
+const data = [
+  {a:"María Esther Ballivián", o:"Bodegón I", m:"Acuarela 47×32", b:300, mn:1500, mx:3000, t:1200, tier:"A", feat:1, rank:1, why:"Maestra siglo XX, oferta cerrada"},
+  {a:"María Esther Ballivián", o:"Serie flores", m:"Acuarela 34×17", b:300, mn:800, mx:1800, t:700, tier:"B"},
+  {a:"Raúl Lara", o:"Cumpleaños de Asunción", m:"Tinta y pincel 32,5×20", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Raúl Lara", o:"Estudio de micro", m:"Lápiz cartulina 25×24, 1981", b:900, mn:1500, mx:3000, t:1400, tier:"B"},
+  {a:"Luis Zilveti", o:"Va y viene", m:"Óleo lienzo 38×46", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Luis Zilveti", o:"Les passants de l'andelá I", m:"Acuarela 42×21,9", b:350, mn:700, mx:1500, t:600, tier:"B"},
+  {a:"Luis Zilveti", o:"Fuego, carbón y ceniza IV", m:"Óleo papel 65×50", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Alfredo La Placa", o:"Personajes", m:"Dibujo pluma 84×42", b:700, mn:1800, mx:3500, t:1500, tier:"B"},
+  {a:"Alfredo La Placa", o:"Tres manchas", m:"Óleo papel 84×42", b:550, mn:2500, mx:5000, t:1800, tier:"A", feat:2, rank:2, why:"Maestro abstracto, formato grande"},
+  {a:"Alfredo La Placa", o:"Susurro 2", m:"Óleo papel 14×17", b:225, mn:800, mx:1500, t:600, tier:"A", feat:8, rank:8, why:"Mini-pieza, firma de maestro"},
+  {a:"Mario Conde", o:"De conquistados y conquistadores", m:"Grafito 66×50", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {a:"Mario Conde", o:"Ángel o demonio", m:"Acuarela 38×53", b:400, mn:1000, mx:2000, t:800, tier:"B"},
+  {a:"Mario Conde", o:"La virgen de las iguanas", m:"Acuarela 56×76", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"Juan Bustillos", o:"Cebú", m:"Bronce 26×19×12", b:400, mn:700, mx:1400, t:600, tier:"B"},
+  {a:"Juan Bustillos", o:"Torito", m:"Bronce 21×18×12", b:1, mn:700, mx:1400, t:600, tier:"A"},
+  {a:"Juan Bustillos", o:"Rostro", m:"Bronce 30×27×17", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {a:"Ángeles Fabbri", o:"Ocaso", m:"Acrílico lienzo 170×150", b:1000, mn:2000, mx:3500, t:1500, tier:"C"},
+  {a:"Ángeles Fabbri", o:"Tulipán en fondo azul", m:"Acrílico 35×150", b:450, mn:900, mx:1800, t:750, tier:"B"},
+  {a:"Ángeles Fabbri", o:"La ciudad y sus ventanas", m:"Acrílico 118×134", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"José Bayro C.", o:"Bipolares", m:"Óleo lienzo 50×30", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {a:"José Bayro C.", o:"La sonámbula", m:"Óleo lino 80×80", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
+  {a:"Ejti Stih", o:"La maleta", m:"Mixta 60×40", b:1, mn:1500, mx:3000, t:1200, tier:"A", feat:4, rank:4, why:"Top de Santa Cruz, base señuelo"},
+  {a:"Ejti Stih", o:"La despedida al globo blanco", m:"Acrílico lienzo 130×70", b:600, mn:2500, mx:5000, t:1800, tier:"A", feat:7, rank:7, why:"Pieza grande emblemática"},
+  {a:"Ejti Stih", o:"Reunión de directorio", m:"Mixta 60×40", b:200, mn:1200, mx:2500, t:900, tier:"A"},
+  {a:"Javier Fernández", o:"Aparapita", m:"Óleo lienzo 62×100", b:350, mn:800, mx:1800, t:700, tier:"B"},
+  {a:"Javier Fernández", o:"Ultramar", m:"Acuarela 53×73", b:250, mn:500, mx:1000, t:400, tier:"B"},
+  {a:"Javier Fernández", o:"Oración", m:"Acuarela 53×72", b:1, mn:500, mx:1000, t:400, tier:"A"},
+  {a:"Rosmery Mamani", o:"Armonía cotidiana", m:"Pastel pastelmatt 68×50", b:400, mn:2500, mx:5000, t:2000, tier:"A", feat:3, rank:3, why:"Hiperrealista internacional"},
+  {a:"Rosmery Mamani", o:"Donde descansan los pétalos", m:"Acrílico lienzo 80×100", b:300, mn:2500, mx:5000, t:2000, tier:"A"},
+  {a:"Fernando Antezana", o:"Santa Cruz en flor", m:"Mixta lienzo 250×180", b:1000, mn:3000, mx:6000, t:2200, tier:"B"},
+  {a:"Fernando Antezana", o:"Jacarandá", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"Fernando Antezana", o:"Gemelas", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"Fernando Antezana", o:"Glaciar", m:"Mixta lienzo 130×300", b:100, mn:2500, mx:5000, t:1800, tier:"A", feat:6, rank:6, why:"3 metros, base ridículo"},
+  {a:"Juan José Serrano", o:"La Cebú plé", m:"Mixta lienzo 147×61", b:1, mn:1000, mx:2000, t:700, tier:"A"},
+  {a:"Juan José Serrano", o:"Blue cat", m:"Acrílico lienzo 147×61", b:550, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Juan José Serrano", o:"Richy", m:"Acrílico lienzo 147×61", b:350, mn:1000, mx:2000, t:750, tier:"B"},
+  {a:"Adda Donato", o:"En el lago de los cisnes", m:"Óleo lienzo 140×130", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"Adda Donato", o:"Toro en la ciudad", m:"Óleo lienzo 140×130", b:350, mn:1200, mx:2500, t:900, tier:"B"},
+  {a:"Adda Donato", o:"El guajojó", m:"Óleo lienzo 140×130", b:400, mn:1500, mx:3000, t:1100, tier:"B"},
+  {a:"Adda Donato", o:"La máquina", m:"Óleo lienzo 20×20", b:1, mn:400, mx:800, t:300, tier:"A"},
+  {a:"Gustavo del Río", o:"Piezas de ajedrez", m:"Óleo lienzo 105×70", b:350, mn:1000, mx:2000, t:800, tier:"B"},
+  {a:"Gustavo del Río", o:"El artista en el museo", m:"Óleo lienzo 180×100", b:900, mn:2000, mx:4000, t:1500, tier:"B"},
+  {a:"Gustavo del Río", o:"La Catedral", m:"Óleo lienzo 50×180", b:400, mn:1200, mx:2500, t:900, tier:"B"},
+  {a:"Vidal Cussi", o:"Retorno", m:"Óleo lienzo 118×127", b:600, mn:2000, mx:4000, t:1500, tier:"B"},
+  {a:"Vidal Cussi", o:"Despliegue", m:"Óleo lienzo 125×150", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
+  {a:"Vidal Cussi", o:"Armonía", m:"Óleo lienzo 150×120", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
+  {a:"Vidal Cussi", o:"Valiente", m:"Óleo lienzo 90×90", b:1, mn:1800, mx:3500, t:1200, tier:"A", feat:5, rank:5, why:"Hiperrealista, base señuelo"},
+  {a:"Koqui Handal", o:"Teseo", m:"Acrílico lienzo y metal 100×100", b:700, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Jamir Johanson", o:"Mágica luz", m:"Óleo lienzo 180×110", b:800, mn:1800, mx:3500, t:1400, tier:"B"},
+  {a:"Jamir Johanson", o:"Ballet", m:"Mixta papel 71×105", b:350, mn:700, mx:1400, t:600, tier:"B"},
+  {a:"Jamir Johanson", o:"Flash dance", m:"Óleo lienzo 50×180", b:500, mn:1200, mx:2500, t:900, tier:"B"},
+  {a:"Carolina Lovo", o:"Indomables (detalle)", m:"Acrílico lienzo 100×80", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {a:"Carolina Lovo", o:"Toro bravío", m:"Acrílico lienzo 50×50", b:1, mn:400, mx:800, t:350, tier:"A"},
+  {a:"Pablo Giovany", o:"Cholita barroca posando", m:"Acrílico y lápiz 60×80", b:200, mn:400, mx:800, t:350, tier:"B"},
+  {a:"Pablo Giovany", o:"Niño Banksy iniciando un grafiti", m:"Acrílico y lápiz 59,5×80", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {a:"Corina Aguilar", o:"Euforia", m:"Óleo lienzo 85×150", b:400, mn:1000, mx:2000, t:800, tier:"B"},
+  {a:"Corina Aguilar", o:"Espíritu de la ciudad", m:"Óleo lienzo 145×148", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {a:"Corina Aguilar", o:"Secretos", m:"Óleo lienzo 75×150", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Hernán Callisaya", o:"El manual del cordero", m:"Óleo lienzo 56×76", b:300, mn:700, mx:1400, t:600, tier:"B"},
+  {a:"Hernán Callisaya", o:"El enigma del canto rojo", m:"Óleo lienzo/panel 125×50", b:1, mn:1200, mx:2500, t:900, tier:"A"},
+  {a:"Hernán Callisaya", o:"El equilibrio de lo improbable", m:"Óleo lienzo/panel 50×125", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Darío Antezana", o:"Revuelo", m:"Acuarela 40×54", b:1, mn:400, mx:800, t:350, tier:"A"},
+  {a:"Darío Antezana", o:"Portón del campanario", m:"Acuarela 115×80", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Darío Antezana", o:"Rincón del horno", m:"Acuarela 58×78", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {a:"María José Rodríguez", o:"Brío", m:"Carboncillo 43×22", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {a:"María José Rodríguez", o:"De la serie testigos II", m:"Óleo lienzo 60×90", b:300, mn:600, mx:1200, t:500, tier:"B"},
+  {a:"Jaime Calizaya", o:"Media vuelta", m:"Acrílico lienzo 60×60", b:300, mn:500, mx:1000, t:450, tier:"B"},
+  {a:"Jaime Calizaya", o:"Jaguar americano", m:"Acrílico lienzo 80×100", b:600, mn:1000, mx:2000, t:850, tier:"B"},
+  {a:"Jaime Calizaya", o:"A paso firme", m:"Acrílico lienzo 100×80", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {a:"Ariela Hossen", o:"Abstracto", m:"Acrílico lienzo crudo 100×100", b:300, mn:500, mx:1200, t:500, tier:"B"},
+  {a:"Juan Suntura", o:"Sueño", m:"Soldadura 115×75×20", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {a:"Juan Suntura", o:"Brujo", m:"Soldadura 220×90×50", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
+  {a:"Juan Suntura", o:"Cabezón", m:"Soldadura 180×75×35", b:400, mn:900, mx:1800, t:700, tier:"B"},
+  {a:"Juan Suntura", o:"Picudo", m:"Soldadura 145×50×20", b:1, mn:700, mx:1400, t:550, tier:"A"},
+  {a:"Christian Aranibar", o:"El reposo del ángel", m:"Óleo lienzo 120×60", b:300, mn:700, mx:1400, t:550, tier:"B"},
+  {a:"Christian Aranibar", o:"Ángel de la guarda", m:"Óleo lienzo 50×180", b:350, mn:800, mx:1500, t:650, tier:"B"},
+  {a:"Eusebio Choque", o:"Mis tres amores", m:"Pastel seco papel 107×47", b:150, mn:400, mx:800, t:300, tier:"B"},
+  {a:"Eusebio Choque", o:"Los cuidaré mucho", m:"Pastel seco papel 78×60", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {a:"Hisaco Tatiana Hoshino", o:"Contra la corriente", m:"Óleo lienzo 20×40", b:150, mn:250, mx:500, t:200, tier:"B"},
+  {a:"Hisaco Tatiana Hoshino", o:"Peces Koi estilo Sumi-e", m:"Óleo lienzo 20×40", b:1, mn:250, mx:500, t:200, tier:"A"},
+  {a:"Juan Mayta", o:"La energía del Fuerte", m:"Óleo lienzo 190×60", b:300, mn:700, mx:1400, t:600, tier:"B"},
+  {a:"Juan Mayta", o:"Dualidad", m:"Óleo lienzo 170×120", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {a:"Rina Mamani", o:"Raíces", m:"Acuarela papel 56×38", b:150, mn:300, mx:600, t:250, tier:"B"},
+  {a:"Rina Mamani", o:"Desayuno", m:"Acuarela tablero 56×38", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {a:"Raúl Alvarado", o:"Semilla en reposo", m:"Talla piedra ónix 20×25×18", b:200, mn:400, mx:800, t:350, tier:"B"},
+  {a:"Raúl Alvarado", o:"Nudo del viento", m:"Talla basalto 55×40×15", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {a:"Betzalel Maida", o:"La mocochinchera", m:"Óleo yute 45×80", b:400, mn:700, mx:1400, t:600, tier:"B"},
+  {a:"Sharon Pérez", o:"Luciana", m:"Mixta metal 50×120", b:500, mn:800, mx:1500, t:700, tier:"B"}
+];
+
+// Update stats
+const tierA = data.filter(d=>d.tier==="A").length;
+const tierB = data.filter(d=>d.tier==="B").length;
+const tierC = data.filter(d=>d.tier==="C").length;
+document.getElementById('stat-a').textContent = tierA;
+document.getElementById('stat-b').textContent = tierB;
+document.getElementById('stat-c').textContent = tierC;
+
+// Render top picks
+const picksGrid = document.getElementById('picks-grid');
+const picks = data.filter(d=>d.feat).sort((a,b)=>a.rank-b.rank);
+picksGrid.innerHTML = picks.map(p=>`
+  <div class="pick">
+    <div class="pick-rank">${String(p.rank).padStart(2,'0')}</div>
+    <div class="pick-artist">${p.a}</div>
+    <div class="pick-title">${p.o}</div>
+    <div class="pick-meta">${p.m}</div>
+    <div class="pick-prices">
+      <div class="pick-price">
+        <span class="pick-price-label">Base</span>
+        <span class="pick-price-val">$${p.b.toLocaleString()}</span>
+      </div>
+      <div class="pick-price">
+        <span class="pick-price-label">Mercado</span>
+        <span class="pick-price-val">$${(p.mn/1000).toFixed(1)}–${(p.mx/1000).toFixed(1)}k</span>
+      </div>
+      <div class="pick-price">
+        <span class="pick-price-label">Tope</span>
+        <span class="pick-price-val tope">$${p.t.toLocaleString()}</span>
+      </div>
+    </div>
+    <div class="pick-rationale">${p.why}</div>
+  </div>
+`).join('');
+
+// Render table
+const tbody = document.getElementById('tbody');
+function render(filter='all', search=''){
+  const s = search.toLowerCase().trim();
+  const filtered = data.filter(d=>{
+    const tierOk = filter==='all' || d.tier===filter;
+    const searchOk = !s || d.a.toLowerCase().includes(s) || d.o.toLowerCase().includes(s);
+    return tierOk && searchOk;
+  });
+  if(!filtered.length){
+    tbody.innerHTML = `<tr><td colspan="6" class="empty-row">No hay obras con esos filtros</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = filtered.map(d=>`
+    <tr class="${d.feat?'featured':''}">
+      <td class="artist-cell">${d.a}${d.feat?'<span class="featured-mark">★</span>':''}</td>
+      <td class="work-cell">${d.o}<span class="work-meta">${d.m}</span></td>
+      <td class="num">$${d.b.toLocaleString()}</td>
+      <td class="num">$${d.mn.toLocaleString()}–$${d.mx.toLocaleString()}</td>
+      <td class="num tope-cell">$${d.t.toLocaleString()}</td>
+      <td><span class="tier tier-${d.tier}">${d.tier}</span></td>
+    </tr>
+  `).join('');
+}
+render();
+
+// Filter handlers
+let currentFilter = 'all';
+let currentSearch = '';
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.tier;
+    render(currentFilter, currentSearch);
+  });
+});
+document.getElementById('search').addEventListener('input',e=>{
+  currentSearch = e.target.value;
+  render(currentFilter, currentSearch);
+});
+</script>
+</body>
+</html>
