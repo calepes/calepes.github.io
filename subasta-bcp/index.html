@@ -254,6 +254,22 @@
     color:var(--accent);
     margin-bottom:10px;
   }
+  .pick-lot{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border:1px solid var(--accent);
+    border-radius:50%;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent);
+    margin-right:8px;
+    vertical-align:middle;
+    background:var(--paper);
+  }
   .pick-title{
     font-family:'Fraunces',serif;
     font-size:22px;
@@ -441,6 +457,24 @@
     font-family:'JetBrains Mono',monospace;
     font-variant-numeric:tabular-nums;
     white-space:nowrap;
+  }
+  .lot-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:26px;
+    height:26px;
+    border:1px solid var(--ink-soft);
+    border-radius:50%;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--paper);
+  }
+  tr.featured .lot-num{
+    border-color:var(--accent);
+    color:var(--accent);
   }
   td.tope-cell{
     color:var(--accent-2);
@@ -650,6 +684,7 @@
     <table>
       <thead>
         <tr>
+          <th>N°</th>
           <th>Artista</th>
           <th>Obra</th>
           <th class="num">Base</th>
@@ -706,94 +741,94 @@
 
 <script>
 const data = [
-  {a:"María Esther Ballivián", o:"Bodegón I", m:"Acuarela 47×32", b:300, mn:1500, mx:3000, t:1200, tier:"A", feat:1, rank:1, why:"Maestra siglo XX, oferta cerrada"},
-  {a:"María Esther Ballivián", o:"Serie flores", m:"Acuarela 34×17", b:300, mn:800, mx:1800, t:700, tier:"B"},
-  {a:"Raúl Lara", o:"Cumpleaños de Asunción", m:"Tinta y pincel 32,5×20", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Raúl Lara", o:"Estudio de micro", m:"Lápiz cartulina 25×24, 1981", b:900, mn:1500, mx:3000, t:1400, tier:"B"},
-  {a:"Luis Zilveti", o:"Va y viene", m:"Óleo lienzo 38×46", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Luis Zilveti", o:"Les passants de l'andelá I", m:"Acuarela 42×21,9", b:350, mn:700, mx:1500, t:600, tier:"B"},
-  {a:"Luis Zilveti", o:"Fuego, carbón y ceniza IV", m:"Óleo papel 65×50", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Alfredo La Placa", o:"Personajes", m:"Dibujo pluma 84×42", b:700, mn:1800, mx:3500, t:1500, tier:"B"},
-  {a:"Alfredo La Placa", o:"Tres manchas", m:"Óleo papel 84×42", b:550, mn:2500, mx:5000, t:1800, tier:"A", feat:2, rank:2, why:"Maestro abstracto, formato grande"},
-  {a:"Alfredo La Placa", o:"Susurro 2", m:"Óleo papel 14×17", b:225, mn:800, mx:1500, t:600, tier:"A", feat:8, rank:8, why:"Mini-pieza, firma de maestro"},
-  {a:"Mario Conde", o:"De conquistados y conquistadores", m:"Grafito 66×50", b:400, mn:800, mx:1500, t:700, tier:"B"},
-  {a:"Mario Conde", o:"Ángel o demonio", m:"Acuarela 38×53", b:400, mn:1000, mx:2000, t:800, tier:"B"},
-  {a:"Mario Conde", o:"La virgen de las iguanas", m:"Acuarela 56×76", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"Juan Bustillos", o:"Cebú", m:"Bronce 26×19×12", b:400, mn:700, mx:1400, t:600, tier:"B"},
-  {a:"Juan Bustillos", o:"Torito", m:"Bronce 21×18×12", b:1, mn:700, mx:1400, t:600, tier:"A"},
-  {a:"Juan Bustillos", o:"Rostro", m:"Bronce 30×27×17", b:500, mn:900, mx:1800, t:750, tier:"B"},
-  {a:"Ángeles Fabbri", o:"Ocaso", m:"Acrílico lienzo 170×150", b:1000, mn:2000, mx:3500, t:1500, tier:"C"},
-  {a:"Ángeles Fabbri", o:"Tulipán en fondo azul", m:"Acrílico 35×150", b:450, mn:900, mx:1800, t:750, tier:"B"},
-  {a:"Ángeles Fabbri", o:"La ciudad y sus ventanas", m:"Acrílico 118×134", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"José Bayro C.", o:"Bipolares", m:"Óleo lienzo 50×30", b:500, mn:900, mx:1800, t:750, tier:"B"},
-  {a:"José Bayro C.", o:"La sonámbula", m:"Óleo lino 80×80", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
-  {a:"Ejti Stih", o:"La maleta", m:"Mixta 60×40", b:1, mn:1500, mx:3000, t:1200, tier:"A", feat:4, rank:4, why:"Top de Santa Cruz, base señuelo"},
-  {a:"Ejti Stih", o:"La despedida al globo blanco", m:"Acrílico lienzo 130×70", b:600, mn:2500, mx:5000, t:1800, tier:"A", feat:7, rank:7, why:"Pieza grande emblemática"},
-  {a:"Ejti Stih", o:"Reunión de directorio", m:"Mixta 60×40", b:200, mn:1200, mx:2500, t:900, tier:"A"},
-  {a:"Javier Fernández", o:"Aparapita", m:"Óleo lienzo 62×100", b:350, mn:800, mx:1800, t:700, tier:"B"},
-  {a:"Javier Fernández", o:"Ultramar", m:"Acuarela 53×73", b:250, mn:500, mx:1000, t:400, tier:"B"},
-  {a:"Javier Fernández", o:"Oración", m:"Acuarela 53×72", b:1, mn:500, mx:1000, t:400, tier:"A"},
-  {a:"Rosmery Mamani", o:"Armonía cotidiana", m:"Pastel pastelmatt 68×50", b:400, mn:2500, mx:5000, t:2000, tier:"A", feat:3, rank:3, why:"Hiperrealista internacional"},
-  {a:"Rosmery Mamani", o:"Donde descansan los pétalos", m:"Acrílico lienzo 80×100", b:300, mn:2500, mx:5000, t:2000, tier:"A"},
-  {a:"Fernando Antezana", o:"Santa Cruz en flor", m:"Mixta lienzo 250×180", b:1000, mn:3000, mx:6000, t:2200, tier:"B"},
-  {a:"Fernando Antezana", o:"Jacarandá", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"Fernando Antezana", o:"Gemelas", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"Fernando Antezana", o:"Glaciar", m:"Mixta lienzo 130×300", b:100, mn:2500, mx:5000, t:1800, tier:"A", feat:6, rank:6, why:"3 metros, base ridículo"},
-  {a:"Juan José Serrano", o:"La Cebú plé", m:"Mixta lienzo 147×61", b:1, mn:1000, mx:2000, t:700, tier:"A"},
-  {a:"Juan José Serrano", o:"Blue cat", m:"Acrílico lienzo 147×61", b:550, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Juan José Serrano", o:"Richy", m:"Acrílico lienzo 147×61", b:350, mn:1000, mx:2000, t:750, tier:"B"},
-  {a:"Adda Donato", o:"En el lago de los cisnes", m:"Óleo lienzo 140×130", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"Adda Donato", o:"Toro en la ciudad", m:"Óleo lienzo 140×130", b:350, mn:1200, mx:2500, t:900, tier:"B"},
-  {a:"Adda Donato", o:"El guajojó", m:"Óleo lienzo 140×130", b:400, mn:1500, mx:3000, t:1100, tier:"B"},
-  {a:"Adda Donato", o:"La máquina", m:"Óleo lienzo 20×20", b:1, mn:400, mx:800, t:300, tier:"A"},
-  {a:"Gustavo del Río", o:"Piezas de ajedrez", m:"Óleo lienzo 105×70", b:350, mn:1000, mx:2000, t:800, tier:"B"},
-  {a:"Gustavo del Río", o:"El artista en el museo", m:"Óleo lienzo 180×100", b:900, mn:2000, mx:4000, t:1500, tier:"B"},
-  {a:"Gustavo del Río", o:"La Catedral", m:"Óleo lienzo 50×180", b:400, mn:1200, mx:2500, t:900, tier:"B"},
-  {a:"Vidal Cussi", o:"Retorno", m:"Óleo lienzo 118×127", b:600, mn:2000, mx:4000, t:1500, tier:"B"},
-  {a:"Vidal Cussi", o:"Despliegue", m:"Óleo lienzo 125×150", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
-  {a:"Vidal Cussi", o:"Armonía", m:"Óleo lienzo 150×120", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
-  {a:"Vidal Cussi", o:"Valiente", m:"Óleo lienzo 90×90", b:1, mn:1800, mx:3500, t:1200, tier:"A", feat:5, rank:5, why:"Hiperrealista, base señuelo"},
-  {a:"Koqui Handal", o:"Teseo", m:"Acrílico lienzo y metal 100×100", b:700, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Jamir Johanson", o:"Mágica luz", m:"Óleo lienzo 180×110", b:800, mn:1800, mx:3500, t:1400, tier:"B"},
-  {a:"Jamir Johanson", o:"Ballet", m:"Mixta papel 71×105", b:350, mn:700, mx:1400, t:600, tier:"B"},
-  {a:"Jamir Johanson", o:"Flash dance", m:"Óleo lienzo 50×180", b:500, mn:1200, mx:2500, t:900, tier:"B"},
-  {a:"Carolina Lovo", o:"Indomables (detalle)", m:"Acrílico lienzo 100×80", b:400, mn:800, mx:1500, t:700, tier:"B"},
-  {a:"Carolina Lovo", o:"Toro bravío", m:"Acrílico lienzo 50×50", b:1, mn:400, mx:800, t:350, tier:"A"},
-  {a:"Pablo Giovany", o:"Cholita barroca posando", m:"Acrílico y lápiz 60×80", b:200, mn:400, mx:800, t:350, tier:"B"},
-  {a:"Pablo Giovany", o:"Niño Banksy iniciando un grafiti", m:"Acrílico y lápiz 59,5×80", b:200, mn:500, mx:1000, t:400, tier:"B"},
-  {a:"Corina Aguilar", o:"Euforia", m:"Óleo lienzo 85×150", b:400, mn:1000, mx:2000, t:800, tier:"B"},
-  {a:"Corina Aguilar", o:"Espíritu de la ciudad", m:"Óleo lienzo 145×148", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
-  {a:"Corina Aguilar", o:"Secretos", m:"Óleo lienzo 75×150", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Hernán Callisaya", o:"El manual del cordero", m:"Óleo lienzo 56×76", b:300, mn:700, mx:1400, t:600, tier:"B"},
-  {a:"Hernán Callisaya", o:"El enigma del canto rojo", m:"Óleo lienzo/panel 125×50", b:1, mn:1200, mx:2500, t:900, tier:"A"},
-  {a:"Hernán Callisaya", o:"El equilibrio de lo improbable", m:"Óleo lienzo/panel 50×125", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Darío Antezana", o:"Revuelo", m:"Acuarela 40×54", b:1, mn:400, mx:800, t:350, tier:"A"},
-  {a:"Darío Antezana", o:"Portón del campanario", m:"Acuarela 115×80", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Darío Antezana", o:"Rincón del horno", m:"Acuarela 58×78", b:400, mn:800, mx:1500, t:700, tier:"B"},
-  {a:"María José Rodríguez", o:"Brío", m:"Carboncillo 43×22", b:1, mn:300, mx:600, t:250, tier:"A"},
-  {a:"María José Rodríguez", o:"De la serie testigos II", m:"Óleo lienzo 60×90", b:300, mn:600, mx:1200, t:500, tier:"B"},
-  {a:"Jaime Calizaya", o:"Media vuelta", m:"Acrílico lienzo 60×60", b:300, mn:500, mx:1000, t:450, tier:"B"},
-  {a:"Jaime Calizaya", o:"Jaguar americano", m:"Acrílico lienzo 80×100", b:600, mn:1000, mx:2000, t:850, tier:"B"},
-  {a:"Jaime Calizaya", o:"A paso firme", m:"Acrílico lienzo 100×80", b:500, mn:900, mx:1800, t:750, tier:"B"},
-  {a:"Ariela Hossen", o:"Abstracto", m:"Acrílico lienzo crudo 100×100", b:300, mn:500, mx:1200, t:500, tier:"B"},
-  {a:"Juan Suntura", o:"Sueño", m:"Soldadura 115×75×20", b:200, mn:500, mx:1000, t:400, tier:"B"},
-  {a:"Juan Suntura", o:"Brujo", m:"Soldadura 220×90×50", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
-  {a:"Juan Suntura", o:"Cabezón", m:"Soldadura 180×75×35", b:400, mn:900, mx:1800, t:700, tier:"B"},
-  {a:"Juan Suntura", o:"Picudo", m:"Soldadura 145×50×20", b:1, mn:700, mx:1400, t:550, tier:"A"},
-  {a:"Christian Aranibar", o:"El reposo del ángel", m:"Óleo lienzo 120×60", b:300, mn:700, mx:1400, t:550, tier:"B"},
-  {a:"Christian Aranibar", o:"Ángel de la guarda", m:"Óleo lienzo 50×180", b:350, mn:800, mx:1500, t:650, tier:"B"},
-  {a:"Eusebio Choque", o:"Mis tres amores", m:"Pastel seco papel 107×47", b:150, mn:400, mx:800, t:300, tier:"B"},
-  {a:"Eusebio Choque", o:"Los cuidaré mucho", m:"Pastel seco papel 78×60", b:1, mn:300, mx:600, t:250, tier:"A"},
-  {a:"Hisaco Tatiana Hoshino", o:"Contra la corriente", m:"Óleo lienzo 20×40", b:150, mn:250, mx:500, t:200, tier:"B"},
-  {a:"Hisaco Tatiana Hoshino", o:"Peces Koi estilo Sumi-e", m:"Óleo lienzo 20×40", b:1, mn:250, mx:500, t:200, tier:"A"},
-  {a:"Juan Mayta", o:"La energía del Fuerte", m:"Óleo lienzo 190×60", b:300, mn:700, mx:1400, t:600, tier:"B"},
-  {a:"Juan Mayta", o:"Dualidad", m:"Óleo lienzo 170×120", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
-  {a:"Rina Mamani", o:"Raíces", m:"Acuarela papel 56×38", b:150, mn:300, mx:600, t:250, tier:"B"},
-  {a:"Rina Mamani", o:"Desayuno", m:"Acuarela tablero 56×38", b:1, mn:300, mx:600, t:250, tier:"A"},
-  {a:"Raúl Alvarado", o:"Semilla en reposo", m:"Talla piedra ónix 20×25×18", b:200, mn:400, mx:800, t:350, tier:"B"},
-  {a:"Raúl Alvarado", o:"Nudo del viento", m:"Talla basalto 55×40×15", b:200, mn:500, mx:1000, t:400, tier:"B"},
-  {a:"Betzalel Maida", o:"La mocochinchera", m:"Óleo yute 45×80", b:400, mn:700, mx:1400, t:600, tier:"B"},
-  {a:"Sharon Pérez", o:"Luciana", m:"Mixta metal 50×120", b:500, mn:800, mx:1500, t:700, tier:"B"}
+  {n:1, a:"María Esther Ballivián", o:"Bodegón I", m:"Acuarela 47×32", b:300, mn:1500, mx:3000, t:1200, tier:"A", feat:1, rank:1, why:"Maestra siglo XX, oferta cerrada"},
+  {n:2, a:"María Esther Ballivián", o:"Serie flores", m:"Acuarela 34×17", b:300, mn:800, mx:1800, t:700, tier:"B"},
+  {n:1, a:"Raúl Lara", o:"Cumpleaños de Asunción", m:"Tinta y pincel 32,5×20", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:2, a:"Raúl Lara", o:"Estudio de micro", m:"Lápiz cartulina 25×24, 1981", b:900, mn:1500, mx:3000, t:1400, tier:"B"},
+  {n:1, a:"Luis Zilveti", o:"Va y viene", m:"Óleo lienzo 38×46", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:2, a:"Luis Zilveti", o:"Les passants de l'andelá I", m:"Acuarela 42×21,9", b:350, mn:700, mx:1500, t:600, tier:"B"},
+  {n:3, a:"Luis Zilveti", o:"Fuego, carbón y ceniza IV", m:"Óleo papel 65×50", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:1, a:"Alfredo La Placa", o:"Personajes", m:"Dibujo pluma 84×42", b:700, mn:1800, mx:3500, t:1500, tier:"B"},
+  {n:2, a:"Alfredo La Placa", o:"Tres manchas", m:"Óleo papel 84×42", b:550, mn:2500, mx:5000, t:1800, tier:"A", feat:2, rank:2, why:"Maestro abstracto, formato grande"},
+  {n:3, a:"Alfredo La Placa", o:"Susurro 2", m:"Óleo papel 14×17", b:225, mn:800, mx:1500, t:600, tier:"A", feat:8, rank:8, why:"Mini-pieza, firma de maestro"},
+  {n:1, a:"Mario Conde", o:"De conquistados y conquistadores", m:"Grafito 66×50", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {n:2, a:"Mario Conde", o:"Ángel o demonio", m:"Acuarela 38×53", b:400, mn:1000, mx:2000, t:800, tier:"B"},
+  {n:3, a:"Mario Conde", o:"La virgen de las iguanas", m:"Acuarela 56×76", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:1, a:"Juan Bustillos", o:"Cebú", m:"Bronce 26×19×12", b:400, mn:700, mx:1400, t:600, tier:"B"},
+  {n:2, a:"Juan Bustillos", o:"Torito", m:"Bronce 21×18×12", b:1, mn:700, mx:1400, t:600, tier:"A"},
+  {n:3, a:"Juan Bustillos", o:"Rostro", m:"Bronce 30×27×17", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {n:1, a:"Ángeles Fabbri", o:"Ocaso", m:"Acrílico lienzo 170×150", b:1000, mn:2000, mx:3500, t:1500, tier:"C"},
+  {n:2, a:"Ángeles Fabbri", o:"Tulipán en fondo azul", m:"Acrílico 35×150", b:450, mn:900, mx:1800, t:750, tier:"B"},
+  {n:3, a:"Ángeles Fabbri", o:"La ciudad y sus ventanas", m:"Acrílico 118×134", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:1, a:"José Bayro C.", o:"Bipolares", m:"Óleo lienzo 50×30", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {n:2, a:"José Bayro C.", o:"La sonámbula", m:"Óleo lino 80×80", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
+  {n:1, a:"Ejti Stih", o:"La maleta", m:"Mixta 60×40", b:1, mn:1500, mx:3000, t:1200, tier:"A", feat:4, rank:4, why:"Top de Santa Cruz, base señuelo"},
+  {n:2, a:"Ejti Stih", o:"La despedida al globo blanco", m:"Acrílico lienzo 130×70", b:600, mn:2500, mx:5000, t:1800, tier:"A", feat:7, rank:7, why:"Pieza grande emblemática"},
+  {n:3, a:"Ejti Stih", o:"Reunión de directorio", m:"Mixta 60×40", b:200, mn:1200, mx:2500, t:900, tier:"A"},
+  {n:1, a:"Javier Fernández", o:"Aparapita", m:"Óleo lienzo 62×100", b:350, mn:800, mx:1800, t:700, tier:"B"},
+  {n:2, a:"Javier Fernández", o:"Ultramar", m:"Acuarela 53×73", b:250, mn:500, mx:1000, t:400, tier:"B"},
+  {n:3, a:"Javier Fernández", o:"Oración", m:"Acuarela 53×72", b:1, mn:500, mx:1000, t:400, tier:"A"},
+  {n:1, a:"Rosmery Mamani", o:"Armonía cotidiana", m:"Pastel pastelmatt 68×50", b:400, mn:2500, mx:5000, t:2000, tier:"A", feat:3, rank:3, why:"Hiperrealista internacional"},
+  {n:2, a:"Rosmery Mamani", o:"Donde descansan los pétalos", m:"Acrílico lienzo 80×100", b:300, mn:2500, mx:5000, t:2000, tier:"A"},
+  {n:1, a:"Fernando Antezana", o:"Santa Cruz en flor", m:"Mixta lienzo 250×180", b:1000, mn:3000, mx:6000, t:2200, tier:"B"},
+  {n:2, a:"Fernando Antezana", o:"Jacarandá", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:3, a:"Fernando Antezana", o:"Gemelas", m:"Mixta lienzo 120×150", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:4, a:"Fernando Antezana", o:"Glaciar", m:"Mixta lienzo 130×300", b:100, mn:2500, mx:5000, t:1800, tier:"A", feat:6, rank:6, why:"3 metros, base ridículo"},
+  {n:1, a:"Juan José Serrano", o:"La Cebú plé", m:"Mixta lienzo 147×61", b:1, mn:1000, mx:2000, t:700, tier:"A"},
+  {n:2, a:"Juan José Serrano", o:"Blue cat", m:"Acrílico lienzo 147×61", b:550, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:3, a:"Juan José Serrano", o:"Richy", m:"Acrílico lienzo 147×61", b:350, mn:1000, mx:2000, t:750, tier:"B"},
+  {n:1, a:"Adda Donato", o:"En el lago de los cisnes", m:"Óleo lienzo 140×130", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:2, a:"Adda Donato", o:"Toro en la ciudad", m:"Óleo lienzo 140×130", b:350, mn:1200, mx:2500, t:900, tier:"B"},
+  {n:3, a:"Adda Donato", o:"El guajojó", m:"Óleo lienzo 140×130", b:400, mn:1500, mx:3000, t:1100, tier:"B"},
+  {n:4, a:"Adda Donato", o:"La máquina", m:"Óleo lienzo 20×20", b:1, mn:400, mx:800, t:300, tier:"A"},
+  {n:1, a:"Gustavo del Río", o:"Piezas de ajedrez", m:"Óleo lienzo 105×70", b:350, mn:1000, mx:2000, t:800, tier:"B"},
+  {n:2, a:"Gustavo del Río", o:"El artista en el museo", m:"Óleo lienzo 180×100", b:900, mn:2000, mx:4000, t:1500, tier:"B"},
+  {n:3, a:"Gustavo del Río", o:"La Catedral", m:"Óleo lienzo 50×180", b:400, mn:1200, mx:2500, t:900, tier:"B"},
+  {n:1, a:"Vidal Cussi", o:"Retorno", m:"Óleo lienzo 118×127", b:600, mn:2000, mx:4000, t:1500, tier:"B"},
+  {n:2, a:"Vidal Cussi", o:"Despliegue", m:"Óleo lienzo 125×150", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
+  {n:3, a:"Vidal Cussi", o:"Armonía", m:"Óleo lienzo 150×120", b:500, mn:2500, mx:5000, t:1800, tier:"A"},
+  {n:4, a:"Vidal Cussi", o:"Valiente", m:"Óleo lienzo 90×90", b:1, mn:1800, mx:3500, t:1200, tier:"A", feat:5, rank:5, why:"Hiperrealista, base señuelo"},
+  {n:1, a:"Koqui Handal", o:"Teseo", m:"Acrílico lienzo y metal 100×100", b:700, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:1, a:"Jamir Johanson", o:"Mágica luz", m:"Óleo lienzo 180×110", b:800, mn:1800, mx:3500, t:1400, tier:"B"},
+  {n:2, a:"Jamir Johanson", o:"Ballet", m:"Mixta papel 71×105", b:350, mn:700, mx:1400, t:600, tier:"B"},
+  {n:3, a:"Jamir Johanson", o:"Flash dance", m:"Óleo lienzo 50×180", b:500, mn:1200, mx:2500, t:900, tier:"B"},
+  {n:1, a:"Carolina Lovo", o:"Indomables (detalle)", m:"Acrílico lienzo 100×80", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {n:2, a:"Carolina Lovo", o:"Toro bravío", m:"Acrílico lienzo 50×50", b:1, mn:400, mx:800, t:350, tier:"A"},
+  {n:1, a:"Pablo Giovany", o:"Cholita barroca posando", m:"Acrílico y lápiz 60×80", b:200, mn:400, mx:800, t:350, tier:"B"},
+  {n:2, a:"Pablo Giovany", o:"Niño Banksy iniciando un grafiti", m:"Acrílico y lápiz 59,5×80", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {n:1, a:"Corina Aguilar", o:"Euforia", m:"Óleo lienzo 85×150", b:400, mn:1000, mx:2000, t:800, tier:"B"},
+  {n:2, a:"Corina Aguilar", o:"Espíritu de la ciudad", m:"Óleo lienzo 145×148", b:500, mn:1500, mx:3000, t:1200, tier:"B"},
+  {n:3, a:"Corina Aguilar", o:"Secretos", m:"Óleo lienzo 75×150", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:1, a:"Hernán Callisaya", o:"El manual del cordero", m:"Óleo lienzo 56×76", b:300, mn:700, mx:1400, t:600, tier:"B"},
+  {n:2, a:"Hernán Callisaya", o:"El enigma del canto rojo", m:"Óleo lienzo/panel 125×50", b:1, mn:1200, mx:2500, t:900, tier:"A"},
+  {n:3, a:"Hernán Callisaya", o:"El equilibrio de lo improbable", m:"Óleo lienzo/panel 50×125", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:1, a:"Darío Antezana", o:"Revuelo", m:"Acuarela 40×54", b:1, mn:400, mx:800, t:350, tier:"A"},
+  {n:2, a:"Darío Antezana", o:"Portón del campanario", m:"Acuarela 115×80", b:600, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:3, a:"Darío Antezana", o:"Rincón del horno", m:"Acuarela 58×78", b:400, mn:800, mx:1500, t:700, tier:"B"},
+  {n:1, a:"María José Rodríguez", o:"Brío", m:"Carboncillo 43×22", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {n:2, a:"María José Rodríguez", o:"De la serie testigos II", m:"Óleo lienzo 60×90", b:300, mn:600, mx:1200, t:500, tier:"B"},
+  {n:1, a:"Jaime Calizaya", o:"Media vuelta", m:"Acrílico lienzo 60×60", b:300, mn:500, mx:1000, t:450, tier:"B"},
+  {n:2, a:"Jaime Calizaya", o:"Jaguar americano", m:"Acrílico lienzo 80×100", b:600, mn:1000, mx:2000, t:850, tier:"B"},
+  {n:3, a:"Jaime Calizaya", o:"A paso firme", m:"Acrílico lienzo 100×80", b:500, mn:900, mx:1800, t:750, tier:"B"},
+  {n:1, a:"Ariela Hossen", o:"Abstracto", m:"Acrílico lienzo crudo 100×100", b:300, mn:500, mx:1200, t:500, tier:"B"},
+  {n:1, a:"Juan Suntura", o:"Sueño", m:"Soldadura 115×75×20", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {n:2, a:"Juan Suntura", o:"Brujo", m:"Soldadura 220×90×50", b:1000, mn:1800, mx:3500, t:1500, tier:"C"},
+  {n:3, a:"Juan Suntura", o:"Cabezón", m:"Soldadura 180×75×35", b:400, mn:900, mx:1800, t:700, tier:"B"},
+  {n:4, a:"Juan Suntura", o:"Picudo", m:"Soldadura 145×50×20", b:1, mn:700, mx:1400, t:550, tier:"A"},
+  {n:1, a:"Christian Aranibar", o:"El reposo del ángel", m:"Óleo lienzo 120×60", b:300, mn:700, mx:1400, t:550, tier:"B"},
+  {n:2, a:"Christian Aranibar", o:"Ángel de la guarda", m:"Óleo lienzo 50×180", b:350, mn:800, mx:1500, t:650, tier:"B"},
+  {n:1, a:"Eusebio Choque", o:"Mis tres amores", m:"Pastel seco papel 107×47", b:150, mn:400, mx:800, t:300, tier:"B"},
+  {n:2, a:"Eusebio Choque", o:"Los cuidaré mucho", m:"Pastel seco papel 78×60", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {n:1, a:"Hisaco Tatiana Hoshino", o:"Contra la corriente", m:"Óleo lienzo 20×40", b:150, mn:250, mx:500, t:200, tier:"B"},
+  {n:2, a:"Hisaco Tatiana Hoshino", o:"Peces Koi estilo Sumi-e", m:"Óleo lienzo 20×40", b:1, mn:250, mx:500, t:200, tier:"A"},
+  {n:1, a:"Juan Mayta", o:"La energía del Fuerte", m:"Óleo lienzo 190×60", b:300, mn:700, mx:1400, t:600, tier:"B"},
+  {n:2, a:"Juan Mayta", o:"Dualidad", m:"Óleo lienzo 170×120", b:500, mn:1200, mx:2500, t:1000, tier:"B"},
+  {n:1, a:"Rina Mamani", o:"Raíces", m:"Acuarela papel 56×38", b:150, mn:300, mx:600, t:250, tier:"B"},
+  {n:2, a:"Rina Mamani", o:"Desayuno", m:"Acuarela tablero 56×38", b:1, mn:300, mx:600, t:250, tier:"A"},
+  {n:1, a:"Raúl Alvarado", o:"Semilla en reposo", m:"Talla piedra ónix 20×25×18", b:200, mn:400, mx:800, t:350, tier:"B"},
+  {n:2, a:"Raúl Alvarado", o:"Nudo del viento", m:"Talla basalto 55×40×15", b:200, mn:500, mx:1000, t:400, tier:"B"},
+  {n:1, a:"Betzalel Maida", o:"La mocochinchera", m:"Óleo yute 45×80", b:400, mn:700, mx:1400, t:600, tier:"B"},
+  {n:1, a:"Sharon Pérez", o:"Luciana", m:"Mixta metal 50×120", b:500, mn:800, mx:1500, t:700, tier:"B"}
 ];
 
 // Update stats
@@ -810,7 +845,7 @@ const picks = data.filter(d=>d.feat).sort((a,b)=>a.rank-b.rank);
 picksGrid.innerHTML = picks.map(p=>`
   <div class="pick">
     <div class="pick-rank">${String(p.rank).padStart(2,'0')}</div>
-    <div class="pick-artist">${p.a}</div>
+    <div class="pick-artist"><span class="pick-lot">${p.n}</span>${p.a}</div>
     <div class="pick-title">${p.o}</div>
     <div class="pick-meta">${p.m}</div>
     <div class="pick-prices">
@@ -837,7 +872,7 @@ function render(filter='all', search=''){
   const s = search.toLowerCase().trim();
   const filtered = data.filter(d=>{
     const tierOk = filter==='all' || d.tier===filter;
-    const searchOk = !s || d.a.toLowerCase().includes(s) || d.o.toLowerCase().includes(s);
+    const searchOk = !s || d.a.toLowerCase().includes(s) || d.o.toLowerCase().includes(s) || String(d.n)===s;
     return tierOk && searchOk;
   });
   if(!filtered.length){
@@ -846,6 +881,7 @@ function render(filter='all', search=''){
   }
   tbody.innerHTML = filtered.map(d=>`
     <tr class="${d.feat?'featured':''}">
+      <td><span class="lot-num">${d.n}</span></td>
       <td class="artist-cell">${d.a}${d.feat?'<span class="featured-mark">★</span>':''}</td>
       <td class="work-cell">${d.o}<span class="work-meta">${d.m}</span></td>
       <td class="num">$${d.b.toLocaleString()}</td>
