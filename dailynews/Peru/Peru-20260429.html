@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — Miércoles 29 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <header class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Miércoles 29 de abril de 2026 · Lima</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </header>
+
+  <div class="section-header reveal">Top 5 del día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Petroperú al borde del paro: piden US$2.000 millones para evitar cierre de Talara y Conchán</div>
+          </div>
+          <div class="swipe-body">El presidente de Petroperú, Roger Arévalo, advirtió a la Comisión de Presupuesto del Congreso que la banca privada está dispuesta a prestar hasta US$2.000 millones, pero el retraso del Gobierno amenaza con paralizar las refinerías de Talara y Conchán a inicios de mayo. "Si no actuamos, todos paramos", declaró Arévalo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Un cierre de refinerías comprometería el abastecimiento nacional de combustibles en plena campaña electoral y elevaría el costo fiscal de un eventual rescate. La crisis de liquidez de la estatal vuelve a poner en debate su privatización.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/economia/2026/04/28/petroperu-banca-dispuesta-a-prestar-us2000-millones-pero-retraso-del-gobierno-amenaza-con-parar-refinerias-de-talara-y-conchan-hnews-800968">La República</a> · <a href="https://mineriaenergia.com/petroperu-reorganizacion-patrimonial-las-claves-del-nuevo-plan/">Minería &amp; Energía</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Congreso vuelve a archivar denuncias constitucionales contra Dina Boluarte</div>
+          </div>
+          <div class="swipe-body">La Subcomisión de Acusaciones Constitucionales aprobó archivar dos denuncias presentadas por Juan Burgos (Podemos Perú) y Edwin Martínez (Acción Popular) contra la expresidenta Dina Boluarte y el expremier Gustavo Adrianzén por presuntas infracciones a los artículos 28, 38 y 118 de la Constitución y delitos de corrupción.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Pese a su destitución por el Congreso en octubre de 2025, Boluarte sigue contando con blindaje parlamentario en investigaciones por casos como Rolex y muertes durante las protestas. Eleva la presión política sobre la Fiscalía y la JNJ.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/04/28/congreso-aprueban-archivar-denuncias-contra-dina-boluarte-por-infracciones-constitucionales-y-delitos-de-corrupcion-hnews-865676">La República</a> · <a href="https://rpp.pe/politica/congreso/subcomision-del-congreso-archiva-denuncias-contra-dina-boluarte-por-falta-de-tipicidad-noticia-1686258">RPP</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Perú, en el centro de la disputa diplomática entre EE. UU. y China</div>
+          </div>
+          <div class="swipe-body">Los embajadores de Estados Unidos y China protagonizaron un cruce público en redes sociales por la compra peruana de aviones F-16, mientras la Cancillería peruana aparece debilitada tras la renuncia del canciller Hugo Zela, quien acusó al ministro Balcázar de mentir sobre la firma del contrato.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Perú se convierte en frente abierto de la rivalidad geopolítica entre las dos potencias en plena recta hacia la segunda vuelta. La fragilidad institucional de Cancillería complica la gestión de crisis bilaterales clave (migración con Chile, cooperación con Ecuador).
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/04/28/peru-en-el-centro-de-una-disputa-diplomatica-entre-embajadores-de-estados-unidos-y-china-hnews-925290">La República</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Dólar cierra al alza en S/3,515 y mercado revisa al alza expectativas de inflación</div>
+          </div>
+          <div class="swipe-body">El tipo de cambio oficial cerró el martes en S/3,515, un avance de 0,23 % frente a los S/3,507 del lunes. En el mercado paralelo (Ocoña) la cotización se ubicó en S/3,498 compra y S/3,510 venta. La expectativa para fin de año se mantiene en el rango S/3,34 – S/3,46.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Tras un marzo con inflación de 3,8 % anual (vs. 2,2 % en febrero) por el shock de Camisea y combustibles, el sol vuelve a tensionarse. El BCR ya elevó su proyección de inflación 2026 a 2,4 % y mantiene en vigilancia la traslación a precios.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-28-de-abril-del-2026-noticia-1686103">RPP</a> · <a href="https://www.expreso.com.pe/economia/dolar-en-peru-precio-cerro-al-alza-este-martes-28-de-abril-de-2026-cotizacion-tipo-de-cambio-soles-divisa-banco-central-de-reserva-bcrp-noticia/1283104/">Expreso</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Talara: SPT Energy obtiene licencia del Lote VI y reactiva crudo en la costa norte</div>
+          </div>
+          <div class="swipe-body">Mediante el Decreto Supremo N.° 004-2026-EM, el Gobierno autorizó la suscripción del contrato de licencia de explotación del Lote VI (Talara, Piura) entre Perupetro y Latin America Energy and Technology Corporation S.A.C., subsidiaria de SPT Energy Group. La operación reactiva una zona productiva clave en la costa norte.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la primera adjudicación relevante de un lote terrestre en años y se da en paralelo a la crisis de Petroperú. Manda señal positiva al sector privado en un contexto donde la inversión minera proyecta US$6.400 millones para 2026 (+35,7 % i. a. en bimestre).
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/economia/economia/se-reactiva-explotacion-de-petroleo-en-lote-vi-de-talara-gobierno-aprueba-licencia-a-spt-energy-noticia-1686209">RPP</a> · <a href="https://www.rumbominero.com/peru/noticias/mineria/inversion-minera-2026-2/">Rumbo Minero</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Camino a la segunda vuelta: Fujimori 17 %, Sánchez 12 %, López Aliaga 11,86 %</h3>
+    <p>Con el 91,6 % de actas procesadas por la ONPE, Keiko Fujimori (Fuerza Popular) consolida el primer lugar y Roberto Sánchez (Juntos por el Perú) toma ventaja sobre Rafael López Aliaga rumbo al balotaje del domingo 7 de junio. Persisten denuncias por fallas logísticas del 12 de abril.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/15/resultados-de-elecciones-2026-en-vivo-onpe-al-916-confirma-a-fujimori-lider-y-sanchez-toma-ventaja-rumbo-a-segunda-vuelta-hnews-1319250">La República</a> · <a href="https://www.infobae.com/peru/2026/04/12/que-candidatos-presidenciales-pasan-a-segunda-vuelta-en-las-elecciones-2026/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>BCR sube proyección de PBI 2026 a 3,2 % y avisa por inflación</h3>
+    <p>El Banco Central de Reserva elevó la proyección de crecimiento del PBI a 3,2 % (desde 3,0 %), apoyado en mayor demanda interna, construcción, comercio y servicios. La inflación anual de marzo subió a 3,8 % por el shock de Camisea, alza de combustibles y factores climáticos. Inflación esperada 2026: 2,4 %.</p>
+    <span class="source-link"><a href="https://www.rumbominero.com/peru/noticias/economia/bcr-proyeccion-de-crecimiento-economico-2026/">Rumbo Minero</a> · <a href="https://www.bcrp.gob.pe/docs/Transparencia/Notas-Informativas/2026/nota-informativa-2026-04-09.pdf">BCRP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Inseguridad: 194.747 delitos en el primer trimestre, pero Lima Metropolitana baja 15 % en robos</h3>
+    <p>Entre enero y marzo se registraron 194.747 delitos a nivel nacional: 118.507 hechos delictivos, 52.711 casos de violencia contra la mujer y 12.150 faltas. En Lima, los robos cayeron 15 % (6.807 vs. 7.997 en Q1 2025) y los hurtos retrocedieron a 17.807 (-9 %). El robo de celulares promedia 4.000 equipos al día.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/26/mas-de-194000-delitos-cometidos-solo-en-el-primer-trimestre-del-2026-inseguridad-hnews-1901744">La República</a> · <a href="https://www.infobae.com/peru/2026/04/10/la-inseguridad-domina-la-campana-electoral-en-peru-y-transforma-el-debate-politico-de-2026/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Justicia</span>
+    <h3>JNJ inicia evaluación y ratificación de 28 jueces y 113 fiscales</h3>
+    <p>La Junta Nacional de Justicia, presidida por María Teresa Cabrera, abrió procedimientos individuales de evaluación integral y ratificación a 28 jueces y 113 fiscales de distintos niveles. Los magistrados convocados debieron presentar documentación entre el 16 y el 22 de abril vía la extranet de la JNJ.</p>
+    <span class="source-link"><a href="https://arequipamistipress.com/2026/04/21/jnj-iniciara-procedimientos-individuales-de-evaluacion-y-ratificacion-de-28-jueces-y-113-fiscales-del-pais/">Arequipa Misti Press</a> · <a href="https://www.gob.pe/jnj">JNJ</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Inversión minera Q1 supera US$871 millones (+35,7 %) y proyección 2026 en US$6.400 millones</h3>
+    <p>El Ministerio de Energía y Minas informó que la inversión minera entre enero y febrero superó los US$871 millones, con un crecimiento interanual de 35,7 %. Las proyecciones del sector apuntan a un flujo de US$6.400 millones para 2026, pese al impacto de la minería ilegal (US$11.500 millones en 2025).</p>
+    <span class="source-link"><a href="https://www.diariominero.com/mineria-formal/inversion-minera-peru-2026/">Diario Minero</a> · <a href="https://www.rumbominero.com/peru/noticias/mineria/inversion-minera-2026-2/">Rumbo Minero</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga 1: Universitario cae 1-2 ante Alianza Atlético y se aleja del Apertura</h3>
+    <p>En el Monumental, Universitario perdió 1-2 frente a Alianza Atlético por la fecha 12 del Torneo Apertura. Valentín Robaldo marcó un golazo y Edison Flores aprovechó un error defensivo; descontó la "U". Otros resultados: ADT 4-0 Los Chankas, Garcilaso 1-0 Melgar, Cienciano 2-2 Cusco FC y Sport Huancayo 2-1 Grau.</p>
+    <span class="source-link"><a href="https://larepublica.pe/deportes/2026/04/26/universitario-vs-alianza-atletico-en-vivo-liga-1-2026-via-l1-max-2058477">La República</a> · <a href="https://www.infobae.com/peru/deportes/2026/04/26/universitario-vs-alianza-atletico-en-vivo-hoy-monumental-minuto-a-minuto-fecha-12-torneo-apertura-liga-1-2026-resumen-resultado/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Cooperación binacional con Chile y Ecuador en migración y crimen transnacional</h3>
+    <p>En medio de la disputa diplomática EE. UU.-China, la Cancillería peruana mantiene activos los mecanismos bilaterales con Chile (Comité Binacional de Cooperación Migratoria para gestionar el tránsito irregular en la frontera sur) y con Ecuador (Gabinete Binacional con foco en lucha contra la criminalidad transnacional).</p>
+    <span class="source-link"><a href="https://gestion.pe/peru/cancilleria-los-principales-ejes-y-resultados-de-la-politica-exterior-peruana-en-el-2025-noticia/">Gestión</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar BCR</div>
+      <div class="data-cell-value">S/ 3,515</div>
+      <div class="data-cell-delta red">+0,23 %</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar paralelo</div>
+      <div class="data-cell-value">3,498 / 3,510</div>
+      <div class="data-cell-delta red">+0,20 %</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Inflación marzo</div>
+      <div class="data-cell-value">3,80 %</div>
+      <div class="data-cell-delta red">+1,6 pp</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Definición del crédito de US$2.000 millones a Petroperú: el cierre de la primera semana de mayo es el límite que advirtió Arévalo para evitar el paro de Talara y Conchán.</div>
+    <div class="vigilar-item">Cierre del tipo de cambio del miércoles y publicación del avance de inflación de abril: dos sesiones consecutivas al alza presionarían la decisión del BCR sobre la tasa de referencia.</div>
+    <div class="vigilar-item">Movimientos en la carrera al balotaje del 7 de junio: probable ronda de encuestas postcomicios y primeras señales de alianzas en torno a Fujimori y Sánchez.</div>
+    <div class="vigilar-item">Posibles nuevas denuncias en la SAC del Congreso tras los archivos contra Boluarte y reacciones de la Fiscalía y la JNJ.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: La República · RPP · Infobae · El Comercio · Gestión · Expreso · BCRP · Rumbo Minero · Diario Minero · TVPerú · CNN<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
