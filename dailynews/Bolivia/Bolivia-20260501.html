@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 1 mayo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Viernes 1 de mayo de 2026 — Día del Trabajo</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Paz convoca “Gran Encuentro Nacional” y anuncia paquete de leyes en hidrocarburos e inversiones</div>
+          </div>
+          <div class="swipe-body">En su mensaje por el Día del Trabajo, el presidente Rodrigo Paz declaró que “desde el 1 de mayo se abre una nueva etapa” y convocó a todos los bolivianos a un Gran Encuentro Nacional para fijar la agenda del país. Anunció el envío inminente a la Asamblea Legislativa de un paquete de leyes en hidrocarburos, energía e inversiones, además de dos cumbres sectoriales: minería/cooperativas y tierra.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la apuesta política más ambiciosa del Gobierno Paz en sus seis meses: busca construir consenso con actores que no lo eligieron. Las leyes de hidrocarburos e inversiones son las reformas estructurales más urgentes para atraer capital y reducir el déficit fiscal proyectado en 7%. El éxito del encuentro nacional definirá si Paz tiene gobernabilidad real en el Legislativo.
+          </div>
+          <div class="swipe-source"><a href="https://eju.tv/2026/05/en-mensaje-por-el-dia-del-trabajador-paz-convoca-a-un-gran-encuentro-nacional-y-anuncia-nuevas-leyes-economicas/">eju.tv</a> · <a href="https://abi.bo/presidente-paz-anuncia-nueva-etapa-desde-mayo-con-dialogo-nacional-y-envio-de-leyes-estructurales/">ABI</a> · <a href="https://www.eldia.com.bo/2026-05-01/politica/el-presidente-paz-anuncia-un-encuentro-nacional-para-definir-la-agenda-del-pais.html">El Día</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Sicarios asesinan al magistrado decano del Tribunal Agroambiental Víctor Hugo Claure en Santa Cruz</div>
+          </div>
+          <div class="swipe-body">El magistrado decano del Tribunal Agroambiental (TA), Víctor Hugo Claure, fue acribillado por hombres en motocicleta cuando llegaba a su domicilio en un barrio del noroeste de Santa Cruz. Recibió seis disparos. La Policía investiga un móvil vinculado a fallos judiciales sobre posesión de tierras. El Tribunal Supremo de Justicia (TSJ) repudió el “cobarde y atroz asesinato” y advirtió que es una “grave afrenta a la institucionalidad democrática”.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El crimen escala el patrón de violencia en Santa Cruz a un blanco inusual: la cúpula del Poder Judicial. El TSJ activó “cápsulas de seguridad” para 13 magistrados presentes en la ciudad. El asesinato presiona al Ejecutivo a definir una política de seguridad concreta y golpea la confianza en el Estado de derecho ante inversores externos.
+          </div>
+          <div class="swipe-source"><a href="https://eju.tv/2026/05/un-sicario-asesina-en-santa-cruz-al-magistrado-decano-del-tribunal-agroambiental-victor-hugo-claure/">eju.tv</a> · <a href="https://www.infobae.com/america/america-latina/2026/05/01/un-magistrado-del-tribunal-agroambiental-de-bolivia-fue-asesinado-en-santa-cruz/">Infobae</a> · <a href="https://lapatilla.com/2026/05/01/video-sicarios-acribillaron-a-un-magistrado-en-bolivia-y-una-camara-capturo-todo/">LaPatilla</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Avioneta bajo precinto estatal escapa de El Trompillo en madrugada; era investigada por narcotráfico</div>
+          </div>
+          <div class="swipe-body">Entre las 5:30 y 6:00 del viernes, un grupo de personas vulneraron el hangar N° 116 del aeropuerto El Trompillo (Santa Cruz) y sacaron una avioneta que estaba bajo precinto oficial y pendiente de microaspirado. El viceministro de Defensa Social, Ernesto Justiniano, denunció la salida no autorizada. La Policía reconoció que la aeronave no tenía custodia física pese a estar investigada por narcotráfico.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El incidente expone graves fallas de custodia estatal en evidencias clave de causas de narcotráfico y refuerza la percepción de impunidad operacional del crimen organizado en Santa Cruz. La FELCN activó búsqueda. Es la segunda fuga de aeronave vinculada a narcotráfico en el país en pocas semanas.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/santa-cruz/viceministro-denuncia-salida-no-autorizada-avioneta-estaba-investigacion-narcotrafico_1777644779">El Deber</a> · <a href="https://eju.tv/2026/05/policia-indica-que-avioneta-sustraida-no-tenia-custodia-y-era-investigada-por-narcotrafico/">eju.tv</a> · <a href="https://www.reduno.com.bo/noticias/autoridades-inspeccionan-hangar-tras-salida-irregular-de-avioneta-bajo-precinto-202651135229">Red Uno</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Gobierno prevé devolver depósitos en dólares superiores a $us 1.000 desde agosto</div>
+          </div>
+          <div class="swipe-body">El ministro de Economía, José Gabriel Espinoza, ratificó que hasta el tercer trimestre —con plazo a agosto— se presentará el cronograma para devolver los depósitos superiores a $us 1.000 retenidos en el sistema financiero. Quedan pendientes cerca de $us 2.500 millones por restituir. El Gobierno atribuye el alza del paralelo principalmente a la demanda de divisas para importar combustibles.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La cifra pendiente ($us 2.500 M) equivale a más del triple de las reservas netas actuales. Devolver esos depósitos sin un ingreso equivalente de divisas presionaría aún más el mercado paralelo y la inflación. El cronograma de agosto es la variable clave de confianza para el sistema financiero boliviano.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/economia/gobierno-preve-devolver-ahorros-dolares-agosto-atribuye-alza-paralelo-importacion-combustibles_1777481134">El Deber</a> · <a href="https://americaeconomica.com/noticia/bolivia/bolivia-devolvera-los-depositos-en-dolares-superiores-a-1-000-hasta-agosto-tras-la-crisis-de-divisas.html">América Económica</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">CAINCO llama a reformas laborales “incómodas pero necesarias” en el Día del Trabajo</div>
+          </div>
+          <div class="swipe-body">El presidente de la Cámara de Industria, Comercio, Servicios y Turismo de Santa Cruz (CAINCO) advirtió que Bolivia debe adaptar su mercado laboral a las nuevas dinámicas económicas. Aunque reconoció que hablar de reformas laborales es “difficult y incómodo”, alertó que sin ellas la generación de empleo formal seguirá estancada. El mensaje contrasta con los planteamientos de la COB, que exigió aumento salarial sostenido.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la primera vez en años que el sector empresarial cruceño plantea públicamente el debate laboral en el Día del Trabajo. Coincide con el anuncio de Paz sobre un Gran Encuentro Nacional: si el tema laboral entra en agenda, puede acelerar o dinamitar el diálogo político con sindicatos y movimientos sociales.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/01/cainco-senala-que-hablar-de-reformas-laborales-son-incomodas-pero-necesarias/">La Razón</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-pol">Político</div>
+    <h3>TSJ activa protección para 13 magistrados en Santa Cruz tras asesinato de Claure</h3>
+    <p>Tras el crimen del magistrado Víctor Hugo Claure, el presidente del TSJ, Romer Saucedo, citó la “ausencia del Estado” y advirtió que “el sicariato se apoderó de él y le dobló el brazo al Estado”. La Policía desplegó cápsulas de seguridad para los 13 altos magistrados que se encontraban en Santa Cruz con motivo de un evento institucional.</p>
+    <span class="source-link"><a href="https://eju.tv/2026/05/tsj-repudia-el-cobarde-y-atroz-asesinato-del-magistrado-claure-y-advierte-que-es-una-grave-afrenta-a-la-institucionalidad-democratica/">eju.tv</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-eco">Económico</div>
+    <h3>Dólar referencial roza Bs 9,90; brecha con el oficial supera el 42%</h3>
+    <p>El tipo de cambio referencial del BCB cerró la semana cerca de Bs 9,90, prácticamente convergido con el mercado paralelo. El dólar oficial se mantiene en Bs 6,96, lo que implica una brecha superior al 42%. El Gobierno atribuye la presión al dólar a la necesidad de importar combustibles. Analistas advierten que la brecha comprime los márgenes de importadores y presiona la inflación.</p>
+    <span class="source-link"><a href="https://www.infobae.com/noticias/2026/05/01/precio-del-dolar-hoy-en-bolivia-cotizacion-de-cierre-del-1-de-mayo/">Infobae</a> · <a href="https://eldeber.com.bo/economia/gobierno-preve-devolver-ahorros-dolares-agosto-atribuye-alza-paralelo-importacion-combustibles_1777481134">El Deber</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-pol">Político</div>
+    <h3>Paz: “El pasado no es la solución” — Guiño al electorado y mensaje al evismo</h3>
+    <p>En su discurso del 1 de mayo, el presidente Rodrigo Paz remarcó que “el pasado no es la solución” en una referencia implícita al modelo económico del MAS. Anunció que las nuevas leyes “serán socializadas para que no queden dudas de que su único propósito es que Bolivia crezca, se desarrolle, genere empleo y bienestar”. Evo Morales prepara el frente “EVO Pueblo” para las subnacionales.</p>
+    <span class="source-link"><a href="https://eju.tv/2026/05/el-presidente-paz-anuncia-leyes-para-los-proximos-dias-y-remarca-que-no-es-el-pasado-la-solucion/">eju.tv</a> · <a href="https://www.fmbolivia.com.bo/noticia/-desde-el-1-de-mayo-abrimos-una-nueva-etapa-presidente-rodrigo-paz-anuncia-leyes-y-un-gran-encuentro-nacional">FM Bolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-eco">Económico</div>
+    <h3>Ley de Alivio Tributario: el Senado inicia tratamiento tras aprobación en Diputados</h3>
+    <p>El Senado recibió el Proyecto de Ley de Transparencia y Alivio Tributario aprobado por Diputados el 28 de abril. La norma condona deudas tributarias menores a Bs 10 M generadas hasta el 31 de diciembre de 2017 y elimina multas e intereses para deudas posteriores con plan de pagos a 24 meses. El Gobierno proyecta recaudar Bs 20.000 M en dos años.</p>
+    <span class="source-link"><a href="https://abi.bo/camara-de-diputados-aprueba-proyecto-de-ley-de-alivio-tributario/">ABI</a> · <a href="https://elmundo.com.bo/diputados-aprueba-ley-de-alivio-tributario-ahora-pasa-al-senado/">El Mundo</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-soc">Social</div>
+    <h3>Fin de semana largo de tres días: feriado nacional del 1 de mayo</h3>
+    <p>El Ministerio de Trabajo confirmó el feriado nacional inamovible del 1 de mayo, Viernes, que junto al sábado y domingo genera un fin de semana largo de tres días. Los sectores esenciales —salud, seguridad, transporte— mantuvieron operaciones normales. El turismo interno reportó alta ocupación en Cochabamba, Santa Cruz y el Lago Titicaca.</p>
+    <span class="source-link"><a href="https://www.reduno.com.bo/noticias/feriado-1-de-mayo-2026-en-bolivia-cuantos-dias-dura-el-fin-de-semana-largo-y-quienes-descansan-2026429122754">Red Uno</a> · <a href="https://mintrabajo.gob.bo/wp-content/uploads/2026/04/COMUNICADO-D.M.T.E.P.S.-0005-2026.pdf">Min. Trabajo</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-int">Internacional</div>
+    <h3>Rodrigo Paz anuncia “nueva etapa” con eco regional: El Comercio Perú e Infobae destacan el discurso</h3>
+    <p>El mensaje presidencial del 1 de mayo tuvo repercusión internacional: medios como El Comercio Perú e Infobae América cubrieron el anuncio del Gran Encuentro Nacional y las leyes estructurales. El contexto boliviano —crisis de divisas, auge del paralelo, violencia en Santa Cruz— genera interés en la región andina por las implicancias comerciales y de seguridad fronteriza.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/mundo/latinoamerica/rodrigo-paz-anuncia-una-nueva-etapa-de-su-gobierno-y-llama-a-un-encuentro-nacional-en-bolivia-ultimas-noticia/">El Comercio Perú</a> · <a href="https://www.infobae.com/america/agencias/2026/05/01/paz-anuncia-una-nueva-etapa-de-su-gobierno-y-llama-a-un-encuentro-nacional-en-bolivia/">Infobae</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Oficial</div>
+      <div class="data-cell-value">6,96</div>
+      <div class="data-cell-delta">Bs · sin cambios</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">9,90</div>
+      <div class="data-cell-delta red">Bs · convergencia</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value">+42%</div>
+      <div class="data-cell-delta red">vs oficial</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Ley de Alivio Tributario en el Senado: si se aprueba esta semana, será la primera ley económica estructural de Paz en el Legislativo donde no tiene mayoría.</div>
+    <div class="vigilar-item">Investigación del asesinato del magistrado Claure: los próximos días revelarán si hay vínculos con el crimen organizado o con litigios de tierras en el oriente.</div>
+    <div class="vigilar-item">Búsqueda de la avioneta fugada de El Trompillo: la FELCN tiene plazo reducido antes de que la aeronave cruce fronteras o cambie matrícula.</div>
+    <div class="vigilar-item">Anuncio del Gran Encuentro Nacional: fecha y formato definirán si es diálogo real o evento mediático; la COB y el MAS ya anunciaron posturas.</div>
+  </div>
+
+  <div class="footer">
+    <div>Fuentes: ABI · El Deber · La Razón · Red Uno · El Día · eju.tv · El Mundo · FM Bolivia · La Patria · Infobae · América Económica · LaPatilla · El Comercio Perú</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
