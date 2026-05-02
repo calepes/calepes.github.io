@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 1 mayo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #b45309;
+  --accent-soft: rgba(180,83,9,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+  --pill-ele: #b45309; --pill-ele-bg: rgba(180,83,9,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F5EFE0 0%, #EDE3CC 25%, #D8E0D0 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(180,83,9,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(180,83,9,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.pill-ele { background: var(--pill-ele-bg); color: var(--pill-ele); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.amber { color: #FF9500; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fcd34d; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fcd34d; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Viernes 1 de mayo de 2026 — Día del Trabajo</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Keiko y Sánchez empatados al 38% camino a la segunda vuelta del 7 de junio</div>
+          </div>
+          <div class="swipe-body">Las últimas encuestas de Ipsos e IEP colocan a Keiko Fujimori (Fuerza Popular) y Roberto Sánchez (Juntos por el Perú) empatados técnicamente al 38% de intención de voto en segunda vuelta. El antivoto es el factor decisivo: Keiko acumula 48% de rechazo definitivo y Sánchez 44%. La segunda vuelta está fijada para el 7 de junio. El candidato que logre atraer a los indecisos —un 20% del electorado— definirá la elección.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la tercera vez que Keiko llega a segunda vuelta; su historial muestra que en sondeos siempre empieza abajo. Sánchez es nueva cara pero su antivoto creció 15 puntos en un mes. La elección marcará la orientación económica del período 2026–2031 y el estreno del nuevo bicameralismo peruano.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/26/keiko-fujimori-y-roberto-sanchez-empatan-en-intencion-de-voto-de-cara-a-la-segunda-vuelta-del-7-de-junio/">Infobae</a> · <a href="https://www.infobae.com/peru/2026/04/30/segunda-vuelta-2026-el-antivoto-sera-clave-para-elegir-al-nuevo-jefe-de-estado-este-7-de-junio/">Infobae</a> · <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-para-segunda-vuelta-2026-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">CGTP moviliza miles en Lima: piden aumento del salario mínimo y candidatos asisten a la marcha</div>
+          </div>
+          <div class="swipe-body">La Confederación General de Trabajadores del Perú (CGTP) convocó una marcha nacional en Lima por el Día del Trabajo. Miles de trabajadores partieron desde Plaza Dos de Mayo y recorrieron el centro histórico exigiendo aumento de la Remuneración Mínima Vital (RMV) y mejores pensiones. El candidato Roberto Sánchez y Alfonso López-Chau asistieron a la movilización, buscando rédito electoral.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La presencia de candidatos en la marcha de la CGTP en plena campaña de segunda vuelta convierte la agenda laboral en eje electoral. Quien capture la demanda sindical ganará votos en el Perú urbano popular. El salario mínimo actual (S/ 1.130) no se ha actualizado en más de un año; el costo fiscal de un alza es un argumento de Fitch contra la estabilidad fiscal.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/lima/actualidad/dia-de-los-trabajadores-marcha-en-lima-exige-respeto-a-la-jornada-de-ocho-horas-y-aumento-del-salario-minimo-noticia-1686655">RPP</a> · <a href="https://larepublica.pe/economia/2026/04/30/cgtp-convoca-marcha-nacional-para-exigir-el-incremento-de-la-remuneracion-minima-vital-rmv-y-de-las-pensiones-hnews-2043240">La República</a> · <a href="https://altavoz.pe/politica/marcha-por-el-dia-del-trabajo-2026-cgtp-moviliza-a-miles-y-reune-a-candidatos-roberto-sanchez-y-alfonso-lopez-chau/">Altavoz</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Congreso aprueba +50% de asignación para militares del servicio acuartelado con 98 votos</div>
+          </div>
+          <div class="swipe-body">El Pleno del Congreso aprobó por unanimidad —26 votos— el incremento del 50% en la asignación económica mensual para el personal del servicio militar acuartelado en las FF.AA. La medida, exonerada de segunda votación, fue respaldada por todas las bancadas como gesto de fin de legislatura. La aprobación coincide con el cierre del periodo congresional 2021-2026 y el inicio de la transición al nuevo bicameralismo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es uno de los últimos actos del Congreso unicameral antes de su disolución. La unanimidad muestra que en año electoral los congresistas evitan votar en contra de las Fuerzas Armadas. El impacto fiscal es manejable, pero genera precedente en un contexto de demandas salariales generalizadas.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/01/congreso-aprueba-incrementar-en-50-la-asignacion-mensual-para-militares-acuartelados-de-las-ffaa-hnews-58024">La República</a> · <a href="https://www.radionacional.gob.pe/noticias/politica/congreso-aprueba-aumento-del-50-para-jovenes-del-servicio-militar">Radio Nacional</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Fitch: “lo que más importa es la composición del Senado” en la nueva era bicameral</div>
+          </div>
+          <div class="swipe-body">En medio de la incertidumbre electoral, Fitch Ratings alertó que el factor clave para la estabilidad crediticia del Perú no es quién gana la presidencia, sino cómo queda integrado el nuevo Senado (60 escaos). La agencia proyecto que el Perú crecerá ~3% en 2026, por debajo de 2025, afectado por el riesgo electoral y el impacto del conflicto Medio Oriente en los precios del petróleo. Un Congreso fragmentado podría bloquear reformas clave.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La primera era bicameral del Perú en tres décadas empieza con el Senado como cámara de control. Fitch da una señal directa a los inversores: más que el color político del presidente, la gobernabilidad legislativa determinará el rating soberano. Un Senado bloqueado es el escenario de mayor riesgo para las reformas pendientes de minería, energía y pensiones.
+          </div>
+          <div class="swipe-source"><a href="https://elcomercio.pe/economia/peru/fitch-ratings-en-medio-de-la-incertidumbre-sobre-el-proximo-gobierno-del-peru-lo-que-mas-importa-es-la-composicion-del-senado-economia-peruana-noticia/">El Comercio</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">JNJ elegirá nuevo jefe de ONPE en plena campaña de segunda vuelta: riesgo institucional</div>
+          </div>
+          <div class="swipe-body">La Junta Nacional de Justicia (JNJ) deberá elegir un nuevo titular de la Oficina Nacional de Procesos Electorales (ONPE) durante la campaña de segunda vuelta entre Keiko Fujimori y Roberto Sánchez. La vacante en la cúpula electoral, combinada con el proceso de escrutinio de la primera vuelta aún no proclamado oficialmente, genera alertas sobre la solidez institucional del sistema electoral de cara al 7 de junio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Cambiar al jefe de la ONPE en plena segunda vuelta es una situación de alto riesgo: cualquier cuestionamiento al nuevo titular será instrumentalizado por el bando perdedor. La experiencia de 2021 muestra que las dudas sobre el conteo post-electoral pueden desestabilizar el país durante semanas.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/04/29/jnj-elegira-a-nuevo-jefe-de-onpe-en-plena-segunda-vuelta-entre-roberto-sanchez-y-keiko-fujimori-hnews-2750389">La República</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-ele">Electoral</div>
+    <h3>Keiko fuerte en Lima, Sánchez gana en provincias: la geografía decide la segunda vuelta</h3>
+    <p>Los datos de la primera vuelta y las encuestas posteriores revelan una división territorial clara: Keiko Fujimori concentra su apoyo en Lima Metropolitana (41%) y el Perú urbano (29%); Roberto Sánchez lidera en el Perú rural (44%) y el Perú urbano provinciano (34%). La movilización de esas bases y la transferencia de votos de López Aliaga y otros candidatos serán determinantes.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/04/29/keiko-fujimori-es-fuerte-en-lima-pero-roberto-sanchez-gana-en-provincias-hnews-1115296">La República</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-pol">Político</div>
+    <h3>Boluarte: “el Gobierno trabaja para mejorar las condiciones laborales” en el Día del Trabajo</h3>
+    <p>La presidenta Dina Boluarte emitió un mensaje institucional por el Día Internacional de los Trabajadores resaltando las acciones del Ejecutivo en materia laboral y reiterando el compromiso de priorizar seguridad, economía y transición democrática. El Consejo de Ministros aprobó previamente la Política General de Gobierno 2026 con esos tres ejes.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/presidenta-boluarte-afirma-que-el-gobierno-trabaja-para-mejorar-las-condiciones-laborales">TV Perú</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-eco">Económico</div>
+    <h3>PBI perúano proyectado en 3,0% para 2026; Fitch advierte riesgo de desaceleración electoral</h3>
+    <p>El MEF y el BCRP proyectan un crecimiento del PBI de 3,2% para 2026, aunque Fitch Ratings anticipa ~3%, por debajo del 3,8% de 2025. Los factores de riesgo son: incertidumbre del proceso electoral, impacto del conflicto de Medio Oriente en los precios del petróleo y posible paralización legislativa en el nuevo Congreso bicameral. El sector minería sigue siendo el principal motor.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/fitch-ratings-en-medio-de-la-incertidumbre-sobre-el-proximo-gobierno-del-peru-lo-que-mas-importa-es-la-composicion-del-senado-economia-peruana-noticia/">El Comercio</a> · <a href="https://rpp.pe/economia/economia/elecciones-2026-asi-llega-la-economia-peruana-al-proceso-electoral-para-elegir-al-nuevo-presidente-del-peru-noticia-1683982">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-soc">Social</div>
+    <h3>Inseguridad ciudadana sigue siendo la principal demanda en marcha del 1 de mayo</h3>
+    <p>Junto al pedido de aumento salarial, la CGTP incluyó en su plataforma del Día del Trabajo la exigencia de una respuesta gubernamental firme contra la inseguridad. El 2025 fue el año más violento en la historia reciente del Perú, con extorsiones y sicariato en récord; el estado de emergencia en Lima y Callao no logró revertir la tendencia. El tema seguridad empata con economía como prioridad del electorado.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/01/03/sicariato-y-extorsiones-baten-record-en-2025-las-cifras-que-marcaron-la-seguridad-ciudadana-y-las-politicas-implementadas/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-ele">Electoral</div>
+    <h3>Segunda vuelta 2026: encuesta Ipsos muestra que el voto blanco y viciado podría ser factor</h3>
+    <p>El director de Ipsos, Alfredo Torres, señaló que el voto blanco y viciado tiende a reducirse conforme avanza la campaña de segunda vuelta, pero en un escenario de empate técnico y altos antivotos, podría representar el 10–15% el 7 de junio. Ambos candidatos deben convencer a los seguidores de López Aliaga (3er lugar) y Rafael Abugattas, cuyo electorado es disperso.</p>
+    <span class="source-link"><a href="https://rpp.pe/politica/elecciones/alfredo-torres-senala-que-el-voto-blanco-viciado-reducira-conforme-avance-la-campana-en-segunda-vuelta-noticia-1685978">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <div class="pill pill-int">Internacional</div>
+    <h3>El Comercio Perú cubre el anuncio de Paz en Bolivia: interés andino por la estabilidad vecina</h3>
+    <p>El diario El Comercio de Lima reprodujo el anuncio del presidente boliviano Rodrigo Paz sobre el Gran Encuentro Nacional y las nuevas leyes, en un indicador del interés regional por la estabilidad de Bolivia. La crisis cambiaria boliviana y la escalada de violencia en Santa Cruz generan alertas en fronteras y rutas comerciales andinas, incluyendo el corredor Puno-Desaguadero.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/mundo/latinoamerica/rodrigo-paz-anuncia-una-nueva-etapa-de-su-gobierno-y-llama-a-un-encuentro-nacional-en-bolivia-ultimas-noticia/">El Comercio</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">PBI 2026 (proy.)</div>
+      <div class="data-cell-value">3,0%</div>
+      <div class="data-cell-delta amber">Fitch · vs 3,8% en 2025</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Antivoto Keiko</div>
+      <div class="data-cell-value">48%</div>
+      <div class="data-cell-delta red">“definitivamente no”</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Antivoto Sánchez</div>
+      <div class="data-cell-value">44%</div>
+      <div class="data-cell-delta amber">“definitivamente no”</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Inicio de campaña de segunda vuelta: ambos candidatos deberán presentar propuestas económicas concretas el próximo lunes; el mercado monitoreará sus señales sobre minería y pensiones.</div>
+    <div class="vigilar-item">Designación del nuevo jefe de ONPE por la JNJ: el nombre elegido determinará si hay o no cuestionamientos de parcialidad durante la segunda vuelta.</div>
+    <div class="vigilar-item">Transferência de votos de López Aliaga: su electorado de derecha liméño es el bloque más grande sin candidato y su orientación decidirá la elección.</div>
+    <div class="vigilar-item">Composición definitiva del Senado: la proclamación de los 60 senadores por el JNE es la clave que Fitch identifica como variable más relevante para el riesgo soberano.</div>
+  </div>
+
+  <div class="footer">
+    <div>Fuentes: Infobae · El Comercio · RPP · La República · TV Perú · Altavoz · Radio Nacional · Ojo Público · Servindi · ONPE · JNE · Ipsos</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
