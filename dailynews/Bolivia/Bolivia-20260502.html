@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 2 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    /* Section header */
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    /* Carousel */
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    /* Dots */
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    /* Divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    /* News items */
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    /* Data strip */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    /* Qué vigilar */
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    /* Staggered reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Sábado 2 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Ola de asesinatos en Santa Cruz: 8 muertos en 7 días sacuden al país</div>
+            </div>
+            <div class="swipe-body">Santa Cruz registró ocho homicidios en una semana, incluyendo el magistrado decano del Tribunal Agroambiental Víctor Hugo Claure Hinojoza, acribillado por sicarios en moto en la capital cruceña. Un ciudadano extranjero fue ultimado con cinco impactos de bala en otro barrio. Autoridades del Comité Cívico convocaron a reunión de emergencia con gobernación, fiscalía y policía.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El asesinato de un magistrado señala infiltración del crimen organizado en el sistema de justicia boliviano. Santa Cruz genera más del 30% del PIB nacional: una crisis sostenida de seguridad frena la inversión y pone a prueba la capacidad del gobierno Paz Pereira de ejercer autoridad en el departamento más importante del país.
+            </div>
+            <div class="swipe-source">
+              <a href="https://eldeber.com.bo/santa-cruz/ola-asesinatos-policia-conforma-grupo-especial-tactico-combatir-crimen-organizado_1777769554">El Deber</a> · <a href="https://larazon.bo/ciudades/2026/05/02/sigue-la-ola-de-violencia-en-santa-cruz-un-nuevo-asesinato-sacude-la-ciudad/">La Razón</a> · <a href="https://www.prensa-latina.cu/2026/05/02/gobierno-de-bolivia-crea-grupo-especial-tactico-contra-el-crimen/">Prensa Latina</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">YPFB Chaco confirma 230 BCF de gas en campo Churumas, Tarija</div>
+            </div>
+            <div class="swipe-body">El gerente de YPFB Chaco confirmó reservas de 230 billones de pies cúbicos de gas natural en el campo Churumas, municipio de Padcaya, con una inversión de 26 millones de dólares. El volumen es suficiente para reforzar el abastecimiento doméstico y garantizar los contratos de exportación vigentes durante varios años.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Bolivia arrastra años de caída en sus reservas de gas, que habían erosionado las exportaciones a Brasil y Argentina y, con ellas, los ingresos del IDH que financian salud, educación e infraestructura. Churumas revierte parcialmente ese escenario y genera regalías directas para Tarija, el departamento históricamente más dependiente de la renta gasífera.
+            </div>
+            <div class="swipe-source">
+              <a href="https://eldia.com.bo/2026-05-02/economia/ypfb-chaco-confirma-reservas-de-230-billones-de-pies-cubicos-de-gas-en-el-campo-churumas-de-tarija.html">El Día</a> · <a href="https://eju.tv/2026/05/churumas-el-pozo-de-gas-que-le-devuelve-la-esperanza-a-tarija-y-al-pais/">Eju.tv</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">4.962 autoridades subnacionales asumen el lunes en todo el país</div>
+            </div>
+            <div class="swipe-body">Este lunes 3 de mayo toman posesión los 9 gobernadores, 335 alcaldes y 2.044 concejales electos en las elecciones subnacionales del 22 de marzo. Es la transición de poder local más amplia desde la Constitución de 2009 y marca el fin de la hegemonía del MAS en departamentos y municipios que dominó durante dos décadas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La nueva correlación política subnacional definirá si el gobierno Paz Pereira puede articular políticas nacionales con las regiones o si enfrenta una fragmentación que trabe la gestión. Con el MAS fuera del poder central y ahora también de muchos gobiernos locales, Bolivia inaugura una etapa de pluralismo institucional sin precedentes recientes.
+            </div>
+            <div class="swipe-source">
+              <a href="https://eldeber.com.bo/usted-elige/4962-nuevas-autoridades-electas-toman-desde-este-lunes-el-mando-de-los-gobiernos-subnacionales_230286/">El Deber</a> · <a href="https://test2.larazon.bo/nacional/2026/04/16/las-nuevas-autoridades-subnacionales-asumiran-funciones-el-3-de-mayo/">La Razón</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Minería concentra ya el 78,8% de las exportaciones bolivianas</div>
+            </div>
+            <div class="swipe-body">El Ministerio de Minería presentó su hoja de ruta 2026: el sector pasó del 55% al 78,8% en participación exportadora a febrero del año. El plan incluye una "ley corta" para habilitar contratos entre empresas privadas y cooperativas, reformas normativas y un programa activo de atracción de inversión extranjera directa al sector.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Con el gas en declive estructural, la minería es el nuevo sostén de divisas del país. La concentración en un solo sector expone a Bolivia a shocks de precios de minerales. La "ley corta" buscará capital privado que el Estado ya no puede aportar solo, pero requerirá equilibrar rentabilidad con distribución de regalías a las regiones.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.instantaneas.tic.bo/2026/05/02/economia/ministerio-mineria-hoja-ruta-2026-reformas-control/">Instantáneas TIC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Policía crea Grupo Especial Táctico; Cívicos piden militares en las calles</div>
+            </div>
+            <div class="swipe-body">Ante la crisis de seguridad, el gobierno creó un Grupo Especial Táctico policial contra el crimen organizado y activó el Consejo Nacional Sectorial de Seguridad Ciudadana. Paralelamente, el presidente del Comité Pro Santa Cruz exigió el despliegue de las Fuerzas Armadas en zonas urbanas, invirtiendo la postura histórica del cívico cruceño frente al poder central.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Que el Comité Cívico, históricamente autonomista y adversario del poder central, pida intervención federal revela la gravedad de la crisis. Es una oportunidad política para el gobierno Paz de demostrar capacidad de respuesta en el departamento más influyente del país, pero también un riesgo si la respuesta resulta insuficiente o tardía.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.instantaneas.tic.bo/2026/05/02/seguridad-ciudadana-bolivia/delitos-violentos-bolivia/comite-civico-pide-militares-calles-santa-cruz/">Instantáneas TIC</a> · <a href="https://eju.tv/2026/05/sus-balas-no-perforaran-nuestra-voluntad-comite-pro-santa-cruz-se-pronuncia-ante-ola-de-violencia/">Eju.tv</a> · <a href="https://lapatria.bo/actualidad/santa-cruz-civicos-piden-militares-en-las-calles-ante-ola-de-crimenes/">La Patria</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div><!-- /carousel-container -->
+
+    <!-- DIVIDER -->
+    <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+    <!-- POLÍTICO 1 -->
+    <div class="news-item glass reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>El Diario exige al gobierno Paz "autoridad real" ante vacío de poder en seguridad</h3>
+      <p>En su editorial del 2 de mayo, El Diario —el periódico más antiguo de Bolivia— publicó "Necesitamos un gobierno con autoridad", señalando que la respuesta del ejecutivo a la ola criminal en Santa Cruz ha sido insuficiente y tardía. El senador opositor Lara añadió su pedido de relevo urgente en la cúpula policial del departamento.</p>
+      <span class="source-link"><a href="https://www.eldiario.net/portal/2026/05/02/necesitamos-un-gobierno-con-autoridad/">El Diario</a> · <a href="https://exitonoticias.com.bo/lara-pide-relevo-urgente-en-la-cupula-policial-tras-ola-crimenes-en-santa-cruz/390363/">Éxito Noticias</a></span>
+    </div>
+
+    <!-- POLÍTICO 2 -->
+    <div class="news-item glass reveal" style="transition-delay:0.08s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Gobernadores y alcaldes listos para posesionarse este lunes 3 de mayo</h3>
+      <p>Las 4.962 nuevas autoridades departamentales y municipales —incluyendo 9 gobernadores, 335 alcaldes y 2.044 concejales— recibirán sus cargos en un acto único a nivel nacional el lunes. La fecha fue fijada para alinear los mandatos y evitar fragmentación de calendarios. Es el primer gran acto institucional del nuevo ciclo político subnacional post-MAS.</p>
+      <span class="source-link"><a href="https://transparenciaelectoral.org/caoeste/elecciones-subnacionales-de-bolivia-posesion-de-autoridades-departamentales-y-municipales-sera-el-3-de-mayo/">Transparencia Electoral</a> · <a href="https://www.reduno.com.bo/noticias/cuando-asumen-las-nuevas-autoridades-electas-en-las-elecciones-subnacionales-2026323131838">RedUno</a></span>
+    </div>
+
+    <!-- ECONÓMICO -->
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Programa Monetario 2026: déficit fiscal al 7% e inflación proyectada hasta el 17%</h3>
+      <p>El Banco Central de Bolivia confirmó que su Programa Monetario 2026 apunta a reducir gradualmente la inflación mediante una política contractiva. El gobierno Paz proyecta bajar el déficit fiscal al 7% del PIB, en un contexto de ajuste post-devaluación del boliviano. El tipo de cambio referencial del BCB se ubica en Bs 9,90 para la venta, prácticamente a la par del mercado paralelo (Bs 9,91).</p>
+      <span class="source-link"><a href="https://www.bcb.gob.bo/">Banco Central de Bolivia</a> · <a href="https://www.infobae.com/noticias/2026/05/01/precio-del-dolar-hoy-en-bolivia-cotizacion-de-cierre-del-1-de-mayo/">Infobae</a> · <a href="https://www.reduno.com.bo/economia/sube-o-baja-el-dolar-asi-esta-el-precio-este-sabado-en-bolivia-20265274248">RedUno</a></span>
+    </div>
+
+    <!-- EMPRESARIAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>YPFB Chaco confirma viabilidad del campo Churumas: 230 BCF de gas en Tarija</h3>
+      <p>Con una inversión de 26 millones de dólares, YPFB Chaco certifica 230 billones de pies cúbicos (BCF) de gas natural en Churumas, Padcaya. El hallazgo mantendrá la estabilidad de las reservas de la empresa y garantizará el cumplimiento de contratos de exportación. Las regalías directas a Tarija y el IDH nacional reciben el mayor impulso energético de los últimos tres años.</p>
+      <span class="source-link"><a href="https://eldia.com.bo/2026-05-02/economia/ypfb-chaco-confirma-reservas-de-230-billones-de-pies-cubicos-de-gas-en-el-campo-churumas-de-tarija.html">El Día</a> · <a href="https://eju.tv/2026/05/ypfb-chaco-mantiene-estabilidad-de-reservas-tras-exito-exploratorio-en-el-campo-churumas/">Eju.tv</a></span>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Instituciones cruceñas buscan respuesta unificada ante la escalada de crímenes</h3>
+      <p>Gobernación, fiscalía, policía y Comité Pro Santa Cruz se reunieron de emergencia para articular una respuesta a la ola de homicidios. Se acordó activar el Consejo Nacional Sectorial de Seguridad Ciudadana y desplegar a las Fuerzas Armadas en zonas fronterizas de alto riesgo. Los vecinos de Santa Cruz viven niveles de alarma inéditos en la ciudad.</p>
+      <span class="source-link"><a href="https://www.instantaneas.tic.bo/2026/05/02/seguridad-ciudadana-bolivia/delitos-violentos-bolivia/santa-cruz-reune-autoridades-asesinatos/">Instantáneas TIC</a> · <a href="https://eldeber.com.bo/santa-cruz/autoridades-instituciones-buscan-unir-fuerzas-asesinatos-santa-cruz_1777758044">El Deber</a></span>
+    </div>
+
+    <!-- DEPORTES -->
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>División Profesional: Always Ready y Aurora en acción en la jornada del sábado</h3>
+      <p>La jornada del 2 de mayo en la División Profesional incluyó Always Ready vs. Nacional Potosí y Aurora vs. Guabirá. La primera mitad del torneo clausura 2026 continúa con los equipos del eje troncal como principales protagonistas en la tabla de posiciones.</p>
+      <span class="source-link"><a href="https://www.flashscore.com.mx/futbol/bolivia/division-profesional/resultados/">Flashscore</a> · <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a></span>
+    </div>
+
+    <!-- INTERNACIONAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>España y Bolivia impulsan enoturismo en Tarija con respaldo diplomático</h3>
+      <p>El Ministerio de Turismo Sostenible, la embajada de España y la plataforma Ruta del Vino Bolivia anunciaron un proyecto de enoturismo que conectará viñedos tarijeños con destinos argentinos. La iniciativa consolida la apuesta del gobierno Paz por diversificar las fuentes de divisas más allá de los hidrocarburos, aprovechando el potencial turístico del sur boliviano.</p>
+      <span class="source-link"><a href="https://eju.tv/2026/05/portadas-de-los-periodicos-de-bolivia-del-sabado-2-de-mayo-del-2026/">Eju.tv</a> · <a href="https://asuntoscentrales.com/asistencia-de-espana-a-la-posesion-de-rodrigo-paz-pereira-consolidacion-de-unas-magnificas-relaciones-bilaterales/">Asuntos Centrales</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip">
+      <div class="data-cell glass reveal" style="transition-delay:0.32s">
+        <div class="data-cell-label">Dólar Oficial</div>
+        <div class="data-cell-value">Bs 9,90</div>
+        <div class="data-cell-delta" style="color:var(--muted)">BCB referencial</div>
+      </div>
+      <div class="data-cell glass reveal" style="transition-delay:0.36s">
+        <div class="data-cell-label">Dólar Paralelo</div>
+        <div class="data-cell-value">Bs 9,91</div>
+        <div class="data-cell-delta green">+0,01</div>
+      </div>
+      <div class="data-cell glass reveal" style="transition-delay:0.40s">
+        <div class="data-cell-label">Brecha</div>
+        <div class="data-cell-value">0,1%</div>
+        <div class="data-cell-delta green">Unificado</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.44s">
+      <div class="vigilar-header">Qué vigilar hoy</div>
+      <div class="vigilar-item">Posesión de 4.962 nuevas autoridades subnacionales este lunes: primer gran acto institucional del nuevo ciclo político local y primera prueba de la relación entre el gobierno Paz y los poderes regionales post-MAS.</div>
+      <div class="vigilar-item">Respuesta del ejecutivo a la crisis de seguridad en Santa Cruz: si activa estado de emergencia o despliega FF.AA. en zonas urbanas, marcará un precedente de gobernabilidad para el resto del mandato Paz.</div>
+      <div class="vigilar-item">Evolución del tipo de cambio: con oficial y paralelo prácticamente a la par (Bs 9,90 vs Bs 9,91), cualquier presión fiscal o inflacionaria podría reabrir la brecha cambiaria que el gobierno busca mantener cerrada.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.48s">
+      <div>Fuentes: El Deber · La Razón · Eju.tv · El Día · Instantáneas TIC · Opinión · Prensa Latina · Éxito Noticias · La Patria · El Diario · Infobae · RedUno · BCB · Flashscore</div>
+      <div style="margin-top:8px; color:var(--tertiary)">Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
