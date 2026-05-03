@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — 2 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #E8EEF4 0%, #D4E0EC 25%, #D8E4F0 55%, #E4EAF4 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead {
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .neutral { color: var(--muted); }
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Perú</h1>
+      <div class="masthead-date">Sábado 2 de mayo de 2026 · Lima</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 1 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Bicentenario Perú–EE.UU.: 200 años de relaciones diplomáticas marcados por la crisis de los F-16</div>
+            </div>
+            <div class="swipe-body">Perú y Estados Unidos conmemoran el 2 de mayo el bicentenario de sus relaciones diplomáticas. El aniversario llega en un momento tenso: el contrato de compra de aviones F-16 firmado el 20 de abril provocó la renuncia de los ministros de Relaciones Exteriores y de Defensa, exponiendo fricciones en la gestión del gobierno interino de José Jeri Oré.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La relación con Washington es el ancla de la política exterior peruana. La crisis por los F-16 muestra la fragilidad del gobierno interino para manejar acuerdos de defensa con socios estratégicos, con implicancias directas en la imagen país y el clima de inversión.
+            </div>
+            <div class="swipe-source"><a href="https://gestion.pe/peru/peru-y-eeuu-celebran-200-anos-de-relacion-tras-superar-tension-por-compra-de-aviones-f-16-noticia/">Gestión</a></div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Estado de emergencia prorrogado en Lima-Callao: extorsión afecta al 25% de adultos peruanos</div>
+            </div>
+            <div class="swipe-body">El gobierno prorrogó el estado de emergencia en Lima Metropolitana y el Callao por 60 días adicionales ante la persistencia del sicariato, la extorsión y los homicidios. El 25% de los adultos peruanos —más de 6 millones de personas— ha sido víctima o conoce afectados por extorsión, con un promedio de 75 denuncias diarias. Un operativo conjunto PNP-Ejército en Pataz (La Libertad) detuvo a 71 personas e incautó un arsenal.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La renovación continua del estado de emergencia revela que las medidas de corto plazo no resuelven el problema estructural. Con Lima y La Libertad como epicentros, el costo en productividad y confianza empresarial es creciente y acumula presión política sobre el gobierno de transición.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/29/sicariato-extorsion-y-homicidios-las-razones-detras-de-la-nueva-prorroga-del-estado-de-emergencia/">Infobae Perú</a> · <a href="https://www.infobae.com/peru/2026/03/24/extorsion-alcanza-al-25-de-peruanos-supera-los-6-millones-de-afectados-y-se-expande-de-lima-hacia-regiones-y-zonas-rurales/">Infobae Perú</a></div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Minería en auge: exportaciones suben 59% y la inversión proyecta US$ 6,800 millones en 2026</div>
+            </div>
+            <div class="swipe-body">Las exportaciones mineras alcanzaron US$ 13,831 millones en enero-febrero de 2026, con un alza del 59% interanual. La inversión en exploración creció 20% y se proyecta superar los US$ 1,000 millones en el año; la inversión minera total se estima en US$ 6,800 millones para 2026. Canadá y Australia concentran el 42% de la inversión extranjera. El MEF mantiene su proyección de crecimiento del PBI en 3.2% para el año.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La minería es el sostén de la estabilidad macroeconómica peruana. Un ciclo expansivo de exportaciones e inversión da espacio fiscal al gobierno de transición, pero también profundiza la dependencia estructural del país en commodities metálicos.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/30/los-metales-peruanos-estan-volando-exportaciones-saltan-59-y-superan-los-usd-13800-millones-en-solo-dos-meses/">Infobae Perú</a> · <a href="https://www.reporteminero.cl/noticia/noticias/2026/05/canada-australia-inversion-exploracion-minera-peru-2026">Reporte Minero</a></div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Cancillería repatría a 18 peruanos reclutados con engaños para combatir en Ucrania</div>
+            </div>
+            <div class="swipe-body">El Ministerio de Relaciones Exteriores confirmó la repatriación de 18 ciudadanos peruanos reclutados fraudulentamente para combatir en el frente de guerra en Ucrania del lado ruso. Un primer nacional llegó el 3 de mayo; seis más partieron de Moscú el 4 de mayo con apoyo de la embajada peruana. La Cancillería mantiene gestiones activas con autoridades rusas para el retorno de los casos pendientes.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El caso expone redes de reclutamiento ilegal que operan sobre peruanos en situación vulnerable. Presiona al Congreso para legislar contra la captación de mercenarios y coloca a Perú en una posición diplomática delicada frente a Rusia en pleno contexto de conflicto activo.
+            </div>
+            <div class="swipe-source"><a href="https://www.vlnradio.cl/noticias/internacional/2026/05/03/peru-logra-repatriar-a-18-ciudadanos-reclutados-para-la-guerra-en-rusia/">VLN Radio</a></div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Liga 1 — Fecha 13: Alianza Lima lidera con 32 puntos tras vencer 2-0 a CD Moquegua</div>
+            </div>
+            <div class="swipe-body">Alianza Lima consolidó su liderato en el Torneo Apertura 2026 al vencer 2-0 a CD Moquegua con goles de Eryc Castillo y Federico Girotti. FC Cajamarca también ganó 3-2 ante Sport Boys. La tabla sitúa a los íntimos con 32 puntos, seguidos de Cienciano (23) y Universitario (21). El domingo se disputan Sporting Cristal vs Cusco FC y Universitario vs Juan Pablo II College.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Con 11 puntos de ventaja sobre el segundo, Alianza Lima se perfila como dominador indiscutido del Apertura. Si Universitario no acorta distancias en los partidos del domingo, el clásico del torneo podría llegar sin tensión real en la cima.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/deportes/2026/05/02/tabla-de-posiciones-liga-1-peru-2026-fecha-13-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-sporting-cristal-melgar/">Infobae Perú</a> · <a href="https://larepublica.pe/deportes/2026/05/02/tabla-de-la-liga-1-2026-en-vivo-hoy-posiciones-actualizadas-resultados-de-la-fecha-13-y-quien-es-el-lider-del-apertura-29780">La República</a></div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div><!-- /carousel-container -->
+
+    <!-- DIVIDER -->
+    <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+    <!-- NEWS ITEMS -->
+
+    <div class="news-item glass reveal" style="transition-delay: 0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Transición presidencial: José Jeri Oré gobierna hasta el 28 de julio</h3>
+      <p>Tras la destitución de Dina Boluarte por el Congreso en octubre de 2025 —el octavo gobierno peruano en cinco años—, el presidente del Legislativo, José Jeri Oré, asumió el ejecutivo de forma interina. Las elecciones generales de abril de 2026 ya se realizaron y el presidente electo asumirá formalmente el 28 de julio. Perú transita uno de sus períodos de mayor inestabilidad institucional en décadas.</p>
+      <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://radio.uchile.cl/2025/10/10/termina-el-gobierno-de-boluarte-pero-no-la-crisis-politica-en-peru/">Radio U. Chile</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay: 0.08s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Sol estable en S/ 3.509; inversión privada proyecta alza de 5.5% para 2026</h3>
+      <p>El tipo de cambio cerró el viernes 30 de abril en S/ 3.509 por dólar según el BCRP, con mínima presión sobre la moneda pese a la turbulencia política. El MEF proyecta que la inversión privada crecerá 5.5% en 2026, liderada por minería, infraestructura y energías renovables. La proyección de crecimiento del PBI se mantiene en 3.2% para el año.</p>
+      <span class="source-link"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-a-cuanto-esta-el-dolar-y-tipo-de-cambio-este-sabado-2-de-mayo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> · <a href="https://peruconstruye.net/2026/04/30/inversion-privada-2026-mineria-infraestructura/">Peru Construye</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay: 0.12s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Sin movimientos corporativos relevantes el sábado 2 de mayo</h3>
+      <p>No se registraron resultados financieros, fusiones, adquisiciones ni decisiones regulatorias de impacto durante el sábado. El sector privado opera en modo de observación ante la inminente transición de gobierno del 28 de julio de 2026.</p>
+      <span class="source-link">Fuentes consultadas sin hallazgos significativos</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay: 0.16s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Incendio en Independencia y fallecimiento del comediante Pompinchu</h3>
+      <p>Un incendio en el distrito limeño de Independencia afectó más de siete viviendas, dejando damnificados sin reporte de víctimas fatales al cierre de la edición. Falleció también el comediante peruano Pompinchu a los 55 años por complicaciones de salud, generando una ola de condolencias entre figuras del espectáculo y en redes sociales.</p>
+      <span class="source-link">RPP · El Popular</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay: 0.20s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga 1 Fecha 13: Alianza Lima 2-0 Moquegua; Cajamarca 3-2 Sport Boys</h3>
+      <p>Alianza Lima derrotó 2-0 a CD Moquegua —goles de Eryc Castillo y Federico Girotti— y se mantiene líder con 32 puntos. FC Cajamarca sumó tres puntos al vencer 3-2 a Sport Boys. El domingo completan la fecha: Sporting Cristal vs Cusco FC (11:00 am, Gallardo) y Universitario vs Juan Pablo II College (1:15 pm, Mansiche).</p>
+      <span class="source-link"><a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-13-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a> · <a href="https://elcomercio.pe/deporte-total/futbol-peruano/tabla-liga-1-en-vivo-programacion-resultados-y-posiciones-de-fecha-13-del-torneo-apertura-2026-noticia/">El Comercio</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay: 0.24s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Combate del 2 de Mayo: Perú conmemora 160 años de la defensa del Callao contra España</h3>
+      <p>En una fecha de doble relevancia histórica y diplomática, Perú recordó el 160.º aniversario del Combate del 2 de Mayo de 1866, cuando la Armada peruana rechazó el ataque de la escuadra española en el Callao. La efeméride coincidió con el bicentenario de las relaciones Perú-EE.UU., marcando un día cargado de simbolismo para la política exterior y la identidad nacional.</p>
+      <span class="source-link">TVPerú · RPP</span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay: 0.28s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">Dólar Oficial (BCRP)</div>
+        <div class="data-cell-value">S/ 3.509</div>
+        <div class="data-cell-delta neutral">cierre vie. 30 abr</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Mercado Informal</div>
+        <div class="data-cell-value">S/ 3.520</div>
+        <div class="data-cell-delta neutral">venta · Ocona</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Brecha</div>
+        <div class="data-cell-value">+0.3%</div>
+        <div class="data-cell-delta green">estable</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay: 0.32s">
+      <div class="vigilar-header">Qué Vigilar Hoy</div>
+      <div class="vigilar-item">Partidos Liga 1 del domingo: Sporting Cristal vs Cusco FC (11:00 am) y Universitario vs Juan Pablo II College (1:15 pm, Mansiche) — resultados que definirán si la brecha con Alianza Lima se mantiene o se acorta.</div>
+      <div class="vigilar-item">Repatriación de peruanos desde Rusia: la Cancillería reportará el arribo de los siguientes nacionales en los próximos días; seguir si hay más casos identificados.</div>
+      <div class="vigilar-item">Movimientos políticos de transición: posibles anuncios de gabinete y agenda legislativa del presidente electo de cara al relevo del 28 de julio.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay: 0.36s">
+      <div>Fuentes: RPP · El Comercio · La República · Gestión · Infobae Perú · Depor · Reporte Minero · Rumbo Minero · VLN Radio · Peru Construye</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
