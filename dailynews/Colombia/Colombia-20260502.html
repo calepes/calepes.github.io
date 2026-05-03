@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — Sábado 2 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    /* Section header */
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    /* Carousel */
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    /* Dots */
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    /* Divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    /* News items */
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    /* Data strip */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell {
+      padding: 20px 14px; text-align: center;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    /* Qué vigilar */
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    /* Staggered reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Sábado 2 de mayo de 2026 · Bogotá</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Spirit Airlines colapsa y deja miles de colombianos varados</div>
+            </div>
+            <div class="swipe-body">La aerolínea estadounidense canceló todos sus vuelos el 2 de mayo y entró en liquidación tras acumular deudas de $7,400 millones. Cerca de 10,000 pasajeros colombianos con rutas a Miami, Fort Lauderdale y Orlando quedaron afectados. La Aeronáutica Civil activó un plan de contingencia. Avianca ofreció reubicación gratuita para quienes tengan retorno pendiente entre el 2 y el 16 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La salida de Spirit elimina la principal opción de bajo costo entre Colombia y EE.UU. Avianca consolida su posición dominante en ese corredor, lo que puede presionar al alza las tarifas hacia el destino más demandado por los colombianos en el exterior.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/2026/05/02/spirit-airlines-cerro-avianca-ofrecio-soluciones-a-pasajeros-afectados-de-regreso-y-sin-cobro-de-tiquete/">Infobae</a> ·
+              <a href="https://www.elcolombiano.com/negocios/avianca-plan-contingencia-pasajeros-afectados-cierre-spirit-airlines-CD36066433">El Colombiano</a> ·
+              <a href="https://www.larepublica.co/empresas/avianca-lanza-un-plan-de-contingencia-para-pasajeros-afectados-por-cierre-de-spirit-4383959">La República</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Petro formaliza convocatoria a asamblea constituyente</div>
+            </div>
+            <div class="swipe-body">El presidente Gustavo Petro anunció el 1 de mayo, Día del Trabajador, la recolección de cinco millones de firmas para convocar una asamblea constituyente que reforme la Constitución de 1991. El 2 de mayo insistió en la propuesta ante la fuerte reacción opositora. Juan Manuel Galán respondió que en el próximo gobierno "Colombia tomará otro rumbo" y "no hará falta ninguna constituyente".</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              A 29 días de las elecciones presidenciales, la propuesta constituyente se convierte en el eje del debate electoral. Puede movilizar el voto opositor consolidado y reconfigurar alianzas en la recta final de campaña, beneficiando a candidatos de centro y derecha.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.eluniversal.com.co/colombia/2026/05/02/gustavo-petro-insiste-en-constituyente-para-reformar-la-constitucion-de-1991/">El Universal</a> ·
+              <a href="https://www.infobae.com/colombia/2026/05/02/juan-manuel-galan-arremetio-contra-gustavo-petro-por-su-discurso-en-el-dia-del-trabajador-no-hara-falta-ninguna-constituyente/">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">CNE ratifica sanción histórica contra la campaña de Petro</div>
+            </div>
+            <div class="swipe-body">El Consejo Nacional Electoral confirmó con votación 6 a 2 que la campaña presidencial de Gustavo Petro en 2022 superó los topes de financiación en más de $5,300 millones de pesos, con irregularidades en primera y segunda vuelta. La decisión es considerada una de las más graves sanciones electorales desde la Constitución de 1991.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La sanción sienta precedente sobre el control de la financiación electoral en Colombia y agrega presión institucional al gobierno en plena recta final del mandato, con el candidato oficialista Iván Cepeda liderando las encuestas para sucederlo.
+            </div>
+            <div class="swipe-source">
+              <a href="https://panampost.com/bernardo-henao-jaramillo/2026/05/02/confirmado-gobierno-ilegitimo/">Panam Post</a> ·
+              <a href="https://www.elcolombiano.com/colombia/gustavo-petro-mueve-hilos-de-la-campana-2026-EF32262446">El Colombiano</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Colombia arrasa en el Panamericano de BMX: seis oros en Bogotá</div>
+            </div>
+            <div class="swipe-body">La selección colombiana barrió el Campeonato Panamericano de BMX 2026 disputado en Bogotá, obteniendo los seis títulos en disputa en categorías élite, sub-23 y junior. Diego Arboleda ganó su quinto título panamericano en élite masculina, liderando un podio íntegramente colombiano. En élite femenina, Valentina Muñoz repitió el dominio nacional con Gabriela Bollé y Sharid Fayad completando el podio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El resultado consolida a Colombia como potencia hemisférica en ciclismo BMX y refuerza la apuesta nacional por disciplinas olímpicas de alto rendimiento. Bogotá como sede eleva el perfil del deporte colombiano de cara al ciclo olímpico.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.elespectador.com/deportes/ciclismo/colombia-arrasa-en-el-panamericano-de-bmx-2026-seis-oros-y-dominio-absoluto-en-bogota/">El Espectador</a> ·
+              <a href="https://www.deportesrcn.com/ciclismo/tour-de-romandia-2026-clasificacion-general-tras-la-etapa-4-150210">Deportes RCN</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Elecciones presidenciales: 29 días, carrera polarizada y segunda vuelta incierta</div>
+            </div>
+            <div class="swipe-body">Con la primera vuelta el 31 de mayo, Iván Cepeda lidera con 38% en intención de voto (Guarumo, abril), seguido de Abelardo de la Espriella (23.9%) y Paloma Valencia (22.8%). Los escenarios de segunda vuelta son radicalmente distintos: Valencia derrota a Cepeda y De la Espriella lo empata, según las proyecciones más recientes.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Ningún candidato tiene ventaja garantizada en segunda vuelta. La propuesta constituyente de Petro y la sanción del CNE pueden reconfigurar el voto de opinión en las próximas semanas, con el período más decisivo de campaña aún por delante.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-guarumo-abril-2026-cepeda-38-de-la-espriella-23-9-y-paloma-22-8-en-segunda-valencia-derrota-a-cepeda-y-abelardo-lo-empata-3552136">El Tiempo</a> ·
+              <a href="https://www.portafolio.co/economia/gobierno/encuestas-presidenciales-2026-en-colombia-ivan-cepeda-lidera-y-se-aprieta-la-segunda-vuelta-491850">Portafolio</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Sección</span>
+    </div>
+
+    <!-- POLÍTICO -->
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Político</span>
+      <h3>ONU alerta: Colombia podría retomar niveles de violencia previos al Acuerdo de Paz en vísperas electorales</h3>
+      <p>La Misión de Verificación de la ONU, reestructurada en abril, advirtió que el deterioro de la seguridad en varias regiones del país podría derivar en niveles de violencia comparables a los previos al acuerdo con las FARC. El organismo pidió garantías electorales con miras a los comicios del 31 de mayo, en un contexto de 27,000 combatientes activos en grupos armados, aumento del 85% en desplazamiento forzado y un 133% más de secuestros respecto al año anterior.</p>
+      <span class="source-link">
+        <a href="https://www.elcolombiano.com/colombia/onu-informe-colombia-volver-violencia-previo-acuerdo-de-paz-elecciones-PI33916595">El Colombiano</a> ·
+        <a href="https://news.un.org/es/story/2026/04/1541362">ONU Noticias</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Gobierno Petro presenta plan laboral "Trabajo Digno y Decente" con inversión de 1.82 billones hasta 2035</h3>
+      <p>En el marco del Día del Trabajador, el Ministerio del Trabajo lanzó una política laboral enfocada en empleo verde, inclusión social y transición energética, con una inversión proyectada de aproximadamente 1.82 billones de pesos hasta 2035. La iniciativa se suma a la convocatoria constituyente y busca consolidar el legado del gobierno ante el cierre del mandato.</p>
+      <span class="source-link">
+        <a href="https://www.diariodelsur.com.co/nueva-politica-laboral-petro-colombia-2026/">Diario del Sur</a>
+      </span>
+    </div>
+
+    <!-- ECONÓMICO -->
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Peso colombiano se aprecia 3.18% en lo que va del año: TRM cierra en $3,637.51</h3>
+      <p>La Tasa Representativa del Mercado (TRM) del sábado 2 de mayo se fijó en $3,637.51, con una apreciación del peso del 3.18% frente al inicio del año (cuando cotizaba a $3,757). Frente a la semana anterior subió un 2.43%. El comportamiento es consistente con la debilidad global del dólar, que lleva el promedio proyectado para 2026 a $3,801 por dólar según BBVA Research.</p>
+      <span class="source-link">
+        <a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-sabado-2-mayo-581823">Colombia.com</a> ·
+        <a href="https://www.capitalcolombia.com/sec-trm_precio_dolar_en_colombia">Capital Colombia</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>PIB proyectado al 3.0% para 2026: consumo privado y recuperación industrial lideran el impulso</h3>
+      <p>Las proyecciones de Bancolombia y BBVA Research ubican el crecimiento del PIB colombiano en 3.0% para 2026, impulsado principalmente por el consumo de los hogares y la recuperación industrial. Las utilidades corporativas crecerían cerca del 11% en el año, favoreciendo la distribución de dividendos. La inversión privada, sin embargo, permanece en su nivel más bajo en dos décadas.</p>
+      <span class="source-link">
+        <a href="https://www.bancolombia.com/empresas/capital-inteligente/actualidad-economica-sectorial/perspectivas-economicas-2026">Bancolombia</a> ·
+        <a href="https://www.elcolombiano.com/negocios/cuanto-crecera-economia-colombia-2026-BD32314234">El Colombiano</a>
+      </span>
+    </div>
+
+    <!-- EMPRESARIAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Aeronáutica Civil activa protocolo de emergencia por cierre definitivo de Spirit Airlines</h3>
+      <p>Además del plan de Avianca, la Aeronáutica Civil de Colombia activó su propio protocolo de contingencia para asistir a los pasajeros varados. Los afectados con tiquetes no usados tienen derecho a reembolso a través del proceso de liquidación de Spirit, aunque los plazos pueden extenderse varios meses. El regulador colombiano instó a otras aerolíneas a habilitar cupos adicionales en rutas hacia el sur de Florida.</p>
+      <span class="source-link">
+        <a href="https://www.infobae.com/colombia/2026/05/02/aeronautica-civil-activo-plan-de-contingencia-por-el-cierre-de-spirit-airlines-esto-deben-hacer-los-pasajeros-afectados/">Infobae</a> ·
+        <a href="https://www.publimetro.co/noticias/2026/05/02/spirit-airlines-quebro-y-cancelo-todos-sus-vuelos-guia-urgente-para-pasajeros-colombianos-varados/">Publimetro</a>
+      </span>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Cúcuta: 3 muertos en hechos violentos y 11 menores rescatados de red de explotación sexual</h3>
+      <p>El área metropolitana de Cúcuta registró tres homicidios en distintos hechos violentos durante el fin de semana, en medio de una disputa territorial entre grupos criminales. Simultáneamente, operativos conjuntos de la Policía y el ICBF rescataron a 11 menores de edad víctimas de una red de trata con fines de explotación sexual que operaba en el nororiente del país.</p>
+      <span class="source-link">
+        <a href="https://digitalfuentes7.wordpress.com/2026/05/02/noticias-cucuta-2-de-mayo-2026/">Digital Fuentes</a>
+      </span>
+    </div>
+
+    <!-- DEPORTES -->
+    <div class="news-item glass reveal" style="transition-delay:0.40s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Tour de Romandía: Pogacar gana la etapa reina; Higuita 5.° y Nairo avanza a la posición 22</h3>
+      <p>Tadej Pogacar (UAE Emirates) se impuso en solitario en la etapa reina del Tour de Romandía entre Broc y Charmey (149.6 km). El colombiano Sergio Higuita finalizó quinto a 1:47' del esloveno, siendo el mejor latinoamericano de la jornada. Nairo Quintana llegó 13.° con el mismo tiempo y escaló ocho posiciones en la general, ubicándose 22.° a vísperas de la cronoescalada final.</p>
+      <span class="source-link">
+        <a href="https://www.vanguardia.com/deportes/ciclismo/2026/05/02/tour-de-romandia-higuita-lidera-a-los-colombianos-y-nairo-avanza-en-la-general/">Vanguardia</a> ·
+        <a href="https://www.semana.com/deportes/ciclismo/articulo/clasificacion-general-del-tour-de-romandia-nairo-quintana-pego-otro-salto-en-la-etapa-4/202626/">Semana</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.44s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay 2026-I: jornada 19 define los clasificados a cuartos de final</h3>
+      <p>La última fecha regular del torneo BetPlay Dimayor 2026-I se disputó el sábado 2 de mayo. Entre los partidos del día se jugaron Jaguares de Córdoba vs. Cúcuta Deportivo y Boyacá Chicó vs. Llaneros, en definiciones clave para los últimos cupos de los cuartos de final. Los clasificados se conocerán al cierre de la jornada.</p>
+      <span class="source-link">
+        <a href="https://www.clarosports.com/colombia/liga-bet-play/tabla-de-posiciones-de-la-liga-betplay-dimayor-2026-i-en-directo-resultados-y-horarios-del-futbol-colombiano/">ClaroSports</a> ·
+        <a href="https://www.colombia.com/futbol/liga-colombiana/resultados">Colombia.com</a>
+      </span>
+    </div>
+
+    <!-- INTERNACIONAL -->
+    <div class="news-item glass reveal" style="transition-delay:0.48s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Colombia domina la Vuelta Bantrab 2026: Kevin Castillo lidera la general en Guatemala</h3>
+      <p>El ciclista colombiano Kevin Castillo ganó la tercera etapa de la Vuelta Bantrab 2026 disputada en Guatemala (03:14:55 h) y tomó el liderato de la clasificación general. La cuarta etapa del sábado 2 de mayo, entre Salcajá y Patzicía (152.5 km), contó con varios colombianos en posiciones destacadas, consolidando el dominio del pelotón colombiano en la carrera centroamericana.</p>
+      <span class="source-link">
+        <a href="https://emisorasunidas.com/deportes/2026/05/01/resultados-de-la-tercera-etapa-de-la-vuelta-bantrab-2026/">Emisoras Unidas Guatemala</a>
+      </span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.52s">
+      <div class="data-cell">
+        <div class="data-cell-label">Dólar TRM</div>
+        <div class="data-cell-value">$3,637</div>
+        <div class="data-cell-delta green">COP / USD</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Var. Semanal</div>
+        <div class="data-cell-value red">+2.43%</div>
+        <div class="data-cell-delta red">+$86 vs sem. ant.</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Var. Año</div>
+        <div class="data-cell-value green">−3.18%</div>
+        <div class="data-cell-delta green">−$120 vs ene. 2026</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.56s">
+      <div class="vigilar-header">Qué Vigilar Hoy</div>
+      <div class="vigilar-item">Definición de los clasificados a cuartos de final de la Liga BetPlay: con los resultados de la jornada 19, se conocerán los ocho equipos que disputarán los cuartos desde la próxima semana.</div>
+      <div class="vigilar-item">Respuesta de los candidatos presidenciales al proyecto constituyente de Petro: a 29 días de la primera vuelta, cualquier pronunciamiento puede mover la intención de voto en un escenario de segunda vuelta muy reñido.</div>
+      <div class="vigilar-item">Seguimiento de pasajeros afectados por el cierre de Spirit Airlines: la ventana de reubicación gratuita de Avianca cierra el 16 de mayo. Los pasajeros con tiquetes sin usar deben iniciar el proceso de reembolso ante el liquidador.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.60s">
+      <div>Fuentes: El Tiempo · El Espectador · Semana · Infobae Colombia · El Colombiano · Portafolio · La República · Vanguardia · Deportes RCN · Colombia.com · Aeronáutica Civil · ONU Noticias</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /.wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' });
+      });
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
