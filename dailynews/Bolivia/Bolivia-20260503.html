@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia · 3 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead glass reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Domingo 3 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Paz cumple 6 meses entre pedidos de pacto nacional y alerta de más conflictos</div>
+          </div>
+          <div class="swipe-body">A días de cumplir su primer semestre, el presidente Rodrigo Paz llega con la economía sin despegar, protestas multisectoriales y un llamado a un "encuentro nacional" para socializar leyes estructurales (hidrocarburos, energía, inversiones). Analistas advierten que el margen para un pacto se estrecha: la oposición pide gestos concretos y los sectores movilizados condicionan la tregua a respuestas inmediatas.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La gobernabilidad del primer año marca la capacidad de Paz para empujar reformas estructurales. Sin pacto, el paquete de leyes —clave para reactivar inversión en hidrocarburos y atraer financiamiento externo— se traba en el Legislativo.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/pais/paz-llega-6-meses-pedidos-pacto-nacional-alerta-conflictos_1777763948">El Deber</a> · <a href="https://eju.tv/2026/05/paz-llega-a-los-6-meses-con-pedidos-de-pacto-nacional-y-alerta-de-mas-conflictos/">eju.tv</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Bloqueo en los Yungas: diálogo logra avances y pasa a consulta con bases</div>
+          </div>
+          <div class="swipe-body">Tras varias horas de negociación con el Ministerio de Obras Públicas, los choferes e interculturales de Caranavi reportaron progreso y declararon un cuarto intermedio. La Cámara de Industria de La Paz estima pérdidas de hasta 15 millones de dólares por día solo en el departamento, con productos perecibles (cárnicos, lácteos, flores) como los más golpeados.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La ruta La Paz–Caranavi es arteria al norte amazónico. Si el lunes las bases rechazan el preacuerdo, el bloqueo se reactiva justo cuando el transporte nacional inicia su paro escalonado del 5 de mayo: efecto multiplicador sobre logística y abastecimiento.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/03/bloqueo-en-los-yungas-dialogo-logra-avances-y-pasa-a-consulta-con-las-bases/">La Razón</a> · <a href="https://www.eldia.com.bo/2026-05-02/pais/bloqueo-de-choferes-cierra-el-paso-a-los-yungas-y-en-caranavi-persisten-las-protestas.html">El Día</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Choferes ratifican paro nacional escalonado desde el 5 de mayo</div>
+          </div>
+          <div class="swipe-body">La Confederación de Choferes confirmó paro de 24 horas el martes 5 con bloqueos y cierre de fronteras. Si no hay respuesta, escala a 48 y luego 72 horas hasta llegar al paro indefinido. Demandan diésel de calidad, normalización del GNV y compensación por pérdidas. Transporte Federado de Cochabamba ratificó la medida y la condicionó al diálogo del lunes 4 a las 16:00 en Palacio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Un paro escalonado de transporte combinado con bloqueos en Caranavi paraliza cadenas logísticas en La Paz, Cochabamba y Santa Cruz. La ventana de diálogo del lunes es decisiva: el Gobierno necesita una salida sin ceder a presión generalizada de otros sectores.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/pais/choferes-anuncian-paro-nacional-bloqueos-5-mayo-protesta-gobierno_1777486004">El Deber</a> · <a href="https://www.lostiempos.com/actualidad/pais/20260430/anuncio-paro-gobierno-convoca-al-dialogo-choferes-este-lunes">Los Tiempos</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Gobierno crea Grupo Especial Táctico contra crimen organizado tras 8 sicariatos</div>
+          </div>
+          <div class="swipe-body">Tras ocho asesinatos a balazos por sicarios en siete días en Santa Cruz y Tarija, el Gobierno activó la noche del 2 de mayo un Grupo Especial Táctico con unidades de élite policial, con sede permanente en Santa Cruz y previsión de réplicas en otras ciudades. La Policía vincula la ola al vacío de liderazgo dejado por la captura de Sebastián Marset el 13 de marzo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Santa Cruz consolida su rol como epicentro de disputas narco. La efectividad de este grupo medirá si el Estado puede contener una "balcanización" de facciones tras Marset, o si el sicariato escala. Riesgo reputacional para inversiones en el oriente.
+          </div>
+          <div class="swipe-source"><a href="https://www.prensa-latina.cu/2026/05/02/gobierno-de-bolivia-crea-grupo-especial-tactico-contra-el-crimen/">Prensa Latina</a> · <a href="https://lapatria.bo/actualidad/ola-de-crimenes-en-santa-cruz-vinculan-a-marset-y-narcotrafico/">La Patria</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Bolívar le gana 2-1 a GV San José en Oruro con gol en la última jugada</div>
+          </div>
+          <div class="swipe-body">Por la fecha 5 de la División Profesional, Bolívar remontó a GV San José en el estadio Jesús Bermúdez. Con el partido empatado, una pérdida en campo rival derivó en contragolpe letal y Lucas Chávez definió en la última acción para el 2-1 final. Bolívar consolida su posición en el lote alto del torneo; San José sigue penúltimo con 2 puntos.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Bolívar mantiene presión sobre los punteros y suma confianza camino a fases internacionales. Para San José, la derrota agudiza la crisis deportiva en una temporada donde la permanencia ya luce comprometida.
+          </div>
+          <div class="swipe-source"><a href="https://www.eldia.com.bo/2026-05-03/deportes/bolivar-remonta-a-gv-san-jose-en-la-ultima-jugada-del-partido.html">El Día</a> · <a href="https://www.flashscore.com.mx/futbol/bolivia/division-profesional/">Flashscore</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Porcel cuestiona el PGE Reformulado 2026: "Se caen todos los discursos del Gobierno"</h3>
+    <p>El diputado José Luis Porcel afirmó que el Presupuesto General del Estado reformulado contradice las promesas de austeridad y transparencia del oficialismo. El texto entra al Legislativo en plena tensión por interpelaciones bloqueadas y bloqueos sociales.</p>
+    <span class="source-link"><a href="https://www.aygun.com.bo/pge-reformulado-2026-criticas-porcel-bolivia/">Aygün Bolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Justicia frena la interpelación al ministro de Hidrocarburos</h3>
+    <p>Una corte constitucional de El Alto suspendió la interpelación a Carlos Blanco Quintanilla por la "gasolina basura" hasta la audiencia de amparo del martes 5. La oposición denuncia que el Ejecutivo usa la justicia para limitar el control parlamentario.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/pais/justicia-ordena-asamblea-legislativa-parar-interpelacion-ministro-hidrocarburos_1777510311">El Deber</a> · <a href="https://www.eldiario.net/portal/2026/05/01/lamentan-que-la-justicia-vuelva-a-mutilar-atribuciones-de-la-alp-2/">El Diario</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar paralelo cierra el domingo en torno a Bs 9,85–9,88</h3>
+    <p>El blue se cotizó este 3 de mayo en Bs 9,88 compra y Bs 9,85 venta, ligeramente arriba del sábado (Bs 9,86/9,83). La brecha con el oficial se mantiene cerca de 40%, en un escenario de inflación interanual del 15,05% (marzo, INE) y proyecciones del FMI de inflación superior al 20% para 2026.</p>
+    <span class="source-link"><a href="https://eju.tv/2026/05/conviene-comprar-o-vender-el-dolar-paralelo-cambia-este-domingo-3-de-mayo-en-bolivia/">eju.tv</a> · <a href="https://www.dolarbluebolivia.click/">DólarBlueBolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>YPFB despacha 30,7 millones de litros para feriado y fin de semana</h3>
+    <p>La estatal programó 18 millones de litros de diésel y 12,7 millones de gasolina especial. En Santa Cruz garantizó 3,8 millones (diésel) y 3,5 millones (gasolina). Pese al despacho, los choferes insisten en que la calidad del combustible es deficiente —uno de los detonantes del paro del 5 de mayo.</p>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/01/ypfb-despacha-de-307-millones-de-litros-de-combustible-para-abastecimiento/">La Razón</a> · <a href="https://www.urgente.bo/noticia/ypfb-refuerza-despachos-y-normaliza-suministro-de-diesel-y-gasolina-en-el-oriente-del-pais">Urgentebo</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Sector hotelero y microempresarios alertan pérdidas millonarias por bloqueos</h3>
+    <p>La Cámara de Industria de La Paz cifra el impacto en 15 millones de dólares diarios; el sector turístico de los Yungas ya reporta cancelaciones masivas y caída de ocupación. Productores de café, flores y cárnicos figuran entre los más golpeados por el cierre prolongado del corredor.</p>
+    <span class="source-link"><a href="https://eju.tv/2026/04/la-paz-sector-hotelero-y-microempresarios-alertan-perdidas-por-bloqueos-en-caranavi/">eju.tv</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Detienen en el lago Titicaca a dos peruanos con 195 kilos de cocaína</h3>
+    <p>La Armada y la Policía interceptaron un bote en aguas del Titicaca con clorhidrato de cocaína valorado en varios millones de dólares. El golpe se inscribe en una semana marcada por la creación del nuevo grupo táctico antinarcóticos.</p>
+    <span class="source-link"><a href="https://www.diariolasamericas.com/america-latina/detienen-bolivia-dos-peruanos-195-kilos-cocaina-el-lago-titicaca-n5394774">Diario Las Américas</a> · <a href="https://elcomercio.pe/mundo/latinoamerica/detienen-en-bolivia-a-dos-peruanos-con-195-kilos-de-cocaina-en-el-lago-titicaca-ultimas-noticia/">El Comercio</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Always Ready, Aurora y Oriente Petrolero también jugaron por la fecha 5</h3>
+    <p>La jornada del 3 de mayo en la División Profesional incluyó Always Ready vs. Nacional Potosí, Aurora vs. Guabirá y Oriente Petrolero vs. Tomayapo, además del clásico Bolívar vs. GV San José en Oruro.</p>
+    <span class="source-link"><a href="https://www.flashscore.com.mx/futbol/bolivia/division-profesional/">Flashscore</a> · <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Oficial</div>
+      <div class="data-cell-value">Bs 6,96</div>
+      <div class="data-cell-delta">sin cambio</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">Bs 9,85</div>
+      <div class="data-cell-delta red">+0,02</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value">~41,5%</div>
+      <div class="data-cell-delta">estable</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Reunión Gobierno–choferes a las 16:00 en Palacio: si fracasa, paro de 24 horas el martes 5 con cierre de fronteras.</div>
+    <div class="vigilar-item">Consulta de bases en los Yungas: definirá si se reactivan o levantan los bloqueos hacia Caranavi.</div>
+    <div class="vigilar-item">Audiencia de amparo del martes 5 sobre la interpelación al ministro de Hidrocarburos.</div>
+    <div class="vigilar-item">Movimiento del paralelo en plazas Santa Cruz/La Paz tras paro escalonado: presión típica al alza si se interrumpe el flujo logístico.</div>
+  </div>
+
+  <div class="footer reveal">
+    <div>Fuentes: El Deber · La Razón · Los Tiempos · El Día · ABI · eju.tv · Urgentebo · Aygün Bolivia · El Diario · Prensa Latina · La Patria · Infobae · Flashscore</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
