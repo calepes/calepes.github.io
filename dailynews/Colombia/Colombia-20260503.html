@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 3 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.neutral { color: var(--muted); }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+<div class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Domingo 3 de mayo de 2026</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="section-header reveal">Top 5 del Día</div>
+
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Petro acusa a Ecuador de proveer explosivos a las disidencias del Cauca</div>
+        </div>
+        <div class="swipe-body">El presidente ordenó a las Fuerzas Armadas investigar la ruta ecuatoriana de las armas y municiones usadas por la columna Jaime Martínez en los recientes ataques al suroccidente. Reavivó su enfrentamiento con el presidente Daniel Noboa, a quien acusó de sabotear el proceso de paz e interferir en las elecciones colombianas. Cancillería ecuatoriana rechazó las acusaciones.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La crisis con Ecuador escala en plena recta final electoral (primera vuelta el 31 de mayo) y se cruza con la peor ola de violencia en años: 50 masacres en lo que va de 2026 y el atentado de Cajibío con 20 muertos del 27 de abril.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/03/gustavo-petro-reavivo-su-enfrentamiento-con-el-presidente-ecuatoriano-daniel-noboa-y-lo-acuso-de-sabotear-el-proceso-de-paz-e-interferir-en-las-elecciones/">Infobae</a> · <a href="https://www.eluniversal.com.co/colombia/2026/05/03/petro-insiste-en-que-armas-que-quitan-vidas-en-colombia-provienen-de-ecuador/">El Universal</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Masacre número 50 del año en Cúcuta deja tres muertos</div>
+        </div>
+        <div class="swipe-body">Sicarios en motocicleta abrieron fuego frente al conjunto residencial Hibiscos, en el barrio Las Delicias. Entre las víctimas está William Giovanny López González, presidente de la Junta de Acción Comunal del sector. Indepaz contabiliza ya 50 masacres en lo que va de 2026, en una zona disputada por EGC/Clan del Golfo, ELN, Frente 33 y bandas locales.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La frontera con Venezuela vuelve a ser foco de violencia crítica. El asesinato de un líder comunal eleva el riesgo para la institucionalidad local y la logística empresarial en Norte de Santander, en un momento de máxima sensibilidad electoral.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/03/tres-hombres-fueron-asesinados-a-tiros-frente-a-un-conjunto-residencial-en-cucuta-es-la-masacre-numero-50-en-lo-que-va-del-2026-en-colombia/">Infobae</a> · <a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Encuesta CNC: imagen favorable de Petro cae levemente al 49,3%</div>
+        </div>
+        <div class="swipe-body">El sondeo del Centro Nacional de Consultoría difundido este domingo muestra a Petro con 49,3% de imagen favorable y 43,6% desfavorable, una caída moderada respecto a mediciones previas. La encuesta también ratifica a Iván Cepeda como puntero de la primera vuelta con 38%, seguido por Abelardo de la Espriella (23,9%) y Paloma Valencia (22,8%).</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          A 28 días de la primera vuelta, la presión sobre el oficialismo aumenta. La proyección Cepeda-Valencia en segunda vuelta sigue siendo el escenario base de los mercados y de los empresarios que evalúan el rumbo postelectoral.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/03/gustavo-petro-tuvo-una-leve-caida-en-la-imagen-favorable-de-los-colombianos-segun-encuesta-del-cnc/">Infobae</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-guarumo-abril-2026-cepeda-38-de-la-espriella-23-9-y-paloma-22-8-en-segunda-valencia-derrota-a-cepeda-y-abelardo-lo-empata-3552136">El Tiempo</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Liga BetPlay define los ocho clasificados a playoffs</div>
+        </div>
+        <div class="swipe-body">En la última fecha del todos contra todos: Santa Fe 3-1 Internacional, Junior 4-3 Pasto, América 1-0 Pereira, Tolima 1-1 Cali y Alianza Valledupar 2-2 Millonarios. Esta noche se sortearon los cruces de cuartos de final, que se jugarán en formato de eliminación directa por primera vez en el campeonato local.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          El cambio de formato a llaves directas (sin cuadrangulares) marca un giro histórico de la Dimayor. Los clásicos Santa Fe-Independiente y la presencia de Nacional en Bogotá garantizan rating récord y movimiento económico relevante para el sector entretenimiento.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/deportes/2026/05/04/con-clasico-de-rojos-y-nacional-en-bogota-asi-quedaron-los-cruces-de-los-cuartos-de-final-de-la-liga-betplay-2026-i/">Infobae Deportes</a> · <a href="https://www.bluradio.com/deportes/futbol-colombiano/asi-quedaron-los-resultados-de-la-ultima-fecha-del-todos-contra-todos-liga-betplay-so35">Blu Radio</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Petro carga contra el Banco de la República por mantener tasa en 11,25%</div>
+        </div>
+        <div class="swipe-body">El presidente sostuvo en redes que la Junta Directiva del Emisor mantiene la tasa real "por razones electorales en favor de Paloma y en contra de mi gobierno". El Banco de la República decidió por unanimidad el 30 de abril dejar la tasa de intervención en 11,25%, ante una inflación que aceleró a 5,56% anual en marzo y proyecciones del 5,7% para abril.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Choque institucional Ejecutivo–Emisor en pleno ciclo electoral. La tasa alta sostiene la cotización del peso pero comprime crédito y consumo; cualquier presión política sobre la independencia del banco eleva la prima de riesgo soberana.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/03/gustavo-petro-comparo-la-tasa-de-interes-impuesta-por-el-banco-de-la-republica-en-el-mandato-de-ivan-duque-razones-electorales/">Infobae</a> · <a href="https://www.banrep.gov.co/en/news/board-directors-april-2026">Banco de la República</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más &rarr;</div>
+</div>
+
+<div class="divider reveal">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>Cepeda culpa al gobierno Duque del crecimiento de los grupos armados</h3>
+  <p>El senador y candidato presidencial Iván Cepeda atribuyó al incumplimiento del Acuerdo de Paz durante la administración de Iván Duque el aumento del 23,5% en integrantes de grupos armados ilegales registrado entre 2024 y 2025, según cifras de la Fundación Ideas para la Paz. Hoy operan más de 27.000 combatientes y redes de apoyo en el país.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/03/ivan-cepeda-culpo-al-gobierno-de-ivan-duque-del-crecimiento-de-grupos-armados-en-todo-el-pais-cuando-no-se-cumplio-con-el-acuerdo-de-paz/">Infobae</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Sismo de magnitud 3,8 sacudió a Santander en la madrugada</h3>
+  <p>El Servicio Geológico Colombiano reportó un temblor con epicentro en Los Santos (Santander) y profundidad de 154 km. No se registraron daños materiales ni víctimas, pero el sismo se sintió en varios municipios del Magdalena Medio y Bucaramanga. Es la quinta sacudida en una semana en la zona, conocida como el "nido sísmico" más activo del país.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/colombia/otras-ciudades/temblor-hoy-en-colombia-sismo-durante-la-madrugada-e-de-este-domingo-03-de-mayo-epicentro-magnitud-y-profundidad-3552670">El Tiempo</a> · <a href="https://www.elpais.com.co/colombia/nuevo-temblor-en-colombia-hoy-domingo-3-de-mayo-del-2026-sacudio-al-departamento-de-santander-0323.html">El País</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Cuatro grandes empresas estrenan CEO en 2026 condicionadas al resultado electoral</h3>
+  <p>Avianca confirmó a Gabriel Oliva como nuevo presidente desde febrero. Grupo Argos hizo efectivo el retiro de Jorge Mario Velásquez el 31 de marzo tras 42 años en la compañía. Ecopetrol e ISA mantienen las definiciones congeladas hasta conocer al ganador presidencial: la primera vuelta es el 31 de mayo y la segunda el 21 de junio.</p>
+  <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/colombia/las-empresas-que-estrenaran-ceo-en-2026-en-colombia-ecopetrol-grupo-argos-avianca/">Bloomberg Línea</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Plan retorno en la autopista Sur de Bogotá por puente del Día del Trabajo</h3>
+  <p>La Alcaldía de Soacha y la Secretaría de Movilidad de Bogotá activaron un plan retorno especial sobre la autopista Sur durante todo el domingo, en respuesta al alto flujo vehicular registrado tras el feriado del 1 de mayo. Las obras de infraestructura sobre el corredor obligaron a habilitar carriles reversibles y reforzar el operativo policial en los principales accesos a la capital.</p>
+  <span class="source-link"><a href="https://www.eltiempo.com/bogota/asi-funciona-el-plan-retorno-hoy-domingo-3-de-mayo-en-la-autopista-sur-de-bogota-durante-puente-del-dia-del-trabajo-3552702">El Tiempo</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Egan Bernal afina detalles para el Giro de Italia, que arranca el 8 de mayo</h3>
+  <p>El zipaquireño llega como principal carta colombiana tras un cierre de abril sólido: segundo en la general del Tour de los Alpes y quinto en Lieja-Bastoña-Lieja después de un ataque de casi 160 km. Lo acompañarán Santiago Buitrago (Bahrain Victorious) y Einer Rubio (Movistar). Nairo Quintana quedó fuera de la lista oficial.</p>
+  <span class="source-link"><a href="https://www.semana.com/deportes/ciclismo/articulo/giro-de-italia-2026-lista-oficial-de-colombianos-y-canal-de-tv-para-verlos-en-vivo/202600/">Semana</a> · <a href="https://www.olympics.com/es/noticias/giro-italia-2026-lista-ciclistas-confirmados">Olympics.com</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Tensión diplomática con Quito escala tras nuevo cruce Petro–Noboa</h3>
+  <p>El presidente colombiano acusó al gobierno ecuatoriano de sabotear la paz, interferir en las elecciones y permitir el tránsito de armas para las disidencias. La cancillería ecuatoriana rechazó las acusaciones y advirtió sobre el riesgo de retiro de embajadores. La situación pone presión sobre la frontera sur, ya golpeada por la violencia del Estado Mayor Central.</p>
+  <span class="source-link"><a href="https://www.radiosantafe.com/2026/05/03/tension-diplomatica-gustavo-petro-acusa-al-gobierno-de-daniel-noboa-de-sabotear-la-paz-en-colombia/">Radio Santa Fe</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/03/colombia-petro-denuncia-ingreso-de-armas-desde-ecuador-para-atacar-a-civiles-en-el-suroeste-colombiano">Resumen Latinoamericano</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Inflación de marzo aceleró a 5,56% anual; analistas ven 5,72% en abril</h3>
+  <p>Corficolombiana proyecta inflación mensual de 0,82% para abril, presionada por servicios públicos y alimentos. Banco de Bogotá advierte que el indicador podría superar el 6% en los próximos meses y cerrar el año en 6,2%, lejos de la meta del 3% del Emisor. La proyección refuerza el discurso del Banco de la República para sostener la tasa en 11,25%.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/17/asi-de-alto-cerraria-la-inflacion-en-abril-de-2026-en-colombia-impulsada-por-el-salario-minimo-y-el-aumento-en-el-costo-de-los-servicios-publicos/">Infobae</a> · <a href="https://www.larepublica.co/economia/el-banco-de-la-republica-ahora-ve-el-ipc-en-6-4-en-2026-y-4-8-el-proximo-ano-4316986">La República</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell">
+    <div class="data-cell-label">TRM Oficial</div>
+    <div class="data-cell-value">$3.637</div>
+    <div class="data-cell-delta neutral">SIN CAMBIO</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BR</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta neutral">ESTABLE</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Inflación a/a</div>
+    <div class="data-cell-value">5,56%</div>
+    <div class="data-cell-delta red">+0,29 pp</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">Reacción de la cancillería ecuatoriana a las acusaciones de Petro y eventual retiro de embajadores; impacto en el comercio bilateral.</div>
+  <div class="vigilar-item">Operativos militares en Cauca y Nariño tras el refuerzo de 13 pelotones de caballería y 12 de infantería anunciado por Mindefensa.</div>
+  <div class="vigilar-item">Apertura semanal del peso colombiano frente al dólar y reacción del mercado a la carga de Petro contra el Emisor.</div>
+  <div class="vigilar-item">Salida del sorteo de cuartos de final de la Liga BetPlay y calendario de partidos de los playoffs.</div>
+</div>
+
+<div class="footer reveal">
+  Fuentes: El Tiempo · Infobae · Semana · El Espectador · El País · Bloomberg Línea · La República · Banco de la República · FIP · Indepaz · Blu Radio · Radio Santa Fe<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
