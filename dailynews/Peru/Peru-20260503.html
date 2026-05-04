@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú · 3 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+<div class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Perú</h1>
+  <div class="masthead-date">Domingo 3 de mayo de 2026 · Lima</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="section-header reveal">Top 5 del Día</div>
+
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Petroperú estrena al cuarto presidente del directorio en menos de tres meses</div>
+        </div>
+        <div class="swipe-body">Edmundo Lizarzaburu Bolaños asumió la presidencia del directorio de Petroperú tras la remoción de Roger Arévalo, cuestionado por antecedentes y nexos con investigados por presunta corrupción. La designación, aprobada en Junta General de Accionistas el 2 de mayo y comunicada a la SMV, lo convierte en el director número catorce en cinco años, en medio del riesgo de paralización de producción de combustibles y la espera de un financiamiento privado por US$2.000 millones.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La petrolera estatal opera al borde de la insolvencia operativa con la refinería de Talara como variable crítica del abastecimiento nacional. La rotación crónica del directorio bloquea decisiones financieras urgentes y eleva el costo país justo antes del balotaje.
+        </div>
+        <div class="swipe-source"><a href="https://larepublica.pe/economia/2026/05/03/petroperu-edmundo-lizarzaburu-es-el-nuevo-presidente-del-directorio-tras-remocion-de-roger-arevalo-hnews-81141">La República</a> · <a href="https://www.infobae.com/peru/2026/05/03/petroperu-formaliza-a-edmundo-lizarzaburu-como-presidente-y-queda-listo-recibir-para-un-nuevo-rescate-estatal/">Infobae</a> · <a href="https://rpp.pe/economia/economia/petroperu-edmundo-lizarzaburu-asume-como-nuevo-presidente-el-cuarto-en-menos-de-tres-meses-noticia-1686788">RPP</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">ONPE supera el 97%: Sánchez mantiene 27 mil votos sobre López Aliaga</div>
+        </div>
+        <div class="swipe-body">Con 97,69% de actas procesadas, Roberto Sánchez (Juntos por el Perú) sostiene una ventaja de cerca de 27.000 votos sobre Rafael López Aliaga (Renovación Popular) por el segundo lugar tras Keiko Fujimori. Persisten más de 2.000 actas presidenciales pendientes y el conteo de senadores y diputados avanza lento en regiones. El JNE estima proclamar a los finalistas a mediados de mayo, con el balotaje confirmado para el 7 de junio.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Cada día sin proclamación oficial alimenta el discurso de fraude de López Aliaga y tensiona al sistema. La identidad del rival de Fujimori define el eje izquierda-derecha del balotaje y, con ello, la prima de riesgo soberano y la agenda de reforma constitucional.
+        </div>
+        <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/03/elecciones-2026-mas-de-2-mil-actas-presidenciales-pendientes-y-conteo-en-regiones-para-senadores-y-diputados-avanza-lento-hnews-274770">La República</a> · <a href="https://www.infobae.com/peru/2026/04/27/onpe-supera-el-96-keiko-fujimori-lidera-y-roberto-sanchez-mantiene-una-ventaja-de-23-mil-votos-sobre-rafael-lopez-aliaga/">Infobae</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Compra de F-16: el contrato de US$3.500 millones que dejó dos renuncias</div>
+        </div>
+        <div class="swipe-body">La controversia por la adquisición de 24 cazas F-16 Block 70 a Lockheed Martin sigue marcando el cierre del gobierno de transición. La FAP firmó el contrato y pagó US$462 millones de cuota inicial pese al intento del presidente interino Balcázar de postergar la operación; renunciaron en protesta el ministro de Defensa Carlos Díaz y el canciller Hugo de Zela. Análisis publicados estos días sostienen que la FAP aceleró la firma ante el repunte electoral de Roberto Sánchez.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Es el mayor compromiso de defensa de la última década y compromete presupuesto multianual del próximo gobierno. La forma en que se firmó —reservada y a contracorriente del Ejecutivo— deja un flanco abierto para revisión judicial o renegociación post-balotaje.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/04/26/fap-acelero-compra-de-aviones-f-16-a-eeuu-ante-repunte-electoral-de-roberto-sanchez-revela-militar-y-exministro/">Infobae</a> · <a href="https://cnnespanol.cnn.com/2026/04/22/latinoamerica/peru-polemica-compra-aviones-renuncias-orix">CNN en Español</a> · <a href="https://www.defensa.com/peru/firmado-contrato-adquisicion-aviones-combate-f-16-para-fuerza">Defensa.com</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">FAP investiga a suboficial activo detenido con 53 kilos de marihuana</div>
+        </div>
+        <div class="swipe-body">La Fuerza Aérea del Perú emitió un comunicado tras la detención de un suboficial en actividad y un licenciado del Ejército, implicados en el traslado de más de 53 kilogramos de marihuana incautados el 30 de abril en un operativo en la Panamericana Sur, a la altura de Lurín. La institución anunció investigación interna y prometió transparencia, en un contexto en que la Asociación Nacional de Periodistas reportó 140 ataques a prensa en lo que va del año.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Suma a la lista de filtraciones del crimen organizado dentro de las fuerzas armadas y de seguridad, en pleno ciclo electoral donde la inseguridad domina las encuestas. Cualquier desliz institucional se traslada directo a la valoración del próximo gobierno y al debate sobre estado de emergencia.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/03/fap-se-pronuncia-tras-arresto-de-suboficial-con-mas-de-50-kilos-de-droga-inicia-investigacion-y-promete-transparencia/">Infobae</a> · <a href="https://rpp.pe/peru/actualidad/anp-registro-140-ataques-a-periodistas-y-medios-en-lo-que-va-del-2026-noticia-1686830">RPP</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Inversión minera arranca el año con récord: US$871 millones en el primer bimestre</div>
+        </div>
+        <div class="swipe-body">La inversión minera sumó US$871 millones entre enero y febrero, un alza de 35,7% interanual. Si se mantiene el ritmo, el sector podría cerrar 2026 sobre los US$7.400 millones —máximo histórico— impulsado por San Gabriel, Reposición Antamina, Romina, Reposición Ferrobamba y la continuidad de Quellaveco, Mina Justa, Las Bambas, Antapaccay y Cerro Verde. El MEF mantiene proyección de PBI 2026 en 3,2% con inversión privada al 5,5%.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La minería es el ancla fiscal y exportadora del país y compensa la debilidad de la inversión pública en año electoral. Un récord histórico previo al cambio de gobierno blinda la balanza externa y estabiliza el sol frente a la incertidumbre política.
+        </div>
+        <div class="swipe-source"><a href="https://infomercado.pe/inversion-minera-alcanza-us871-millones-en-primer-bimestre-con-alza-de-mas-de-35/">Infomercado</a> · <a href="https://www.rumbominero.com/peru/noticias/economia/mef-crecimiento-32-impulsado-por-la-mineria/">Rumbo Minero</a> · <a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>JNE confirma balotaje el 7 de junio y descarta anular la primera vuelta</h3>
+  <p>El Jurado Nacional de Elecciones rechazó por 3 votos contra 2 el pedido de anulación de la primera vuelta y ratificó la segunda vuelta para el domingo 7 de junio. La secretaría general del JNE estimó que los resultados presidenciales se proclamarán a mediados de mayo, despejando el calendario electoral.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/28/cual-es-la-fecha-oficial-en-la-que-se-conocera-que-candidatos-pasan-a-la-segunda-vuelta-de-las-elecciones/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/04/16/cuando-sera-la-segunda-vuelta-de-las-elecciones-presidenciales-peru-2026-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-hnews-734448">La República</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>MEF mantiene crecimiento de 3,2% para 2026 con mayor optimismo en inversión privada</h3>
+  <p>El Ministerio de Economía y Finanzas ratificó la proyección de PBI en 3,2% para este año, pero elevó la expectativa de inversión privada a 5,5%, traccionada por minería, infraestructura y energías renovables. La cartera de proyectos priorizados supera los US$66.000 millones según el propio MEF.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a> · <a href="https://peruconstruye.net/2026/04/30/inversion-privada-2026-mineria-infraestructura/">Perú Construye</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Petroperú suma a Berthin Gómez Vela como director independiente</h3>
+  <p>La misma Junta General de Accionistas que designó a Lizarzaburu incorporó al directorio a Berthin Enrique Gómez Vela, también como director independiente. La petrolera busca cerrar el cuórum técnico requerido para destrabar el financiamiento privado por US$2.000 millones que el Tesoro condicionó a un plan de viabilidad creíble.</p>
+  <span class="source-link"><a href="https://larepublica.pe/economia/2026/05/03/petroperu-con-nuevo-presidente-a-la-espera-de-financiamiento-privado-de-us2000-millones-hnews-146724">La República</a> · <a href="https://elcomercio.pe/economia/petro-peru-designa-a-edmundo-lizarzaburu-como-presidente-del-directorio-noticia/">El Comercio</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Día Mundial de la Libertad de Prensa: 140 ataques a periodistas en lo que va de 2026</h3>
+  <p>La Asociación Nacional de Periodistas presentó un balance con 140 incidencias contra prensa y medios en los primeros cuatro meses del año, con Lima como la región con mayor número de casos. El reporte coincide con la cobertura tensionada del conteo electoral y refleja el deterioro del entorno informativo a vísperas del balotaje.</p>
+  <span class="source-link"><a href="https://rpp.pe/peru/actualidad/anp-registro-140-ataques-a-periodistas-y-medios-en-lo-que-va-del-2026-noticia-1686830">RPP</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1 fecha 13: Universitario gana en Trujillo, Alianza sigue líder, Cristal empata</h3>
+  <p>Universitario venció 4-1 a Juan Pablo II en el Mansiche, con doblete de Edison Flores en dos minutos (23' y 24'), más goles de Miguel Silveira (30') y Caín Fara (90'). Alianza Lima derrotó 2-1 a CD Moquegua en Matute y se afianzó en la cima del Apertura. Sporting Cristal igualó 2-2 con Cusco FC en el Gallardo.</p>
+  <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/05/03/partidos-de-hoy-domingo-3-de-mayo-de-2026-programacion-canales-tv-y-resultados-en-vivo/">Infobae Deportes</a> · <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-13-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Embajada de EE.UU. respalda venta de F-16 como pieza estratégica frente a rivales extrarregionales</h3>
+  <p>El embajador estadounidense Stephen Navarro reiteró el respaldo a la venta de los F-16 Block 70 al Perú y enmarcó la operación dentro de la política de acceso de defensa de Washington frente a actores extrarregionales en Sudamérica. Lockheed Martin describió la versión adquirida como "la más avanzada jamás producida".</p>
+  <span class="source-link"><a href="https://pe.usembassy.gov/ambassador-navarro-on-perus-purchase-of-f-16-block-70-fighter-jets/">US Embassy Perú</a> · <a href="https://www.infobae.com/peru/2026/04/29/la-venta-de-f-16-a-peru-la-relacion-entre-la-politica-de-los-socios-los-adversarios-extrarregionales-y-el-acceso-de-defensa-de-eeuu/">Infobae</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell glass">
+    <div class="data-cell-label">Dólar BCR</div>
+    <div class="data-cell-value">3,5090</div>
+    <div class="data-cell-delta green">−0,3% sem</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Dólar Paralelo</div>
+    <div class="data-cell-value">3,500</div>
+    <div class="data-cell-delta">Ocoña, venta</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">−0,3%</div>
+    <div class="data-cell-delta">cambio mínimo</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">JNE y ONPE: avance del cierre de actas pendientes para fijar la proclamación oficial de los candidatos al balotaje del 7 de junio.</div>
+  <div class="vigilar-item">Petroperú: primeras señales del nuevo directorio sobre el cronograma del financiamiento privado de US$2.000 millones y plan de continuidad operativa de Talara.</div>
+  <div class="vigilar-item">Liga 1: cierre de la fecha 13 del Apertura con los partidos pendientes y consolidación de Alianza Lima como líder del torneo.</div>
+</div>
+
+<div class="footer">
+  Fuentes: La República · Infobae · RPP · El Comercio · Gestión · Diario Correo · Caretas · Infomercado · Rumbo Minero · TVPerú · CNN en Español · Defensa.com<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
