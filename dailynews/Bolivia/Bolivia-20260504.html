@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — Lunes 4 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.footer a { color: var(--accent); text-decoration: none; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <header class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Lunes 4 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </header>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Semana conflictiva: COB inicia paro indefinido y se suman bloqueos en todo el país</div>
+          </div>
+          <div class="swipe-body">La Central Obrera Boliviana se concentró el lunes a las 9:00 en la Federación de Mineros, en La Paz, en arranque de su paro indefinido por un alza salarial del 20%, rechazada por el Gobierno. Marchas indígenas y campesinas contra la Ley 1720, paros del magisterio y bloqueos en varios departamentos completan el cuadro. El presidente Rodrigo Paz reconoció que vienen "semanas complicadas" y llamó al diálogo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es el primer choque social mayor del Gobierno Paz tras cinco meses en el poder. Si los bloqueos se sostienen, comprometen la cosecha de invierno (alerta de la CAO) y la logística de combustible justo cuando reaparece la escasez.
+          </div>
+          <div class="swipe-source"><a href="https://correodelsur.com/politica/20260504/bolivia-se-preven-marchas-bloqueos-y-paros-desde-hoy.html">Correo del Sur</a> · <a href="https://www.opinion.com.bo/articulo/pais/marchas-bloqueos-paros-activan-semana-conflictiva-gobierno-llama-dialogo/20260504091514991007.html">Opinión</a> · <a href="https://eju.tv/2026/05/agenda-informativa-la-cob-inicia-paro-indefinido-sin-la-participacion-de-varios-sectores-sociales/">eju.tv</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Bolivia perfila regreso al mercado internacional de bonos tras cuatro años</div>
+          </div>
+          <div class="swipe-body">El Gobierno contrató a Deutsche Bank Securities y Santander para iniciar este lunes una ronda de reuniones con inversores, sondeando el apetito por una emisión soberana en dólares de tamaño referencial. La prima de riesgo cayó a 378 puntos básicos sobre el Tesoro de EE.UU. — la más baja desde 2020 — y los bonos 2030 subieron medio centavo hasta 97,5 centavos por dólar.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Sería la primera emisión externa desde 2022 y la señal más concreta de que los mercados validan el giro pro-mercado de Paz. El éxito de la operación condicionará el costo del financiamiento para reservas, combustibles y unificación cambiaria.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/04/bolivia-perfila-su-regreso-al-mercado-internacional-de-bonos-segun-bloomberg/">La Razón</a> · <a href="https://unitel.bo/noticias/economia/el-gobierno-de-bolivia-analiza-regresar-al-mercado-global-de-bonos-tras-una-pausa-de-cuatro-anos-segun-bloomberg-LD20456863">Unitel</a> · <a href="https://www.df.cl/df-sud/bolivia-evalua-regreso-al-mercado-global-de-bonos-tras-pausa-de-cuatro-anos">Diario Financiero</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Choferes anuncian paro escalonado nacional desde el martes por escasez de combustible</div>
+          </div>
+          <div class="swipe-body">La Confederación de Sindicatos de Choferes determinó iniciar un paro nacional escalonado con bloqueos a partir del martes 5 de mayo, ante la falta de respuesta del Gobierno. Conductores reportan jornadas enteras de espera para cargar diésel y daños mecánicos atribuidos a gasolina importada de baja calidad. YPFB envió la primera cisterna móvil al Beni con 24.000 litros de gasolina.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La escasez coincide con el inicio de la cosecha de invierno en el oriente. Un paro de transporte sostenido golpea precios de alimentos, exportaciones de soya y cadenas de abastecimiento urbano — y debilita la posición negociadora del Ejecutivo en el frente social.
+          </div>
+          <div class="swipe-source"><a href="https://eldeber.com.bo/economia/bolivia-vive-dias-dramaticos-escasez-combustible-preven-carestia-2026_1760697480">El Deber</a> · <a href="https://larazon.bo/economia-y-empresa/2026/05/04/la-primera-cisterna-movil-de-ypfb-llega-al-beni-y-comercializa-24-000-litros-de-gasolina/">La Razón</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Marcha indígena llega a La Paz tras 24 días: exige derogar la Ley 1720 de tierras</div>
+          </div>
+          <div class="swipe-body">Cientos de indígenas y campesinos amazónicos arribaron este lunes a La Paz tras 24 días de marcha desde tierras bajas, exigiendo la anulación de la Ley 1720 — que permite reclasificar pequeñas propiedades a medianas para usarlas como colateral bancario. Temen pérdida de tierras a manos de grandes propietarios. El Gobierno abrió revisión, pero descartó abrogarla y se ampara en el DS 5613 (conversión voluntaria).</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La 1720 es central en la estrategia de Paz para liberar capital en el agro y modernizar la economía rural. Si cede ante la marcha, debilita su capital político con el sector empresarial; si no cede, el conflicto se prolonga y se solapa con el paro de la COB.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/mundo/latinoamerica/crisis-en-bolivia-indigenas-y-campesinos-llegan-a-la-paz-para-exigir-la-anulacion-de-la-ley-de-tierras-noticia-1686952">RPP</a> · <a href="https://www.prensa-latina.cu/2026/05/04/lunes-premonitorio-de-protestas-en-bolivia/">Prensa Latina</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">El dólar referencial del BCB supera por primera vez la barrera de los Bs 10</div>
+          </div>
+          <div class="swipe-body">El Banco Central fijó este lunes el tipo de cambio referencial en Bs 9,80 para la compra y Bs 10,01 para la venta, primera vez que cruza el umbral de los dos dígitos. El dólar paralelo se mueve en torno a Bs 9,90 / 9,92, ligeramente por debajo del referencial oficial. El tipo de cambio fijo de Bs 6,96 sigue vigente nominalmente pero su uso operativo es marginal.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El cruce del referencial sobre el paralelo es señal de que la unificación cambiaria avanza por arriba: el BCB convalida la cotización de mercado, en lugar de defenderla artificialmente. Implicancia directa en precios de importados, combustibles y costos en bolivianos para empresas con deuda en dólares.
+          </div>
+          <div class="swipe-source"><a href="https://www.lineaabc.com/2026/05/cotizacion-del-dolar-paralelo-y.html">Línea ABC</a> · <a href="https://www.infobae.com/noticias/2026/05/04/dolar-hoy-en-bolivia-cotizacion-de-cierre-del-4-de-mayo/">Infobae</a> · <a href="https://www.bcb.gob.bo/?q=cotizaciones_tc">BCB</a></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Paz presenta plan "Tranca Cero" para modernizar el Estado</h3>
+    <p>El presidente Rodrigo Paz presentó la semana pasada el plan "Tranca Cero" como hoja de ruta para reducir burocracia y digitalizar trámites. La propuesta busca recuperar credibilidad en medio de la presión social y se difundió mientras el Gabinete sostenía reuniones de coordinación frente al paro de la COB.</p>
+    <span class="source-link"><a href="https://www.panamericana.bo/articulo/nacional/rodrigo-paz-presenta-plan-modernizar-estado-tranca-cero/20260430145541015828.html">Panamericana</a></span>
+  </article>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>CAO advierte que los bloqueos comprometen cosecha de invierno y siembra de verano</h3>
+    <p>La Cámara Agropecuaria del Oriente alertó que la combinación de bloqueos en rutas claves del oriente y la falta crónica de diésel está poniendo en riesgo la cosecha de invierno (girasol, trigo, sorgo) y la siembra de la campaña de verano. Estima pérdidas significativas si la situación se prolonga más de una semana.</p>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/04/bloqueos-cao-alerta-riesgos-en-cosecha-de-invierno-y-siembra-de-verano/">La Razón</a></span>
+  </article>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>YPFB programa inversión de $us 600,8 millones en 2026; $us 9,8 millones irán a Arica</h3>
+    <p>YPFB, sus filiales y empresas operadoras programaron un presupuesto de $us 600,8 millones para 2026: $us 282,3 millones a exploración, $us 164,9 millones a explotación. YPFB Transporte, en paralelo, fija $us 50,2 millones — incluidos $us 9,8 millones para infraestructura en el terminal de Arica (Chile), pieza clave para importación de derivados.</p>
+    <span class="source-link"><a href="https://www.eldiario.net/portal/2026/05/01/ypfb-y-empresas-operadoras-programan-inversion-de-us-6008-millones-en-2026/">El Diario</a> · <a href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/05/04/lo-que-sabe-de-la-estrategica-inversion-petrolera-que-bolivia-realizara-en-arica.shtml">BioBioChile</a></span>
+  </article>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Mototaxistas de Santa Cruz a paro indefinido por gasolina contaminada</h3>
+    <p>Los mototaxistas cruceños decidieron iniciar paro indefinido y bloqueos desde el martes 5, demandando combustible de calidad y compensación por daños mecánicos en sus motores atribuidos a gasolina importada de baja calidad. La medida añade presión local sobre Santa Cruz, justo cuando la COB nacionaliza su paro.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/agencias/2026/04/26/sectores-presionan-a-gobierno-de-bolivia-con-demandas-y-anuncian-semana-de-conflictos/">Infobae</a></span>
+  </article>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Bolívar gana 2-1 a GV San José en Oruro con gol agónico al minuto 98</h3>
+    <p>Bolívar venció a GV San José por 2-1 en el estadio Jesús Bermúdez de Oruro, con un gol de Lucas Chávez al minuto 98 (8 de adición). Alex Cáceres había abierto el marcador para San José por penal al minuto 50. En la fecha 5 del Apertura, The Strongest goleó 3-1 a ABB y alcanzó a Always Ready en la cima; Bolívar quedó a un punto de los líderes.</p>
+    <span class="source-link"><a href="https://www.atb.com.bo/2026/05/03/bolivar-se-impone-2-1-a-gv-san-jose/">ATB Digital</a> · <a href="https://elmundo.com.bo/bolivar-gana-con-gol-agonico-a-gv-san-jose-2-a-1-en-oruro/">El Mundo</a> · <a href="https://www.vision360.bo/noticias/2026/05/03/46203-the-strongest-le-gana-a-abb-y-alcanza-a-always-ready-en-la-parte-alta-de-la-tabla">Visión 360</a></span>
+  </article>
+
+  <article class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Bolivia y Alemania profundizan cooperación en economía circular en feria IFAT Munich</h3>
+    <p>La viceministra de Recursos Hídricos y el viceministro de Políticas de Industrialización se reunieron con la representante del Gobierno alemán en el marco de la feria IFAT Munich 2026 para fortalecer cooperación en gestión de residuos, agua y economía circular. Argentina, en paralelo, avanza con Bolivia y Chile en una agenda común para el desarrollo del litio del triángulo sur.</p>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/04/bolivia-y-alemania-fortalecen-cooperacion-en-economia-circular/">La Razón</a> · <a href="https://larazon.bo/economia-y-empresa/2026/05/04/argentina-avanza-en-una-agenda-comun-para-fortalecer-el-desarrollo-del-litio/">La Razón (litio)</a></span>
+  </article>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar BCB Ref.</div>
+      <div class="data-cell-value">10,01</div>
+      <div class="data-cell-delta red">primera vez &gt; Bs 10</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">9,92</div>
+      <div class="data-cell-delta">venta · estable</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Brecha vs Bs 6,96</div>
+      <div class="data-cell-value">+43%</div>
+      <div class="data-cell-delta red">oficial fijo desfasado</div>
+    </div>
+  </div>
+
+  <section class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Hoy · Martes 5 de mayo</div>
+    <div class="vigilar-item">Inicio del paro escalonado de la Confederación de Choferes y bloqueos previstos: rutas Santa Cruz-Cochabamba y La Paz-Oruro como puntos críticos.</div>
+    <div class="vigilar-item">Reuniones de Bolivia con inversores en Nueva York para evaluar la emisión soberana en dólares: señales de demanda y cupón referencial.</div>
+    <div class="vigilar-item">Avance del diálogo Gobierno-COB y eventual respuesta a la marcha indígena en La Paz por la Ley 1720; riesgo de radicalización si no hay propuesta concreta.</div>
+    <div class="vigilar-item">Comportamiento del tipo de cambio referencial del BCB tras cruzar Bs 10: si se sostiene o corrige al alza, marca el ritmo de la unificación cambiaria.</div>
+  </section>
+
+  <footer class="footer">
+    Fuentes: La Razón · Unitel · El Deber · Correo del Sur · Opinión · eju.tv · Infobae · ATB · El Mundo · Visión 360 · Panamericana · Prensa Latina · BCB · Bloomberg<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
