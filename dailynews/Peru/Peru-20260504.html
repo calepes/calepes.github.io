@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú · Lunes 4 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+<div class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Perú</h1>
+  <div class="masthead-date">Lunes 4 de mayo de 2026 · Lima</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</div>
+
+<div class="section-header reveal">Top 5 del Día</div>
+
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Balcázar pide al próximo gobierno investigar la compra de los F-16 a EE.UU.</div>
+        </div>
+        <div class="swipe-body">El presidente interino José María Balcázar criticó el secretismo del contrato firmado el 20 de abril con Lockheed Martin por 12 cazas F-16 Block 70 (de un paquete proyectado por US$3.500 millones por 24 unidades), y exhortó al gobierno entrante a auditar la operación y renegociar términos.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Convierte el contrato militar más grande de la década en bandera de campaña para la segunda vuelta. La cancelación de la licitación con Dassault y Saab, sumada a la declaratoria de secreto de Estado sobre US$146 millones adicionales, abre flancos legales y diplomáticos justo cuando se transita al nuevo gobierno.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/america/agencias/2026/05/04/el-presidente-de-peru-insta-al-siguiente-gobierno-a-investigar-la-compra-de-los-aviones-f-16-a-eeuu/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/05/04/jose-maria-balcazar-compra-de-aviones-de-combate-f16-block-70-fue-a-dedo-sin-licitacion-fuerza-aerea-del-peru-jose-maria-balcazar-jose-jeri-ministerio-de-defensa-hnews-212292">La República</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Premier defiende compra de F-16 como "necesidad impostergable"</div>
+        </div>
+        <div class="swipe-body">El jefe del Gabinete sostuvo que la adquisición es resultado de un procedimiento de 14 años evaluado por nueve gestiones presidenciales, y respondió a las críticas señalando que la modernización de la flota multirol no admite más postergación.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Marca un choque institucional inédito: presidente y primer ministro fijan posiciones públicas opuestas sobre el mayor contrato de defensa en curso. Acelera la fractura del Ejecutivo a 34 días del balotaje y aumenta presión sobre el Mindef y la FAP para abrir el expediente.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/america/agencias/2026/05/05/primer-ministro-de-peru-afirma-que-la-compra-de-aviones-f-16-era-necesidad-impostergable/">Infobae</a> · <a href="https://rpp.pe/">RPP</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Segunda vuelta confirmada: Keiko Fujimori vs. Roberto Sánchez el 7 de junio</div>
+        </div>
+        <div class="swipe-body">Tras semanas de disputa voto a voto, la ONPE oficializó que Fuerza Popular (Fujimori, 17,1%) y Juntos por el Perú (Sánchez, 12,0%) pasan al balotaje. Encuesta IEP del 2 de mayo da empate técnico: Sánchez 32% vs. Fujimori 31%, con margen de error ±2,8 puntos.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Primer balotaje peruano que enfrenta a la derecha histórica fujimorista contra la izquierda parlamentaria. La estrechez de la encuesta abre escenario competitivo y obliga a los demás partidos del Congreso a definir adhesiones tempranas en un Legislativo que estrenará bicameralidad.
+        </div>
+        <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a> · <a href="https://encuestas.com.pe/encuesta-presidencial-segunda-vuelta-iep-02-mayo-2026/">IEP</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Gobierno amplía 60 días el estado de emergencia en Lima y Callao</div>
+        </div>
+        <div class="swipe-body">El Ejecutivo prorrogó la medida para enfrentar la criminalidad. La PNP mantendrá el control del orden interno con apoyo de las Fuerzas Armadas. En el primer trimestre se registraron 194.000 delitos a nivel nacional; los homicidios cayeron 9% y las extorsiones 39% según el comandante general Óscar Arriola.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Tercera prórroga consecutiva en menos de un año: la emergencia se está volviendo régimen permanente. La caída interanual contrasta con la tendencia estructural —la tasa de homicidios pasó de 2,2 (2019) a 6,5 (2025) por cada 100.000 habitantes— y será eje central del debate de segunda vuelta.
+        </div>
+        <div class="swipe-source"><a href="https://www.tvperu.gob.pe/noticias/politica/gobierno-amplia-emergencia-en-lima-metropolitana-y-el-callao-para-hacer-frente-a-la-criminalidad">TV Perú</a> · <a href="https://gestion.pe/peru/gobierno-amplia-emergencia-en-lima-metropolitana-y-el-callao-para-hacer-frente-a-la-criminalidad-noticia/">Gestión</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Sánchez califica el "Andahuaylazo" como "gesta de rebeldía" y enciende controversia</div>
+        </div>
+        <div class="swipe-body">El candidato de Juntos por el Perú generó rechazo del Congreso y de gremios empresariales al referirse en estos términos al levantamiento armado de 2005 liderado por Antauro Humala. La oposición exigió rectificación y la fiscalía anunció evaluación del pronunciamiento.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Primer error de campaña relevante del candidato que llegaba con momentum a la segunda vuelta. La asociación con el etnocacerismo armado puede mover voto centrista hacia Fujimori y endurecer la polarización en una semana en la que IEP los daba en empate técnico.
+        </div>
+        <div class="swipe-source"><a href="https://elcomercio.pe/">El Comercio</a> · <a href="https://rpp.pe/politica">RPP Política</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<div class="divider reveal">
+  <span class="divider-text">Noticias por Sección</span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>ONPE defiende integridad del sistema STAE pese a auditoría del JNE</h3>
+  <p>La ONPE respaldó la seguridad del sistema de transmisión electoral cuestionado por el JNE tras los problemas logísticos del 12 de abril. Confirmó que para la segunda vuelta se retornará al voto físico exclusivo y abrió investigación contra funcionarios responsables de los retrasos en la instalación de mesas.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/">El Comercio</a> · <a href="https://www.jne.gob.pe/">JNE</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>BCRP proyecta inversión privada de +5,5% impulsada por minería e infraestructura</h3>
+  <p>El Banco Central anticipa que la inversión empresarial crecerá por tercer año consecutivo en 2026, con compromisos por al menos US$11.500 millones. Minería avanzaría +6,1% liderada por la ampliación de Antamina (US$729 millones presentados al Senace) y el proyecto San Gabriel de Buenaventura, que registró +51% de inversión interanual.</p>
+  <span class="source-link"><a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gestión</a> · <a href="https://peruconstruye.net/2026/04/30/inversion-privada-2026-mineria-infraestructura/">Perú Construye</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Petro-Perú acumula cuatro presidentes en tres meses y enfrenta presión de liquidez</h3>
+  <p>La rotación en la cúpula de la petrolera estatal continúa mientras se reportan tensiones de caja. La inestabilidad ocurre en plena negociación de financiamiento puente y con vencimientos de bonos por delante, en un contexto de baja en la producción de Talara.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/">El Comercio</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Caso Saweto: PNP captura a sentenciado prófugo por asesinato de defensores ambientales</h3>
+  <p>La Policía Nacional detuvo en Ucayali a uno de los condenados por el crimen de cuatro líderes asháninkas de la comunidad de Saweto, ocurrido en 2014 y vinculado a la tala ilegal. La detención reactiva el caso emblemático de derechos humanos y ambientales en la Amazonía peruana.</p>
+  <span class="source-link"><a href="https://rpp.pe/">RPP</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Tres peruanos retornan de Rusia tras ser reclutados con falsas promesas para combatir en Ucrania</h3>
+  <p>Los ciudadanos llegaron al país bajo custodia policial luego de ser captados con ofertas laborales engañosas y enviados al frente de combate. La Cancillería investiga la red de reclutamiento y coordina con autoridades rusas la repatriación de otros peruanos en situación similar.</p>
+  <span class="source-link"><a href="https://rpp.pe/">RPP</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-dep">Deportes</span>
+  <h3>Liga 1: Alianza Lima vence 2-1 a Moquegua y mantiene el liderato del Apertura</h3>
+  <p>En la fecha 13 disputada el fin de semana, Alianza llegó a 32 puntos en Matute. Universitario goleó 4-1 a Juan Pablo II, Sporting Cristal empató 2-2 con Cusco FC, FBC Melgar venció 2-0 a UTC y Alianza Atlético derrotó 4-1 a Sport Huancayo. Los Chankas se consolida en el segundo lugar.</p>
+  <span class="source-link"><a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-peru-2026-en-vivo-resultados-y-partidos-de-4-torneo-apertura-sporting-cristal-vs-universitario-alianza-lima-vs-sport-boys-noticia/">Depor</a> · <a href="https://www.infobae.com/peru/deportes/2026/05/02/tabla-de-posiciones-liga-1-peru-2026-fecha-13-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-sporting-cristal-melgar/">Infobae</a></span>
+</div>
+
+<div class="news-item glass reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Tensión EE.UU.-México por muerte de agentes de la CIA en Chihuahua</h3>
+  <p>El gobierno estadounidense escala la presión diplomática tras el incidente fronterizo, mientras buques destructores de la US Navy cruzaron el Estrecho de Ormuz sin contratiempos. Irán propuso paralelamente un plan de paz de 14 puntos. La región andina sigue de cerca el reordenamiento de las prioridades de Washington en seguridad hemisférica.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/">El Comercio</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell glass">
+    <div class="data-cell-label">BCR Interbancario</div>
+    <div class="data-cell-value">S/3.51</div>
+    <div class="data-cell-delta red">−0,07%</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Sunat Venta</div>
+    <div class="data-cell-value">S/3.521</div>
+    <div class="data-cell-delta">apertura</div>
+  </div>
+  <div class="data-cell glass">
+    <div class="data-cell-label">Bloomberg</div>
+    <div class="data-cell-value">S/3.52</div>
+    <div class="data-cell-delta green">+0,39%</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">Sporting Cristal vs. Palmeiras esta tarde en Matute por la fecha 4 del Grupo F de la Copa Libertadores —partido decisivo para las opciones celestes de avanzar.</div>
+  <div class="vigilar-item">ONP inicia el viernes el cronograma de pago a más de 778.000 pensionistas; medir presión sobre puntos de cobro y BN.</div>
+  <div class="vigilar-item">Definición de fechas y formato del debate presidencial de segunda vuelta entre Fujimori y Sánchez —el JNE espera respuesta de ambos comandos.</div>
+  <div class="vigilar-item">Reacciones de gremios y bancada congresal a la declaración de Sánchez sobre el "Andahuaylazo"; posible mocional de censura o citación al Legislativo.</div>
+</div>
+
+<div class="footer reveal">
+  Fuentes: El Comercio · La República · Infobae Perú · RPP · Gestión · TV Perú · Depor · IEP · JNE<br>
+  Briefing generado con Claude — Solo para uso informativo
+</div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach((el,i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+
+</body>
+</html>
