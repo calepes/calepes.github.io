@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — Martes 5 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.neutral { color: var(--muted); }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead glass reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Martes 5 de mayo de 2026 · Bogotá</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">EE. UU. presiona a Petro: nueva Estrategia Nacional Antidrogas exige reducir cultivos y desarticular redes</div>
+          </div>
+          <div class="swipe-body">La Casa Blanca publicó la Estrategia Nacional de Control de Drogas 2026 con un enfoque más agresivo, alcance global y prioridad de seguridad nacional. El documento traslada presión directa al gobierno colombiano para acelerar la reducción de cultivos ilícitos y desarticular las redes de narcotráfico, en un contexto de récords históricos de hectáreas sembradas con coca.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Marca el tono de la relación bilateral en la recta final del gobierno Petro y reaviva el riesgo de descertificación. Cualquier endurecimiento puede pegar en cooperación, comercio y aranceles, y condiciona el discurso de los candidatos rumbo a la primera vuelta del 31 de mayo.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/05/estados-unidos-exigio-al-gobierno-petro-tomar-mas-responsabilidades-en-la-lucha-contra-el-narcotrafico-esto-dice-el-informe/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">TRM dispara $70 y toca máximo de dos meses tras decisión de tasas del Banco de la República</div>
+          </div>
+          <div class="swipe-body">La Tasa Representativa del Mercado se ubicó en $3.707,58 el martes 5 de mayo, una subida de $70,07 frente al lunes y de $114,41 (+3,18 %) frente al mismo día de la semana anterior. El movimiento responde a la decisión de la Junta del Banco de la República de mantener la tasa de intervención en 11,25 % y a la caída del crudo por expectativas en el Estrecho de Ormuz.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La pausa monetaria en un nivel alto preserva el ancla de inflación pero encarece crédito a empresas y hogares. La depreciación rápida del peso golpea importadores y deuda en dólares, y mete ruido a la corrección de cuenta corriente justo cuando se acelera el ciclo electoral.
+          </div>
+          <div class="swipe-source"><a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-martes-5-de-mayo-582118">Colombia.com</a> · <a href="https://www.infobae.com/colombia/2026/05/04/el-banco-de-la-republica-mantuvo-la-tasa-de-interes-sin-cambios-que-evito-con-la-decision-y-por-que-genera-alerta-el-aplazamiento-de-subidas/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Petro insiste en trasladar $25 billones de las AFP a Colpensiones: radicó recurso ante el Consejo de Estado</div>
+          </div>
+          <div class="swipe-body">El gobierno presentó un recurso de súplica para revertir la suspensión provisional del Decreto 415 de 2026, que ordenaba trasladar cerca de $25 billones desde las administradoras privadas hacia Colpensiones. La medida es uno de los pilares operativos de la reforma pensional, hoy en disputa judicial.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El traslado redefine el equilibrio entre ahorro privado y régimen público y mueve flujos relevantes para la deuda local. Si el Consejo de Estado avala la suspensión, complica la implementación operativa de la reforma y el cierre fiscal del próximo gobierno.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/05/gobierno-de-gustavo-petro-radico-recurso-de-suplica-para-revertir-suspension-del-decreto-que-trasladaba-25-billones-a-colpensiones/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Caos de movilidad en Bogotá: bloqueos en la Caracas y choques en la Sergio Arboleda</div>
+          </div>
+          <div class="swipe-body">Manifestaciones simultáneas en Usaquén, Chapinero y centro paralizaron tramos clave de la ciudad. TransMilenio cerró estaciones en la troncal Caracas entre la Calle 76 y la Calle 26, y desvió rutas por la Carrera 30. Hubo enfrentamientos entre encapuchados y el UNDMO a la altura de la Universidad Sergio Arboleda y de la Pedagógica.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Bogotá concentra cerca de un cuarto del PIB nacional y el sistema de TransMilenio mueve millones de pasajeros al día. Repetidas jornadas de bloqueo erosionan la productividad urbana y suben la tensión social en plena campaña presidencial.
+          </div>
+          <div class="swipe-source"><a href="https://www.semana.com/nacion/bogota/articulo/caos-en-la-movilidad-de-bogota-este-martes-5-de-mayo-de-2026-usuarios-de-transmilenio-afectados-por-manifestaciones/202624/">Semana</a> · <a href="https://www.eltiempo.com/bogota/movilidad-bogota-hoy-martes-5-de-mayo-asi-amanece-la-ciudad-3553119">El Tiempo</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Petro: hay al menos 7.000 colombianos involucrados en la guerra entre Ucrania y Rusia</div>
+          </div>
+          <div class="swipe-body">El presidente Gustavo Petro reveló una cifra estimada de 7.000 colombianos vinculados como mercenarios al conflicto en Europa del Este. Recordó que la actividad mercenaria está prohibida por ley y enmarcó el anuncio en el proyecto aprobado por la Cámara, que ajusta política exterior y de defensa frente al fenómeno.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La cifra, si se confirma, ubica a Colombia entre los principales exportadores de combatientes contratados al conflicto. Tiene implicaciones diplomáticas con Moscú y Kiev, expone vacíos en la regulación de empresas de seguridad privada y abre frente penal y migratorio.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/05/gustavo-petro-afirmo-que-son-7000-los-colombianos-involucrados-en-la-guerra-entre-ucrania-y-rusia-el-mercenario-esta-prohibido-por-ley/">Infobae</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Encuesta Guarumo a 26 días de la primera vuelta: Cepeda 38 %, De la Espriella 23,9 %, Valencia 22,8 %</h3>
+    <p>La medición de Guarumo, publicada a comienzos de mes y vigente en el ciclo de cobertura del 5 de mayo, ratifica al senador Iván Cepeda como favorito rumbo al 31 de mayo. Le siguen Abelardo de la Espriella y Paloma Valencia, que se disputan el cupo a segunda vuelta. Sergio Fajardo y Claudia López no superan el 3 %.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-guarumo-abril-2026-cepeda-38-de-la-espriella-23-9-y-paloma-22-8-en-segunda-valencia-derrota-a-cepeda-y-abelardo-lo-empata-3552136">El Tiempo</a> · <a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/">La Silla Vacía</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Exportaciones del primer trimestre suben 15,5 % impulsadas por petróleo y carbón</h3>
+    <p>Pese al discurso de transición energética del gobierno, hidrocarburos y carbón sostienen las cuentas externas. Las exportaciones del primer trimestre alcanzaron USD 13.809,5 millones, un avance de 15,5 % frente a igual periodo de 2025. El dato modera el deterioro esperado de la cuenta corriente y le da aire a la TRM en un mes volátil.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/05/pese-a-negativa-del-gobierno-petro-el-petroleo-y-el-carbon-sacaron-la-cara-por-las-exportaciones-colombianas-en-los-primeros-meses-de-2026/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Gobierno confirma compra de aviones de combate y refuerzo de fuerzas especiales</h3>
+    <p>El Ministerio de Defensa confirmó la adquisición de nuevos aviones de combate para reemplazar la flota Kfir y la ampliación de fuerzas especiales del Ejército. La inversión —cuyo costo total no fue divulgado— se activa en una coyuntura de presión por gasto militar, vencimiento de capacidades aéreas y deterioro del orden público en zonas rurales.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/04/gobierno-petro-confirmo-la-adquisicion-de-nuevos-aviones-de-combate-el-ejercito-tendra-mas-fuerzas-especiales/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Petro inaugura Bloque A del Nuevo Espacio para las Artes en la Universidad Nacional, entre panfletos en su contra</h3>
+    <p>El presidente visitó la sede Bogotá para inaugurar el Bloque A del NEA, una inversión de $70.000 millones que beneficia a más de 3.200 estudiantes de la Facultad de Artes. La jornada se dio en medio de panfletos de colectivos universitarios contra el gobierno, denunciados por la senadora María Fernanda Cabal.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/05/maria-fernanda-cabal-compartio-imagenes-de-los-panfletos-con-los-que-recibiran-a-gustavo-petro-en-la-nacional-se-van-a-robar-la-universidad/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Egan Bernal lidera el lote colombiano confirmado para el Giro de Italia 2026</h3>
+    <p>A tres días del arranque (8 de mayo), quedó oficializada la presencia de tres colombianos: Egan Bernal (Ineos), campeón en 2021; Santiago Buitrago (Bahrain Victorious), por primera vez como líder; y Einer Rubio (Movistar), en su sexto Giro consecutivo. Bernal llega tras quintar en Lieja-Bastoña-Lieja y subir al podio en el Tour de los Alpes.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/deportes/ciclismo/giro-de-italia-2026-egan-bernal-al-frente-del-lote-este-es-el-listado-definitivo-de-los-corredores-colombianos-3553319">El Tiempo</a> · <a href="https://www.elespectador.com/deportes/ciclismo/giro-de-italia-2026-egan-bernal-encabeza-la-lista-de-corredores-colombianos/">El Espectador</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>ELN descarta retomar negociaciones con Petro y manda mensaje al próximo gobierno</h3>
+    <p>Un comandante del ELN cerró la puerta a un retorno a la mesa con el actual gobierno y anunció que no avalará candidatos en la elección. Pidió al próximo presidente “construir un acuerdo nacional” y reiteró su crítica al avance de la paz total en territorios. El movimiento sella la ruptura del ciclo de paz iniciado en 2022.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/04/eln-descarto-cualquier-nueva-negociacion-con-gustavo-petro-y-le-envio-mensaje-al-proximo-gobierno-construir-un-acuerdo-nacional/">Infobae</a> · <a href="https://www.eluniversal.com.co/colombia/2026/05/04/desencanto-eln-lanza-dura-critica-a-gustavo-petro/">El Universal</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">TRM</div>
+      <div class="data-cell-value">$3.707,58</div>
+      <div class="data-cell-delta red">+$70,07</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Apertura USD</div>
+      <div class="data-cell-value">$3.710,00</div>
+      <div class="data-cell-delta red">+1,93 %</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Tasa BanRep</div>
+      <div class="data-cell-value">11,25 %</div>
+      <div class="data-cell-delta neutral">estable</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Reacción del Consejo de Estado al recurso de súplica del gobierno por el Decreto 415: cualquier señal mueve TES y bonos AFP.</div>
+    <div class="vigilar-item">Apertura del Giro de Italia el viernes 8: arrancan los tres colombianos liderados por Bernal con cronómetro y prólogo.</div>
+    <div class="vigilar-item">Cuartos de final de la Liga BetPlay (9-10 y 13-14 de mayo): Santa Fe e Internacional cerraron el cuadro de ocho clasificados.</div>
+    <div class="vigilar-item">Calendario de resultados Q1: Ecopetrol publica el 12 de mayo en plena volatilidad cambiaria y caída del Brent.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: Infobae · El Tiempo · El Espectador · Semana · El Universal · Banco de la República · Colombia.com · La Silla Vacía<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
