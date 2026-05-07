@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 6 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #92400e;
+  --accent-soft: rgba(146,64,14,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #FDF3E0 0%, #F5E5C0 25%, #D8E8DC 55%, #E8F0E8 80%, #F5F5F0 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(146,64,14,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(6,95,70,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+<header class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Colombia</h1>
+  <div class="masthead-date">Miércoles 6 de mayo de 2026</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</header>
+
+<div class="section-header reveal">Top 5 del Día</div>
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Banrep sorprende al mercado: mantiene tasa en 11,25% de forma unánime; J.P. Morgan alerta sobre el peso</div>
+        </div>
+        <div class="swipe-body">La Junta Directiva del Banco de la República decidió por unanimidad mantener inalterada la tasa de interés de política monetaria en 11,25%, en una decisión que generó un shock en los mercados. J.P. Morgan advirtió que la pausa sorpresiva provocó un impacto negativo en la curva de rendimientos y contribuyó al desempeño negativo del peso colombiano. El mercado esperaba al menos un recorte de 25 puntos básicos, continuando el ciclo de flexibilización iniciado en 2024.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La pausa unánime del Banrep en 11,25% —la tasa más alta desde 2016— eleva el costo del crédito, enfría la reactivación económica y añade presión sobre el peso en un mes preelectoral.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/06/el-peso-colombiano-recibe-malas-noticias-en-medio-de-las-nueva-decisiones-del-banco-de-la-republica-jp-morgan-ve-problemas/">Infobae</a> · <a href="https://www.banrep.gov.co/es">Banco de la República</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Dólar toca máximo de un mes: TRM escala a $3.723,33 en Colombia</div>
+        </div>
+        <div class="swipe-body">El dólar abrió el 6 de mayo en exactamente $3.685,00 en Colombia y la Tasa Representativa del Mercado (TRM) registró un incremento de $15,75 para cerrar en $3.723,33 —su nivel más alto en aproximadamente un mes. La presión sobre el peso se atribuye a la decisión sorpresiva del Banrep de mantener tasas y a factores externos de incertidumbre global. Analistas proyectan que el dólar podría acercarse a la zona de $4.000 antes del cierre de mayo si persiste la presión.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Un dólar por encima de $3.700 encarece importaciones, presiona la inflación y eleva el costo de la deuda externa pública —complicando el margen fiscal del Gobierno Petro en su recta final.
+        </div>
+        <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-hoy-6-de-mayo-de-2026-1018607">RCN Noticias</a> · <a href="https://www.infobae.com/colombia/2026/05/04/que-pasara-con-el-precio-del-dolar-en-colombia-durante-mayo-de-2026-por-que-podria-subir-a-4000-a-finales-de-mes/">Infobae</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Congreso vuelve a frenar proyectos del Gobierno Petro: Ministerio de Igualdad y Jurisdicción Agraria sin avance</div>
+        </div>
+        <div class="swipe-body">El Congreso de Colombia bloqueó nuevamente dos iniciativas clave del gobierno de Gustavo Petro: el proyecto para corregir vicios de procedimiento en la creación del Ministerio de la Igualdad y Equidad, y el proyecto de ley reglamentaria de la Jurisdicción Agraria. El Gobierno atribuye los bloqueos a la inasistencia de congresistas, pero sectores opositores señalan que el ambiente preelectoral —a menos de un mes de la primera vuelta del 31 de mayo— ya afecta profundamente el ritmo legislativo.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          El bloqueo legislativo reduce la capacidad del Gobierno Petro de impulsar reformas en sus últimas semanas de mayoría efectiva, dejando agendas inconclusas que los candidatos presidenciales deberán resolver.
+        </div>
+        <div class="swipe-source"><a href="https://www.eluniversal.com.co/colombia/2026/05/06/congreso-volvio-a-frenar-proyectos-del-gobierno-petro-tensiones-politicas/">El Universal</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Reforma tributaria de Petro llevaría la gasolina a más de $18.000 por galón</div>
+        </div>
+        <div class="swipe-body">El proyecto de reforma tributaria radicado por el Gobierno en el Congreso contempla un tratamiento diferencial del IVA a los combustibles que elevaría el galón de gasolina corriente a más de $18.000 (actualmente ~$15.849 tras el alza de $400 por galón que entró en vigencia el 1 de mayo). La medida busca recaudar $2,6 billones en 2026 y $7,2 billones anuales desde 2027, pero enfrenta fuerte oposición de sectores del transporte y la industria.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Una subida de gasolina de ~$15.849 a +$18.000 en meses impactaría directamente la inflación de transporte y alimentos —y se convertiría en munición política de la oposición a tres semanas de las elecciones presidenciales.
+        </div>
+        <div class="swipe-source"><a href="https://www.elcolombiano.com/negocios/reforma-tributaria-precio-galon-gasolina-sube-18-mil-pesos-y-acpm-EC28915098">El Colombiano</a> · <a href="https://www.eltiempo.com/economia/sectores/como-quedaria-el-precio-de-la-gasolina-con-la-nueva-reforma-tributaria-que-radico-el-gobierno-en-el-congreso-3486790">El Tiempo</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Cepeda lidera encuestas con 44% a 25 días de la primera vuelta presidencial del 31 de mayo</div>
+        </div>
+        <div class="swipe-body">Según el ponderador de encuestas de La Silla Vacía y datos de Invamer, Iván Cepeda (Pacto Histórico) mantiene una ventaja sólida de cerca del 44% en intención de voto para la primera vuelta, seguido por Abelardo de la Espriella (~21,5%) y Paloma Valencia (~19,8%). La pregunta clave es cuál de los dos candidatos de derecha pasará a segunda vuelta con Cepeda —y si pueden derrotarlo en el balotaje, donde las encuestas muestran una disputa más reñida.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Con el 31 de mayo a menos de cuatro semanas, la definición del candidato de oposición que acompañe a Cepeda en segunda vuelta determinará el rumbo del país para 2026-2030 y el alcance de las reformas del Pacto Histórico.
+        </div>
+        <div class="swipe-source"><a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-a-un-mes-de-la-primera-vuelta-de-2026/">La Silla Vacía</a> · <a href="https://www.lafm.com.co/politica/ivan-cepeda-lidera-intencion-voto-primera-vuelta-presidencial-elecciones-2026-393967">La FM</a> · <a href="https://www.elpais.com.co/elecciones/primera-vuelta-presidencial-2026-cepeda-lidera-le-siguen-abelardo-de-la-espriella-y-paloma-valencia-segun-invamer-2616.html">El País</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Banco de la República transfiere menos utilidades al Gobierno Petro: caída del 43%</h3>
+  <p>Las utilidades del Banco de la República cerraron el primer trimestre de 2026 en $2,5 billones —una caída del 43% respecto al mismo período de 2025. Esto implica que el Emisor transferirá un monto significativamente menor al Gobierno para financiar el gasto público, en una coyuntura de presupuesto ya ajustado. La dinámica responde a menores rendimientos sobre las reservas internacionales y al impacto de la pausa en el ciclo de recortes de tasas.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/05/el-banco-de-la-republica-le-transferira-menos-dinero-al-gobierno-petro-para-financiar-el-gasto-esta-es-la-preocupante-razon/">Infobae</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Gasolina sube $400 desde el 1 de mayo: galón promedio llega a $15.849 en Colombia</h3>
+  <p>El Ministerio de Hacienda confirmó un incremento de $400 en el galón de gasolina corriente a partir del 1 de mayo, llevando el precio promedio de referencia a $15.849. Desde 2022, tanquear con gasolina cuesta un 40% más en Colombia. El alza está ligada a la evolución del precio internacional del petróleo, el tipo de cambio y el esquema de fondo de estabilización de precios. El debate legislativo sobre la reforma tributaria podría añadir $2.000-$3.000 adicionales por galón.</p>
+  <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/colombia/precio-de-la-gasolina-en-colombia-sube-otra-vez-desde-este-1-de-mayo-de-2026/">Bloomberg Línea</a> · <a href="https://www.eltiempo.com/economia/sectores/ministro-de-hacienda-anuncia-incremento-de-400-en-el-precio-de-la-gasolina-a-partir-del-1-de-mayo-3552271">El Tiempo</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Producción de alimentos en Colombia bajo presión por fallas en programas del Gobierno</h3>
+  <p>La producción agropecuaria colombiana enfrenta dificultades por fallas en la ejecución de varios programas del Gobierno Petro, incluyendo el Programa de Alimentación Escolar y subsidios al campo. Infobae reportó que las fallas logísticas y presupuestales están afectando la cadena de producción de alimentos, lo que podría agravar las presiones inflacionarias en el sector de alimentos durante el segundo trimestre de 2026.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/05/produccion-de-alimentos-en-colombia-esta-en-problemas-debido-a-fallas-presentadas-por-varios-programas-del-gobierno-petro/">Infobae</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>Tarjetas de crédito más caras en mayo por ajuste de tasas de interés del Gobierno Petro</h3>
+  <p>Los pagos con tarjetas de crédito se encarecieron en mayo de 2026 debido a una modificación en los topes de interés impulsada por el Gobierno Petro. El ajuste impacta a millones de colombianos que utilizan crédito rotativo como herramienta de consumo, en un momento de alta inflación y presión cambiaria. La medida generó críticas de analistas financieros que señalan el efecto procíclico sobre el consumo en un contexto de desaceleración.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/30/pagos-con-tarjetas-de-credito-seran-mas-caros-en-mayo-de-2026-debido-a-movida-del-gobierno-petro-asi-quedaron-los-intereses/">Infobae</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>FED mantiene tasas entre 3,50% y 3,75%; divergencia con Banrep aumenta presión sobre el peso</h3>
+  <p>Mientras la Reserva Federal de EE.UU. mantiene su tasa entre 3,50% y 3,75% en un ciclo de normalización gradual, el Banco de la República colombiano sorprendió con una pausa en 11,25% —una brecha de más de 750 puntos básicos. Esta divergencia reduce el atractivo relativo del peso colombiano para el carry trade y presiona la deuda pública local, cuyos rendimientos debieron ajustarse al alza tras el shock de la decisión del Banrep del 6 de mayo.</p>
+  <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/06/el-peso-colombiano-recibe-malas-noticias-en-medio-de-las-nueva-decisiones-del-banco-de-la-republica-jp-morgan-ve-problemas/">Infobae</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell">
+    <div class="data-cell-label">TRM (USD/COP)</div>
+    <div class="data-cell-value">$3.723</div>
+    <div class="data-cell-delta red">+$15,75</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa Banrep</div>
+    <div class="data-cell-value">11,25%</div>
+    <div class="data-cell-delta red">sin corte</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Gasolina/galón</div>
+    <div class="data-cell-value">$15.849</div>
+    <div class="data-cell-delta red">+$400</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">Avance de la reforma tributaria en el Congreso: si logra sortear el bloqueo legislativo antes del receso preelectoral —decisivo para el presupuesto del segundo semestre.</div>
+  <div class="vigilar-item">Comportamiento del peso frente al dólar: analistas advierten que si supera $3.750, el mercado podría testear la zona de $3.800 antes del 31 de mayo.</div>
+  <div class="vigilar-item">Nuevas encuestas presidenciales a menos de 25 días de la primera vuelta: ¿logrará De la Espriella o Paloma Valencia desplazar al otro como rival de Cepeda en segunda vuelta?</div>
+  <div class="vigilar-item">Declaraciones del Gobierno sobre el ajuste de tasas de tarjetas de crédito y la crisis de producción alimentaria: señales de rectificación o profundización de las medidas.</div>
+</div>
+
+<footer class="footer reveal">
+  Fuentes: Infobae · RCN Noticias · El Universal · El Colombiano · El Tiempo · Bloomberg Línea · La Silla Vacía · La FM · El País · Banrep<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

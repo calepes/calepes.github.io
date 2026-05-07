@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia — 6 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+<header class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Bolivia</h1>
+  <div class="masthead-date">Miércoles 6 de mayo de 2026</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</header>
+
+<div class="section-header reveal">Top 5 del Día</div>
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">Choferes suspenden bloqueos tras acuerdo con el Gobierno</div>
+        </div>
+        <div class="swipe-body">Tras una jornada de paro de 24 horas y múltiples bloqueos —incluyendo el corte del paso fronterizo La Quiaca-Villazón— la Confederación de Choferes de Bolivia anunció la suspensión de las medidas de presión. El secretario general Lucio Gómez informó que el presidente Rodrigo Paz se comprometió a garantizar el suministro de diésel en todo el territorio nacional, y que se conformará una comisión con YPFB y seguros para gestionar la compensación por daños en motores.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Es la primera resolución significativa de la semana de conflictos. Alivia la presión sobre cadenas logísticas y abre espacio para que el Ejecutivo negocie con la COB, que mantiene su paro indefinido.
+        </div>
+        <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/06/choferes-anuncian-acuerdo-con-el-gobierno-y-suspenden-medidas-de-presion/">La Razón</a> · <a href="https://abi.bo/gobierno-y-sector-transporte-llegan-a-acuerdo-y-levantan-medidas-de-presion/">ABI</a> · <a href="https://www.telesurtv.net/choferes-bolivia-suspenden-medidas-acuerdo/">TeleSUR</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">Gobierno firma acuerdo con CSUTCB para gestionar abrogación de la Ley 1720</div>
+        </div>
+        <div class="swipe-body">El Gobierno y la Confederación Sindical Única de Trabajadores Campesinos de Bolivia (CSUTCB) suscribieron un Acuerdo de Coordinación y Trabajo donde el Ejecutivo se comprometió a impulsar la abrogación de la Ley 1720 ante la Asamblea Legislativa y elaborar un nuevo proyecto consensuado con todos los sectores involucrados. Por su parte, el Gobierno también firmó acuerdo con la CIDOB para modificar la norma, logrando frenar la marcha indígena que llegó a La Paz tras 28 días de caminata.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Desactiva dos focos de conflicto territorial simultáneamente. Pero la abrogación requiere mayoría en la Asamblea —donde el MAS mantiene peso— lo que convierte la promesa en apuesta política de mediano plazo.
+        </div>
+        <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/gobierno-compromete-gestionar-abrogacion-ley-1720-asamblea/20260506184456991109.html">Opinión</a> · <a href="https://www.urgente.bo/noticia/el-gobierno-y-la-cidob-firman-acuerdo-para-modificar-la-ley-1720-y-frenar-la-marcha-indigena">Urgentebo</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Bolivia solicita USD 3.300 millones al FMI y evalúa emisión de bonos soberanos</div>
+        </div>
+        <div class="swipe-body">Sin liquidez y con obligaciones de USD 2.300 millones solo en 2026, Bolivia formalizó una solicitud de USD 3.300 millones al FMI. En paralelo, el país contrató a Deutsche Bank y Santander para gestionar un roadshow con inversores internacionales de cara a una eventual emisión de bonos soberanos en dólares, la primera desde 2022. Las reservas internacionales netas alcanzan USD 3.612 millones, con apenas USD 144 millones en efectivo disponible.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          El éxito o fracaso del roadshow y la negociación con el FMI será el barómetro de la credibilidad del nuevo modelo económico. Una emisión cara en cupones presionaría aún más el déficit fiscal.
+        </div>
+        <div class="swipe-source"><a href="https://eldeber.com.bo/economia/liquidez-bolivia-busca-emitir-bonos-solicita-us-3-300-millones-fmi_1777994669">El Deber</a> · <a href="https://lapatria.bo/enfoque-nacional/bolivia-busca-emitir-bonos-y-solicita-dolares-al-fmi/">La Patria</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Transportistas bolivianos bloquean paso fronterizo La Quiaca-Villazón</div>
+        </div>
+        <div class="swipe-body">Durante el paro de 24 horas del 6 de mayo, camioneros bolivianos bloquearon el puente internacional La Quiaca-Villazón, uno de los pasos más transitados del norte argentino, interrumpiendo completamente el tránsito vehicular y peatonal. El corte paralizó el comercio bilateral entre Bolivia y Argentina en ese punto, afectando exportaciones e importaciones de ambos lados de la frontera durante varias horas.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La conflictividad boliviana tiene costos regionales concretos. El bloqueo de pasos fronterizos eleva el riesgo-país percibido por inversores y socios comerciales en un momento clave de negociaciones externas.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/sociedad/2026/05/06/un-paro-de-transportistas-bolivianos-bloqueo-el-paso-internacional-entre-la-quiaca-y-villazon/">Infobae</a> · <a href="https://www.eltribuno.com/nacionales/2026-5-5-10-29-0-camioneros-bolivianos-bloquean-el-puente-la-quiaca-villazon-y-paralizan-el-paso-fronterizo">El Tribuno</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">COB mantiene paro indefinido; protestas multisectoriales persisten con 31 bloqueos activos</div>
+        </div>
+        <div class="swipe-body">A diferencia de los choferes, la Central Obrera Boliviana no levantó sus medidas de presión. Al cierre del día, Urgentebo reportó 31 puntos de bloqueo activos en distintas regiones. La COB sostiene sus tres demandas centrales: incremento salarial del 20%, abrogación de la Ley 1720 y archivo del proyecto antibloqueos. El Gobierno señaló que un alza salarial de doble dígito no es viable con un 85% de informalidad laboral.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Con choferes e indígenas parcialmente desactivados, la COB es ahora el único frente activo. Su posición determinará el tono político de las próximas semanas previo a la aprobación del paquete legislativo prometido al FMI.
+        </div>
+        <div class="swipe-source"><a href="https://www.urgente.bo/noticia/el-paro-fue-debil-pero-hay-31-puntos-de-bloqueo-choferes-iran-al-dialogo-y-otros-amenazan">Urgentebo</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/06/bolivia-aumentan-protestas-contra-el-gobierno-por-combustible-abrogacion-de-leyes-y-salarios/">Resumen Latinoamericano</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>Gobierno resuelve en un día dos conflictos: choferes y campesinos logran acuerdos</h3>
+  <p>El miércoles 6 de mayo fue el día de mayor actividad negociadora del Gobierno de Paz desde que asumió. Además de los acuerdos con choferes y la CSUTCB sobre la Ley 1720, el vocero presidencial José Luis Gálvez confirmó que se abrió una mesa de trabajo para incorporar distintas visiones en la reforma agraria. La Confederación de Gremiales determinó no movilizarse y lamentó los perjuicios de los bloqueos.</p>
+  <span class="source-link"><a href="https://www.urgente.bo/noticia/gobierno-resuelve-conflictos-con-choferes-y-campesinos">Urgentebo</a> · <a href="https://abi.bo/confederacion-de-gremiales-determina-no-movilizarse-y-lamenta-perjuicios-por-los-bloqueos/">ABI</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>Dólar referencial toca Bs 9,40 mientras el oficial se mantiene en Bs 6,96</h3>
+  <p>El Banco Central de Bolivia publicó valores referenciales en torno a Bs 9,21 (compra) y Bs 9,40 (venta), manteniendo una brecha de aproximadamente 35% frente al tipo de cambio oficial de Bs 6,96. La escasez de divisas y la incertidumbre sobre el ritmo de unificación cambiaria sostienen la presión. El informe del gobierno negocia con el FMI sin "recetas externas" ni ajustes de alto costo social, según el ministro Lupo.</p>
+  <span class="source-link"><a href="https://eldeber.com.bo/economia/gobierno-negocia-fmi-recetas-externas-descarta-ajustes-alto-costo-social_1778109694">El Deber</a> · <a href="https://www.infobae.com/noticias/2026/05/06/precio-del-dolar-hoy-en-bolivia-cotizacion-de-apertura-del-6-de-mayo/">Infobae</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Transporte interprovincial de La Paz convoca paro indefinido si no se resuelve crisis de combustible</h3>
+  <p>A pesar del acuerdo de los choferes a nivel nacional, el Transporte Interprovincial de La Paz convocó a un paro indefinido con bloqueo de caminos si el Gobierno no garantiza suministro permanente de diésel y resuelve la deuda acumulada por el combustible contaminado. El sector advierte que los compromisos deben materializarse en hechos concretos en un plazo perentorio, o las medidas se reactivarán con mayor fuerza.</p>
+  <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/05/transporte-interprovincial-de-la-paz-convoca-a-paro-indefinido-y-bloqueo-de-caminos/">La Razón</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Paro de transporte agravó la crisis económica: comercio y abastecimiento bajo presión</h3>
+  <p>El paro de 24 horas del transporte boliviano del 6 de mayo generó desabastecimiento puntual en mercados urbanos, desconexión de localidades periféricas y pérdidas en el sector informal. El Diario reportó que la huelga agravó una crisis económica ya deteriorada por semanas de bloqueos intermitentes. Los sectores productivos reiteraron su llamado a que el Gobierno garantice orden público y libertad de tránsito.</p>
+  <span class="source-link"><a href="https://www.eldiario.net/portal/2026/05/06/paro-de-transporte-agrava-crisis-economica-del-pais/">El Diario</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/06/bolivia-transportistas-realizan-paro-de-24-horas-ante-deterioro-economico-y-crisis-de-combustible">Resumen Latinoamericano</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Medios internacionales siguen de cerca la conflictividad boliviana ante negociaciones con FMI y bonos</h3>
+  <p>Infobae, TeleSUR y medios argentinos cubrieron con intensidad el bloqueo fronterizo y los acuerdos alcanzados el 6 de mayo, señalando que Bolivia atraviesa su semana de mayor conflictividad social desde que asumió Paz en noviembre de 2025. El contexto es especialmente sensible: el país negocia con el FMI y busca inversores para bonos soberanos en medio de protestas que proyectan imagen de inestabilidad política.</p>
+  <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/06/tras-una-jornada-de-huelga-y-bloqueos-en-bolivia-los-choferes-acuden-al-dialogo-con-el-gobierno/">Infobae</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell">
+    <div class="data-cell-label">Dólar Oficial</div>
+    <div class="data-cell-value">Bs 6,96</div>
+    <div class="data-cell-delta">sin cambio</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Referencial BCB</div>
+    <div class="data-cell-value">Bs 9,40</div>
+    <div class="data-cell-delta red">+0,0%</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Brecha</div>
+    <div class="data-cell-value">~35%</div>
+    <div class="data-cell-delta red">▲ persistente</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">COB: si levanta o radicaliza el paro indefinido tras los acuerdos parciales del 6 de mayo con choferes y campesinos —la respuesta determinará el clima político de mayo.</div>
+  <div class="vigilar-item">Acuerdo con el FMI: monto definitivo (se habla de USD 3.300M), plazos de desembolso y condicionalidad; cualquier filtración sobre ajuste cambiario aceleraría la presión social.</div>
+  <div class="vigilar-item">Roadshow de bonos soberanos: reacción de inversores internacionales ante los conflictos sociales de la semana —un cupón elevado validaría el riesgo percibido.</div>
+  <div class="vigilar-item">Cumplimiento de los compromisos con choferes e interprovinciales: si YPFB no normaliza el suministro de diésel en días, los bloqueos pueden reactivarse con más fuerza.</div>
+</div>
+
+<footer class="footer reveal">
+  Fuentes: La Razón · El Deber · ABI · Urgentebo · Opinión · El Diario · Infobae · TeleSUR · La Patria · Resumen Latinoamericano<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 6 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #be123c;
+  --accent-soft: rgba(190,18,60,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F5E8EC 0%, #EDD4DA 25%, #D8E0EA 55%, #E8ECF5 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(190,18,60,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+<header class="masthead reveal">
+  <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+  <h1>Perú</h1>
+  <div class="masthead-date">Miércoles 6 de mayo de 2026</div>
+  <div class="masthead-tag">Edición Diaria</div>
+</header>
+
+<div class="section-header reveal">Top 5 del Día</div>
+<div class="carousel-container reveal">
+  <div class="carousel-track" id="carousel">
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">01</div>
+          <div class="swipe-title">ONPE al 98,4%: Keiko consolida primer lugar; Sánchez aventaja a López Aliaga por ~25.000 votos</div>
+        </div>
+        <div class="swipe-body">Con el 98,4% de actas escrutadas, Keiko Fujimori (Fuerza Popular) confirma su pase a la segunda vuelta con el 17,14% de los votos válidos (2.819.745 votos). Roberto Sánchez (Juntos por el Perú) mantiene el segundo lugar con 12,04% (1.980.554 votos), aventajando a Rafael López Aliaga (Renovación Popular) con 11,88% (1.955.534 votos) por una diferencia de aproximadamente 25.000 votos. La definición del segundo finalista permanece técnicamente abierta.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La segunda vuelta que se perfile —Keiko vs. Sánchez o Keiko vs. López Aliaga— definirá el eje programático de la campaña de junio y el perfil del eventual gobierno 2026-2030.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/06/ultimo-conteo-de-la-onpe-asi-van-los-votos-de-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga-camino-a-la-segunda-vuelta/">Infobae</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/resultados-elecciones-2026-en-vivo-segunda-vuelta-hoy">TV Perú</a> · <a href="https://elpopular.pe/actualidad/2026/05/06/conteo-de-la-onpe-al-98-en-las-elecciones-2026-conoce-la-diferencia-de-votos-entre-roberto-sanchez-y-rafael-lopez-aliaga-249288">El Popular</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">02</div>
+          <div class="swipe-title">JNE fija el 7 de mayo como plazo para audiencias de actas impugnadas</div>
+        </div>
+        <div class="swipe-body">El Jurado Nacional de Elecciones (JNE) estableció el jueves 7 de mayo como fecha límite para que los Jurados Electorales Especiales (JEE) celebren audiencias públicas de recuento de actas observadas e impugnadas. Los resultados presidenciales definitivos y el nombre del segundo finalista se conocerán "por lo menos para la quincena de mayo", según la autoridad electoral. La diferencia de ~25.000 votos entre Sánchez y López Aliaga convierte a cada acta impugnada en potencialmente decisiva.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Mientras no haya fallo definitivo del JNE, el escenario de segunda vuelta permanece incierto —lo que frena la formación de alianzas y prolonga la volatilidad electoral y financiera.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/06/elecciones-2026-este-jueves-7-de-mayo-el-peru-sabra-quien-pasa-a-segunda-vuelta-con-keiko-fujimori/">Infobae</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">03</div>
+          <div class="swipe-title">Segunda vuelta presidencial confirmada para el 7 de junio</div>
+        </div>
+        <div class="swipe-body">Independientemente de quién sea el segundo finalista, la segunda vuelta de las elecciones presidenciales peruanas se realizará el domingo 7 de junio de 2026 en todo el territorio nacional. La ONPE confirmó la fecha oficial e informó cambios operativos para el balotaje. A partir del resultado definitivo del JNE, los candidatos tendrán apenas semanas para redefinir estrategias y buscar respaldos de los candidatos que quedaron fuera.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          El balotaje del 7 de junio se perfila como una de las elecciones más polarizantes de la última década en Perú, con implicancias directas para la política económica, la inversión minera y las relaciones exteriores.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/05/segunda-vuelta-2026-en-peru-fecha-oficial-cambios-debate-y-todo-lo-que-necesitas-saber-antes-del-7-de-junio/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">04</div>
+          <div class="swipe-title">Inflación anual del Perú supera el 4% por primera vez desde octubre 2023</div>
+        </div>
+        <div class="swipe-body">El IPC de abril 2026 subió 0,64%, llevando la inflación acumulada en el año a 3,53% y la tasa anual a 4,01% —por encima del rango meta del BCRP (1%-3%) por primera vez desde octubre de 2023. En Lima Metropolitana la inflación anual alcanzó el 4,01%. BBVA Research advirtió que la inflación de 2026 quedará por fuera del rango meta del banco central, independientemente de quién esté al frente del BCRP.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          La inflación fuera del rango meta reduce el margen del BCRP para recortar tasas y encarece el crédito. En año electoral, presiona los bolsillos de las clases medias y puede influir en el ánimo del votante de cara al 7 de junio.
+        </div>
+        <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae</a> · <a href="https://www.bbvaresearch.com/publicaciones/peru-inflacion-anual-supera-el-4-pese-a-moderacion-mensual/">BBVA Research</a></div>
+      </div>
+    </div>
+
+    <div class="swipe-card">
+      <div>
+        <div class="swipe-top">
+          <div class="swipe-num">05</div>
+          <div class="swipe-title">Dólar cierra con fuerte caída en Perú: S/ 3,4630 al cierre del 6 de mayo</div>
+        </div>
+        <div class="swipe-body">El tipo de cambio del dólar registró una caída significativa el miércoles 6 de mayo, cerrando en S/ 3,4630 según el BCRP, tras haber cerrado en S/ 3,4890 el martes 5. La corrección refleja tanto factores externos —ligero debilitamiento del dólar global— como tomas de ganancias locales. La expectativa de tipo de cambio al cierre de 2026 se ubica en el rango de S/ 3,34 a S/ 3,46 por dólar, según el banco central.</div>
+      </div>
+      <div>
+        <div class="swipe-why">
+          <strong>Por qué importa</strong>
+          Una corrección en el sol brinda alivio temporal a importadores y deudores en dólares, pero la incertidumbre electoral puede revertir la tendencia rápidamente si los resultados del JNE generan sorpresas.
+        </div>
+        <div class="swipe-source"><a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-cuanto-esta-el-dolar-este-miercoles-6-de-mayo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a> · <a href="https://www.infobae.com/peru/2026/05/06/precio-del-dolar-con-fuerte-caida-en-peru-asi-se-cotiza-el-tipo-de-cambio-hoy-6-de-mayo/">Infobae</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="swipe-hint">Desliza para ver más →</div>
+</div>
+
+<div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+<div class="news-item reveal">
+  <span class="pill pill-pol">Político</span>
+  <h3>Congreso convoca sesión de pleno para el jueves 7 de mayo</h3>
+  <p>El Parlamento peruano convocó a sesión plenaria para el jueves 7 de mayo, en paralelo a las audiencias del JNE para resolver las actas impugnadas. La agenda legislativa incluye proyectos pendientes de la legislatura ordinaria. El ambiente preelectoral mantiene tensiones dentro de las bancadas respecto al posicionamiento para la segunda vuelta, con Fuerza Popular y bloques de oposición ya trazando líneas para el balotaje del 7 de junio.</p>
+  <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/resultados-elecciones-2026-en-vivo-segunda-vuelta-hoy">TV Perú</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-eco">Económico</span>
+  <h3>BCRP mantiene tasa en 4,25%; depósitos overnight al 4,21% reflejan liquidez holgada</h3>
+  <p>El Banco Central de Reserva del Perú inició el año manteniendo su tasa de política monetaria en 4,25% ante una inflación que, aunque controlada a inicios de año, está escalando. Los depósitos overnight superaron los S/ 999 millones a tasas de 4,21%, señal de liquidez en el sistema. Las proyecciones de crecimiento del PBI para 2026 oscilan entre 2,9% (Mapfre Economics) y 3,1% (BBVA Research), en línea con el promedio histórico de la economía peruana.</p>
+  <span class="source-link"><a href="https://rpp.pe/economia/economia/bcrp-inicia-el-2026-manteniendo-su-tasa-de-interes-en-425-ante-una-inflacion-controlada-noticia-1670855">RPP</a> · <a href="https://gestion.pe/economia/pbi-peruano-crecera-29-este-ano-segun-mapfre-economics-noticia/">Gestión</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-emp">Empresarial</span>
+  <h3>Incertidumbre electoral frena decisiones de inversión privada en sectores clave</h3>
+  <p>La prolongada indefinición del segundo finalista —con el JNE aún procesando actas impugnadas— genera incertidumbre sobre las políticas económicas del próximo gobierno. Sectores como minería, energía y construcción reportan postergación de decisiones de inversión ante los contrastantes programas económicos de los candidatos. La volatilidad del tipo de cambio, con un alza superior al 3% en abril, amplificó el nerviosismo en los mercados financieros durante abril y mayo.</p>
+  <span class="source-link"><a href="https://larepublica.pe/economia">La República Economía</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-soc">Social</span>
+  <h3>Inflación acumulada de 3,53% en cuatro meses presiona canasta básica de hogares peruanos</h3>
+  <p>El incremento sostenido de precios —con el IPC acumulando 3,53% en los primeros cuatro meses de 2026— presiona el poder adquisitivo de los hogares de ingresos medios y bajos. Alimentos y transporte lideran los aumentos. Los economistas advierten que la tasa anual del 4,01% podría seguir escalando en el segundo trimestre antes de moderar, lo que añade presión social en el contexto de la segunda vuelta electoral.</p>
+  <span class="source-link"><a href="https://www.bbvaresearch.com/publicaciones/peru-inflacion-anual-supera-el-4-pese-a-moderacion-mensual/">BBVA Research</a></span>
+</div>
+
+<div class="news-item reveal">
+  <span class="pill pill-int">Internacional</span>
+  <h3>Candidatos de segunda vuelta deberán definir posición sobre TLC con China y política minera</h3>
+  <p>El resultado electoral peruano es seguido de cerca por inversores internacionales y socios comerciales. El Tratado de Libre Comercio con China —el mayor socio comercial del Perú— y la política sobre grandes proyectos mineros como Conga y Tía María serán ejes de diferenciación programática en la segunda vuelta. Los candidatos de centroderecha plantean mayor apertura a la inversión extranjera; la izquierda propone revisión de contratos y renegociación de regalías.</p>
+  <span class="source-link"><a href="https://elcomercio.pe/elecciones">El Comercio Elecciones</a></span>
+</div>
+
+<div class="data-strip reveal">
+  <div class="data-cell">
+    <div class="data-cell-label">USD / PEN</div>
+    <div class="data-cell-value">S/ 3,46</div>
+    <div class="data-cell-delta green">▼ caída</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Inflación Anual</div>
+    <div class="data-cell-value">4,01%</div>
+    <div class="data-cell-delta red">▲ sobre meta</div>
+  </div>
+  <div class="data-cell">
+    <div class="data-cell-label">Tasa BCRP</div>
+    <div class="data-cell-value">4,25%</div>
+    <div class="data-cell-delta">sin cambio</div>
+  </div>
+</div>
+
+<div class="vigilar reveal">
+  <div class="vigilar-header">Qué Vigilar Hoy</div>
+  <div class="vigilar-item">Resolución del JNE el 7 de mayo: ¿confirman a Roberto Sánchez como segundo finalista o revierten actas a favor de López Aliaga? El fallo redefine el escenario político para el 7 de junio.</div>
+  <div class="vigilar-item">Inicio de la carrera de alianzas: qué candidatos respaldan a Keiko Fujimori y cuáles apoyan al candidato de izquierda —señal del equilibrio de fuerzas políticas.</div>
+  <div class="vigilar-item">Datos de empleo y actividad económica de abril 2026: cualquier deterioro en las cifras amplificaría el impacto de la inflación fuera de meta en la narrativa electoral.</div>
+  <div class="vigilar-item">Reacción del tipo de cambio al fallo del JNE: el sol podría experimentar volatilidad en torno a la confirmación del segundo finalista.</div>
+</div>
+
+<footer class="footer reveal">
+  Fuentes: Infobae · TV Perú · La República · El Comercio · RPP · BBVA Research · BCRP · Gestión · Ojo Público · El Popular<br>
+  Briefing generado con Claude — Solo para uso informativo
+</footer>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
