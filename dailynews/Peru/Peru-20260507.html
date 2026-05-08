@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Briefing Ejecutivo Perú — 7 de mayo de 2026</title>
+  <title>Briefing Per&#250; &#8212; 7 de mayo de 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #1a4a6b;
-      --accent-soft: rgba(26,74,107,0.06);
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
       --ink: #1d1d1f;
       --muted: rgba(60,60,67,0.6);
       --tertiary: rgba(60,60,67,0.3);
@@ -23,14 +23,11 @@
       --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
       --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
       --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
-      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
       --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      background: linear-gradient(160deg, #E8EEF2 0%, #D4DEE9 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      background: linear-gradient(160deg, #F0E8E4 0%, #E8D8D0 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
       color: var(--ink);
       font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       line-height: 1.6;
@@ -41,13 +38,10 @@
       padding: 32px 20px;
       overflow-x: hidden;
     }
-
     .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
-    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
-
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(234,179,8,0.08) 0%, transparent 70%); }
     .wrap { position: relative; z-index: 1; }
-
     .glass {
       background: var(--card-bg);
       backdrop-filter: blur(20px) saturate(180%);
@@ -56,32 +50,24 @@
       border: 0.5px solid var(--glass-border);
       box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
     }
-
     .masthead {
-      text-align: center;
-      margin-bottom: 28px;
-      padding: 32px 24px 26px;
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
       background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
       box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
     }
     .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
     .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
     .masthead-date { font-size: 13px; color: var(--muted); }
     .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
     .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
     .carousel-container { position: relative; margin-bottom: 32px; }
     .carousel-track {
       display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
     }
     .carousel-track::-webkit-scrollbar { display: none; }
-
     .swipe-card {
       flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
       background: var(--card-bg-strong);
@@ -99,37 +85,30 @@
     .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
     .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
     .swipe-source a { color: var(--accent); text-decoration: none; }
-
     .dots { display: flex; justify-content: center; gap: 8px; }
     .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
     .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
     .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
     .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
     .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
     .news-item { padding: 18px 20px; margin-bottom: 10px; }
     .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
     .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
     .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
     .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
     .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
-    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
     .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
     .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
     .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
     .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
     .source-link a { color: var(--accent); text-decoration: none; }
-
     .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
     .data-cell { padding: 20px 14px; text-align: center; }
     .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
     .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
     .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
-    .green { color: #34C759; }
-    .red { color: #FF3B30; }
-
+    .green { color: #34C759; } .red { color: #FF3B30; }
     .vigilar {
       background: rgba(29,29,31,0.82);
       backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -142,253 +121,186 @@
     .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
     .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
     .vigilar-item:last-child { margin-bottom: 0; }
-
     .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
     .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-    @media (max-width: 500px) {
-      body { padding: 20px 14px; }
-      .data-strip { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-
   <div class="wrap">
 
-    <!-- MASTHEAD -->
     <div class="masthead reveal">
       <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-      <h1>Perú</h1>
+      <h1>Per&#250;</h1>
       <div class="masthead-date">Jueves 7 de mayo de 2026</div>
-      <div class="masthead-tag">Edición Diaria</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
     </div>
 
-    <!-- TOP 5 -->
-    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="section-header reveal">Top 5 del D&#237;a</div>
 
     <div class="carousel-container reveal">
       <div class="carousel-track" id="carousel">
 
-        <!-- Card 01 -->
         <div class="swipe-card">
           <div>
             <div class="swipe-top">
               <div class="swipe-num">01</div>
-              <div class="swipe-title">JNE cierra recuento de actas: resultados de primera vuelta llegarán a mediados de mayo</div>
+              <div class="swipe-title">Roberto S&#225;nchez confirma segundo lugar y pasa a segunda vuelta: enfrentar&#225; a Keiko Fujimori el 7 de junio</div>
             </div>
-            <div class="swipe-body">El 7 de mayo venció el plazo para que los 60 Jurados Electorales Especiales (JEE) completaran las audiencias de recuento de actas observadas e impugnadas de las elecciones del 12 de abril. Con el 98.46% de votos contados, Roberto Sánchez (Juntos por el Perú) aventaja a Rafael López Aliaga por apenas 24,011 votos (12.04% vs. 11.99%). Keiko Fujimori lidera con el 17.14%. El JNE anunció que los resultados oficiales llegarán "al menos a mediados de mayo", confirmando la segunda vuelta del 7 de junio.</div>
+            <div class="swipe-body">Con el 98,46% de actas procesadas por la ONPE, Roberto S&#225;nchez (Juntos por el Per&#250;) obtuvo el 12,04% de votos v&#225;lidos (1&#8217;989.030 votos), consolidando su pase a la segunda vuelta frente a Keiko Fujimori, quien lider&#243; con 17,14% (2&#8217;831.702 votos). La primera vuelta cerr&#243; el 10 de abril; la segunda vuelta se disputar&#225; el domingo 7 de junio de 2026.</div>
           </div>
           <div>
             <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La diferencia de 24 mil votos entre segundo y tercer lugar es la más ajustada en décadas. El resultado oficial determinará si Fujimori enfrenta a Sánchez (izquierda moderada) o a López Aliaga (derecha radical), cambiando radicalmente la dinámica de la segunda vuelta y el perfil del próximo gobierno.
+              <strong>Por qu&#233; importa</strong>
+              La confirmaci&#243;n del escenario Fujimori-S&#225;nchez define la agenda de los pr&#243;ximos 30 d&#237;as. S&#225;nchez buscar&#225; capitalizar el antivoto fujimorista; Keiko buscar&#225; proyectar moderaci&#243;n. Las encuestas de intenci&#243;n de voto de cara al 7J muestran empate t&#233;cnico, lo que hace la segunda vuelta la m&#225;s competitiva de la &#250;ltima d&#233;cada.
             </div>
             <div class="swipe-source">
-              <a href="https://larepublica.pe/politica/2026/05/07/jne-contaria-con-los-resultados-de-la-primera-vuelta-de-la-eleccion-presidencial-a-mediados-de-mayo-hnews-173481">La República</a> ·
-              <a href="https://www.infobae.com/peru/2026/05/06/elecciones-2026-este-jueves-7-de-mayo-el-peru-sabra-quien-pasa-a-segunda-vuelta-con-keiko-fujimori/">Infobae</a> ·
-              <a href="https://elcomercio.pe/politica/elecciones/jne-a-mediados-de-mayo-se-tendran-resultados-de-la-eleccion-presidencial-tras-cierre-de-audiencias-de-recuento-de-votos-noticia/">El Comercio</a>
+              <a href="https://larepublica.pe/politica/2026/05/05/resultados-onpe-en-vivo-al-98031-roberto-sanchez-mantiene-25-mil-522-votos-de-ventaja-sobre-lopez-aliaga-hnews-95370">La Rep&#250;blica</a> &#183; <a href="https://www.infobae.com/peru/2026/05/05/segunda-vuelta-2026-en-peru-fecha-oficial-cambios-debate-y-todo-lo-que-necesitas-saber-antes-del-7-de-junio/">Infobae</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 02 -->
         <div class="swipe-card">
           <div>
             <div class="swipe-top">
               <div class="swipe-num">02</div>
-              <div class="swipe-title">Dólar cierra en S/3.46 y acumula alza de 4.28% en 2026; inflación supera la meta del BCRP</div>
+              <div class="swipe-title">Disputa al l&#237;mite: S&#225;nchez super&#243; a L&#243;pez Aliaga por solo 24.011 votos para quedarse con el segundo lugar</div>
             </div>
-            <div class="swipe-body">El tipo de cambio cerró el jueves en S/3.46, acumulando una apreciación del dólar de 4.28% en lo que va del año (cerró 2025 en S/3.364). La inflación interanual alcanzó el 4% en abril, por encima del rango meta del BCRP de 1% a 3%. El encarecimiento del transporte (+3.35% mensual) y los servicios de alimentación fuera del hogar son los principales motores del alza de precios.</div>
+            <div class="swipe-body">Rafael L&#243;pez Aliaga (Renovaci&#243;n Popular) obtuvo el 11,99% de los votos, quedando a apenas 24.011 sufragios de Roberto S&#225;nchez. L&#243;pez Aliaga lidera el voto extranjero (74.173 votos) y el conteo de Lima y ciudades grandes, mientras S&#225;nchez cosech&#243; su ventaja en provincias y zonas rurales. La diferencia se defini&#243; en los &#250;ltimos tramos del escrutinio. Gremios empresariales exigen auditor&#237;a internacional de los resultados.</div>
           </div>
           <div>
             <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La presión cambiaria e inflacionaria simultánea en año electoral es señal de alerta para empresas con deuda en dólares y para el consumo de la clase media. Si el BCRP interviene para contener el dólar, puede generar conflicto con las expectativas de tasas post-electoral.
+              <strong>Por qu&#233; importa</strong>
+              Una diferencia de apenas 24.011 votos (0,055% del total) sobre 35 millones de electores es vulnerable a impugnaciones y recursos legales. Si L&#243;pez Aliaga no acepta el resultado, la inestabilidad pol&#237;tica podr&#237;a contaminar la campa&#241;a de segunda vuelta y generar incertidumbre en mercados.
             </div>
             <div class="swipe-source">
-              <a href="https://www.infobae.com/peru/2026/05/07/dolar-se-ha-apreciado-en-un-428-en-lo-que-va-del-2026-ahora-cuesta-s-346/">Infobae</a> ·
+              <a href="https://www.infobae.com/peru/2026/05/07/expectativa-por-conocer-el-rival-de-keiko-fujimori-en-segunda-vuelta-la-disputa-sigue-entre-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae</a> &#183; <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-con-miras-a-segunda-vuelta-2026-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Miner&#237;a ilegal supera US$ 12.000 millones: IPE advierte que reduce hasta 12% el crecimiento potencial del PBI</div>
+            </div>
+            <div class="swipe-body">El Instituto Peruano de Econom&#237;a (IPE) present&#243; en proEXPLO 2026 estimaciones que muestran que la miner&#237;a ilegal alcanz&#243; en 2026 un valor superior a US$ 12.000 millones, representando una reducci&#243;n de hasta el 12% del crecimiento potencial del PBI. El IPE advirti&#243; sobre distorsiones en el mercado del oro, con aumento de exportadores, nuevos destinos (India, Emiratos) y expansi&#243;n hacia &#225;reas protegidas. 1,7 millones de peruanos no saldr&#237;an de la pobreza por este fen&#243;meno.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La miner&#237;a ilegal ya opera como econom&#237;a criminal que disputa territorios al Estado. Su impacto sobre el PBI potencial es comparable al de una recesi&#243;n leve. La segunda vuelta electoral que se avecina deber&#225; incorporar propuestas concretas de ambos candidatos sobre c&#243;mo combatirla.
+            </div>
+            <div class="swipe-source">
+              <a href="https://larepublica.pe/economia/2026/05/06/ipe-mineria-ilegal-reduce-hasta-12-el-crecimiento-del-peru-y-17-millones-no-habrian-salido-de-la-pobreza-pbi-hnews-235956">La Rep&#250;blica</a> &#183; <a href="https://www.reporteminero.cl/noticia/noticias/2026/03/proexplo-2026-mineria-ilegal-economia-seguridad-peru">Reporte Minero</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">MEF ratifica crecimiento de 3,2% para 2026 impulsado por inversi&#243;n minera superior a US$ 6.800 millones</div>
+            </div>
+            <div class="swipe-body">El Informe de Actualizaci&#243;n de Proyecciones Macroecon&#243;micas (IAPM) 2026&#8211;2029 del Ministerio de Econom&#237;a y Finanzas ratifica un crecimiento del PBI de 3,2% para 2026. El motor principal es la cartera de inversiones mineras, que superar&#237;a los US$ 6.800 millones en el a&#241;o. Per&#250; sigue siendo uno de los pa&#237;ses de mayor crecimiento en Am&#233;rica del Sur, aunque la pobreza a&#250;n no retorna a niveles prepandemia.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El 3,2% proyectado contrasta con la carestia de pa&#237;ses vecinos. La dependencia de la inversi&#243;n minera expone al Pa&#237;s a choques de precios internacionales de commodities. La transici&#243;n de gobierno (julio 28) deber&#225; mantener el clima de inversi&#243;n minera para sostener el ritmo.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.rumbominero.com/peru/noticias/economia/mef-crecimiento-32-impulsado-por-la-mineria/">Rumbo Minero</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Pobreza monetaria cae a 25,7% en 2025, pero sigue 5,5 puntos por encima del nivel prepandemia</div>
+            </div>
+            <div class="swipe-body">Seg&#250;n el INEI, la pobreza monetaria en Per&#250; descendi&#243; de 27,6% (2024) a 25,7% (2025), mostrando una tendencia de recuperaci&#243;n. Sin embargo, el indicador a&#250;n supera en 5,5 puntos porcentuales el nivel prepandemia (20,2% en 2019). La reducci&#243;n est&#225; impulsada por la recuperaci&#243;n del empleo informal y el crecimiento de la miner&#237;a formal, pero la calidad del empleo generado sigue siendo una preocupaci&#243;n central.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La brecha de 5,5 puntos sobre el nivel prepandemia significa que unos 1,8 millones de peruanos a&#250;n no han salido de la pobreza generada por el COVID. El dato ser&#225; usado tanto por Keiko como por S&#225;nchez en sus campa&#241;as de segunda vuelta para atacar o defender la gesti&#243;n saliente.
+            </div>
+            <div class="swipe-source">
               <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-07-de-mayo-del-2026-noticia-1687324">RPP</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 03 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">03</div>
-              <div class="swipe-title">Operativo "Caballo de Troya" en Pataz captura 68 personas y arsenal de guerra</div>
-            </div>
-            <div class="swipe-body">El Comando Unificado de Pataz ejecutó la operación "Caballo de Troya" en el anexo Pueblo Nuevo, provincia de Pataz (La Libertad), deteniendo a 68 personas vinculadas a estructuras de minería ilegal y crimen organizado, e incautando un arsenal de armamento de guerra. El operativo fue calificado como el más significativo desde la creación del Comando. Los operativos en la zona superan los 130 mensuales en 2026, frente a 62 en 2024.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La minería ilegal genera una economía criminal de más de US$12,000 millones anuales en el Perú. Pataz es el epicentro de la disputa territorial entre el Estado y organizaciones armadas. El incremento de operativos —más del doble en dos años— refleja la presión política para resolver un problema que se ha vuelto sistémico y con ramificaciones internacionales.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.infobae.com/peru/2026/05/03/operativo-en-pataz-comando-unificado-incauta-arsenal-de-guerra-y-detiene-a-68-personas/">Infobae</a> ·
-              <a href="https://rpp.pe/peru/la-libertad/comando-unificado-pataz-incauto-armamento-de-guerra-y-detuvo-a-68-personas-en-operacion-contra-mineria-ilegal-noticia-1686760">RPP</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 04 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">04</div>
-              <div class="swipe-title">Presidenta del Poder Judicial viaja al Vaticano para reunirse con el papa León XIV</div>
-            </div>
-            <div class="swipe-body">El Consejo Ejecutivo del Poder Judicial autorizó el viaje de su presidenta, Janet Tello Gilardi, a Roma para participar en el taller internacional "Building Climate Resilience Legislation" de la Pontificia Academia de las Ciencias Sociales y para sostener una reunión directa con el papa León XIV. El viaje se realiza entre el 8 y 14 de mayo. León XIV tiene vínculos históricos con el Perú, donde ejerció su ministerio episcopal antes de ser elegido pontífice.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              El papa León XIV —primer pontífice de origen estadounidense con raíces profundas en el Perú— representa un activo diplomático y de imagen para el país en año electoral. Un encuentro directo con el Poder Judicial puede abrir canales sobre justicia climática y paz social en un momento de alta tensión institucional.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.radionacional.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-7-de-mayo-de-2026">Radio Nacional</a> ·
-              <a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-jueves-7-mayo-del-2026-1074101.aspx">Andina</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 05 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">05</div>
-              <div class="swipe-title">CCL advierte: demora en compra de aviones de combate por US$3,500M genera incertidumbre</div>
-            </div>
-            <div class="swipe-body">La Cámara de Comercio de Lima (CCL) advirtió que la dilación en el proceso de adquisición de aviones de combate a una empresa de origen estadounidense —valorizado en US$3,500 millones— genera incertidumbre en el sector empresarial y debilita la imagen del país ante inversores internacionales. El proceso había sido anunciado como señal de modernización de las Fuerzas Armadas, pero la demora se produce durante el período de transición del gobierno Balcázar.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              Una compra de esta magnitud implica contratos de largo plazo con impacto presupuestal por años. La CCL enfatiza el efecto señal: si el Perú no puede gestionar compromisos de este tamaño en período transitorio, envía una señal negativa sobre la capacidad del Estado para ejecutar contratos de inversión de gran escala.
-            </div>
-            <div class="swipe-source">
-              <a href="https://rpp.pe/">RPP</a> ·
-              <a href="https://elcomercio.pe/">El Comercio</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /carousel-track -->
-
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
       </div>
-      <div class="swipe-hint">Desliza para ver más →</div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &rarr;</div>
     </div>
 
-    <!-- DIVIDER -->
-    <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
-
-    <!-- NEWS ITEMS -->
+    <div class="divider reveal"><span class="divider-text">Noticias por Secci&#243;n</span></div>
 
     <div class="news-item glass reveal" style="transition-delay:0.04s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Exjefe de la ONPE será investigado por presunta falta grave durante las elecciones del 12 de abril</h3>
-      <p>Las autoridades anunciaron que el exjefe del organismo electoral será sometido a investigación por presuntas irregularidades cometidas durante la gestión del proceso electoral. La noticia se suma al escrutinio de las más de 1,000 actas observadas que el JNE aún procesa para determinar el candidato que acompañará a Keiko Fujimori en la segunda vuelta.</p>
-      <span class="source-link"><a href="https://rpp.pe/">RPP</a> · <a href="https://elcomercio.pe/">El Comercio</a></span>
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Gremios SNI y CCL exigen salida del jefe interino de la ONPE; auditor&#237;a internacional podr&#237;a dilatar la segunda vuelta</h3>
+      <p>Once gremios empresariales, encabezados por la SNI y la CCL, exigieron la salida del jefe interino de la ONPE y de funcionarios cercanos a Piero Corvetto. En paralelo, partidos de oposici&#243;n solicitaron al JNE una auditor&#237;a internacional del proceso de c&#243;mputo, lo que podr&#237;a retrasar la proclamaci&#243;n oficial de los candidatos y, en un escenario extremo, dilatar la fecha del 7 de junio.</p>
+      <span class="source-link"><a href="https://larepublica.pe/politica/2026/05/07/lopez-aliaga-afirmo-que-sanchez-le-gano-en-su-natal-pomalca-pero-la-onpe-reporta-triunfo-de-keiko-fujimori-hnews-546756">La Rep&#250;blica</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.08s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Gobierno Balcázar aprueba Política General de Gobierno 2026: seguridad, economía y transición ordenada</h3>
-      <p>El ejecutivo encabezado por el presidente José María Balcázar —en funciones hasta el 28 de julio— aprobó la Política General de Gobierno 2026, con tres ejes prioritarios: seguridad ciudadana, continuidad económica y una transición democrática ordenada de cara a la segunda vuelta del 7 de junio y la asunción del nuevo presidente.</p>
-      <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPerú</a></span>
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>D&#243;lar cae a S/ 3,46 al cierre del 7 de mayo; PBI minero sigue como ancla del crecimiento</h3>
+      <p>El tipo de cambio cerr&#243; el jueves en S/ 3,46, una baja del 0,09% respecto a la sesi&#243;n anterior. La apreciaci&#243;n del sol refleja el dinamismo del sector exportador minero y el ingreso de d&#243;lares por inversiones. Analistas advierten que la incertidumbre electoral de segunda vuelta podr&#237;a presionar el tipo de cambio al alza en las pr&#243;ximas semanas si los mercados perciben riesgo pol&#237;tico.</p>
+      <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-07-de-mayo-del-2026-noticia-1687324">RPP</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.12s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Inflación anual supera el 4% y sale del rango meta del BCRP por primera vez en doce meses</h3>
-      <p>El índice de precios al consumidor acumuló 3.53% en los primeros cuatro meses del año, con una tasa anualizada de 4%. El encarecimiento del transporte (+3.35% mensual) y los servicios de alimentación fuera del hogar son los principales motores. El Banco Central de Reserva del Perú tiene como meta de inflación un rango de entre 1% y 3%.</p>
-      <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae</a></span>
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Segunda vuelta: encuestas muestran empate t&#233;cnico; el antivoto ser&#225; determinante el 7 de junio</h3>
+      <p>Seg&#250;n IPSOS Apoyo, Keiko Fujimori y Roberto S&#225;nchez empatan en intenci&#243;n de voto de cara a la segunda vuelta. S&#225;nchez incorpor&#243; al fiscal Jos&#233; Domingo P&#233;rez a su equipo para atraer el antivoto fujimorista. Keiko proyecta moderaci&#243;n para reducir su alta tasa de rechazo. La campaña ser&#225; definida por qui&#233;n logra movilizar mejor al electorado ind&#233;ciso en los 30 d&#237;as restantes.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/04/26/keiko-fujimori-y-roberto-sanchez-empatan-en-intencion-de-voto-de-cara-a-la-segunda-vuelta-del-7-de-junio/">Infobae</a></span>
     </div>
 
-    <div class="news-item glass reveal" style="transition-delay:0.16s">
-      <span class="pill pill-emp">Empresarial</span>
-      <h3>Minería formal: ocho proyectos por US$7,619M en ejecución; inversión crece 35.7% interanual</h3>
-      <p>El Ministerio de Energía y Minas informó que en 2026 se ejecutarán ocho proyectos mineros formales por US$7,619 millones. La inversión minera creció 35.7% entre enero y febrero, superando los US$871 millones. La exploración suma US$757 millones en 69 proyectos distribuidos en 17 regiones. Chinalco invirtió más de US$400 millones en ampliar la unidad minera Toromocho.</p>
-      <span class="source-link"><a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gestión</a> · <a href="https://www.diariominero.com/mineria-formal/inversion-minera-peru-2026/">Diario Minero</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.20s">
-      <span class="pill pill-int">Internacional</span>
-      <h3>Perú designa nuevos embajadores ante Islandia (Oslo) y Lituania (Helsinki)</h3>
-      <p>El Ministerio de Relaciones Exteriores designó al embajador Rolando Javier Ruiz Rosas Cateriano como representante simultáneo ante Islandia, con sede en Oslo, Noruega; y al embajador Jorge Renato Reyes Tagle ante Lituania, con sede en Helsinki, Finlandia. Ambas designaciones fueron publicadas en las normas legales del 7 de mayo de 2026.</p>
-      <span class="source-link"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-jueves-7-mayo-del-2026-1074101.aspx">Andina</a> · <a href="https://www.radionacional.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-jueves-7-de-mayo-de-2026">Radio Nacional</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.24s">
-      <span class="pill pill-soc">Social</span>
-      <h3>Danza K'ajchas de Puno declarada Patrimonio Cultural de la Nación</h3>
-      <p>El Ministerio de Cultura declaró Patrimonio Cultural de la Nación a la danza K'ajchas, vigente en la comunidad campesina de Urinsaya, distrito de Crucero, provincia de Carabaya, departamento de Puno. La declaratoria fue publicada en las normas legales del jueves 7 de mayo y se suma a las más de 1,000 manifestaciones culturales reconocidas en las últimas décadas.</p>
-      <span class="source-link"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-jueves-7-mayo-del-2026-1074101.aspx">Andina</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.28s">
-      <span class="pill pill-soc">Social</span>
-      <h3>Sunedu dedicará el carné universitario 2026 al papa León XIV por su vínculo con el Perú</h3>
-      <p>La Superintendencia Nacional de Educación Superior Universitaria (Sunedu) anunció que el carné universitario del ciclo 2026 llevará una dedicatoria al papa León XIV, destacando su trayectoria en el Perú y su labor pastoral con jóvenes. La decisión refleja el impacto cultural y simbólico del nuevo pontífice en la identidad peruana.</p>
-      <span class="source-link"><a href="https://rpp.pe/">RPP</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.32s">
-      <span class="pill pill-dep">Deportes</span>
-      <h3>Liga 1 Torneo Apertura: Fecha 14 en desarrollo; Alianza Lima vs. Sporting Cristal se perfila como el choque de la semana</h3>
-      <p>La Fecha 14 del Torneo Apertura 2026 estuvo en disputa durante la semana del 6 al 8 de mayo, sin resultados verificados al cierre de este briefing para el miércoles y jueves. El partido más esperado es el clásico Alianza Lima vs. Sporting Cristal, programado para el sábado 10 de mayo, con alto impacto en la tabla de posiciones del torneo.</p>
-      <span class="source-link"><a href="https://libero.pe/futbol-peruano/liga-1/2026/05/06/partidos-liga-1-peru-torneo-apertura-en-fecha-14-programacion-resultados-308088">Libero</a> · <a href="https://liga1.pe/">Liga 1 oficial</a></span>
-    </div>
-
-    <!-- DATA STRIP -->
-    <div class="data-strip reveal">
-      <div class="data-cell glass">
-        <div class="data-cell-label">Dólar Oficial</div>
-        <div class="data-cell-value">S/3.46</div>
-        <div class="data-cell-delta red">+4.28% vs. dic 2025</div>
+    <div class="data-strip">
+      <div class="data-cell glass reveal" style="transition-delay:0.16s">
+        <div class="data-cell-label">D&#243;lar / Sol</div>
+        <div class="data-cell-value">3,46</div>
+        <div class="data-cell-delta green">&#8722;0,09% &#183; 7 mayo</div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">Inflación Anual</div>
-        <div class="data-cell-value red">4.00%</div>
-        <div class="data-cell-delta red">Fuera de meta (1–3%)</div>
+      <div class="data-cell glass reveal" style="transition-delay:0.20s">
+        <div class="data-cell-label">PBI 2026 (MEF)</div>
+        <div class="data-cell-value">3,2%</div>
+        <div class="data-cell-delta green">motor: miner&#237;a</div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">Conteo ONPE</div>
-        <div class="data-cell-value">98.46%</div>
-        <div class="data-cell-delta" style="color:var(--muted)">Actas pendientes JNE</div>
+      <div class="data-cell glass reveal" style="transition-delay:0.24s">
+        <div class="data-cell-label">Pobreza 2025</div>
+        <div class="data-cell-value">25,7%</div>
+        <div class="data-cell-delta red">&#8722;1,9 pts vs 2024</div>
       </div>
     </div>
 
-    <!-- QUÉ VIGILAR -->
-    <div class="vigilar reveal">
-      <div class="vigilar-header">Qué vigilar hoy</div>
-      <div class="vigilar-item">Proclamación oficial JNE de primera vuelta a mediados de mayo: confirmará si el rival de Keiko Fujimori en la segunda vuelta es Roberto Sánchez o Rafael López Aliaga, definiendo el eje ideológico del próximo gobierno peruano.</div>
-      <div class="vigilar-item">Reunión de la presidenta del Poder Judicial con el papa León XIV (8–14 mayo, Vaticano): primera gestión diplomática de alto nivel con el nuevo pontífice que tiene vínculos directos con el Perú.</div>
-      <div class="vigilar-item">Movimiento del tipo de cambio y señales del BCRP: con el dólar en S/3.46 y la inflación fuera de la meta, cualquier comunicado de política monetaria esta semana tendrá impacto inmediato en los mercados financieros locales.</div>
+    <div class="vigilar reveal" style="transition-delay:0.28s">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">C&#243;mputo oficial ONPE y proclamaci&#243;n del segundo lugar: la diferencia de 24.011 votos entre S&#225;nchez y L&#243;pez Aliaga es estrecha; cualquier impugnaci&#243;n exitosa podr&#237;a alterar el escenario de segunda vuelta y generar incertidumbre institucional.</div>
+      <div class="vigilar-item">Posici&#243;n de L&#243;pez Aliaga sobre a qui&#233;n apoyar en el balotaje: si se pronuncia por Keiko o por S&#225;nchez, mover&#225; un bloque de cerca del 12% del electorado que ser&#225; decisivo el 7 de junio.</div>
+      <div class="vigilar-item">Evoluci&#243;n del tipo de cambio ante incertidumbre electoral: el sol estuvo fuerte el 7 de mayo, pero la campa&#241;a de segunda vuelta y sus discursos econ&#243;micos podr&#237;an presionar al d&#243;lar al alza si el mercado percibe riesgo pol&#237;tico.</div>
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer reveal">
-      <div>Fuentes: RPP · El Comercio · La República · Infobae Perú · Gestión · Andina · Radio Nacional · TVPerú · Libero · Diario Minero</div>
-      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    <div class="footer reveal" style="transition-delay:0.32s">
+      <div>Fuentes: La Rep&#250;blica &#183; Infobae &#183; El Comercio &#183; RPP &#183; ONPE &#183; MEF &#183; INEI &#183; IPE &#183; Rumbo Minero</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
     </div>
 
-  </div><!-- /wrap -->
-
+  </div>
   <script>
     const track = document.getElementById('carousel');
     const dots = document.querySelectorAll('.dot');
@@ -401,6 +313,5 @@
     }),{threshold:0.1});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
-
 </body>
 </html>
