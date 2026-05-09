@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia · Viernes 8 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <header class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Viernes 8 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </header>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">CAN ordena a Colombia y Ecuador retirar aranceles recíprocos en 10 días</div>
+          </div>
+          <div class="swipe-body">La Secretaría General de la Comunidad Andina, en las resoluciones 2581, 2582 y 2583, dictaminó que los aranceles cruzados —hasta 100% impuesto por Quito y hasta 75% en respuesta de Bogotá— vulneran el Acuerdo de Cartagena. Petro respondió que no tiene problema en levantarlos "en la misma forma y cronología" en que se aplicaron.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Las importaciones ecuatorianas desde Colombia por Rumichaca cayeron 92% interanual en febrero. Destrabar la guerra comercial libera al sector exportador de Nariño, Valle y Antioquia y descomprime una crisis diplomática que escalaba desde enero.
+          </div>
+          <div class="swipe-source"><a href="https://cambiocolombia.com/internacional/articulo/2026/5/comunidad-andina-ordena-a-colombia-y-ecuador-desmontar-aranceles-en-diez-dias/">Cambio</a> · <a href="https://www.bloomberglinea.com/latinoamerica/ecuador/la-comunidad-andina-emplaza-a-colombia-y-ecuador-a-retirar-sus-aranceles-reciprocos/">Bloomberg Línea</a> · <a href="https://www.semana.com/economia/macroeconomia/articulo/gustavo-petro-responde-a-orden-dada-por-la-comunidad-andina-no-tengo-ningun-problema-en-retirar-aranceles-a-productos-de-ecuador/202613/">Semana</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Investigan 23 planes para atentar contra candidatos presidenciales</div>
+          </div>
+          <div class="swipe-body">A 23 días de la primera vuelta del 31 de mayo, la inteligencia colombiana rastrea 23 complots distintos contra los 13 aspirantes en carrera, según información publicada por Semana. El Gobierno fijó recompensas de hasta 1.000 millones de pesos por datos que prevengan atentados; Uribe alertó esta semana sobre una presunta intención del ELN contra Paloma Valencia.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La sombra del asesinato de Miguel Uribe Turbay en 2025 sigue marcando la campaña. Indepaz reporta 229 muertes por atentados en 2026. La logística de seguridad de los candidatos —y el costo político para la "paz total" de Petro— condicionan tanto la recta final como la legitimidad del resultado.
+          </div>
+          <div class="swipe-source"><a href="https://www.semana.com/politica/articulo/exclusivo-investigan-23-planes-para-atentar-contra-candidatos-presidenciales/202620/">Semana</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-condenaron-ola-de-violencia-en-el-suroccidente-del-pais-asi-reaccionaron-3551002">El Tiempo</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Dólar cierra al alza en $3.747,53, máximo de más de un mes</div>
+          </div>
+          <div class="swipe-body">El interbancario terminó la jornada con un avance de $22,83 frente al cierre anterior (+0,62%) y se ubicó $18,27 por encima de la TRM oficial de $3.729,27 fijada para el día. Es el nivel más alto desde el 10 de marzo, en una semana marcada por la fortaleza global del dólar y la incertidumbre arancelaria con Ecuador.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Cada peso adicional encarece la deuda externa, presiona inflación importada y erosiona el margen para que el Banco de la República baje tasas. Con IPC anual en 5,68% y tasa en 11,25%, la depreciación complica el ya difícil aterrizaje del consenso unánime de la junta.
+          </div>
+          <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/dolar-en-colombia-cerro-al-alza-este-viernes-8-de-mayo-1019510">Noticias RCN</a> · <a href="https://www.elnuevosiglo.com.co/nacion/precio-del-dolar-en-colombia-hoy-8-de-mayo-de-2026">El Nuevo Siglo</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">BanRep mantiene tasa en 11,25% por consenso unánime</div>
+          </div>
+          <div class="swipe-body">Las minutas publicadas esta semana confirman que la junta del Banco de la República decidió por unanimidad mantener la tasa de política monetaria en 11,25%, tras evaluar que la inflación total de marzo cerró en 5,6% y el núcleo en 5,8%. La nota califica el consenso de "pragmático y provisional" frente a riesgos divergentes.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La inflación de abril (5,68% anual) volvió a acelerarse y se aleja de la meta del 3%. El mensaje implícito: no habrá recortes en el corto plazo. Para empresas con deuda en pesos y créditos hipotecarios, el techo alto se prolonga al menos hasta junio.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/07/el-banco-de-la-republica-revelo-detalles-del-analisis-de-la-inflacion-por-los-que-la-tasa-de-interes-seguira-alta-consenso-es-provisional/">Infobae</a> · <a href="https://cambiocolombia.com/economia/articulo/2026/5/inflacion-en-abril-volvio-a-acelerarse-llego-a-568-por-ciento-segun-el-dane/">Cambio</a></div>
+        </div>
+      </article>
+
+      <article class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Arranca el Giro de Italia: Buitrago el mejor colombiano, Egan se salva de caída masiva</div>
+          </div>
+          <div class="swipe-body">La 109ª edición empezó este viernes en Bulgaria con victoria del francés Paul Magnier al sprint. Santiago Buitrago (Bahrain Victorious) cruzó en el puesto 45 como mejor colombiano; Einer Rubio (Movistar) en el 94 y Egan Bernal (INEOS) en el 115, todos con el mismo tiempo. Una caída masiva en el último kilómetro condicionó la jornada.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Tres semanas de Giro definirán si Egan, dos años después de su accidente, vuelve a competir por una grande. La etapa 2 de mañana (221 km, tres puertos en Bulgaria) ya empezará a separar candidatos de la general.
+          </div>
+          <div class="swipe-source"><a href="https://www.elpais.com.co/deportes/giro-de-italia-2026-termino-la-primera-etapa-marcada-por-una-caida-masiva-donde-el-mejor-colombiano-fue-santiago-buitrago-0832.html">El País Cali</a> · <a href="https://www.infobae.com/colombia/deportes/2026/05/08/giro-de-italia-en-vivo-con-egan-bernal-en-accion-siga-el-minuto-a-minuto-de-la-etapa-1/">Infobae</a></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por sección</span></div>
+
+  <article class="news-item reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Petro opina sobre el caso Zapateiro: "no se elimina la violencia con delincuencia en el poder"</h3>
+    <p>El presidente intervino en redes sobre la denuncia por presunto acoso sexual contra el general (r) Eduardo Zapateiro, excomandante del Ejército en el gobierno Duque. Su mensaje agitó debate en la oposición sobre si era apropiado pronunciarse mientras avanza el proceso judicial.</p>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/petro-lanzo-opinion-por-escandalo-que-golpea-al-general-r-zapateiro-por-denuncia-de-acoso-sexual-el-mensaje-agito-las-redes/202617/">Semana</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Petro se enfrenta con Elon Musk en X por el nazismo y el socialismo</h3>
+    <p>El cruce entre el mandatario y el dueño de la red social escaló cuando Petro respondió a una publicación de Musk argumentando que "Hitler usó el nombre socialista porque era mayoritario en Alemania". El intercambio se viralizó en plena tensión por la decertificación antidrogas heredada de septiembre.</p>
+    <span class="source-link"><a href="https://www.semana.com/politica/articulo/el-presidente-gustavo-petro-enfrento-a-elon-musk-en-x-este-es-el-mensaje-que-molesto-al-mandatario/202622/">Semana</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Inflación de abril llegó a 5,68% anual; restaurantes y hoteles, salud y educación lideran</h3>
+    <p>El IPC de abril mostró una variación mensual de 0,77% y acumuló 3,87% en lo corrido del año, frente a 3,3% en el mismo periodo de 2025, según el DANE. Las divisiones más caras siguen siendo restaurantes y hoteles (9,61% anual), salud (8,21%) y educación (7,58%). Frutas, carnes de res y derivados explicaron el grueso del aumento mensual.</p>
+    <span class="source-link"><a href="https://cambiocolombia.com/economia/articulo/2026/5/inflacion-en-abril-volvio-a-acelerarse-llego-a-568-por-ciento-segun-el-dane/">Cambio</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Ecopetrol publicará resultados Q1 2026 el 12 de mayo; proyecta utilidad de $2-3 billones</h3>
+    <p>La estatal petrolera, encargada por Juan Carlos Hurtado tras la licencia no remunerada de Ricardo Roa, anunció que publicará sus estados financieros del primer trimestre el martes después del cierre, con conferencia con inversionistas el miércoles 13. Será la primera presentación en casi tres años sin Roa al frente, tras la imputación de la Fiscalía por tráfico de influencias.</p>
+    <span class="source-link"><a href="https://www.larepublica.co/economia/ecopetrol-dara-a-conocer-sus-resultados-financieros-del-primer-trimestre-el-12-de-mayo-4381499">La República</a> · <a href="https://www.valoraanalitik.com/ecopetrol-fecha-resultados-1t-2026/">Valora Analitik</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>FIP: 23% más combatientes y récord de disputas marcan el deterioro de seguridad en 2026</h3>
+    <p>La Fundación Ideas para la Paz cifra en cerca de 27.000 los miembros de grupos armados, con el Clan del Golfo sumando 2.300 nuevos integrantes y enfrentamientos crecidos 34%. Cauca, Nariño, Norte de Santander, Antioquia, Chocó, Guaviare y Putumayo concentran la presión territorial a un mes de las elecciones.</p>
+    <span class="source-link"><a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Copa BetPlay: Boca Juniors de Cali empata con Alianza Valledupar; Fortaleza golea a Leones 4-1</h3>
+    <p>En la jornada del viernes por Copa BetPlay, Boca Juniors de Cali y Alianza Valledupar dividieron honores 1-1, mientras Fortaleza CEIF aseguró ventaja en su llave al vencer a Leones FC por 4-1 en la jornada de las 3:00 p.m. La Liga BetPlay regresa el sábado con Tolima vs. Pasto y América vs. Santa Fe.</p>
+    <span class="source-link"><a href="https://dimayor.com.co/liga-betplay-dimayor/">Dimayor</a> · <a href="https://www.colombia.com/futbol/liga-colombiana/resultados">Colombia.com</a></span>
+  </article>
+
+  <article class="news-item reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>María Fernanda Cabal viaja al Pentágono y se presenta como única senadora con esa gestión</h3>
+    <p>La precandidata del Centro Democrático informó desde Washington que mantuvo reuniones en el Pentágono "para defender a Colombia" en medio del enfriamiento bilateral con Estados Unidos. Es uno de los movimientos de mayor visibilidad de la oposición en una semana en que la relación con la administración Trump volvió a tensionarse.</p>
+    <span class="source-link"><a href="https://www.semana.com/confidenciales/articulo/maria-fernanda-cabal-fue-hasta-el-pentagono-y-conto-lo-que-estaba-haciendo-mi-compromiso/202607/">Semana</a></span>
+  </article>
+
+  <div class="data-strip reveal">
+    <div class="data-cell">
+      <div class="data-cell-label">TRM Oficial</div>
+      <div class="data-cell-value">$3.729</div>
+      <div class="data-cell-delta red">+0,62%</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Cierre Interbancario</div>
+      <div class="data-cell-value">$3.747</div>
+      <div class="data-cell-delta red">+$22,83</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Tasa BanRep</div>
+      <div class="data-cell-value">11,25%</div>
+      <div class="data-cell-delta">sin cambio</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Plazo de la CAN: Bogotá y Quito tienen 10 días hábiles para retirar aranceles. Ojo a decretos de comercio exterior la próxima semana.</div>
+    <div class="vigilar-item">Resultados de Ecopetrol el martes 12: la utilidad proyectada (2-3 billones) marca el ánimo del mercado accionario y la base de dividendos a la Nación.</div>
+    <div class="vigilar-item">Etapa 2 del Giro (sábado, 221 km, tres puertos en Bulgaria): primer filtro real para Egan, Buitrago y Rubio en la pelea por la general.</div>
+    <div class="vigilar-item">Cuenta regresiva electoral: 23 días a la primera vuelta del 31 de mayo con 23 planes de atentado bajo investigación.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: El Tiempo · Semana · Cambio · Infobae Colombia · La República · El Espectador · Noticias RCN · El Nuevo Siglo · Bloomberg Línea · El País Cali · Valora Analitik · FIP · DANE · BanRep<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
