@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia · Viernes 8 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Viernes 8 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Paz cumple seis meses entre crisis económica y protestas</div>
+          </div>
+          <div class="swipe-body">El presidente Rodrigo Paz llegó a sus primeros seis meses de gestión con la economía bajo presión: retiro parcial de subsidios al combustible, recorte del gasto público, búsqueda de financiamiento externo y proyecciones oficiales de inflación de 14% y crecimiento cercano a 1%. FMI y Banco Mundial anticipan una contracción superior al 3%.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La luna de miel terminó. La diferencia entre la lectura oficial y la de los multilaterales define el riesgo país de los próximos trimestres y el espacio fiscal para negociar con la COB y el transporte.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/america/agencias/2026/05/07/las-claves-de-los-primeros-seis-meses-del-gobierno-de-rodrigo-paz-en-bolivia/">Infobae</a> · <a href="https://eldeber.com.bo/pais/claves-primeros-seis-meses-gobierno-rodrigo-paz-bolivia_1778196518">El Deber</a> · <a href="https://rtvu.uto.edu.bo/2026/05/08/rodrigo-paz-cumple-seis-meses-de-gestion-entre-crisis-y-protestas/">RTVU</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Gobierno difunde audios atribuidos a Evo y lo acusa de conspiración</div>
+          </div>
+          <div class="swipe-body">El viceministro de Régimen Interior, Hernán Paredes, presentó audios atribuidos a Evo Morales en los que supuestamente instruye bloqueos y un cerco a La Paz. Anunció pericias forenses y una denuncia formal por conspiración. El equipo legal de Morales rechazó los audios y los calificó de generados con IA; Chequea Bolivia advirtió que al menos un fragmento corresponde a una grabación de junio de 2025.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La acusación reabre la confrontación frontal Paz–Evo y traslada el conflicto social al terreno judicial. Pone presión sobre la audiencia oral del lunes 11 contra el expresidente y sobre la legitimidad del discurso oficial frente a los bloqueos.
+          </div>
+          <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/gobierno-presenta-audios-acusa-evo-morales-coordinar-movilizaciones/20260508204323991180.html">Opinión</a> · <a href="https://eldeber.com.bo/pais/gobierno-acusa-evo-morales-dirigir-bloqueos-caranavi-anuncia-procesos-conspiracion_1778283054">El Deber</a> · <a href="https://www.erbol.com.bo/nacional/chequea-bolivia-viceministro-us%C3%B3-audio-de-2025-para-denunciar-supuesto-plan-de-evo-contra">Erbol/Chequea Bolivia</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Bloqueos aíslan a La Paz: 16 puntos a nivel nacional, 11 días en Caranavi</div>
+          </div>
+          <div class="swipe-body">La ABC reportó 16 puntos de bloqueo en el país al inicio del viernes, con 11 concentrados en La Paz: Patacamaya, Villa Remedios, Cruce Luribay, Santiago de Machaca, Viacha, Caranavi y Santa Bárbara. El bloqueo en el norte paceño cumplió 11 días, con enfrentamientos entre interculturales y vecinos de Caranavi y más de 400 turistas varados. Los manifestantes exigen la abrogación de la Ley 1720, mejor calidad de combustibles y reparación de carreteras.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La paralización del corredor norte corta el ingreso de medicamentos y alimentos a La Paz y golpea al turismo en plena temporada baja. Es el indicador más concreto del costo económico de la crisis política — y un test para la capacidad operativa del gobierno.
+          </div>
+          <div class="swipe-source"><a href="https://www.fmbolivia.com.bo/noticia/bloqueos-en-la-paz-y-beni-persisten-este-viernes-8-de-mayo-seg-n-reporte-oficial-de-la-abc">FmBolivia/ABC</a> · <a href="https://www.opinion.com.bo/articulo/pais/11-dias-bloqueo-norte-paz-interculturales-vecinos-caranavi-confrontan/20260508112041991153.html">Opinión</a> · <a href="https://www.eldiario.net/portal/2026/05/08/bloqueos-de-vias-aislan-a-la-paz-del-resto-del-pais/">El Diario</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Paz propone a La Paz como nuevo eje de hidrocarburos</div>
+          </div>
+          <div class="swipe-body">El presidente anunció que La Paz "tiene gas y mucho gas" en su zona norte y planteó una estrategia regional sobre cuatro ejes: gas, minería, producción y conocimiento. El paquete incluye al menos 15 leyes vinculadas a hidrocarburos, minería, electricidad, inversiones, economía verde y desburocratización, que se debatirán con universidades y sectores sociales antes de ir a la Asamblea. La nueva ley tomaría como referencia el 50% del referéndum de 2004, ajustable según campo y mercado.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la apuesta de Paz para reemplazar el ciclo del gas tarijeño en agotamiento. Si pasa la Asamblea, redefine el mapa de regalías y abre exploración en el norte paceño tras casi dos décadas. Si no pasa, el gobierno pierde su narrativa económica más concreta.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/08/paz-avizora-gas-para-la-paz-y-promete-un-nuevo-ciclo-de-desarrollo/">La Razón</a> · <a href="https://www.vision360.bo/noticias/2026/04/21/44091-el-gobierno-prepara-el-terreno-para-la-nueva-ley-de-hidrocarburos-la-paz-emerge-como-eje-de-exploracion">Visión 360</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Dólar paralelo cierra la semana cerca de Bs 10 con leve presión al alza</div>
+          </div>
+          <div class="swipe-body">El paralelo cerró el viernes alrededor de Bs 10,04 compra y Bs 10,05 venta, tras una semana que abrió en torno a Bs 9,90 el lunes. El tipo de cambio oficial del BCB se mantuvo en Bs 6,86 compra / Bs 6,96 venta, y el referencial bancario en Bs 10,10 / Bs 10,31. La brecha cambiaria sigue por encima del 45%.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El paralelo es el termómetro real del shock cambiario. Se enfrió respecto a los picos de 2025 pero la semana cerró al alza pese a la temporada de exportaciones — señal de que la oferta de divisas no compensa el deterioro de expectativas.
+          </div>
+          <div class="swipe-source"><a href="https://www.reduno.com.bo/economia/atencion-esta-es-la-variacion-del-dolar-paralelo-del-4-al-8-de-mayo-en-bolivia-202658122124">Red Uno</a> · <a href="https://www.infobae.com/noticias/2026/05/08/precio-del-dolar-hoy-en-bolivia-cotizacion-de-cierre-del-8-de-mayo/">Infobae</a> · <a href="https://eldeber.com.bo/economia/dolar-paralelo-enfria-abre-2026-lejos-extremos-2025_1767281324">El Deber</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>COB profundiza huelga indefinida y exige 20% de incremento salarial</h3>
+    <p>La Central Obrera Boliviana mantiene la huelga general iniciada el 2 de mayo y la presión por un alza del 20% al mínimo nacional, rechazo a cierre de empresas estatales deficitarias y abrogación de la Ley 1720. El Ejecutivo descarta el incremento; el vocero presidencial reiteró que "la salida es producir, no bloquear".</p>
+    <span class="source-link"><a href="https://lapatria.bo/actualidad/la-cob-impulsa-huelga-indefinida-y-pedido-salarial/">La Patria</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/06/bolivia-aumentan-protestas-contra-el-gobierno-por-combustible-abrogacion-de-leyes-y-salarios/">Resumen Latinoamericano</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Inflación de 0,14% en abril y 0,47% acumulada en el primer cuatrimestre</h3>
+    <p>El INE reportó variación mensual de 0,14% del IPC en abril y 0,47% acumulada al primer cuatrimestre, con interanual a doce meses en 14,18%. Lechuga (+17,04%), leche pasteurizada (+13,49%) y arveja verde (+13,22%) lideraron alzas. El dato contrasta con la proyección del FMI de inflación superior al 20% para 2026.</p>
+    <span class="source-link"><a href="https://www.ine.gob.bo/index.php/bolivia-reporto-una-variacion-positiva-de-014-en-el-indice-de-precios-al-consumidor-en-abril-de-2026/">INE</a> · <a href="https://eju.tv/2026/05/bolivia-registra-una-inflacion-acumulada-del-047-hasta-abril-de-este-ano-segun-el-ine/">eju.tv</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>YPFB sostiene despachos y habilita reporte diario de combustibles</h3>
+    <p>El gobierno implementó un sistema de información diaria sobre abastecimiento de diésel y gasolina y YPFB habilitó ocho líneas de WhatsApp para combatir la especulación. Para el feriado y fin de semana programó 30,7 millones de litros (18 millones de diésel, 12,7 de gasolina especial). El presidente de YPFB, Sebastián Daroca, aseguró que ya no hay problema de calidad en los combustibles.</p>
+    <span class="source-link"><a href="https://lapatria.bo/enfoque-nacional/gobierno-anuncia-sistema-de-informacion-diaria-de-combustible/">La Patria</a> · <a href="https://www.opinion.com.bo/articulo/pais/ypfb-habilita-numeros-whatsapp-informar-abastecimiento-combustible/20260505172359991063.html">Opinión</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Bolivia y Chile aceleran modernización del ACE-22</h3>
+    <p>El viceministro Rodrigo Arce Ballivián y la subsecretaria chilena Paula Estévez sostuvieron reunión de alto nivel para ampliar y modernizar el Acuerdo de Complementación Económica N° 22. La propuesta boliviana incorpora facilitación comercial, logística, reglas de origen, comercio electrónico y aprobaciones sanitarias y fitosanitarias para acelerar el ingreso de productos al mercado chileno.</p>
+    <span class="source-link"><a href="https://cancilleria.gob.bo/mre/2026/05/07/25122/">Cancillería</a> · <a href="https://larazon.bo/economia-y-empresa/2026/05/07/bolivia-y-chile-impulsan-modernizacion-del-ace-22-para-fortalecer-comercio-bilateral/">La Razón</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Litio: Bolivia busca cooperación tecnológica con EE.UU. tras MoU</h3>
+    <p>Tras la firma del Memorando de Entendimiento sobre minerales críticos en Washington (27 de abril) entre el ministro Marco Antonio Calderón de la Barca y el vicesecretario Caleb Orr, Bolivia trabaja en un acuerdo más amplio de cooperación tecnológica con EE.UU. para industrializar el litio. Forma parte de una estrategia que también busca acuerdos similares con otras economías relevantes.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/07/bolivia-busca-ampliar-la-cooperacion-tecnologica-con-eeuu-para-desarrollar-su-industria-de-litio/">Infobae</a> · <a href="https://erbol.com.bo/econom%C3%ADa/bolivia-y-eeuu-firman-memorando-de-entendimiento-sobre-minerales-cr%C3%ADticos">Erbol</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>BoA proyecta transportar 4,85 millones de pasajeros en 2026</h3>
+    <p>Boliviana de Aviación apunta a 4.852.902 pasajeros este año (3,87 millones nacionales y 977 mil internacionales) según su Rendición Pública de Cuentas Inicial. La flota subió de 8 a 14 aeronaves en los últimos meses, con plan de llegar a 16 en junio y 19 en diciembre. En 2025 transportó 4,4 millones de pasajeros.</p>
+    <span class="source-link"><a href="https://www.oopp.gob.bo/nota_prensa/boa-apunta-a-transportar-48-millones-de-pasajeros-en-2026/">MOPSV</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Transporte público de La Paz: solo 64 de 140 PumaKataris operativos</h3>
+    <p>La Alcaldía de La Paz inspeccionó la flota del servicio municipal y constató que apenas 64 de 140 buses PumaKataris están operativos, con el resto fuera de servicio por mantenimiento o falta de repuestos. El déficit operativo agrava los traslados ciudadanos en una semana ya complicada por bloqueos y movilizaciones.</p>
+    <span class="source-link"><a href="https://eju.tv/2026/05/portadas-de-los-periodicos-de-bolivia-del-viernes-8-de-mayo-del-2026/">eju.tv (portadas)</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>División Profesional: Always Ready y Bolívar definen agenda de la fecha</h3>
+    <p>El campeonato boliviano sigue en formato todos contra todos a 30 fechas. La agenda inmediata marca Blooming vs. Bolívar el 11 de mayo y Always Ready vs. The Strongest el 13. La fecha 14 no tuvo partidos relevantes el viernes 8; la jornada se concentra el sábado y domingo.</p>
+    <span class="source-link"><a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a> · <a href="https://www.flashscore.es/futbol/bolivia/division-profesional/partidos/">Flashscore</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Oficial</div>
+      <div class="data-cell-value">Bs 6,96</div>
+      <div class="data-cell-delta">venta · BCB</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value">Bs 10,05</div>
+      <div class="data-cell-delta red">+1,3% sem.</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value">+44,4%</div>
+      <div class="data-cell-delta red">presión sostenida</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Audiencia oral del lunes 11 contra Evo Morales: el gobierno apuesta a vincularla con los audios difundidos el viernes; Evo busca movilización paralela en El Alto.</div>
+    <div class="vigilar-item">Continuidad de bloqueos y diálogo con la COB: si pasa el fin de semana sin acuerdo, la huelga indefinida puede empujar al paralelo por encima de Bs 10,20.</div>
+    <div class="vigilar-item">Reapertura del corredor La Paz–Caranavi: ABC y Defensoría monitorean turistas varados y abastecimiento de medicamentos a hospitales paceños.</div>
+    <div class="vigilar-item">Datos del INE de comercio exterior y reservas internacionales del BCB para abril, claves para medir el espacio fiscal antes del paquete de hidrocarburos.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: El Deber · La Razón · Los Tiempos · Opinión · Erbol · Infobae · Unitel · El Diario · ANF · Cancillería · INE · BCB · YPFB · eju.tv · FmBolivia · MOPSV<br>
+    Briefing generado con Claude — Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
