@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --accent: #c4841d;
-  --accent-soft: rgba(196,132,29,0.06);
+  --accent: #1e3a8a;
+  --accent-soft: rgba(30,58,138,0.06);
   --ink: #1d1d1f;
   --muted: rgba(60,60,67,0.6);
   --tertiary: rgba(60,60,67,0.3);
@@ -26,23 +26,19 @@
   --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
   --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  background: linear-gradient(160deg, #E8EEF8 0%, #D4DCF0 25%, #CDD8E8 55%, #DDE6F2 80%, #F0F4FC 100%);
   color: var(--ink);
   font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   line-height: 1.6; -webkit-font-smoothing: antialiased;
   min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
   overflow-x: hidden;
 }
-
 .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
-.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(30,58,138,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(253,186,44,0.08) 0%, transparent 70%); }
 .wrap { position: relative; z-index: 1; }
-
 .glass {
   background: var(--card-bg);
   backdrop-filter: blur(20px) saturate(180%);
@@ -51,22 +47,18 @@ body {
   border: 0.5px solid var(--glass-border);
   box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
 }
-
-.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
 .masthead-date { font-size: 13px; color: var(--muted); }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
 .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
 .carousel-container { position: relative; margin-bottom: 32px; }
 .carousel-track {
   display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
-
 .swipe-card {
   flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
   background: var(--card-bg-strong);
@@ -84,18 +76,14 @@ body {
 .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
 .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
 .swipe-source a { color: var(--accent); text-decoration: none; }
-
 .dots { display: flex; justify-content: center; gap: 8px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
 .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-
 .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
 .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
-.news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
 .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
@@ -107,15 +95,13 @@ body {
 .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
 .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
-.data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.data-cell { padding: 20px 14px; text-align: center; }
 .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
 .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
 .green { color: #34C759; }
 .red { color: #FF3B30; }
-
 .vigilar {
   background: rgba(29,29,31,0.82);
   backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -128,16 +114,12 @@ body {
 .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
 .vigilar-item:last-child { margin-bottom: 0; }
-
 .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
 .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
 }
-
 @media (max-width: 500px) {
   body { padding: 20px 14px; }
   .data-strip { grid-template-columns: 1fr; }
@@ -145,108 +127,107 @@ body {
 </style>
 </head>
 <body>
-
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
 <div class="wrap">
 
-  <header class="masthead reveal">
+  <div class="masthead reveal">
     <div class="masthead-eyebrow">Briefing Ejecutivo</div>
     <h1>Colombia</h1>
     <div class="masthead-date">Viernes 8 de mayo de 2026</div>
     <div class="masthead-tag">Edición Diaria</div>
-  </header>
+  </div>
 
   <div class="section-header reveal">Top 5 del Día</div>
 
   <div class="carousel-container reveal">
     <div class="carousel-track" id="carousel">
 
-      <article class="swipe-card">
+      <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">01</div>
-            <div class="swipe-title">CAN ordena a Colombia y Ecuador retirar aranceles recíprocos en 10 días</div>
+            <div class="swipe-title">CARF rebaja PIB tendencial a 2,6% para 2026-2037 y alerta sobre ajuste de $45 billones</div>
           </div>
-          <div class="swipe-body">La Secretaría General de la Comunidad Andina, en las resoluciones 2581, 2582 y 2583, dictaminó que los aranceles cruzados —hasta 100% impuesto por Quito y hasta 75% en respuesta de Bogotá— vulneran el Acuerdo de Cartagena. Petro respondió que no tiene problema en levantarlos "en la misma forma y cronología" en que se aplicaron.</div>
+          <div class="swipe-body">El Comité Autónomo de la Regla Fiscal publicó su actualización de proyecciones y redujo el crecimiento tendencial de Colombia de 2,8% a 2,6% anual para el período 2026-2037. Para 2026, la estimación del PIB bajó de $1,061 billones a $1,039 billones. El CARF advierte que sin reformas urgentes el próximo gobierno deberá hacer un ajuste histórico de al menos $45 billones —equivalente al 4% del PIB— para evitar una crisis de deuda.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            Las importaciones ecuatorianas desde Colombia por Rumichaca cayeron 92% interanual en febrero. Destrabar la guerra comercial libera al sector exportador de Nariño, Valle y Antioquia y descomprime una crisis diplomática que escalaba desde enero.
+            El ajuste de $45 billones es la bomba fiscal que el presidente que gane el 31 de mayo deberá desactivar en sus primeros 100 días. Ningún candidato ha presentado aún un plan creíble para lograrlo sin afectar gasto social o elevar impuestos de manera sustancial.
           </div>
-          <div class="swipe-source"><a href="https://cambiocolombia.com/internacional/articulo/2026/5/comunidad-andina-ordena-a-colombia-y-ecuador-desmontar-aranceles-en-diez-dias/">Cambio</a> · <a href="https://www.bloomberglinea.com/latinoamerica/ecuador/la-comunidad-andina-emplaza-a-colombia-y-ecuador-a-retirar-sus-aranceles-reciprocos/">Bloomberg Línea</a> · <a href="https://www.semana.com/economia/macroeconomia/articulo/gustavo-petro-responde-a-orden-dada-por-la-comunidad-andina-no-tengo-ningun-problema-en-retirar-aranceles-a-productos-de-ecuador/202613/">Semana</a></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/08/el-comite-autonomo-de-la-regla-fiscal-rebajo-sus-expectativas-de-crecimiento-para-colombia-el-pib-tendencial-bajo-de-28-a-26-para-la-proxima-decada/">Infobae</a> · <a href="https://www.portafolio.co/economia/comite-autonomo-de-la-regla-fiscal-actualizo-su-estimacion-del-pib-tendencial-de-colombia-para-2026-493500">Portafolio</a> · <a href="https://www.lafm.com.co/economia/comite-autonomo-de-la-regla-fiscal-advierte-necesidad-de-ajuste-de-45-billones-para-2026">La FM</a></div>
         </div>
-      </article>
+      </div>
 
-      <article class="swipe-card">
+      <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">02</div>
-            <div class="swipe-title">Investigan 23 planes para atentar contra candidatos presidenciales</div>
+            <div class="swipe-title">Petro relanza la Constituyente desde Medellín; candidatos presidenciales la rechazan en bloque</div>
           </div>
-          <div class="swipe-body">A 23 días de la primera vuelta del 31 de mayo, la inteligencia colombiana rastrea 23 complots distintos contra los 13 aspirantes en carrera, según información publicada por Semana. El Gobierno fijó recompensas de hasta 1.000 millones de pesos por datos que prevengan atentados; Uribe alertó esta semana sobre una presunta intención del ELN contra Paloma Valencia.</div>
+          <div class="swipe-body">El presidente Gustavo Petro reactivó el 1 de mayo su propuesta de Asamblea Constituyente, con planes de llevarla al Congreso el 20 de julio. La respuesta de los candidatos fue de rechazo casi unánime. Fajardo dijo "La Constitución no puede ser un arma de guerra electoral"; Paloma Valencia afirmó que Petro cree que una nueva constitución soluciona los problemas; De la Espriella la calificó de "horror" que no tolerará. Solo Iván Cepeda, del Pacto Histórico, respalda la propuesta.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            La sombra del asesinato de Miguel Uribe Turbay en 2025 sigue marcando la campaña. Indepaz reporta 229 muertes por atentados en 2026. La logística de seguridad de los candidatos —y el costo político para la "paz total" de Petro— condicionan tanto la recta final como la legitimidad del resultado.
+            La constituyente es la jugada de Petro para dar oxígeno a Cepeda y forzar una agenda propia en la recta final de su mandato. Si el electorado la percibe como una amenaza institucional, puede beneficiar a candidatos de centro-derecha como Paloma Valencia o Fajardo.
           </div>
-          <div class="swipe-source"><a href="https://www.semana.com/politica/articulo/exclusivo-investigan-23-planes-para-atentar-contra-candidatos-presidenciales/202620/">Semana</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-condenaron-ola-de-violencia-en-el-suroccidente-del-pais-asi-reaccionaron-3551002">El Tiempo</a></div>
+          <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-se-oponen-a-propuesta-de-asamblea-constituyente-que-relanzo-el-gobierno-de-gustavo-petro-desde-medellin-3552591">El Tiempo</a> · <a href="https://www.riogrande.com.co/2026/05/04/constituyente-divide-a-colombia-y-enfrenta-candidatos-en-campana-presidencial-2026/">Río Grande</a></div>
         </div>
-      </article>
+      </div>
 
-      <article class="swipe-card">
+      <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">03</div>
-            <div class="swipe-title">Dólar cierra al alza en $3.747,53, máximo de más de un mes</div>
+            <div class="swipe-title">Dólar abre en máximo de más de un mes: TRM en $3.729,27 al arranque del viernes</div>
           </div>
-          <div class="swipe-body">El interbancario terminó la jornada con un avance de $22,83 frente al cierre anterior (+0,62%) y se ubicó $18,27 por encima de la TRM oficial de $3.729,27 fijada para el día. Es el nivel más alto desde el 10 de marzo, en una semana marcada por la fortaleza global del dólar y la incertidumbre arancelaria con Ecuador.</div>
+          <div class="swipe-body">El dólar abrió el viernes 8 de mayo en $3.727,00 y la Tasa Representativa del Mercado (TRM) subió 22,83 pesos respecto al día anterior hasta $3.729,27, alcanzando su nivel más alto en más de un mes. El peso colombiano acumula una presión cambiaria vinculada a la incertidumbre electoral, la tensión entre Petro y el Banco de la República, y la volatilidad de los precios del petróleo ante el conflicto en Medio Oriente.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            Cada peso adicional encarece la deuda externa, presiona inflación importada y erosiona el margen para que el Banco de la República baje tasas. Con IPC anual en 5,68% y tasa en 11,25%, la depreciación complica el ya difícil aterrizaje del consenso unánime de la junta.
+            El dólar por encima de $3.700 encarece importaciones de alimentos, medicamentos e insumos industriales. En un año electoral, la presión cambiaria puede escalar si los inversores perciben riesgo institucional creciente por las iniciativas de Petro en sus últimas semanas.
           </div>
-          <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/dolar-en-colombia-cerro-al-alza-este-viernes-8-de-mayo-1019510">Noticias RCN</a> · <a href="https://www.elnuevosiglo.com.co/nacion/precio-del-dolar-en-colombia-hoy-8-de-mayo-de-2026">El Nuevo Siglo</a></div>
+          <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-hoy-8-de-mayo-de-2026-1019349">Noticias RCN</a> · <a href="https://www.capitalcolombia.com/index.php?sec=trm_precio_dolar_en_colombia&pag=ano&consulta=2026">Capital Colombia</a></div>
         </div>
-      </article>
+      </div>
 
-      <article class="swipe-card">
+      <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">04</div>
-            <div class="swipe-title">BanRep mantiene tasa en 11,25% por consenso unánime</div>
+            <div class="swipe-title">Gasolina sube $400 por galón desde el 4 de mayo: promedio $15.848 en ciudades principales</div>
           </div>
-          <div class="swipe-body">Las minutas publicadas esta semana confirman que la junta del Banco de la República decidió por unanimidad mantener la tasa de política monetaria en 11,25%, tras evaluar que la inflación total de marzo cerró en 5,6% y el núcleo en 5,8%. La nota califica el consenso de "pragmático y provisional" frente a riesgos divergentes.</div>
+          <div class="swipe-body">A partir del 4 de mayo de 2026, el precio de la gasolina corriente subió $400 por galón y el ACPM $200, dejando el promedio nacional en $15.848 y el diésel en $11.282. En cuatro años, el galón de gasolina acumula un alza del 41,9%, pasando de $9.214 en enero de 2022 a los valores actuales. Las autoridades citaron la volatilidad internacional del petróleo y el conflicto en Medio Oriente como factores determinantes.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            La inflación de abril (5,68% anual) volvió a acelerarse y se aleja de la meta del 3%. El mensaje implícito: no habrá recortes en el corto plazo. Para empresas con deuda en pesos y créditos hipotecarios, el techo alto se prolonga al menos hasta junio.
+            El alza en combustibles presiona el costo de vida y el transporte de carga, con efecto en cadena sobre alimentos y servicios. En año electoral, cada aumento de gasolina es políticamente sensible y puede amplificar el descontento ciudadano frente a la gestión Petro.
           </div>
-          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/07/el-banco-de-la-republica-revelo-detalles-del-analisis-de-la-inflacion-por-los-que-la-tasa-de-interes-seguira-alta-consenso-es-provisional/">Infobae</a> · <a href="https://cambiocolombia.com/economia/articulo/2026/5/inflacion-en-abril-volvio-a-acelerarse-llego-a-568-por-ciento-segun-el-dane/">Cambio</a></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/05/gasolina-y-acpm-suben-de-precio-en-colombia-y-asi-queda-el-valor-del-galon-de-corriente-en-bogota-medellin-cali-y-otras-ciudades/">Infobae</a> · <a href="https://abceconomia.co/2026/05/04/aumento-precios-combustibles-colombia-4-mayo-2026-acpm/">ABC Economía</a> · <a href="https://www.elcolombiano.com/negocios/gasolina-colombia-2026-precio-sube-KF36221658">El Colombiano</a></div>
         </div>
-      </article>
+      </div>
 
-      <article class="swipe-card">
+      <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">05</div>
-            <div class="swipe-title">Arranca el Giro de Italia: Buitrago el mejor colombiano, Egan se salva de caída masiva</div>
+            <div class="swipe-title">A 23 días de las elecciones presidenciales del 31 de mayo: Cepeda lidera en encuestas</div>
           </div>
-          <div class="swipe-body">La 109ª edición empezó este viernes en Bulgaria con victoria del francés Paul Magnier al sprint. Santiago Buitrago (Bahrain Victorious) cruzó en el puesto 45 como mejor colombiano; Einer Rubio (Movistar) en el 94 y Egan Bernal (INEOS) en el 115, todos con el mismo tiempo. Una caída masiva en el último kilómetro condicionó la jornada.</div>
+          <div class="swipe-body">Con 23 días para la primera vuelta del 31 de mayo, las encuestas ubican a Iván Cepeda (Pacto Histórico) como favorito, seguido de Paloma Valencia (Centro Democrático, quien obtuvo 3,2 millones de votos en la primaria del 8 de marzo), Sergio Fajardo y Santiago Botero. La segunda vuelta quedaría, de confirmarse los sondeos, entre un candidato de izquierda y uno de derecha o centroderecha, con el 21 de junio como fecha posible de balotaje.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            Tres semanas de Giro definirán si Egan, dos años después de su accidente, vuelve a competir por una grande. La etapa 2 de mañana (221 km, tres puertos en Bulgaria) ya empezará a separar candidatos de la general.
+            La constituyente de Petro, el ajuste fiscal y la seguridad serán los tres ejes que definirán el voto. Un triunfo de Cepeda implicaría continuidad del Pacto Histórico; un triunfo de oposición implicaría un giro drástico en la política económica y de seguridad.
           </div>
-          <div class="swipe-source"><a href="https://www.elpais.com.co/deportes/giro-de-italia-2026-termino-la-primera-etapa-marcada-por-una-caida-masiva-donde-el-mejor-colombiano-fue-santiago-buitrago-0832.html">El País Cali</a> · <a href="https://www.infobae.com/colombia/deportes/2026/05/08/giro-de-italia-en-vivo-con-egan-bernal-en-accion-siga-el-minuto-a-minuto-de-la-etapa-1/">Infobae</a></div>
+          <div class="swipe-source"><a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a> · <a href="https://www.as-coa.org/articles/poll-tracker-colombias-2026-presidential-election">AS/COA Poll Tracker</a> · <a href="https://newsroom.rcnradio.com/colombia/elecciones-presidenciales-2026-en-colombia-estas-son-las-principales-propuestas-de-cada-candidato">RCN Radio</a></div>
         </div>
-      </article>
+      </div>
 
     </div>
     <div class="dots">
@@ -256,89 +237,84 @@ body {
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
-    <div class="swipe-hint">Desliza para ver más →</div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
   </div>
 
-  <div class="divider reveal"><span class="divider-text">Noticias por sección</span></div>
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
 
-  <article class="news-item reveal">
+  <div class="news-item glass reveal">
     <span class="pill pill-pol">Político</span>
-    <h3>Petro opina sobre el caso Zapateiro: "no se elimina la violencia con delincuencia en el poder"</h3>
-    <p>El presidente intervino en redes sobre la denuncia por presunto acoso sexual contra el general (r) Eduardo Zapateiro, excomandante del Ejército en el gobierno Duque. Su mensaje agitó debate en la oposición sobre si era apropiado pronunciarse mientras avanza el proceso judicial.</p>
-    <span class="source-link"><a href="https://www.semana.com/politica/articulo/petro-lanzo-opinion-por-escandalo-que-golpea-al-general-r-zapateiro-por-denuncia-de-acoso-sexual-el-mensaje-agito-las-redes/202617/">Semana</a></span>
-  </article>
+    <h3>Petro tensiona al Banco de la República: candidatos preguntan si la Constituyente sirve para controlarlo</h3>
+    <p>Las fricciones entre el gobierno de Petro y la junta del Banco de la República escalaron esta semana. Varios candidatos presidenciales denunciaron que la propuesta de Constituyente apunta, entre otros objetivos, a modificar la independencia del emisor. "¿Para eso quiere la Constituyente?", preguntaron en coro. El BanRep mantiene su posición autónoma mientras los mercados vigilan cualquier señal de interferencia política sobre la política monetaria.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-reaccionan-a-la-ruptura-del-presidente-gustavo-petro-con-el-banco-de-la-republica-para-eso-quiere-la-constituyente-3544523">El Tiempo</a> · <a href="https://www.uamerica.edu.co/estabilidad-economica-en-colombia/">U. América</a></span>
+  </div>
 
-  <article class="news-item reveal">
+  <div class="news-item glass reveal">
     <span class="pill pill-int">Internacional</span>
-    <h3>Petro se enfrenta con Elon Musk en X por el nazismo y el socialismo</h3>
-    <p>El cruce entre el mandatario y el dueño de la red social escaló cuando Petro respondió a una publicación de Musk argumentando que "Hitler usó el nombre socialista porque era mayoritario en Alemania". El intercambio se viralizó en plena tensión por la decertificación antidrogas heredada de septiembre.</p>
-    <span class="source-link"><a href="https://www.semana.com/politica/articulo/el-presidente-gustavo-petro-enfrento-a-elon-musk-en-x-este-es-el-mensaje-que-molesto-al-mandatario/202622/">Semana</a></span>
-  </article>
+    <h3>ELN y FARC disidentes: 25.278 combatientes activos — 45% más que cuando empezó la "paz total"</h3>
+    <p>Según datos de inteligencia analizados por expertos en seguridad, los grupos armados ilegales en Colombia han crecido a 25.278 miembros activos, un 15% más que a finales de 2024 y un 45% más que cuando Petro implementó la "Paz Total" en 2022. Los diálogos con el ELN se rompieron en enero de 2025 tras el ataque en el Catatumbo que dejó más de 100 civiles muertos y 55.000 desplazados. Petro anunció en diciembre señales de posible retoma del diálogo.</p>
+    <span class="source-link"><a href="https://razonpublica.com/la-paz-total-la-guerra-total-2026/">Razón Pública</a> · <a href="https://ideaspaz.org/publicaciones/opinion/2026-02/el-balance-de-seguridad-de-2025-en-colombia-la-violencia-va-un-paso-adelante-y-el-estado-corre-rezagado">FIP Ideas de Paz</a></span>
+  </div>
 
-  <article class="news-item reveal">
+  <div class="news-item glass reveal">
     <span class="pill pill-eco">Económico</span>
-    <h3>Inflación de abril llegó a 5,68% anual; restaurantes y hoteles, salud y educación lideran</h3>
-    <p>El IPC de abril mostró una variación mensual de 0,77% y acumuló 3,87% en lo corrido del año, frente a 3,3% en el mismo periodo de 2025, según el DANE. Las divisiones más caras siguen siendo restaurantes y hoteles (9,61% anual), salud (8,21%) y educación (7,58%). Frutas, carnes de res y derivados explicaron el grueso del aumento mensual.</p>
-    <span class="source-link"><a href="https://cambiocolombia.com/economia/articulo/2026/5/inflacion-en-abril-volvio-a-acelerarse-llego-a-568-por-ciento-segun-el-dane/">Cambio</a></span>
-  </article>
+    <h3>CEPAL: Colombia registra el mayor deterioro fiscal de Latinoamérica en 2025 — déficit salta a -3,6% del PIB</h3>
+    <p>Colombia pasó de un déficit primario de -2,4% del PIB en 2024 a -3,6% en 2025, la variación más pronunciada entre los 16 países latinoamericanos analizados por la CEPAL. Este dato refuerza las alertas del CARF y sitúa al país como uno de los de mayor fragilidad fiscal de la región, justo cuando enfrenta un ciclo electoral que dificulta medidas de ajuste impopulares.</p>
+    <span class="source-link">CEPAL · <a href="https://cambiocolombia.com/economia/articulo/2026/3/sin-reformas-urgentes-colombia-se-acerca-a-una-crisis-de-deuda-comite-autonomo-de-la-regla-fiscal/">Cambio Colombia</a></span>
+  </div>
 
-  <article class="news-item reveal">
-    <span class="pill pill-emp">Empresarial</span>
-    <h3>Ecopetrol publicará resultados Q1 2026 el 12 de mayo; proyecta utilidad de $2-3 billones</h3>
-    <p>La estatal petrolera, encargada por Juan Carlos Hurtado tras la licencia no remunerada de Ricardo Roa, anunció que publicará sus estados financieros del primer trimestre el martes después del cierre, con conferencia con inversionistas el miércoles 13. Será la primera presentación en casi tres años sin Roa al frente, tras la imputación de la Fiscalía por tráfico de influencias.</p>
-    <span class="source-link"><a href="https://www.larepublica.co/economia/ecopetrol-dara-a-conocer-sus-resultados-financieros-del-primer-trimestre-el-12-de-mayo-4381499">La República</a> · <a href="https://www.valoraanalitik.com/ecopetrol-fecha-resultados-1t-2026/">Valora Analitik</a></span>
-  </article>
-
-  <article class="news-item reveal">
-    <span class="pill pill-soc">Social</span>
-    <h3>FIP: 23% más combatientes y récord de disputas marcan el deterioro de seguridad en 2026</h3>
-    <p>La Fundación Ideas para la Paz cifra en cerca de 27.000 los miembros de grupos armados, con el Clan del Golfo sumando 2.300 nuevos integrantes y enfrentamientos crecidos 34%. Cauca, Nariño, Norte de Santander, Antioquia, Chocó, Guaviare y Putumayo concentran la presión territorial a un mes de las elecciones.</p>
-    <span class="source-link"><a href="https://ideaspaz.org/publicaciones/investigaciones-analisis/2026-01/27-000-combatientes-y-record-en-disputas-el-deterioro-de-la-seguridad-marca-el-inicio-de-2026">FIP</a></span>
-  </article>
-
-  <article class="news-item reveal">
-    <span class="pill pill-dep">Deportes</span>
-    <h3>Copa BetPlay: Boca Juniors de Cali empata con Alianza Valledupar; Fortaleza golea a Leones 4-1</h3>
-    <p>En la jornada del viernes por Copa BetPlay, Boca Juniors de Cali y Alianza Valledupar dividieron honores 1-1, mientras Fortaleza CEIF aseguró ventaja en su llave al vencer a Leones FC por 4-1 en la jornada de las 3:00 p.m. La Liga BetPlay regresa el sábado con Tolima vs. Pasto y América vs. Santa Fe.</p>
-    <span class="source-link"><a href="https://dimayor.com.co/liga-betplay-dimayor/">Dimayor</a> · <a href="https://www.colombia.com/futbol/liga-colombiana/resultados">Colombia.com</a></span>
-  </article>
-
-  <article class="news-item reveal">
+  <div class="news-item glass reveal">
     <span class="pill pill-pol">Político</span>
-    <h3>María Fernanda Cabal viaja al Pentágono y se presenta como única senadora con esa gestión</h3>
-    <p>La precandidata del Centro Democrático informó desde Washington que mantuvo reuniones en el Pentágono "para defender a Colombia" en medio del enfriamiento bilateral con Estados Unidos. Es uno de los movimientos de mayor visibilidad de la oposición en una semana en que la relación con la administración Trump volvió a tensionarse.</p>
-    <span class="source-link"><a href="https://www.semana.com/confidenciales/articulo/maria-fernanda-cabal-fue-hasta-el-pentagono-y-conto-lo-que-estaba-haciendo-mi-compromiso/202607/">Semana</a></span>
-  </article>
+    <h3>Debate en Antioquia: Claudia, Fajardo y Paloma Valencia rechazan constituyente y "paz total"</h3>
+    <p>En un debate organizado en Antioquia, los candidatos Claudia de Guevara, Sergio Fajardo y Paloma Valencia cerraron filas contra la Asamblea Constituyente y la política de "Paz Total" del gobierno Petro. Los tres coincidieron en que la violencia aumentó bajo el gobierno de Petro y presentaron propuestas alternativas de seguridad basadas en militarización de zonas críticas, fortalecimiento de la Fiscalía y desvinculación de negociaciones con grupos que no cesen hostilidades.</p>
+    <span class="source-link"><a href="https://www.elcolombiano.com/especiales/elecciones-2026/debate-elecciones-presidenciales-2026-claudia-fajardo-paloma-JH36310180">El Colombiano</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Botero presenta plan de gobierno: seguridad basada en resultados, salud universal y transporte verde</h3>
+    <p>El candidato Santiago Botero, del movimiento "Romper el Sistema" con Fernando Cuevas como fórmula vicepresidencial, presentó sus propuestas principales: política de seguridad orientada a resultados medibles, expansión del sistema de salud universal, reforma al transporte urbano con enfoque de movilidad eléctrica y sostenible. Botero busca diferenciarse como una opción fuera del duopolio Cepeda-Valencia.</p>
+    <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/propuestas-de-santiago-botero-este-es-su-plan-de-gobierno-sobre-seguridad-salud-y-economia-noticias-hoy/">El Espectador</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Próximo gobierno: ajuste del 4% del PIB para evitar quiebra — el mayor de la historia moderna de Colombia</h3>
+    <p>El CARF alerta que el gobierno que llegue en agosto deberá ejecutar el mayor ajuste fiscal de la historia moderna del país: al menos 4% del PIB o $45 billones. Las opciones son limitadas: elevar impuestos, reducir subsidios o recortar inversión. En un escenario de bajo crecimiento (2,6% tendencial), cualquier ajuste tendrá costos sociales significativos y pondrá a prueba la gobernabilidad del nuevo mandatario desde el primer día.</p>
+    <span class="source-link"><a href="https://www.elcolombiano.com/negocios/ajuste-fiscal-colombia-4-pib-riesgo-deuda-carf-2026-FI35794023">El Colombiano</a> · <a href="https://www.lafm.com.co/economia/comite-autonomo-de-la-regla-fiscal-advierte-necesidad-de-ajuste-de-45-billones-para-2026">La FM</a></span>
+  </div>
 
   <div class="data-strip reveal">
-    <div class="data-cell">
-      <div class="data-cell-label">TRM Oficial</div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">TRM Dólar</div>
       <div class="data-cell-value">$3.729</div>
-      <div class="data-cell-delta red">+0,62%</div>
+      <div class="data-cell-delta red">+22,83 vs ayer</div>
     </div>
-    <div class="data-cell">
-      <div class="data-cell-label">Cierre Interbancario</div>
-      <div class="data-cell-value">$3.747</div>
-      <div class="data-cell-delta red">+$22,83</div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Gasolina</div>
+      <div class="data-cell-value">$15.848</div>
+      <div class="data-cell-delta red">+$400 desde may</div>
     </div>
-    <div class="data-cell">
-      <div class="data-cell-label">Tasa BanRep</div>
-      <div class="data-cell-value">11,25%</div>
-      <div class="data-cell-delta">sin cambio</div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Elecciones</div>
+      <div class="data-cell-value">31 May</div>
+      <div class="data-cell-delta">23 días · 1ª vuelta</div>
     </div>
   </div>
 
   <div class="vigilar reveal">
-    <div class="vigilar-header">Qué vigilar hoy</div>
-    <div class="vigilar-item">Plazo de la CAN: Bogotá y Quito tienen 10 días hábiles para retirar aranceles. Ojo a decretos de comercio exterior la próxima semana.</div>
-    <div class="vigilar-item">Resultados de Ecopetrol el martes 12: la utilidad proyectada (2-3 billones) marca el ánimo del mercado accionario y la base de dividendos a la Nación.</div>
-    <div class="vigilar-item">Etapa 2 del Giro (sábado, 221 km, tres puertos en Bulgaria): primer filtro real para Egan, Buitrago y Rubio en la pelea por la general.</div>
-    <div class="vigilar-item">Cuenta regresiva electoral: 23 días a la primera vuelta del 31 de mayo con 23 planes de atentado bajo investigación.</div>
+    <div class="vigilar-header">Qué Vigilar esta Semana</div>
+    <div class="vigilar-item">Debate presidencial oficial: las fechas aún no están confirmadas, pero los candidatos deben debatir antes del 31 de mayo. Cada foro es una oportunidad para que Paloma o Fajardo consoliden votos anti-Cepeda.</div>
+    <div class="vigilar-item">Banco de la República y tasa de interés: la junta del BanRep se reúne próximamente. Cualquier señal de interferencia política de Petro puede disparar la TRM por encima de $3.800.</div>
+    <div class="vigilar-item">Ajuste fiscal del próximo gobierno: el CARF publicará más detalles sobre el tamaño del ajuste requerido. El candidato que presente primero un plan creíble ganará credibilidad ante mercados e inversionistas.</div>
+    <div class="vigilar-item">ELN: posibles señales de retoma del diálogo tras los movimientos de diciembre. Cualquier avance o ruptura antes del 31 de mayo puede mover votos en regiones afectadas por el conflicto.</div>
   </div>
 
   <div class="footer reveal">
-    Fuentes: El Tiempo · Semana · Cambio · Infobae Colombia · La República · El Espectador · Noticias RCN · El Nuevo Siglo · Bloomberg Línea · El País Cali · Valora Analitik · FIP · DANE · BanRep<br>
-    Briefing generado con Claude — Solo para uso informativo
+    Fuentes: El Tiempo &middot; El Colombiano &middot; Portafolio &middot; Infobae &middot; RCN Noticias &middot; El Espectador &middot; La FM &middot; Cambio Colombia &middot; Razón Pública &middot; FIP &middot; CARF &middot; CEPAL &middot; AS/COA<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
   </div>
 
 </div>
