@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 9 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Sábado 9 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Paz anuncia 10 leyes y reforma constitucional en el "Encuentro por el País"</div>
+          </div>
+          <div class="swipe-body">El presidente Rodrigo Paz convocó a más de 600 representantes en Cochabamba —gobernadores, alcaldes, empresarios, organizaciones sociales e indígenas— y presentó un paquete de diez proyectos de ley en sectores clave: hidrocarburos, minería, electricidad, inversiones, economía verde, emprendedores, electoral, justicia, seguridad nacional y reducción del Estado. Además anunció la creación de una comisión de reforma parcial de la Constitución. Paz defendió su propuesta "50-50" de redistribución de competencias entre el gobierno central y las regiones.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la agenda legislativa más ambiciosa del gobierno Paz hasta la fecha. Si avanza en la Asamblea, redefine las reglas de inversión extranjera y el modelo de Estado. Si fracasa, agudiza la ingobernabilidad a solo seis meses de gestión.
+          </div>
+          <div class="swipe-source">
+            <a href="https://www.vision360.bo/noticias/2026/05/09/47274-encuentro-por-el-pais-paz-anuncia-paquete-de-10-leyes-plantea-reforma-parcial-de-la-cpe-y-hace-dura-critica-a-bloqueos">Visión 360</a> · <a href="https://eldeber.com.bo/pais/rodrigo-paz-plantea-diez-leyes-economicas-reforma-constitucional-avanzar-modelo-50-50_1778355868">El Deber</a> · <a href="https://www.opinion.com.bo/articulo/pais/paz-plantea-reforma-parcial-constitucion-anuncia-paquete-10-leyes/20260509161113991201.html">Opinión</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Bolivia negocia crédito de USD 3.300 millones con el FMI</div>
+          </div>
+          <div class="swipe-body">El Ministerio de Economía confirmó que Bolivia está en conversaciones activas con el Fondo Monetario Internacional para un acuerdo de financiamiento de hasta USD 3.300 millones, el mayor en la historia del país. La negociación se produce cuando la deuda externa llega a USD 13.429 millones (BCB, marzo 2026) y el gobierno evalúa al mismo tiempo un regreso al mercado internacional de bonos soberanos tras cuatro años de ausencia. Bloomberg destacó la operación como señal de apertura financiera del nuevo gobierno.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El acuerdo con el FMI traerá condicionamientos macroeconómicos —ajuste fiscal adicional, posible corrección cambiaria— que tensarán aún más las relaciones con los sindicatos que ya exigen un 20% de aumento salarial. Es el primer acercamiento al FMI desde 2020.
+          </div>
+          <div class="swipe-source">
+            <a href="https://eju.tv/2026/05/ministerio-de-economia-discute-un-acuerdo-con-el-fondo-monetario-internacional/">eju.tv</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-07/bolivia-busca-financiamiento-con-deuda-y-apoyo-del-fmi">Bloomberg</a> · <a href="https://www.eldestapeweb.com/internacionales/bolivia-ahora-quiere-volver-a-endeudarse-con-el-fmi-tras-seis-anos-202655162113">El Destape</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">COB mantiene más de 15 puntos de bloqueo y amenaza con radicalizar protestas</div>
+          </div>
+          <div class="swipe-body">La Central Obrera Boliviana (COB) y la Confederación de Trabajadores de Educación Urbana de Bolivia (CTEUB) sostienen una jornada de bloqueos con más de 15 puntos activos en La Paz y Beni. Exigen un aumento salarial del 20%, el compromiso de no privatizar empresas del Estado y la abrogación de la ley de conversión de tierras. Tras una semana de enfrentamientos con la Policía en La Paz, el gobierno convocó al diálogo en el Encuentro Nacional, aunque los sindicatos mantienen la movilización como presión.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Los bloqueos cortan rutas clave de abastecimiento. Si la COB radicaliza antes de que el paquete legislativo genere resultados concretos, el gobierno pierde la ventana política para negociar y aumenta el riesgo de desabastecimiento en ciudades intermedias.
+          </div>
+          <div class="swipe-source">
+            <a href="https://www.infobae.com/america/america-latina/2026/05/08/bolivia-conflictos-sociales-presionan-al-gobierno-y-surgen-pedidos-de-renuncia-con-15-puntos-de-bloqueo/">Infobae</a> · <a href="https://brujuladigital.net/sociedad/2026/05/07/abc-reporta-17-puntos-de-bloqueos-por-conflictos-sociales-en-la-paz-y-beni-60350">Brújula Digital</a> · <a href="https://rtvu.uto.edu.bo/2026/05/08/la-cob-inicia-bloqueos-y-amenaza-con-radicalizar-protestas/">RTVU</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Seis meses del gobierno Paz: reformas en marcha, resistencia sindical intacta</div>
+          </div>
+          <div class="swipe-body">El 8 de mayo se cumplió el primer semestre del presidente Rodrigo Paz. El balance incluye el recorte del subsidio a combustibles (DS 5516), la normalización del suministro de carburantes, la mejora crediticia de Moody's y el inicio del diálogo con el FMI. En el debe: protestas persistentes, brecha cambiaria del 43,7% y tensión con la COB, la CTEUB y organizaciones agrarias que rechazan la política de tierras.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El primer semestre define la narrativa del mandato. La combinación de reformas económicas con alta conflictividad social es el escenario más frágil: las reformas pueden ser bloqueadas antes de generar resultados visibles en el bienestar de la población.
+          </div>
+          <div class="swipe-source">
+            <a href="https://www.swissinfo.ch/spa/rodrigo-paz-cumple-seis-meses-en-bolivia-entre-cambios-econ%C3%B3micos-y-resistencia-sindical/91382152">SWI swissinfo</a> · <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2026/05/07/entre-cambios-economicos-y-resistencia-sindical-rodrigo-paz-cumple-seis-meses-al-mando-de-bolivia.shtml">BioBio Chile</a> · <a href="https://www.instantaneas.tic.bo/2026/05/04/politica/paz-seis-meses-crisis-protestas/">Instantáneas TIC</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Dólar paralelo a Bs 10,00: brecha con el tipo oficial llega al 43,7%</div>
+          </div>
+          <div class="swipe-body">El dólar paralelo (Binance P2P) cotizó el sábado 9 de mayo a Bs 10,00 en compra y Bs 9,96 en venta, mientras el tipo de cambio oficial del BCB se mantiene fijo en Bs 6,96 desde 2011. La brecha del 43,7% refleja la escasez estructural de divisas en el sistema bancario formal. El gobierno evalúa una transición gradual hacia un esquema de inflación por objetivos, aunque descarta una corrección cambiaria abrupta en el corto plazo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Una brecha superior al 40% distorsiona importaciones, estimula la dolarización informal y reduce los incentivos para exportar por canales formales. Si el FMI condiciona el crédito a una corrección cambiaria, el impacto inflacionario sería inmediato y políticamente costoso.
+          </div>
+          <div class="swipe-source">
+            <a href="https://eju.tv/2026/05/asi-cotiza-el-dolar-paralelo-y-el-referencial-este-sabado-9-de-mayo-en-bolivia/">eju.tv</a> · <a href="https://www.reduno.com.bo/economia/asi-cotiza-el-dolar-paralelo-y-el-referencial-este-sabado-9-de-mayo-en-bolivia-20265973831">Red Uno</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.04s">
+    <span class="pill pill-pol">Político</span>
+    <h3>El modelo "50-50": Paz plantea redistribuir poder entre el Estado central y las regiones</h3>
+    <p>En el Encuentro Nacional de Cochabamba, el presidente Paz defendió su propuesta de un modelo "50-50" que equilibre competencias entre el gobierno central y las gobernaciones, buscando reducir el centralismo heredado de la era del MAS. La reforma parcial de la Constitución será debatida por una comisión con actores políticos, regionales e institucionales antes de ser enviada a la Asamblea Legislativa Plurinacional.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/pais/rodrigo-paz-plantea-diez-leyes-economicas-reforma-constitucional-avanzar-modelo-50-50_1778355868">El Deber</a> · <a href="https://www.lostiempos.com/actualidad/pais/20260509/rodrigo-paz-anuncia-comision-impulsar-reforma-parcial-constitucion">Los Tiempos</a> · <a href="https://www.reduno.com.bo/noticias/encuentro-nacional-presidente-paz-plantea-reforma-parcial-de-la-constitucion-y-presenta-10-proyectos-de-ley-202659153715">Red Uno</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.08s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Moody's eleva la calificación crediticia de Bolivia y asigna perspectiva positiva</h3>
+    <p>La agencia Moody's Ratings elevó en un escalón la nota crediticia soberana de Bolivia como reconocimiento al pago puntual de la deuda externa, el recorte parcial del subsidio a combustibles (DS 5516) y el inicio del diálogo con el FMI. Es el primer upgrade de la deuda soberana boliviana desde 2014. La perspectiva positiva indica que podrían seguir mejoras si el gobierno consolida el ajuste fiscal.</p>
+    <span class="source-link"><a href="https://www.swissinfo.ch/spa/rodrigo-paz-cumple-seis-meses-en-bolivia-entre-cambios-econ%C3%B3micos-y-resistencia-sindical/91382152">SWI swissinfo</a> · <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2026/05/07/entre-cambios-economicos-y-resistencia-sindical-rodrigo-paz-cumple-seis-meses-al-mando-de-bolivia.shtml">BioBio Chile</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.12s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Bolivia evalúa regreso al mercado internacional de bonos soberanos tras cuatro años</h3>
+    <p>El gobierno boliviano estudia emitir bonos soberanos en mercados internacionales por primera vez desde 2022. La mejora en la calificación de Moody's y las conversaciones con el FMI generarían condiciones más favorables para el acceso a financiamiento externo. La deuda externa total asciende a USD 13.429 millones a marzo de 2026, según el Banco Central de Bolivia.</p>
+    <span class="source-link"><a href="https://www.df.cl/df-sud/bolivia-evalua-regreso-al-mercado-global-de-bonos-tras-pausa-de-cuatro-anos">Diario Financiero</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-07/bolivia-busca-financiamiento-con-deuda-y-apoyo-del-fmi">Bloomberg</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-soc">Social</span>
+    <h3>CTEUB y COB exigen aumento salarial del 20% y no privatización de empresas estatales</h3>
+    <p>La Confederación de Trabajadores de Educación Urbana y la Central Obrera Boliviana sostienen sus demandas de un incremento salarial del 20% para 2026, el compromiso de no privatizar empresas del Estado y la abrogación de la ley de conversión de tierras. Tras enfrentamientos con la Policía esta semana en La Paz —donde se usaron gases lacrimógenos— el gobierno convocó al diálogo en el Encuentro Nacional sin llegar a un acuerdo concreto.</p>
+    <span class="source-link"><a href="https://rtvu.uto.edu.bo/2026/05/09/rodrigo-paz-sostendra-dialogo-politico-y-social-con-distintos-sectores-en-cochabamba/">RTVU</a> · <a href="https://www.expreso.ec/internacional/manifestantes-chocan-policias-tercera-jornada-protestas-sindicales-bolivia-281310.html">Expreso</a> · <a href="https://www.opinion.com.bo/articulo/pais/marchas-bloqueos-paros-activan-semana-conflictiva-gobierno-llama-dialogo/20260504091514991007.html">Opinión</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Cámara de Negocios francesa impulsa proyectos de inversión en sectores clave de Bolivia</h3>
+    <p>El Círculo Francés de Asuntos Empresariales en Bolivia anunció una agenda de atracción de capital para sectores como energías renovables, agroindustria y tecnología. La iniciativa busca capitalizar el contexto de apertura de inversiones que promueve el gobierno de Paz a través de la futura ley de inversiones incluida en el paquete legislativo del Encuentro Nacional, además de la mejorada calificación crediticia del país.</p>
+    <span class="source-link"><a href="https://elmundo.com.bo/">El Mundo Bolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Dos homicidios en el Trópico de Cochabamba en un mismo día</h3>
+    <p>Las autoridades policiales registraron dos muertes violentas el 9 de mayo en un municipio del Trópico de Cochabamba: una víctima fue hallada sin vida cerca del puente Ichoa y la otra fue sacada de su domicilio por hombres armados antes de ser encontrada muerta. Los hechos se investigan como posibles ajustes de cuentas en una zona históricamente vinculada al narcotráfico.</p>
+    <span class="source-link"><a href="https://www.opinion.com.bo/">Opinión Bolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>División Profesional: actividad de fin de semana sin resultados confirmados al cierre</h3>
+    <p>La División Profesional de Bolivia tiene programada actividad en la jornada del fin de semana del 9 de mayo, pero los resultados específicos de los partidos no estuvieron disponibles al cierre de esta edición. La tabla de posiciones y los marcadores del torneo Apertura 2026 pueden consultarse en tiempo real en Flashscore y ESPN.</p>
+    <span class="source-link"><a href="https://www.flashscore.pe/futbol/bolivia/division-profesional/">Flashscore</a> · <a href="https://www.espn.com/soccer/schedule/_/league/bol.1">ESPN</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Oficial BCB</div>
+      <div class="data-cell-value">Bs 6,96</div>
+      <div class="data-cell-delta" style="color:var(--muted)">sin var.</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Paralelo</div>
+      <div class="data-cell-value red">Bs 10,00</div>
+      <div class="data-cell-delta red">compra</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Brecha</div>
+      <div class="data-cell-value red">43,7%</div>
+      <div class="data-cell-delta red">estructural</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué vigilar hoy</div>
+    <div class="vigilar-item">Respuesta de la COB al Encuentro por el País: si la central obrera acepta el diálogo o radicaliza los bloqueos esta semana determinará el margen político del gobierno para aprobar su paquete legislativo.</div>
+    <div class="vigilar-item">Avance de las negociaciones con el FMI: el Ministerio de Economía podría dar señales sobre el cronograma del acuerdo y sus condicionalidades, especialmente en materia cambiaria y de subsidios.</div>
+    <div class="vigilar-item">Ingreso formal de los 10 proyectos de ley a la Asamblea: qué bloques parlamentarios los apoyan o bloquean será el primer indicador de viabilidad del programa legislativo de Paz.</div>
+  </div>
+
+  <div class="footer reveal">
+    <div>Fuentes: Visión 360 · El Deber · Los Tiempos · Opinión · eju.tv · Red Uno · RTVU · Infobae · Brújula Digital · SWI swissinfo · Bloomberg · Diario Financiero · El Mundo Bolivia · BioBio Chile · Expreso · Flashscore</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
