@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia · Sábado 9 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1d4ed8;
+  --accent-soft: rgba(29,78,216,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #E8EEF8 0%, #D4D8E8 25%, #D8E4D4 55%, #E4EDE2 80%, #F2F4F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(29,78,216,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,193,7,0.08) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Sábado 9 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Candidatos presidenciales rechazan la Asamblea Constituyente de Petro que busca 5 millones de firmas</div>
+          </div>
+          <div class="swipe-body">Todos los principales candidatos presidenciales rechazaron la propuesta de Asamblea Nacional Constituyente que el presidente Gustavo Petro relanzó el 1° de mayo desde Medellín. Petro busca recolectar cinco millones de firmas ciudadanas para convocar la constituyente, con el objetivo de aprobar las reformas sociales que el Congreso no aprobó durante su gobierno. El proyecto se presentaría al nuevo Congreso el 20 de julio, días antes del fin de su mandato. Los candidatos la ven como una estrategia electoral que busca condicionar al próximo presidente.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La propuesta de constituyente agita la campaña a 22 días de las elecciones del 31 de mayo. Si Petro logra las cinco millones de firmas antes del 20 de julio, el próximo gobierno —cualquiera que sea— heredará una demanda de cambio constitucional con respaldo popular que no podrá ignorar fácilmente.
+          </div>
+          <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/candidatos-presidenciales-se-oponen-a-propuesta-de-asamblea-constituyente-que-relanzo-el-gobierno-de-gustavo-petro-desde-medellin-3552591">El Tiempo</a> · <a href="https://www.infobae.com/america/agencias/2026/05/01/petro-invita-a-colombianos-a-apoyar-con-su-firma-la-convocatoria-de-asamblea-constituyente/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Iván Cepeda lidera encuestas con 44,3% a 22 días de la primera vuelta del 31 de mayo</div>
+          </div>
+          <div class="swipe-body">La encuesta Invamer más reciente ubica a Iván Cepeda (Alianza por la Vida / Pacto Histórico) como favorito con el 44,3% de intención de voto en primera vuelta. Le siguen Abelardo de la Espriella con el 21,5% y Paloma Valencia con el 19,8%. Cepeda lleva a la senadora Aída Marina Quilcué como fórmula vicepresidencial. Más de 41,4 millones de ciudadanos están habilitados para votar el 31 de mayo en unos comicios que definirán el rumbo del país tras cuatro años del gobierno Petro.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Con el 44,3% en primera vuelta, Cepeda podría ganar sin segunda vuelta si su ventaja se sostiene. Sin embargo, las encuestas colombianas han tenido errores significativos en elecciones recientes. La movilización de los votantes de Petro hacia Cepeda y la unidad de la oposición serán determinantes el 31 de mayo.
+          </div>
+          <div class="swipe-source"><a href="https://meridiano70.co/2026/04/27/encuesta-invamer-2026-intencion-voto-presidencial/">Meridiano 70</a> · <a href="https://www.portafolio.co/economia/gobierno/encuestas-presidenciales-2026-en-colombia-ivan-cepeda-lidera-y-se-aprieta-la-segunda-vuelta-491850">Portafolio</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Incertidumbre económica en Colombia alcanzó cifra récord en abril: IPEC en 367 puntos</div>
+          </div>
+          <div class="swipe-body">El Índice de Incertidumbre de Política Económica de Colombia (IPEC) alcanzó 367 puntos en abril de 2026, su nivel más alto en casi ocho años, impulsado principalmente por variables financieras (mercados, tipo de cambio, tasas de interés, deuda pública) que representaron el 29,5% del índice. La seguridad contribuyó con el 10,3%, con un alza de 4,9 puntos respecto al mes anterior y 7,6 puntos interanual. El crecimiento acumulado de la economía colombiana en los dos primeros meses del año fue apenas del 1,5%.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El IPEC en 367 puntos señala que inversores y empresas están en modo de espera máxima. Cuando la incertidumbre alcanza récords históricos, la inversión se frena, el empleo se estanca y el consumo privado se contrae. El nuevo gobierno recibirá una economía que necesita señales claras de estabilidad para reactivarse.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/06/la-incertidumbre-economica-en-colombia-alcanzo-cifra-record-en-abril-de-2026-informe-revelo-las-razones/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Paz total, constituyente y debates: los temas que agitarán las últimas semanas de campaña</div>
+          </div>
+          <div class="swipe-body">El análisis de El Tiempo identifica tres ejes que dominarán la campaña de cara al 31 de mayo: la Paz Total (heredada del gobierno Petro, con resultados mixtos en distintas regiones), la propuesta de Asamblea Constituyente (que divide a candidatos y electores) y los debates presidenciales, que son el principal escenario de confrontación de propuestas. El Congreso de EE.UU. publicó un informe evaluando las implicaciones geopolíticas de las elecciones colombianas, señalando que el respaldo de Cepeda a la Paz Total tensaría las relaciones bilaterales.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La posición de Colombia frente a EE.UU. —en temas como narcotráfico, extradición y política exterior— está en juego en estas elecciones. El informe del Congreso estadounidense refleja la atención internacional sobre el resultado del 31 de mayo y la continuidad o no del modelo Petro.
+          </div>
+          <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/paz-total-constituyente-y-debates-presidenciales-los-temas-que-agitaran-las-ultimas-semanas-de-campana-a-las-elecciones-3554461">El Tiempo</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/informe-del-servicio-de-investigacion-del-congreso-de-eeuu-analiza-implicaciones-de-elecciones-en-colombia-noticias-hoy/">El Espectador</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Roy Barreras presenta plan de gobierno: seguridad con tecnología y reforma a la justicia</div>
+          </div>
+          <div class="swipe-body">El candidato Roy Barreras presentó su propuesta de gobierno centrada en tres pilares: seguridad ciudadana basada en tecnología e inteligencia (cámaras, drones, analítica de datos), reforma a la justicia para reducir la impunidad y agenda tecnológica para modernizar el Estado. Barreras se diferencia de Cepeda en materia de seguridad y busca captar el voto de centro que no se siente representado ni por la izquierda del Pacto Histórico ni por la derecha tradicional. Las encuestas lo ubican fuera del primer lugar pero con presencia nacional.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El electorado de centro es decisivo en segunda vuelta. Si Barreras consolida suficiente apoyo en primera vuelta, su eventual respaldo a uno u otro candidato en segunda vuelta podría ser determinante, especialmente en escenarios de alta polarización Cepeda-Valencia.
+          </div>
+          <div class="swipe-source"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/propuestas-de-roy-barreras-este-es-su-plan-de-gobierno-sobre-seguridad-tecnologia-y-justicia-noticias-hoy/">El Espectador</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Colombia crece 1,5% en primeros dos meses de 2026: sectores primarios rezagados</h3>
+    <p>La economía colombiana registró un crecimiento interanual del 1,6% en febrero y un acumulado del 1,5% en el primer bimestre de 2026. Los sectores terciarios (comercio, servicios financieros, comunicaciones) mantienen dinamismo, mientras que agricultura, minería, industria y construcción continúan rezagados. Analistas advierten que la lectura del dato agrega complejidad: las cifras globales no capturan la debilidad de los sectores que generan empleo masivo en regiones.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/04/20/hay-malas-noticias-para-el-crecimiento-de-la-economia-colombiana-y-alertan-que-cuando-uno-abre-el-dato-la-historia-cambia/">Infobae</a> · <a href="https://www.elcolombiano.com/cronologia/noticias/meta/economia">El Colombiano</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Congreso de EE.UU. analiza implicaciones geopolíticas de las elecciones colombianas</h3>
+    <p>El Servicio de Investigación del Congreso de los Estados Unidos publicó un informe evaluando los escenarios electorales de Colombia 2026 y sus implicaciones para las relaciones bilaterales. El documento señala que un gobierno de continuidad con el Pacto Histórico podría tensar los vínculos con Washington en temas de narcotráfico, extradición y política exterior regional. Un gobierno de centro-derecha, en cambio, podría acelerar la cooperación en seguridad y el acuerdo de libre comercio.</p>
+    <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/informe-del-servicio-de-investigacion-del-congreso-de-eeuu-analiza-implicaciones-de-elecciones-en-colombia-noticias-hoy/">El Espectador</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Petro convoca a colombianos a firmar la Constituyente: «el Congreso es extorsionista»</h3>
+    <p>El presidente Petro llamó a los ciudadanos a apoyar con su firma la convocatoria a la Asamblea Constituyente, afirmando que el mecanismo no busca eliminar la Constitución de 1991 sino añadir dos capítulos: uno de reformas sociales no aprobadas y otro de reforma política para combatir la corrupción. Calificó al Congreso de «extorsionista» por no haber aprobado sus reformas de salud, laboral y pensional. La propuesta despertó rechazo de todos los candidatos presidenciales.</p>
+    <span class="source-link"><a href="https://www.vanguardia.com/colombia/2026/05/01/petro-convoca-una-constituyente-para-sacar-adelante-sus-reformas-congreso-extorsionista/">Vanguardia</a> · <a href="https://rpp.pe/mundo/actualidad/gustavo-petro-pide-a-los-colombianos-apoyar-con-su-firma-la-convocatoria-de-asamblea-constituyente-noticia-1686640">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Balanza comercial mejora: déficit con Ecuador se reduce 52% y hay superávit en marzo</h3>
+    <p>Colombia reportó una mejora significativa en su balanza comercial con Ecuador: el déficit acumulado hasta abril se redujo un 52% interanual y en marzo se registró incluso un superávit. La mejora se atribuye a la mayor competitividad exportadora colombiana en manufacturas y alimentos procesados. Sin embargo, el escenario comercial global sigue bajo presión por aranceles y tensiones geopolíticas que afectan los precios de las materias primas colombianas de exportación.</p>
+    <span class="source-link"><a href="https://www.eluniverso.com/noticias/economia/balanza-comercial-reduccion-superavit-aranceles-tasa-seguridad-tension-comercial-ecuador-colombia-2026-nota/">El Universo</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Seguridad: uno de los temas más sensibles en la recta final de la campaña presidencial</h3>
+    <p>La seguridad ciudadana es el tercer componente más relevante del IPEC (10,3%) y uno de los temas que más influye en la intención de voto. El informe del Congreso de EE.UU. señala que la Paz Total del gobierno Petro tiene resultados dispares: acuerdos con algunas facciones guerrilleras, pero persistencia o escalada de violencia en Cauca, Catatumbo y Nariño. Todos los candidatos presidenciales presentan propuestas de seguridad como eje central, desde el enfoque tecnológico de Barreras hasta el enfoque social de Cepeda.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/paz-total-constituyente-y-debates-presidenciales-los-temas-que-agitaran-las-ultimas-semanas-de-campana-a-las-elecciones-3554461">El Tiempo</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">IPEC Abril</div>
+      <div class="data-cell-value">367 pts</div>
+      <div class="data-cell-delta red">récord 8 años</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Crecimiento</div>
+      <div class="data-cell-value">1,5%</div>
+      <div class="data-cell-delta red">ene-feb 2026</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">1a Vuelta</div>
+      <div class="data-cell-value">31 May</div>
+      <div class="data-cell-delta">Cepeda 44,3%</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar la Próxima Semana</div>
+    <div class="vigilar-item">Debate presidencial: el primer debate formal entre los candidatos definirá si Cepeda mantiene su ventaja o si De la Espriella y Valencia logran erosionar su liderazgo a 22 días de las elecciones.</div>
+    <div class="vigilar-item">Recolección de firmas para la Constituyente de Petro: el avance hacia los cinco millones de firmas es el barómetro de la influencia real del presidente saliente sobre el proceso electoral.</div>
+    <div class="vigilar-item">Indicadores económicos de mayo: el próximo dato del IPEC y cifras de inversión y empleo del primer trimestre completo dirán si la incertidumbre récord de abril se aceleró o comenzó a moderarse.</div>
+    <div class="vigilar-item">Posición de EE.UU. ante el proceso electoral: cualquier declaración del Departamento de Estado o del Congreso sobre Colombia podría convertirse en munición política para los candidatos en la recta final.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: El Tiempo &middot; El Espectador &middot; Infobae &middot; Portafolio &middot; Vanguardia &middot; RPP &middot; El Colombiano &middot; El Universo &middot; CNN &middot; Meridiano 70 &middot; Registraduría &middot; Invamer<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

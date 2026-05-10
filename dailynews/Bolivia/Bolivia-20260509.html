@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia · Sábado 9 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Sábado 9 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Paz inaugura Encuentro Nacional en Cochabamba y anuncia comisión para reforma constitucional parcial</div>
+          </div>
+          <div class="swipe-body">El presidente Rodrigo Paz abrió el cónclave nacional en Cochabamba convocando a gobernadores, alcaldes, sindicatos y movimientos sociales bajo el sello «Compromiso por Bolivia». En el acto anunció la creación de una comisión abierta para reformar parcialmente la Constitución de 2009 —sin reemplazarla— con el objetivo de atraer inversiones y fortalecer la autonomía local. Presentó además un paquete de diez nuevas leyes en sectores de hidrocarburos, minería, electricidad e inversión extranjera. La cumbre se realizó en plena presión social de la COB y con bloqueos activos en el altiplano paceño.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la respuesta institucional más ambiciosa del gobierno a la crisis: intenta construir un paraguas de legitimidad amplia antes de enviar las leyes a la Asamblea. Si la comisión constitucional no logra consenso, el paquete normativo podría quedar bloqueado en el Legislativo.
+          </div>
+          <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/paz-convoca-acuerdo-nacional-garantizar-estabilidad/20260509123435991196.html">Opinión</a> · <a href="https://eldeber.com.bo/pais/paz-abre-conclave-alerta-sicariato-antidemocratico-pide-trabajar-estabilidad-unidad-pais_1778341974">El Deber</a> · <a href="https://cnnespanol.cnn.com/2026/05/09/latinoamerica/bolivia-rodrigo-paz-presidente-comision-reforma-constitucion-efe">CNN</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">COB profundiza paro general indefinido y exige la renuncia del presidente Paz</div>
+          </div>
+          <div class="swipe-body">La Central Obrera Boliviana escaló su conflicto con el gobierno y exigió formalmente la renuncia del presidente Rodrigo Paz, en una marcada radicalización respecto a su pliego inicial de 190 demandas. Las peticiones incluyen: aumento salarial del 20%, freno a cualquier privatización de empresas estatales, abrogación de la Ley 1720 y mejora en el abastecimiento de combustible. El Ejecutivo rechazó el incremento del 20% y propuso reemplazar el pliego sindical por acuerdos de productividad. La huelga indefinida tiene impacto visible en transporte y servicios de capitales.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La exigencia de renuncia eleva el conflicto a un nivel político inédito en el gobierno de Paz. Un pliego de 190 demandas hace casi imposible un acuerdo rápido; cada día sin solución presiona el paralelo cambiario y el abastecimiento en ciudades.
+          </div>
+          <div class="swipe-source"><a href="https://www.nodal.am/2026/05/bolivia-la-central-obrera-la-confederacion-de-trabajadores-campesinos-y-dirigentes-sindicales-declararon-un-paro-general-indefinido-exigiendo-la-renuncia-del-presidente-rodrigo-paz/">NODAL</a> · <a href="https://www.infobae.com/america/agencias/2026/05/01/la-mayor-central-obrera-de-bolivia-dice-que-paz-debera-irse-si-no-atiende-sus-demandas/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Campesinos del altiplano paceño bloquean rutas hacia Perú y Chile y exigen renuncia presidencial</div>
+          </div>
+          <div class="swipe-body">Una organización campesina del altiplano de La Paz mantuvo activos bloqueos de carretera en rutas que conectan con Perú y Chile, sumándose a las medidas de presión nacional. Los manifestantes exigen la renuncia del presidente Paz. El corredor norte lleva más de diez días interrumpido, con turistas varados, hospitales con escasez de medicamentos y cadenas de suministro de alimentos afectadas. La Administradora Boliviana de Carreteras (ABC) reportó 16 puntos de bloqueo activos en el país el día anterior.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Los bloqueos en las rutas a Perú y Chile afectan el comercio de exportación de minerales y alimentos. Cada semana de interrupción acumula pérdidas millonarias y deteriora la imagen de gobernabilidad ante inversores internacionales justo cuando el gobierno busca atraer capital.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/">La Razón</a> · El Diario · FmBolivia</div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Economistas alertan: Bolivia pagará casi $us 473 millones solo en intereses por los bonos soberanos</div>
+          </div>
+          <div class="swipe-body">Tras la colocación de bonos soberanos por $us 1.000 millones a una tasa del 9,45% y plazo de cinco años, economistas como Gonzalo Chávez advirtieron que el país desembolsará ~$us 473 millones únicamente en intereses antes de devolver el capital. El ministro de Economía defendió la operación señalando que hace seis meses era imposible acceder a mercados internacionales y que los fondos irán a salud, educación y reservas internacionales. La demanda fue de cinco veces lo ofertado, con 166 inversores internacionales.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El costo de la deuda cara abre un debate de sostenibilidad fiscal. Pagar $us 473M en intereses equivale casi a cuatro veces el presupuesto anual de salud pública. La señal de acceso a mercados es positiva, pero el precio lo pagarán las finanzas públicas de 2027 a 2031.
+          </div>
+          <div class="swipe-source"><a href="https://www.cabildeodigital.com/2026/05/economista-observa-que-bolivia-pagara.html">Cabildeo Digital</a> · <a href="https://eju.tv/2026/05/preocupa-el-rumbo-economico-del-pais-tras-los-bonos-del-estado/">eju.tv</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Gobierno anuncia acceso automático a recursos y mayor autonomía presupuestaria para regiones</div>
+          </div>
+          <div class="swipe-body">En el Encuentro Nacional, el ministro Espinoza anunció que gobernaciones y alcaldías tendrán acceso inmediato y automático a sus recursos, eliminando aprobaciones previas por ley o decreto para modificaciones presupuestarias. Las regiones podrán definir libremente sus estructuras administrativas y de recursos humanos. La medida busca operativizar la promesa electoral del «50/50»: redistribuir en partes iguales los recursos públicos entre el nivel central y los niveles subnacionales, con el respaldo de varios gobernadores.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es un paso concreto hacia la descentralización fiscal que varios gobernadores exigían. Si se aplica sin ajustar el marco legal, puede generar disputas sobre qué recursos califican y crear presión adicional sobre el Tesoro General de la Nación en plena crisis de liquidez.
+          </div>
+          <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/2026/05/09/gobierno-anuncia-acceso-automatico-a-recursos-para-gobernaciones-y-alcaldias/">La Razón</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
+
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar referencial en Bs 10,31 y reservas líquidas por debajo de $us 200 millones</h3>
+    <p>El tipo de cambio referencial bancario se ubicó en Bs 10,31 en venta, con una brecha superior al 44% respecto al tipo oficial del BCB (Bs 6,96). Las Reservas Internacionales en divisas disponibles están por debajo de los $us 200 millones en liquidez inmediata, aunque el total de reservas netas incluye oro valorado en ~$us 3.500 millones. La entrada de los $us 1.000M de bonos soberanos no logró enfriar la presión cambiaria, señal de que la demanda de divisas supera la oferta estructuralmente.</p>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/08/el-dolar-referencial-en-bolivia-cierra-la-semana-con-tendencia-al-alza/">La Razón</a> · BCB</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Paz alerta de un «sicariato antidemocrático» y llama a la unidad nacional</h3>
+    <p>En su discurso de apertura del Encuentro Nacional, el presidente Paz advirtió sobre lo que denominó un «sicariato antidemocrático» que busca desestabilizar al gobierno. Convocó a todos los sectores —incluyendo a sus adversarios políticos— a priorizar la estabilidad institucional y el diálogo. La declaración llegó en el mismo día en que la COB intensificó las demandas de su renuncia y mientras el altiplano registraba bloqueos activos.</p>
+    <span class="source-link"><a href="https://eldeber.com.bo/pais/paz-abre-conclave-alerta-sicariato-antidemocratico-pide-trabajar-estabilidad-unidad-pais_1778341974">El Deber</a> · <a href="https://abi.bo/minuto-a-minuto-encuentro-nacional-en-cochabamba-y-llama-a-unidad-para-enfrentar-la-crisis/">ABI</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Energía</span>
+    <h3>Colapso energético: producción de gas cayó 56% desde su pico y el 70% de la electricidad depende del sector</h3>
+    <p>Analistas del sector advierten que Bolivia enfrenta un colapso energético silencioso: la producción de gas natural bajó de 60 MMmcd en 2015 a ~25-26 MMmcd en 2026, una caída del 56%. El 70% de la generación eléctrica boliviana proviene de termoeléctricas que dependen del gas, lo que pone en riesgo el suministro eléctrico si la producción sigue cayendo. El gobierno tiene incluida la transición energética como uno de los cuatro ejes del Encuentro Nacional.</p>
+    <span class="source-link"><a href="https://www.cabildeodigital.com/2026/05/democracia-en-riesgo-colapso-energetico.html">Cabildeo Digital</a> · <a href="https://www.eldiario.net/portal/2026/04/12/bolivia-esta-en-el-umbral-de-una-crisis-de-electricidad/">El Diario</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Bolivia avanza en cooperación tecnológica con EE.UU. para industrializar el litio</h3>
+    <p>Tras el Memorando de Entendimiento sobre minerales críticos firmado en Washington el 27 de abril, Bolivia avanza en un acuerdo ampliado de cooperación tecnológica para industrializar su litio. La estrategia apunta a ingresos por $us 9.600 millones en litio para 2026 y busca replicar acuerdos similares con otras economías. El litio emerge como la principal carta boliviana para diversificar fuentes de divisas ante la caída del gas.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/07/bolivia-busca-ampliar-la-cooperacion-tecnologica-con-eeuu-para-desarrollar-su-industria-de-litio/">Infobae</a> · <a href="https://erbol.com.bo/econom%C3%ADa/bolivia-y-eeuu-firman-memorando-de-entendimiento-sobre-minerales-cr%C3%ADticos">Erbol</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Exportaciones de minerales alcanzan $us 951,7 millones en el primer trimestre</h3>
+    <p>Las exportaciones mineras del primer trimestre de 2026 totalizaron $us 951,7 millones, consolidando a la minería como el principal generador de divisas del país en sustitución de los hidrocarburos, que apenas aportaron $us 120,1 millones en el mismo período. El superávit comercial acumulado fue de $us 1.268 millones. Sin embargo, analistas advierten que parte del ingreso de divisas va directamente a cubrir importaciones de combustible.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/agencias/2026/05/07/las-claves-de-los-primeros-seis-meses-del-gobierno-de-rodrigo-paz-en-bolivia/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Inflación interanual en Bolivia llega al 14,18%, el doble del objetivo oficial</h3>
+    <p>El INE registró una variación mensual del IPC de 0,14% en abril y una inflación interanual del 14,18%, muy por encima de la meta oficial pero alejada de la proyección del FMI de más del 20% para 2026. Los rubros más afectados fueron lechuga (+17,04%), leche pasteurizada (+13,49%) y arveja verde (+13,22%). La inflación en alimentos golpea desproporcionadamente a los hogares de menores ingresos, y es uno de los argumentos centrales del pliego de la COB.</p>
+    <span class="source-link"><a href="https://www.ine.gob.bo/index.php/bolivia-reporto-una-variacion-positiva-de-014-en-el-indice-de-precios-al-consumidor-en-abril-de-2026/">INE Bolivia</a> · <a href="https://eju.tv/2026/05/bolivia-registra-una-inflacion-acumulada-del-047-hasta-abril-de-este-ano-segun-el-ine/">eju.tv</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar Referencial</div>
+      <div class="data-cell-value">Bs 10,31</div>
+      <div class="data-cell-delta red">+44% vs oficial</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Bonos Soberanos</div>
+      <div class="data-cell-value">$us 1.000M</div>
+      <div class="data-cell-delta red">tasa 9,45%</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Inflación anual</div>
+      <div class="data-cell-value">14,18%</div>
+      <div class="data-cell-delta red">vs 20%+ FMI</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar la Próxima Semana</div>
+    <div class="vigilar-item">Negociación COB-Gobierno: la exigencia de renuncia eleva la apuesta; sin acuerdo, el paro indefinido puede derivar en desabastecimiento en capitales y nuevas presiones sobre el paralelo cambiario.</div>
+    <div class="vigilar-item">Audiencia oral contra Evo Morales programada para el lunes 11: el gobierno vinculó la acusación de conspiración con los audios difundidos el viernes; el evismo busca movilización paralela en El Alto.</div>
+    <div class="vigilar-item">Desenlace del Encuentro Nacional en Cochabamba: si los sectores clave no firman el «Compromiso por Bolivia», el paquete de diez leyes llegará a la Asamblea sin respaldo social suficiente.</div>
+    <div class="vigilar-item">Impacto de los bonos soberanos en reservas: el BCB deberá publicar datos de reservas actualizados; la comunidad inversora evaluará si los $us 1.000M mejoran la liquidez en dólares o solo refinancian deuda existente.</div>
+  </div>
+
+  <div class="footer reveal">
+    Fuentes: El Deber &middot; La Razón &middot; Opinión &middot; CNN &middot; Infobae &middot; NODAL &middot; ABI &middot; Cabildeo Digital &middot; INE &middot; BCB &middot; Erbol &middot; eju.tv &middot; El Diario &middot; La Patria<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
