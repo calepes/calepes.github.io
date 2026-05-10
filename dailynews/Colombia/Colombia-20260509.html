@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 9 de mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal" style="transition-delay:0.00s">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Sábado 9 de mayo de 2026 · Bogotá</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Candidatos presidenciales bajo amenaza de muerte a 22 días de las elecciones</div>
+            </div>
+            <div class="swipe-body">Tres de los principales candidatos —Iván Cepeda, Abelardo de la Espriella y Paloma Valencia— denunciaron amenazas de muerte provenientes de grupos armados. De la Espriella señaló información de inteligencia sobre un plan de atentado con francotirador con presunta participación de funcionarios de la DNI. Cepeda denunció presiones armadas sobre votantes en territorios rurales. El gobierno Petro respondió con refuerzo de esquemas de protección.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Con la primera vuelta el 31 de mayo, la violencia política amenaza la legitimidad del proceso. La MOE ya documentó un aumento del 1.300% en secuestros con fines de presión electoral en 2026. Un atentado mayor en esta ventana modificaría radicalmente el escenario.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gobierno-del-presidente-gustavo-petro-respondio-por-nuevas-amenazas-a-candidatos-cepeda-de-la-espriella-y-valencia-noticias-hoy/">El Espectador</a> · <a href="https://www.elpais.com.co/elecciones/candidatos-presidenciales-bajo-amenaza-entre-el-riesgo-real-y-la-estrategia-politica-2609.html">El País</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Dólar sube a $3.747, máximo en más de dos meses</div>
+            </div>
+            <div class="swipe-body">La Tasa Representativa del Mercado (TRM) cerró el sábado en $3.747,10 pesos por dólar, su nivel más alto desde el 9 de marzo. En una sola semana el peso se devaluó 3,01% (COP 109,59), acumulando presión por riesgo político preelectoral e incertidumbre global. La variación diaria fue de $17,83 (+0,48%). El Banco de la República mantiene la tasa en 11,25%.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Una devaluación del 3% en una semana acelera la inflación importada, encarece la deuda en dólares y comprime el poder adquisitivo real. El mercado está incorporando prima de riesgo electoral. Con inflación proyectada en 6,4% para 2026 —sexto año por encima del rango meta— el margen de maniobra monetaria es limitado.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.capitalcolombia.com/sec-trm_precio_dolar_en_colombia">Capital Colombia</a> · <a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-sabado-9-de-mayo-582774">Colombia.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">MinMinas publica decreto para controlar especulación en el mercado de gas</div>
+            </div>
+            <div class="swipe-body">El Ministerio de Minas publicó un borrador de decreto que modifica el Decreto 1073 de 2015 para regular el mercado secundario de gas natural. La norma limita los márgenes de intermediación durante situaciones de escasez, establece jerarquía de consumo priorizando hogares y pequeños comercios, y acota la reventa a partir de la cuarta transacción. El ministro Edwin Palma la calificó como un fin a la "especulación".</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El gas alimenta industria, hogares y generación eléctrica. Un cambio de esta magnitud puede alterar contratos vigentes y señales de precio para inversores. Con Petro a meses de dejar el gobierno, el siguiente ejecutivo heredará —o modificará— esta regulación, creando incertidumbre para el sector.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/2026/05/09/ministerio-de-minas-publico-borrador-de-decreto-que-pondra-fin-a-la-especulacion-sobre-las-tarifas-del-gas-natural/">Infobae</a> · <a href="https://www.elespectador.com/economia/gas-en-colombia-gobierno-petro-prepara-decreto-para-cambiar-reglas-en-el-mercado-noticias-hoy/">El Espectador</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Egan Bernal sube al top 3 del Giro de Italia tras la etapa 2</div>
+            </div>
+            <div class="swipe-body">En la segunda etapa del Giro de Italia 2026 (Burgas–Veliko Tarnovo, 221 km), disputada el 9 de mayo, Egan Bernal escaló al tercer lugar de la clasificación general tras ganar el sprint especial Red Bull y sumar seis segundos de bonificación. El ganador de la etapa fue el uruguayo Guillermo Thomas Silva. Santiago Buitrago abandonó la carrera tras sufrir una caída 20 km antes de la meta.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Bernal regresó al podio de una gran vuelta por primera vez desde su recuperación de la grave lesión vertebral. Un resultado en el Giro tiene alto impacto en la narrativa deportiva nacional. La baja de Buitrago reduce la representación colombiana justo cuando la carrera entrará en etapas montañosas.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/deportes/2026/05/09/egan-bernal-tuvo-una-gran-actuacion-tras-la-etapa-2-del-giro-de-italia-llego-al-top-3-de-la-carrera/">Infobae</a> · <a href="https://www.clarosports.com/ciclismo/giro-de-italia-2026-en-vivo-resultados-etapa-2-y-clasificacion-general-de-este-9-de-mayo/">Claro Sports</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Moody's baja calificación de Ecopetrol a Ba2 con perspectiva negativa</div>
+            </div>
+            <div class="swipe-body">La calificadora Moody's redujo la nota crediticia de Ecopetrol de Ba1 a Ba2 y cambió la perspectiva a negativa, citando el debilitamiento del apoyo gubernamental a la empresa. La acción cayó 3,29% el 8 de mayo, cerrando en $2.350. La petrolera estatal proyecta ingresos del primer trimestre 2026 de entre COP 27 y 30 billones, y utilidades netas de entre COP 2 y 3 billones.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Ecopetrol es la mayor empresa de Colombia y su calificación impacta directamente el costo de financiamiento del Estado. Un downgrade a Ba2 encarece la renovación de pasivos y puede precipitar salidas de inversión institucional. La perspectiva negativa señala riesgo de caída adicional si no mejora la relación con el próximo gobierno.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.pulzo.com/economia/ecopetrol-bancolombia-empresas-ilusionan-colombia-con-ganancia-PP4509503">Pulzo</a> · <a href="https://www.larepublica.co/empresas/ecopetrol-bancolombia-y-epm-las-que-lideran-en-utilidades-para-el-primer-trimestre-4130885">La República</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div><!-- /carousel-container -->
+
+    <!-- DIVIDER -->
+    <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+    <!-- NEWS ITEMS -->
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Petro acelera renovación del mando militar en medio de la crisis de seguridad</h3>
+      <p>En las últimas semanas, decenas de oficiales de alto rango —coroneles, tenientes coroneles y mayores— han dejado sus cargos en una renovación que el gobierno califica de necesaria, pero que analistas de seguridad señalan como de alto riesgo institucional. El proceso ocurre mientras el orden público se deteriora en varias regiones y a menos de un mes de las elecciones presidenciales.</p>
+      <span class="source-link"><a href="https://panampost.com/bernardo-henao-jaramillo/2026/05/09/petro-y-el-desmonte-del-mando-militar-una-decision-de-alto-riesgo-para-colombia/">PanamPost</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Cepeda lidera encuestas con hasta 46%; 14 candidatos en la boleta del 31 de mayo</h3>
+      <p>Iván Cepeda (izquierda, candidato apoyado por Petro) lidera todas las encuestas con entre 36% y 46% de intención de voto, peligrosamente cerca del umbral para ganar en primera vuelta. Abelardo de la Espriella y Paloma Valencia disputan el segundo lugar con cifras cercanas al 20% cada uno. Si ninguno supera el 50% el 31 de mayo, la segunda vuelta se realizaría el 21 de junio.</p>
+      <span class="source-link"><a href="https://www.registraduria.gov.co/14-candidatos-se-inscribieron-para-las-elecciones-presidenciales-de-2026.html">Registraduría</a> · <a href="https://www.as-coa.org/articles/poll-tracker-colombias-2026-presidential-election">AS/COA</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-soc">Social</span>
+      <h3>55 líderes sociales asesinados en 2026; abril registró un crimen cada 48 horas</h3>
+      <p>Colombia acumula 55 líderes sociales asesinados en lo que va de 2026, con abril como el mes más letal del año: 19 víctimas en 30 días. La Misión de Observación Electoral documentó además un aumento del 1.300% en secuestros con fines de presión política, señal de que los grupos armados están escalando su interferencia de cara a los comicios del 31 de mayo.</p>
+      <span class="source-link"><a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/5/colombia-registra-22-lideres-sociales-asesinados-solo-desde-abril-crimen-cada-48-horas/">Cambio Colombia</a> · <a href="https://www.eltiempo.com/politica/moe-alerta-por-aumento-de-violencia-contra-lideres-politicos-en-colombia-en-las-elecciones-de-3548765">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Banco de la República mantiene tasa en 11,25%; inflación proyectada en 6,4% para 2026</h3>
+      <p>La Junta Directiva del Banco de la República decidió por unanimidad mantener sin cambios la tasa de interés de política monetaria en 11,25%. Según proyecciones de Bancolombia, la inflación cerrará 2026 en 6,4%, por encima del rango de tolerancia del banco central por sexto año consecutivo. El PIB crecería 2,9% este año, acelerando frente al 2,6% de 2025.</p>
+      <span class="source-link"><a href="https://www.bancolombia.com/acerca-de/sala-prensa/noticias/economia-finanzas/perspectivas-economicas-colombia-2026">Bancolombia</a> · <a href="https://www.banrep.gov.co/es/glosario/tasa-cambio-trm">Banco de la República</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Ecopetrol y el decreto de gas concentran la agenda empresarial del fin de semana</h3>
+      <p>Más allá del downgrade de Moody's a Ecopetrol (cubierto en el Top 5) y la publicación del borrador de decreto de gas por parte de MinMinas, no se registraron anuncios corporativos adicionales de impacto durante el sábado. Los mercados reanudan operaciones el lunes y se espera reacción bursátil a ambos eventos, en especial al deterioro de la calificación crediticia de la petrolera estatal.</p>
+      <span class="source-link"><a href="https://www.elespectador.com/economia/empresas/las-proyecciones-de-ecopetrol-como-arranco-el-ano-la-petrolera-noticias-colombia/">El Espectador</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay: arrancan cuartos de final con tres partidos de ida el sábado</h3>
+      <p>El 9 de mayo se disputaron los primeros tres partidos de ida de los cuartos de final de la Liga BetPlay 2026-I: Internacional de Bogotá vs. Atlético Nacional (4:00 p.m., El Campín), Deportes Tolima vs. Deportivo Pasto (6:10 p.m., Manuel Murillo Toro) y América de Cali vs. Independiente Santa Fe (8:20 p.m., Pascual Guerrero). El cuarto cruce, Once Caldas vs. Junior de Barranquilla, se juega el domingo 10 de mayo. Todos los partidos transmitidos por Win Sports.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/04/definidos-los-cuartos-de-final-de-la-liga-betplay-2026-i-fechas-horarios-y-donde-ver-los-partidos/">Infobae</a> · <a href="https://dimayor.com.co/2026/05/04/programacion-de-los-cuartos-de-final-de-la-liga-betplay-dimayor-l-2026/">Dimayor</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.40s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">Dólar (TRM)</div>
+        <div class="data-cell-value">$3.747</div>
+        <div class="data-cell-delta red">+$17,83 · +0,48%</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Var. Semanal</div>
+        <div class="data-cell-value red">+3,01%</div>
+        <div class="data-cell-delta red">+$109,59 COP</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Tasa BanRep</div>
+        <div class="data-cell-value">11,25%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Sin cambios</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.44s">
+      <div class="vigilar-header">Qué vigilar hoy — 10 de mayo</div>
+      <div class="vigilar-item">Resultados de los tres partidos de ida de la Liga BetPlay (Nacional, Tolima y América de Cali) y el cuarto cruce Once Caldas vs. Junior en Manizales.</div>
+      <div class="vigilar-item">Respuesta concreta del gobierno a las amenazas contra candidatos: anuncio de medidas de seguridad o escalada de acusaciones cruzadas entre campaña y ejecutivo a 21 días de la primera vuelta.</div>
+      <div class="vigilar-item">Reacción de la industria energética al borrador de decreto de gas: pronunciamientos de Naturgas, ACOLGEN o el sector privado ante la CREG.</div>
+      <div class="vigilar-item">Etapa 3 del Giro de Italia y posición de Egan Bernal en la clasificación general, ahora sin Buitrago en carrera.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.48s">
+      <div>Fuentes: El Espectador · El Tiempo · Infobae Colombia · Semana · Portafolio · Claro Sports · Capital Colombia · Cambio Colombia · El País Cali · AS/COA · Dimayor</div>
+      <div style="margin-top:4px">Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
