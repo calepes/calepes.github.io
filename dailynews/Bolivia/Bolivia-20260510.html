@@ -1,407 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Briefing Bolivia — 10 mayo 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #991b1b;
-      --accent-soft: rgba(153,27,27,0.06);
-      --ink: #1d1d1f;
-      --muted: rgba(60,60,67,0.6);
-      --tertiary: rgba(60,60,67,0.3);
-      --card-bg: rgba(255,255,255,0.55);
-      --card-bg-strong: rgba(255,255,255,0.72);
-      --glass-border: rgba(255,255,255,0.45);
-      --shadow: rgba(0,0,0,0.06);
-      --inset-highlight: rgba(255,255,255,0.7);
-      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
-      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
-      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
-      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
-      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
-      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
-      color: var(--ink);
-      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 32px 20px;
-      overflow-x: hidden;
-    }
-
-    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
-    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
-
-    .wrap { position: relative; z-index: 1; }
-
-    .glass {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-
-    /* Masthead */
-    .masthead {
-      text-align: center;
-      margin-bottom: 28px;
-      padding: 32px 24px 26px;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
-    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
-    .masthead-date { font-size: 13px; color: var(--muted); }
-    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
-    /* Section header */
-    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
-    /* Carousel */
-    .carousel-container { position: relative; margin-bottom: 32px; }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-    }
-    .carousel-track::-webkit-scrollbar { display: none; }
-
-    .swipe-card {
-      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-      padding: 28px 24px; min-height: 280px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
-    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
-    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
-    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
-    .swipe-source a { color: var(--accent); text-decoration: none; }
-
-    /* Dots */
-    .dots { display: flex; justify-content: center; gap: 8px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
-    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
-    /* Divider */
-    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
-    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
-    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
-    /* News items */
-    .news-item { padding: 18px 20px; margin-bottom: 10px; }
-    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
-    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
-    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
-    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
-    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
-    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
-    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
-    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
-    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
-    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
-    .source-link a { color: var(--accent); text-decoration: none; }
-
-    /* Data strip */
-    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
-    .data-cell { padding: 20px 14px; text-align: center; }
-    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
-    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
-    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
-    .green { color: #34C759; }
-    .red { color: #FF3B30; }
-
-    /* Vigilar */
-    .vigilar {
-      background: rgba(29,29,31,0.82);
-      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: 16px; padding: 24px; margin: 32px 0;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-      color: white;
-    }
-    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
-    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
-    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
-    .vigilar-item:last-child { margin-bottom: 0; }
-
-    /* Footer */
-    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-    @media (max-width: 500px) {
-      body { padding: 20px 14px; }
-      .data-strip { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Bolivia · Domingo 10 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+<div class="wrap">
 
-  <div class="wrap">
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Bolivia</h1>
+    <div class="masthead-date">Domingo 10 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
 
-    <!-- MASTHEAD -->
-    <div class="masthead reveal">
-      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-      <h1>Bolivia</h1>
-      <div class="masthead-date">Domingo 10 de mayo de 2026</div>
-      <div class="masthead-tag">Edición Diaria</div>
-    </div>
+  <div class="section-header reveal">Top 5 del Día</div>
 
-    <!-- TOP 5 -->
-    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
 
-    <div class="carousel-container reveal" style="transition-delay:0.08s">
-      <div class="carousel-track" id="carousel">
-
-        <!-- Card 01 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">01</div>
-              <div class="swipe-title">Evistas anuncian "Marcha por la Vida" desde Caracollo a La Paz</div>
-            </div>
-            <div class="swipe-body">El movimiento Evo Pueblo confirmó el domingo que iniciará el 12 de mayo una marcha multitudinaria desde Caracollo, Oruro, hacia la sede de gobierno, con llegada prevista para el 18 de mayo. La movilización, bautizada "Marcha por la Vida para salvar Bolivia", rechaza la ley de reconversión de tierras, el alza de combustibles y las medidas de austeridad del gobierno de Rodrigo Paz. Los gremiales, en contraste, emitieron un comunicado rechazando las protestas.</div>
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Bolivia inicia otra semana de protestas con 14 cortes de ruta activos en el altiplano</div>
           </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La marcha evista converge con el paro indefinido de la COB y aumenta la presión sobre Paz justo cuando cumple seis meses. Si la movilización llega a La Paz el 18, el gobierno enfrentará la mayor concentración de presión social hasta ahora. La narrativa de "desestabilización" que usa el ejecutivo puede endurecerse.
-            </div>
-            <div class="swipe-source">
-              <a href="https://eju.tv/2026/05/evistas-anuncian-marcha-desde-caracollo-a-la-paz-y-los-gremiales-rechazan-protestas/">eju.tv</a> · <a href="https://www.infobae.com/america/america-latina/2026/05/10/seguidores-de-evo-morales-marcharan-desde-el-altiplano-hasta-la-paz-para-sumar-presion-al-paro-contra-el-gobierno-de-paz/">Infobae</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/10/bolivia-evo-pueblo-define-marcha-por-la-vida-en-rechazo-a-politicas-economicas-del-gobierno">Resumen Latinoamericano</a>
-            </div>
-          </div>
+          <div class="swipe-body">El altiplano paceño concentra el punto más crítico del conflicto social: la Administradora Boliviana de Carreteras (ABC) reportó 14 cortes de ruta activos al cierre del domingo, incluyendo los accesos hacia Perú y Chile. La federación de campesinos del altiplano paceño mantiene bloqueos desde el miércoles pasado, mientras las organizaciones interculturales de Caranavi llevan 13 días bloqueando carreteras en la zona subtropical. El Ministerio de Turismo estima pérdidas de hasta 20 millones de bolivianos por día para el sector.</div>
         </div>
-
-        <!-- Card 02 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">02</div>
-              <div class="swipe-title">COB mantiene paro indefinido; el gobierno rechaza pedido de renuncia</div>
-            </div>
-            <div class="swipe-body">La Central Obrera Boliviana, la Confederación de Trabajadores Campesinos y dirigentes sindicales sostienen el paro general indefinido que paraliza calles y rutas en varias regiones del país. La COB exige un aumento salarial del 20%, la no privatización de empresas estatales y la renuncia del presidente Rodrigo Paz. El vocero del Ejecutivo rechazó los pedidos de dimisión calificándolos de "conspiración" y afirmando que el gobierno continuará con sus reformas.</div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Con 14 cortes activos simultáneamente, Bolivia enfrenta el nivel de bloqueos más alto desde el inicio del gobierno de Paz. Cada día adicional de corte en rutas estratégicas amplía el desabastecimiento de alimentos y combustible en La Paz e incrementa las pérdidas del sector exportador de minerales.
           </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              Un paro de este alcance, con suma de actores como la COB más el movimiento evista, recuerda episodios que en Bolivia han forzado salidas presidenciales. Paz, a diferencia de sus predecesores, mantiene el discurso firme, pero la acumulación de conflictos simultáneos (gasolina, tipo de cambio, tierras) puede erosionar rápidamente el apoyo de sectores moderados.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.nodal.am/2026/05/bolivia-la-central-obrera-la-confederacion-de-trabajadores-campesinos-y-dirigentes-sindicales-declararon-un-paro-general-indefinido-exigiendo-la-renuncia-del-presidente-rodrigo-paz/">NODAL</a> · <a href="https://www.wsws.org/es/articles/2026/05/09/e59e-m09.html">WSWS</a>
-            </div>
-          </div>
+          <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/bolivia-iniciara-otra-semana-protestas-bloqueos-marchas-gobierno/20260510202153991234.html">Opinión Bolivia</a> · <a href="https://www.urgente.bo/noticia/bolivia-iniciara-otra-semana-de-protestas-bloqueos-y-marchas-contra-el-gobierno">Urgentebo</a></div>
         </div>
-
-        <!-- Card 03 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">03</div>
-              <div class="swipe-title">BCB publica cotización referencial superando los Bs 10 por dólar</div>
-            </div>
-            <div class="swipe-body">El Banco Central de Bolivia oficializó el viernes 8 de mayo una cotización referencial de venta del dólar a Bs 10,31 — nivel sin precedentes en la historia del país. El gobierno avanza en la unificación del tipo de cambio mediante un sistema de flotación, abandonando el tipo fijo de Bs 6,96 vigente desde 2011. La estrategia busca establecer una cotización única basada en oferta y demanda para reducir la especulación en el mercado paralelo.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La flotación cambiaria es la reforma estructural más importante de los últimos 15 años. Atenúa la brecha con el paralelo (que llegó a Bs 20 en mayo 2025) pero presiona costos importados, inflación y poder adquisitivo. En un contexto de paro social, el timing político de esta medida es de alto riesgo.
-            </div>
-            <div class="swipe-source">
-              <a href="https://rtvu.uto.edu.bo/2026/05/08/banco-central-de-bolivia-oficializa-cotizacion-referencial-de-venta-de-dolar-a-bs-1030/">RTVU</a> · <a href="http://spanish.peopledaily.com.cn/n3/2026/0506/c31617-20453027.html">People's Daily ES</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 04 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">04</div>
-              <div class="swipe-title">Paz cumple seis meses: reformas económicas bajo fuego cruzado</div>
-            </div>
-            <div class="swipe-body">El presidente Rodrigo Paz llegó a su primer semestre de gobierno con un balance marcado por reformas estructurales —retiro de subsidios al combustible, recorte del gasto público, flotación cambiaria— y por la mayor resistencia sindical desde su posesión en noviembre de 2025. La inflación heredada de 2025 cerró en 20,4%. Las reservas internacionales netas cayeron 4,6% en el primer trimestre de 2026 y se concentran en un 95% en oro.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              El semestral es el momento en que la opinión pública evalúa si el gobierno cumple sus promesas de cambio. Con reformas dolorosas y conflictos abiertos, la ventana de tolerancia social se estrecha. La caída de reservas y la concentración en oro limitan el margen de maniobra del BCB ante shocks externos.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.infobae.com/america/agencias/2026/05/07/las-claves-de-los-primeros-seis-meses-del-gobierno-de-rodrigo-paz-en-bolivia/">Infobae</a> · <a href="https://eldeber.com.bo/pais/claves-primeros-seis-meses-gobierno-rodrigo-paz-bolivia_1778196518">El Deber</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 05 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">05</div>
-              <div class="swipe-title">Blooming y Bolívar empatan 0-0; la punta sigue sin dueño claro</div>
-            </div>
-            <div class="swipe-body">En la sexta fecha de la División Profesional, Blooming y Bolívar igualaron sin goles en el estadio Ramón Aguilera Costas de Santa Cruz. El árbitro Bladimir Rueda expulsó a ambos entrenadores interinos durante el partido por demorar el ingreso al campo. Bolívar quedó tercero con 13 puntos al desperdiciar la chance de escalar al liderato, mientras Always Ready y The Strongest también tropezaron en sus respectivos compromisos del domingo.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La jornada igualó a los favoritos y deja el torneo sin un puntero definido. Para Bolívar, que tiene plantilla y presupuesto superiores, acumular empates con rivales directos en condición de local es una señal de alerta táctica. La tabla sigue abierta y cualquier equipo puede tomar la punta en la fecha 7.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.vision360.bo/noticias/2026/05/10/47394-bolivar-pierde-la-chance-de-llegar-a-la-cima-del-torneo-con-su-empate-sin-goles-ante-blooming">Visión 360</a> · <a href="https://larazon.bo/marcas/2026/05/10/bolivar-y-blooming-cierran-un-domingo-de-amargos-empates-a-cero/">La Razón</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /carousel-track -->
-
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
       </div>
-      <div class="swipe-hint">Desliza para ver más &rarr;</div>
-    </div><!-- /carousel-container -->
 
-    <!-- DIVIDER -->
-    <div class="divider reveal" style="transition-delay:0.12s">
-      <span class="divider-text">Noticias por Sección</span>
-    </div>
-
-    <!-- NEWS ITEMS -->
-
-    <div class="news-item glass reveal" style="transition-delay:0.16s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Vocero de Paz: pedido de renuncia de la COB "raya en la conspiración"</h3>
-      <p>El portavoz del gobierno respondió al cabildo de la COB en el que se exigió la dimisión presidencial. El Ejecutivo descarta cualquier negociación sobre la continuidad de Paz, pero sí ofrece diálogo sobre el pliego salarial y los precios del combustible. El gobierno descarta declarar estado de emergencia pero evalúa medidas para garantizar el abastecimiento de alimentos en ciudades afectadas por bloqueos.</p>
-      <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/vocero-rechaza-pedido-renuncia-paz-cabildo-cob-raya-conspiracion/20260502122859990988.html">Opinion.com.bo</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.20s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Evo Pueblo confirma "Marcha por la Vida": sale el 12, llega el 18 de mayo</h3>
-      <p>El movimiento afín al expresidente Evo Morales determinó en asamblea del domingo iniciar la movilización el martes 12 de mayo desde Caracollo (Oruro) hacia La Paz, con llegada estimada para el 18 de mayo. Los marchantes rechazan la ley de reconversión de tierras y el alza de tarifas de servicios básicos. Morales respaldó públicamente la convocatoria. Los gremiales (comerciantes y artesanos) emitieron un comunicado oponiéndose a los bloqueos por el daño económico que generan.</p>
-      <span class="source-link"><a href="https://eju.tv/2026/05/evistas-determinan-iniciar-una-marcha-desde-caracollo-a-la-paz-el-12-de-mayo-en-rechazo-a-la-ley-de-reconversion-de-tierras/">eju.tv</a> · <a href="https://eldeber.com.bo/pais/evistas-anuncian-marcha-caracollo-paz-gremiales-rechazan-protestas_1778424780">El Deber</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.24s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Flotación cambiaria: el BCB publica referencial diario por encima de Bs 10</h3>
-      <p>Bolivia da los primeros pasos formales hacia la unificación cambiaria. El Banco Central publica desde esta semana una cotización referencial diaria basada en el promedio de transacciones reales del sistema financiero, fijando la venta en Bs 10,31 al cierre del viernes. El gobierno abandona así el tipo fijo de Bs 6,96 vigente desde 2011 y que, con la escasez de dólares, se había vuelto ficticio. La medida busca reducir la brecha con el mercado paralelo y atraer divisas al circuito formal.</p>
-      <span class="source-link"><a href="https://rtvu.uto.edu.bo/2026/05/08/banco-central-de-bolivia-oficializa-cotizacion-referencial-de-venta-de-dolar-a-bs-1030/">RTVU</a> · <a href="http://spanish.peopledaily.com.cn/n3/2026/0506/c31617-20453027.html">People's Daily ES</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.28s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Reservas internacionales caen 4,6% en el primer trimestre de 2026</h3>
-      <p>Las Reservas Internacionales Netas de Bolivia cayeron USD 170 millones en el primer trimestre, situándose en USD 3.612 millones al cierre de marzo. El 95% de las reservas está concentrado en oro (22,9 toneladas), lo que el BCB reconoce como un riesgo de diversificación. El organismo advierte que el segundo trimestre será "aún incierto" dado el entorno volátil de materias primas y la fortaleza del dólar en mercados internacionales.</p>
-      <span class="source-link"><a href="https://www.eldia.com.bo/2026-04-16/economia/reservas-internacionales-de-bolivia-se-situan-en-$us-3612-millones-en-primer-trimestre-de-2026.html">El Día</a> · <a href="http://spanish.peopledaily.com.cn/n3/2026/0417/c31617-20447543.html">People's Daily ES</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.32s">
-      <span class="pill pill-emp">Empresarial</span>
-      <h3>Crisis de gasolina: gobierno admitió "combustible desestabilizado" y afronta demandas de transportistas</h3>
-      <p>Semanas después de retirar los subsidios al combustible, el gobierno enfrenta demandas legales y protestas de transportistas por daños vehiculares atribuidos a gasolina de mala calidad. El Ejecutivo admitió haber distribuido "gasolina desestabilizada" sin asumir responsabilidad directa. El exministro de Hidrocarburos, Mauricio Medinacelli, perdió el cargo en el marco del conflicto. El presidente Paz garantizó que el suministro actual es correcto y está normalizado, pero la desconfianza persiste entre los transportistas.</p>
-      <span class="source-link"><a href="https://abi.bo/presidente-paz-sin-bloqueos-el-suministro-de-gasolina-esta-garantizado/">ABI</a> · <a href="https://www.infobae.com/america/agencias/2026/05/07/las-claves-de-los-primeros-seis-meses-del-gobierno-de-rodrigo-paz-en-bolivia/">Infobae</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.36s">
-      <span class="pill pill-int">Internacional</span>
-      <h3>Riesgo país de Bolivia desciende a 378 puntos a seis meses del gobierno de Paz</h3>
-      <p>Bolivia registra una mejora en su percepción de riesgo soberano. El indicador descendió a 378 puntos básicos bajo la administración de Rodrigo Paz, con demanda de inversores internacionales que llegó a quintuplicar la oferta en la última emisión de bonos del Estado. El gobierno interpreta este dato como señal de credibilidad en su programa de estabilización económica, aunque analistas independientes advierten que la conflictividad social puede revertir la tendencia si se prolonga.</p>
-      <span class="source-link"><a href="https://abi.bo/riesgo-pais-de-bolivia-desciende-a-378-puntos-en-seis-meses-de-gobierno/">ABI</a> · <a href="https://eju.tv/2026/05/preocupa-el-rumbo-economico-del-pais-tras-los-bonos-del-estado/">eju.tv</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.40s">
-      <span class="pill pill-dep">Deportes</span>
-      <h3>Fecha 6: Blooming empata con Bolívar y la punta sigue sin dueño</h3>
-      <p>El clásico cruceño entre Blooming y Bolívar terminó 0-0 en el estadio Ramón Aguilera Costas. Ambos entrenadores interinos, Raúl Gutiérrez (Blooming) y Vladimir Soria (Bolívar), fueron expulsados durante el partido. Bolívar se mantiene tercero con 13 puntos; Blooming quinto con 9. Always Ready y The Strongest también empataron en sus cotejos del domingo, dejando la cima de la tabla sin un líder consolidado.</p>
-      <span class="source-link"><a href="https://www.vision360.bo/noticias/2026/05/10/47397-always-ready-the-strongest-y-bolivar-tropiezan-y-la-punta-no-cambia">Visión 360</a> · <a href="https://lapatria.bo/deportes/blooming-y-bolivar-cierran-la-jornada-con-empate-a-cero/">La Patria</a></span>
-    </div>
-
-    <!-- DATA STRIP -->
-    <div class="data-strip reveal" style="transition-delay:0.44s">
-      <div class="data-cell glass">
-        <div class="data-cell-label">Dólar Oficial BCB</div>
-        <div class="data-cell-value">Bs 10.31</div>
-        <div class="data-cell-delta red">+3.35 (flotación)</div>
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Evistas lanzan «Marcha por la Vida para Salvar Bolivia»: parten el 12 de mayo desde Caracollo</div>
+          </div>
+          <div class="swipe-body">Sectores afines al ex presidente Evo Morales anunciaron el inicio de una marcha de seis días desde la localidad altiplánica de Caracollo —a 190 km de La Paz— prevista para el martes 12 de mayo, con llegada al Palacio Quemado el 18 de mayo. La movilización, denominada «Marcha por la Vida para Salvar Bolivia», exige al gobierno de Rodrigo Paz que abandone sus políticas «neoliberales y privatizadoras». Se suma así al paro indefinido de la COB y a los bloqueos campesinos, conformando un frente de presión múltiple.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La confluencia de tres presiones simultáneas —COB, bloqueos campesinos y marcha evista— en la misma semana representa la mayor acumulación de conflicto desde que Paz asumió en noviembre. Si la marcha llega a La Paz el 18, coincidirá con la audiencia oral contra Evo Morales programada para esa semana.
+          </div>
+          <div class="swipe-source"><a href="https://www.fmbolivia.com.bo/noticia/-marcha-por-la-vida-para-salvar-bolivia-seguidores-de-evo-morales-partir-n-el-12-de-mayo-desde-caracollo-contra-el-presidente-rodrigo-paz">FmBolivia</a> · <a href="https://www.infobae.com/america/america-latina/2026/05/10/seguidores-de-evo-morales-marcharan-desde-el-altiplano-hasta-la-paz-para-sumar-presion-al-paro-contra-el-gobierno-de-paz/">Infobae</a></div>
+        </div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">Dólar Paralelo</div>
-        <div class="data-cell-value">~Bs 11.20</div>
-        <div class="data-cell-delta green">vs Bs 20 (may'25)</div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Gobierno convoca a alcaldes, concejales y CSUTCB al diálogo este lunes a las 08:00</div>
+          </div>
+          <div class="swipe-body">El gobierno de Rodrigo Paz convocó para este lunes a las 08:00 a alcaldes y concejales del departamento de La Paz, y a representantes de la Confederación Sindical Única de Trabajadores Campesinos de Bolivia (CSUTCB) para retomar el diálogo iniciado en el Encuentro Nacional de Cochabamba. El vocero presidencial José Luis Gálvez afirmó que la Casa Grande del Pueblo será el escenario de las conversaciones. El gobierno rechaza los bloqueos pero insiste en que el diálogo es el único camino hacia la solución.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El diálogo del lunes es la primera prueba concreta de si el Encuentro Nacional de Cochabamba generó voluntad política real entre los actores. Si los campesinos asisten y suspenden los bloqueos, el gobierno gana oxígeno. Si no asisten o exigen la renuncia de Paz como condición previa, la crisis escala.
+          </div>
+          <div class="swipe-source"><a href="https://www.urgente.bo/noticia/gobierno-convoca-alcaldes-concejales-y-la-csutcb-retomar-el-dialogo-este-lunes">Urgentebo</a> · <a href="https://www.abc.com.py/internacionales/2026/05/10/gobierno-boliviano-llama-a-dialogo-a-representantes-de-la-paz-en-medio-de-bloqueos-de-vias/">ABC Color</a></div>
+        </div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">Brecha</div>
-        <div class="data-cell-value">~8.7%</div>
-        <div class="data-cell-delta green">Convergiendo</div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Gremiales rechazan las protestas y piden al gobierno defender la libre circulación</div>
+          </div>
+          <div class="swipe-body">Los gremiales y transportistas de varias regiones rechazaron públicamente los bloqueos de la COB y de los campesinos del altiplano, exigiendo al gobierno garantizar la libre circulación de mercancías y personas. El sector empresarial advierte que la paralización afecta las cadenas logísticas de exportación de minerales y que el bloqueo de rutas hacia Perú y Chile pone en riesgo contratos de entrega con socios comerciales. eju.tv reportó declaraciones de gremiales que califican la situación de «inaceptable» e inconstitucional.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La fractura entre el sector sindical-campesino y el sector empresarial-gremial es una señal de que la crisis está polarizando al conjunto de la sociedad. El gobierno necesita mantener el apoyo de los gremiales para sostener la economía exportadora, pero no puede alienar completamente a los sindicatos.
+          </div>
+          <div class="swipe-source"><a href="https://eju.tv/2026/05/evistas-anuncian-marcha-desde-caracollo-a-la-paz-y-los-gremiales-rechazan-protestas/">eju.tv</a></div>
+        </div>
       </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Experto: el gobierno de Paz carece «de un proyecto de reconstrucción del país»</div>
+          </div>
+          <div class="swipe-body">Un análisis publicado el 10 de mayo señala que el gobierno de Rodrigo Paz enfrenta la crisis social sin contar con un proyecto integral de reconstrucción económica y social. Los críticos apuntan que el paquete de diez leyes presentado en Cochabamba es una agenda de reformas de largo plazo, mientras la presión social exige soluciones inmediatas. La reforma constitucional parcial y la descentralización fiscal son vistas como medidas estructurales que no responden a las demandas urgentes de aumento salarial y abastecimiento de combustible.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El diagnóstico pone en evidencia una brecha entre la agenda estratégica del gobierno y las necesidades inmediatas de la población. Si la sociedad percibe que el Ejecutivo habla de largo plazo mientras la gente no tiene combustible ni alimentos, la presión social continuará escalando independientemente del Encuentro Nacional.
+          </div>
+          <div class="swipe-source"><a href="https://spanish.news-pravda.com/spain/2026/05/10/918729.html">Pravda ES</a></div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- QUÉ VIGILAR -->
-    <div class="vigilar reveal" style="transition-delay:0.48s">
-      <div class="vigilar-header">Qué vigilar esta semana</div>
-      <div class="vigilar-item">Marcha evista (sale el 12 desde Caracollo): si los bloqueos de ruta escalan y afectan abastecimiento de La Paz, el gobierno podría verse forzado a negociar o a recurrir a medidas de fuerza antes del arribo previsto el 18 de mayo.</div>
-      <div class="vigilar-item">Publicación diaria del referencial cambiario del BCB: cualquier movimiento brusco del boliviano más allá de Bs 10,50 amplificará el discurso de "devaluación" que usa la oposición sindical y puede retroalimentar el conflicto.</div>
-      <div class="vigilar-item">Calidad del combustible: el gobierno prometió resolver el problema de la gasolina desestabilizada. Si nuevos reportes de daños vehiculares emergen esta semana, el costo político se multiplicará justo cuando el paro indefinido ya genera presión máxima.</div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
 
-    <!-- FOOTER -->
-    <div class="footer reveal" style="transition-delay:0.52s">
-      <div>Fuentes: Infobae · El Deber · La Razón · eju.tv · ABI · RTVU · NODAL · Visión 360 · La Patria · Opinion.com.bo · Resumen Latinoamericano · El Día</div>
-      <div style="margin-top:4px;color:var(--tertiary)">Briefing generado con Claude — Solo para uso informativo</div>
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>COB mantiene paro indefinido; exige 20% de alza salarial y no privatización</h3>
+    <p>La Central Obrera Boliviana sostiene su paro general indefinido declarado desde el 1 de mayo en un cabildo en El Alto. Sus demandas centrales son un aumento salarial del 20%, el compromiso de no privatizar empresas estatales y la abrogación de la Ley 1720. La COB rechazó la propuesta del gobierno de reemplazar el pliego con acuerdos de productividad. El domingo, la central ratificó las medidas de presión para la semana que comienza.</p>
+    <span class="source-link"><a href="https://www.opinion.com.bo/">Opinión Bolivia</a> · <a href="https://www.urgente.bo/">Urgentebo</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Gobierno y CAF debaten formalización de la economía popular en Cochabamba</h3>
+    <p>En el marco del Encuentro Nacional, el Banco de Desarrollo de América Latina y el Caribe (CAF) organizó el taller internacional «Economía para la gente», donde se discutió cómo fortalecer la economía popular y facilitar su transición hacia la formalidad. La iniciativa busca incorporar a los miles de microempresarios y trabajadores informales bolivianos al sistema financiero y tributario formal, como parte de la agenda de reformas del gobierno de Paz.</p>
+    <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/10/gobierno-y-caf-debaten-formalizacion-de-la-economia-popular/">La Razón</a> · CAF</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Paz plantea reforma constitucional parcial y 10 leyes para reactivar el país</h3>
+    <p>Como resultado del Encuentro Nacional de Cochabamba, el presidente Paz presentó un paquete normativo de 10 leyes en sectores de hidrocarburos, minería, electricidad, inversión extranjera y economía verde. La reforma constitucional parcial —sin reemplazar la Constitución de 2009— busca atraer inversiones y fortalecer la autonomía local. Analistas de Prensa Mercosur señalan que el modelo «50-50» de redistribución de recursos entre el Estado central y las regiones es el núcleo de la nueva propuesta fiscal.</p>
+    <span class="source-link"><a href="https://prensamercosur.org/2026/05/10/rodrigo-paz-plantea-10-leyes-economicas-y-una-reforma-constitucional-para-avanzar-hacia-un-modelo-50-50/">Prensa Mercosur</a> · <a href="https://eldeber.com.bo/economia/paz-plantea-nueva-etapa-reformas-consensos-reactivar-pais_1778449457">El Deber</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Bloqueos en Caranavi: 13 días sin suministro de alimentos y combustible al norte de La Paz</h3>
+    <p>El municipio de Caranavi cumple 13 días con bloqueos de carreteras sostenidos por organizaciones interculturales. La interrupción prolongada afecta el suministro de alimentos y combustible al norte del departamento de La Paz, con reportes de hospitales con escasez de insumos médicos y comunidades que no pueden vender su producción agrícola. Turistas extranjeros varados en puntos de control han generado quejas consulares de países vecinos.</p>
+    <span class="source-link"><a href="https://larazon.bo/">La Razón</a> · <a href="https://www.fmbolivia.com.bo/">FmBolivia</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Bolivia busca ampliar cooperación con EE.UU. para industrializar el litio</h3>
+    <p>Tras el Memorando de Entendimiento sobre minerales críticos firmado en Washington a finales de abril, Bolivia avanza en un acuerdo ampliado de cooperación tecnológica para industrializar su litio. El gobierno estima ingresos potenciales por $us 9.600 millones en el sector. El litio emerge como la principal carta para diversificar fuentes de divisas ante la caída estructural de la producción de gas natural, que bajó de 60 MMmcd en 2015 a ~25 MMmcd en 2026.</p>
+    <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/07/bolivia-busca-ampliar-la-cooperacion-tecnologica-con-eeuu-para-desarrollar-su-industria-de-litio/">Infobae</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Cortes de Ruta</div>
+      <div class="data-cell-value red">14</div>
+      <div class="data-cell-delta red">activos altiplano</div>
     </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Pérdida Turismo</div>
+      <div class="data-cell-value">Bs 20M</div>
+      <div class="data-cell-delta red">por día</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Días de Paro COB</div>
+      <div class="data-cell-value red">~10</div>
+      <div class="data-cell-delta red">paro indefinido</div>
+    </div>
+  </div>
 
-  </div><!-- /wrap -->
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Esta Semana</div>
+    <div class="vigilar-item">Diálogo del lunes (08:00, Casa Grande del Pueblo): si alcaldes y CSUTCB se sientan a negociar y suspenden bloqueos, el gobierno gana margen; si no asisten o elevan condiciones, la semana será la más tensa desde noviembre.</div>
+    <div class="vigilar-item">«Marcha por la Vida para Salvar Bolivia»: parte el martes 12 desde Caracollo con 6 días hasta La Paz. Su confluencia con el paro de la COB y los bloqueos campesinos podría crear una crisis de gobernabilidad sin precedente en el gobierno de Paz.</div>
+    <div class="vigilar-item">Abastecimiento de combustible en La Paz: tras 13 días de bloqueos en Caranavi y altiplano, el estado de los depósitos de gasolineras y la cadena de distribución de GLP doméstico es el indicador más sensible de la crisis.</div>
+    <div class="vigilar-item">Reacción del mercado cambiario: el paralelo del dólar boliviano se mueve con la percepción de riesgo político; si el diálogo del lunes fracasa, la presión sobre el tipo de cambio referencial (hoy en Bs 10,31) se intensificará.</div>
+  </div>
 
-  <script>
-    const track = document.getElementById('carousel');
-    const dots = document.querySelectorAll('.dot');
-    track.addEventListener('scroll', () => {
-      const idx = Math.round(track.scrollLeft / track.offsetWidth);
-      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
-    });
+  <div class="footer reveal">
+    Fuentes: Opinión Bolivia &middot; Urgentebo &middot; FmBolivia &middot; Infobae &middot; La Razón &middot; El Deber &middot; eju.tv &middot; ABC Color &middot; Prensa Mercosur &middot; Pravda ES &middot; La República (PE)<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
+  </div>
 
-    const obs = new IntersectionObserver(es => es.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
-    }), { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+</div>
 
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
