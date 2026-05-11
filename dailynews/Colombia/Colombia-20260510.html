@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &mdash; 10 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Domingo 10 de mayo de 2026 &middot; Bogot&aacute;</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Giro de Italia, Etapa 3: Paul Magnier gana en Sof&iacute;a y Egan Bernal queda a 4 segundos del liderato</div>
+            </div>
+            <div class="swipe-body">La tercera etapa del Giro de Italia 2026 (Plovdiv&ndash;Sof&iacute;a, 175 km) se resolvi&oacute; al sprint: el franc&eacute;s Paul Magnier (Soudal-QuickStep) se impuso en la capital b&uacute;lgara, mientras el colombiano Egan Bernal (INEOS Grenadiers) finaliz&oacute; entre los primeros escaladores de la general y qued&oacute; ubicado a tan solo 4 segundos del l&iacute;der Guillermo Thomas Silva. Bernal suma buenas sensaciones f&iacute;sicas y sus directores confirmaron que la estrategia es proteger energ&iacute;as para las etapas de monta&ntilde;a en los Dolomitas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Bernal est&aacute; a 4 segundos de liderar una gran vuelta por primera vez desde su grave lesi&oacute;n vertebral. Un triunfo en el Giro ser&iacute;a uno de los regresos deportivos m&aacute;s extraordinarios de la historia del ciclismo colombiano e internacional. El pa&iacute;s sigue de cerca cada etapa.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/deportes/2026/05/10/etapa-3-del-giro-de-italia-2026-en-vivo-siga-aqui-a-egan-bernal-y-a-einer-rubio-en-la-segunda-llegada-al-sprint-de-la-corsa-rosa/">Infobae Colombia</a> · <a href="https://www.vavel.com/colombia/polideportivo/2026/05/09/1260149-egan-bernal-ya-acecha-el-liderato-del-giro-de-italia-2026.html">Vavel Colombia</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Liga BetPlay: Once Caldas recibe a Junior de Barranquilla en un duelo hist&oacute;rico de cuartos de final</div>
+            </div>
+            <div class="swipe-body">El Estadio Palogrande de Manizales fue escenario del cuarto partido de ida de los cuartos de final de la Liga BetPlay 2026-I: Once Caldas vs. Junior de Barranquilla (6:10 p.m., domingo 10 de mayo). El cruce revive una rivalidad hist&oacute;rica que tuvo finales en 2003, 2009 y 2011. Se esperaban m&aacute;s de 30.000 espectadores en el estadio. El resto de los cruces de ida (Internacional vs. Nacional, Tolima vs. Pasto, Am&eacute;rica vs. Santa Fe) se disputaron el s&aacute;bado 9 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El duelo Caldas-Junior es uno de los cotejos m&aacute;s convocantes del f&uacute;tbol colombiano por historia y rivalidad regional. Manizales moviliza turismo local y nacional en cada edici&oacute;n. El resultado del partido de ida definir&aacute; la necesidad del marcador en la vuelta.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/deportes/2026/05/09/hora-y-donde-ver-once-caldas-vs-junior-de-barranquilla-un-duelo-historico-en-los-playoffs-de-la-liga-betplay/">Infobae Colombia</a> · <a href="https://dimayor.com.co/2026/05/04/programacion-de-los-cuartos-de-final-de-la-liga-betplay-dimayor-l-2026/">Dimayor</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Mar&iacute;a Fernanda Cabal da pistas sobre su voto a 21 d&iacute;as de las elecciones del 31 de mayo</div>
+            </div>
+            <div class="swipe-body">La senadora Mar&iacute;a Fernanda Cabal (Centro Democr&aacute;tico) publicó declaraciones que dan indicios sobre su respaldo en la primera vuelta presidencial, afirmando que la decisi&oacute;n &laquo;requiere la firmeza absoluta de las convicciones&raquo;. Aunque sin precisar un candidato expl&iacute;citamente, el mensaje fue interpretado por analistas como un acercamiento a la candidatura de Paloma Valencia (su copartidaria) o de Abelardo de la Espriella. La definici&oacute;n de las grandes figuras del Centro Democr&aacute;tico puede movilizar hasta 500.000 votos en la primera vuelta.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Con el Centro Democr&aacute;tico fraccionado entre Paloma Valencia y otros precandidatos, el voto uribista a&uacute;n no tiene bloque consolidado. Que Cabal comience a se&ntilde;alar preferencia puede catalizar el voto de derecha en favor de Valencia o De la Espriella, moviendo los sondeos en la recta final.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/10/maria-fernanda-cabal-empieza-a-dar-pistas-sobre-su-voto-en-las-elecciones-de-2026-requiere-la-firmeza-absoluta-de-las-convicciones/">Infobae Colombia</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Encuestas: Cepeda lidera con hasta 46%, con el umbral de primera vuelta en la mira</div>
+            </div>
+            <div class="swipe-body">A 21 d&iacute;as de la primera vuelta, todos los sondeos sit&uacute;an a Iv&aacute;n Cepeda (Pacto Hist&oacute;rico) entre el 36% y el 46% de intenci&oacute;n de voto. Si el candidato fica del petrismo alcanzara el 50%+1 el 31 de mayo, ganar&iacute;a en primera vuelta sin necesidad de segunda ronda. Abelardo de la Espriella y Paloma Valencia pelean el segundo lugar con cifras cercanas al 20% cada uno. Claudia L&oacute;pez (Partido Verde) y Santiago Botero completan el grupo de candidatos con presencia significativa en encuestas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Un triunfo de Cepeda en primera vuelta evitar&iacute;a la segunda ronda y le dar&iacute;a un mandato robusto. La oposici&oacute;n necesita que el voto se fragmente para forzar un balotaje donde la uni&oacute;n de los votos no-petristas podr&iacute;a superar a Cepeda. Las pr&oacute;ximas 3 semanas de campa&ntilde;a son cruciales.
+            </div>
+            <div class="swipe-source"><a href="https://www.as-coa.org/articles/poll-tracker-colombias-2026-presidential-election">AS/COA</a> · <a href="https://www.registraduria.gov.co/14-candidatos-se-inscribieron-para-las-elecciones-presidenciales-de-2026.html">Registradur&iacute;a</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Tres candidatos bajo amenaza de muerte; MOE alerta por violencia pol&iacute;tica preelectoral</div>
+            </div>
+            <div class="swipe-body">Cepeda, De la Espriella y Valencia denunciaron amenazas de muerte en la recta final de la campa&ntilde;a. De la Espriella report&oacute; informaci&oacute;n de inteligencia sobre un presunto plan de atentado con francotirador con participaci&oacute;n de funcionarios de la DNI. La Misi&oacute;n de Observaci&oacute;n Electoral (MOE) document&oacute; un incremento del 1.300% en secuestros con fines de presi&oacute;n electoral en 2026. Colombia acumula 55 l&iacute;deres sociales asesinados en lo que va del a&ntilde;o, con abril como el mes m&aacute;s letal (19 v&iacute;ctimas).</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Un atentado exitoso contra cualquier candidato a d&iacute;as de las elecciones podr&iacute;a generar una crisis constitucional sin precedente y posponer los comicios. Los grupos armados que operan sobre el electorado en zonas rurales afectan la legitimidad del proceso. La comunidad internacional sigue con atenci&oacute;n la situaci&oacute;n.
+            </div>
+            <div class="swipe-source"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gobierno-del-presidente-gustavo-petro-respondio-por-nuevas-amenazas-a-candidatos-cepeda-de-la-espriella-y-valencia-noticias-hoy/">El Espectador</a> · <a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/5/colombia-registra-22-lideres-sociales-asesinados-solo-desde-abril-crimen-cada-48-horas/">Cambio Colombia</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>D&oacute;lar cierra semana en $3.747, m&aacute;ximo en m&aacute;s de dos meses</h3>
+      <p>La Tasa Representativa del Mercado (TRM) cerr&oacute; el s&aacute;bado 9 en $3.747,10 pesos por d&oacute;lar, su nivel m&aacute;s alto desde el 9 de marzo. En una sola semana el peso se devalu&oacute; un 3,01% (COP 109,59), impulsado por el riesgo pol&iacute;tico preelectoral y la incertidumbre global. El Banco de la Rep&uacute;blica mantiene la tasa de pol&iacute;tica monetaria en 11,25%, con la inflaci&oacute;n proyectada en 6,4% para el cierre de 2026.</p>
+      <span class="source-link"><a href="https://www.capitalcolombia.com/sec-trm_precio_dolar_en_colombia">Capital Colombia</a> · <a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-sabado-9-de-mayo-582774">Colombia.com</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Moody's baja calificaci&oacute;n de Ecopetrol a Ba2 con perspectiva negativa</h3>
+      <p>La calificadora Moody's redujo la nota crediticia de Ecopetrol de Ba1 a Ba2 y cambi&oacute; la perspectiva a negativa el viernes 8 de mayo, citando el debilitamiento del apoyo gubernamental a la empresa. La acci&oacute;n cay&oacute; 3,29% ese d&iacute;a, cerrando en $2.350. Los mercados reanudan operaciones el lunes y se espera nueva reacci&oacute;n burs&aacute;til. Ecopetrol es la mayor empresa del pa&iacute;s y su calificaci&oacute;n impacta directamente el costo de financiamiento del Estado colombiano.</p>
+      <span class="source-link"><a href="https://www.larepublica.co/empresas/ecopetrol-bancolombia-y-epm-las-que-lideran-en-utilidades-para-el-primer-trimestre-4130885">La Rep&uacute;blica</a> · <a href="https://www.pulzo.com/economia/ecopetrol-bancolombia-empresas-ilusionan-colombia-con-ganancia-PP4509503">Pulzo</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>MinMinas publica borrador de decreto para regular el mercado secundario de gas natural</h3>
+      <p>El Ministerio de Minas public&oacute; el s&aacute;bado un borrador de decreto que modifica el Decreto 1073 de 2015, limitando los m&aacute;rgenes de intermediaci&oacute;n en el mercado de gas en situaciones de escasez, estableciendo jerarqu&iacute;a de consumo priorizando hogares y acotando la reventa desde la cuarta transacci&oacute;n. El sector energético tiene hasta el lunes para pronunciarse ante el proyecto. Con Petro a meses de entregar el poder, el pr&oacute;ximo ejecutivo heredar&aacute; &mdash;o modificar&aacute;&mdash; esta regulaci&oacute;n.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/09/ministerio-de-minas-publico-borrador-de-decreto-que-pondra-fin-a-la-especulacion-sobre-las-tarifas-del-gas-natural/">Infobae</a> · <a href="https://www.elespectador.com/economia/gas-en-colombia-gobierno-petro-prepara-decreto-para-cambiar-reglas-en-el-mercado-noticias-hoy/">El Espectador</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-soc">Social</span>
+      <h3>55 l&iacute;deres sociales asesinados en 2026; abril registr&oacute; un crimen cada 48 horas</h3>
+      <p>Colombia acumula 55 l&iacute;deres sociales asesinados en lo que va de 2026, con abril como el mes m&aacute;s letal del a&ntilde;o: 19 v&iacute;ctimas en 30 d&iacute;as. La Misi&oacute;n de Observaci&oacute;n Electoral document&oacute; adem&aacute;s un aumento del 1.300% en secuestros con fines de presi&oacute;n pol&iacute;tica. Los departamentos m&aacute;s afectados son Cauca, Nari&ntilde;o y Choc&oacute;. El gobierno Petro refuerza esquemas de protecci&oacute;n para candidatos, pero la situaci&oacute;n de los l&iacute;deres de base sigue siendo cr&iacute;tica.</p>
+      <span class="source-link"><a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/5/colombia-registra-22-lideres-sociales-asesinados-solo-desde-abril-crimen-cada-48-horas/">Cambio Colombia</a> · <a href="https://www.eltiempo.com/politica/moe-alerta-por-aumento-de-violencia-contra-lideres-politicos-en-colombia-en-las-elecciones-de-3548765">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Bernal acecha el liderato del Giro; Rubio y dem&aacute;s escarabajos atentos a las etapas de monta&ntilde;a</h3>
+      <p>Adem&aacute;s de Egan Bernal (a 4 seg del liderato), el pelot&oacute;n colombiano en el Giro 2026 incluye a Einer Rubio (Movistar Team), quien mostró buenas sensaciones en las primeras etapas. La carrera entrar&aacute; en terreno decisivo cuando llegue a los Dolomitas italianos. Santiago Buitrago abandon&oacute; la competencia tras una ca&iacute;da en la etapa 2, reduciendo la representaci&oacute;n tricolor en la carrera rosa.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/deportes/2026/05/10/etapa-3-del-giro-de-italia-2026-en-vivo-siga-aqui-a-egan-bernal-y-a-einer-rubio-en-la-segunda-llegada-al-sprint-de-la-corsa-rosa/">Infobae Colombia</a></span>
+    </div>
+
+    <div class="data-strip reveal">
+      <div class="data-cell glass">
+        <div class="data-cell-label">D&iacute;as para 1&ordf; Vuelta</div>
+        <div class="data-cell-value">21</div>
+        <div class="data-cell-delta" style="color:var(--muted)">31 de mayo</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Cepeda (encuestas)</div>
+        <div class="data-cell-value">~40%</div>
+        <div class="data-cell-delta red">cerca del 50%</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">D&oacute;lar TRM</div>
+        <div class="data-cell-value">$3.747</div>
+        <div class="data-cell-delta red">+3,01% semanal</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">Qu&eacute; Vigilar Esta Semana</div>
+      <div class="vigilar-item">Egan Bernal en el Giro de Italia: las etapas 4 y 5 son las primeras con diferencias de altitud significativas. Si Bernal aguanta o ataca, podr&iacute;a tomar el liderato antes de los Dolomitas.</div>
+      <div class="vigilar-item">Resultados de Once Caldas vs. Junior (hoy domingo) y los partidos de vuelta de los cuartos de final de la Liga BetPlay durante la semana.</div>
+      <div class="vigilar-item">Reacci&oacute;n de Ecopetrol y el mercado burs&aacute;til colombiano al downgrade de Moody's: el lunes ser&aacute; el primer d&iacute;a de operaciones tras la rebaja a Ba2 con perspectiva negativa.</div>
+      <div class="vigilar-item">Definici&oacute;n del voto uribista en la campa&ntilde;a: si figuras como Cabal o Uribe se pronuncian expl&iacute;citamente, podr&iacute;an consolidar el voto de derecha en torno a un solo candidato y modificar las encuestas.</div>
+    </div>
+
+    <div class="footer reveal">
+      Fuentes: El Espectador &middot; El Tiempo &middot; Infobae Colombia &middot; Semana &middot; Cambio Colombia &middot; Capital Colombia &middot; La Rep&uacute;blica &middot; Vavel Colombia &middot; Dimayor &middot; AS/COA &middot; Banco de la Rep&uacute;blica &middot; Registradur&iacute;a<br>
+      Briefing generado con Claude &mdash; Solo para uso informativo
+    </div>
+
+  </div>
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

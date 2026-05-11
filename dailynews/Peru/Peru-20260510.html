@@ -1,396 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Briefing Perú — 10 mayo 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #1a4a6b;
-      --accent-soft: rgba(26,74,107,0.06);
-      --ink: #1d1d1f;
-      --muted: rgba(60,60,67,0.6);
-      --tertiary: rgba(60,60,67,0.3);
-      --card-bg: rgba(255,255,255,0.55);
-      --card-bg-strong: rgba(255,255,255,0.72);
-      --glass-border: rgba(255,255,255,0.45);
-      --shadow: rgba(0,0,0,0.06);
-      --inset-highlight: rgba(255,255,255,0.7);
-      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
-      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
-      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
-      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
-      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
-      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(160deg, #E8EDF2 0%, #D4DEE7 25%, #D4E0EA 55%, #E4ECF5 80%, #F2F2F7 100%);
-      color: var(--ink);
-      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
-      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
-      overflow-x: hidden;
-    }
-    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
-    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
-    .wrap { position: relative; z-index: 1; }
-    .glass {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-    .masthead {
-      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
-    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
-    .masthead-date { font-size: 13px; color: var(--muted); }
-    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-    .carousel-container { position: relative; margin-bottom: 32px; }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-    }
-    .carousel-track::-webkit-scrollbar { display: none; }
-    .swipe-card {
-      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-      padding: 28px 24px; min-height: 280px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
-    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
-    .swipe-why {
-      background: var(--accent-soft); border-left: 3px solid var(--accent);
-      padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5;
-    }
-    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
-    .swipe-source a { color: var(--accent); text-decoration: none; }
-    .dots { display: flex; justify-content: center; gap: 8px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
-    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
-    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
-    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-    .news-item { padding: 18px 20px; margin-bottom: 10px; }
-    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
-    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
-    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
-    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
-    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
-    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
-    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
-    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
-    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
-    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
-    .source-link a { color: var(--accent); text-decoration: none; }
-    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
-    .data-cell { padding: 20px 14px; text-align: center; }
-    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
-    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
-    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
-    .green { color: #34C759; }
-    .red { color: #FF3B30; }
-    .vigilar {
-      background: rgba(29,29,31,0.82);
-      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: 16px; padding: 24px; margin: 32px 0;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-      color: white;
-    }
-    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
-    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
-    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
-    .vigilar-item:last-child { margin-bottom: 0; }
-    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú · Domingo 10 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #b91c1c;
+  --accent-soft: rgba(185,28,28,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #EEE8F0 0%, #D8D4E8 25%, #D4DDE7 55%, #E2EBF0 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(185,28,28,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="wrap">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-    <!-- MASTHEAD -->
-    <div class="masthead reveal">
-      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-      <h1>Per&uacute;</h1>
-      <div class="masthead-date">Domingo 10 de mayo de 2026</div>
-      <div class="masthead-tag">Edici&oacute;n Diaria</div>
-    </div>
+<div class="wrap">
 
-    <!-- TOP 5 -->
-    <div class="section-header reveal">Top 5 del D&iacute;a</div>
-    <div class="carousel-container reveal">
-      <div class="carousel-track" id="carousel">
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Domingo 10 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
 
-        <!-- Card 01 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">01</div>
-              <div class="swipe-title">Keiko y S&aacute;nchez van a segunda vuelta: ONPE al 99.6% confirma el duelo del 7 de junio</div>
-            </div>
-            <div class="swipe-body">Con 99.632% de actas procesadas, la ONPE certifica que Keiko Fujimori (Fuerza Popular, 17.17%) y Roberto S&aacute;nchez (Juntos por el Per&uacute;, 12.00%) disputar&aacute;n la presidencia el 7 de junio. Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular, 11.91%) qued&oacute; eliminado por apenas ~14,000 votos, en el resultado m&aacute;s ajustado de la historia electoral reciente.</div>
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">ONPE al 99,549%: Sánchez lidera en 11 regiones con 13.546 votos sobre López Aliaga</div>
           </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qu&eacute; importa</strong>
-              El duelo Keiko&ndash;S&aacute;nchez plantea una polarizaci&oacute;n ideol&oacute;gica n&iacute;tida (derecha fujimorista vs. izquierda progresista). Los votantes de L&oacute;pez Aliaga &mdash;base conservadora antikeikista&mdash; son el voto bisagra que decidir&aacute; la elecci&oacute;n, con implicaciones directas para inversi&oacute;n y pol&iacute;tica econ&oacute;mica.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.infobae.com/peru/2026/05/09/resultados-onpe-en-vivo-conteo-oficial-conoce-quien-pasa-a-segunda-vuelta-en-las-elecciones-2026-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae</a> &middot;
-              <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-tras-elecciones-2026-quienes-pasan-a-segunda-vuelta-keiko-fujimori-rafael-lopez-aliaga-roberto-sanchez-jorge-nieto-lbposting-noticia/">El Comercio</a> &middot;
-              <a href="https://larepublica.pe/politica/2026/05/10/link-oficial-de-la-onpe-para-ver-los-resultados-finales-de-las-elecciones-generales-2026-roberto-sanchez-vs-lopez-aliaga-hnews-450590">La Rep&uacute;blica</a>
-            </div>
-          </div>
+          <div class="swipe-body">Con el 99,549% de los votos contabilizados, la Oficina Nacional de Procesos Electorales (ONPE) confirma que Roberto Sánchez (Juntos por el Perú) lidera la clasificación en 11 regiones del país, acumulando 2.001.640 votos válidos (11,996%), frente a Rafael López Aliaga (Renovación Popular) con 1.988.094 votos (11,915%). La diferencia es de 13.546 votos. La ONPE aún tiene pendiente el procesamiento de 406 actas observadas enviadas a los Jurados Electorales Especiales (JEE) para su resolución definitiva.</div>
         </div>
-
-        <!-- Card 02 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">02</div>
-              <div class="swipe-title">L&oacute;pez Aliaga denuncia fraude sin evidencias; observadores internacionales avalan el proceso</div>
-            </div>
-            <div class="swipe-body">Tras confirmar su eliminaci&oacute;n, Rafael L&oacute;pez Aliaga denunci&oacute; fraude electoral sin presentar pruebas. Las misiones de observaci&oacute;n de la OEA y la UE emitieron informes confirmando que las irregularidades log&iacute;sticas del d&iacute;a de la votaci&oacute;n &mdash;falta de materiales en distritos de Lima&mdash; no afectaron la credibilidad ni la transparencia del proceso.</div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Una diferencia de 13.546 votos sobre un universo de más de 16 millones de votos válidos representa apenas el 0,08%. El procesamiento de las 406 actas observadas podría modificar marginalmente el resultado, aunque analistas de todas las corrientes dan por confirmado el duelo Fujimori-Sánchez para el 7 de junio.
           </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qu&eacute; importa</strong>
-              Las alegaciones sin sustento de fraude representan un riesgo para la gobernabilidad post-electoral. Si L&oacute;pez Aliaga moviliza a su base hacia la desconfianza institucional antes del 7 de junio, puede afectar la participaci&oacute;n y generar narrativas de ruptura democr&aacute;tica que escalen a conflictos sociales.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.infobae.com/peru/2026/05/05/segunda-vuelta-2026-en-peru-fecha-oficial-cambios-debate-y-todo-lo-que-necesitas-saber-antes-del-7-de-junio/">Infobae</a> &middot;
-              <a href="https://rpp.pe/politica/elecciones/resultados-onpe-2026-en-vivo-conteo-actas-procesados-en-elecciones-peru-noticia-1684454">RPP</a>
-            </div>
-          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/10/onpe-al-99549-de-votos-contabilizados-roberto-sanchez-se-perfila-como-ganador-en-11-regiones-del-peru-hnews-702880">La República</a> · <a href="https://www.infobae.com/peru/2026/05/09/resultados-onpe-en-vivo-conteo-oficial-conoce-quien-pasa-a-segunda-vuelta-en-las-elecciones-2026-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae</a></div>
         </div>
-
-        <!-- Card 03 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">03</div>
-              <div class="swipe-title">Inflaci&oacute;n anualizada en 3.73%: el BCRP cerrar&aacute; 2026 fuera del rango meta</div>
-            </div>
-            <div class="swipe-body">El IPC subi&oacute; 0.64% en abril, acumulando 3.53% en el a&ntilde;o y una tasa anualizada de 3.73%, por encima del techo del rango meta del Banco Central de Reserva del Per&uacute; (1%&ndash;3%). Analistas advierten que esto ocurrir&aacute; con o sin la permanencia de Julio Velarde al frente del BCRP, dado el componente estructural de la presi&oacute;n inflacionaria en servicios y alimentos.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qu&eacute; importa</strong>
-              El per&iacute;odo electoral es el peor momento para inflaci&oacute;n persistente: genera presi&oacute;n sobre el pr&oacute;ximo gobierno para pol&iacute;ticas expansivas, debilita el poder adquisitivo de los m&aacute;s vulnerables y puede tensar la pol&iacute;tica monetaria justo cuando habr&aacute; incertidumbre sobre la continuidad del BCRP tras el cambio de gobierno.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 04 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">04</div>
-              <div class="swipe-title">Miner&iacute;a ilegal supera US$12,000 millones y opera como econom&iacute;a criminal con control territorial</div>
-            </div>
-            <div class="swipe-body">En el foro proEXPLO 2026, expertos confirmaron que la miner&iacute;a ilegal en Per&uacute; ya supera los US$12,000 millones anuales y ha transitado de un conflicto ideol&oacute;gico-comunitario a una disputa territorial activa vinculada al narcotr&aacute;fico, lavado de activos y tr&aacute;fico de armas. El Estado pas&oacute; de 62 a m&aacute;s de 130 operativos por mes, pero la escala del problema supera la capacidad de respuesta.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qu&eacute; importa</strong>
-              La miner&iacute;a ilegal no es un problema ambiental marginal: es una econom&iacute;a paralela de US$12,000M que distorsiona el PBI, corrompe instituciones locales y compite directamente con la miner&iacute;a formal, principal fuente de divisas del pa&iacute;s. El pr&oacute;ximo gobierno heredar&aacute; esta crisis sin un plan estructurado.
-            </div>
-            <div class="swipe-source">
-              <a href="https://iimp.org.pe/noticias/interna/ivan-arenas-en-proexplo-2026-la-mineria-ilegal-ya-opera-como-una-economia-criminal-que-disputa-territorios-en-el-peru">IIMP</a> &middot;
-              <a href="https://www.eldiario.net/portal/2026/05/09/crimen-organizado-opera-en-mineria-ilegal-por-altos-precios-de-minerales/">El Diario</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 05 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">05</div>
-              <div class="swipe-title">Liga 1, Fecha 14: Alianza Lima lidera con 33 puntos; empate con Sporting Cristal</div>
-            </div>
-            <div class="swipe-body">En la decimocuarta fecha del Torneo Apertura de Liga 1 2026, Alianza Lima se mantiene en la cima con 33 puntos, seguido por Cienciano y Los Chankas empatados con 29. Universitario de Deportes es cuarto con 24 unidades. FC Cajamarca derrot&oacute; 2-1 a UTC en el cl&aacute;sico regional, con gol de Hern&aacute;n Barcos. Alianza Lima y Sporting Cristal igualaron en el Alejandro Villanueva.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qu&eacute; importa</strong>
-              Con tres fechas por disputarse, la definici&oacute;n del Apertura se perfila entre Alianza Lima y sus perseguidores. La segunda plaza de Cienciano y Los Chankas &mdash;igualados en puntos&mdash; deja abierta la lucha hasta la &uacute;ltima jornada.
-            </div>
-            <div class="swipe-source">
-              <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a> &middot;
-              <a href="https://larepublica.pe/deportes/2026/05/09/tabla-de-posiciones-de-la-liga-1-2026-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-158494">La Rep&uacute;blica</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /carousel-track -->
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
       </div>
-      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
-    </div><!-- /carousel-container -->
 
-    <!-- DIVIDER -->
-    <div class="divider reveal"><span class="divider-text">Noticias por Secci&oacute;n</span></div>
-
-    <!-- POL&Iacute;TICO -->
-    <div class="news-item glass reveal" style="transition-delay:0.04s">
-      <span class="pill pill-pol">Pol&iacute;tico</span>
-      <h3>ONPE al 99.6%: segunda vuelta entre Keiko Fujimori y Roberto S&aacute;nchez el 7 de junio</h3>
-      <p>Con 99.632% de actas procesadas, la Oficina Nacional de Procesos Electorales confirm&oacute; que Keiko Fujimori (Fuerza Popular, 17.17%) y Roberto S&aacute;nchez Palomino (Juntos por el Per&uacute;, 12.00%) disputar&aacute;n la segunda vuelta el 7 de junio. Rafael L&oacute;pez Aliaga (Renovaci&oacute;n Popular, 11.91%) qued&oacute; a menos de 14,500 votos de la clasificaci&oacute;n. El JNE supervisar&aacute; el escrutinio de las actas observadas pendientes antes de la proclamaci&oacute;n oficial.</p>
-      <span class="source-link">
-        <a href="https://resultadoelectoral.onpe.gob.pe/">ONPE</a> &middot;
-        <a href="https://www.infobae.com/peru/2026/05/09/resultados-onpe-en-vivo-conteo-oficial-conoce-quien-pasa-a-segunda-vuelta-en-las-elecciones-2026-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae</a> &middot;
-        <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-tras-elecciones-2026-quienes-pasan-a-segunda-vuelta-keiko-fujimori-rafael-lopez-aliaga-roberto-sanchez-jorge-nieto-lbposting-noticia/">El Comercio</a>
-      </span>
-    </div>
-
-    <!-- ECON&Oacute;MICO -->
-    <div class="news-item glass reveal" style="transition-delay:0.08s">
-      <span class="pill pill-eco">Econ&oacute;mico</span>
-      <h3>Inflaci&oacute;n anualizada en 3.73%: el BCRP cerrar&aacute; 2026 fuera del rango meta por cuarto a&ntilde;o</h3>
-      <p>El IPC registr&oacute; un alza de 0.64% en abril de 2026, acumulando 3.53% en los primeros cuatro meses del a&ntilde;o. La tasa anualizada de 3.73% supera el techo del rango meta del BCRP (1%&ndash;3%). Analistas se&ntilde;alan que la inflaci&oacute;n en servicios y alimentos tiene componentes estructurales que no responden a la pol&iacute;tica monetaria actual, independientemente de si Julio Velarde contin&uacute;a o no al frente del banco central tras las elecciones.</p>
-      <span class="source-link">
-        <a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae</a>
-      </span>
-    </div>
-
-    <!-- ECON&Oacute;MICO 2 -->
-    <div class="news-item glass reveal" style="transition-delay:0.12s">
-      <span class="pill pill-eco">Econ&oacute;mico</span>
-      <h3>D&oacute;lar estable en S/ 3.441 compra y S/ 3.450 venta; mercado absorbe resultado electoral sin volatilidad</h3>
-      <p>El tipo de cambio abri&oacute; el domingo 10 de mayo en S/ 3.441 para la compra y S/ 3.450 para la venta, seg&uacute;n datos de la SUNAT y el BCRP. La cotizaci&oacute;n se manten&iacute;a estable en torno a S/ 3.44&ndash;3.45, sin movimientos bruscos pese al contexto electoral. El mercado cambiario peruano absorbi&oacute; el resultado de la primera vuelta sin volatilidad significativa, reflejando confianza en la solidez macrofinanciara del pa&iacute;s.</p>
-      <span class="source-link">
-        <a href="https://larepublica.pe/economia/precio-del-dolar/2026/05/10/precio-del-dolar-hoy-en-peru-10-de-mayo-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-atmp-374256">La Rep&uacute;blica</a> &middot;
-        <a href="https://elcomercio.pe/economia/mercados/precio-del-dolar-hoy-en-peru-2026-a-cuanto-esta-el-tipo-de-cambio-este-domingo-10-de-mayo-tasa-cotizacion-compra-y-venta-segun-bcrp-dolares-a-soles-sbs-ocona-lbposting-noticia/">El Comercio</a>
-      </span>
-    </div>
-
-    <!-- EMPRESARIAL -->
-    <div class="news-item glass reveal" style="transition-delay:0.16s">
-      <span class="pill pill-emp">Empresarial</span>
-      <h3>proEXPLO 2026: miner&iacute;a ilegal supera US$12,000M y opera como econom&iacute;a criminal transnacional en Per&uacute;</h3>
-      <p>El Instituto de Ingenieros de Minas del Per&uacute; (IIMP) report&oacute; en proEXPLO 2026 que la miner&iacute;a ilegal en el pa&iacute;s supera los US$12,000 millones anuales y opera bajo estructuras criminales transnacionales. El negocio, impulsado por precios del oro en m&aacute;ximos hist&oacute;ricos, conecta con lavado de dinero, narcotr&aacute;fico y tr&aacute;fico de armas. El Estado increment&oacute; operativos a m&aacute;s de 130 por mes, pero los expertos advierten que sin reforma estructural del marco legal minero el problema seguir&aacute; creciendo.</p>
-      <span class="source-link">
-        <a href="https://iimp.org.pe/noticias/interna/ivan-arenas-en-proexplo-2026-la-mineria-ilegal-ya-opera-como-una-economia-criminal-que-disputa-territorios-en-el-peru">IIMP</a> &middot;
-        <a href="https://www.reporteminero.cl/noticia/noticias/2026/05/ivan-arenas-proexplo-2026-mineria-ilegal-economia-criminal-peru">Reporte Minero</a>
-      </span>
-    </div>
-
-    <!-- SOCIAL -->
-    <div class="news-item glass reveal" style="transition-delay:0.20s">
-      <span class="pill pill-soc">Social</span>
-      <h3>D&iacute;a de la Madre: m&aacute;s de 500,000 personas visitan el cementerio Nueva Esperanza en Lima</h3>
-      <p>Lima registr&oacute; una masiva concurrencia en el cementerio municipal Nueva Esperanza de Villa Mar&iacute;a del Triunfo con motivo del D&iacute;a de la Madre 2026. Las autoridades municipales reforzaron la seguridad y los servicios de transporte. Paralelamente, el gobierno realiz&oacute; una feria del pasaporte que benefici&oacute; a m&aacute;s de 4,400 ciudadanos en un solo d&iacute;a, aprovechando la alta afluencia de p&uacute;blico durante el feriado.</p>
-      <span class="source-link">
-        <a href="https://rpp.pe/">RPP Noticias</a>
-      </span>
-    </div>
-
-    <!-- DEPORTES -->
-    <div class="news-item glass reveal" style="transition-delay:0.24s">
-      <span class="pill pill-dep">Deportes</span>
-      <h3>Liga 1, Fecha 14: Alianza Lima lidera con 33 puntos; FC Cajamarca vence 2-1 a UTC</h3>
-      <p>En la decimocuarta fecha del Torneo Apertura de Liga 1 2026, Alianza Lima se mantiene en la cima con 33 puntos, seguido por Cienciano y Los Chankas empatados con 29. Universitario de Deportes es cuarto con 24 unidades. FC Cajamarca derrot&oacute; 2-1 a UTC en el cl&aacute;sico regional con gol de Hern&aacute;n Barcos. Alianza Lima y Sporting Cristal igualaron en el Alejandro Villanueva. Con tres fechas por disputarse, el Torneo Apertura entra en su recta definitiva.</p>
-      <span class="source-link">
-        <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a> &middot;
-        <a href="https://larepublica.pe/deportes/2026/05/09/tabla-de-posiciones-de-la-liga-1-2026-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-158494">La Rep&uacute;blica</a>
-      </span>
-    </div>
-
-    <!-- INTERNACIONAL -->
-    <div class="news-item glass reveal" style="transition-delay:0.28s">
-      <span class="pill pill-int">Internacional</span>
-      <h3>OEA y UE avalan transparencia del proceso electoral; recomiendan revisar log&iacute;stica para la segunda vuelta</h3>
-      <p>Las misiones de observaci&oacute;n de la OEA, la Uni&oacute;n Europea y otras organizaciones internacionales emitieron informes validando la integridad del proceso electoral peruano. Los observadores reconocieron fallas log&iacute;sticas en la distribuci&oacute;n de materiales en distritos de Lima &mdash;donde L&oacute;pez Aliaga concentra su mayor votaci&oacute;n&mdash; pero concluyeron que no alteraron el resultado. Las misiones recomendaron al JNE revisar los protocolos de distribuci&oacute;n para garantizar una segunda vuelta sin incidentes el 7 de junio.</p>
-      <span class="source-link">
-        <a href="https://www.tvperu.gob.pe/noticias/politica/resultados-elecciones-2026-en-vivo-segunda-vuelta-hoy">TVPer&uacute;</a> &middot;
-        <a href="https://rpp.pe/">RPP</a>
-      </span>
-    </div>
-
-    <!-- DATA STRIP -->
-    <div class="data-strip reveal" style="transition-delay:0.32s">
-      <div class="data-cell glass">
-        <div class="data-cell-label">D&oacute;lar Venta</div>
-        <div class="data-cell-value">S/ 3.450</div>
-        <div class="data-cell-delta" style="color: var(--muted);">BCRP oficial</div>
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Segunda vuelta confirmada: Fujimori vs. Sánchez el 7 de junio en la elección más polarizada en años</div>
+          </div>
+          <div class="swipe-body">Keiko Fujimori (Fuerza Popular) encabeza la primera vuelta con 2.865.480 votos (17,17%), acompañada por Roberto Sánchez como segundo clasificado. El duelo del 7 de junio enfrenta dos modelos opuestos: Fujimori apuesta por continuidad macroeconómica, mano dura en seguridad y apertura al capital privado; Sánchez propone reformas estructurales, mayor presencia del Estado en sectores estratégicos y una agenda centrada en las regiones altoandinas y amazónicas donde ganó por amplio margen.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El 7 de junio definirá el rumbo económico del Perú para 2026-2031. El escenario Fujimori mantiene el modelo exportador minero; el escenario Sánchez plantea reformas fiscales y laborales de envergadura. Los inversores internacionales en minería, infraestructura y energía están monitoreando la campaña con particular atención.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/10/keiko-fujimori-y-roberto-sanchez-pasarian-a-segunda-vuelta-con-resultados-onpe-al-99562-hnews-174340">La República</a> · <a href="https://elcomercio.pe/elecciones/resultados-onpe-en-vivo-tras-elecciones-2026-quienes-pasan-a-segunda-vuelta-keiko-fujimori-rafael-lopez-aliaga-roberto-sanchez-jorge-nieto-lbposting-noticia/">El Comercio</a></div>
+        </div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">D&oacute;lar Compra</div>
-        <div class="data-cell-value">S/ 3.441</div>
-        <div class="data-cell-delta" style="color: var(--muted);">SUNAT &middot; 10 may</div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">JNE procesará 406 actas observadas; resultados definitivos a mediados de mayo</div>
+          </div>
+          <div class="swipe-body">El Jurado Nacional de Elecciones (JNE) está a cargo de resolver las 406 actas observadas que la ONPE derivó a los Jurados Electorales Especiales. Una vez resueltas, la ONPE publicará los resultados definitivos previstos para mediados de mayo. Solo entonces se activará formalmente la campaña de segunda vuelta, incluyendo el debate presidencial oficial programado para la tercera semana de mayo. TV Perú habilitó un portal especial de seguimiento en tiempo real del conteo final.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Las 406 actas no cambiarán el resultado de fondo —la ventaja de Sánchez sobre López Aliaga es estadísticamente sólida— pero sí son necesarias para la proclamación oficial que habilita el debate presidencial y el inicio formal de la campaña. Cualquier impugnación de actas en los JEE que se extienda más allá de lo esperado complicaría el cronograma electoral.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/10/link-oficial-de-la-onpe-para-ver-los-resultados-finales-de-las-elecciones-generales-2026-roberto-sanchez-vs-lopez-aliaga-hnews-450590">La República</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/resultados-elecciones-2026-en-vivo-segunda-vuelta-hoy">TV Perú</a></div>
+        </div>
       </div>
-      <div class="data-cell glass">
-        <div class="data-cell-label">Inflaci&oacute;n Anual</div>
-        <div class="data-cell-value red">3.73%</div>
-        <div class="data-cell-delta red">sobre meta BCRP</div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Sánchez ganó en Amazonas, Apurímac, Ayacucho, Cajamarca y Cusco: el «Perú profundo» decide</div>
+          </div>
+          <div class="swipe-body">El análisis regional del resultado revela el mapa electoral de la segunda vuelta: Sánchez se impone con amplias mayorías en las regiones altoandinas y amazónicas donde la informalidad, la minería ilegal y la pobreza estructural son más agudas. En Apurímac obtuvo el 40,98% y en Cajamarca el 41,63%. Fujimori domina Lima Metropolitana y las regiones costeras del sur. Esta geografía del voto anticipará las negociaciones de campaña sobre minería, canon y redistribución fiscal.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El «Perú profundo» que votó masivamente por Sánchez es el mismo que concentra la minería informal y los conflictos socioambientales. Cualquier propuesta de política minera en la campaña de segunda vuelta que no contemple a estas regiones será percibida como una concesión a Lima y al gran capital.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/10/onpe-al-99549-de-votos-contabilizados-roberto-sanchez-se-perfila-como-ganador-en-11-regiones-del-peru-hnews-702880">La República</a> · <a href="https://andina.pe/agencia/resultadoselecciones2026">Andina</a></div>
+        </div>
       </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Minería ilegal resta hasta 12% del crecimiento potencial: el gran tema ausente en la campaña</div>
+          </div>
+          <div class="swipe-body">El Instituto Peruano de Economía (IPE) advierte que la minería ilegal reduce hasta un 12% el crecimiento potencial del PBI peruano, y que 1,7 millones de personas no habrían salido de la pobreza por su efecto. Con la segunda vuelta entre Fujimori y Sánchez ya confirmada, el IPE señala que ninguno de los dos candidatos plantea eliminar el Registro Integral de Formalización Minera (Reinfo), el mecanismo que facilita que la minería ilegal opere bajo cobertura de legalidad aparente.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El Reinfo es el principal punto ciego de la política minera peruana. Que ambos candidatos lo mantengan en campaña revela la presión de los bloques electorales en zonas de minería informal, especialmente en Puno, Madre de Dios y Cajamarca. Para inversores del sector formal, esta omisión es una señal de riesgo regulatorio.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/economia/2026/05/06/ipe-mineria-ilegal-reduce-hasta-12-el-crecimiento-del-peru-y-17-millones-no-habrian-salido-de-la-pobreza-pbi-hnews-235956">La República</a> · <a href="https://proactivo.com.pe/ipe-mineria-ilegal-resta-hasta-12-de-crecimiento-potencial-al-peru/">Proactivo</a></div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- QU&Eacute; VIGILAR -->
-    <div class="vigilar reveal" style="transition-delay:0.36s">
-      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
-      <div class="vigilar-item">Proclamaci&oacute;n oficial del JNE: cu&aacute;ndo certifica la segunda vuelta Keiko&ndash;S&aacute;nchez y si L&oacute;pez Aliaga presenta impugnaci&oacute;n formal con pruebas ante el JEE.</div>
-      <div class="vigilar-item">Apertura de la Bolsa de Valores de Lima el lunes: primer test del mercado ante la confirmaci&oacute;n del escenario electoral polarizado.</div>
-      <div class="vigilar-item">Posici&oacute;n del BCRP ante la inflaci&oacute;n persistente fuera del rango meta: declaraciones de Velarde sobre la tasa de referencia en el contexto preelectoral.</div>
-      <div class="vigilar-item">Primeras propuestas de campa&ntilde;a de Keiko Fujimori y Roberto S&aacute;nchez para seducir al electorado de L&oacute;pez Aliaga de cara al 7 de junio.</div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
 
-    <!-- FOOTER -->
-    <div class="footer reveal" style="transition-delay:0.40s">
-      <div>Fuentes: RPP &middot; La Rep&uacute;blica &middot; El Comercio &middot; Infobae Per&uacute; &middot; Gesti&oacute;n &middot; TVPer&uacute; &middot; Depor &middot; ONPE &middot; IIMP &middot; BCRP</div>
-      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+  <div class="divider reveal">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>ONPE habilita link oficial para verificación de resultados finales Fujimori-Sánchez</h3>
+    <p>La Oficina Nacional de Procesos Electorales publicó el enlace oficial al portal de resultados electorales donde cualquier ciudadano puede verificar en tiempo real el avance del conteo de actas, incluyendo las 406 actas observadas que se encuentran en proceso de resolución ante los JEE. El portal permite filtrar por región, provincia y distrito, y muestra el porcentaje de actas procesadas en cada nivel.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/05/10/link-oficial-de-la-onpe-para-ver-los-resultados-finales-de-las-elecciones-generales-2026-roberto-sanchez-vs-lopez-aliaga-hnews-450590">La República</a> · <a href="https://resultadoelectoral.onpe.gob.pe/">ONPE Oficial</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>ONPE confirma renovación del Senado: partidos deberán actualizar autoridades a mediados de mayo</h3>
+    <p>Los resultados senatoriales de las Elecciones Generales 2026 ya están prácticamente consolidados, con senadores nacionales y regionales electos en la mayoría de circunscripciones. La ONPE informó que los partidos políticos deberán presentar su información financiera anual del 2025 antes del 1 de julio, según resolución emitida el 8 de mayo. El nuevo Congreso bicameral asumirá en julio y su composición determinará el margen legislativo del próximo ejecutivo.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/05/06/senadores-nacionales-y-regionales-electos-resultados-onpe-de-elecciones-peru-2026-hnews-352808">La República</a> · <a href="https://larepublica.pe/politica/2026/05/10/onpe-establece-que-partidos-politicos-presenten-su-informacion-financiera-anual-del-2025-antes-del-1-de-julio-hnews-270750">La República</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>MEF mantiene proyección de crecimiento del PBI en 3,2% para 2026</h3>
+    <p>El Ministerio de Economía y Finanzas ratificó su proyección de crecimiento del PBI de 3,2% para 2026, impulsado por el fortalecimiento de la demanda interna y el dinamismo del gasto privado. La inversión privada acumula tres años consecutivos de expansión, con la inversión minera proyectada en más de $us 6.800 millones. El período de incertidumbre electoral podría generar una ralentización transitoria de decisiones de inversión hasta conocerse el resultado del 7 de junio.</p>
+    <span class="source-link"><a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a> · <a href="https://rpp.pe/economia/economia/economia-peru-elecciones-2026-retos-panorama-actual-noticia-1669708">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Inversores ponen en pausa decisiones de gran escala hasta conocer el resultado del 7 de junio</h3>
+    <p>Analistas económicos y cámaras empresariales coinciden en que la incertidumbre de la segunda vuelta ha generado un freno parcial en decisiones de inversión de largo plazo. Grandes proyectos en minería, construcción e infraestructura han postergado sus convocatorias de licitación o anuncios de expansión a la espera del resultado electoral. El Día1 Summit 2026, que convocó a los principales líderes empresariales del país esta semana, reflejó la cautela del sector privado ante ambos escenarios.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/dia1-summit-2026-lideres-empresariales-debatiran-sobre-el-futuro-del-pais-tras-las-elecciones-noticia/">El Comercio</a> · <a href="https://cnnespanol.cnn.com/2026/04/16/latinoamerica/economia-peru-incertidumbre-electoral-orix">CNN Español</a></span>
+  </div>
+
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social</span>
+    <h3>Informalidad laboral sigue siendo el principal reto estructural: 13 de 18 millones trabajan sin contrato</h3>
+    <p>Más allá del proceso electoral, los datos estructurales del mercado laboral peruano siguen siendo preocupantes: de los 18 millones de peruanos que trabajan, más de 13 millones lo hacen en la informalidad, sin contratos, beneficios ni acceso a seguridad social. Este dato, que afecta desproporcionadamente a las regiones altoandinas —donde Sánchez obtuvo sus mayores victorias— será uno de los ejes del debate de segunda vuelta.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/economia-peru-elecciones-2026-retos-panorama-actual-noticia-1669708">RPP Noticias</a></span>
+  </div>
+
+  <div class="data-strip reveal">
+    <div class="data-cell glass">
+      <div class="data-cell-label">ONPE Avance</div>
+      <div class="data-cell-value">99,5%</div>
+      <div class="data-cell-delta" style="color:var(--muted)">406 actas pend.</div>
     </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dif. S&aacute;nchez-LA</div>
+      <div class="data-cell-value">13.546</div>
+      <div class="data-cell-delta green">votos válidos</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">2da Vuelta</div>
+      <div class="data-cell-value">7 Jun</div>
+      <div class="data-cell-delta">Keiko vs S&aacute;nchez</div>
+    </div>
+  </div>
 
-  </div><!-- /wrap -->
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Esta Semana</div>
+    <div class="vigilar-item">Resolución de las 406 actas observadas por los JEE: aunque no cambian el resultado de fondo, su procesamiento es el trámite formal que habilitará la proclamación oficial de Fujimori y Sánchez como candidatos de segunda vuelta.</div>
+    <div class="vigilar-item">Proclamación oficial del JNE a mediados de mayo: activará formalmente la campaña de segunda vuelta y el cronograma del debate presidencial de la tercera semana del mes.</div>
+    <div class="vigilar-item">Primeras propuestas de campaña de segunda vuelta: cómo Fujimori y Sánchez posicionan sus plataformas minera, fiscal y de seguridad ante el electorado indecisos que López Aliaga deja en el mercado.</div>
+    <div class="vigilar-item">Comportamiento de la inversión privada: si los proyectos postergados comienzan a retomarse o si la pausa se extiende hasta después del 7 de junio, lo que afectaría el crecimiento del PBI del segundo semestre.</div>
+  </div>
 
-  <script>
-    const track = document.getElementById('carousel');
-    const dots = document.querySelectorAll('.dot');
-    track.addEventListener('scroll', () => {
-      const idx = Math.round(track.scrollLeft / track.offsetWidth);
-      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
-    });
-    const obs = new IntersectionObserver(es => es.forEach(e => {
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-    }),{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+  <div class="footer reveal">
+    Fuentes: La República &middot; El Comercio &middot; Infobae &middot; RPP Noticias &middot; Gestión &middot; TV Perú &middot; Andina &middot; CNN Español &middot; IPE &middot; MEF &middot; ONPE &middot; JNE &middot; Proactivo<br>
+    Briefing generado con Claude &mdash; Solo para uso informativo
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
