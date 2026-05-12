@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 11 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead reveal" style="transition-delay:0s">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Lunes 11 de mayo de 2026 · Bogotá</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <!-- Card 01 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Consejo de Estado suspende traslado de $25 billones a Colpensiones</div>
+          </div>
+          <div class="swipe-body">La Segunda Sección del Consejo de Estado suspendió en su totalidad el Decreto 415 de 2026, que ordenaba a las administradoras de fondos privados (AFP) trasladar $25 billones al fondo público Colpensiones. El tribunal consideró que el decreto excedía las facultades del ejecutivo al disponer del ahorro individual de los trabajadores. Petro reaccionó con dureza: "Pido demandar al magistrado" y acusó a la corte de "salvar a banqueros".</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La suspensión paraliza la reforma pensional más audaz de la era Petro y pone en entredicho la sostenibilidad de Colpensiones. Con las elecciones del 31 de mayo a la vuelta de la esquina, el conflicto institucional escala el riesgo político y puede ampliar la brecha entre el gobierno y los mercados.
+          </div>
+          <div class="swipe-source"><a href="https://www.vanguardia.com/economia/2026/05/11/consejo-de-estado-suspende-todo-el-decreto-que-ordenaba-traslado-de-25-billones-a-colpensiones/">Vanguardia</a> · <a href="https://www.infobae.com/colombia/2026/05/11/gustavo-petro-estallo-contra-el-consejo-de-estado-tras-freno-del-traslado-de-25-billones-a-colpensiones-pido-demandar-al-magistrado/">Infobae</a> · <a href="https://www.elespectador.com/judicial/consejo-de-estado-suspendio-traslado-de-cop-5-billones-de-pensionados-a-colpensiones/">El Espectador</a></div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Exequias de Germán Vargas Lleras: Colombia despide a un estadista</div>
+          </div>
+          <div class="swipe-body">El exvicepresidente Germán Vargas Lleras (1962–2026), fallecido el 8 de mayo por un tumor cerebral a los 64 años, recibió su último adiós con calle de honor en la Catedral Primada de Colombia antes de ser sepultado en Jardines de Paz. Petro decretó luto nacional. El expresidente Santos encabezó la delegación de exmandatarios. Su hija pidió no votar por Iván Cepeda; Petro respondió en plenas exequias.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Vargas Lleras era la figura de centro-derecha con mayor capacidad de articular una oposición unida al petrismo. Su muerte en plena campaña presidencial deja un vacío en ese espectro político y convierte sus exequias en un termómetro inesperado del clima electoral a tres semanas del 31 de mayo.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/11/en-vivoel-ultimo-adios-de-german-vargas-lleras-con-calle-de-honor-ingresara-el-exvicepresidente-a-la-catedral-primada-de-colombia/">Infobae</a> · <a href="https://www.elcolombiano.com/colombia/german-vargas-lleras-historia-de-vida-y-muerte-2026-DD36350232">El Colombiano</a></div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">23 planes de atentado contra candidatos a 20 días de las elecciones</div>
+          </div>
+          <div class="swipe-body">El gobierno reveló que inteligencia documentó 23 planes de atentado contra candidatos presidenciales, incluyendo a Abelardo de la Espriella, Iván Cepeda, Paloma Valencia y Sergio Fajardo. El Ministerio de Defensa ofreció $1.000 millones por información que permita frustrar los ataques. De la Espriella denunció que el propio DNI estaría involucrado en uno de los planes. Los candidatos recibieron refuerzo en sus esquemas de seguridad.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Con las elecciones presidenciales el 31 de mayo, la amenaza directa a candidatos convierte la seguridad en el eje de la campaña final. Si algún incidente ocurre, el impacto sobre la legitimidad del proceso electoral sería devastador para la institucionalidad colombiana.
+          </div>
+          <div class="swipe-source"><a href="https://www.semana.com/politica/articulo/exclusivo-investigan-23-planes-para-atentar-contra-candidatos-presidenciales/202620/">Semana</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gobierno-del-presidente-gustavo-petro-respondio-por-nuevas-amenazas-a-candidatos-cepeda-de-la-espriella-y-valencia-noticias-hoy/">El Espectador</a></div>
+        </div>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Inflación sube a 5,68% en abril: papa, tomate y yuca lideran el alza</div>
+          </div>
+          <div class="swipe-body">La inflación anual en Colombia alcanzó 5,68% en abril de 2026, con incrementos significativos en alimentos básicos como papa, tomate y yuca. El Ministerio de Agricultura atribuyó el fenómeno a factores climáticos adversos, alza en costos de producción y encarecimiento de fertilizantes vinculado al conflicto en Medio Oriente. El impacto en la canasta familiar de los hogares de menores ingresos se considera crítico.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La inflación de alimentos golpea directamente el bolsillo electoral de los sectores populares que Petro reivindica como base. En el recta final de campaña, el costo de vida se convierte en argumento central de la oposición y presiona al Banco de la República a mantener tasas altas.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/11/gobierno-petro-revelo-las-preocupantes-razones-del-alza-del-precio-de-alimentos-como-la-yuca-la-papa-y-el-tomate/">Infobae</a></div>
+        </div>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Liga BetPlay: resultados de ida en cuartos de final</div>
+          </div>
+          <div class="swipe-body">Se completaron los partidos de ida de los cuartos de final del Torneo Apertura 2026. Atlético Nacional venció 2-1 a Independiente Santa Fe; Deportes Tolima ganó 1-0 a Deportivo Pasto; América de Cali y Santa Fe empataron 1-1 (goles de Rodallega y Ramos); Junior de Barranquilla superó a Once Caldas. Los partidos de vuelta se jugarán el 12 y 13 de mayo para definir los cuatro semifinalistas.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Nacional avanza con ventaja hacia la semifinal en un torneo que coincide con el ruido electoral. La fase eliminatoria atrae la mayor audiencia televisiva de la temporada y concentra la atención del país en los próximos días.
+          </div>
+          <div class="swipe-source"><a href="https://www.elespectador.com/deportes/futbol-colombiano/cuartos-de-final-de-la-liga-betplay-2026-i-fechas-y-horarios-de-los-partidos-de-vuelta/">El Espectador</a> · <a href="https://www.infobae.com/colombia/2026/05/04/definidos-los-cuartos-de-final-de-la-liga-betplay-2026-i-fechas-horarios-y-donde-ver-los-partidos/">Infobae</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider reveal" style="transition-delay:0.12s">
+    <span class="divider-text">Noticias por Sección</span>
+  </div>
+
+  <!-- NEWS ITEMS -->
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Paz Total: $88.840 millones gastados, sin mejoras medibles en seguridad</h3>
+    <p>Una denuncia del concejal Julián Uscátegui reveló que el gobierno de Petro destinó más de $88.840 millones entre agosto de 2022 y diciembre de 2025 a mesas de diálogo y procesos de negociación con grupos armados ilegales. Las cifras contrastan con el incremento del 30% en masacres y la tasa récord de asesinatos de líderes sociales en 2026. El debate llega en plena campaña electoral.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/11/gobierno-petro-destino-88840-millones-a-dialogos-con-grupos-armados-denuncian-alto-gasto-en-paz-total-sin-mejoras-en-seguridad/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-pol">Electoral</span>
+    <h3>De la Espriella supera a Cepeda en Polymarket con 43% de probabilidad de victoria</h3>
+    <p>A tres semanas del 31 de mayo, la plataforma de apuestas Polymarket registra a Abelardo de la Espriella (Defensores de la Patria) con 43% de probabilidad de ganar la presidencia, por encima de Iván Cepeda, candidato oficialista. Las encuestas convencionales siguen dando a Cepeda el primer lugar con 45,9% en un hipotético duelo directo frente a 40,7% de De la Espriella. Paloma Valencia (Centro Democrático) suma 18,4%.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/11/abelardo-de-la-espriella-supera-a-ivan-cepeda-a-semanas-de-las-elecciones-presidenciales-segun-polymarket/">Infobae</a> · <a href="https://www.pulzo.com/elecciones-colombia-2026/ultimas-encuestas-presidenciales-colombia-2026-PP5174818A">Pulzo</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-soc">Social</span>
+    <h3>55 líderes sociales asesinados en lo que va de 2026; abril fue el mes más violento</h3>
+    <p>Colombia registró 55 asesinatos de líderes sociales en los primeros cuatro meses de 2026, con abril como el mes más violento del año: 21 víctimas, un crimen cada 48 horas. Los líderes comunales son los más afectados (13 casos), seguidos por líderes políticos (11) y comunitarios (9). Cauca, Nariño y Putumayo concentran los focos de mayor violencia, donde actores armados intensifican la presión territorial.</p>
+    <span class="source-link"><a href="https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/5/colombia-registra-22-lideres-sociales-asesinados-solo-desde-abril-crimen-cada-48-horas/">Cambio Colombia</a> · <a href="https://www.eldiario.com.co/noticias/alarma-por-violencia-contra-lideres-sociales-en-colombia-55-asesinatos-en-lo-que-va-de-2026/">El Diario</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar abre la semana en $3.747 con presión alcista por datos de la Fed</h3>
+    <p>La TRM para el 11 de mayo quedó fijada por la Superintendencia Financiera en $3.747,10 COP, un incremento de $17,83 frente al viernes anterior. Analistas del Banco de Bogotá proyectan que la divisa oscilará entre $3.704 y $3.796 durante la semana, en función de las publicaciones sobre precios en EE.UU. y las declaraciones de miembros de la Reserva Federal sobre política monetaria.</p>
+    <span class="source-link"><a href="https://www.noticiascaracol.com/economia/precio-del-dolar-hoy-11-de-mayo-de-2026-asi-abrio-la-tasa-representativa-del-mercado-este-lunes-so35">Noticias Caracol</a> · <a href="https://www.elespectador.com/economia/finanzas-personales/precio-del-dolar-hoy-11-de-mayo-de-2026-en-colombia-noticias-hoy/">El Espectador</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Gobierno colombiano responde por presiones de grupos armados en zonas electorales</h3>
+    <p>El gobierno reconoció que en varias regiones del país existe "impacto de la gobernanza armada ilegal" sobre el proceso electoral. En zonas como el Caribe y el suroccidente, grupos como el ELN y las disidencias de las FARC estarían condicionando el voto. El candidato Cepeda denunció ante la OEA presuntas presiones de grupos armados, solicitando veedores internacionales adicionales para el 31 de mayo.</p>
+    <span class="source-link"><a href="https://cambiocolombia.com/elecciones-colombia-2026/articulo/2026/5/elecciones-en-zonas-de-conflicto-asi-enfrenta-colombia-las-amenazas-contra-la-democracia/">Cambio Colombia</a> · <a href="https://www.elpais.com.co/elecciones/ivan-cepeda-denuncio-presuntas-presiones-de-grupos-armados-para-influir-en-las-elecciones-presidenciales-del-31-de-mayo-0538.html">El País Cali</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.36s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Inversión extranjera supera los USD 15.000 millones anuales; energías renovables lideran</h3>
+    <p>Colombia mantiene un ritmo de inversión extranjera directa superior a USD 15.000 millones anuales en 2026, con La Guajira como epicentro de proyectos eólicos de escala latinoamericana que atraen capital europeo, estadounidense y asiático. Medellín y Bogotá consolidan su posición como hubs tecnológicos regionales, mientras el sector minero-energético y de telecomunicaciones sigue generando compromisos significativos de capital privado.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/amp/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a> · <a href="https://www.rankia.co/noticias/acciones/7306771-acciones-prometedoras-mayo-2026-colombia">Rankia</a></span>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip reveal" style="transition-delay:0.40s">
+    <div class="data-cell glass">
+      <div class="data-cell-label">TRM Oficial</div>
+      <div class="data-cell-value">3.747</div>
+      <div class="data-cell-delta red">+17,83 COP</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Rango Semanal</div>
+      <div class="data-cell-value">3.704</div>
+      <div class="data-cell-delta" style="color:var(--muted)">– 3.796 COP</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Inflación Anual</div>
+      <div class="data-cell-value">5,68%</div>
+      <div class="data-cell-delta red">Abril 2026</div>
+    </div>
+  </div>
+
+  <!-- QUÉ VIGILAR -->
+  <div class="vigilar reveal" style="transition-delay:0.44s">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Recurso de súplica del gobierno ante el Consejo de Estado para revertir la suspensión del traslado de $25 billones a Colpensiones — cualquier decisión moverá los mercados de deuda pública.</div>
+    <div class="vigilar-item">Partidos de vuelta de cuartos de final Liga BetPlay (12–13 mayo): Nacional, Tolima, Junior y América buscan clasificar a semifinales con sus respectivas ventajas o igualdad en la serie.</div>
+    <div class="vigilar-item">Recta final de la campaña presidencial rumbo al 31 de mayo: la seguridad de los candidatos y las denuncias de presiones armadas en territorios pueden redefinir el relato de la última semana electoral.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer reveal" style="transition-delay:0.48s">
+    <div>Fuentes: El Espectador · Infobae Colombia · Semana · Caracol Noticias · El Colombiano · Vanguardia · Cambio Colombia · Pulzo · La FM · El Tiempo · RCN</div>
+    <div style="margin-top:6px; color: var(--tertiary);">Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
