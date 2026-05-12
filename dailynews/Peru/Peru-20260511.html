@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing Perú · Lunes 11 de mayo de 2026</title>
+<title>Briefing Per&#250; &middot; Lunes 11 de mayo de 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --accent: #1a4a6b;
-  --accent-soft: rgba(26,74,107,0.06);
+  --accent: #8B1A1A;
+  --accent-soft: rgba(139,26,26,0.06);
   --ink: #1d1d1f;
   --muted: rgba(60,60,67,0.6);
   --tertiary: rgba(60,60,67,0.3);
@@ -26,89 +26,45 @@
   --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
   --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-  background: linear-gradient(160deg, #E8EDF2 0%, #D4DEE7 25%, #D0D8E4 55%, #E4EDF2 80%, #F2F2F7 100%);
+  background: linear-gradient(160deg, #F2ECEC 0%, #E8D6D6 25%, #D6DEED 55%, #E6ECF2 80%, #F2F2F7 100%);
   color: var(--ink);
   font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 32px 20px;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
   overflow-x: hidden;
 }
-
 .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
-.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(139,26,26,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(139,26,26,0.06) 0%, transparent 70%); }
 .wrap { position: relative; z-index: 1; }
-
-.glass {
-  background: var(--card-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 16px;
-  border: 0.5px solid var(--glass-border);
-  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-}
-
-.masthead {
-  text-align: center;
-  margin-bottom: 28px;
-  padding: 32px 24px 26px;
-  background: var(--card-bg-strong);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 20px;
-  border: 0.5px solid var(--glass-border);
-  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-}
+.glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
 .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
 .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
 .masthead-date { font-size: 13px; color: var(--muted); }
 .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
 .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
 .carousel-container { position: relative; margin-bottom: 32px; }
-.carousel-track {
-  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-}
+.carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
 .carousel-track::-webkit-scrollbar { display: none; }
-
-.swipe-card {
-  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-  background: var(--card-bg-strong);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 20px; border: 0.5px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-  padding: 28px 24px; min-height: 280px;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
+.swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
 .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
 .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
 .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
-.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
 .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-.swipe-source { color: var(--muted); font-size: 11px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
 .swipe-source a { color: var(--accent); text-decoration: none; }
-
-.dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
 .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-
 .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
 .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
 .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
 .news-item { padding: 18px 20px; margin-bottom: 10px; }
 .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
 .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -121,7 +77,6 @@ body {
 .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
 .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
 .source-link a { color: var(--accent); text-decoration: none; }
-
 .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
 .data-cell { padding: 20px 14px; text-align: center; }
 .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
@@ -129,31 +84,16 @@ body {
 .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
 .green { color: #34C759; }
 .red { color: #FF3B30; }
-.neutral { color: var(--muted); }
-
-.vigilar {
-  background: rgba(29,29,31,0.82);
-  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-radius: 16px; padding: 24px; margin: 32px 0;
-  border: 0.5px solid rgba(255,255,255,0.08);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-  color: white;
-}
+.vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
 .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
 .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
 .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
 .vigilar-item:last-child { margin-bottom: 0; }
-
 .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
 .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-@media (max-width: 500px) {
-  body { padding: 20px 14px; }
-  .data-strip { grid-template-columns: 1fr; }
-}
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -161,123 +101,103 @@ body {
 <div class="orb orb-2"></div>
 <div class="wrap">
 
-  <!-- MASTHEAD -->
-  <div class="masthead reveal">
+  <div class="masthead reveal" style="transition-delay:0s">
     <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-    <h1>Perú</h1>
+    <h1>Per&#250;</h1>
     <div class="masthead-date">Lunes 11 de mayo de 2026</div>
-    <div class="masthead-tag">Edición Diaria</div>
+    <div class="masthead-tag">Edici&#243;n Diaria</div>
   </div>
 
-  <!-- TOP 5 -->
-  <div class="section-header reveal">Top 5 del Día</div>
-  <div class="carousel-container reveal">
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&#237;a</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
     <div class="carousel-track" id="carousel">
 
-      <!-- Card 01 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">01</div>
-            <div class="swipe-title">Perú en transición: conteo final post-primera vuelta y Congreso bicameral reinstaurado</div>
+            <div class="swipe-title">S&#225;nchez vs. Fujimori: segunda vuelta el 7 de junio confirmada con ONPE al 99.7%</div>
           </div>
-          <div class="swipe-body">Con las elecciones generales del 12 de abril concluidas, la ONPE y los Jurados Electorales Especiales cerraron el conteo de actas el 7 de mayo. Por primera vez desde 1990, el país eligió 60 senadores y 130 diputados en un sistema bicameral. El gobierno de transición de Balcazar orienta su mandato hasta el 28 de julio con foco en estabilidad y traspaso ordenado del poder.</div>
+          <div class="swipe-body">Roberto S&#225;nchez (Juntos por el Per&#250;) confirm&#243; su pase a la segunda vuelta presidencial del 7 de junio al superar por 14,749 votos a Rafael L&#243;pez Aliaga, con la ONPE al 99.7% de actas procesadas. Keiko Fujimori (Fuerza Popular) lider&#243; la primera vuelta con 17.17% de votos v&#225;lidos, seguida de S&#225;nchez (12.00%) y L&#243;pez Aliaga (11.91%). Los Jurados Electorales Especiales proclamaron resultados en sus jurisdicciones.</div>
         </div>
         <div>
           <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            La reinstauración del bicameralismo es el cambio institucional más significativo en 36 años. La composición del nuevo Senado definirá las correlaciones de poder que enfrentará el próximo ejecutivo desde julio.
+            <strong>Por qu&#233; importa</strong>
+            Per&#250; enfrenta una segunda vuelta polarizada entre la derecha fujimorista y la izquierda progresista de S&#225;nchez. La elecci&#243;n definir&#225; el rumbo econ&#243;mico y el modelo de gobernanza del pa&#237;s para el per&#237;odo 2026&#8211;2031 en un contexto de crecimiento exportador s&#243;lido pero fragilidad institucional.
           </div>
-          <div class="swipe-source">
-            <a href="https://es.wikipedia.org/wiki/Elecciones_parlamentarias_de_Per%C3%BA_de_2026">Wikipedia</a> ·
-            <a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPerú</a>
-          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/09/resultados-onpe-en-vivo-conteo-oficial-conoce-quien-pasa-a-segunda-vuelta-en-las-elecciones-2026-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae</a> &middot; <a href="https://es.euronews.com/2026/05/11/elecciones-en-peru-roberto-sanchez-disputara-la-segunda-vuelta-contra-keiko-fujimori">Euronews</a></div>
         </div>
       </div>
 
-      <!-- Card 02 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">02</div>
-            <div class="swipe-title">Boom minero: 32 nuevos proyectos de exploración por USD 287.5 millones en 2026</div>
+            <div class="swipe-title">JNE lanza auditor&#237;a inform&#225;tica integral: incertidumbre sobre el cronograma electoral</div>
           </div>
-          <div class="swipe-body">La cartera de exploración minera 2026 alcanzó 69 proyectos por más de USD 757 millones al 10 de mayo. Los proyectos más grandes: Sombrero (USD 106.2M), Trapiche (USD 36.8M) y Elida (USD 15M). En construcción activa: Tía María en Arequipa (Southern Peru), Reposición Antamina en Áncash y Reposición Ferrobamba en Las Bambas (Apurímac).</div>
+          <div class="swipe-body">El Jurado Nacional de Elecciones acord&#243; realizar una auditor&#237;a &#171;inform&#225;tica integral y exhaustiva&#187; del proceso de primera vuelta, en respuesta a las irregularidades log&#237;sticas y denuncias de fraude. Expertos debaten si la auditor&#237;a puede dilatar la segunda vuelta del 7 de junio y la asunci&#243;n presidencial del 28 de julio. Piero Corvetto renunci&#243; a la jefatura de la ONPE el 21 de abril tras reconocer retrasos.</div>
         </div>
         <div>
           <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            La inversión minera superaría USD 6,800 millones al cierre del año, el mayor registro histórico. Tía María, paralizado 15 años por conflictos sociales, está en construcción activa: su puesta en marcha elevaría la producción cuprífera nacional en ~15%.
+            <strong>Por qu&#233; importa</strong>
+            Una auditor&#237;a mal gestionada podr&#237;a generar una crisis postelectoral. El JNE debe equilibrar la exigencia de transparencia con el cumplimiento del cronograma constitucional. Cualquier retraso en la segunda vuelta tendr&#237;a consecuencias jur&#237;dicas y pol&#237;ticas significativas.
           </div>
-          <div class="swipe-source">
-            <a href="https://www.infobae.com/peru/2026/05/10/imparable-peru-suma-32-nuevos-proyectos-de-exploracion-minera-por-usd-2875-millones-en-2026/">Infobae Perú</a> ·
-            <a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gestión</a>
-          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/06/elecciones-peru-2026-auditoria-internacional-podria-dilatar-la-segunda-vuelta-del-7-de-junio-y-la-asuncion-presidencial-del-28-de-julio/">Infobae</a></div>
         </div>
       </div>
 
-      <!-- Card 03 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">03</div>
-            <div class="swipe-title">Homicidios caen 18.3% en lo que va de 2026 respecto al mismo período del año anterior</div>
+            <div class="swipe-title">Ministerio P&#250;blico investiga m&#225;s de 70 denuncias por irregularidades en la ONPE</div>
           </div>
-          <div class="swipe-body">La PNP reportó 869 homicidios entre el 1 de enero y el 3 de mayo de 2026, frente a 1,064 en el mismo período de 2025. La reducción de 195 casos equivale al 18.33%. Las regiones con mayor concentración siguen siendo Lima (278 casos), La Libertad (68) y el Callao (65). El estado de emergencia en zonas críticas, prorrogado esta semana, es señalado como factor clave.</div>
+          <div class="swipe-body">La Fiscal&#237;a peruana recibi&#243; y tramit&#243; m&#225;s de 70 denuncias vinculadas a irregularidades en la organizaci&#243;n de la primera vuelta del 12 de abril. Corvetto y otros seis funcionarios de la ONPE est&#225;n siendo investigados. Las denuncias incluyen retrasos log&#237;sticos en mesas de Lima, inconsistencias en actas y presuntas manipulaciones en el sistema de transmisi&#243;n de resultados.</div>
         </div>
         <div>
           <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            La seguridad ciudadana fue el eje central de la campaña electoral. Esta reducción sostenida —el tercer mes consecutivo a la baja— puede influir en la agenda del nuevo gobierno y en la continuidad o no de las medidas de excepción vigentes.
+            <strong>Por qu&#233; importa</strong>
+            La investigaci&#243;n fiscal agrega presi&#243;n institucional sobre el sistema electoral en plena transici&#243;n hacia la segunda vuelta. Si los hallazgos apuntan a irregularidades sistem&#225;ticas, podr&#237;an alimentar cuestionamientos sobre la legitimidad del resultado final.
           </div>
-          <div class="swipe-source">
-            <a href="https://m.panamericana.pe/24horas/locales/468363-pnp-reporta-reduccion-homicidios-2026-frente-2025">Panamericana</a>
-          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/11/ministerio-publico-investiga-mas-de-70-denuncias-por-irregularidades-en-la-onpe-durante-las-elecciones-2026/">Infobae</a></div>
         </div>
       </div>
 
-      <!-- Card 04 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">04</div>
-            <div class="swipe-title">Liga 1 Fecha 14: Sport Boys empata con Universitario; Alianza Lima lidera con 33 puntos</div>
+            <div class="swipe-title">Exportaciones crecen 33.5% en el Q1 2026: USD 27,217 millones por cobre y oro</div>
           </div>
-          <div class="swipe-body">En la fecha 14 del Torneo Apertura, Sport Boys igualó 0-0 con Universitario de Deportes en el Estadio Miguel Grau (8:30 PM). Antes, Deportivo Garcilaso venció 2-1 a Alianza Atlético con goles de Christopher Olivares y Adrián Ascues. Alianza Lima se mantiene líder con 33 puntos; Los Chankas es escolta con 30.</div>
+          <div class="swipe-body">Las exportaciones peruanas alcanzaron USD 27,217 millones en el primer trimestre de 2026, un crecimiento de 33.5% interanual impulsado por los precios internacionales del cobre (+49% en valor) y el oro. Los env&#237;os al exterior de minerales sumaron USD 19,897 millones. El BCR mantiene su proyecci&#243;n de crecimiento del PIB en 3% para 2026. El d&#243;lar cerr&#243; en S/ 3.44, m&#237;nimo en varios meses.</div>
         </div>
         <div>
           <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            El empate de Universitario le complica el asalto a la cima. Con 4 fechas aún por disputar en el Apertura, la pelea por el título se mantiene abierta entre Alianza Lima, Los Chankas y la "U", que necesita sumar de a tres para no quedar fuera de la discusión.
+            <strong>Por qu&#233; importa</strong>
+            El s&#243;lido desempe&#241;o exportador contrasta con la fragilidad pol&#237;tica del per&#237;odo electoral. Un PIB creciendo al 3% en contexto de segunda vuelta polarizada refuerza el argumento de los candidatos de que la estabilidad econ&#243;mica no debe sacrificarse en el debate pol&#237;tico.
           </div>
-          <div class="swipe-source">
-            <a href="https://rpp.pe/futbol/futbol-mundial/seguir-hoy-partidos-de-hoy-liga-1-y-premier-league-en-vivo-peru-lunes-11-de-mayo-2026-horarios-online-para-ver-y-canales-tv-ver-futbol-en-vivo-noticia-1687801">RPP</a> ·
-            <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a>
-          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/economia/economia/exportaciones-peruanas-crecieron-335-en-primer-trimestre-del-ano-y-sumaron-27-217-millones-de-dolares-noticia-1687629">RPP</a> &middot; <a href="https://elcomercio.pe/economia/peru/exportaciones-peruanas-alcanza-los-us27-mil-217-millones-en-el-primer-trimestre-del-2026-gracias-a-precios-de-minerales-l-ultimas-noticia/">El Comercio</a></div>
         </div>
       </div>
 
-      <!-- Card 05 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">05</div>
-            <div class="swipe-title">Gobierno prorroga estado de emergencia en Piura, Ayacucho, Cusco y Junín</div>
+            <div class="swipe-title">Crisis humanitaria en frontera: FAB evacua peruanos varados por bloqueos en Bolivia</div>
           </div>
-          <div class="swipe-body">Mediante los decretos supremos 063-2026-PCM y 064-2026-PCM, el Ejecutivo extendió el estado de emergencia en distritos de cuatro departamentos para reforzar la lucha contra el crimen organizado. La medida faculta a las Fuerzas Armadas a actuar en apoyo a la PNP en las zonas declaradas.</div>
+          <div class="swipe-body">La Fuerza A&#233;rea Boliviana activ&#243; un operativo humanitario para trasladar a peruanos y otros ciudadanos varados en La Paz y Oruro hacia Juliaca ante el colapso de rutas terrestres por los bloqueos. Cerca de 300 peruanos permanec&#237;an varados en Bolivia. La Canciller&#237;a peruana activ&#243; asistencia consular de emergencia. El conflicto boliviano impacta directamente la frontera altiplánica y el comercio binacional.</div>
         </div>
         <div>
           <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            La prórroga se produce en plena transición de gobierno. El nuevo ejecutivo que asuma el 28 de julio heredará estas zonas de excepción y deberá decidir si mantiene, amplía o desmantela el modelo. La decisión tendrá impacto directo en inversión minera y agroexportadora en esas regiones.
+            <strong>Por qu&#233; importa</strong>
+            La inestabilidad en Bolivia tiene efectos directos sobre Per&#250;: turistas varados, comercio paralizado y flujos migratorios interrumpidos en Puno y Tacna. La evoluci&#243;n del conflicto boliviano es un factor de riesgo para la econom&#237;a regional peruana.
           </div>
-          <div class="swipe-source">
-            <a href="https://gestion.pe/peru/gobierno-prorroga-estado-de-emergencia-en-distintos-distritos-del-pais-noticia/">Gestión</a>
-          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/mundo/2026/05/11/crisis-en-bolivia-se-agrava-con-huelga-de-maestros-34-bloqueos-y-turistas-varados-en-la-paz-1038642">La Rep&#250;blica</a></div>
         </div>
       </div>
 
-    </div><!-- /carousel-track -->
+    </div>
     <div class="dots">
       <div class="dot active"></div>
       <div class="dot"></div>
@@ -285,141 +205,84 @@ body {
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
-    <div class="swipe-hint">Desliza para ver más &rarr;</div>
-  </div><!-- /carousel-container -->
-
-  <!-- DIVIDER -->
-  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
-
-  <!-- POLÍTICO -->
-  <div class="news-item glass reveal" style="transition-delay:0.04s">
-    <span class="pill pill-pol">Político</span>
-    <h3>Gobierno Balcazar aprueba la Política General de Gobierno 2026 con tres ejes prioritarios</h3>
-    <p>El Consejo de Ministros ratificó la Política General de Gobierno 2026 centrada en seguridad ciudadana, continuidad económica y transición democrática ordenada. El documento marco rige hasta el 28 de julio, fecha en que el nuevo presidente electo tomará el mando. El año fue declarado "Año de la Esperanza y el Fortalecimiento de la Democracia" mediante DS 011-2026-PCM.</p>
-    <span class="source-link">
-      <a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPerú</a> ·
-      <a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gestión</a>
-    </span>
+    <div class="swipe-hint">Desliza para ver m&#225;s &rarr;</div>
   </div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.08s">
-    <span class="pill pill-pol">Político</span>
-    <h3>Exfiscal José Domingo Pérez defiende su alianza con Roberto Sánchez de cara a segunda vuelta</h3>
-    <p>El exfiscal anticorrupción José Domingo Pérez concedió entrevistas el 11 de mayo explicando su respaldo a la candidatura presidencial de Roberto Sánchez, presentándola como la opción que mejor garantiza la independencia judicial y la lucha contra la corrupción. Las fuerzas políticas se reposicionan de cara al balotaje.</p>
-    <span class="source-link">
-      <a href="https://peru21.pe/politica/estas-son-las-cortitas-de-hoy-lunes-11-de-mayo-de-2026/">Peru21</a>
-    </span>
-  </div>
-
-  <!-- ECONÓMICO -->
-  <div class="news-item glass reveal" style="transition-delay:0.12s">
-    <span class="pill pill-eco">Económico</span>
-    <h3>MEF mantiene proyección: PBI crecerá 3.2% en 2026 e inversión privada subirá 5.5%</h3>
-    <p>El Ministerio de Economía y Finanzas ratificó sus proyecciones macroeconómicas para 2026: crecimiento del PBI de 3.2% e inversión privada de USD 11,500 millones, un alza de 5.5% respecto a 2025. El impulso proviene principalmente de la minería (USD 6,800M en inversión sectorial), infraestructura y energías renovables.</p>
-    <span class="source-link">
-      <a href="https://www.rumbominero.com/peru/noticias/economia/mef-crecimiento-32-impulsado-por-la-mineria/">Rumbo Minero</a> ·
-      <a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gestión</a>
-    </span>
-  </div>
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Secci&#243;n</span></div>
 
   <div class="news-item glass reveal" style="transition-delay:0.16s">
-    <span class="pill pill-eco">Económico</span>
-    <h3>Dólar cierra estable a S/ 3.43; analistas proyectan apreciación del sol hacia fin de año</h3>
-    <p>El tipo de cambio oficial cerró el 11 de mayo en S/ 3.4285 (compra) / S/ 3.4305 (venta) según el BCRP. El mercado paralelo operó en S/ 3.45, con una brecha cambiaria de apenas 0.6%. Analistas proyectan que el sol se apreciaría hasta S/ 3.34 hacia diciembre, sostenido por los buenos precios del cobre y el flujo de remesas.</p>
-    <span class="source-link">
-      <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-11-de-mayo-del-2026-noticia-1687826">RPP</a> ·
-      <a href="https://larepublica.pe/economia/precio-del-dolar/2026/05/11/precio-del-dolar-hoy-lunes-11-de-mayo-de-2026-en-casas-de-cambios-bancos-y-otros-canales-120210">La República</a>
-    </span>
+    <span class="pill pill-pol">Pol&#237;tico</span>
+    <h3>Jos&#233; Domingo P&#233;rez se suma a la campa&#241;a de Roberto S&#225;nchez para la segunda vuelta</h3>
+    <p>El exfiscal Jos&#233; Domingo P&#233;rez anunci&#243; su respaldo a la candidatura presidencial de Roberto S&#225;nchez para la segunda vuelta del 7 de junio, argumentando que representa una opci&#243;n dem&#243;cr&#225;tica frente al autoritarismo. El respaldo busca capitalizar el rechazo al fujimorismo que motiv&#243; los votos que llevaron a S&#225;nchez a la segunda vuelta con escaso margen sobre L&#243;pez Aliaga.</p>
+    <span class="source-link"><a href="https://peru21.pe/politica/estas-son-las-cortitas-de-hoy-lunes-11-de-mayo-de-2026/">Per&#250;21</a></span>
   </div>
 
-  <!-- EMPRESARIAL -->
   <div class="news-item glass reveal" style="transition-delay:0.20s">
-    <span class="pill pill-emp">Empresarial</span>
-    <h3>Tía María, Antamina y Las Bambas en construcción activa: los tres megaproyectos que mueven la minería peruana</h3>
-    <p>El proyecto cuprífero Tía María de Southern Peru (Arequipa), paralizado por conflictos sociales durante más de 15 años, se encuentra en ejecución. A esto se suman la Reposición Antamina (Áncash) y la Reposición Ferrobamba de Las Bambas (Apurímac). Los tres proyectos en conjunto representan inversiones por encima de USD 2,500 millones en el ciclo 2025-2028.</p>
-    <span class="source-link">
-      <a href="https://gestion.pe/economia/empresas/este-2026-se-desarrollan-ocho-proyectos-mineros-estas-son-las-iniciativas-noticia/">Gestión</a> ·
-      <a href="https://www.infobae.com/peru/2026/05/10/imparable-peru-suma-32-nuevos-proyectos-de-exploracion-minera-por-usd-2875-millones-en-2026/">Infobae Perú</a>
-    </span>
+    <span class="pill pill-pol">Pol&#237;tico</span>
+    <h3>Polarizaci&#243;n extrema: Fujimori y S&#225;nchez en empate t&#233;cnico de intenci&#243;n de voto</h3>
+    <p>Las primeras encuestas para la segunda vuelta ubican a Keiko Fujimori y Roberto S&#225;nchez en empate t&#233;cnico. S&#225;nchez busca consolidar el voto antifujimorista y los apoyos del centro, mientras Fujimori apela a la estabilidad econ&#243;mica y el rechazo al populismo de izquierda. El debate presidencial obligatorio est&#225; previsto antes del 7 de junio.</p>
+    <span class="source-link"><a href="https://www.resumenlatinoamericano.org/2026/05/11/peru-la-ultraderechista-keiko-fujimori-y-roberto-sanchez-por-la-izquierda-se-mediran-en-la-segunda-vuelta-de-las-presidenciales">Resumen Latinoamericano</a> &middot; <a href="https://theobjective.com/internacional/2026-05-11/roberto-sanchez-disputara-keiko-fujimori-presidencia-peru-junio/">The Objective</a></span>
   </div>
 
   <div class="news-item glass reveal" style="transition-delay:0.24s">
-    <span class="pill pill-emp">Empresarial</span>
-    <h3>Piura atrae inversión comercial: Real Plaza y Mall Plaza amplían sus instalaciones en la región</h3>
-    <p>Piura consolida su posición como polo de inversión privada en el norte del país. Las ampliaciones de Real Plaza Piura y Mall Plaza forman parte de una cartera regional de proyectos privados por hasta USD 8,000 millones que incluye agroindustria, energía y retail. La región viene registrando los mayores flujos de inversión no minera fuera de Lima.</p>
-    <span class="source-link">
-      <a href="https://gestion.pe/economia/empresas/piura-avanza-con-ampliaciones-de-real-plaza-piura-y-mall-plaza-en-cartera-de-proyectos-privados-por-hasta-us8000-millones-noticia/">Gestión</a>
-    </span>
+    <span class="pill pill-eco">Econ&#243;mico</span>
+    <h3>D&#243;lar sigue cediendo: S/ 3.44 en m&#237;nimo de varios meses</h3>
+    <p>El tipo de cambio sol-d&#243;lar cerr&#243; el lunes en S/ 3.44, continuando su tendencia a la baja impulsada por el fortalecimiento de la moneda local ante los altos precios internacionales de commodities y el buen desempe&#241;o exportador. El BCR mantiene reservas internacionales s&#243;lidas y no intervino en el mercado cambiario durante la jornada.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-11-de-mayo-del-2026-noticia-1687826">RPP</a> &middot; <a href="https://www.infobae.com/peru/2026/05/11/dolar-hoy-en-peru-cotizacion-de-apertura-del-11-de-mayo/">Infobae</a></span>
   </div>
 
-  <!-- SOCIAL -->
   <div class="news-item glass reveal" style="transition-delay:0.28s">
-    <span class="pill pill-soc">Social</span>
-    <h3>Sismo de magnitud 4.5 sacudió Sullana, Piura, sin reportes de daños</h3>
-    <p>A las 8:50 AM del 11 de mayo se registró un temblor de magnitud 4.5 con epicentro en el distrito de Sullana (Piura), a 40 kilómetros de profundidad, según el Instituto Geofísico del Perú (IGP). No se reportaron daños materiales ni víctimas. El evento fue percibido por la población de la zona norte, acostumbrada a la actividad sísmica del área.</p>
-    <span class="source-link">
-      <a href="https://libero.pe/tiempoextra/2026/05/11/temblor-hoy-lunes-11-de-mayo-de-2026-en-peru-en-vivo-donde-fue-epicentro-cual-fue-su-magnitud-segun-igp-ultimo-sismo-lima-153630">Líbero</a> ·
-      <a href="https://elpopular.pe/actualidad/2026/05/11/temblor-en-peru-hoy-11-de-mayo-de-2026-a-que-hora-y-donde-se-registro-el-ultimo-sismo-segun-igp-267487">El Popular</a>
-    </span>
+    <span class="pill pill-eco">Econ&#243;mico</span>
+    <h3>Sector minero consolida liderazgo exportador con cobre y oro en m&#225;ximos</h3>
+    <p>La miner&#237;a represent&#243; el 73% de las exportaciones totales del Q1 2026, con el cobre como principal producto (USD 12,400M) y el oro como segundo motor (USD 7,497M). Los precios internacionales del cobre se mantienen elevados ante la demanda de energ&#237;as limpias. El sector formal consolida su peso en la balanza comercial mientras el gobierno entrante deber&#225; definir su pol&#237;tica minera.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/economia/peru/exportaciones-peruanas-alcanza-los-us27-mil-217-millones-en-el-primer-trimestre-del-2026-gracias-a-precios-de-minerales-l-ultimas-noticia/">El Comercio</a></span>
   </div>
 
-  <!-- INTERNACIONAL -->
   <div class="news-item glass reveal" style="transition-delay:0.32s">
-    <span class="pill pill-int">Internacional</span>
-    <h3>Operación humanitaria: aviones de la FAB repatrían peruanos varados en Bolivia hacia Juliaca</h3>
-    <p>El 11 de mayo se inició una operación de repatriación de ciudadanos peruanos varados en La Paz y Oruro (Bolivia), coordinada con la Fuerza Aérea Boliviana. Los traslados se realizan hacia el aeropuerto Inca Manco Cápac de Juliaca (Puno). Se trata de connacionales afectados por cortes de ruta o situaciones de vulnerabilidad en territorio boliviano.</p>
-    <span class="source-link">
-      <a href="https://rpp.pe/">RPP</a>
-    </span>
+    <span class="pill pill-soc">Social</span>
+    <h3>Accidente en Panamericana Sur: dos fallecidos en choque de bus y combi</h3>
+    <p>Un accidente de tr&#225;nsito en la Carretera Panamericana Sur dej&#243; dos personas fallecidas y varios heridos al colisionar un bus interprovincial con una combi. Las autoridades activaron el protocolo de atenci&#243;n de emergencia vial. El accidente recuerda la persistente problem&#225;tica de seguridad vial en las carreteras peruanas, donde los accidentes de tr&#225;nsito representan la principal causa de muerte violenta en el pa&#237;s.</p>
+    <span class="source-link"><a href="https://peru21.pe/politica/estas-son-las-cortitas-de-hoy-lunes-11-de-mayo-de-2026/">Per&#250;21</a></span>
   </div>
 
-  <!-- DEPORTES -->
   <div class="news-item glass reveal" style="transition-delay:0.36s">
-    <span class="pill pill-dep">Deportes</span>
-    <h3>Liga 1 — Resultados Fecha 14: Garcilaso gana, Sport Boys y Universitario empatan sin goles</h3>
-    <p>En la fecha 14 del Torneo Apertura 2026: Deportivo Garcilaso 2-1 Alianza Atlético (goles de Christopher Olivares y Adrián Ascues); Sport Boys 0-0 Universitario de Deportes (Estadio Miguel Grau, 8:30 PM). Tabla: Alianza Lima lidera con 33 puntos; Los Chankas segundo con 30; Universitario y Sporting Cristal pelean por el tercer puesto.</p>
-    <span class="source-link">
-      <a href="https://rpp.pe/futbol/futbol-mundial/seguir-hoy-partidos-de-hoy-liga-1-y-premier-league-en-vivo-peru-lunes-11-de-mayo-2026-horarios-online-para-ver-y-canales-tv-ver-futbol-en-vivo-noticia-1687801">RPP</a> ·
-      <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-de-liga-1-2026-peru-en-vivo-hoy-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-de-deportes-noticia/">Depor</a> ·
-      <a href="https://www.infobae.com/peru/deportes/2026/05/08/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-14-torneo-apertura-alianza-lima-los-chankas-cienciano-universitario-sport-boys-sporting-cristal-melgar/">Infobae</a>
-    </span>
+    <span class="pill pill-int">Internacional</span>
+    <h3>Crisis de Bolivia impacta directamente frontera peruana y comercio altiplánico</h3>
+    <p>El colapso de rutas en Bolivia por los bloqueos paraliz&#243; el comercio fronterizo entre Per&#250; y Bolivia en los pasos de Desaguadero y Kasani. Camiones de carga peruana con productos perecederos esperan el levantamiento de los bloqueos. La Canciller&#237;a activ&#243; comunicaciones con La Paz para gestionar el retorno de ciudadanos peruanos varados en territorio boliviano.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/mundo/latinoamerica/protestas-en-bolivia-se-multiplican-los-bloqueos-de-vias-en-medio-de-pedidos-de-renuncia-de-rodrigo-paz-la-paz-evo-morales-ultimas-noticia/">El Comercio</a></span>
   </div>
 
-  <!-- DATA STRIP -->
-  <div class="data-strip reveal" style="transition-delay:0.40s">
+  <div class="data-strip reveal" style="transition-delay:0.48s">
     <div class="data-cell glass">
-      <div class="data-cell-label">Sol / USD Oficial</div>
-      <div class="data-cell-value">S/ 3.43</div>
-      <div class="data-cell-delta green">&#9660; tendencia baja</div>
+      <div class="data-cell-label">Tipo de Cambio</div>
+      <div class="data-cell-value green">S/ 3.44</div>
+      <div class="data-cell-delta green">D&#243;lar cede terreno</div>
     </div>
     <div class="data-cell glass">
-      <div class="data-cell-label">Sol / USD Paralelo</div>
-      <div class="data-cell-value">S/ 3.45</div>
-      <div class="data-cell-delta neutral">estable</div>
+      <div class="data-cell-label">Exportaciones Q1</div>
+      <div class="data-cell-value green">$27.2B</div>
+      <div class="data-cell-delta green">+33.5% interanual</div>
     </div>
     <div class="data-cell glass">
-      <div class="data-cell-label">Brecha cambiaria</div>
-      <div class="data-cell-value">0.6%</div>
-      <div class="data-cell-delta green">mínima histórica</div>
+      <div class="data-cell-label">PIB 2026 (BCR)</div>
+      <div class="data-cell-value">3.0%</div>
+      <div class="data-cell-delta" style="color:var(--muted)">Proyecci&#243;n oficial</div>
     </div>
   </div>
 
-  <!-- QUÉ VIGILAR -->
-  <div class="vigilar reveal" style="transition-delay:0.44s">
-    <div class="vigilar-header">Qué vigilar hoy</div>
-    <div class="vigilar-item">Segunda vuelta presidencial: definición de fechas y condiciones del debate entre los candidatos finalistas. El escenario político post-balotaje marcará el clima de inversión del segundo semestre.</div>
-    <div class="vigilar-item">Avance social y ambiental de Tía María: cualquier señal de tensión comunitaria en Islay (Arequipa) podría interrumpir la construcción del proyecto cuprífero más esperado de la década.</div>
-    <div class="vigilar-item">Resultado real del estado de emergencia en La Libertad: los homicidios cayeron nacionalmente, pero La Libertad (68 casos, segunda región más violenta) sigue siendo el termómetro más sensible de la política de seguridad.</div>
+  <div class="vigilar reveal" style="transition-delay:0.52s">
+    <div class="vigilar-header">Qu&#233; Vigilar Hoy &middot; Martes 12 de mayo</div>
+    <div class="vigilar-item">Resultados finales de la ONPE y proclamaci&#243;n oficial del JNE: &#191;se mantiene el cronograma o la auditor&#237;a genera retrasos?</div>
+    <div class="vigilar-item">Impacto de la crisis boliviana en la frontera de Puno: &#191;levantan los bloqueos o se intensifica el vaciamiento de la ruta altiplánica?</div>
+    <div class="vigilar-item">Movimientos de alianzas pol&#237;ticas para la segunda vuelta: qui&#233;n respalda a S&#225;nchez y qui&#233;n a Fujimori entre los candidatos eliminados.</div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer reveal" style="transition-delay:0.48s">
-    <div>Fuentes: RPP · La República · El Comercio · Gestión · Infobae Perú · Depor · Panamericana · TVPerú · Peru21 · Líbero</div>
+  <div class="footer reveal" style="transition-delay:0.56s">
+    <div>Fuentes: Infobae &middot; RPP &middot; El Comercio &middot; Euronews &middot; La Rep&#250;blica &middot; Per&#250;21 &middot; The Objective &middot; Resumen Latinoamericano &middot; BCR</div>
     <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
   </div>
 
-</div><!-- /wrap -->
-
+</div>
 <script>
   const track = document.getElementById('carousel');
   const dots = document.querySelectorAll('.dot');
