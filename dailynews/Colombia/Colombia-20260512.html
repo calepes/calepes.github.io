@@ -1,228 +1,266 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing Colombia · Martes 12 de mayo de 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --accent: #92400e;
-  --accent-soft: rgba(146,64,14,0.06);
-  --ink: #1d1d1f;
-  --muted: rgba(60,60,67,0.6);
-  --tertiary: rgba(60,60,67,0.3);
-  --card-bg: rgba(255,255,255,0.55);
-  --card-bg-strong: rgba(255,255,255,0.72);
-  --glass-border: rgba(255,255,255,0.45);
-  --shadow: rgba(0,0,0,0.06);
-  --inset-highlight: rgba(255,255,255,0.7);
-  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
-  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
-  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
-  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
-  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
-  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: linear-gradient(160deg, #FEF9E7 0%, #FDF2CC 20%, #EAF0F8 55%, #EEF3FB 80%, #F5F5FB 100%);
-  color: var(--ink);
-  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  line-height: 1.6; -webkit-font-smoothing: antialiased;
-  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
-  overflow-x: hidden;
-}
-.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(146,64,14,0.09) 0%, transparent 70%); }
-.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(30,64,175,0.07) 0%, transparent 70%); }
-.wrap { position: relative; z-index: 1; }
-.glass {
-  background: var(--card-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 16px;
-  border: 0.5px solid var(--glass-border);
-  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-}
-.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
-.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
-.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
-.masthead-date { font-size: 13px; color: var(--muted); }
-.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-.carousel-container { position: relative; margin-bottom: 32px; }
-.carousel-track {
-  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-}
-.carousel-track::-webkit-scrollbar { display: none; }
-.swipe-card {
-  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-  background: var(--card-bg-strong);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 20px; border: 0.5px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-  padding: 28px 24px; min-height: 280px;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
-.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
-.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
-.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
-.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
-.swipe-source a { color: var(--accent); text-decoration: none; }
-.dots { display: flex; justify-content: center; gap: 8px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
-.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
-.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
-.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-.news-item { padding: 18px 20px; margin-bottom: 10px; }
-.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
-.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
-.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
-.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
-.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
-.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
-.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
-.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
-.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
-.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
-.source-link a { color: var(--accent); text-decoration: none; }
-.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
-.data-cell { padding: 20px 14px; text-align: center; }
-.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
-.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
-.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
-.green { color: #34C759; }
-.red { color: #FF3B30; }
-.vigilar {
-  background: rgba(29,29,31,0.82);
-  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-radius: 16px; padding: 24px; margin: 32px 0;
-  border: 0.5px solid rgba(255,255,255,0.08);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-  color: white;
-}
-.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fde68a; margin-bottom: 14px; }
-.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
-.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fde68a; font-weight: 600; }
-.vigilar-item:last-child { margin-bottom: 0; }
-.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 12 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+
 <div class="wrap">
 
+  <!-- MASTHEAD -->
   <div class="masthead reveal" style="transition-delay:0s">
     <div class="masthead-eyebrow">Briefing Ejecutivo</div>
     <h1>Colombia</h1>
-    <div class="masthead-date">Martes 12 de mayo de 2026</div>
+    <div class="masthead-date">Martes 12 de mayo de 2026 · Bogotá</div>
     <div class="masthead-tag">Edición Diaria</div>
   </div>
 
+  <!-- TOP 5 -->
   <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+
   <div class="carousel-container reveal" style="transition-delay:0.08s">
     <div class="carousel-track" id="carousel">
 
+      <!-- CARD 01 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">01</div>
-            <div class="swipe-title">Consejo de Estado suspende en su totalidad el decreto de traslado de $25 billones de AFP a Colpensiones</div>
+            <div class="swipe-title">Petro confirma bombardeo al comando central del ELN en el Catatumbo con apoyo de Venezuela</div>
           </div>
-          <div class="swipe-body">La Segunda Sección del Consejo de Estado anuló en su totalidad el Decreto 415 de abril de 2026, que ordenaba a los fondos privados de pensiones (AFP) trasladar $25 billones de pesos a Colpensiones para fortalecer la liquidez del régimen público. El tribunal consideró que el gobierno excedió sus facultades legales al ordenar una transferencia anticipada. Los $25 billones permanecerán en las cuentas individuales de las AFP hasta una sentencia definitiva sobre la constitucionalidad de la reforma pensional.</div>
+          <div class="swipe-body">El presidente Gustavo Petro confirmó que ordenó bombardear el comando central del Ejército de Liberación Nacional (ELN) en Norte de Santander, con cooperación directa del gobierno venezolano. La operación es la tercera ofensiva militar mayor de su administración y representa el fin efectivo del proceso de paz con el ELN que el propio Petro inició en 2022. "No están en ningún acuerdo de paz", declaró el mandatario.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            La suspensión total deja sin uno de sus pilares financieros a la reforma pensional de Petro. Colpensiones ya no recibirá la liquidez que necesitaba para cubrir sus obligaciones de corto plazo. El fallo escala el choque entre el Ejecutivo y el poder judicial a 19 días de las elecciones presidenciales, afectando la confianza institucional en un momento crítico de transición.
+            El bombardeo clausura definitivamente las negociaciones de paz con el ELN iniciadas por el propio Petro. La coordinación con Venezuela es inédita en la historia de Colombia y abre un debate constitucional sobre soberanía. El Catatumbo concentra los mayores yacimientos de carbón y petróleo del nororiente del país, con implicaciones directas para la seguridad energética nacional.
           </div>
-          <div class="swipe-source"><a href="https://www.elpais.com.co/colombia/consejo-de-estado-suspende-en-su-totalidad-el-decreto-que-obligaba-a-las-afp-a-trasladar-25-billones-a-colpensiones-1118.html">El País</a> · <a href="https://www.semana.com/nacion/articulo/atencion-suspenden-totalidad-del-decreto-que-obligaba-a-las-afp-a-trasladar-25-billones-a-colpensiones/202602/">Semana</a></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/12/petro-confirmo-que-dio-la-orden-de-bombardear-al-comando-central-del-eln-con-apoyo-de-venezuela-no-estan-en-ningun-acuerdo-de-paz/">Infobae</a> · <a href="https://www.vanguardia.com/colombia/2026/05/12/fin-al-cese-al-fuego-petro-ordeno-bombardeo-contra-el-eln-en-el-catatumbo/">Vanguardia</a></div>
         </div>
       </div>
 
+      <!-- CARD 02 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">02</div>
-            <div class="swipe-title">Petro explota: pide demandar al magistrado y acusa al Consejo de Estado de "salvar a banqueros"</div>
+            <div class="swipe-title">Petro acusa de "golpe de Estado" al Consejo de Estado tras suspensión del traslado pensional</div>
           </div>
-          <div class="swipe-body">El presidente Gustavo Petro reaccionó con dureza ante la suspensión del decreto, solicitando investigación penal por prevaricato contra el magistrado que emitió el fallo. En sus redes sociales, Petro tachó la decisión de "salvar a los banqueros" en perjuicio de los trabajadores, equiparó el fallo a un "golpe de Estado" y volvió a llamar a la movilización social. El Consejo de Estado rechazó las declaraciones del presidente y advirtió que "a poderes desbordados, controles inmediatos".</div>
+          <div class="swipe-body">El Consejo de Estado suspendió el Decreto 0415 de 2026, que obligaba a trasladar ahorros de los fondos privados de pensiones a Colpensiones. Petro rechazó el fallo, acusó a los magistrados de actuar en favor del sector financiero y calificó la decisión de "golpe contra los derechos del pueblo". El tribunal respondió que el tono incendiario del mandatario no amerita respuesta de igual naturaleza.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            Pedir el enjuiciamiento de un magistrado del Consejo de Estado es una escalada institucional sin precedentes cercanos en Colombia. A 19 días de las elecciones presidenciales, el choque Petro-Cortes radicaliza el debate político, divide al electorado y genera incertidumbre sobre el respeto institucional del actual gobierno en su período de transición.
+            El choque es el más grave de una serie de confrontaciones entre Petro y las Altas Cortes, a solo tres semanas de la primera vuelta electoral. Si el decreto hubiera prosperado, habría trasladado billones de pesos de ahorro privado al fondo estatal. El deterioro institucional llega en el peor momento para la transición ordenada de gobierno.
           </div>
-          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/11/gustavo-petro-estallo-contra-el-consejo-de-estado-tras-freno-del-traslado-de-25-billones-a-colpensiones-pido-demandar-al-magistrado/">Infobae</a> · <a href="https://www.elpais.com.co/colombia/consejo-de-estado-rechazo-declaraciones-de-petro-sobre-traslado-de-recursos-a-colpensiones-a-poderes-desbordados-controles-inmediatos-1218.html">El País</a></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/12/consejo-de-estado-respondio-a-gustavo-petro-por-sus-criticas-a-la-suspension-del-traslado-de-pensiones-no-amerita-una-respuesta-similar/">Infobae</a> · <a href="https://www.vanguardia.com/colombia/2026/05/12/petro-arremete-contra-magistrados-y-habla-de-golpe-de-estado-tras-fallo-sobre-pensiones/">Vanguardia</a></div>
         </div>
       </div>
 
+      <!-- CARD 03 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">03</div>
-            <div class="swipe-title">Dólar sube: apertura en COP 3,769 (+$19 vs TRM); analistas advierten posible llegada a $4,000 en mayo</div>
+            <div class="swipe-title">A 19 días de las elecciones: Cepeda lidera con 38,6%, De la Espriella segundo con 23,2%</div>
           </div>
-          <div class="swipe-body">El dólar abrió el 12 de mayo en COP 3,769.49, con un incremento de $19.49 frente a la Tasa Representativa del Mercado (TRM) fijada en $3,759. Analistas de mercado advierten que la incertidumbre generada por la combinación del choque Petro-Consejo de Estado y la proximidad de las elecciones presidenciales del 31 de mayo podría llevar el dólar a los $4,000 o incluso a $4,600 según los escenarios más pesimistas de El País de Cali. La deuda externa y los costos de importación subirán si el peso continúa debilitándose.</div>
+          <div class="swipe-body">El ponderador de encuestas de La Silla Vacía ubica a Iván Cepeda (Pacto Histórico) en primer lugar con 38,6% de intención de voto para la primera vuelta del 31 de mayo. Abelardo de la Espriella aparece segundo con 23,2%. Sin embargo, Polymarket le asigna a De la Espriella 43% de probabilidad de ganar la presidencia, versus 41% de Cepeda. En balotaje, De la Espriella superaría a Cepeda 47% a 42%.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            El paso hacia $4,000 por dólar elevaría directamente el costo de los bienes importados, la gasolina y los insumos industriales. En un contexto electoral, ningún candidato querrá asociarse a una devaluación pronunciada, pero las señales que emitan sobre política económica serán la principal variable que los mercados observarán en las próximas tres semanas.
+            La brecha entre encuestas de intención y mercados de predicción refleja alta incertidumbre en el resultado final. Un eventual balotaje definirá si Colombia continúa el rumbo del petrismo o gira hacia el centro-derecha. Las decisiones de inversión extranjera y el comportamiento del tipo de cambio están fuertemente anclados a este resultado.
           </div>
-          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/12/dolar-hoy-en-colombia-cotizacion-de-apertura-del-12-de-mayo/">Infobae</a> · <a href="https://www.noticiasrcn.com/economia/precio-del-dolar-hoy-martes-12-de-mayo-de-2026-1020434">RCN</a></div>
+          <div class="swipe-source"><a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-a-un-mes-de-la-primera-vuelta-de-2026/">La Silla Vacía</a> · <a href="https://www.infobae.com/colombia/2026/05/11/abelardo-de-la-espriella-supera-a-ivan-cepeda-a-semanas-de-las-elecciones-presidenciales-segun-polymarket/">Infobae</a></div>
         </div>
       </div>
 
+      <!-- CARD 04 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">04</div>
-            <div class="swipe-title">De la Espriella supera a Cepeda en Polymarket con 40% a 19 días de las presidenciales del 31 de mayo</div>
+            <div class="swipe-title">Cruz Roja: Colombia tuvo en 2025 su peor crisis humanitaria en una década</div>
           </div>
-          <div class="swipe-body">A 19 días de las elecciones presidenciales, el mercado de predicciones Polymarket posiciona a Abelardo De la Espriella como el candidato con mayor probabilidad de ganar, superando al senador Iván Cepeda (Pacto Histórico). Sin embargo, las encuestas formales más recientes (Guarumo, abril) aún dan a Cepeda la delantera con 38%, seguido por De la Espriella (23.9%) y Paloma Valencia (22.8%). En escenarios de segunda vuelta, Valencia derrota a Cepeda y De la Espriella empata con el candidato del Pacto.</div>
+          <div class="swipe-body">El CICR publicó su informe anual alertando que 2025 fue el año más violento de Colombia en la última década. Al menos 322.688 personas fueron desplazadas, el doble respecto al año anterior. Las muertes y heridos por ataques con drones explosivos aumentaron 34%. Se documentaron 65 casos de reclutamiento forzado de menores entre 15 y 17 años por parte de grupos armados ilegales.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            La divergencia entre los mercados de predicción (favorables a De la Espriella) y las encuestas formales (favorables a Cepeda) indica alta incertidumbre. Con el choque Petro-Cortes fresco, el electorado de centro y derecha puede consolidarse, lo que beneficiaría tanto a De la Espriella como a Valencia. Los próximos 10 días serán cruciales para definir el escenario de primera vuelta.
+            El informe del CICR tiene peso diplomático significativo y puede derivar en presión internacional sobre Colombia. El agravamiento contradice la narrativa de "paz total" de la administración Petro y llega en el peor momento político posible, días antes de las elecciones presidenciales del 31 de mayo.
           </div>
-          <div class="swipe-source"><a href="https://www.semana.com/confidenciales/articulo/elecciones-2026-paloma-valencia-se-desploma-en-polymarket-y-llega-a-16-mientras-abelardo-de-la-espriella-se-dispara-y-registra-40/202618/">Semana</a> · <a href="https://www.infobae.com/colombia/2026/05/11/abelardo-de-la-espriella-supera-a-ivan-cepeda-a-semanas-de-las-elecciones-presidenciales-segun-polymarket/">Infobae</a></div>
+          <div class="swipe-source"><a href="https://www.semana.com/nacion/articulo/colombia-vive-la-peor-crisis-humanitaria-de-la-ultima-decada-cicr-alerta-por-explosion-de-violencia-desplazamientos-y-desapariciones/202602/">Semana</a> · <a href="https://curadas.com/2026/05/12/cruz-roja-denuncia-que-se-duplicaron-los-desplazados-por-la-violencia-en-colombia-durante-el-2025/">Curadas</a></div>
         </div>
       </div>
 
+      <!-- CARD 05 -->
       <div class="swipe-card">
         <div>
           <div class="swipe-top">
             <div class="swipe-num">05</div>
-            <div class="swipe-title">Siete sismos sacuden Colombia el 12 de mayo; SGC monitorea actividad tectónica</div>
+            <div class="swipe-title">Dólar alcanza nivel más alto desde marzo y cierra en $3.776 COP</div>
           </div>
-          <div class="swipe-body">El Servicio Geológico Colombiano (SGC) reportó al menos siete temblores en distintas regiones del país durante el 12 de mayo de 2026. Aunque ninguno causó daños mayores ni activó alertas de evacuación, la frecuencia inusual encendió las alarmas de monitoreo en el SGC. Las zonas más activas incluyeron el suroccidente colombiano y el Eje Cafetero, regiones de alta vulnerabilidad sísmica. El SGC mantiene vigilancia permanente ante la posibilidad de réplicas de mayor magnitud.</div>
+          <div class="swipe-body">La divisa estadounidense cerró el 12 de mayo en $3.776,34 COP, su nivel más alto desde el 9 de marzo de 2026, con un máximo intradía de $3.785,70. El alza es impulsada por el fortalecimiento global del dólar (índice DXY por encima de 98 puntos), tensiones geopolíticas en Medio Oriente e incertidumbre electoral en Colombia. La inflación de abril se ubicó en 5,68%, por encima de las expectativas del mercado.</div>
         </div>
         <div>
           <div class="swipe-why">
             <strong>Por qué importa</strong>
-            Colombia se encuentra en una de las zonas sísmicas más activas de América del Sur. Un sismo de magnitud 5.5 o mayor en zonas urbanas densas como Medellín, Cali o el Eje Cafetero tendría consecuencias económicas y humanitarias significativas. La frecuencia del 12 de mayo requiere seguimiento en los próximos días.
+            Los $3.800 COP son el umbral psicológico que los analistas siguen de cerca. Con inflación acelerada y elecciones encima, el Banco de la República enfrenta presión para subir tasas aunque el crecimiento proyectado es solo 2,8%. Empresas importadoras y sectores con deuda en dólares están directamente expuestos.
           </div>
-          <div class="swipe-source"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-12-de-mayo-de-2026-1020524">RCN</a></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/12/dolar-hoy-en-colombia-cotizacion-de-cierre-del-12-de-mayo/">Infobae</a> · <a href="https://www.noticiasrcn.com/economia/precio-del-dolar-hoy-martes-12-de-mayo-de-2026-1020434">RCN Noticias</a></div>
         </div>
       </div>
 
-    </div>
+    </div><!-- end carousel-track -->
+
     <div class="dots">
       <div class="dot active"></div>
       <div class="dot"></div>
@@ -230,84 +268,103 @@ body {
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
-    <div class="swipe-hint">Desliza para ver más &rarr;</div>
-  </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div><!-- end carousel-container -->
 
+  <!-- DIVIDER -->
   <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.16s">
+  <!-- POLÍTICO 1 -->
+  <div class="glass news-item reveal" style="transition-delay:0.16s">
     <span class="pill pill-pol">Político</span>
-    <h3>Encuesta Guarumo: Cepeda 38%, De la Espriella 23.9%, Valencia 22.8% — segunda vuelta decisiva</h3>
-    <p>La encuesta de Guarumo-EcoAnalítica de abril de 2026 ubica a Iván Cepeda (Pacto Histórico) a la cabeza con 38%, seguido por Abelardo De la Espriella (23.9%) y Paloma Valencia (22.8%). En escenarios de segunda vuelta, Valencia derrota a Cepeda con 44.6% vs. 40.1%, mientras que De la Espriella y Cepeda empatan técnicamente (40.6% vs. 40.4%). La combinación del choque Petro-Cortes y la cercanía de las elecciones puede mover votos de última hora.</p>
-    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-guarumo-abril-2026-cepeda-38-de-la-espriella-23-9-y-paloma-22-8-en-segunda-valencia-derrota-a-cepeda-y-abelardo-lo-empata-3552136">El Tiempo</a></span>
+    <h3>Petro cuestiona transparencia del software electoral y exige acceso al código fuente</h3>
+    <p>El presidente Petro volvió a cuestionar el software de preconteo de votos, calificando de "firma muy oscura" a la empresa que lo provee, y exigió acceso público al código fuente. La Registraduría rechazó las acusaciones. El cuestionamiento se produce en el contexto de una tensión generalizada entre Petro y casi todas las instituciones electorales del país, a menos de tres semanas de la primera vuelta del 31 de mayo.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/petro-volvio-a-cuestionar-la-transparencia-del-software-electoral-y-exigio-acceso-al-codigo-fuente-del-preconteo-es-de-una-firma-muy-oscura/">Infobae</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/se-escalo-la-tension-entre-el-presidente-petro-e-instituciones-en-plena-epoca-electoral/">El Espectador</a></span>
   </div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.20s">
+  <!-- POLÍTICO 2 -->
+  <div class="glass news-item reveal" style="transition-delay:0.20s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Corte Suprema revisará solicitud del Gobierno para suspender captura de "Chiquito Malo"</h3>
+    <p>La Corte Suprema de Justicia aceptó examinar la solicitud del Gobierno Petro para suspender la orden de captura contra alias "Chiquito Malo", uno de los principales cabecillas del Clan del Golfo. La Fiscalía ya se había negado a suspenderla, argumentando falta de fundamento jurídico. El caso expone la tensión entre el Ejecutivo y la Fiscalía en la política de negociación con grupos armados ilegales.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/corte-suprema-de-justicia-examinara-la-solicitud-del-gobierno-petro-para-suspender-orden-de-captura-contra-chiquito-malo/">Infobae</a></span>
+  </div>
+
+  <!-- ECONÓMICO -->
+  <div class="glass news-item reveal" style="transition-delay:0.24s">
     <span class="pill pill-eco">Económico</span>
-    <h3>Expertos alertan: dólar podría alcanzar $4,600 por incertidumbre electoral y deterioro fiscal</h3>
-    <p>Analistas financieros de El País de Cali proyectan que el dólar podría llegar a $4,600 en un escenario pesimista si se combinan el deterioro de las finanzas públicas, la posibilidad de una rebaja en la calificación soberana de crédito y la incertidumbre sobre el resultado de las elecciones del 31 de mayo. Expertos de Plenti señalaron que los factores domésticos son hoy más determinantes que los externos para la evolución del peso colombiano.</p>
-    <span class="source-link"><a href="https://www.elpais.com.co/economia/que-pasara-con-el-precio-del-dolar-en-colombia-durante-mayo-de-2026-expertos-explican-por-que-podria-llegar-a-los-4600-0454.html">El País</a> · <a href="https://www.plenti.com.co/blog-post/por-que-subio-el-dolar-en-colombia-mayo-2026">Plenti</a></span>
+    <h3>BBVA proyecta crecimiento de 2,8% para 2026 con inflación al alza y presión fiscal elevada</h3>
+    <p>Según BBVA Research, Colombia crecerá 2,8% en 2026 y solo 1,8% en 2027, con mayor peso del consumo final en el PIB y una inversión relativamente débil. La inflación de abril se ubicó en 5,68%, por encima de las expectativas. Los analistas identifican el resultado electoral del 31 de mayo como el principal factor de riesgo para las proyecciones del segundo semestre del año.</p>
+    <span class="source-link"><a href="https://www.bbva.com/es/co/economia-y-finanzas/colombia-creceria-28-en-2026-y-18-en-2027-con-inflacion-al-alza-y-elevada-presion-fiscal/">BBVA Research</a> · <a href="https://www.elespectador.com/economia/asi-esta-el-dolar-en-colombia-factores-clave-y-proyecciones-de-los-analistas-para-mayo-2026/">El Espectador</a></span>
   </div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.24s">
-    <span class="pill pill-pol">Político</span>
-    <h3>Consejo de Estado contraataca: "a poderes desbordados, controles inmediatos"</h3>
-    <p>Tras las declaraciones de Petro pidiendo demandar al magistrado que suspendió el decreto de Colpensiones, el Consejo de Estado emitió un comunicado institucional rechazando las expresiones del presidente y reafirmando la independencia judicial. La frase "a poderes desbordados, controles inmediatos" marcó el tono del organismo. El choque entre el Ejecutivo y las altas cortes se suma al patrón de confrontaciones institucionales que han caracterizado el gobierno de Petro.</p>
-    <span class="source-link"><a href="https://www.elpais.com.co/colombia/consejo-de-estado-rechazo-declaraciones-de-petro-sobre-traslado-de-recursos-a-colpensiones-a-poderes-desbordados-controles-inmediatos-1218.html">El País</a></span>
-  </div>
-
-  <div class="news-item glass reveal" style="transition-delay:0.28s">
+  <!-- EMPRESARIAL -->
+  <div class="glass news-item reveal" style="transition-delay:0.28s">
     <span class="pill pill-emp">Empresarial</span>
-    <h3>AFP reaccionan a la suspensión: los $25 billones permanecen en cuentas individuales</h3>
-    <p>Tras la suspensión del Decreto 415, las administradoras de fondos de pensiones Protección, Porvenir y Colfondos confirmaron que los recursos permanecerán en las cuentas individuales de sus afiliados hasta resolución definitiva. Los gremios empresariales, liderados por la ASOFIDUCIARIAS, saludaron el fallo como una garantía para el ahorro pensional privado. El Ministerio de Hacienda no emitió comunicado inmediato sobre el impacto fiscal de la suspensión.</p>
-    <span class="source-link"><a href="https://www.elcolombiano.com/inicio/colpensiones-pensiones-riesgo-traslado-fondos-afp-colombia-EC36433052">El Colombiano</a></span>
+    <h3>Macrorrueda de las Américas: récord histórico con USD $354 millones en expectativas de negocios</h3>
+    <p>ProColombia informó que la Macrorrueda de las Américas registró un récord de 10.948 citas con participación de 2.747 empresas y más de 4.000 empresarios. Las expectativas de negocios totales alcanzaron USD $354,2 millones, con las mipymes representando el 84% del valor generado. Energías renovables concentraron el 15% de los proyectos, seguidas por tecnología (11%) y agroindustria (8%).</p>
+    <span class="source-link"><a href="https://procolombia.co/sala-de-prensa/noticias/colombia-se-mantiene-en-el-radar-de-la-inversion-extranjera-de-cara-2026">ProColombia</a></span>
   </div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.32s">
-    <span class="pill pill-pol">Político</span>
-    <h3>De la Espriella en polémica por declaraciones contra periodistas; candidatos reaccionan</h3>
-    <p>El candidato Abelardo De la Espriella se vio envuelto en una nueva controversia por declaraciones consideradas agresivas contra medios de comunicación. Los candidatos Iván Cepeda y Paloma Valencia reprocharon públicamente sus expresiones. La polémica llega en el momento en que De la Espriella gana terreno en Polymarket, y puede afectar su imagen entre el electorado moderado que necesita para disputar una segunda vuelta.</p>
-    <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/nuevo-choque-entre-paloma-valencia-y-abelardo-de-la-espriella-por-agresiones-a-periodistas/">El Espectador</a></span>
+  <!-- SOCIAL -->
+  <div class="glass news-item reveal" style="transition-delay:0.32s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Gobierno presenta 50 medidas para blindar el sistema energético ante El Niño 2026-2027</h3>
+    <p>El Gobierno Petro presentó una hoja de ruta con 50 acciones estratégicas para anticiparse al fenómeno de El Niño 2026-2027. Las medidas incluyen ampliación de fuentes renovables, refuerzo de reservas hídricas y protocolos de racionamiento preventivo. Los meteorólogos prevén un Niño de intensidad moderada-fuerte para el segundo semestre, con riesgo de desabastecimiento eléctrico en zonas de alta dependencia hídrica.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/gobierno-petro-presento-50-medidas-para-anticiparse-al-fenomeno-de-el-nino-y-prevenir-riesgos-sobre-el-sistema-energetico-el-pais-no-puede-esperar/">Infobae</a></span>
   </div>
 
-  <div class="news-item glass reveal" style="transition-delay:0.36s">
-    <span class="pill pill-int">Judicial</span>
-    <h3>Audiencia de imputación contra cabecilla Alexander Díaz Mendoza reprogramada en Villavicencio</h3>
-    <p>La audiencia de imputación de cargos contra Alexander Díaz Mendoza, señalado cabecilla de una organización criminal en el Meta, tuvo que ser reprogramada luego de que ni el implicado ni su abogado defensor se presentaran ante el juzgado de Villavicencio. El caso es seguido por las autoridades como parte de los operativos contra estructuras ilegales en la región de los Llanos Orientales. Se fijará una nueva fecha para la audiencia.</p>
-    <span class="source-link"><a href="https://www.noticiasrcn.com/emisiones/emision-noticias-rcn-7-00-p-m-martes-12-de-mayo-de-2026-1020686">RCN</a></span>
+  <!-- DEPORTES -->
+  <div class="glass news-item reveal" style="transition-delay:0.36s">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga BetPlay: cuartos de final de vuelta con Nacional y Santa Fe clasificados a semifinales</h3>
+    <p>Se disputaron los partidos de vuelta de los cuartos de final del Torneo Apertura 2026. Atlético Nacional e Independiente Santa Fe confirmaron su clasificación a las semifinales. Las llaves de Junior vs. Once Caldas y América de Cali vs. Tolima también se definieron en esta jornada. El calendario de semifinales y la final quedó ajustado por el período electoral de fin de mes.</p>
+    <span class="source-link"><a href="https://dimayor.com.co/liga-betplay-dimayor/">Dimayor</a> · <a href="https://www.infobae.com/colombia/deportes/2026/05/13/calendario-de-la-liga-betplay-le-daria-poco-espacio-a-las-semifinales-y-final-de-la-liga-betplay-estas-serian-las-fechas/">Infobae Deportes</a></span>
   </div>
 
-  <div class="data-strip reveal" style="transition-delay:0.40s">
-    <div class="data-cell glass">
-      <div class="data-cell-label">TRM Dólar</div>
-      <div class="data-cell-value">$3,759</div>
-      <div class="data-cell-delta red">Apertura $3,769</div>
+  <!-- INTERNACIONAL -->
+  <div class="glass news-item reveal" style="transition-delay:0.40s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Cooperación Venezuela-Colombia en operación militar contra el ELN genera debate regional</h3>
+    <p>La confirmación de que Venezuela participó en el bombardeo al ELN en el Catatumbo generó reacciones en toda la región. Es la primera vez que un gobierno colombiano coordina con Venezuela una operación militar en territorio nacional. La oposición cuestionó los términos jurídicos de esa cooperación, mientras que Estados Unidos y la Unión Europea anunciaron que monitorean el desarrollo de los hechos.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/petro-confirmo-que-dio-la-orden-de-bombardear-al-comando-central-del-eln-con-apoyo-de-venezuela-no-estan-en-ningun-acuerdo-de-paz/">Infobae</a> · <a href="https://www.vanguardia.com/colombia/2026/05/12/fin-al-cese-al-fuego-petro-ordeno-bombardeo-contra-el-eln-en-el-catatumbo/">Vanguardia</a></span>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip reveal" style="transition-delay:0.44s">
+    <div class="glass data-cell">
+      <div class="data-cell-label">TRM Oficial</div>
+      <div class="data-cell-value">$3.759</div>
+      <div class="data-cell-delta red">COP / USD</div>
     </div>
-    <div class="data-cell glass">
-      <div class="data-cell-label">Elecciones</div>
-      <div class="data-cell-value">31 May</div>
-      <div class="data-cell-delta" style="color:var(--muted)">19 días</div>
+    <div class="glass data-cell">
+      <div class="data-cell-label">Cierre Mercado</div>
+      <div class="data-cell-value">$3.776</div>
+      <div class="data-cell-delta red">+$6,34 (+0,17%)</div>
     </div>
-    <div class="data-cell glass">
-      <div class="data-cell-label">Colpensiones</div>
-      <div class="data-cell-value red">$25B</div>
-      <div class="data-cell-delta red">Decreto suspendido</div>
+    <div class="glass data-cell">
+      <div class="data-cell-label">Inflación Abril</div>
+      <div class="data-cell-value">5,68%</div>
+      <div class="data-cell-delta red">Sobre expectativas</div>
     </div>
   </div>
 
-  <div class="vigilar reveal" style="transition-delay:0.44s">
-    <div class="vigilar-header">Qué Vigilar Hoy · Miércoles 13 de mayo</div>
-    <div class="vigilar-item">Cotización del dólar: si supera los COP 3,800 sería señal de aceleración de la presión cambiaria pre-electoral; seguimiento a declaraciones del Ministerio de Hacienda para calmar mercados.</div>
-    <div class="vigilar-item">Respuesta institucional: si el Congreso reacciona al choque Petro-Consejo de Estado o si algún candidato presidencial toma posición pública sobre el conflicto entre el Ejecutivo y el poder judicial.</div>
-    <div class="vigilar-item">Nuevas encuestas presidenciales: si De la Espriella mantiene su escalada en encuestadoras formales o si la ventaja de Cepeda se sostiene a pesar del avance en Polymarket, a solo 19 días de las elecciones.</div>
+  <!-- QUÉ VIGILAR -->
+  <div class="vigilar reveal" style="transition-delay:0.48s">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Reacción del ELN y grupos armados al bombardeo del Catatumbo: posibles represalias o escalada en Arauca, Norte de Santander y Chocó, zonas con mayor presencia activa de la guerrilla.</div>
+    <div class="vigilar-item">Respuesta del Congreso y la oposición al choque Petro-Consejo de Estado: si presentan moción de censura o recurso judicial por las declaraciones del Ejecutivo contra los magistrados.</div>
+    <div class="vigilar-item">Comportamiento del dólar: si supera los $3.800 COP entraría en zona de alerta para el Banco de la República. Vigilar declaraciones del gerente Leonardo Villar sobre posible intervención cambiaria.</div>
   </div>
 
-  <div class="footer reveal" style="transition-delay:0.48s">
-    <div>Fuentes: El País · Semana · Infobae · RCN · El Tiempo · El Colombiano · El Espectador · Noticias Caracol · Plenti</div>
-    <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+  <!-- FOOTER -->
+  <div class="footer reveal" style="transition-delay:0.52s">
+    <div>Fuentes: Infobae Colombia · El Espectador · Semana · Vanguardia · La Silla Vacía · BBVA Research · RCN Noticias · Dimayor · ProColombia · CICR</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
   </div>
 
-</div>
+</div><!-- end wrap -->
+
 <script>
   const track = document.getElementById('carousel');
   const dots = document.querySelectorAll('.dot');
@@ -320,5 +377,6 @@ body {
   }),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
 </body>
 </html>
