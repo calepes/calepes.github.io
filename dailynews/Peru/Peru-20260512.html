@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — Martes 12 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #E8EEF4 0%, #D4DFE9 25%, #D6E4EC 55%, #E2EBF2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 32px 24px 26px;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.orange { color: #FF9500; }
+
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Martes 12 de mayo de 2026 · Lima</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="section-header reveal">Top 5 del Día</div>
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <!-- Card 01 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Segunda vuelta confirmada: Fujimori vs. Sánchez el 7 de junio</div>
+          </div>
+          <div class="swipe-body">Con el 99.92% de actas procesadas por la ONPE, Keiko Fujimori (Fuerza Popular, 17.18%) y Roberto Sánchez (Juntos por el Perú, 12.02%) disputarán la segunda vuelta presidencial el 7 de junio. Sánchez superó por estrecho margen a Rafael López Aliaga (Renovación Popular, 11.91%), definiéndose el balotaje como una contienda derecha-izquierda en un país polarizado.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la cuarta vez que Fujimori llega a segunda vuelta, con tres derrotas previas (2011, 2016, 2021). Una victoria de Sánchez implicaría el primer gobierno de izquierda moderada desde Castillo. Las encuestas de primera vuelta no dan ventaja clara a ninguno, lo que aumenta la incertidumbre sobre la dirección de la política económica desde julio.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a> · <a href="https://elcomercio.pe/elecciones/resultados-onpe-100-de-elecciones-peru-2026-que-candidatos-pasaran-a-segunda-vuelta-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a> · <a href="https://es.euronews.com/2026/05/11/elecciones-en-peru-roberto-sanchez-disputara-la-segunda-vuelta-contra-keiko-fujimori">Euronews</a></div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Desarticulan "Los Elegantes de Lima": funcionarios del Estado en red criminal de usurpación</div>
+          </div>
+          <div class="swipe-body">Un megaoperativo de la PNP y la Fiscalía Especializada contra la Criminalidad Organizada detuvo a 10 integrantes de la banda "Los Elegantes de Lima", incluyendo a su presunto cabecilla Luis Alberto Pérez Delgado. La red operó entre 2023 y 2025 controlando propiedades valoradas en más de 25 millones de dólares mediante documentos falsos, con participación de trabajadores de Sunarp, el Poder Judicial, Sedapal y notarías. El operativo alcanzó 13 distritos en Lima, Ayacucho y La Libertad.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La infiltración del crimen organizado en registros públicos y el sistema judicial expone una vulnerabilidad estructural del Estado peruano. Es el mayor golpe a la corrupción institucionalizada en el sector inmobiliario desde el inicio del gobierno de transición, y llega en plena campaña electoral donde la seguridad es tema central.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/sociedad/2026/05/12/caen-los-elegantes-de-lima-acusan-a-trabajadores-del-poder-judicial-sunarp-y-mas-entidades-de-traficar-terrenos-704532">La República</a> · <a href="https://rpp.pe/lima/seguridad/pnp-y-fiscalia-desarticularon-en-megaoperativo-presunta-red-de-usurpacion-de-inmuebles-del-estado-y-lavado-de-activos-noticia-1687959">RPP</a></div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Inversión minera apunta a récord de US$6,400M en 2026: la mayor en una década</div>
+          </div>
+          <div class="swipe-body">La inversión minera en Perú proyecta alcanzar US$6,400 millones en 2026, su nivel más alto en diez años, impulsada por 32 nuevos proyectos de exploración por US$287.5 millones aprobados solo en lo que va del año. Canadá y Australia concentran el 42% de la inversión en exploración. El MEF ratifica el crecimiento del PBI en 3.2% para 2026, con la minería como principal motor junto al cobre.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La minería sostiene la estabilidad macroeconómica peruana en un año electoral de alta incertidumbre. El récord de inversión proyectado contrasta con los riesgos de conflictividad social y la incógnita regulatoria que depende del resultado de la segunda vuelta del 7 de junio.
+          </div>
+          <div class="swipe-source"><a href="https://elcomercio.pe/economia/peru/inversion-minera-llegaria-a-us6400-millones-en-2026-su-mayor-nivel-en-una-decada-l-mineria-l-ultimas-noticia/">El Comercio</a> · <a href="https://www.infobae.com/peru/2026/05/10/imparable-peru-suma-32-nuevos-proyectos-de-exploracion-minera-por-usd-2875-millones-en-2026/">Infobae Perú</a></div>
+        </div>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Inflación anual supera el rango meta del BCRP: 3.73% acumulado</div>
+          </div>
+          <div class="swipe-body">La inflación anualizada en Perú alcanza 3.73% al cierre de abril, por encima del techo de 3% fijado por el Banco Central de Reserva. El IPC acumuló un alza de 0.64% solo en abril. El BCRP mantiene su tasa de referencia en 4.25% y proyecta convergencia al rango meta a fin de año, aunque analistas advierten que la incertidumbre electoral podría elevar las presiones sobre precios y tipo de cambio en los próximos meses.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Con el dólar cerrando en S/3.43 el 12 de mayo y la inflación fuera del rango meta, el margen del BCRP para recortes de tasa es estrecho. Cualquier shock externo o debilidad política post-electoral podría deteriorar el anclaje de expectativas que ha sido la fortaleza relativa de Perú frente al resto de la región.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae Perú</a> · <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-12-de-mayo-del-2026-noticia-1687958">RPP</a></div>
+        </div>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Perú recibe el IV Taller de los Acuerdos Artemis: apuesta de Lima como hub diplomático-científico</div>
+          </div>
+          <div class="swipe-body">El Ministerio de Relaciones Exteriores declaró de interés nacional la realización en Lima del IV Taller de los Acuerdos Artemis del 13 al 15 de mayo, iniciativa liderada por la NASA para promover la cooperación espacial internacional. Perú se posiciona como plataforma regional para impulsar la participación latinoamericana en la exploración espacial y el derecho internacional del espacio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la primera vez que América Latina alberga este taller en el marco del programa Artemis. La apuesta de Lima por la diplomacia científica abre canales de cooperación tecnológica con EE.UU. y los 45 países signatarios de los Acuerdos, en un momento en que el futuro de la política exterior del país dependerá del candidato que gane el 7 de junio.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/06/peru-sera-sede-de-un-encuentro-liderado-por-la-nasa-sobre-el-futuro-del-espacio-este-13-y-14-de-mayo/">Infobae Perú</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-martes-12-de-mayo-de-2026">TVPerú</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+  <!-- POLÍTICO -->
+  <div class="news-item glass reveal" style="transition-delay:0.04s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Estado de emergencia prorrogado en distritos de cuatro regiones</h3>
+    <p>El gobierno de transición prorrogó el estado de emergencia en distritos de Piura, Ayacucho, Cusco y Junín en el marco de la lucha contra el crimen organizado, autorizando mayor presencia de las Fuerzas Armadas junto a la PNP. La medida se suma a un contexto de transición política donde las decisiones de seguridad quedan en manos de un gobierno saliente mientras se espera el resultado definitivo de la segunda vuelta.</p>
+    <span class="source-link"><a href="https://www.radionacional.gob.pe/noticias/nacional/prorrogan-estado-de-emergencia-en-distintos-distritos-del-pais-como-parte-de-su-lucha-contra-el-crimen-organizado">Radio Nacional</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/prorrogan-estado-de-emergencia-en-distintos-distritos-del-pais-como-parte-de-su-lucha-contra-el-crimen-organizado">TVPerú</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.08s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Campaña de segunda vuelta: Fujimori y Sánchez definen alianzas post-primera vuelta</h3>
+    <p>Con la segunda vuelta fijada para el 7 de junio, ambos candidatos inician la búsqueda de alianzas con los partidos que quedaron fuera del balotaje. Keiko Fujimori, con tres derrotas consecutivas en segunda vuelta, enfrenta el desafío de ampliar su base más allá del fujimorismo duro. Roberto Sánchez busca articular el voto de centro-izquierda y los votos blancos y nulos que sumaron cerca del 20% en la primera vuelta.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/opinion/columnistas/dilemas-de-la-segunda-vuelta-por-martin-tanaka-elecciones-2026-keiko-fujimori-roberto-sanchez-noticia/">El Comercio</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/11/peru-la-ultraderechista-keiko-fujimori-y-roberto-sanchez-por-la-izquierda-se-mediran-en-la-segunda-vuelta-de-las-presidenciales">Resumen Latinoamericano</a></span>
+  </div>
+
+  <!-- ECONÓMICO -->
+  <div class="news-item glass reveal" style="transition-delay:0.12s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar cierra en S/3.43 con presión moderada sobre el sol peruano</h3>
+    <p>El tipo de cambio cerró el martes 12 de mayo en S/3.43, con un avance de 0.09% frente al sol. La apertura fue de S/3.428 para compra y S/3.440 para venta según Sunat. El BCRP proyecta que la inflación convergirá al rango meta (1–3%) hacia fin de año, aunque el proceso electoral introduce riesgos de volatilidad cambiaria. La economía peruana sigue siendo una de las más estables de la región por el ancla de la minería exportadora.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-12-de-mayo-del-2026-noticia-1687958">RPP</a> · <a href="https://www.expreso.com.pe/economia/dolar-cotizacion-hoy-en-peru-cual-es-el-tipo-de-cambio-este-martes-12-de-mayo-de-2026-sunat-mef-bcrp-ultima-hora-ultimo-minuto-precio-soles-divisa-noticia/1286359/">Expreso</a></span>
+  </div>
+
+  <!-- EMPRESARIAL -->
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Exploración minera crece 20% y apunta a superar US$1,000M en 2026</h3>
+    <p>La inversión en exploración minera registró un crecimiento de 20% interanual y proyecta superar los US$1,000 millones en 2026. Canadá y Australia concentran el 42% del total, distribuidos en 69 proyectos en 17 regiones del país. La cartera de inversión minera total asciende a más de US$53,000 millones en 65 proyectos priorizados. El principal desafío sigue siendo la conflictividad social y la permisología, que ha demorado proyectos estratégicos.</p>
+    <span class="source-link"><a href="https://www.desdeadentro.pe/2026/05/canada-y-australia-concentran-el-42-de-la-inversion-en-exploracion-minera-en-peru-al-2026/">Desde Adentro</a> · <a href="https://www.infobae.com/peru/2026/05/10/imparable-peru-suma-32-nuevos-proyectos-de-exploracion-minera-por-usd-2875-millones-en-2026/">Infobae Perú</a></span>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-soc">Social</span>
+    <h3>PNP reporta reducción de 9% en homicidios y 39% en extorsiones en 2026</h3>
+    <p>El comandante general de la PNP, Óscar Arriola, informó que los homicidios disminuyeron 9% y las extorsiones 39% en lo que va de 2026 respecto al mismo período de 2025, año en que sicariato y extorsiones batieron récord. Sin embargo, Perú sigue ubicado en el quinto superior de países más afectados por el crimen organizado a nivel mundial según el Observatorio de Delincuencia Organizada Global. El Plan Nacional de Seguridad 2026–2028 apunta a reducir la tasa de homicidios de 10.7 a 8.5 por cada 100,000 habitantes.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/01/03/sicariato-y-extorsiones-baten-record-en-2025-las-cifras-que-marcaron-la-seguridad-ciudadana-y-las-politicas-implementadas/">Infobae Perú</a> · <a href="https://gestion.pe/peru/gobierno-lanza-ofensiva-nacional-contra-el-crimen-con-metas-al-2028-noticia/">Gestión</a></span>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga 1 Torneo Apertura: Alianza Lima lidera con 33 puntos tras fecha 14</h3>
+    <p>La fecha 14 del Torneo Apertura de la Liga 1 2026 dejó a Alianza Lima como firme líder con 33 unidades, seguido de cerca por Los Chankas con 30 puntos. Los resultados clave de la semana incluyeron el empate 1-1 entre Alianza Lima y Sporting Cristal en Matute, y el 0-0 entre Sport Boys y Universitario de Deportes. No hubo partidos de Liga 1 programados el martes 12 de mayo.</p>
+    <span class="source-link"><a href="https://larepublica.pe/deportes/2026/05/09/tabla-de-posiciones-de-la-liga-1-2026-partidos-y-resultados-de-la-fecha-14-del-torneo-apertura-158494">La República</a> · <a href="https://www.tvperu.gob.pe/noticias/deportes/tabla-posiciones-liga-1-peru-2026-fecha-14-torneo-apertura-alianza-lima-lider">TVPerú</a></span>
+  </div>
+
+  <!-- INTERNACIONAL -->
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Lima acogerá el IV Taller Artemis (NASA) desde el miércoles 13 de mayo</h3>
+    <p>Perú se convierte en sede del IV Taller de los Acuerdos Artemis del 13 al 15 de mayo, evento de cooperación espacial liderado por la NASA en el que participan los 45 países signatarios del acuerdo. El Ministerio de Relaciones Exteriores declaró el evento de interés nacional. Es la primera vez que América Latina alberga este taller, posicionando a Lima como referente regional en diplomacia científica y derecho del espacio.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/06/peru-sera-sede-de-un-encuentro-liderado-por-la-nasa-sobre-el-futuro-del-espacio-este-13-y-14-de-mayo/">Infobae Perú</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-martes-12-de-mayo-de-2026">TVPerú</a></span>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip">
+    <div class="data-cell glass reveal" style="transition-delay:0.32s">
+      <div class="data-cell-label">Dólar (PEN)</div>
+      <div class="data-cell-value">S/3.43</div>
+      <div class="data-cell-delta red">+0.09%</div>
+    </div>
+    <div class="data-cell glass reveal" style="transition-delay:0.36s">
+      <div class="data-cell-label">Inflación anual</div>
+      <div class="data-cell-value">3.73%</div>
+      <div class="data-cell-delta orange">Sobre meta</div>
+    </div>
+    <div class="data-cell glass reveal" style="transition-delay:0.40s">
+      <div class="data-cell-label">PBI 2026 (proy.)</div>
+      <div class="data-cell-value">+3.2%</div>
+      <div class="data-cell-delta green">MEF/BCRP</div>
+    </div>
+  </div>
+
+  <!-- QUÉ VIGILAR -->
+  <div class="vigilar reveal" style="transition-delay:0.44s">
+    <div class="vigilar-header">Qué vigilar hoy — Miércoles 13 de mayo</div>
+    <div class="vigilar-item">Inicio del IV Taller de Acuerdos Artemis en Lima (13–15 mayo): posibles anuncios de cooperación bilateral Perú–EE.UU. en tecnología espacial.</div>
+    <div class="vigilar-item">Arranque formal de la campaña de segunda vuelta: Fujimori y Sánchez deben presentar sus programas de gobierno actualizados. Observar si alguno incorpora compromisos sobre política minera o tributaria que afecten la inversión.</div>
+    <div class="vigilar-item">Seguimiento al tipo de cambio tras cierre de S/3.43: presión inflacionaria y contexto electoral pueden generar volatilidad si el mercado anticipa escenario político de mayor riesgo regulatorio.</div>
+    <div class="vigilar-item">Avance de investigaciones sobre "Los Elegantes de Lima": se esperan más detenciones y la formalización de cargos contra los funcionarios estatales implicados en la red de corrupción.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer reveal" style="transition-delay:0.48s">
+    <div>Fuentes: RPP · La República · El Comercio · Infobae Perú · Gestión · TVPerú · Radio Nacional · Andina · Euronews · Desde Adentro</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
