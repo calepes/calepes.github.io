@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú · Martes 12 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #991b1b;
+  --accent-soft: rgba(153,27,27,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F0E8E8 0%, #EAD4D4 25%, #DDE4EA 55%, #EBF0F5 80%, #F5F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(153,27,27,0.06) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal" style="transition-delay:0s">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Martes 12 de mayo de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">JNE inicia proclamación: Keiko Fujimori y Roberto Sánchez van a segunda vuelta el 7 de junio</div>
+          </div>
+          <div class="swipe-body">Con la ONPE al 100% del escrutinio, el Jurado Nacional de Elecciones inició el proceso de proclamación descentralizada de los resultados de la primera vuelta. Keiko Fujimori (Fuerza Popular) lidera con 17.18% y Roberto Sánchez (Juntos por el Perú) pasa a segunda vuelta con 12.00%, superando por apenas 14,521 votos a Rafael López Aliaga (Renovación Popular). El balotaje se realizará el 7 de junio de 2026. López Aliaga anunció impugnaciones ante el JEE.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El inicio formal de la proclamación despeja la incertidumbre sobre el escenario electoral. El margen mínimo entre Sánchez y López Aliaga (14,521 votos sobre más de 16 millones emitidos) garantizará batallas legales que podrían extender el proceso de confirmación hasta fines de mayo, creando ruido político durante la campaña de segunda vuelta.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/11/elecciones-2026-se-inicia-proclamacion-de-resultados-de-la-primera-vuelta-pese-a-intentos-de-retrasar-el-balotaje-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-hnews-818290">La República</a> · <a href="https://es.euronews.com/2026/05/11/elecciones-en-peru-roberto-sanchez-disputara-la-segunda-vuelta-contra-keiko-fujimori">Euronews</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Segunda vuelta: encuestas IEP e Ipsos muestran empate técnico Fujimori–Sánchez</div>
+          </div>
+          <div class="swipe-body">Las primeras encuestas de intención de voto para el balotaje del 7 de junio colocan a Keiko Fujimori y Roberto Sánchez en empate técnico, según IEP e Ipsos. El porcentaje de indecisos es mayor al habitual en una segunda vuelta, lo que sugiere que la campaña de mayo será decisiva. Fujimori concentra fuerza en costa norte y centro; Sánchez en regiones del sur y zonas de tradición castillista. El choque ideológico derecha-izquierda marca la narrativa.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Un empate técnico en las primeras encuestas de segunda vuelta indica que ningún candidato tiene garantizado el triunfo. Para los mercados y la economía, la incertidumbre sobre el próximo gobierno se mantendrá hasta el 7 de junio, con posible impacto en inversión privada y tipo de cambio si algún candidato polariza.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a> · <a href="https://www.infobae.com/peru/2026/05/05/segunda-vuelta-2026-en-peru-fecha-oficial-cambios-debate-y-todo-lo-que-necesitas-saber-antes-del-7-de-junio/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Lima sede del IV Taller de los Acuerdos Artemis (13–15 mayo): declarado de interés nacional</div>
+          </div>
+          <div class="swipe-body">El Ministerio de Relaciones Exteriores declaró de interés nacional la realización en el Perú del IV Taller de los Acuerdos Artemis, programado del 13 al 15 de mayo de 2026 en Lima. El evento reúne a representantes de los países signatarios de los acuerdos marco para la exploración lunar y de minerales críticos en el espacio. Perú es uno de los firmantes de los Acuerdos Artemis y es sede del debate sobre minerales críticos por su posición como productor de 8 de los 17 minerales identificados globalmente.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Ser sede de este taller posiciona al Perú en la agenda internacional de minerales críticos y economía espacial, dos sectores de creciente relevancia geopolítica. La declaratoria de interés nacional fortalece la imagen exterior del país justo antes de la segunda vuelta, mostrando continuidad de estado más allá del ciclo electoral.
+          </div>
+          <div class="swipe-source"><a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-martes-12-mayo-del-2026-1074687.aspx">Andina</a> · <a href="https://diariocorreo.pe/economia/peru-sera-centro-de-debate-sobre-los-minerales-criticos-en-la-transicion-energetica-noticia/">Correo</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">MEF ratifica crecimiento de 3.2% en 2026 impulsado por inversión minera récord de USD 6,800M</div>
+          </div>
+          <div class="swipe-body">El Ministerio de Economía y Finanzas ratificó su proyección de crecimiento del PIB de 3.2% para 2026, apoyada en una inversión minera que superaría los USD 6,800 millones, la mayor de la última década. El MEF publicó su informe de actualización macroeconómica mostrando mayor optimismo sobre la inversión privada. La exploración minera alcanzará USD 757 millones en 2026 con 69 proyectos activos en 17 regiones, liderados por oro (40.7%) y cobre (32.2%).</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Ratificar la proyección en plena campaña electoral proporciona estabilidad macroeconómica al proceso político. La expansión minera es el motor del crecimiento, pero su sostenibilidad depende de que el próximo gobierno respete los marcos regulatorios y licencias sociales. Las encuestas de segunda vuelta empezarán a reflejar el costo de posibles cambios en política minera.
+          </div>
+          <div class="swipe-source"><a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a> · <a href="https://www.rumbominero.com/peru/noticias/economia/mef-crecimiento-32-impulsado-por-la-mineria/">Rumbo Minero</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Tipo de cambio: dólar cierra en S/ 3.43; sol avanza 0.09% en jornada estable</div>
+          </div>
+          <div class="swipe-body">El precio del dólar en el mercado peruano cerró el martes 12 de mayo en S/ 3.43, con un avance del sol de 0.09% frente a la moneda estadounidense, según datos del Banco Central de Reserva del Perú (BCRP). La relativa estabilidad cambiaria, a pesar del contexto electoral, refleja que los mercados no descuentan aún un riesgo extremo en ninguno de los dos candidatos a segunda vuelta. El BCRP mantiene activa su política de intervención cambiaria para evitar volatilidad excesiva.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La estabilidad cambiaria en plena transición política es una señal positiva para la economía. Sin embargo, a medida que avance la campaña de segunda vuelta y se definan las propuestas económicas, el sol puede mostrar mayor sensibilidad a declaraciones de los candidatos, especialmente en temas de minería, pensiones e inversión extranjera.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-12-de-mayo-del-2026-noticia-1687958">RPP</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
+
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Político</span>
+    <h3>JEE inicia proclamación descentralizada: impugnaciones de López Aliaga en proceso</h3>
+    <p>Los Jurados Electorales Especiales (JEE) de todo el país iniciaron el proceso de proclamación descentralizada de resultados. Rafael López Aliaga, quien quedó a 14,521 votos del segundo lugar, anunció impugnaciones en múltiples circunscripciones. El proceso de confirmación oficial de los dos candidatos a segunda vuelta podría extenderse hasta finales de mayo, generando incertidumbre en el periodo más crítico de la campaña electoral.</p>
+    <span class="source-link"><a href="https://elcomercio.pe/elecciones/resultados-onpe-100-de-elecciones-peru-2026-que-candidatos-pasaran-a-segunda-vuelta-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Exploración minera 2026: USD 757M en 69 proyectos; oro y cobre lideran</h3>
+    <p>La exploración minera en el Perú alcanzará USD 757 millones en 2026 con una cartera de 69 proyectos activos distribuidos en 17 regiones. El oro lidera la inversión con 40.7% del portafolio, seguido del cobre con 32.2%. Ambos metales representan más del 72% de la inversión exploratoria total. El Instituto de Ingenieros de Minas del Perú (IIMP) advirtió que modificar la Ley General de Minería para reducir el plazo de caducidad de concesiones de 30 a 15 años afectaría la inversión formal y favorecería la minería ilegal.</p>
+    <span class="source-link"><a href="https://www.diariominero.com/actualidad/exploracion-minera-peru-2026-2/">Diario Minero</a> · <a href="https://rpp.pe/economia/economia/iimp-advierte-que-concesiones-mineras-ociosas-afectarian-inversion-minera-formal-y-favorecerian-avance-de-mineria-ilegal-noticia-1687995">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Gremios mineros latinoamericanos se reúnen en Lima para debatir minerales críticos</h3>
+    <p>Representantes de los principales gremios mineros de América Latina se reunieron en Lima el 12 de mayo para abordar el escenario de los minerales críticos en la transición energética. El encuentro busca posicionar a la región como proveedora estratégica de litio, cobre y otros insumos para la economía verde global. Perú, que alberga 8 de los 17 minerales críticos identificados mundialmente, ocupa un lugar central en la discusión.</p>
+    <span class="source-link"><a href="https://www.diariolibre.com/economia/energia/2026/05/12/gremios-mineria-de-america-latina-abordaran-en-lima-el-escenario/3531626">Diario Libre</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Condecoración a 8 mujeres indígenas en el Día Nacional de la Mujer Indígena u Originaria</h3>
+    <p>El gobierno otorgó la Condecoración Excepcional "Orden al Mérito de la Mujer" 2026 a ocho mujeres indígenas destacadas por sus aportes en defensa de derechos, preservación del agua, saberes ancestrales, protección de bosques amazónicos y desarrollo científico vinculado a comunidades originarias. El acto se realizó en el marco del Día Nacional de la Mujer Indígena u Originaria.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-martes-12-de-mayo-de-2026">TV Perú</a> · <a href="https://andina.pe/agencia/noticia-estas-son-las-normas-legales-mas-importantes-del-martes-12-mayo-del-2026-1074687.aspx">Andina</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Nuevos proyectos mineros fortalecen perspectivas de crecimiento económico regional</h3>
+    <p>El ingreso de nuevos proyectos mineros en las regiones de Cajamarca, Arequipa y Apurímac fortalece las perspectivas de crecimiento económico para el segundo semestre de 2026. El MEF destaca que la inversión privada en el sector superará los USD 6,800 millones este año, la mayor cifra de la última década, consolidando a la minería como el principal motor del crecimiento peruano ante la moderación de la demanda interna.</p>
+    <span class="source-link"><a href="https://nacionaltvperu.com/nuevos-proyectos-mineros-fortalecen-el-crecimiento-economico/">Nacional TV Perú</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.36s">
+    <span class="pill pill-dep">Otros</span>
+    <h3>Sismo registrado en Lima; IGP monitorea actividad sísmica del 12 de mayo</h3>
+    <p>El Instituto Geofísico del Perú (IGP) reportó actividad sísmica en Lima y otras regiones del país durante el 12 de mayo de 2026. Los sismos, de magnitudes menores a 4.0 en su mayoría, no generaron alertas ni daños reportados. El IGP mantiene el monitoreo permanente de la actividad tectónica en el litoral pacífico peruano, una de las zonas sísmicamente más activas del planeta.</p>
+    <span class="source-link"><a href="https://libero.pe/tiempoextra/2026/05/12/temblor-en-peru-hoy-martes-12-de-mayo-de-2026-en-vivo-epicentro-magnitud-del-ultimo-sismo-segun-igp-679085">Líbero</a></span>
+  </div>
+
+  <div class="data-strip reveal" style="transition-delay:0.40s">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Tipo de Cambio</div>
+      <div class="data-cell-value">S/ 3.43</div>
+      <div class="data-cell-delta green">+0.09% sol</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Keiko · 1a Vuelta</div>
+      <div class="data-cell-value">17.18%</div>
+      <div class="data-cell-delta" style="color:var(--muted)">2,875,600 votos</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Crecim. PIB 2026</div>
+      <div class="data-cell-value green">3.2%</div>
+      <div class="data-cell-delta" style="color:var(--muted)">Proyección MEF</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal" style="transition-delay:0.44s">
+    <div class="vigilar-header">Qué Vigilar Hoy · Miércoles 13 de mayo</div>
+    <div class="vigilar-item">Inicio del IV Taller de los Acuerdos Artemis en Lima (13-15 mayo): qué compromisos firmará el Perú y cómo posicionará la agenda de minerales críticos ante el cambio de gobierno.</div>
+    <div class="vigilar-item">Resolución del JEE sobre impugnaciones de López Aliaga: si confirma o revierte la segunda posición de Sánchez, lo que podría cambiar el escenario de la segunda vuelta radicalmente.</div>
+    <div class="vigilar-item">Nuevas encuestas de segunda vuelta: si alguna rompe el empate técnico entre Fujimori y Sánchez o si el nivel de indecisos comienza a bajar con el inicio formal de la campaña de balotaje.</div>
+  </div>
+
+  <div class="footer reveal" style="transition-delay:0.48s">
+    <div>Fuentes: ONPE · JNE · La República · Infobae · RPP · Andina · Gestión · Rumbo Minero · El Comercio · Euronews · Diario Minero · IGP · TV Perú</div>
+    <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
