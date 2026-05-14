@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia · Miércoles 13 de mayo de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F5EFE0 0%, #EDE5D0 25%, #D8E0D5 55%, #E4EAE2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal" style="transition-delay:0s">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Miércoles 13 de mayo de 2026 · Bogotá</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">ELN niega 7 bajas en el Catatumbo y acusa al gobierno de Petro de publicar "cifras falsas"</div>
+          </div>
+          <div class="swipe-body">El Ejército de Liberación Nacional (ELN) publicó un video rechazando que el bombardeo ordenado por Petro el 11 de mayo en Tibú haya dejado siete guerrilleros muertos. La guerrilla acusó al gobierno de "mentir" con las cifras y aseguró que los proyectiles cayeron en un área vacía. Las Fuerzas Militares mantienen su versión y reportan la neutralización de una comisión del frente Luis Enrique León Guerra liderada por alias Sucre, segundo comandante del frente.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La disputa de cifras define si el bombardeo fue un éxito táctico o un golpe de propaganda fallido. Si el ELN no sufrió bajas reales, Petro apostó políticamente por la confrontación militar sin resultado y con el costo de cerrar definitivamente las negociaciones de paz. La Fiscalía y el Congreso ya analizan si hubo coordinación legal con Venezuela para la operación.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/13/eln-nego-bajas-tras-bombardeo-en-catatumbo-y-acuso-al-gobierno-de-cifras-falsas-las-fuerzas-militares-reportaron-siete-muertos-en-tibu/">Infobae</a> · <a href="https://www.semana.com/nacion/cucuta/articulo/eln-dice-que-bombardeo-de-fuerzas-militares-en-el-catatumbo-fue-al-vacio-mentira-del-gobierno-petro/202656/">Semana</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Alianza Colombia-Venezuela contra el ELN: expertos analizan la inédita cooperación militar binacional</div>
+          </div>
+          <div class="swipe-body">Analistas de seguridad regional revelaron la importancia estratégica de la alianza entre Colombia y Venezuela para el bombardeo en el Catatumbo: el ELN usa el territorio venezolano como corredor logístico y retaguardia para el movimiento de su Directiva Nacional y Comando Central. La operación coordinada con Maduro implica que Venezuela reconoció la presencia irregular del ELN en su territorio y habilitó el espacio aéreo colombiano por zonas limítrofes venezolanas.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Es la primera vez en la historia que Colombia y Venezuela coordinan una operación militar contra una guerrilla en zona fronteriza. El precedente geopolítico es enorme: abre la puerta a operaciones transfronterizas futuras, pero también a tensiones con la oposición venezolana, con EE.UU. y con países que mantienen reservas sobre los vínculos de Maduro con el ELN.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/13/experto-revelo-la-importancia-de-la-alianza-entre-colombia-y-venezuela-para-combatir-al-eln-tras-bombardeo-en-el-catatumbo/">Infobae</a> · <a href="https://www.jornada.com.mx/2026/05/13/mundo/019n2mun">La Jornada</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Paz Total en balance: Consejería de Paz rinde informe a Petro sobre avances y dificultades</div>
+          </div>
+          <div class="swipe-body">La Consejería Comisionada de Paz sostuvo una reunión con el presidente Gustavo Petro en la que presentó un informe sobre los avances, logros y dificultades de los distintos procesos de paz en curso. El informe llega en un momento paradójico: mientras se analiza la Paz Total, Petro ordenó el bombardeo al ELN dos días antes. Desde agosto de 2022, más de COP$88.000 millones han sido gastados en mesas de diálogo sin resultados visibles en la reducción de violencia.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El informe podría representar el epitafio de la Paz Total como política de Estado: el gobierno que más apostó al diálogo con grupos armados termina su mandato bombardeando a los mismos. El gasto de COP$88.000 millones sin resultados tangibles será un argumento central en la campaña presidencial del 31 de mayo.
+          </div>
+          <div class="swipe-source"><a href="https://www.elheraldo.co/colombia/2026/05/14/consejeria-comisionada-de-paz-sostuvo-reunion-con-petro-se-rindio-un-informe-sobre-avances-logros-y-dificultades-de-los-procesos-de-paz/">El Heraldo</a> · <a href="https://www.elcolombiano.com/colombia/costo-paz-total-petro-88000-millones-mesas-dialogo-CE36451355">El Colombiano</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Colombia a 18 días de las presidenciales: Cepeda lidera encuestas pero Polymarket favorece a De la Espriella</div>
+          </div>
+          <div class="swipe-body">Faltan exactamente 18 días para la primera vuelta del 31 de mayo. El ponderador de encuestas de La Silla Vacía ubica a Iván Cepeda (Pacto Histórico) en primer lugar con 38.6% de intención de voto. Abelardo de la Espriella aparece segundo con 23.2%. Sin embargo, el mercado de predicción Polymarket le asigna a De la Espriella el 43% de probabilidad de ganar, versus el 41% de Cepeda. En balotaje (segunda vuelta el 21 de junio), De la Espriella superaría a Cepeda 47% a 42%, según el mercado.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La brecha entre encuestas y mercados de predicción refleja incertidumbre extrema: las encuestas capturan intención declarada pero los mercados incorporan información sobre voto oculto y movilización. Con el bombardeo al ELN y el fin de la Paz Total, el electorado de centro-derecha puede consolidarse hacia De la Espriella en los últimos días de campaña.
+          </div>
+          <div class="swipe-source"><a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-a-un-mes-de-la-primera-vuelta-de-2026/">La Silla Vacía</a> · <a href="https://www.infobae.com/colombia/2026/05/11/abelardo-de-la-espriella-supera-a-ivan-cepeda-a-semanas-de-las-elecciones-presidenciales-segun-polymarket/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Gasolina sube segunda vez en mayo: Bogotá llega a COP$16.291 por galón desde el 12 de mayo</div>
+          </div>
+          <div class="swipe-body">Desde el 12 de mayo, el precio del combustible en Colombia pasó de USD$3.02 a USD$3.16 por galón, el segundo ajuste del mes (el primero fue el 1 de mayo con un alza de COP$400/galón). Los precios en las principales ciudades: Bogotá COP$16.291, Cali COP$16.300, Medellín COP$16.211 y Villavicencio COP$16.391 (el más alto del país). El presidente Petro advirtió en abril que el subsidio a la gasolina "no puede volver" y ha presionado por la transición a vehículos eléctricos.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Dos alzas de gasolina en el mismo mes, a tres semanas de las elecciones, es políticamente explosivo. El efecto inflacionario se sentirá en los precios de transporte y canasta básica durante la campaña. La promesa de candidatos de revertir los alzas puede tener resonancia electoral, aunque financieramente comprometería el Fondo de Estabilización de Precios.
+          </div>
+          <div class="swipe-source"><a href="https://www.elcarrocolombiano.com/notas-de-interes/precio-gasolina-colombia-mayo-2026-aumento-ciudades/">El Carro Colombiano</a> · <a href="https://www.bloomberglinea.com/latinoamerica/colombia/precio-de-la-gasolina-en-colombia-sube-otra-vez-desde-este-1-de-mayo-de-2026/">Bloomberg Línea</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+  </div>
+
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Petro cuestiona software electoral: Registraduría rechaza acusaciones y defiende transparencia</h3>
+    <p>El presidente Petro volvió a cuestionar el software de preconteo de votos para las elecciones del 31 de mayo, calificando de "firma muy oscura" a la empresa proveedora y exigiendo acceso público al código fuente. La Registraduría Nacional rechazó las acusaciones y defendió la transparencia del proceso. El cuestionamiento presidencial al sistema electoral, a 18 días de la votación, genera alarma entre organismos internacionales de observación electoral y la comunidad diplomática acreditada en Bogotá.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/petro-volvio-a-cuestionar-la-transparencia-del-software-electoral-y-exigio-acceso-al-codigo-fuente-del-preconteo-es-de-una-firma-muy-oscura/">Infobae</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/se-escalo-la-tension-entre-el-presidente-petro-e-instituciones-en-plena-epoca-electoral/">El Espectador</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Confianza empresarial en mínimos de dos años: el costo del fin del gobierno Petro</h3>
+    <p>La Encuesta de Expectativas del Banco de la República reveló que la confianza empresarial de corto plazo en Colombia cayó en abril a su nivel más bajo en casi dos años. Los analistas estiman que el IPC de mayo tendrá una variación de 0.4%, con junio potencialmente en 0%. La inflación anual de abril fue de 5.68%. El crecimiento proyectado para 2026 según BBVA Research es 2.8%, por debajo del potencial del país. EE.UU. alertó sobre problemas de clima de inversión: paz total, impuestos por decreto y desaceleración.</p>
+    <span class="source-link"><a href="https://www.banrep.gov.co/economia/pli/bie.pdf">BanRep</a> · <a href="https://www.eltiempo.com/justicia/investigacion/asi-ve-ee-uu-clima-de-inversion-en-colombia-alertas-por-paz-total-impuestos-por-decreto-y-desaceleracion-economica-3549360">El Tiempo</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Dólar cotiza en máximos desde marzo: TRM supera los COP$3.776 por tensiones electorales</h3>
+    <p>El dólar registró un cierre de COP$3.776 el martes 12 de mayo, su nivel más alto desde el 9 de marzo, con un máximo intradía de COP$3.785. El alza combina el fortalecimiento global del dólar (índice DXY sobre 98 puntos), tensiones geopolíticas en Medio Oriente y la incertidumbre del proceso electoral colombiano. La inflación de abril (5.68%) por encima de las expectativas y el cierre definitivo del proceso de paz con el ELN añaden presión adicional sobre el tipo de cambio.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/12/dolar-hoy-en-colombia-cotizacion-de-cierre-del-12-de-mayo/">Infobae</a> · <a href="https://www.noticiasrcn.com/economia/precio-del-dolar-hoy-martes-12-de-mayo-de-2026-1020434">RCN Noticias</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>EE.UU. y la UE monitorean la cooperación Colombia-Venezuela en la operación del Catatumbo</h3>
+    <p>Estados Unidos y la Unión Europea anunciaron que siguen de cerca los detalles de la coordinación entre el gobierno de Petro y el régimen de Maduro en el bombardeo contra el ELN. La oposición colombiana cuestionó los términos jurídicos de esa cooperación y pidió al Congreso convocar al ministro de Defensa. La operación coordinada con Venezuela es la primera de su tipo en la historia bilateral y genera debate sobre soberanía, extradición y los vínculos previos de Maduro con la guerrilla colombiana.</p>
+    <span class="source-link"><a href="https://lapatilla.com/2026/05/12/petro-coordino-con-el-regimen-venezolano-bombardeo-contra-el-eln/">La Patilla</a> · <a href="https://uruguayaldia.com.uy/ofensiva-en-el-catatumbo-bombardeo-eln-colombia-venezuela-2026">Uruguay Al Día</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Colombia ocupa el puesto 62 en el Índice Global de Inmigración 2026 de Remitly</h3>
+    <p>Según el Índice de Inmigración 2026 de Remitly Global Inc, Colombia obtuvo 34 puntos y se ubicó en la posición 62 de 110 países. El país queda por detrás de Uruguay (1.°), Costa Rica, México, Brasil, Chile y Argentina en el ranking latinoamericano. Los factores que penalizan a Colombia incluyen la percepción de inseguridad, la inestabilidad política y la inflación. El ranking es utilizado por migrantes para tomar decisiones sobre destinos laborales y vitales.</p>
+    <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/13/estos-son-los-mejores-paises-para-emigrar-en-2026-segun-medicion-internacional-asi-le-fue-a-colombia/">Infobae</a></span>
+  </div>
+
+  <div class="data-strip reveal" style="transition-delay:0.36s">
+    <div class="data-cell glass">
+      <div class="data-cell-label">TRM Oficial</div>
+      <div class="data-cell-value">$3.776</div>
+      <div class="data-cell-delta red">COP / USD</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Inflación Abril</div>
+      <div class="data-cell-value red">5.68%</div>
+      <div class="data-cell-delta red">Sobre expectativas</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Gasolina Bogotá</div>
+      <div class="data-cell-value red">$16.291</div>
+      <div class="data-cell-delta red">COP/galón · ↑ mayo</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal" style="transition-delay:0.40s">
+    <div class="vigilar-header">Qué Vigilar Hoy · Jueves 14 de mayo</div>
+    <div class="vigilar-item">Respuesta del ELN al bombardeo del Catatumbo: posibles represalias en Arauca, Norte de Santander y Chocó, o señales de retorno a mesas de negociación bajo nuevas condiciones.</div>
+    <div class="vigilar-item">Elecciones mayo 31: primera encuesta post-bombardeo — ¿sube De la Espriella en intención de voto como opción de orden y seguridad, o Cepeda consolida su liderazgo con el voto de izquierda progresista?</div>
+    <div class="vigilar-item">Dólar: si el TRM supera los COP$3.800 entraría en zona de alerta para el Banco de la República. Vigilar declaraciones del gerente Villar sobre posible intervención en el mercado cambiario.</div>
+  </div>
+
+  <div class="footer reveal" style="transition-delay:0.44s">
+    <div>Fuentes: Infobae Colombia · Semana · La Silla Vacía · El Heraldo · El Colombiano · El Carro Colombiano · Bloomberg Línea · El Espectador · La Jornada · BanRep · El Tiempo · RCN</div>
+    <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
