@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — Miércoles 13 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #E8EDF4 0%, #D4DDE8 25%, #D8E4ED 55%, #E4EBF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    /* Section header */
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    /* Carousel */
+    .carousel-container { position: relative; margin-bottom: 8px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    /* Dots */
+    .dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 6px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-bottom: 32px; }
+
+    /* Divider */
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    /* News items */
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    /* Data strip */
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    /* Qué vigilar */
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    /* Staggered reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Perú</h1>
+      <div class="masthead-date">Miércoles 13 de mayo de 2026 · Lima</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal">Top 5 del Día</div>
+
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Keiko Fujimori y Roberto Sánchez van a segunda vuelta el 7 de junio</div>
+            </div>
+            <div class="swipe-body">Con el 100% de actas contabilizadas por la ONPE, Fuerza Popular (17.18%) y Juntos por el Perú (12.02%) se enfrentarán en la segunda vuelta presidencial del 7 de junio. Rafael López Aliaga quedó eliminado por una diferencia de apenas 14 mil votos sobre Sánchez. El JNE inició la proclamación descentralizada de ganadores.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Se define el escenario político para el segundo semestre: dos proyectos antagónicos enfrentados — continuismo liberal-conservador vs. izquierda reformista. La incertidumbre electoral ya genera presión sobre inversión privada y el tipo de cambio, y se intensificará en las próximas cuatro semanas de campaña.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/peru/2026/05/09/resultados-onpe-en-vivo-conteo-oficial-conoce-quien-pasa-a-segunda-vuelta-en-las-elecciones-2026-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga/">Infobae Perú</a> · <a href="https://larepublica.pe/politica/2026/05/11/resultados-onpe-al-100-con-keiko-fujimori-roberto-sanchez-y-rafael-lopez-aliaga-jne-dara-conferencia-sobre-proclamacion-de-ganadores-de-la-primera-vuelta-en-peru-hnews-307307">La República</a> · <a href="https://elcomercio.pe/elecciones/resultados-onpe-100-de-elecciones-peru-2026-que-candidatos-pasaran-a-segunda-vuelta-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Fiscalía formaliza investigación a Boluarte por lavado de activos</div>
+            </div>
+            <div class="swipe-body">La Primera Fiscalía Supraprovincial Especializada en Delitos de Lavado de Activos formalizó investigación preparatoria contra la expresidenta Dina Boluarte y otras siete personas por 36 meses, en el marco del caso "Los Dinámicos del Centro". La investigación apunta a una cuenta mancomunada para recaudar fondos destinados a pagar la reparación civil impuesta al prófugo Vladimir Cerrón.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Profundiza el frente judicial contra la expresidenta y refuerza la narrativa de corrupción sistémica que marcó el ciclo político peruano 2021-2025. Puede influir en cómo los candidatos de segunda vuelta posicionan sus propuestas anticorrupción ante un electorado altamente desconfiado de la clase política.
+            </div>
+            <div class="swipe-source">
+              <a href="https://rpp.pe/politica/judiciales/ministerio-publico-inicio-investigacion-preparatoria-contra-dina-boluarte-por-presunto-lavado-de-activos-noticia-1688221">RPP</a> · <a href="https://larepublica.pe/politica/2026/05/13/dina-boluarte-fiscalia-formaliza-investigacion-preparatoria-por-caso-los-dinamicos-del-centro-hnews-216502">La República</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Sol se fortalece: dólar cae 0.38% y cierra en S/3.42</div>
+            </div>
+            <div class="swipe-body">El tipo de cambio cerró el miércoles en S/3.419 según el BCRP, con una caída de 0.38% respecto a la jornada anterior. La apertura fue de S/3.428 compra y S/3.434 venta en el mercado bancario. El BCRP proyecta que el dólar se mantendrá entre S/3.34 y S/3.46 al cierre de año, en un contexto de optimismo macroeconómico y expectativas de recorte de tasas de la Fed.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El fortalecimiento del sol reduce la carga de deuda corporativa en dólares y abarata importaciones, pero presiona a los exportadores no tradicionales. La volatilidad electoral de las próximas semanas podría revertir esta tendencia rápidamente, especialmente si la segunda vuelta favorece propuestas de mayor intervención estatal.
+            </div>
+            <div class="swipe-source">
+              <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-13-de-mayo-del-2026-noticia-1688120">RPP</a> · <a href="https://www.infobae.com/peru/2026/05/13/precio-del-dolar-hoy-en-peru-cotizacion-de-apertura-del-13-de-mayo/">Infobae Perú</a> · <a href="https://larepublica.pe/economia/precio-del-dolar/2026/05/13/precio-del-dolar-hoy-miercoles-13-de-mayo-de-2026-en-casas-de-cambios-bancos-y-otros-canales-343128">La República</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Mininter y PCM refuerzan coordinación contra minería ilegal</div>
+            </div>
+            <div class="swipe-body">El Ministerio del Interior y la Presidencia del Consejo de Ministros realizaron una reunión de trabajo para alinear acciones con la Estrategia Nacional para la Reducción e Interdicción de la Minería Ilegal al 2030. La minería ilegal continúa expandiéndose en Madre de Dios y el río Santiago, con presencia creciente de crimen organizado y amenazas a comunidades indígenas y defensores ambientales.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La minería ilegal moviliza más de US$3,000 millones anuales en Perú y financia estructuras criminales transnacionales. Con un gobierno de transición preelectoral, la continuidad institucional de esta estrategia es incierta: ambos candidatos de segunda vuelta deberán pronunciarse sobre su posición ante el fenómeno.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.desdeadentro.pe/2026/05/mininter-mineria-ilegal/">Desde Adentro</a> · <a href="https://www.diariominero.com/mineria-formal/mininter-pcm-medidas-mineria-ilegal-peru/">Diario Minero</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Inflación anualizada supera 4%, fuera del rango meta del BCRP</div>
+            </div>
+            <div class="swipe-body">Datos del primer cuatrimestre de 2026 muestran inflación por encima del techo del rango meta del BCRP (1%-3%), con tasa anualizada superior al 4%. Pese a ello, el PBI proyectado para 2026 es de 3.3%, impulsado por inversión privada y exportaciones mineras. El BCRP mantiene su proyección oficial de cierre de inflación en 3%, aunque analistas anticipan mayor presión en los próximos meses.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El BCRP enfrenta un dilema clásico: subir tasas para contener inflación sacrificando crecimiento, o mantenerlas para no frenar la economía en año electoral. Las presiones inflacionarias en servicios y alimentos afectan directamente el poder adquisitivo de los sectores de menores ingresos, que son clave en la segunda vuelta.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/peru/2026/05/04/la-inflacion-de-peru-en-2026-quedara-fuera-del-rango-meta-con-o-sin-julio-velarde-al-frente-del-bcr/">Infobae Perú</a> · <a href="https://ipe.org.pe/proyeccion-economica-del-peru-2026-crecimiento-y-vulnerabilidades/">IPE</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+    </div><!-- /carousel-container -->
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más &rarr;</div>
+
+    <!-- DIVIDER -->
+    <div class="divider reveal">
+      <span class="divider-text">Noticias por Sección</span>
+    </div>
+
+    <!-- NOTICIAS -->
+
+    <div class="news-item glass reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>JNE inicia proclamación descentralizada tras confirmarse segunda vuelta Keiko-Sánchez</h3>
+      <p>El Jurado Nacional de Elecciones inició el proceso de proclamación descentralizada de los resultados de la primera vuelta, con miras a la segunda elección presidencial del 7 de junio. Ambos candidatos comenzarán sus campañas con propuestas diferenciadas: Keiko Fujimori apunta a estabilidad económica y seguridad, mientras Roberto Sánchez centra su discurso en redistribución e industrialización.</p>
+      <span class="source-link">
+        <a href="https://elcomercio.pe/elecciones/resultados-onpe-100-de-elecciones-peru-2026-que-candidatos-pasaran-a-segunda-vuelta-keiko-fujimori-roberto-sanchez-rafael-lopez-aliaga-lbposting-noticia/">El Comercio</a> · <a href="https://larepublica.pe/politica/2026/05/10/link-oficial-de-la-onpe-para-ver-los-resultados-finales-de-las-elecciones-generales-2026-roberto-sanchez-vs-lopez-aliaga-hnews-450590">La República</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.08s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Boluarte enfrenta investigación formal por lavado de activos y restricciones de salida del país</h3>
+      <p>La expresidenta Dina Boluarte —cuyo gobierno culminó en octubre de 2025 tras vacancia por incapacidad moral permanente— acumula múltiples frentes judiciales. La Fiscalía investiga además si existen causas para restringir su salida del territorio nacional mientras avanza la investigación del caso "Los Dinámicos del Centro". La investigación preparatoria se extenderá por 36 meses bajo la Ley contra el Crimen Organizado.</p>
+      <span class="source-link">
+        <a href="https://rpp.pe/politica/judiciales/ministerio-publico-inicio-investigacion-preparatoria-contra-dina-boluarte-por-presunto-lavado-de-activos-noticia-1688221">RPP</a> · <a href="https://larepublica.pe/politica/2026/05/13/dina-boluarte-fiscalia-formaliza-investigacion-preparatoria-por-caso-los-dinamicos-del-centro-hnews-216502">La República</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>PBI proyectado en 3.3% para 2026, impulsado por minería e inversión privada</h3>
+      <p>El BCRP y el MEF proyectan un crecimiento económico de entre 3.0% y 3.3% para 2026, sustentado en la expansión de la demanda interna (3.5%), inversión privada (+5%) y exportaciones mineras (+6.4%), favorecidas por precios altos del cobre y el oro. Las reservas internacionales equivalen al 30% del PBI y el riesgo país se mantiene entre los más bajos de la región, consolidando la posición macro del Perú.</p>
+      <span class="source-link">
+        <a href="https://ipe.org.pe/proyeccion-economica-del-peru-2026-crecimiento-y-vulnerabilidades/">IPE</a> · <a href="https://www.infobae.com/peru/2026/01/05/como-le-ira-a-la-economia-peruana-en-2026-estas-son-las-proyecciones-de-bancos-y-organismos-internacionales-segun-forbes/">Infobae Perú</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Exportaciones mineras crecen 59% en el primer bimestre; Chinalco invierte US$400M en Toromocho</h3>
+      <p>Las exportaciones mineras peruanas sumaron US$6,384 millones en el bimestre enero-febrero, impulsadas por el cobre (+53.3%) y el oro. En paralelo, Chinalco Perú puso en marcha inversiones por más de US$400 millones en la unidad minera Toromocho para ampliar capacidad de producción de cobre. El capex minero latinoamericano repuntaría 8.4% en 2026, con Perú como uno de los principales destinos.</p>
+      <span class="source-link">
+        <a href="https://www.diariominero.com/mineria-formal/exportaciones-mineras-peru-2026-crecimiento/">Diario Minero</a> · <a href="https://mineriaenlinea.com/2026/05/capex-minero-en-america-latina-recuperacion-del-8-4-proyectada-para-2026/">Minería en Línea</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Sismo de magnitud 4.0 frente a Ica sin reportes de daños; IGP registra nueve eventos en tres días</h3>
+      <p>El Instituto Geofísico del Perú registró un sismo de magnitud 4.0 a las 14:49 horas, con epicentro a 73 km al oeste de San Juan de Marcona (Nasca-Ica), a 36 km de profundidad. En el período del 11 al 13 de mayo se acumularon nueve eventos sísmicos en regiones como Piura, Arequipa, Junín, Puno y Áncash, con magnitudes de entre 3.4 y 4.7 grados. Ninguno superó el umbral de alerta naranja ni generó daños materiales o víctimas.</p>
+      <span class="source-link">
+        <a href="https://www.infobae.com/peru/2026/05/13/temblor-en-peru-sismo-de-magnitud-4-con-epicentro-en-san-juan/">Infobae Perú</a> · <a href="https://elpopular.pe/actualidad/2026/05/13/temblor-en-peru-hoy-13-de-mayo-de-2026-a-que-hora-y-donde-se-registro-el-ultimo-sismo-segun-igp-773422">El Popular</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga 1 — Torneo Apertura: Alianza Lima lidera con 32 puntos</h3>
+      <p>Alianza Lima se mantiene como líder del Torneo Apertura de la Liga 1 2026 con 32 puntos tras la fecha 13. Universitario de Deportes superó a Juan Pablo II por 4-1 en Trujillo, con doblete de Edison Flores. FC Cajamarca venció a Sport Boys 3-2, y ADT derrotó a Atlético Grau 1-0. No hubo partidos de Liga 1 programados para el 13 de mayo; los resultados corresponden a la fecha 13 disputada entre el 1 y 4 de mayo.</p>
+      <span class="source-link">
+        <a href="https://www.infobae.com/peru/deportes/2026/05/02/resultados-de-la-fecha-13-de-la-liga-1-2026-hoy-asi-van-los-partidos-del-torneo-apertura/">Infobae Perú</a> · <a href="https://larepublica.pe/deportes/2026/05/02/tabla-de-la-liga-1-2026-en-vivo-hoy-posiciones-actualizadas-resultados-de-la-fecha-13-y-quien-es-el-lider-del-apertura-29780">La República</a>
+      </span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Crimen organizado opera en minería ilegal amazónica ante altos precios de minerales</h3>
+      <p>Un análisis regional publicado esta semana advierte que los precios elevados del oro y el cobre están atrayendo mayor presencia del crimen organizado transnacional hacia zonas de minería ilegal en la Amazonía peruana. El fenómeno afecta territorios como La Pampa (Madre de Dios) y el río Santiago, con comunidades indígenas que enfrentan desplazamientos, amenazas y presión de estructuras criminales. Perú y Bolivia figuran entre los países más expuestos de la región.</p>
+      <span class="source-link">
+        <a href="https://www.eldiario.net/portal/2026/05/09/crimen-organizado-opera-en-mineria-ilegal-por-altos-precios-de-minerales/">El Diario</a> · <a href="https://es.mongabay.com/2026/01/desafios-ambientales-de-peru-en-2026-frenar-la-mineria-ilegal-y-el-crimen-organizado-en-un-ano-electoral/">Mongabay</a>
+      </span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.32s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">Dólar BCRP</div>
+        <div class="data-cell-value">S/3.42</div>
+        <div class="data-cell-delta green">-0.38%</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Casas de Cambio</div>
+        <div class="data-cell-value">S/3.43</div>
+        <div class="data-cell-delta green">-0.24%</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Spread</div>
+        <div class="data-cell-value">0.32%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">compra/venta</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.36s">
+      <div class="vigilar-header">Qué Vigilar Hoy</div>
+      <div class="vigilar-item">Inicio formal de campaña de segunda vuelta: cómo Keiko Fujimori y Roberto Sánchez posicionan sus propuestas económicas ante el sector empresarial y minero, y si buscan alianzas con los partidos eliminados.</div>
+      <div class="vigilar-item">Próxima reunión del directorio del BCRP y comunicado sobre política monetaria: con inflación sobre rango meta y dólar a la baja, la señal sobre tasas de interés tendrá impacto directo en crédito e inversión.</div>
+      <div class="vigilar-item">Avances en la investigación fiscal contra Boluarte: posibles nuevas diligencias, citaciones o medidas restrictivas que aumenten la presión judicial sobre la expresidenta y su entorno político.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.40s">
+      <div>Fuentes: RPP · La República · El Comercio · Infobae Perú · Gestión · IPE · Diario Minero · Desde Adentro · Mongabay · IGP · ONPE · BCRP</div>
+      <div style="margin-top:6px;color:var(--tertiary)">Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' });
+      });
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
