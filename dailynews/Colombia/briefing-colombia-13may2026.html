@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 13 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead {
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Miércoles 13 de mayo de 2026 · Bogotá</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Alerta electoral: grupos armados y amenazas a candidatos ensombrecen la primera vuelta del 31M</div>
+            </div>
+            <div class="swipe-body">El Registrador Nacional pidió refuerzo de fuerza pública en Cauca, Catatumbo, sur de Bolívar y Putumayo. Los grupos armados ilegales crecieron 23,5% en el último año y superan los 27.000 integrantes. El gobierno respondió ante denuncias de amenazas directas contra los candidatos Cepeda, De la Espriella y Valencia, y se alerta también por campañas de desinformación activa.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              A 18 días de las elecciones presidenciales, la seguridad del proceso es el riesgo más crítico para la estabilidad institucional. Un incidente mayor podría escalar la confrontación entre el gobierno y las instituciones judiciales en el momento más delicado del tramo final del mandato.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/13/registrador-nacional-pidio-ampliar-la-fuerza-publica-para-garantizar-la-seguridad-en-las-elecciones-del-31-de-mayo/">Infobae</a> · <a href="https://www.infobae.com/colombia/2026/05/13/elecciones-en-colombia-2026-en-alerta-violencia-grupos-armados-y-desinformacion-amenazan-la-primera-vuelta/">Infobae (2)</a> · <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gobierno-del-presidente-gustavo-petro-respondio-por-nuevas-amenazas-a-candidatos-cepeda-de-la-espriella-y-valencia-noticias-hoy/">El Espectador</a></div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Corte Suprema exige a Petro respetar compromisos de extradición del Clan del Golfo</div>
+            </div>
+            <div class="swipe-body">La Corte Suprema de Justicia ordenó al gobierno cumplir sus obligaciones internacionales respecto a la extradición de cabecillas del Clan del Golfo, incluido "Chiquito Malo". El gobierno Petro había buscado suspender las órdenes de captura para incluirlos en negociaciones de paz total, generando tensión con Washington y con la propia Corte.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El fallo restringe el margen de maniobra del gobierno en su política de paz total. Ignorar la orden abriría un conflicto institucional grave en el tramo final del mandato, con implicaciones directas para las relaciones con Estados Unidos y el proceso de paz en el Golfo de Urabá.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/13/corte-suprema-exigio-al-gobierno-petro-que-respete-los-compromisos-internacionales-contra-chiquito-malo-y-otros-cabecillas-del-clan-del-golfo/">Infobae Colombia</a></div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Procuraduría avala emergencia económica de Petro, pero exige retirar medidas sobre energía y tierras</div>
+            </div>
+            <div class="swipe-body">La Procuraduría General envió su concepto a la Corte Constitucional respaldando la legalidad general de la declaratoria de emergencia económica. Sin embargo, exigió retirar las medidas sobre energía y acceso a tierras al considerarlas inconstitucionales. La Corte tiene ahora la decisión final sobre el paquete más controversia del gobierno Petro.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El respaldo parcial del ente de control da cobertura jurídica a las medidas económicas centrales, pero la Corte Constitucional determinará si las iniciativas más ambiciosas del gobierno en materia de energía y reforma agraria sobreviven o caen antes del cambio de administración.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/13/procuraduria-le-dio-espaldarazo-a-la-emergencia-economica-de-petro-pero-exigio-retirar-algunas-medidas-envio-concepto-a-la-corte-constitucional/">Infobae Colombia</a></div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Peso en mínimo de dos meses: dólar cierra en $3.795; Banrep sin bajar tasas con inflación en 6,4%</div>
+            </div>
+            <div class="swipe-body">El USD/COP cerró en $3.794,93, un alza de $16 pesos (+0,43%) y el nivel más alto desde el 9 de marzo. La TRM oficial fue $3.775,07. El Banco de la República mantiene la tasa en 11,25%, con inflación anual en 5,6% y proyección de cierre 2026 en 6,4%, muy por encima de la meta del 3%. La OCDE proyecta crecimiento de 2,8% para el año.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La depreciación del peso y la inflación persistente limitan el espacio del Banrep para recortar tasas. Los costos de financiamiento elevados siguen frenando la inversión, y la convergencia a la meta del 3% no se espera antes de 2027.
+            </div>
+            <div class="swipe-source"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-hoy-13-de-mayo-de-2026-cerro-al-alza-1020916">RCN Noticias</a> · <a href="https://www.infobae.com/colombia/2026/05/13/precio-del-dolar-hoy-en-colombia-cotizacion-de-apertura-del-13-de-mayo/">Infobae</a></div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Liga BetPlay: Nacional, Tolima, Santa Fe y Junior confirman las semifinales</div>
+            </div>
+            <div class="swipe-body">Se cerraron los cuartos de final de la Liga BetPlay I-2026. Deportivo Pasto cayó 0-2 ante Tolima (global 0-3) y Junior eliminó a Once Caldas 2-1 (global 3-1). Atlético Nacional y Santa Fe —que goleó a América 4-0 el 12 de mayo— ya habían asegurado su clasificación. Los cruces de semifinales quedan por definirse.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Con la selección colombiana en cuenta regresiva para el Mundial 2026 —concentración desde el 25 de mayo—, la actividad de la Liga BetPlay es el termómetro del fútbol local en el año mundialista. Los cuatro semifinalistas son los clubes con mejor infraestructura y convocatoria del torneo.
+            </div>
+            <div class="swipe-source"><a href="https://www.vanguardia.com/deportes/futbol/2026/05/13/atletico-nacional-y-santa-fe-se-instalaron-en-las-semifinales-de-la-liga-betplay-i-de-2026/">Vanguardia</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/asi-se-jugaran-las-semifinales-de-liga-i-2026-cruces-confirmados-clasificados-y-camino-a-la-final-267441">FutbolRed</a></div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div><!-- /carousel-container -->
+
+    <!-- DIVIDER -->
+    <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
+
+    <!-- NOTICIAS -->
+
+    <div class="news-item glass reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Petro escala confrontación con cortes y Fiscalía: denuncia "bloqueo institucional"</h3>
+      <p>El presidente Petro recrudeció sus críticas contra el Consejo de Estado y la Fiscalía General, acusándolos de obstruir su gobierno en el último tramo del mandato. Las declaraciones se dan en el contexto de decisiones judiciales que han limitado sus iniciativas legislativas y de paz, con elecciones presidenciales el 31 de mayo.</p>
+      <span class="source-link"><a href="https://www.eluniversal.com.co/colombia/2026/05/12/petro-endurece-ataque-contra-cortes-y-fiscalia-por-decisiones/">El Universal</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.08s">
+      <span class="pill pill-pol">Político · Salud</span>
+      <h3>ADRES: gobierno autoriza presupuesto de salud histórico de $114,8 billones</h3>
+      <p>La Administradora de los Recursos del Sistema General de Seguridad Social en Salud confirmó que el gobierno autorizó el mayor presupuesto de salud en la historia del sistema: $114,8 billones para la vigencia 2026. El anuncio se enmarca en los decretos de emergencia económica y busca reforzar la sostenibilidad del sistema ante la presión financiera de las EPS.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/13/adres-confirmo-que-el-gobierno-nacional-autorizo-para-su-ejecucion-un-aumento-presupuestal-que-asciende-a-los-1148-billones/">Infobae Colombia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-pol">Político · Energía</span>
+      <h3>Petro advierte sobre "Super El Niño" y urge acelerar el programa Colombia Solar</h3>
+      <p>El presidente declaró que Colombia debe acelerar la transición hacia energía solar ante la amenaza de un fenómeno de El Niño de intensidad excepcional que pondría en riesgo crítico el sistema energético nacional, altamente dependiente de generación hídrica. El programa Colombia Solar es el eje de la política energética del gobierno para 2026.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/13/gustavo-petro-alerto-sobre-el-super-el-nino-y-llamo-a-acelerar-la-transicion-hacia-la-energia-solar-en-colombia/">Infobae Colombia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Proyecciones 2026: crecimiento de 2,8% con inflación persistente sobre la meta</h3>
+      <p>La OCDE proyecta un crecimiento del PIB colombiano de 2,8% para 2026, sostenido por consumo interno y remesas. Sin embargo, industria, construcción, agricultura y minería muestran desaceleración. El Banco Mundial advierte que el ciclo electoral presionará adicionalmente la actividad. La inflación cerrará el año en torno al 6,4%, más del doble de la meta del 3%.</p>
+      <span class="source-link"><a href="https://www.bancolombia.com/empresas/capital-inteligente/actualidad-economica-sectorial/perspectivas-economicas-2026">Bancolombia</a> · <a href="https://www.infobae.com/colombia/2026/01/13/economia-colombiana-crecera-menos-en-2026-debido-a-las-elecciones-presidenciales-alerto-el-banco-mundial/">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Congreso aprueba en primer debate la regulación del cannabis recreativo</h3>
+      <p>La Primera Comisión de la Cámara de Representantes aprobó en primer debate el proyecto de ley para regular el uso recreativo del cannabis, reactivando una iniciativa que había fracasado cerca de una docena de veces. El texto pasa a plenaria en un momento políticamente complejo, a días de las elecciones presidenciales.</p>
+      <span class="source-link"><a href="https://www.vanguardia.com/colombia/2026/05/12/congreso-de-colombia-aprueba-en-primer-debate-la-regulacion-del-cannabis-de-uso-recreativo/">Vanguardia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Mutua Madrileña toma control total de Seguros del Estado de Colombia</h3>
+      <p>El grupo asegurador español elevará su participación hasta el 100% en Seguros del Estado y Seguros de Vida del Estado, una de las aseguradoras más tradicionales del mercado colombiano. La operación consolida la presencia del capital español en el sector financiero del país en medio de la incertidumbre regulatoria del gobierno Petro.</p>
+      <span class="source-link"><a href="https://www.semana.com/economia/capsulas/articulo/grupo-espanol-tomara-el-control-total-de-una-las-aseguradoras-mas-tradicionales-de-colombia/202602/">Semana</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Colombia prepara convocatoria para el Mundial 2026; concentración desde el 25 de mayo</h3>
+      <p>La Federación Colombiana de Fútbol alista la lista oficial de convocados con fecha límite el 30 de mayo ante la FIFA. Colombia clasificó tercera en las eliminatorias CONMEBOL, detrás de Argentina y Ecuador. La concentración arranca el 25 de mayo, cruzando con la primera vuelta electoral, lo que genera logística especial para jugadores con doble agenda cívica.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/deportes/2026/04/01/este-es-el-calendrio-completo-de-los-partidos-de-la-seleccion-colombia-en-la-primer-fase-del-mundial-2026-hora-fechas-y-estadios/">Infobae Colombia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-dep">Deportes · Ciclismo</span>
+      <h3>Colombia brilla en el Panamericano Junior de Pista: dos oros y dos récords</h3>
+      <p>Manuela Loaiza se coronó campeona panamericana del Kilómetro con nuevo Récord Mundial Junior, mientras Thomas Mejía conquistó el oro en la misma prueba masculina con Récord Panamericano Junior. El campeonato, disputado del 4 al 9 de mayo, reafirma a Colombia como potencia emergente del ciclismo de pista en América.</p>
+      <span class="source-link"><a href="https://federacioncolombianadeciclismo.com/colombia-brillo-en-la-cuarta-jornada-del-panamericano-junior-de-pista-2026/">Federación Colombiana de Ciclismo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Colombia impulsa agenda CELAC-África y nomina candidata a la Corte Penal Internacional</h3>
+      <p>Como Presidente Pro Tempore de la CELAC, Colombia consolidó la reconexión birregional con África como eje estratégico de su política exterior. En paralelo, la embajadora Carolina Olarte fue nominada candidata colombiana a la Corte Penal Internacional en lista B, reforzando el perfil diplomático del país en justicia global.</p>
+      <span class="source-link"><a href="https://www.cancilleria.gov.co/en/newsroom/news">Cancillería de Colombia</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip">
+      <div class="data-cell glass reveal" style="transition-delay:0.04s">
+        <div class="data-cell-label">TRM Oficial</div>
+        <div class="data-cell-value">$3.775</div>
+        <div class="data-cell-delta" style="color:var(--muted)">COP / USD</div>
+      </div>
+      <div class="data-cell glass reveal" style="transition-delay:0.08s">
+        <div class="data-cell-label">Cierre Intradía</div>
+        <div class="data-cell-value red">$3.795</div>
+        <div class="data-cell-delta red">+$16 · +0,43%</div>
+      </div>
+      <div class="data-cell glass reveal" style="transition-delay:0.12s">
+        <div class="data-cell-label">Tasa Banrep</div>
+        <div class="data-cell-value">11,25%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">sin cambios</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal">
+      <div class="vigilar-header">Qué vigilar hoy</div>
+      <div class="vigilar-item">Decisión de la Corte Constitucional sobre la emergencia económica de Petro: el fallo determinará si las medidas más ambiciosas del gobierno en energía y tierras sobreviven en el tramo final del mandato.</div>
+      <div class="vigilar-item">Despliegue de fuerza pública en zonas de alto riesgo electoral (Cauca, Catatumbo, sur de Bolívar, Putumayo) con 17 días para la primera vuelta presidencial del 31 de mayo.</div>
+      <div class="vigilar-item">Evolución del peso colombiano: si el USD/COP supera los $3.800, se intensificarán las presiones inflacionarias y se complicará la hoja de ruta del Banco de la República hacia la meta del 3%.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>Fuentes: El Espectador · Infobae Colombia · RCN Noticias · Vanguardia · Semana · El Universal · FutbolRed · Federación Colombiana de Ciclismo · Cancillería · Banrep</p>
+      <p>Briefing generado con Claude — Solo para uso informativo</p>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
