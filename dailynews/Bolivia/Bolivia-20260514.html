@@ -1,379 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Briefing Bolivia — 14 de mayo de 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briefing Ejecutivo Diario — Bolivia | 14 de mayo de 2026</title>
   <style>
-    :root {
-      --accent: #991b1b;
-      --accent-soft: rgba(153,27,27,0.06);
-      --ink: #1d1d1f;
-      --muted: rgba(60,60,67,0.6);
-      --tertiary: rgba(60,60,67,0.3);
-      --card-bg: rgba(255,255,255,0.55);
-      --card-bg-strong: rgba(255,255,255,0.72);
-      --glass-border: rgba(255,255,255,0.45);
-      --shadow: rgba(0,0,0,0.06);
-      --inset-highlight: rgba(255,255,255,0.7);
-      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
-      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
-      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
-      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
-      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
-      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-start: #0a0a1a;
+      --bg-mid: #120820;
+      --bg-end: #1a0a2e;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-bg-hover: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-border-highlight: rgba(255, 255, 255, 0.25);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --glass-shadow-featured: 0 16px 48px rgba(0, 0, 0, 0.55);
+      --text-primary: rgba(255, 255, 255, 0.95);
+      --text-secondary: rgba(255, 255, 255, 0.65);
+      --text-muted: rgba(255, 255, 255, 0.40);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-badge: 6px;
+
+      --bo-red: #D52B1E;
+      --bo-yellow: #F4C430;
+      --bo-green: #007A3D;
+
+      --cat-politica-bg: rgba(213, 43, 30, 0.25);
+      --cat-politica-border: rgba(213, 43, 30, 0.55);
+      --cat-politica-text: #ff7b72;
+
+      --cat-economia-bg: rgba(244, 196, 48, 0.20);
+      --cat-economia-border: rgba(244, 196, 48, 0.50);
+      --cat-economia-text: #f4c430;
+
+      --cat-social-bg: rgba(100, 160, 255, 0.20);
+      --cat-social-border: rgba(100, 160, 255, 0.50);
+      --cat-social-text: #79b8ff;
+
+      --cat-energia-bg: rgba(0, 200, 160, 0.18);
+      --cat-energia-border: rgba(0, 200, 160, 0.48);
+      --cat-energia-text: #00d4aa;
+
+      --cat-seguridad-bg: rgba(180, 120, 255, 0.20);
+      --cat-seguridad-border: rgba(180, 120, 255, 0.50);
+      --cat-seguridad-text: #c9a7ff;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
-      color: var(--ink);
-      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 45%, var(--bg-end) 100%);
       min-height: 100vh;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 32px 20px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
       overflow-x: hidden;
     }
 
-    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
-    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
-    .wrap { position: relative; z-index: 1; }
-
-    .glass {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(120, 40, 200, 0.18) 0%, transparent 70%);
+      top: -150px; right: -150px;
+    }
+    body::after {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(213, 43, 30, 0.12) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
     }
 
-    .masthead {
-      text-align: center;
-      margin-bottom: 28px;
-      padding: 32px 24px 26px;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    .page-wrapper {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid var(--glass-border-highlight);
       border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 36px 40px 32px;
+      margin-bottom: 36px;
+      box-shadow: var(--glass-shadow-featured), inset 0 1px 0 rgba(255,255,255,0.12);
+      position: relative; overflow: hidden;
     }
-    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
-    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
-    .masthead-date { font-size: 13px; color: var(--muted); }
-    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
-    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
-    .carousel-container { position: relative; margin-bottom: 32px; }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    .header::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--bo-red) 0%, var(--bo-red) 33.3%, var(--bo-yellow) 33.3%, var(--bo-yellow) 66.6%, var(--bo-green) 66.6%, var(--bo-green) 100%);
+      border-radius: 20px 20px 0 0;
     }
-    .carousel-track::-webkit-scrollbar { display: none; }
-
-    .swipe-card {
-      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-      padding: 28px 24px; min-height: 280px;
-      display: flex; flex-direction: column; justify-content: space-between;
+    .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .header-branding { display: flex; flex-direction: column; gap: 6px; }
+    .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+    .header-title { font-size: clamp(22px, 4vw, 34px); font-weight: 800; letter-spacing: -0.5px; color: var(--text-primary); line-height: 1.15; }
+    .header-subtitle { font-size: 14px; font-weight: 400; color: var(--text-secondary); margin-top: 2px; }
+    .header-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .header-date { font-size: 16px; font-weight: 700; color: var(--bo-yellow); text-shadow: 0 0 20px rgba(244, 196, 48, 0.4); }
+    .header-alert-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(213, 43, 30, 0.22); border: 1px solid rgba(213, 43, 30, 0.5);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #ff7b72;
     }
-    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
-    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
-    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
-    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
-    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .pulse-dot { width: 7px; height: 7px; background: #ff4444; border-radius: 50%; animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.7); } }
+    .header-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border), transparent); margin: 24px 0 20px; }
+    .header-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .stat-value { font-size: 20px; font-weight: 800; color: var(--text-primary); }
+    .stat-value.red { color: #ff7b72; }
+    .stat-value.amber { color: var(--bo-yellow); }
+    .stat-value.green { color: #56d364; }
+    .stat-label { font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
 
-    .dots { display: flex; justify-content: center; gap: 8px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
-    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; padding-left: 4px; }
 
-    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
-    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
-    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 12px; }
 
-    .news-item { padding: 18px 20px; margin-bottom: 10px; }
-    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
-    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
-    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
-    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
-    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
-    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
-    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
-    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
-    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
-    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
-    .source-link a { color: var(--accent); text-decoration: none; }
-
-    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
-    .data-cell {
-      padding: 20px 14px; text-align: center;
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative; overflow: hidden;
     }
-    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
-    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
-    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
-    .green { color: #34C759; }
-    .red { color: #FF3B30; }
-
-    .vigilar {
-      background: rgba(29,29,31,0.82);
-      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: 16px; padding: 24px; margin: 32px 0;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-      color: white;
+    .card:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-highlight);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.14);
     }
-    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
-    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
-    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
-    .vigilar-item:last-child { margin-bottom: 0; }
+    .card.featured { border-color: rgba(255, 255, 255, 0.20); box-shadow: var(--glass-shadow-featured), inset 0 1px 0 rgba(255,255,255,0.12); }
+    .card.featured::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius); background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%); pointer-events: none; }
+    .card-header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+    .card-badges { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+    .badge { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; padding: 3px 9px; border-radius: var(--radius-badge); border: 1px solid; }
+    .badge-politica  { background: var(--cat-politica-bg); border-color: var(--cat-politica-border); color: var(--cat-politica-text); }
+    .badge-economia  { background: var(--cat-economia-bg); border-color: var(--cat-economia-border); color: var(--cat-economia-text); }
+    .badge-social    { background: var(--cat-social-bg);   border-color: var(--cat-social-border);   color: var(--cat-social-text); }
+    .badge-energia   { background: var(--cat-energia-bg);  border-color: var(--cat-energia-border);  color: var(--cat-energia-text); }
+    .badge-seguridad { background: var(--cat-seguridad-bg);border-color: var(--cat-seguridad-border);color: var(--cat-seguridad-text); }
+    .badge-destacado { background: rgba(244, 196, 48, 0.18); border-color: rgba(244, 196, 48, 0.55); color: var(--bo-yellow); font-size: 10px; }
+    .card-number { font-size: 12px; font-weight: 700; color: var(--text-muted); font-variant-numeric: tabular-nums; min-width: 28px; text-align: right; }
+    .card-title { font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.35; margin-bottom: 10px; }
+    .card.featured .card-title { font-size: 18px; }
+    .card-body { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; }
+    .card.featured .card-body { font-size: 14px; }
+    .card.featured.critical::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--bo-red), transparent); border-radius: var(--radius) 0 0 var(--radius); }
+    .card.featured.warning::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--bo-yellow), transparent); border-radius: var(--radius) 0 0 var(--radius); }
+    .card-divider { height: 1px; background: linear-gradient(90deg, var(--glass-border), transparent); margin: 14px 0; }
+    .card-footer { font-size: 11.5px; color: var(--text-muted); font-style: italic; }
 
-    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .standard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 12px; }
 
-    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .footer {
+      margin-top: 48px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-text { font-size: 12px; color: var(--text-muted); }
+    .footer-flag { display: flex; gap: 0; border-radius: 4px; overflow: hidden; height: 16px; }
+    .flag-stripe { width: 22px; height: 16px; }
 
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .page-wrapper { padding: 20px 14px 48px; }
+      .header { padding: 28px 22px 24px; }
+      .header-meta { align-items: flex-start; }
+      .header-top { flex-direction: column; }
+      .header-stats { gap: 18px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .standard-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+<div class="page-wrapper">
 
-  <div class="wrap">
-
-    <div class="masthead reveal">
-      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-      <h1>Bolivia</h1>
-      <div class="masthead-date">Jueves 14 de mayo de 2026</div>
-      <div class="masthead-tag">Edición Diaria</div>
-    </div>
-
-    <div class="section-header reveal">Top 5 del Día</div>
-
-    <div class="carousel-container reveal">
-      <div class="carousel-track" id="carousel">
-
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">01</div>
-              <div class="swipe-title">Tercera muerte por bloqueos: joven fallece cuando ambulancia fue impedida de circular</div>
-            </div>
-            <div class="swipe-body">Una joven en estado crítico murió al no poder ser trasladada a tiempo por los bloqueos de carreteras impulsados por cooperativistas mineros. El Gobierno boliviano lamentó el deceso y exigió el levantamiento inmediato de las movilizaciones. La Federación Departamental de Cooperativistas Mineras marchó desde el puente Bolívar en El Alto hacia el centro paceño exigiendo la renuncia del presidente Rodrigo Paz, al no ver atendida su agenda de siete puntos.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La muerte de civiles por bloqueos eleva la presión política sobre el gobierno de Paz. Si los cooperativistas no ceden, el conflicto puede escalar a una crisis humanitaria y forzar negociaciones de emergencia o medidas de control del orden público.
-            </div>
-            <div class="swipe-source"><a href="https://www.opinion.com.bo/tags/la-paz-bloqueos/">Opinión Bolivia</a> · <a href="https://www.noticiasfides.com/">ANF Fides</a></div>
-          </div>
-        </div>
-
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">02</div>
-              <div class="swipe-title">Asamblea sanciona ley de alivio tributario con condonación de deudas y facilidades de pago</div>
-            </div>
-            <div class="swipe-body">El jueves 14 de mayo la Asamblea Legislativa sancionó una norma que incluye condonación de deudas fiscales antiguas, reducción de multas e intereses acumulados, y planes de pago flexibles. La medida responde al contexto de menor liquidez, presión fiscal y desaceleración económica. Es la primera ley de alivio tributario del actual período de gobierno y fue aprobada en medio de la crisis de gobernabilidad generada por los bloqueos.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              Alivio concreto para empresas y personas con deudas tributarias acumuladas. La señal política busca reducir tensiones con el sector privado en plena crisis de liquidez, aunque el impacto en la recaudación del SIN deberá monitorearse.
-            </div>
-            <div class="swipe-source"><a href="https://larazon.bo/economia-y-empresa/">La Razón</a> · <a href="https://eldeber.com.bo/economia">El Deber</a></div>
-          </div>
-        </div>
-
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">03</div>
-              <div class="swipe-title">Marcelo Claure: "Bolivia está muy cerca de un colapso económico jamás visto"</div>
-            </div>
-            <div class="swipe-body">El empresario boliviano con mayor exposición internacional advirtió que endeudarse no es la solución correcta para la crisis del país. La declaración llega días después de que Bolivia emitiera bonos soberanos a una tasa del 9,45% anual para retornar al mercado internacional de deuda tras cuatro años de ausencia. Claure cuestionó directamente la estrategia financiera del gobierno de Rodrigo Paz.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La advertencia de Claure, con credibilidad en mercados internacionales, puede generar desconfianza entre inversores y encarecer el financiamiento futuro de Bolivia. Agrava el debate sobre la sostenibilidad fiscal del programa económico del gobierno.
-            </div>
-            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/claure-bolivia-muy-cerca-colapso-economico-jamas-visto/20260514170828991353.html">Opinión Bolivia</a></div>
-          </div>
-        </div>
-
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">04</div>
-              <div class="swipe-title">YPFB declara cerrada la crisis de gasolina contaminada y paga Bs 34 millones en compensaciones</div>
-            </div>
-            <div class="swipe-body">YPFB identificó tres causas de la crisis de gasolina de mala calidad que afectó a miles de vehículos: brechas regulatorias, deterioro de tanques de almacenamiento y presencia de diolefinas en combustible importado. La empresa desembolsó más de 34 millones de bolivianos en compensaciones. Los últimos lotes de gasolina cumplen todos los parámetros críticos. Sin embargo, analistas señalan que un alza de precios de combustibles podría implementarse en junio.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              El cierre formal reduce la presión judicial y política sobre YPFB. Pero el posible ajuste tarifario en junio, en un contexto de inflación y crisis de liquidez, puede reactivar protestas sociales justo cuando el gobierno ya enfrenta bloqueos.
-            </div>
-            <div class="swipe-source"><a href="https://www.eldiario.net/portal/2026/05/13/ypfb-cierra-el-capitulo-de-la-crisis-de-calidad-de-gasolina-y-anuncia-medidas-estructurales-para-evitar-su-repeticion/">El Diario</a> · <a href="https://www.opinion.com.bo/articulo/pais/ypfb-identifica-tres-causas-crisis-calidad-gasolina-es-capitulo-cerrado/20260512093521991261.html">Opinión</a></div>
-          </div>
-        </div>
-
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">05</div>
-              <div class="swipe-title">Post-subnacionales: Saavedra arrasa con 71,6% en Santa Cruz; Reyes Villa consolida Cochabamba con 53%</div>
-            </div>
-            <div class="swipe-body">Los resultados de las elecciones subnacionales muestran un mapa político divergente al gobierno nacional. Carlos Manuel Saavedra se perfila como nuevo alcalde de Santa Cruz con un histórico 71,6% de los votos. Manfred Reyes Villa valida su gestión en Cochabamba con el 53,09%. Los resultados marcan un deslizamiento opositor en las dos principales ciudades económicas del país.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              El dominio opositor en Santa Cruz y Cochabamba debilita la base política del gobierno de Paz en los principales centros económicos. Configura un escenario de confrontación entre el gobierno central y los municipios en temas de inversión, transferencias y gestión fiscal.
-            </div>
-            <div class="swipe-source"><a href="https://lapatria.bo/enfoque-nacional/elecciones-subnacionales-en-bolivia-resultados-preliminares-2026/">La Patria</a> · <a href="https://www.oep.org.bo/elecciones-subnacionales-2026/">OEP</a></div>
-          </div>
-        </div>
-
+  <header class="header">
+    <div class="header-top">
+      <div class="header-branding">
+        <span class="header-label">Rep&uacute;blica de Bolivia &mdash; Informe de Situaci&oacute;n Nacional</span>
+        <h1 class="header-title">Briefing Ejecutivo Diario</h1>
+        <p class="header-subtitle">Resumen de los principales desarrollos pol&iacute;ticos, econ&oacute;micos y sociales</p>
       </div>
-
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="swipe-hint">Desliza para ver más →</div>
-    </div>
-
-    <div class="divider reveal"><span class="divider-text">Noticias por Sección</span></div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.04s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Cooperativistas mineros marchan en La Paz y exigen renuncia del presidente Paz</h3>
-      <p>La Federación Departamental de Cooperativistas Mineras organizó una marcha desde el puente Bolívar en El Alto hacia el centro de La Paz. El pliego de siete puntos productivos no fue atendido por el gobierno, derivando en la escalada de bloqueos. La Conferencia Episcopal Boliviana llamó a la serenidad y al diálogo: "Bolivia necesita responsabilidad y voluntad de diálogo para superar este momento sin seguir afectando a la población".</p>
-      <span class="source-link"><a href="https://www.opinion.com.bo/tags/la-paz-bloqueos/">Opinión Bolivia</a> · <a href="https://www.noticiasfides.com/">ANF Fides</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.08s">
-      <span class="pill pill-pol">Político</span>
-      <h3>COB sostiene paro general indefinido y suma presión a la crisis de gobernabilidad</h3>
-      <p>La Central Obrera Boliviana mantuvo su paro general indefinido con demandas sobre el deterioro de las condiciones de vida y el aumento del costo de la canasta familiar. El paro confluye con las marchas de cooperativistas mineros, configurando el período de mayor tensión social del gobierno de Rodrigo Paz. El gobierno no convocó aún a mesas de diálogo formales.</p>
-      <span class="source-link"><a href="https://larazon.bo/">La Razón</a> · <a href="https://eldeber.com.bo/">El Deber</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.12s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Ley tributaria sancionada incluye condonación de deudas fiscales antiguas</h3>
-      <p>La norma aprobada el 14 de mayo establece condonación de deudas tributarias vencidas, reducción de multas e intereses, y facilidades de pago para contribuyentes en mora. Se aprueba en un contexto de menor liquidez en el sistema financiero boliviano y desaceleración económica generalizada. El impacto en la recaudación del Servicio de Impuestos Nacionales (SIN) deberá precisarse en las siguientes semanas.</p>
-      <span class="source-link"><a href="https://eldeber.com.bo/economia">El Deber</a> · <a href="https://larazon.bo/economia-y-empresa/">La Razón</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.16s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Bolivia regresa al mercado internacional de bonos con emisión a 9,45% a cinco años</h3>
-      <p>Tras cuatro años de ausencia, Bolivia colocó bonos en dólares a un plazo de cinco años con una tasa del 9,45% anual, condiciones que el gobierno de Paz calificó como más favorables de lo previsto. El regreso se sustenta en la mejora de perspectivas de Moody's y en el superávit comercial de $us 801 millones registrado a febrero de 2026, con exportaciones que crecieron 86% interanual hasta los $us 2.221 millones.</p>
-      <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/04/bolivia-perfila-su-regreso-al-mercado-internacional-de-bonos-segun-bloomberg/">La Razón</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.20s">
-      <span class="pill pill-emp">Empresarial</span>
-      <h3>Claure cuestiona la estrategia de endeudamiento y advierte sobre colapso sin precedentes</h3>
-      <p>El empresario Marcelo Claure declaró que Bolivia está "muy cerca de un colapso económico jamás visto" y señaló que endeudarse no es la solución correcta para la crisis del país. La advertencia, publicada el 14 de mayo, llega en momentos en que el gobierno concreta su primera emisión de bonos internacionales en cuatro años. La exposición mediática internacional de Claure amplifica el impacto de sus declaraciones sobre la percepción de riesgo país.</p>
-      <span class="source-link"><a href="https://www.opinion.com.bo/articulo/pais/claure-bolivia-muy-cerca-colapso-economico-jamas-visto/20260514170828991353.html">Opinión Bolivia</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.24s">
-      <span class="pill pill-soc">Social</span>
-      <h3>Cochabamba reporta pérdida acumulada de Bs 694 millones por bloqueos; Bs 34,8 millones diarios</h3>
-      <p>Las autoridades del departamento cuantificaron una afectación económica acumulada de Bs 694,6 millones, con una pérdida diaria estimada de Bs 34,8 millones. El desabastecimiento de alimentos, insumos y combustible afecta a mercados, comercios y transporte. La muerte de la joven en la ambulancia bloqueada concentró la atención internacional sobre el costo humano del conflicto social.</p>
-      <span class="source-link"><a href="https://www.opinion.com.bo/">Opinión Bolivia</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.28s">
-      <span class="pill pill-dep">Deportes</span>
-      <h3>División Profesional 2026: temporada 94 en curso con Real Potosí de regreso a primera</h3>
-      <p>La 94ª edición de la División Profesional boliviana continúa su desarrollo en formato de liga con 30 jornadas. Real Potosí vuelve al fútbol de primera división tras cuatro temporadas de ausencia, uno de los regresos más esperados por la afición minera. Los clásicos del torneo están programados para la jornada 10, entre el 29 y 30 de mayo. El VAR sigue en funcionamiento desde el Clausura 2022.</p>
-      <span class="source-link"><a href="https://fbf.com.bo/torneos/division-profesional/">FBF</a> · <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a></span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay: 0.32s">
-      <span class="pill pill-int">Internacional</span>
-      <h3>Moody's eleva perspectiva de Bolivia a positiva tras recorte de subsidios y superávit comercial</h3>
-      <p>La calificadora Moody's mejoró en un escalón el crédito de Bolivia y le asignó perspectiva positiva, reconociendo el recorte de subsidios a los combustibles y el cumplimiento en el pago de bonos externos por parte del gobierno de Paz. El reconocimiento internacional facilita las condiciones de financiamiento externo y respalda el retorno al mercado de deuda. La mejora de calificación es la primera en varios años para Bolivia.</p>
-      <span class="source-link"><a href="https://larazon.bo/economia-y-empresa/2026/05/04/bolivia-perfila-su-regreso-al-mercado-internacional-de-bonos-segun-bloomberg/">La Razón</a></span>
-    </div>
-
-    <div class="data-strip">
-      <div class="data-cell reveal">
-        <div class="data-cell-label">Dólar Oficial</div>
-        <div class="data-cell-value">6,96</div>
-        <div class="data-cell-delta" style="color: var(--muted)">Bs / USD · BCB</div>
-      </div>
-      <div class="data-cell reveal">
-        <div class="data-cell-label">Dólar Paralelo</div>
-        <div class="data-cell-value red">10,02</div>
-        <div class="data-cell-delta red">Bs / USD · blue</div>
-      </div>
-      <div class="data-cell reveal">
-        <div class="data-cell-label">Brecha</div>
-        <div class="data-cell-value red">44%</div>
-        <div class="data-cell-delta" style="color: var(--muted)">paralelo vs oficial</div>
+      <div class="header-meta">
+        <span class="header-date">14 de mayo de 2026</span>
+        <span class="header-alert-chip">
+          <span class="pulse-dot"></span>
+          Crisis Activa
+        </span>
       </div>
     </div>
-
-    <div class="vigilar reveal">
-      <div class="vigilar-header">Qué vigilar hoy</div>
-      <div class="vigilar-item">Respuesta del gobierno al ultimátum de cooperativistas mineros: ¿negociación o medidas de orden público en La Paz y El Alto?</div>
-      <div class="vigilar-item">Posible anuncio de alza de precios de combustibles en junio: YPFB y el Ministerio de Economía no han descartado un ajuste tarifario.</div>
-      <div class="vigilar-item">Reacciones del sector privado y gremios empresariales a la ley de alivio tributario sancionada ayer — qué sectores se benefician más.</div>
-      <div class="vigilar-item">Evolución del dólar paralelo en el contexto de la brecha del 44% con el tipo de cambio oficial y el regreso de Bolivia al mercado de deuda.</div>
+    <div class="header-divider"></div>
+    <div class="header-stats">
+      <div class="stat-item"><span class="stat-value red">+60</span><span class="stat-label">Puntos de bloqueo</span></div>
+      <div class="stat-item"><span class="stat-value red">3</span><span class="stat-label">Fallecidos confirmados</span></div>
+      <div class="stat-item"><span class="stat-value amber">Bs 694,6M</span><span class="stat-label">P&eacute;rdidas en Cochabamba</span></div>
+      <div class="stat-item"><span class="stat-value amber">$us 21.700M</span><span class="stat-label">Deuda externa</span></div>
+      <div class="stat-item"><span class="stat-value red">3,7 TCF</span><span class="stat-label">Reservas de gas</span></div>
+      <div class="stat-item"><span class="stat-value red">&minus;3,3%</span><span class="stat-label">Proyecci&oacute;n PIB (FMI)</span></div>
     </div>
+  </header>
 
-    <div class="footer reveal">
-      <div>Fuentes: La Razón · El Deber · Opinión Bolivia · ANF Fides · El Diario · La Patria · OEP · Vision 360 · Infobae · Bloomberg</div>
-      <div>Briefing generado con Claude — Solo para uso informativo</div>
+  <p class="section-label">Noticias Destacadas</p>
+  <div class="featured-grid">
+    <div class="card featured critical">
+      <div class="card-header-row">
+        <div class="card-badges"><span class="badge badge-social">Social</span><span class="badge badge-destacado">&starf; Destacado</span></div>
+        <span class="card-number">01</span>
+      </div>
+      <h2 class="card-title">Crisis social: Tercer d&iacute;a de bloqueos masivos en todo el pa&iacute;s</h2>
+      <p class="card-body">M&aacute;s de 60 puntos de bloqueo se registran en carreteras de Bolivia, con especial concentraci&oacute;n en el departamento de La Paz. Organizaciones sindicales, campesinas y mineras exigen la renuncia del presidente Rodrigo Paz. Se han confirmado <strong style="color:#ff7b72;">3 muertes</strong> de ciudadanos que no pudieron acceder a atenci&oacute;n m&eacute;dica a tiempo debido al cierre de v&iacute;as.</p>
+      <div class="card-divider"></div>
+      <p class="card-footer">Tres d&iacute;as consecutivos de protesta &mdash; La Paz, 14 may. 2026</p>
     </div>
-
+    <div class="card featured warning">
+      <div class="card-header-row">
+        <div class="card-badges"><span class="badge badge-politica">Pol&iacute;tica</span><span class="badge badge-destacado">&starf; Destacado</span></div>
+        <span class="card-number">02</span>
+      </div>
+      <h2 class="card-title">Gobierno deroga la pol&eacute;mica Ley 1720 de tierras</h2>
+      <p class="card-body">El presidente Rodrigo Paz abreg&oacute; la Ley 1720, que permit&iacute;a convertir propiedades campesinas en garant&iacute;as bancarias. La medida llega tras 24 d&iacute;as de caminata de ind&iacute;genas amaz&oacute;nicos desde Pando. El Parlamento dispone de un plazo de <strong style="color:var(--bo-yellow);">60 d&iacute;as</strong> para debatir y aprobar una nueva ley agraria.</p>
+      <div class="card-divider"></div>
+      <p class="card-footer">Respuesta gubernamental a la presi&oacute;n ind&iacute;gena &mdash; Sucre, 14 may. 2026</p>
+    </div>
+    <div class="card featured critical">
+      <div class="card-header-row">
+        <div class="card-badges"><span class="badge badge-economia">Econom&iacute;a</span><span class="badge badge-destacado">&starf; Destacado</span></div>
+        <span class="card-number">03</span>
+      </div>
+      <h2 class="card-title">Claure advierte: Bolivia al borde de un &ldquo;colapso econ&oacute;mico jam&aacute;s visto&rdquo;</h2>
+      <p class="card-body">El empresario boliviano Marcelo Claure lanz&oacute; una advertencia p&uacute;blica de m&aacute;xima urgencia: el pa&iacute;s est&aacute; al borde de un colapso econ&oacute;mico sin precedentes. Las proyecciones del FMI indican una contracci&oacute;n del <strong style="color:#ff7b72;">3,3%</strong> y la deuda externa supera los <strong style="color:#ff7b72;">$us 21.700 millones</strong>.</p>
+      <div class="card-divider"></div>
+      <p class="card-footer">Alerta del sector privado &mdash; 14 may. 2026</p>
+    </div>
   </div>
 
-  <script>
-    const track = document.getElementById('carousel');
-    const dots = document.querySelectorAll('.dot');
-    track.addEventListener('scroll', () => {
-      const idx = Math.round(track.scrollLeft / track.offsetWidth);
-      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
-    });
-    const obs = new IntersectionObserver(es => es.forEach(e => {
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-    }),{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+  <p class="section-label" style="margin-top:32px;">Otras Noticias Relevantes</p>
+  <div class="standard-grid">
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-seguridad">Seguridad</span></div><span class="card-number">04</span></div>
+      <h2 class="card-title">Maestros rurales asaltan y destrozan el Ministerio de Educaci&oacute;n</h2>
+      <p class="card-body">Maestros rurales causaron graves destrozos en el edificio del Ministerio de Educaci&oacute;n en La Paz: un muro colaps&oacute; y m&uacute;ltiples ventanas fueron rotas. Dos polic&iacute;as resultaron heridos. Las fuerzas del orden respondieron con gases lacrim&oacute;genos para dispersar a los manifestantes.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-social">Social</span></div><span class="card-number">05</span></div>
+      <h2 class="card-title">Mineros cooperativistas marchan desde El Alto hacia la sede de gobierno</h2>
+      <p class="card-body">La Fedecomin organiz&oacute; una marcha desde el puente Bol&iacute;var en El Alto con destino a la sede de gobierno en La Paz. Los cooperativistas exigen la renuncia del presidente Paz, alegando incumplimiento de su agenda productiva de 7 puntos pactada con el sector minero.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-economia">Econom&iacute;a</span></div><span class="card-number">06</span></div>
+      <h2 class="card-title">Cochabamba acumula p&eacute;rdidas de Bs 694,6 millones por los bloqueos</h2>
+      <p class="card-body">La ciudad de Cochabamba registra p&eacute;rdidas econ&oacute;micas diarias de <strong style="color:var(--bo-yellow);">Bs 34,8 millones</strong>. Cerca de 5.000 camiones de alto tonelaje permanecen varados en carreteras, transportando alimentos, combustible y ganado vivo que no puede llegar a su destino.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-politica">Pol&iacute;tica</span><span class="badge badge-seguridad">Seguridad</span></div><span class="card-number">07</span></div>
+      <h2 class="card-title">Paz ordena despejar rutas; Polic&iacute;a anuncia intervenci&oacute;n en todos los puntos</h2>
+      <p class="card-body">El presidente Rodrigo Paz emiti&oacute; instrucciones para abrir los caminos tomados por los manifestantes. El comandante de la Polic&iacute;a Nacional, Mirko Sokol, confirm&oacute; que <em>&ldquo;todos los puntos de bloqueo en el pa&iacute;s ser&aacute;n intervenidos&rdquo;</em>, elevando el riesgo de confrontaci&oacute;n directa con los bloqueadores.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-social">Social</span></div><span class="card-number">08</span></div>
+      <h2 class="card-title">Escasez de alimentos y medicamentos en La Paz</h2>
+      <p class="card-body">Los mercados pace&ntilde;os registran desabastecimiento de carne y pollo como consecuencia directa del cierre de rutas. Los hospitales enfrentan demoras en la recepci&oacute;n de medicamentos y ox&iacute;geno, poniendo en riesgo a pacientes en estado cr&iacute;tico a lo largo de la ciudad.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-economia">Econom&iacute;a</span></div><span class="card-number">09</span></div>
+      <h2 class="card-title">CEPAL proyecta crecimiento del 0,5%; FMI y BM anticipan contracci&oacute;n</h2>
+      <p class="card-body">La CEPAL estima un crecimiento de apenas <strong style="color:var(--bo-yellow);">0,5%</strong> para Bolivia en 2026. En contraste, el FMI proyecta una contracci&oacute;n del <strong style="color:#ff7b72;">3,3%</strong> y el Banco Mundial del <strong style="color:#ff7b72;">3,2%</strong>. La deuda externa supera los <strong style="color:#ff7b72;">$us 21.700 millones</strong>.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-energia">Energ&iacute;a</span></div><span class="card-number">10</span></div>
+      <h2 class="card-title">Crisis energ&eacute;tica: reservas de gas se desplomaron de 10,45 a 3,7 TCF</h2>
+      <p class="card-body">Las reservas probadas de gas natural cayeron de <strong style="color:#ff7b72;">10,45 a 3,7 TCF</strong>. El 71% de la electricidad boliviana depende del gas natural en declive acelerado. Un alza de combustibles se perfila como &ldquo;inminente&rdquo; para junio: la gasolina podr&iacute;a alcanzar los <strong style="color:var(--bo-yellow);">Bs 14/litro</strong> y el di&eacute;sel los <strong style="color:var(--bo-yellow);">Bs 18/litro</strong>.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-social">Social</span></div><span class="card-number">11</span></div>
+      <h2 class="card-title">Iglesia Cat&oacute;lica llama a la serenidad y al di&aacute;logo nacional</h2>
+      <p class="card-body">La Conferencia Episcopal Boliviana emiti&oacute; un llamado urgente exhortando a actuar con <em>&ldquo;serenidad, responsabilidad y disposici&oacute;n al di&aacute;logo&rdquo;</em> para superar la crisis actual sin que los m&aacute;s vulnerables sean los m&aacute;s afectados por la escalada de violencia y bloqueos.</p>
+    </div>
+    <div class="card">
+      <div class="card-header-row"><div class="card-badges"><span class="badge badge-politica">Pol&iacute;tica</span></div><span class="card-number">12</span></div>
+      <h2 class="card-title">Diputados proponen declarar estado de excepci&oacute;n</h2>
+      <p class="card-body">Legisladores de las bancadas Alianza Libre, Alianza Unidad y PDC presentaron ante el Ejecutivo una propuesta formal para declarar el estado de excepci&oacute;n ante la escalada de bloqueos y la par&aacute;lisis econ&oacute;mica.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">Generado autom&aacute;ticamente el <strong style="color: rgba(255,255,255,0.65);">15 de mayo de 2026</strong> &mdash; Briefing Ejecutivo Diario Bolivia &mdash; Uso interno</p>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="footer-flag">
+        <div class="flag-stripe" style="background:#D52B1E;"></div>
+        <div class="flag-stripe" style="background:#F4C430;"></div>
+        <div class="flag-stripe" style="background:#007A3D;"></div>
+      </div>
+      <span class="footer-text" style="font-weight:600;">Estado Plurinacional de Bolivia</span>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>
