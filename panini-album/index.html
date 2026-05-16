@@ -125,7 +125,7 @@
   .batch-item .rm { font-size: 0.78rem; color: var(--destructive); cursor: pointer; padding: 2px 6px; }
   .empty-batch { padding: 12px; font-size: 0.82rem; color: var(--hint); font-style: italic; text-align: center; }
 
-  /* ── Fallback overlay ── */
+  /* ── Confirm overlay ── */
   .overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,0.55);
     display: flex; align-items: flex-end; z-index: 100;
@@ -141,16 +141,17 @@
   .overlay-codes {
     font-family: 'SF Mono','Menlo',monospace;
     font-size: 0.85rem; background: var(--bg2);
-    border-radius: 9px; padding: 12px; margin-bottom: 12px;
+    border-radius: 9px; padding: 12px; margin-bottom: 14px;
     word-break: break-all; line-height: 1.6;
   }
+  .overlay-row { display: flex; gap: 8px; }
   .btn-overlay {
-    width: 100%; padding: 12px; border: none; border-radius: 10px;
-    font-size: 0.92rem; font-weight: 700; cursor: pointer; margin-top: 6px;
+    flex: 1; padding: 13px; border: none; border-radius: 10px;
+    font-size: 0.92rem; font-weight: 700; cursor: pointer;
   }
-  .btn-copy-fallback { background: var(--accent); color: var(--accent-text); }
-  .btn-copy-fallback.ok { background: #2cb67d; }
-  .btn-close-overlay { background: var(--bg2); color: var(--text); }
+  .btn-confirm { background: var(--accent); color: var(--accent-text); }
+  .btn-confirm:disabled { opacity: 0.6; }
+  .btn-back { background: var(--bg2); color: var(--text); }
 
   .bottom-spacer { height: 80px; }
 </style>
@@ -183,14 +184,16 @@
   <div class="bottom-spacer"></div>
 </div>
 
-<!-- Fallback overlay (when sendData not available) -->
+<!-- Confirm overlay -->
 <div class="overlay" id="overlay">
   <div class="overlay-card">
-    <div class="overlay-title">Copia estos códigos en el chat</div>
-    <div class="overlay-sub">Abre Jano y pégalos para registrar las figuritas.</div>
+    <div class="overlay-title" id="overlayTitle">Registrar figuritas</div>
+    <div class="overlay-sub" id="overlaySub"></div>
     <div class="overlay-codes" id="overlayCodes"></div>
-    <button class="btn-overlay btn-copy-fallback" id="btnCopyFallback" onclick="copyFallback()">Copiar</button>
-    <button class="btn-overlay btn-close-overlay" onclick="closeOverlay()">Cerrar</button>
+    <div class="overlay-row">
+      <button class="btn-overlay btn-back" id="btnBack" onclick="closeOverlay()">← Volver</button>
+      <button class="btn-overlay btn-confirm" id="btnConfirm" onclick="confirmRegister()">✓ Confirmar</button>
+    </div>
   </div>
 </div>
 
@@ -374,46 +377,47 @@ function updateMainButton() {
 
 // ── Register ──────────────────────────────────────────────────────────────────
 
-async function register() {
+function register() {
   if (batch.length === 0) return;
   const codes = batch.map(b => b.code);
-  const msg = `Figuritas álbum: ${codes.join(', ')}`;
-
-  try {
-    await navigator.clipboard.writeText(msg);
-  } catch {
-    // clipboard failed — show manual fallback
-    showCopyFallback(codes);
-    return;
-  }
-
-  tg?.HapticFeedback?.notificationOccurred("success");
-  if (tg?.MainButton) {
-    tg.MainButton.setText('✓ Copiado — pega en el chat');
-    tg.MainButton.hideProgress();
-  }
-  setTimeout(() => tg?.close(), 1500);
+  const n = codes.length;
+  document.getElementById('overlayTitle').textContent = `Registrar ${n} figurita${n !== 1 ? 's' : ''}`;
+  document.getElementById('overlaySub').textContent = 'Se sumarán a tu álbum en Jano.';
+  document.getElementById('overlayCodes').textContent = codes.join(', ');
+  document.getElementById('btnConfirm').disabled = false;
+  document.getElementById('btnConfirm').textContent = '✓ Confirmar';
+  document.getElementById('overlay').classList.add('show');
 }
 
-function showCopyFallback(codes) {
-  document.getElementById('overlayCodes').textContent = codes.join(', ');
-  document.getElementById('overlay').classList.add('show');
+async function confirmRegister() {
+  const codesText = document.getElementById('overlayCodes').textContent;
+  const codes = codesText.split(', ');
+  const btn = document.getElementById('btnConfirm');
+  const backBtn = document.getElementById('btnBack');
+  btn.disabled = true;
+  btn.textContent = '⏳ Registrando...';
+  backBtn.disabled = true;
+  try {
+    const res = await fetch(
+      'https://cos-agent-worker.carlos-cb4.workers.dev/panini/register',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ codes }),
+      }
+    );
+    if (!res.ok) throw new Error('server_error');
+    tg?.HapticFeedback?.notificationOccurred('success');
+    tg?.close();
+  } catch {
+    btn.disabled = false;
+    btn.textContent = '↩ Reintentar';
+    backBtn.disabled = false;
+  }
 }
 
 function closeOverlay() {
   document.getElementById('overlay').classList.remove('show');
-}
-
-function copyFallback() {
-  const text = document.getElementById('overlayCodes').textContent;
-  const btn = document.getElementById('btnCopyFallback');
-  navigator.clipboard?.writeText(text).then(() => {
-    btn.textContent = '✓ Copiado';
-    btn.classList.add('ok');
-    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('ok'); }, 2000);
-  }).catch(() => {
-    btn.textContent = 'Selecciona el texto arriba';
-  });
 }
 
 // ── MainButton ────────────────────────────────────────────────────────────────
