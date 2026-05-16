@@ -13,7 +13,6 @@
     --hint: var(--tg-theme-hint-color, #888888);
     --accent: var(--tg-theme-button-color, #4361ee);
     --accent-text: var(--tg-theme-button-text-color, #ffffff);
-    --link: var(--tg-theme-link-color, #4361ee);
     --destructive: var(--tg-theme-destructive-text-color, #e74c3c);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -32,19 +31,7 @@
     border-bottom: 1px solid rgba(0,0,0,0.07);
     padding: 10px 14px 8px;
   }
-  .breadcrumb {
-    font-size: 0.72rem;
-    color: var(--hint);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-    min-height: 14px;
-  }
-  .header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  .header-row { display: flex; justify-content: space-between; align-items: center; }
   .title { font-size: 1rem; font-weight: 700; }
   .batch-count {
     font-size: 0.78rem;
@@ -58,62 +45,35 @@
   .batch-count.visible { display: inline-block; }
 
   /* ── Screens ── */
-  .screen { display: none; padding: 12px 14px 16px; }
+  .screen { display: none; padding: 10px 12px 16px; }
   .screen.active { display: block; }
 
   /* ── Section label ── */
   .section-label {
-    font-size: 0.69rem;
-    font-weight: 700;
-    color: var(--hint);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 12px 0 7px;
+    font-size: 0.69rem; font-weight: 700; color: var(--hint);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 10px 0 6px;
   }
   .section-label:first-child { margin-top: 0; }
 
-  /* ── Confederation grid ── */
-  .conf-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .conf-tile {
-    background: var(--bg2);
-    border-radius: 12px;
-    padding: 14px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    transition: opacity .12s, transform .07s;
-    border: 2px solid transparent;
-  }
-  .conf-tile:active { transform: scale(0.96); opacity: 0.8; }
-  .conf-tile .emoji { font-size: 1.7rem; line-height: 1; }
-  .conf-tile .name { font-size: 0.8rem; font-weight: 700; text-align: center; }
-  .conf-tile .count { font-size: 0.68rem; color: var(--hint); }
-
-  /* ── Country grid ── */
+  /* ── Countries grid ── */
   .country-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    gap: 5px;
   }
   .country-btn {
     background: var(--bg2);
     border-radius: 9px;
-    padding: 9px 4px;
-    font-size: 0.78rem;
-    font-weight: 700;
+    padding: 8px 3px 7px;
     text-align: center;
     cursor: pointer;
-    transition: background .1s, transform .07s;
+    transition: opacity .1s, transform .07s;
+    min-width: 0;
   }
-  .country-btn:active { transform: scale(0.93); }
-  .country-btn .flag { font-size: 1.1rem; display: block; margin-bottom: 2px; }
-  .country-btn .code { font-size: 0.7rem; color: var(--hint); }
+  .country-btn:active { transform: scale(0.92); opacity: 0.75; }
+  .country-btn .flag { font-size: 1.4rem; display: block; line-height: 1.2; }
+  .country-btn .name { font-size: 0.65rem; font-weight: 600; line-height: 1.2; margin-top: 2px; word-break: break-word; }
 
   /* ── Number grid ── */
   .num-grid {
@@ -125,8 +85,7 @@
     background: var(--bg2);
     border-radius: 9px;
     padding: 11px 4px;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.05rem; font-weight: 700;
     text-align: center;
     cursor: pointer;
     transition: background .1s, transform .07s;
@@ -134,99 +93,89 @@
   }
   .num-btn:active { transform: scale(0.90); }
   .num-btn.used {
-    background: rgba(67,97,238,0.12);
+    background: rgba(67,97,238,0.14);
     color: var(--accent);
   }
   .num-btn.used::after {
     content: '✓';
-    position: absolute;
-    top: 2px; right: 4px;
-    font-size: 0.55rem;
-    color: var(--accent);
+    position: absolute; top: 2px; right: 4px;
+    font-size: 0.55rem; color: var(--accent);
   }
 
-  /* ── Batch section ── */
-  .batch-area {
-    margin-top: 16px;
-  }
-  .batch-list {
-    background: var(--bg2);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .batch-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 9px 12px;
-    font-size: 0.88rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .batch-item:last-child { border-bottom: none; }
-  .batch-item .code-text { font-family: 'SF Mono', 'Menlo', monospace; font-weight: 600; }
-  .batch-item .name-text { font-size: 0.77rem; color: var(--hint); }
-  .batch-item .rm {
-    font-size: 0.78rem;
-    color: var(--destructive);
-    cursor: pointer;
-    padding: 2px 6px;
-  }
-  .empty-batch {
-    padding: 14px 12px;
-    font-size: 0.83rem;
-    color: var(--hint);
-    font-style: italic;
-    text-align: center;
-  }
-
-  /* ── Country info bar (on num screen) ── */
+  /* ── Country info bar ── */
   .country-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg2);
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg2); border-radius: 10px;
+    padding: 10px 12px; margin-bottom: 10px;
   }
-  .country-info .flag-lg { font-size: 1.6rem; }
-  .country-info .details { flex: 1; }
+  .country-info .flag-lg { font-size: 1.8rem; }
   .country-info .cname { font-weight: 700; font-size: 0.95rem; }
   .country-info .ccode { font-size: 0.75rem; color: var(--hint); }
 
-  /* ── Bottom spacer for MainButton ── */
+  /* ── Batch list ── */
+  .batch-area { margin-top: 14px; }
+  .batch-list { background: var(--bg2); border-radius: 10px; overflow: hidden; }
+  .batch-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 12px; font-size: 0.86rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .batch-item:last-child { border-bottom: none; }
+  .batch-item .code-text { font-family: 'SF Mono','Menlo',monospace; font-weight: 600; }
+  .batch-item .rm { font-size: 0.78rem; color: var(--destructive); cursor: pointer; padding: 2px 6px; }
+  .empty-batch { padding: 12px; font-size: 0.82rem; color: var(--hint); font-style: italic; text-align: center; }
+
+  /* ── Fallback overlay ── */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    display: flex; align-items: flex-end; z-index: 100;
+    display: none;
+  }
+  .overlay.show { display: flex; }
+  .overlay-card {
+    background: var(--bg); border-radius: 16px 16px 0 0;
+    padding: 20px 16px 32px; width: 100%;
+  }
+  .overlay-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+  .overlay-sub { font-size: 0.8rem; color: var(--hint); margin-bottom: 12px; }
+  .overlay-codes {
+    font-family: 'SF Mono','Menlo',monospace;
+    font-size: 0.85rem; background: var(--bg2);
+    border-radius: 9px; padding: 12px; margin-bottom: 12px;
+    word-break: break-all; line-height: 1.6;
+  }
+  .btn-overlay {
+    width: 100%; padding: 12px; border: none; border-radius: 10px;
+    font-size: 0.92rem; font-weight: 700; cursor: pointer; margin-top: 6px;
+  }
+  .btn-copy-fallback { background: var(--accent); color: var(--accent-text); }
+  .btn-copy-fallback.ok { background: #2cb67d; }
+  .btn-close-overlay { background: var(--bg2); color: var(--text); }
+
   .bottom-spacer { height: 80px; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="breadcrumb" id="breadcrumb">Mundial 2026</div>
   <div class="header-row">
-    <div class="title" id="headerTitle">🏆 Álbum</div>
+    <div class="title" id="headerTitle">🏆 Álbum 2026</div>
     <div class="batch-count" id="batchCount">0</div>
   </div>
 </div>
 
-<!-- Screen 0: Confederation picker -->
-<div class="screen active" id="screenConf">
-  <div class="section-label">Confederación</div>
-  <div class="conf-grid" id="confGrid"></div>
+<!-- Screen 0: Countries alphabetical -->
+<div class="screen active" id="screenCountry">
+  <div class="section-label">Selecciona un país</div>
+  <div class="country-grid" id="countryGrid"></div>
   <div class="batch-area">
     <div class="section-label">Lote</div>
-    <div class="batch-list" id="batchListConf"><div class="empty-batch">Agrega figuritas...</div></div>
+    <div class="batch-list" id="batchList"><div class="empty-batch">Agrega figuritas...</div></div>
   </div>
   <div class="bottom-spacer"></div>
 </div>
 
-<!-- Screen 1: Country picker -->
-<div class="screen" id="screenCountry">
-  <div class="section-label" id="confLabel">Países</div>
-  <div class="country-grid" id="countryGrid"></div>
-  <div class="bottom-spacer"></div>
-</div>
-
-<!-- Screen 2: Number picker -->
+<!-- Screen 1: Number picker -->
 <div class="screen" id="screenNum">
   <div class="country-info" id="countryInfo"></div>
   <div class="section-label">Número</div>
@@ -234,60 +183,98 @@
   <div class="bottom-spacer"></div>
 </div>
 
+<!-- Fallback overlay (when sendData not available) -->
+<div class="overlay" id="overlay">
+  <div class="overlay-card">
+    <div class="overlay-title">Copia estos códigos en el chat</div>
+    <div class="overlay-sub">Abre Jano y pégalos para registrar las figuritas.</div>
+    <div class="overlay-codes" id="overlayCodes"></div>
+    <button class="btn-overlay btn-copy-fallback" id="btnCopyFallback" onclick="copyFallback()">Copiar</button>
+    <button class="btn-overlay btn-close-overlay" onclick="closeOverlay()">Cerrar</button>
+  </div>
+</div>
+
 <script>
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+// ── Data ─────────────────────────────────────────────────────────────────────
 
-const CONFS = [
-  { id: "conmebol", name: "CONMEBOL", emoji: "🌎", codes: ["ARG","BRA","COL","URU","ECU","VEN","PAR","BOL","PER","CHI"] },
-  { id: "uefa1",    name: "UEFA (1)",  emoji: "🇪🇺", codes: ["GER","FRA","ESP","ENG","POR","NED","BEL","ITA","SUI","CRO","AUT","DEN"] },
-  { id: "uefa2",    name: "UEFA (2)",  emoji: "🇪🇺", codes: ["SCO","POL","SRB","TUR","ALB","HUN","CZE","SVN","UKR","GEO"] },
-  { id: "caf",      name: "CAF",       emoji: "🌍", codes: ["MAR","SEN","NGA","CMR","EGY","GHA","CIV","MLI","RSA","ANG"] },
-  { id: "afc",      name: "AFC",       emoji: "🌏", codes: ["JPN","KOR","IRN","AUS","KSA","JOR","IRQ","UZB","CHN","IDN"] },
-  { id: "concacaf", name: "CONCACAF",  emoji: "🌎", codes: ["USA","CAN","MEX","PAN","JAM","CRC","TRI","HON","GTM","SLV"] },
+// All 62 teams, sorted alphabetically by Spanish name
+const ALL = [
+  {c:"ALB",n:"Albania",f:"🇦🇱"},
+  {c:"GER",n:"Alemania",f:"🇩🇪"},
+  {c:"ANG",n:"Angola",f:"🇦🇴"},
+  {c:"KSA",n:"Arabia S.",f:"🇸🇦"},
+  {c:"ARG",n:"Argentina",f:"🇦🇷"},
+  {c:"AUS",n:"Australia",f:"🇦🇺"},
+  {c:"AUT",n:"Austria",f:"🇦🇹"},
+  {c:"BEL",n:"Bélgica",f:"🇧🇪"},
+  {c:"BOL",n:"Bolivia",f:"🇧🇴"},
+  {c:"BRA",n:"Brasil",f:"🇧🇷"},
+  {c:"CMR",n:"Camerún",f:"🇨🇲"},
+  {c:"CAN",n:"Canadá",f:"🇨🇦"},
+  {c:"CHI",n:"Chile",f:"🇨🇱"},
+  {c:"CHN",n:"China",f:"🇨🇳"},
+  {c:"COL",n:"Colombia",f:"🇨🇴"},
+  {c:"KOR",n:"Corea Sur",f:"🇰🇷"},
+  {c:"CIV",n:"C. Marfil",f:"🇨🇮"},
+  {c:"CRC",n:"Costa Rica",f:"🇨🇷"},
+  {c:"CRO",n:"Croacia",f:"🇭🇷"},
+  {c:"DEN",n:"Dinamarca",f:"🇩🇰"},
+  {c:"ECU",n:"Ecuador",f:"🇪🇨"},
+  {c:"EGY",n:"Egipto",f:"🇪🇬"},
+  {c:"SLV",n:"El Salvador",f:"🇸🇻"},
+  {c:"SCO",n:"Escocia",f:"🏴󠁧󠁢󠁳󠁣󠁴󠁿"},
+  {c:"SVN",n:"Eslovenia",f:"🇸🇮"},
+  {c:"ESP",n:"España",f:"🇪🇸"},
+  {c:"USA",n:"EE.UU.",f:"🇺🇸"},
+  {c:"FRA",n:"Francia",f:"🇫🇷"},
+  {c:"GEO",n:"Georgia",f:"🇬🇪"},
+  {c:"GHA",n:"Ghana",f:"🇬🇭"},
+  {c:"GTM",n:"Guatemala",f:"🇬🇹"},
+  {c:"HON",n:"Honduras",f:"🇭🇳"},
+  {c:"HUN",n:"Hungría",f:"🇭🇺"},
+  {c:"IDN",n:"Indonesia",f:"🇮🇩"},
+  {c:"ENG",n:"Inglaterra",f:"🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+  {c:"IRQ",n:"Irak",f:"🇮🇶"},
+  {c:"IRN",n:"Irán",f:"🇮🇷"},
+  {c:"ITA",n:"Italia",f:"🇮🇹"},
+  {c:"JAM",n:"Jamaica",f:"🇯🇲"},
+  {c:"JPN",n:"Japón",f:"🇯🇵"},
+  {c:"JOR",n:"Jordania",f:"🇯🇴"},
+  {c:"MLI",n:"Malí",f:"🇲🇱"},
+  {c:"MAR",n:"Marruecos",f:"🇲🇦"},
+  {c:"MEX",n:"México",f:"🇲🇽"},
+  {c:"NGA",n:"Nigeria",f:"🇳🇬"},
+  {c:"NED",n:"P. Bajos",f:"🇳🇱"},
+  {c:"PAN",n:"Panamá",f:"🇵🇦"},
+  {c:"PAR",n:"Paraguay",f:"🇵🇾"},
+  {c:"PER",n:"Perú",f:"🇵🇪"},
+  {c:"POL",n:"Polonia",f:"🇵🇱"},
+  {c:"POR",n:"Portugal",f:"🇵🇹"},
+  {c:"CZE",n:"Rep. Checa",f:"🇨🇿"},
+  {c:"SEN",n:"Senegal",f:"🇸🇳"},
+  {c:"SRB",n:"Serbia",f:"🇷🇸"},
+  {c:"RSA",n:"Sudáfrica",f:"🇿🇦"},
+  {c:"SUI",n:"Suiza",f:"🇨🇭"},
+  {c:"TRI",n:"Trinidad",f:"🇹🇹"},
+  {c:"TUR",n:"Turquía",f:"🇹🇷"},
+  {c:"UKR",n:"Ucrania",f:"🇺🇦"},
+  {c:"URU",n:"Uruguay",f:"🇺🇾"},
+  {c:"UZB",n:"Uzbekistán",f:"🇺🇿"},
+  {c:"VEN",n:"Venezuela",f:"🇻🇪"},
 ];
 
-const NAMES = {
-  ARG:"Argentina", BRA:"Brasil", COL:"Colombia", URU:"Uruguay", ECU:"Ecuador",
-  VEN:"Venezuela", PAR:"Paraguay", BOL:"Bolivia", PER:"Perú", CHI:"Chile",
-  GER:"Alemania", FRA:"Francia", ESP:"España", ENG:"Inglaterra", POR:"Portugal",
-  NED:"Países Bajos", BEL:"Bélgica", ITA:"Italia", SUI:"Suiza", CRO:"Croacia",
-  AUT:"Austria", DEN:"Dinamarca", SCO:"Escocia", POL:"Polonia", SRB:"Serbia",
-  TUR:"Turquía", ALB:"Albania", HUN:"Hungría", CZE:"Rep. Checa", SVN:"Eslovenia",
-  UKR:"Ucrania", GEO:"Georgia",
-  MAR:"Marruecos", SEN:"Senegal", NGA:"Nigeria", CMR:"Camerún", EGY:"Egipto",
-  GHA:"Ghana", CIV:"C. de Marfil", MLI:"Malí", RSA:"Sudáfrica", ANG:"Angola",
-  JPN:"Japón", KOR:"Corea del Sur", IRN:"Irán", AUS:"Australia", KSA:"Arabia Saudita",
-  JOR:"Jordania", IRQ:"Irak", UZB:"Uzbekistán", CHN:"China", IDN:"Indonesia",
-  USA:"Estados Unidos", CAN:"Canadá", MEX:"México", PAN:"Panamá", JAM:"Jamaica",
-  CRC:"Costa Rica", TRI:"Trinidad", HON:"Honduras", GTM:"Guatemala", SLV:"El Salvador",
-};
-
-const FLAGS = {
-  ARG:"🇦🇷", BRA:"🇧🇷", COL:"🇨🇴", URU:"🇺🇾", ECU:"🇪🇨",
-  VEN:"🇻🇪", PAR:"🇵🇾", BOL:"🇧🇴", PER:"🇵🇪", CHI:"🇨🇱",
-  GER:"🇩🇪", FRA:"🇫🇷", ESP:"🇪🇸", ENG:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", POR:"🇵🇹",
-  NED:"🇳🇱", BEL:"🇧🇪", ITA:"🇮🇹", SUI:"🇨🇭", CRO:"🇭🇷",
-  AUT:"🇦🇹", DEN:"🇩🇰", SCO:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", POL:"🇵🇱", SRB:"🇷🇸",
-  TUR:"🇹🇷", ALB:"🇦🇱", HUN:"🇭🇺", CZE:"🇨🇿", SVN:"🇸🇮",
-  UKR:"🇺🇦", GEO:"🇬🇪",
-  MAR:"🇲🇦", SEN:"🇸🇳", NGA:"🇳🇬", CMR:"🇨🇲", EGY:"🇪🇬",
-  GHA:"🇬🇭", CIV:"🇨🇮", MLI:"🇲🇱", RSA:"🇿🇦", ANG:"🇦🇴",
-  JPN:"🇯🇵", KOR:"🇰🇷", IRN:"🇮🇷", AUS:"🇦🇺", KSA:"🇸🇦",
-  JOR:"🇯🇴", IRQ:"🇮🇶", UZB:"🇺🇿", CHN:"🇨🇳", IDN:"🇮🇩",
-  USA:"🇺🇸", CAN:"🇨🇦", MEX:"🇲🇽", PAN:"🇵🇦", JAM:"🇯🇲",
-  CRC:"🇨🇷", TRI:"🇹🇹", HON:"🇭🇳", GTM:"🇬🇹", SLV:"🇸🇻",
-};
+const BY_CODE = {};
+ALL.forEach(t => BY_CODE[t.c] = t);
 
 const TOTAL = 20;
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
-let batch = []; // [{code:"ARG-5", name:"Argentina", country:"ARG", num:5}]
-let currentConf = null;
-let currentCountry = null;
+let batch = [];
+let currentCode = null;
 
 // ── Navigation ────────────────────────────────────────────────────────────────
 
@@ -296,110 +283,74 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function goConf() {
-  currentConf = null;
-  currentCountry = null;
-  document.getElementById('breadcrumb').textContent = 'Mundial 2026';
-  document.getElementById('headerTitle').textContent = '🏆 Álbum';
+function goCountries() {
+  currentCode = null;
+  document.getElementById('headerTitle').textContent = '🏆 Álbum 2026';
   if (tg?.BackButton) tg.BackButton.hide();
-  showScreen('screenConf');
   renderBatch();
-}
-
-function goCountry(confId) {
-  currentConf = confId;
-  const conf = CONFS.find(c => c.id === confId);
-  document.getElementById('breadcrumb').textContent = 'Mundial 2026 › Confederación';
-  document.getElementById('headerTitle').textContent = `${conf.emoji} ${conf.name}`;
-  if (tg?.BackButton) { tg.BackButton.show(); }
-  renderCountryGrid(conf);
   showScreen('screenCountry');
 }
 
-function goNum(countryCode) {
-  currentCountry = countryCode;
-  const conf = CONFS.find(c => c.id === currentConf);
-  document.getElementById('breadcrumb').textContent = `${conf.emoji} ${conf.name}`;
-  document.getElementById('headerTitle').textContent = `${FLAGS[countryCode] || ''} ${NAMES[countryCode] || countryCode}`;
-  renderCountryInfo(countryCode);
-  renderNumGrid(countryCode);
+function goNum(code) {
+  currentCode = code;
+  const t = BY_CODE[code];
+  document.getElementById('headerTitle').textContent = `${t.f} ${t.n}`;
+  if (tg?.BackButton) tg.BackButton.show();
+  renderCountryInfo(code);
+  renderNumGrid(code);
   showScreen('screenNum');
 }
 
-// Back button
 if (tg?.BackButton) {
   tg.BackButton.onClick(() => {
-    if (currentCountry) { currentCountry = null; goCountry(currentConf); }
-    else if (currentConf) { goConf(); }
+    if (currentCode) goCountries();
   });
 }
 
 // ── Renders ───────────────────────────────────────────────────────────────────
 
-function renderConfGrid() {
-  const grid = document.getElementById('confGrid');
-  grid.innerHTML = CONFS.map(conf => `
-    <div class="conf-tile" onclick="goCountry('${conf.id}')">
-      <span class="emoji">${conf.emoji}</span>
-      <span class="name">${conf.name}</span>
-      <span class="count">${conf.codes.length} países</span>
-    </div>
-  `).join('');
-}
-
-function renderCountryGrid(conf) {
-  const grid = document.getElementById('countryGrid');
-  document.getElementById('confLabel').textContent = `Países — ${conf.name}`;
-  grid.innerHTML = conf.codes.map(code => `
-    <div class="country-btn" onclick="goNum('${code}')">
-      <span class="flag">${FLAGS[code] || '🏳️'}</span>
-      <span>${NAMES[code] || code}</span>
-      <span class="code">${code}</span>
-    </div>
-  `).join('');
+function renderCountryGrid() {
+  document.getElementById('countryGrid').innerHTML = ALL.map(t =>
+    `<div class="country-btn" onclick="goNum('${t.c}')">
+      <span class="flag">${t.f}</span>
+      <span class="name">${t.n}</span>
+    </div>`
+  ).join('');
 }
 
 function renderCountryInfo(code) {
+  const t = BY_CODE[code];
+  const inBatch = batch.filter(b => b.country === code).length;
   document.getElementById('countryInfo').innerHTML = `
-    <span class="flag-lg">${FLAGS[code] || '🏳️'}</span>
-    <div class="details">
-      <div class="cname">${NAMES[code] || code}</div>
-      <div class="ccode">${code} · ${batchForCountry(code).length} en lote</div>
-    </div>
-  `;
+    <span class="flag-lg">${t.f}</span>
+    <div>
+      <div class="cname">${t.n}</div>
+      <div class="ccode">${code}${inBatch ? ` · ${inBatch} en lote` : ''}</div>
+    </div>`;
 }
 
 function renderNumGrid(code) {
-  const grid = document.getElementById('numGrid');
-  const usedNums = batchForCountry(code).map(b => b.num);
+  const used = new Set(batch.filter(b => b.country === code).map(b => b.num));
   let html = '';
   for (let i = 1; i <= TOTAL; i++) {
-    const used = usedNums.includes(i);
-    html += `<div class="num-btn ${used ? 'used' : ''}" onclick="addSticker('${code}', ${i})">${i}</div>`;
+    html += `<div class="num-btn${used.has(i) ? ' used' : ''}" onclick="addSticker('${code}',${i})">${i}</div>`;
   }
-  grid.innerHTML = html;
-}
-
-function batchForCountry(code) {
-  return batch.filter(b => b.country === code);
+  document.getElementById('numGrid').innerHTML = html;
 }
 
 function renderBatch() {
-  const listEl = document.getElementById('batchListConf');
+  const el = document.getElementById('batchList');
   const countEl = document.getElementById('batchCount');
   if (batch.length === 0) {
-    listEl.innerHTML = '<div class="empty-batch">Agrega figuritas...</div>';
+    el.innerHTML = '<div class="empty-batch">Agrega figuritas...</div>';
     countEl.classList.remove('visible');
   } else {
-    listEl.innerHTML = batch.map((b, i) => `
-      <div class="batch-item">
-        <div>
-          <span class="code-text">${b.code}</span>
-          <span class="name-text"> · ${b.name}</span>
-        </div>
+    el.innerHTML = batch.map((b, i) =>
+      `<div class="batch-item">
+        <span><span class="code-text">${b.code}</span> · ${BY_CODE[b.country]?.n || b.country}</span>
         <span class="rm" onclick="removeSticker(${i})">✕</span>
-      </div>
-    `).join('');
+      </div>`
+    ).join('');
     countEl.textContent = batch.length;
     countEl.classList.add('visible');
   }
@@ -411,48 +362,75 @@ function renderBatch() {
 function addSticker(code, num) {
   const stickerCode = `${code}-${num}`;
   if (batch.find(b => b.code === stickerCode)) {
-    // already in batch — just visual feedback
     if (tg) tg.HapticFeedback?.notificationOccurred('warning');
     return;
   }
-  batch.push({ code: stickerCode, name: NAMES[code] || code, country: code, num });
+  batch.push({ code: stickerCode, country: code, num });
   if (tg) tg.HapticFeedback?.impactOccurred('light');
-  renderNumGrid(code); // refresh to show ✓
+  renderNumGrid(code);
   renderCountryInfo(code);
-  renderBatch();
+  updateMainButton();
 }
 
 function removeSticker(idx) {
   batch.splice(idx, 1);
   renderBatch();
+  if (currentCode) renderNumGrid(currentCode);
 }
 
 function updateMainButton() {
   if (!tg?.MainButton) return;
-  if (batch.length === 0) {
-    tg.MainButton.hide();
-  } else {
-    tg.MainButton.setText(`Registrar ${batch.length} figurita${batch.length !== 1 ? 's' : ''}`);
-    tg.MainButton.show();
+  if (batch.length === 0) { tg.MainButton.hide(); return; }
+  tg.MainButton.setText(`Registrar ${batch.length} figurita${batch.length !== 1 ? 's' : ''}`);
+  tg.MainButton.show();
+}
+
+// ── Register (sendData + fallback) ────────────────────────────────────────────
+
+function register() {
+  if (batch.length === 0) return;
+  const codes = batch.map(b => b.code);
+  const data = JSON.stringify({ codes });
+  try {
+    if (!tg) throw new Error('no tg');
+    tg.sendData(data); // works only when opened via ReplyKeyboard web_app button
+  } catch {
+    // Opened via menu button — sendData not available. Show copy fallback.
+    showCopyFallback(codes);
   }
 }
 
+function showCopyFallback(codes) {
+  document.getElementById('overlayCodes').textContent = codes.join(', ');
+  document.getElementById('overlay').classList.add('show');
+}
+
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function copyFallback() {
+  const text = document.getElementById('overlayCodes').textContent;
+  const btn = document.getElementById('btnCopyFallback');
+  navigator.clipboard?.writeText(text).then(() => {
+    btn.textContent = '✓ Copiado';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('ok'); }, 2000);
+  }).catch(() => {
+    btn.textContent = 'Selecciona el texto arriba';
+  });
+}
+
+// ── MainButton ────────────────────────────────────────────────────────────────
+
 if (tg?.MainButton) {
-  tg.MainButton.onClick(() => {
-    if (batch.length === 0) return;
-    const codes = batch.map(b => b.code);
-    tg.sendData(JSON.stringify({ codes }));
-  });
-  tg.MainButton.setParams({
-    color: getComputedStyle(document.documentElement).getPropertyValue('--tg-theme-button-color').trim() || '#4361ee',
-    text_color: '#ffffff',
-  });
+  tg.MainButton.onClick(register);
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 
-renderConfGrid();
-goConf();
+renderCountryGrid();
+goCountries();
 </script>
 </body>
 </html>
