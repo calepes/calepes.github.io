@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Briefing Perú — 15 de mayo de 2026</title>
+  <title>Briefing Per&#250; &#8212; Viernes 15 de mayo de 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #1a4a6b;
-      --accent-soft: rgba(26,74,107,0.06);
+      --accent: #be123c;
+      --accent-soft: rgba(190,18,60,0.06);
       --ink: #1d1d1f;
       --muted: rgba(60,60,67,0.6);
       --tertiary: rgba(60,60,67,0.3);
@@ -26,11 +26,9 @@
       --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
       --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      background: linear-gradient(160deg, #E8EDF2 0%, #D4DEE7 25%, #E0D4D8 55%, #EDF0F5 80%, #F2F2F7 100%);
+      background: linear-gradient(160deg, #F5E8E8 0%, #F0D4D8 25%, #E8D8E0 55%, #EEE8F0 80%, #F5F2F7 100%);
       color: var(--ink);
       font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       line-height: 1.6;
@@ -41,73 +39,36 @@
       padding: 32px 20px;
       overflow-x: hidden;
     }
-
     .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
-    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(190,18,60,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(220,100,120,0.07) 0%, transparent 70%); }
     .wrap { position: relative; z-index: 1; }
-
-    .glass {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-
-    .masthead {
-      text-align: center;
-      margin-bottom: 28px;
-      padding: 32px 24px 26px;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
     .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
     .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
     .masthead-date { font-size: 13px; color: var(--muted); }
     .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
-
     .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
-
     .carousel-container { position: relative; margin-bottom: 32px; }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-    }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
     .carousel-track::-webkit-scrollbar { display: none; }
-
-    .swipe-card {
-      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px; border: 0.5px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-      padding: 28px 24px; min-height: 280px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
     .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
     .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
     .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
-    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
     .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
     .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
     .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
     .swipe-source a { color: var(--accent); text-decoration: none; }
-
-    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
     .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
     .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
     .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
     .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
     .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
-
     .news-item { padding: 18px 20px; margin-bottom: 10px; }
     .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
     .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
@@ -120,7 +81,6 @@
     .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
     .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
     .source-link a { color: var(--accent); text-decoration: none; }
-
     .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
     .data-cell { padding: 20px 14px; text-align: center; }
     .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
@@ -128,262 +88,228 @@
     .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
     .green { color: #34C759; }
     .red { color: #FF3B30; }
-
-    .vigilar {
-      background: rgba(29,29,31,0.82);
-      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: 16px; padding: 24px; margin: 32px 0;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-      color: white;
-    }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
     .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
     .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
     .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
     .vigilar-item:last-child { margin-bottom: 0; }
-
     .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
     .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-
-    @media (max-width: 500px) {
-      body { padding: 20px 14px; }
-      .data-strip { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
-<div class="wrap">
-
-  <!-- MASTHEAD -->
-  <div class="masthead reveal">
-    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
-    <h1>Perú</h1>
-    <div class="masthead-date">Viernes 15 de mayo de 2026 · Lima</div>
-    <div class="masthead-tag">Edición Diaria</div>
-  </div>
-
-  <!-- TOP 5 -->
-  <div class="section-header reveal">Top 5 del Día</div>
-
-  <div class="carousel-container reveal">
-    <div class="carousel-track" id="carousel">
-
-      <!-- Card 01 -->
-      <div class="swipe-card">
-        <div>
-          <div class="swipe-top">
-            <div class="swipe-num">01</div>
-            <div class="swipe-title">ONPE certifica al 100%: segunda vuelta el 7 de junio entre Fujimori y Sánchez</div>
-          </div>
-          <div class="swipe-body">La Oficina Nacional de Procesos Electorales completó el escrutinio de la primera vuelta del 12 de abril. Keiko Fujimori (Fuerza Popular) obtuvo 17.18% con 2'877,501 votos; Roberto Sánchez (Juntos por el Perú) alcanzó 12.03% con 2'015,097 votos, superando por más de 21,000 sufragios a Rafael López Aliaga. El balotaje está fijado para el 7 de junio. Las encuestas de mayo los ubican empatados al 38%, con un 27% de voto blanco o viciado.</div>
-        </div>
-        <div>
-          <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            Fujimori va a su cuarta segunda vuelta consecutiva habiendo perdido las tres anteriores. El empate técnico en encuestas y el alto voto blanco indican una elección completamente abierta: los indecisos y quienes recurrieron al voto en blanco serán decisivos para el rumbo del país los próximos cinco años.
-          </div>
-          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a></div>
-        </div>
-      </div>
-
-      <!-- Card 02 -->
-      <div class="swipe-card">
-        <div>
-          <div class="swipe-top">
-            <div class="swipe-num">02</div>
-            <div class="swipe-title">Congreso rechaza interpelar al ministro de Defensa por la masacre de Colcabamba</div>
-          </div>
-          <div class="swipe-body">Con 32 votos a favor, 40 en contra y 22 abstenciones, el Pleno rechazó la moción para citar al ministro de Defensa Amadeo Flores por el operativo militar del 25 de abril en Colcabamba (VRAEM, Huancavelica), que dejó cinco civiles muertos. La Fiscalía mantiene abierta la investigación contra ocho militares, incluido un capitán. Los abogados de las víctimas denuncian manipulación de la escena del crimen y señalan que el ataque fue unilateral sin que los jóvenes portaran armas.</div>
-        </div>
-        <div>
-          <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            El rechazo parlamentario cierra la vía de rendición de cuentas política, pero deja abierto el flanco judicial. En año electoral, el caso expone la tensión entre la estrategia de seguridad en el VRAEM y los derechos civiles, con posibles implicancias para el gobierno saliente y el Ejército.
-          </div>
-          <div class="swipe-source"><a href="https://rpp.pe/politica/congreso/congreso-rechaza-mocion-de-interpelacion-contra-ministro-de-defensa-por-operativo-militar-en-colcabamba-noticia-1688346">RPP</a> · <a href="https://larepublica.pe/politica/2026/05/14/masacre-en-colcabamba-congreso-rechaza-interpelar-al-ministro-de-defensa-hnews-629566">La República</a></div>
-        </div>
-      </div>
-
-      <!-- Card 03 -->
-      <div class="swipe-card">
-        <div>
-          <div class="swipe-top">
-            <div class="swipe-num">03</div>
-            <div class="swipe-title">PBI de marzo creció 3.21% pese a 13 días de crisis del gas Camisea</div>
-          </div>
-          <div class="swipe-body">La economía peruana avanzó 3.21% interanual en marzo, impulsada por construcción y comercio. Sin embargo, el sector de minería e hidrocarburos cayó 4.56% tras el colapso del subsector hidrocarburos (-35.41%) por la rotura del ducto de Camisea en el kilómetro 43. La producción de gas natural bajó 38.94% y la de líquidos de gas natural, 44.83%. El BCRP mantiene su proyección de crecimiento en 3% para todo 2026, con cobre y oro como anclas exportadoras.</div>
-        </div>
-        <div>
-          <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            El rebote de 3.21% superó expectativas pese al shock energético, pero el arrastre del sector extractivo sobre el PBI de abril y mayo sigue siendo un riesgo latente. La vulnerabilidad estructural de depender de un único gasoducto persiste sin solución de corto plazo.
-          </div>
-          <div class="swipe-source"><a href="https://larepublica.pe/economia/2026/05/15/economia-peruana-crecio-32-en-marzo-construccion-se-disparo-pero-mineria-retrocedio-ante-crisis-del-gas-hnews-1216140">La República</a> · <a href="https://rpp.pe/economia/economia/economia-sorprendio-en-marzo-crecio-321-pese-a-13-dias-de-crisis-del-gas-natural-noticia-1688503">RPP</a></div>
-        </div>
-      </div>
-
-      <!-- Card 04 -->
-      <div class="swipe-card">
-        <div>
-          <div class="swipe-top">
-            <div class="swipe-num">04</div>
-            <div class="swipe-title">Extorsión: 5,531 denuncias en lo que va del año y suboficial PNP capturado por cobrar cupos</div>
-          </div>
-          <div class="swipe-body">El Ministerio del Interior presentó un estudio criminológico sobre extorsión: entre enero y el 10 de mayo se registraron 5,531 denuncias. En Lima opera una nueva modalidad —bandas secuestran a comerciantes, los someten a violencia física y graban los abusos para presionar a familiares—. En paralelo, un suboficial de la PNP en actividad fue detenido durante un operativo en El Agustino por integrar una banda de extorsionadores y tráfico ilegal de terrenos.</div>
-        </div>
-        <div>
-          <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            La captura de un policía activo en una red extorsiva profundiza la desconfianza institucional. La bajada estadística frente a 2025 no refleja necesariamente menor criminalidad —hay un desfase del 40% entre cifras de PNP y Ministerio Público— y el tema dominará la campaña de segunda vuelta.
-          </div>
-          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/14/radiografia-de-la-extorsion-el-principal-desafio-de-la-seguridad-ciudadana-extorsion-hnews-1023568">La República</a> · <a href="https://www.infobae.com/peru/2026/05/14/debia-combatir-el-crimen-y-termino-detenido-capturan-a-suboficial-pnp-como-parte-de-banda-de-extorsionadores/">Infobae</a></div>
-        </div>
-      </div>
-
-      <!-- Card 05 -->
-      <div class="swipe-card">
-        <div>
-          <div class="swipe-top">
-            <div class="swipe-num">05</div>
-            <div class="swipe-title">Liga 1, fecha 15: Cajamarca hunde a Cristal 3-1 y Grau vence a la U; Alianza Lima lidera con 33 pts</div>
-          </div>
-          <div class="swipe-body">En el inicio de la fecha 15 del Torneo Apertura, FC Cajamarca remontó un golazo de Yoshimar Yotún desde media cancha y venció 3-1 a Sporting Cristal con anotaciones de Hernán Barcos, Jonathan Betancourt y Sebastien Pineau. Atlético Grau derrotó 1-0 a Universitario —que jugó con diez por la expulsión de Andy Polo— con gol de Raúl Ruidíaz. Alianza Lima se mantiene primero con 33 puntos; Los Chankas los siguen con 30.</div>
-        </div>
-        <div>
-          <div class="swipe-why">
-            <strong>Por qué importa</strong>
-            Los resultados golpean a los dos clubes grandes del fútbol peruano: Sporting Cristal pierde terreno en la tabla y Universitario cede puntos clave. Alianza Lima, en cambio, consolida su liderato a falta de tres fechas para cerrar el Torneo Apertura 2026.
-          </div>
-          <div class="swipe-source"><a href="https://www.infobae.com/peru/deportes/2026/05/15/resultados-de-la-fecha-15-de-la-liga-1-2026-hoy-asi-van-los-partidos-del-torneo-apertura/">Infobae</a> · <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-liga-1-peru-2026-en-vivo-hoy-partidos-y-resultados-de-fecha-15-del-torneo-apertura-2026-alianza-lima-los-chankas-cienciano-universitario-de-deportes-sporting-cristal-noticia/">Depor</a></div>
-        </div>
-      </div>
-
-    </div><!-- end carousel-track -->
-
-    <div class="dots">
-      <div class="dot active"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Per&#250;</h1>
+      <div class="masthead-date">Viernes 15 de mayo de 2026 &middot; Lima</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
     </div>
-    <div class="swipe-hint">Desliza para ver más →</div>
-  </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+    <div class="section-header reveal">Top 5 del D&#237;a</div>
 
-  <!-- ELECTORAL -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-pol">Electoral</span>
-    <h3>Segunda vuelta confirmada: Fujimori y Sánchez empatados al 38% de cara al 7 de junio</h3>
-    <p>Con el escrutinio al 100% cerrado, el JNE procederá a la proclamación oficial. Las encuestas de mayo ubican a Keiko Fujimori (Fuerza Popular) y Roberto Sánchez (Juntos por el Perú) en empate técnico al 38%, con un alto 27% de voto blanco o viciado que refleja el desencanto ciudadano. Sánchez, candidato de izquierda que hasta semanas antes aparecía rezagado, sorprendió al desplazar a Rafael López Aliaga por más de 21,000 votos en el conteo final.</p>
-    <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> · <a href="https://elcomercio.pe/ecdata/keiko-fujimori-roberto-sanchez-elecciones-2026-juntos-por-el-peru-fuerza-popular-onpe-jne-rafael-lopez-aliaga-renovacion-popular-noticia/">El Comercio</a></span>
-  </div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
 
-  <!-- POLÍTICO: Política General -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-pol">Político</span>
-    <h3>Ejecutivo aprueba Política General de Gobierno 2026: seguridad, economía y transición ordenada</h3>
-    <p>El Consejo de Ministros formalizó la Política General de Gobierno 2026, instrumento rector vigente hasta el 28 de julio —fecha del traspaso de mando—, con cuatro ejes estratégicos: seguridad ciudadana, continuidad económica, transición democrática y cohesión social. El documento establece 27 lineamientos para garantizar que el cambio de gobierno se produzca sin turbulencias institucionales.</p>
-    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPerú</a> · <a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gestión</a></span>
-  </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">ONPE al 100%: Keiko Fujimori vs. Roberto S&#225;nchez, segunda vuelta confirmada para el 7 de junio</div>
+            </div>
+            <div class="swipe-body">La Oficina Nacional de Procesos Electorales (ONPE) complet&#243; el escrutinio oficial al 100% y confirm&#243; la segunda vuelta para el 7 de junio. Keiko Fujimori (Fuerza Popular) obtuvo 2&#8239;877&#8239;501 votos (17.18%), Roberto S&#225;nchez (Juntos por el Per&#250;) alcanz&#243; 2&#8239;015&#8239;097 (12.03%) y Rafael L&#243;pez Aliaga qued&#243; tercero con 1&#8239;993&#8239;904 votos (11.90%). Solo 21&#8239;210 sufragios separaron al segundo del tercero, definiendo el mapa electoral tras un mes de escrutinio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La confirmaci&#243;n oficial cierra la incertidumbre de un mes. Per&#250; se dirige a una segunda vuelta altamente polarizada entre la derecha conservadora (Fujimori) y la izquierda progresista (S&#225;nchez), con el 60% del electorado que apoy&#243; a otros candidatos sin representante en la recta final.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> &middot;
+              <a href="https://www.vanguardia.com/mundo/2026/05/15/peru-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez-tras-un-mes-de-escrutinio/">Vanguardia</a> &middot;
+              <a href="https://larepublica.pe/politica/2026/05/15/keiko-fujimori-vs-roberto-sanchez-fecha-hora-y-todo-sobre-la-segunda-vuelta-presidencial-2026-hnews-1064415">La Rep&#250;blica</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- POLÍTICO: Colcabamba -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-pol">Político · Justicia</span>
-    <h3>Caso Colcabamba: Fiscalía investiga a ocho militares mientras el Congreso blinda al ministro</h3>
-    <p>El rechazo parlamentario a la interpelación (40 contra, 32 a favor) contrasta con el avance judicial: la Fiscalía mantiene activa la investigación por homicidio contra el capitán y siete militares del operativo del 25 de abril en el VRAEM. Los ocho detenidos fueron liberados al vencer el plazo de flagrancia sin medidas cautelares. Un abogado de las víctimas denunció manipulación de la escena del crimen y señaló que no hay evidencia de que los cinco jóvenes fallecidos hayan disparado.</p>
-    <span class="source-link"><a href="https://rpp.pe/politica/congreso/congreso-rechaza-mocion-de-interpelacion-contra-ministro-de-defensa-por-operativo-militar-en-colcabamba-noticia-1688346">RPP</a> · <a href="https://www.infobae.com/peru/2026/04/27/fiscalia-abre-investigacion-contra-ocho-miembros-del-ejercito-por-asesinato-de-jovenes-durante-intervencion-en-colcabamba/">Infobae</a></span>
-  </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Mapa polarizado: Fujimori gana 11 regiones (norte/costa); S&#225;nchez domina en 11 (sur/sierra)</div>
+            </div>
+            <div class="swipe-body">La distribuci&#243;n de votos revela una fractura territorial profunda. Keiko Fujimori se impuso en &#193;ncash, Callao, Ica, Jun&#237;n, La Libertad, Lambayeque, Loreto, Pasco, Piura, Tumbes y Ucayali. Roberto S&#225;nchez gan&#243; en Amazonas, Apur&#237;mac, Ayacucho, Cajamarca, Cusco, Huancavelica, Hu&#225;nuco, Madre de Dios, Moquegua, Puno y San Mart&#237;n. Lima Metropolitana, el mayor distrito electoral, fue terreno disputado que inclin&#243; la balanza hacia Fujimori.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La divisi&#243;n norte/costa vs. sur/sierra es el mismo patr&#243;n de las elecciones de 2021 entre Castillo y Fujimori. Quien logre romper ese esquema o movilizar m&#225;s votos entre los indecisos tendr&#225; ventaja decisiva en la segunda vuelta del 7 de junio.
+            </div>
+            <div class="swipe-source">
+              <a href="https://elpopular.pe/actualidad/2026/05/15/keiko-fujimori-y-roberto-sanchez-se-enfrentaran-en-segunda-vuelta-asi-voto-cada-region-del-peru-en-las-elecciones-2026-705975">El Popular</a> &middot;
+              <a href="https://www.infobae.com/peru/2026/05/15/elecciones-2026-asi-votaron-todas-las-regiones-y-cuantos-votos-obtuvieron-keiko-fujimori-y-roberto-sanchez/">Infobae</a> &middot;
+              <a href="https://elcomercio.pe/ecdata/keiko-fujimori-roberto-sanchez-elecciones-2026-juntos-por-el-peru-fuerza-popular-onpe-jne-rafael-lopez-aliaga-renovacion-popular-noticia/">El Comercio</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- ECONÓMICO -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-eco">Económico</span>
-    <h3>PBI de marzo +3.21%: construcción y comercio empujan; hidrocarburos se desploma 35.41%</h3>
-    <p>El INEI reportó que la economía avanzó 3.21% interanual en marzo, resistiendo la peor crisis energética en dos décadas. Construcción privada y pública, consumo masivo y servicios impulsaron el resultado. En sentido contrario, pesca cayó 12.5% por el colapso de la captura de anchoveta, e hidrocarburos se desplomó 35.41% durante los 13 días de interrupción del gasoducto de Camisea. El BCRP proyecta 3% de crecimiento para todo el año, sustentado en términos de intercambio elevados para cobre y oro.</p>
-    <span class="source-link"><a href="https://larepublica.pe/economia/2026/05/15/economia-peruana-crecio-32-en-marzo-construccion-se-disparo-pero-mineria-retrocedio-ante-crisis-del-gas-hnews-1216140">La República</a> · <a href="https://rpp.pe/economia/economia/economia-sorprendio-en-marzo-crecio-321-pese-a-13-dias-de-crisis-del-gas-natural-noticia-1688503">RPP</a></span>
-  </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Encuestas de segunda vuelta: empate t&#233;cnico — Ipsos 38%/38%, IEP proyecta ventaja m&#237;nima a S&#225;nchez</div>
+            </div>
+            <div class="swipe-body">Las primeras encuestas de segunda vuelta muestran un escenario extremadamente ajustado. Ipsos registra un empate en 38% para ambos candidatos, con un 24% de votantes indecisos. El Instituto de Estudios Peruanos (IEP) proyecta a Roberto S&#225;nchez adelante con 50.8% vs. 49.2% de Fujimori sobre voto v&#225;lido. El factor decisivo ser&#225; la captaci&#243;n de los casi dos millones de votos de L&#243;pez Aliaga y Renovaci&#243;n Popular.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Con 23 d&#237;as hasta el 7 de junio y un resultado tan cerrado, cualquier variable puede definir la elecci&#243;n. Los votos de L&#243;pez Aliaga y el voto en blanco ser&#225;n el campo de batalla de la campa&#241;a de segunda vuelta. Ninguno de los dos candidatos puede darse el lujo de perder un voto.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/peru/2026/04/26/keiko-fujimori-y-roberto-sanchez-empatan-en-intencion-de-voto-de-cara-a-la-segunda-vuelta-del-7-de-junio/">Infobae</a> &middot;
+              <a href="https://www.ipsos.com/es-pe/escenarios-de-intencion-de-voto-segunda-vuelta-encuesta-peru-21-ipsos-abril-2026">Ipsos</a> &middot;
+              <a href="https://es.euronews.com/2026/05/11/elecciones-en-peru-roberto-sanchez-disputara-la-segunda-vuelta-contra-keiko-fujimori">Euronews</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- SOCIAL/SEGURIDAD -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-soc">Social · Seguridad</span>
-    <h3>Nueva modalidad de extorsión en Lima y 15 menores detenidos por sicariato en Callao</h3>
-    <p>El Ministerio del Interior presentó un estudio criminológico sobre extorsión con más de 170 operadores de justicia. En Lima, bandas secuestran a comerciantes, graban los abusos y usan el material para presionar a familiares. En el Callao, 15 menores de edad fueron detenidos en 2026 por sicariato y extorsión. El desfase del 40% entre las cifras de la PNP y el Ministerio Público genera dudas sobre el verdadero volumen del fenómeno criminal.</p>
-    <span class="source-link"><a href="https://larepublica.pe/politica/2026/05/14/radiografia-de-la-extorsion-el-principal-desafio-de-la-seguridad-ciudadana-extorsion-hnews-1023568">La República</a> · <a href="https://www.infobae.com/peru/2026/05/03/extorsion-en-lima-se-vuelve-mas-violenta-victimas-son-secuestradas-sometidas-a-maltratos-y-grabadas-para-forzar-pagos/">Infobae</a></span>
-  </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">D&#243;lar cierra en S/&#160;3.42 &#8212; sol peruano se mantiene firme pese a la incertidumbre electoral</div>
+            </div>
+            <div class="swipe-body">El tipo de cambio del d&#243;lar cerr&#243; en torno a S/ 3.42 el 15 de mayo, con una tendencia a la baja en las &#250;ltimas semanas. El Banco Central de Reserva del Per&#250; (BCRP) proyecta un rango de S/ 3.34 a S/ 3.46 para el cierre de 2026. El sol peruano se mantiene entre las monedas m&#225;s estables de Am&#233;rica Latina, respaldado por una pol&#237;tica monetaria s&#243;lida y reservas internacionales saludables, pese a la transici&#243;n electoral en curso.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La estabilidad cambiaria env&#237;a una se&#241;al positiva a los mercados sobre la resiliencia de la econom&#237;a peruana. Un eventual triunfo de S&#225;nchez con agenda de izquierda podr&#237;a presionar el tipo de cambio al alza si las expectativas de inversi&#243;n se deterioran en las pr&#243;ximas semanas.
+            </div>
+            <div class="swipe-source">
+              <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-13-de-mayo-del-2026-noticia-1688120">RPP</a> &middot;
+              <a href="https://www.infobae.com/peru/2026/05/13/precio-del-dolar-hoy-en-peru-cotizacion-de-apertura-del-13-de-mayo/">Infobae</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- NORMAS LEGALES -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-pol">Normas Legales</span>
-    <h3>Leyes 32592 y 32593: Vigilancia Amazónica y restauración de sitios de Túpac Amaru II</h3>
-    <p>El Diario Oficial publicó dos leyes relevantes del viernes 15. La Ley 32592 declara de interés nacional el Sistema de Vigilancia Amazónico para monitoreo y respuesta ante amenazas a la Amazonía y fronteras del país. La Ley 32593 ordena restaurar y poner en valor los escenarios históricos vinculados a Túpac Amaru II en el distrito de Langui (Canas, Cusco), incluyendo el templo colonial, el puente histórico y el cerro Yana Orqo, con fines de promoción turística.</p>
-    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-15-de-mayo-de-2026">TVPerú</a> · <a href="https://elperuano.pe/noticia/295779-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-viernes-15-de-mayo-del-2026">El Peruano</a></span>
-  </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">INEI: construcci&#243;n creci&#243; 13.31% en el primer trimestre &#8212; econom&#237;a muestra se&#241;ales de vigor</div>
+            </div>
+            <div class="swipe-body">El Instituto Nacional de Estad&#237;stica e Inform&#225;tica (INEI) report&#243; que el sector construcci&#243;n creci&#243; 13.31% en el primer trimestre de 2026, una de las tasas de expansi&#243;n m&#225;s altas entre los sectores productivos. El indicador fue publicado en el marco de la Pol&#237;tica General de Gobierno 2026, aprobada por el Ejecutivo, que prioriza la continuidad econ&#243;mica, la seguridad ciudadana y la organizaci&#243;n de elecciones limpias como tres ejes centrales.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El crecimiento del sector construcci&#243;n es un indicador l&#237;der de la actividad econ&#243;mica peruana. Un Q1 s&#243;lido sienta una base favorable para la transici&#243;n de gobierno, aunque la segunda vuelta del 7 de junio podr&#237;a generar incertidumbre inversora en Q2 seg&#250;n el resultado electoral.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TV Per&#250;</a> &middot;
+              <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-13-de-mayo-del-2026-noticia-1688120">RPP</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- DEPORTES -->
-  <div class="news-item glass reveal">
-    <span class="pill pill-dep">Deportes</span>
-    <h3>Liga 1, fecha 15: Cristal y Universitario pierden; Alianza Lima consolida el liderato con 33 puntos</h3>
-    <p>Sporting Cristal cayó 1-3 ante FC Cajamarca —Yotún abrió el marcador desde media cancha, pero Barcos, Betancourt y Pineau revirtieron el partido— y Universitario perdió 0-1 ante Atlético Grau con gol de Raúl Ruidíaz, luego de la expulsión de Andy Polo. Alianza Lima se mantiene líder con 33 puntos; Los Chankas, con 30, aprietan. Restan partidos del sábado y domingo para completar la fecha 15.</p>
-    <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/05/15/resultados-de-la-fecha-15-de-la-liga-1-2026-hoy-asi-van-los-partidos-del-torneo-apertura/">Infobae</a> · <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-liga-1-peru-2026-en-vivo-hoy-partidos-y-resultados-de-fecha-15-del-torneo-apertura-2026-alianza-lima-los-chankas-cienciano-universitario-de-deportes-sporting-cristal-noticia/">Depor</a></span>
-  </div>
-
-  <!-- DATA STRIP -->
-  <div class="data-strip">
-    <div class="data-cell glass reveal">
-      <div class="data-cell-label">Tipo de Cambio</div>
-      <div class="data-cell-value">S/ 3.42</div>
-      <div class="data-cell-delta" style="color: var(--muted)">Compra 3.413 · Venta 3.419</div>
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &rarr;</div>
     </div>
-    <div class="data-cell glass reveal">
-      <div class="data-cell-label">PBI Marzo</div>
-      <div class="data-cell-value green">+3.21%</div>
-      <div class="data-cell-delta green">vs. marzo 2025</div>
+
+    <div class="divider"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>L&#243;pez Aliaga liderar&#225; las bancadas parlamentarias de Renovaci&#243;n Popular tras quedar tercero por 21&#8239;210 votos</h3>
+      <p>Tras quedar eliminado de la segunda vuelta por el m&#237;nimo margen hist&#243;rico de 21&#8239;210 votos, Rafael L&#243;pez Aliaga confirm&#243; que liderar&#225; las bancadas parlamentarias de Renovaci&#243;n Popular en el nuevo Congreso. El partido logr&#243; una representaci&#243;n parlamentaria significativa que le permitir&#225; ser actor de peso en la pr&#243;xima legislatura, y su posici&#243;n respecto a Fujimori y S&#225;nchez en la segunda vuelta ser&#225; uno de los factores m&#225;s observados en los pr&#243;ximos d&#237;as.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> &middot; <a href="https://larepublica.pe/politica/2026/05/15/keiko-fujimori-vs-roberto-sanchez-fecha-hora-y-todo-sobre-la-segunda-vuelta-presidencial-2026-hnews-1064415">La Rep&#250;blica</a></span>
     </div>
-    <div class="data-cell glass reveal">
-      <div class="data-cell-label">2da Vuelta</div>
-      <div class="data-cell-value" style="font-size: 18px; color: var(--accent);">7 jun</div>
-      <div class="data-cell-delta" style="color: var(--muted)">Fujimori vs. Sánchez</div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.08s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Roberto S&#225;nchez: el candidato de izquierda que compite en nombre del legado de Castillo &#8212; cuarta segunda vuelta para Fujimori</h3>
+      <p>Roberto S&#225;nchez, de Juntos por el Per&#250;, representa para sus votantes la continuidad del proyecto pol&#237;tico de Pedro Castillo, quien cumple condena de 11 a&#241;os y 5 meses por el fallido intento de golpe de Estado de 2022. Para Keiko Fujimori, esta ser&#225; la cuarta segunda vuelta en su historia electoral &#8212; habiendo perdido ante Humala (2011), Kuczynski (2016) y Castillo (2021) &#8212; con la motivaci&#243;n a&#241;adida de revertir esa racha negativa.</p>
+      <span class="source-link"><a href="https://www.semana.com/mundo/articulo/el-es-roberto-sanchez-el-polemico-candidato-de-izquierda-que-disputara-la-presidencia-de-peru-contra-keiko-fujimori/202613/">Semana</a> &middot; <a href="https://cnnespanol.cnn.com/2026/04/15/latinoamerica/peru-candidato-izquierdista-roberto-sanchez-orix">CNN Espa&#241;ol</a></span>
     </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>BCRP proyecta d&#243;lar estable en S/&#160;3.34&#8209;3.46 para el cierre de 2026; sector construcci&#243;n lidera actividad</h3>
+      <p>El Banco Central de Reserva del Per&#250; mantiene una proyecci&#243;n de estabilidad cambiaria en el rango de S/ 3.34 a S/ 3.46 para el cierre de 2026. La construcci&#243;n, con 13.31% de crecimiento en Q1, lidera la actividad sectorial y refleja el dinamismo de la inversi&#243;n en infraestructura. Los analistas advierten que la segunda vuelta del 7 de junio podr&#237;a moderar las proyecciones de Q2 seg&#250;n la percepci&#243;n del mercado sobre el candidato ganador.</p>
+      <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-13-de-mayo-del-2026-noticia-1688120">RPP</a> &middot; <a href="https://ipe.org.pe/proyeccion-economica-del-peru-2026-crecimiento-y-vulnerabilidades/">IPE</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Pol&#237;tica General de Gobierno 2026: el Ejecutivo prioriza seguridad, econom&#237;a y garant&#237;as electorales</h3>
+      <p>El Ejecutivo aprob&#243; la Pol&#237;tica General de Gobierno 2026, un documento que establece los lineamientos para la administraci&#243;n p&#250;blica en a&#241;o electoral. Los tres ejes centrales son: protecci&#243;n de familias y seguridad ciudadana, garant&#237;a de continuidad econ&#243;mica, y organizaci&#243;n de elecciones limpias el 7 de junio. El gobierno enfatiza que todas las intervenciones estar&#225;n orientadas a resultados medibles y de impacto directo en la poblaci&#243;n, dado el car&#225;cter transicional de este per&#237;odo.</p>
+      <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TV Per&#250;</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Observadores internacionales confirman presencia para la segunda vuelta del 7 de junio</h3>
+      <p>Misiones de observaci&#243;n electoral de la OEA, la Uni&#243;n Europea y organismos regionales confirmaron su presencia para monitorear la segunda vuelta del 7 de junio entre Keiko Fujimori y Roberto S&#225;nchez. La presencia internacional cobra relevancia dado el estrecho margen que defini&#243; el paso a la segunda vuelta y la polarizaci&#243;n del electorado. Per&#250; ha sido elogiado por la solidez de su proceso electoral, con el ONPE procesando los votos con transparencia durante m&#225;s de un mes de escrutinio.</p>
+      <span class="source-link"><a href="https://es.euronews.com/2026/05/11/elecciones-en-peru-roberto-sanchez-disputara-la-segunda-vuelta-contra-keiko-fujimori">Euronews</a> &middot; <a href="https://www.vanguardia.com/mundo/2026/05/15/peru-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez-tras-un-mes-de-escrutinio/">Vanguardia</a></span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">D&#243;lar (BCRP)</div>
+        <div class="data-cell-value">S/ 3.42</div>
+        <div class="data-cell-delta green">Tendencia bajista</div>
+      </div>
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">Construcci&#243;n Q1</div>
+        <div class="data-cell-value green">+13.3%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Seg&#250;n INEI</div>
+      </div>
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">Segunda Vuelta</div>
+        <div class="data-cell-value">7 jun</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Fujimori vs. S&#225;nchez</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Posicionamiento de L&#243;pez Aliaga y Renovaci&#243;n Popular: c&#243;mo se posicionen sus casi dos millones de votantes frente a Fujimori y S&#225;nchez determinar&#225; si la segunda vuelta del 7 de junio se inclina hacia la derecha o queda en disputa abierta.</div>
+      <div class="vigilar-item">Primeras propuestas y alianzas de segunda vuelta: Fujimori y S&#225;nchez comenzar&#225;n a afinar plataformas. Cualquier anuncio de alianzas program&#225;ticas o compromisos de pol&#237;tica econ&#243;mica enviar&#225; se&#241;ales a los mercados y a los bloques de votantes indecisos.</div>
+      <div class="vigilar-item">Reacciones del mercado: el comportamiento del tipo de cambio y la Bolsa de Valores de Lima en los pr&#243;ximos d&#237;as revelar&#225; el sentimiento del mercado sobre el resultado probable del 7 de junio y las expectativas de pol&#237;tica econ&#243;mica del pr&#243;ximo gobierno.</div>
+    </div>
+
+    <div class="footer reveal">
+      <div>Fuentes: ONPE &middot; Infobae &middot; Vanguardia &middot; La Rep&#250;blica &middot; El Popular &middot; El Comercio &middot; RPP &middot; Euronews &middot; Ipsos &middot; IEP &middot; TV Per&#250; &middot; CNN Espa&#241;ol &middot; Semana &middot; BCRP &middot; IPE</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
   </div>
-
-  <!-- QUÉ VIGILAR -->
-  <div class="vigilar reveal">
-    <div class="vigilar-header">Qué Vigilar Hoy</div>
-    <div class="vigilar-item">Segunda vuelta presidencial del 7 de junio: con Fujimori y Sánchez empatados al 38% y un 27% de voto blanco o viciado, cualquier movimiento de alianzas, declaración o escándalo puede definir el resultado. Seguir encuestas de esta semana.</div>
-    <div class="vigilar-item">Caso Colcabamba: el Ministerio Público evalúa posibles medidas de coerción para los militares investigados; posibles decisiones del Poder Judicial en los próximos días. El caso puede escalar a instancias internacionales si las víctimas acuden a la CIDH.</div>
-    <div class="vigilar-item">Recuperación energética post-Camisea: monitorear los datos de PBI de abril cuando el INEI los publique en junio. La estabilización del ducto y la diversificación de fuentes de suministro son claves para que el BCRP sostenga su proyección de 3% para el año.</div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer reveal">
-    <div>Fuentes: RPP · La República · Infobae Perú · El Comercio · TVPerú · Gestión · Depor · El Peruano</div>
-    <div>Briefing generado con Claude — Solo para uso informativo</div>
-  </div>
-
-</div><!-- end wrap -->
-
-<script>
-  const track = document.getElementById('carousel');
-  const dots = document.querySelectorAll('.dot');
-  track.addEventListener('scroll', () => {
-    const idx = Math.round(track.scrollLeft / track.offsetWidth);
-    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
-  });
-  const obs = new IntersectionObserver(es => es.forEach(e => {
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-  }),{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

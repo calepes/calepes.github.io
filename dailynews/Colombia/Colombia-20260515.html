@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &#8212; Viernes 15 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #b45309;
+      --accent-soft: rgba(180,83,9,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F5F0E0 0%, #EDE8CE 25%, #D8E8D4 55%, #E4EEE4 80%, #F2F5F0 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(180,83,9,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(22,163,74,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Viernes 15 de mayo de 2026 &middot; Bogot&#225;</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del D&#237;a</div>
+
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">A 16 d&#237;as del 31 de mayo: Cepeda lidera con 44.3% seg&#250;n Invamer; segunda vuelta apunta a Cepeda&#8209;Valencia</div>
+            </div>
+            <div class="swipe-body">Con 16 d&#237;as para las elecciones presidenciales, Iv&#225;n Cepeda (Pacto Hist&#243;rico) consolida su liderazgo con 44.3% de intenci&#243;n de voto seg&#250;n la &#250;ltima encuesta Invamer, seguido por Abelardo de la Espriella con 21.5% y Paloma Valencia con 19.3%. Sin embargo, el escenario de segunda vuelta es m&#225;s incierto: la encuesta Fundaci&#243;n G&#233;nesis Crea &#8212; cuya metodolog&#237;a fue cuestionada por El Tiempo por uso de IA &#8212; proyecta a Valencia superando a Cepeda 48.3% vs. 45.6% en una eventual segunda vuelta. Polymarket sit&#250;a a De la Espriella por encima de Cepeda en probabilidad de victoria.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Aunque Cepeda lidera con amplitud en primera vuelta, los escenarios de segunda vuelta son m&#225;s reidos. La pr&#243;xima encuesta Invamer ser&#225; determinante para confirmar o corregir la ventaja del candidato del Pacto Hist&#243;rico a dos semanas de los comicios.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/nueva-encuesta-invamer-ivan-cepeda-44-3-abelardo-de-la-espriella-21-5-paloma-valencia-19-3551057">El Tiempo</a> &middot;
+              <a href="https://www.infobae.com/colombia/2026/05/14/ivan-cepeda-lidera-primera-vuelta-presidencial-y-paloma-valencia-se-impondria-en-un-escenario-de-segunda-vuelta-segun-encuesta-fundacion-genesis-crea/">Infobae</a> &middot;
+              <a href="https://www.bloomberglinea.com/latinoamerica/colombia/asi-esta-la-intencion-de-voto-segun-encuestas-a-15-dias-de-las-elecciones-2026-en-colombia/">Bloomberg L&#237;nea</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Petro recurre al Consejo de Estado para reactivar traslado masivo de 6.6 millones de pacientes a la Nueva EPS</div>
+            </div>
+            <div class="swipe-body">El gobierno de Gustavo Petro present&#243; un recurso ante el Consejo de Estado para intentar reactivar el Decreto 182 de 2026, suspendido provisionalmente por esa misma corporaci&#243;n. El decreto ordenaba el traslado masivo de 6.6 millones de afiliados de diversas EPS a la Nueva EPS, actualmente intervenida por el gobierno. El Ministerio de Salud cuestion&#243; la medida judicial, se&#241;alando que la decisi&#243;n estar&#237;a influenciada por una visi&#243;n &#171;ideol&#243;gica&#187; sobre el sistema de salud colombiano.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La reforma a la salud de Petro qued&#243; sin aprobaci&#243;n del Congreso. El Decreto 182 era la v&#237;a alternativa del gobierno para transformar el sistema de salud. La suspensi&#243;n judicial bloquea el principal cambio estructural proyectado por el gobierno en sus &#250;ltimas semanas de mandato.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/2026/05/15/gobierno-petro-busca-revivir-traslado-masivo-de-pacientes-a-nueva-eps-tras-recurso-ante-el-consejo-de-estado/">Infobae</a> &middot;
+              <a href="https://www.elpais.com.co/opinion/editorial/el-futuro-de-la-nueva-eps-0724.html">El Pa&#237;s</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">D&#243;lar interbancario cierra a $3.796 &#8212; m&#225;ximo en dos meses; peso colombiano bajo presi&#243;n preelectoral</div>
+            </div>
+            <div class="swipe-body">El d&#243;lar cerr&#243; el 15 de mayo con una TRM interbancaria de $3.796 pesos, el nivel m&#225;s alto registrado en los &#250;ltimos dos meses (desde el 4 de marzo de 2026). Frente al mismo d&#237;a del mes anterior, el d&#243;lar se increment&#243; un 5.37%. Los analistas de Bancolombia proyectaban que el d&#243;lar oscilar&#237;a entre $3.600 y $3.750 durante mayo, pero la presi&#243;n preelectoral y la rebaja de calificaci&#243;n soberana de S&amp;P a BB- superaron esas estimaciones.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La depreciaci&#243;n del peso refleja la incertidumbre que generan las elecciones del 31 de mayo entre los mercados financieros. Un resultado sorpresivo en las urnas podr&#237;a ampliar el movimiento cambiario. El peso colombiano es el m&#225;s vol&#225;til de la regi&#243;n andina en lo que va de 2026.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.elnuevosiglo.com.co/economia/precio-del-dolar-en-colombia-este-15-de-mayo-de-2026">El Nuevo Siglo</a> &middot;
+              <a href="https://www.elpais.com.co/economia/que-pasara-con-el-precio-del-dolar-en-colombia-durante-mayo-de-2026-expertos-explican-por-que-podria-llegar-a-los-4600-0454.html">El Pa&#237;s Colombia</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Petro decreta feriado el lunes 18 de mayo: fin de semana largo por el D&#237;a de la Ascensi&#243;n</div>
+            </div>
+            <div class="swipe-body">El gobierno de Gustavo Petro decret&#243; que el lunes 18 de mayo ser&#225; feriado nacional por el D&#237;a de la Ascensi&#243;n, generando un fin de semana largo de tres d&#237;as. La medida se enmarca en la Ley 51 de 1983 (Ley Emiliani), que traslada festividades religiosas al lunes m&#225;s cercano para incentivar el turismo y el consumo interno. El feriado impactar&#225; la actividad econ&#243;mica, el comercio y la log&#237;stica en la semana preelectoral m&#225;s inmediata.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              En un contexto de semana preelectoral, el fin de semana largo ofrece dinamismo al consumo pero reduce los d&#237;as h&#225;biles para actividades de campa&#241;a y operaciones comerciales, a escasas dos semanas de los comicios del 31 de mayo.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.cronista.com/colombia/actualidad-co/confirmado-y-oficial-gustavo-petro-decreto-que-el-proximo-lunes-18-de-mayo-sera-feriado-y-habra-un-fin-de-semana-largo-en-todo-el-pais/">El Cronista</a> &middot;
+              <a href="https://www.elheraldo.co/colombia/2026/04/29/el-proximo-lunes-festivo-en-colombia-sera-el-18-de-mayo-se-dinamizara-el-turismo-y-la-economia/">El Heraldo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">PIB creci&#243; solo 2.2% en Q1 &#8212; bajo expectativas; S&amp;P rebaja calificaci&#243;n soberana a BB&#8209;</div>
+            </div>
+            <div class="swipe-body">La econom&#237;a colombiana creci&#243; 2.2% en el primer trimestre de 2026, por debajo de las expectativas del mercado. La cifra coincide con la rebaja de la calificaci&#243;n soberana de Colombia a BB&#8209; por Standard &amp; Poor&#8217;s, que cit&#243; el deterioro de las finanzas p&#250;blicas durante la administraci&#243;n Petro como argumento central. La rebaja aumenta el costo de financiamiento del pa&#237;s en los mercados internacionales y limita el espacio fiscal del pr&#243;ximo gobierno.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El combo de bajo crecimiento + rebaja de S&amp;P presiona el presupuesto del pr&#243;ximo gobierno. Sea quien sea el ganador del 31 de mayo, heredar&#225; una econom&#237;a con menor calificaci&#243;n crediticia y mayores costos de endeudamiento, limitando el espacio fiscal para sus promesas de campa&#241;a.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/2026/05/15/gobierno-petro-busca-revivir-traslado-masivo-de-pacientes-a-nueva-eps-tras-recurso-ante-el-consejo-de-estado/">Infobae</a> &middot;
+              <a href="https://www.elpais.com.co/economia/que-pasara-con-el-precio-del-dolar-en-colombia-durante-mayo-de-2026-expertos-explican-por-que-podria-llegar-a-los-4600-0454.html">El Pa&#237;s</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &rarr;</div>
+    </div>
+
+    <div class="divider"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Petro convoca candidatos y observadores en Casa de Nari&#241;o para discutir garant&#237;as en software electoral</h3>
+      <p>El presidente Gustavo Petro convoc&#243; a los candidatos presidenciales y organismos de observaci&#243;n electoral a una reuni&#243;n en la Casa de Nari&#241;o. El eje central del encuentro fue el software de votaci&#243;n: Petro insisti&#243; en la necesidad de una auditor&#237;a exhaustiva, mientras que la Registradur&#237;a advirti&#243; que auditar los sistemas puede generar riesgos de seguridad inform&#225;tica, generando un choque de versiones con el gobierno a 16 d&#237;as de los comicios.</p>
+      <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/candidatos-y-entidades-piden-garantias-en-seguridad-y-financiacion-esto-responde-el-gobierno-petro-noticias-hoy/">El Espectador</a> &middot; <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/que-esta-haciendo-el-gobierno-para-blindar-las-elecciones-presidenciales-del-31-de-mayo/">El Espectador</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.08s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>S&amp;P rebaja la calificaci&#243;n soberana de Colombia a BB&#8209; &#8212; el nivel m&#225;s bajo desde la pandemia</h3>
+      <p>Standard &amp; Poor&#8217;s rebaj&#243; la calificaci&#243;n soberana de Colombia a BB&#8209;, aumentando el costo de financiamiento del pa&#237;s en los mercados internacionales. La decisi&#243;n se justifica en el deterioro de las finanzas p&#250;blicas durante la administraci&#243;n Petro y el bajo crecimiento del PIB en 2025-2026. La rebaja presionar&#225; las tasas de inter&#233;s de la deuda p&#250;blica y el tipo de cambio en los pr&#243;ximos meses, condicionando el margen fiscal del pr&#243;ximo gobierno.</p>
+      <span class="source-link"><a href="https://www.elpais.com.co/economia/que-pasara-con-el-precio-del-dolar-en-colombia-durante-mayo-de-2026-expertos-explican-por-que-podria-llegar-a-los-4600-0454.html">El Pa&#237;s Colombia</a> &middot; <a href="https://www.elnuevosiglo.com.co/economia/precio-del-dolar-en-colombia-este-15-de-mayo-de-2026">El Nuevo Siglo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Encuesta cuestionada: el sondeo que daba a Cepeda ganador en primera vuelta fue elaborado con inteligencia artificial</h3>
+      <p>El diario El Tiempo revel&#243; que la encuesta de la Fundaci&#243;n G&#233;nesis Crea, que proyectaba una victoria de Iv&#225;n Cepeda en primera vuelta con 35.1% de intenci&#243;n de voto, fue elaborada con asistencia de inteligencia artificial. El hallazgo gener&#243; controversia sobre la fiabilidad de ese sondeo y sobre los est&#225;ndares de transparencia metodol&#243;gica de las encuestas electorales en Colombia a d&#237;as de los comicios del 31 de mayo.</p>
+      <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/elfiltro-sondeo-en-el-que-ivan-cepeda-ganaria-en-primera-vuelta-la-presidencia-de-colombia-fue-hecho-con-ia-3554932">El Tiempo &#8212; #ElFiltro</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Polymarket: De la Espriella supera a Cepeda en probabilidad de victoria presidencial a semanas de las elecciones</h3>
+      <p>La plataforma de pron&#243;sticos Polymarket ubic&#243; a Abelardo De la Espriella por encima de Iv&#225;n Cepeda en probabilidad de victoria en las elecciones presidenciales del 31 de mayo. El movimiento en el mercado de predicciones refleja incertidumbre sobre la solidez real del liderazgo de Cepeda en las encuestas tradicionales, particularmente despu&#233;s de la revelaci&#243;n sobre la encuesta de G&#233;nesis Crea y el mayor dinamismo de la campa&#241;a de De la Espriella en la recta final.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/11/abelardo-de-la-espriella-supera-a-ivan-cepeda-a-semanas-de-las-elecciones-presidenciales-segun-polymarket/">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-soc">Social</span>
+      <h3>&#171;No hay caos de seguridad&#187;: Petro responde a alertas sobre violencia electoral ante el 31 de mayo</h3>
+      <p>El presidente Gustavo Petro respondi&#243; a los reportes sobre presiones armadas e intimidaci&#243;n electoral en distintas regiones del pa&#237;s, afirmando que &#171;no hay caos de seguridad&#187; y que el Estado garanti&#172;za condiciones para el ejercicio del voto el 31 de mayo. Organizaciones de derechos humanos y candidatos han alertado sobre amenazas de grupos armados en territorios de alta conflictividad, especialmente en el Pac&#237;fico, el Caribe y el Catatumbo.</p>
+      <span class="source-link"><a href="https://www.facebook.com/cablenoticias.tv/posts/noticias-no-hay-caos-de-seguridad-el-presidente-gustavo-petro-respondi%C3%B3-a-la-ola/1367359978749311/">Cable Noticias</a> &middot; <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/candidatos-y-entidades-piden-garantias-en-seguridad-y-financiacion-esto-responde-el-gobierno-petro-noticias-hoy/">El Espectador</a></span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">TRM (15 mayo)</div>
+        <div class="data-cell-value red">$3.796</div>
+        <div class="data-cell-delta red">M&#225;ximo 2 meses</div>
+      </div>
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">PIB Q1 2026</div>
+        <div class="data-cell-value">+2.2%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Bajo expectativas</div>
+      </div>
+      <div class="data-cell glass reveal">
+        <div class="data-cell-label">D&#237;as para elecci&#243;n</div>
+        <div class="data-cell-value">16</div>
+        <div class="data-cell-delta" style="color:var(--muted)">1.&#170; vuelta 31 mayo</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Resoluci&#243;n del Consejo de Estado sobre el recurso de la Nueva EPS: si el organismo rechaza el recurso del gobierno, Petro quedar&#225; sin su principal herramienta para reformar el sistema de salud en sus &#250;ltimas semanas de mandato.</div>
+      <div class="vigilar-item">Nueva encuesta Invamer o Datexco: la pr&#243;xima medici&#243;n confirmar&#225; o corregir&#225; el amplio liderazgo de Cepeda con 44.3%. Un escenario ajustado beneficiar&#237;a a De la Espriella o Valencia y redefinir&#237;a la din&#225;mica de la recta final.</div>
+      <div class="vigilar-item">Comportamiento del peso en la semana preelectoral: la TRM super&#243; los $3.796 el 15 de mayo. Los d&#237;as previos al 31 de mayo ser&#225;n el test de cu&#225;nta incertidumbre electoral ya est&#225; descontada por el mercado cambiario.</div>
+    </div>
+
+    <div class="footer reveal">
+      <div>Fuentes: El Tiempo &middot; Infobae &middot; Bloomberg L&#237;nea &middot; El Espectador &middot; El Nuevo Siglo &middot; El Cronista &middot; El Heraldo &middot; El Pa&#237;s Colombia &middot; Pulzo &middot; Cable Noticias &middot; Polymarket</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

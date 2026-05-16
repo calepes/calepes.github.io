@@ -26,9 +26,7 @@
       --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
       --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
       color: var(--ink);
@@ -41,124 +39,38 @@
       padding: 32px 20px;
       overflow-x: hidden;
     }
-
     .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .orb-1 {
-      top: -120px; right: -80px; width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%);
-    }
-    .orb-2 {
-      bottom: -80px; left: -60px; width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%);
-    }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
     .wrap { position: relative; z-index: 1; }
-
-    .glass {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 16px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-
-    /* Masthead */
-    .masthead {
-      text-align: center;
-      margin-bottom: 28px;
-      padding: 32px 24px 26px;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
-    }
-    .masthead-eyebrow {
-      font-size: 10px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 3px; color: var(--accent); margin-bottom: 6px;
-    }
-    .masthead h1 {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: clamp(36px, 8vw, 52px); font-weight: 600;
-      line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px;
-    }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
     .masthead-date { font-size: 13px; color: var(--muted); }
-    .masthead-tag {
-      display: inline-block; background: var(--accent); color: white;
-      font-size: 9px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px;
-    }
-
-    /* Section header */
-    .section-header {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px;
-    }
-
-    /* Carousel */
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
     .carousel-container { position: relative; margin-bottom: 32px; }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
-    }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
     .carousel-track::-webkit-scrollbar { display: none; }
-
-    .swipe-card {
-      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
-      background: var(--card-bg-strong);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      border: 0.5px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
-      padding: 28px 24px;
-      min-height: 280px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
     .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-    .swipe-num {
-      font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700;
-      color: var(--accent); line-height: 1; flex-shrink: 0;
-    }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
     .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
     .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
-    .swipe-why {
-      background: var(--accent-soft);
-      border-left: 3px solid var(--accent);
-      padding: 10px 14px; border-radius: 0 10px 10px 0;
-      font-size: 13px; line-height: 1.5;
-    }
-    .swipe-why strong {
-      font-weight: 700; color: var(--accent); font-size: 10px;
-      text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px;
-    }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
     .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
     .swipe-source a { color: var(--accent); text-decoration: none; }
-
-    /* Dots */
     .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(60,60,67,0.15); transition: all 0.3s ease;
-    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
     .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
     .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
-
-    /* Divider */
     .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
-    .divider-text {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2.5px; color: var(--muted); white-space: nowrap;
-    }
-
-    /* News items */
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
     .news-item { padding: 18px 20px; margin-bottom: 10px; }
-    .pill {
-      display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px;
-    }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
     .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
     .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
     .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
@@ -169,183 +81,146 @@
     .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
     .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
     .source-link a { color: var(--accent); text-decoration: none; }
-
-    /* Data strip */
     .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
     .data-cell { padding: 20px 14px; text-align: center; }
-    .data-cell-label {
-      font-size: 9px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2px; color: var(--muted); margin-bottom: 6px;
-    }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
     .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
     .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
     .green { color: #34C759; }
     .red { color: #FF3B30; }
-
-    /* Vigilar */
-    .vigilar {
-      background: rgba(29,29,31,0.82);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: 16px; padding: 24px; margin: 32px 0;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
-      color: white;
-    }
-    .vigilar-header {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px;
-    }
-    .vigilar-item {
-      font-size: 15px; line-height: 1.6; margin-bottom: 10px;
-      padding-left: 22px; position: relative; color: rgba(255,255,255,0.88);
-    }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
     .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
     .vigilar-item:last-child { margin-bottom: 0; }
-
-    /* Footer */
     .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
-
-    /* Reveal */
     .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-
-    @media (max-width: 500px) {
-      body { padding: 20px 14px; }
-      .data-strip { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-
   <div class="wrap">
 
-    <!-- MASTHEAD -->
     <div class="masthead reveal">
       <div class="masthead-eyebrow">Briefing Ejecutivo</div>
       <h1>Bolivia</h1>
       <div class="masthead-date">Viernes 15 de mayo de 2026 &middot; La Paz</div>
-      <div class="masthead-tag">Edición Diaria</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
     </div>
 
-    <!-- TOP 5 -->
-    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="section-header reveal">Top 5 del D&#237;a</div>
 
     <div class="carousel-container reveal">
       <div class="carousel-track" id="carousel">
 
-        <!-- Card 01 -->
         <div class="swipe-card">
           <div>
             <div class="swipe-top">
               <div class="swipe-num">01</div>
-              <div class="swipe-title">Segunda semana de bloqueos: tres muertos y más de 60 puntos de corte en ocho departamentos</div>
+              <div class="swipe-title">Segunda semana de bloqueos: tres muertos y m&#225;s de 60 puntos de corte en ocho departamentos</div>
             </div>
-            <div class="swipe-body">La crisis social entra en su segunda semana con más de 60 puntos de bloqueo activos en ocho departamentos. Campesinos del altiplano de La Paz, la COB, maestros rurales y mineros cooperativistas exigen el aumento salarial del 20%, la abrogación de la Ley 1720 y la renuncia del presidente Rodrigo Paz. Tres personas fallecieron al no poder recibir atención médica urgente. Aproximadamente 5.000 camiones de alto tonelaje permanecen varados, paralizando el abastecimiento de combustible, alimentos e insumos médicos en todo el país.</div>
+            <div class="swipe-body">La crisis social entra en su segunda semana con m&#225;s de 60 puntos de bloqueo activos en ocho departamentos. La COB, campesinos del altiplano de La Paz, maestros rurales y mineros cooperativistas exigen el aumento salarial del 20%, la abrogaci&#243;n de la Ley 1720 y la renuncia del presidente Rodrigo Paz. Tres personas fallecieron al no poder acceder a atenci&#243;n m&#233;dica urgente. Unos 5.000 camiones de alto tonelaje permanecen varados, paralizando el abastecimiento de combustible, alimentos e insumos m&#233;dicos.</div>
           </div>
           <div>
             <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              Con tres muertos y miles de vehículos varados, la crisis supera el umbral habitual de conflictos salariales. La demanda de renuncia presidencial convierte esto en una crisis de gobernabilidad. El gobierno tiene escaso margen de maniobra sin ceder en lo político o recurrir a la fuerza.
+              <strong>Por qu&#233; importa</strong>
+              Con tres muertes atribuidas a los bloqueos y miles de veh&#237;culos varados, la crisis supera el umbral de un conflicto laboral ordinario. La demanda expl&#237;cita de renuncia presidencial convierte el paro en una crisis de gobernabilidad. El gobierno tiene margen m&#237;nimo para negociar sin ceder en lo pol&#237;tico.
             </div>
             <div class="swipe-source">
               <a href="https://www.eltribuno.com/internacionales/2026-5-15-0-0-0-tension-social-en-bolivia-protestas-bloqueos-y-muertos">El Tribuno</a> &middot;
-              <a href="https://www.urgente.bo/noticia/los-bloqueos-marchas-y-presion-social-contra-el-gobierno-se-focalizan-en-la-paz">Urgentebo</a> &middot;
-              <a href="https://eldeber.com.bo/economia/bloqueos-protestas-expanden-bolivia-vecinos-maestros-radicalizan-medidas-gobierno_1778512243">El Deber</a>
+              <a href="https://rpp.pe/mundo/actualidad/crisis-en-bolivia-2026-bloqueos-protestas-y-exigencias-al-gobierno-noticia-1688270">RPP</a> &middot;
+              <a href="https://piensachile.com/2026/05/15/crisis-en-bolivia-las-claves-para-entender-las-protestas-contra-el-gobierno-de-rodrigo-paz-que-ya-cobran-2-vidas/">piensaChile</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 02 -->
         <div class="swipe-card">
           <div>
             <div class="swipe-top">
               <div class="swipe-num">02</div>
-              <div class="swipe-title">Morales alerta arresto inminente: DEA y Ejército habrían planificado operativo para este fin de semana</div>
+              <div class="swipe-title">Morales alerta arresto inminente: DEA y Ej&#233;rcito planifican operativo para este fin de semana</div>
             </div>
-            <div class="swipe-body">El expresidente Evo Morales denunció que la DEA y el Centro de Inteligencia del Ejército (CIE) planean detenerlo entre el viernes y el sábado. Morales, atrincherado en el Trópico de Cochabamba desde octubre de 2024, enfrenta cargos por trata agravada de personas: la fiscalía lo acusa de mantener una relación con una menor durante su presidencia. El gobierno anunció el restablecimiento de la oficina de la DEA en La Paz para intercambio de inteligencia, sin participación en operaciones conjuntas.</div>
+            <div class="swipe-body">El expresidente Evo Morales denunci&#243; que la DEA y el Centro de Inteligencia del Ej&#233;rcito (CIE) planean detenerlo o eliminarlo f&#237;sicamente entre el viernes y el s&#225;bado. Morales, atrincherado en el Tr&#243;pico de Cochabamba desde octubre de 2024, enfrenta cargos de trata agravada de personas; la fiscal&#237;a solicita 20 a&#241;os de prisi&#243;n. El gobierno confirm&#243; el regreso de la DEA a Bolivia en modalidad de intercambio de inteligencia, sin operaciones conjuntas.</div>
           </div>
           <div>
             <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              Si se produce la detención, el escenario político se volverá aún más volátil. Las bases de Morales en el Trópico podrían radicalizar los bloqueos o desencadenar nuevos conflictos, sumando una variable adicional a una crisis que ya tiene al gobierno contra las cuerdas.
+              <strong>Por qu&#233; importa</strong>
+              Si se ejecuta el operativo, las bases de Morales en el Tr&#243;pico podr&#237;an radicalizar los bloqueos y escalar el conflicto hacia un enfrentamiento de seguridad de mayor envergadura. Es la variable que puede transformar una crisis social en una crisis de Estado.
             </div>
             <div class="swipe-source">
               <a href="https://www.abc.com.py/internacionales/2026/05/15/morales-senala-que-la-dea-y-el-ejercito-boliviano-planean-detenerlo-entre-viernes-y-sabado/">ABC Color</a> &middot;
-              <a href="https://www.jornada.com.mx/2026/05/15/mundo/026n2mun">La Jornada</a>
+              <a href="https://www.latercera.com/mundo/noticia/evo-morales-denuncia-un-supuesto-plan-de-eeuu-y-del-gobierno-boliviano-para-detenerlo-o-matarlo/">La Tercera</a> &middot;
+              <a href="https://rpp.pe/mundo/actualidad/evo-morales-denuncio-un-supuesto-plan-de-ee-uu-y-del-gobierno-boliviano-para-detenerlo-o-matarlo-noticia-1688629">RPP</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 03 -->
         <div class="swipe-card">
           <div>
             <div class="swipe-top">
               <div class="swipe-num">03</div>
-              <div class="swipe-title">Decreto 5619: el gobierno aprueba reglamento de calidad de carburantes con multas para toda la cadena</div>
+              <div class="swipe-title">Gobierno acusa a Morales de narcofinanciar los bloqueos; la COB rechaza el di&#225;logo sin respuesta previa</div>
             </div>
-            <div class="swipe-body">El gobierno aprobó el 14 de mayo el Decreto Supremo 5619, que establece un régimen de control de calidad para carburantes producidos, importados, transportados y comercializados en Bolivia. La medida llega meses después del escándalo de la "gasolina basura", que detonó en enero de 2026 y generó bloqueos en ocho departamentos. La Agencia Nacional de Hidrocarburos (ANH) será la entidad fiscalizadora con capacidad de aplicar multas económicas a toda la cadena de distribución.</div>
+            <div class="swipe-body">El gobierno de Rodrigo Paz denunci&#243; ante medios internacionales que las movilizaciones reciben financiamiento del narcotr&#225;fico proveniente de las zonas cocaleras del Tr&#243;pico de Cochabamba. El presidente abrог&#243; la Ley de Reconversi&#243;n de Tierras para atender una demanda de los sectores movilizados. Sin embargo, la COB rechaz&#243; iniciar mesas de di&#225;logo sin respuesta previa al aumento salarial del 20% y la abrogaci&#243;n de la Ley 1720.</div>
           </div>
           <div>
             <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              La crisis de combustibles contaminados fue uno de los detonantes de las protestas actuales. El decreto llega tarde y en medio de la tormenta, lo que reduce su impacto político inmediato. La clave será la capacidad real de fiscalización de la ANH en un contexto de alta conflictividad.
+              <strong>Por qu&#233; importa</strong>
+              Al vincular los bloqueos con el narco, el gobierno busca deslegitimar las demandas sociales. La negativa de la COB al di&#225;logo cierra la v&#237;a negociada por ahora. Si la Polic&#237;a interviene rutas sin acuerdo, el costo humanitario seguir&#225; subiendo.
             </div>
             <div class="swipe-source">
-              <a href="https://todosnube.com/blog/todosnube-com-blog-gasolina-basura-bolivia-bloqueos-mayo-2026/">TodosNube</a> &middot;
+              <a href="https://www.jornada.com.mx/2026/05/15/mundo/026n2mun">La Jornada</a> &middot;
+              <a href="https://www.infobae.com/america/america-latina/2026/05/15/bolivia-el-gobierno-denuncia-que-las-protestas-son-financiadas-por-el-narco-y-las-vincula-con-evo-morales/">Infobae</a> &middot;
+              <a href="https://www.resumenlatinoamericano.org/2026/05/14/bolivia-las-marchas-y-bloqueos-persisten-la-policia-amenaza-y-gobierno-no-atiende-demandas">Resumen Latinoamericano</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">FENCOMIN suma presi&#243;n: mineros cooperativistas exigen combustible, explosivos y acceso al oro</div>
+            </div>
+            <div class="swipe-body">La Federaci&#243;n Nacional de Cooperativas Mineras (FENCOMIN) march&#243; sobre La Paz con tres demandas: abastecimiento de combustible y explosivos para la actividad minera, y acceso a zonas aur&#237;feras. La movilizaci&#243;n sum&#243; un actor de peso hist&#243;rico a la coalici&#243;n de presi&#243;n que ya integran la COB y los campesinos del altiplano, ampliando el frente contra el gobierno m&#225;s all&#225; del eje salarial.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              FENCOMIN tiene capacidad de inclinar balances en conflictos sociales bolivianos. Su incorporaci&#243;n al bloque opositor suma la agenda minera como variable que el gobierno deber&#225; contemplar en cualquier acuerdo de salida negociada.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.urgente.bo/noticia/los-bloqueos-marchas-y-presion-social-contra-el-gobierno-se-focalizan-en-la-paz">Urgentebo</a> &middot;
+              <a href="https://rpp.pe/mundo/latinoamerica/conflictividad-en-bolivia-protestas-de-al-menos-siete-sectores-ponen-en-jaque-al-gobierno-de-paz-noticia-1688473">RPP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">DS 5619: el gobierno aprueba reglamento de calidad de carburantes con multas para toda la cadena</div>
+            </div>
+            <div class="swipe-body">El gobierno aprob&#243; el Decreto Supremo 5619, que establece un r&#233;gimen de control de calidad para carburantes producidos, importados, transportados y comercializados en Bolivia. La Agencia Nacional de Hidrocarburos (ANH) ser&#225; la entidad fiscalizadora con capacidad de aplicar multas econ&#243;micas. La medida llega meses despu&#233;s del esc&#225;ndalo de la &#171;gasolina basura&#187; que estuvo entre los detonantes del conflicto actual.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El decreto es una respuesta tard&#237;a que dif&#237;cilmente tendr&#225; impacto pol&#237;tico inmediato en medio de la tormenta. La clave ser&#225; la capacidad real de la ANH para fiscalizar con bloqueos activos en gran parte del territorio nacional.
+            </div>
+            <div class="swipe-source">
+              <a href="https://todosnube.com/blog/que-esta-pasando-en-bolivia/">TodosNube</a> &middot;
               <a href="https://www.urgente.bo/noticia/carburantes-el-precio-politico-de-no-decir-la-verdad">Urgentebo</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 04 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">04</div>
-              <div class="swipe-title">FENCOMIN convulsiona La Paz: mineros cooperativistas exigen combustible, explosivos y acceso al oro</div>
-            </div>
-            <div class="swipe-body">Los mineros cooperativistas agrupados en la Federación Nacional de Cooperativas Mineras (FENCOMIN) marcharon sobre La Paz con tres demandas centrales: abastecimiento de combustible y explosivos para la actividad minera, y acceso a zonas auríferas para la explotación de oro. La movilización se sumó al paro ya sostenido por la COB y los campesinos del altiplano, ampliando la coalición de presión sobre el gobierno de Rodrigo Paz con un actor de peso histórico en la conflictividad boliviana.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              FENCOMIN ha sido históricamente un actor de poder capaz de inclinar la balanza en conflictos sociales. Su incorporación a la coalición de protesta amplía el frente contra el gobierno más allá del eje salarial, incorporando la agenda minera como variable negociadora clave para cualquier acuerdo.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.youtube.com/watch?v=MzYXai_Pr4k">Unitel Bolivia</a> &middot;
-              <a href="https://www.urgente.bo/noticia/los-bloqueos-marchas-y-presion-social-contra-el-gobierno-se-focalizan-en-la-paz">Urgentebo</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 05 -->
-        <div class="swipe-card">
-          <div>
-            <div class="swipe-top">
-              <div class="swipe-num">05</div>
-              <div class="swipe-title">División Profesional: Independiente Petrolero vence 3-1 a Blooming; Bolívar cede puntos ante Nacional Potosí</div>
-            </div>
-            <div class="swipe-body">En la División Profesional 2026 (94.ª edición), Independiente Petrolero derrotó 3-1 a Blooming de Santa Cruz y se consolida entre los líderes de la tabla. Bolívar, favorito al título, cedió puntos al empatar 1-1 con Nacional Potosí en La Paz. La competencia se desarrolla en formato todos contra todos (30 fechas) y la clasificación se mantiene abierta. El torneo avanza en paralelo a una crisis social que dificulta la logística de partidos en varias ciudades del país.</div>
-          </div>
-          <div>
-            <div class="swipe-why">
-              <strong>Por qué importa</strong>
-              El tropiezo de Bolívar abre la tabla y permite a equipos como Independiente Petrolero acercarse a la punta. En un país con alta conflictividad, el fútbol mantiene una agenda paralela que sirve de referente social para millones de bolivianos, aunque los bloqueos pueden afectar la logística de próximas jornadas.
-            </div>
-            <div class="swipe-source">
-              <a href="https://www.flashscore.es/futbol/bolivia/division-profesional/resultados/">Flashscore</a> &middot;
-              <a href="https://www.espn.com/soccer/standings/_/league/bol.1">ESPN</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /carousel-track -->
-
+      </div>
       <div class="dots">
         <div class="dot active"></div>
         <div class="dot"></div>
@@ -353,106 +228,61 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div class="swipe-hint">Desliza para ver más &rarr;</div>
-    </div><!-- /carousel-container -->
+      <div class="swipe-hint">Desliza para ver m&#225;s &rarr;</div>
+    </div>
 
-    <!-- DIVIDER -->
-    <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
-
-    <!-- NEWS ITEMS -->
+    <div class="divider"><span class="divider-text">Noticias por Secci&#243;n</span></div>
 
     <div class="news-item glass reveal" style="transition-delay:0.04s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Gobierno acusa a Morales de narcofinanciar los bloqueos; Policía anuncia intervención de rutas cortadas</h3>
-      <p>El gobierno del presidente Rodrigo Paz denunció ante medios internacionales que los bloqueos de carreteras cuentan con financiamiento del narcotráfico proveniente de las zonas cocaleras del Trópico de Cochabamba, implicando directamente a Evo Morales. El jefe de la Policía Nacional, Mirko Sokol, anunció operaciones para liberar los puntos de bloqueo clave del país. La Central Obrera Boliviana (COB) descartó iniciar mesas de diálogo sin respuesta previa del gobierno a las demandas de aumento salarial del 20% y abrogación de la Ley 1720.</p>
-      <span class="source-link">
-        <a href="https://www.jornada.com.mx/2026/05/15/mundo/026n2mun">La Jornada</a> &middot;
-        <a href="https://www.cadena3.com/noticia/mundo/el-gobierno-boliviano-exige-el-fin-de-bloqueos-en-la-paz-por-crisis-social_551596">Cadena 3</a> &middot;
-        <a href="https://www.resumenlatinoamericano.org/2026/05/14/bolivia-las-marchas-y-bloqueos-persisten-la-policia-amenaza-y-gobierno-no-atiende-demandas">Resumen Latinoamericano</a>
-      </span>
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Sala Constitucional admite Acci&#243;n Popular contra dirigentes de la COB y el ministro de Gobierno por los bloqueos</h3>
+      <p>La Sala Constitucional Segunda de La Paz admiti&#243; el 15 de mayo un recurso de Acci&#243;n Popular presentado por el exdiputado Am&#237;lkar Barral contra el dirigente de la COB Mario Argollo, el senador Nilton Condori y el ministro de Gobierno Marco Antonio Oviedo. El recurso busca responsabilizar judicialmente a los organizadores de las medidas de presi&#243;n que derivaron en las tres muertes registradas por imposibilidad de acceso a atenci&#243;n m&#233;dica urgente.</p>
+      <span class="source-link"><a href="https://piensachile.com/2026/05/15/crisis-en-bolivia-las-claves-para-entender-las-protestas-contra-el-gobierno-de-rodrigo-paz-que-ya-cobran-2-vidas/">piensaChile</a> &middot; <a href="https://www.resumenlatinoamericano.org/2026/05/14/bolivia-las-marchas-y-bloqueos-persisten-la-policia-amenaza-y-gobierno-no-atiende-demandas">Resumen Latinoamericano</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.08s">
-      <span class="pill pill-pol">Político</span>
-      <h3>Maestros rurales atacan el Ministerio de Educación en La Paz con piedras y escombros</h3>
-      <p>Grupos de maestros rurales en huelga atacaron la fachada del Ministerio de Educación en La Paz, provocando destrozos en rejas, jardineras, mobiliario urbano y el frontis del edificio. Los manifestantes lanzaron piedras, escombros y basureros contra el contingente policial apostado en la zona. Los maestros exigen un incremento salarial superior al 5% ofrecido por el gobierno y mejoras en las condiciones laborales del sector rural. Los enfrentamientos se prolongaron por más de dos horas con uso de gases lacrimógenos y detonaciones de petardos.</p>
-      <span class="source-link">
-        <a href="https://www.resumenlatinoamericano.org/2026/05/14/bolivia-las-marchas-y-bloqueos-persisten-la-policia-amenaza-y-gobierno-no-atiende-demandas">Resumen Latinoamericano</a> &middot;
-        <a href="https://www.urgente.bo/noticia/los-bloqueos-marchas-y-presion-social-contra-el-gobierno-se-focalizan-en-la-paz">Urgentebo</a>
-      </span>
+      <span class="pill pill-soc">Social</span>
+      <h3>Maestros rurales atacan el Ministerio de Educaci&#243;n en La Paz con piedras y escombros</h3>
+      <p>Grupos de maestros rurales en huelga atacaron la fachada del Ministerio de Educaci&#243;n en La Paz, provocando destrozos en rejas, jardineras y el frontis del edificio. Los manifestantes exigen un incremento salarial superior al 5% ofrecido por el gobierno y mejoras en las condiciones laborales del sector rural. Los enfrentamientos con la Polic&#237;a se prolongaron m&#225;s de dos horas con uso de gases lacrim&#243;genos y detonaciones de petardos.</p>
+      <span class="source-link"><a href="https://www.resumenlatinoamericano.org/2026/05/14/bolivia-las-marchas-y-bloqueos-persisten-la-policia-amenaza-y-gobierno-no-atiende-demandas">Resumen Latinoamericano</a> &middot; <a href="https://www.urgente.bo/noticia/los-bloqueos-marchas-y-presion-social-contra-el-gobierno-se-focalizan-en-la-paz">Urgentebo</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.12s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Dólar paralelo estable en Bs 10.03; brecha con el tipo oficial supera el 44%</h3>
-      <p>El dólar paralelo abre el 15 de mayo en Bs 10.03 para la compra y Bs 10.00 para la venta, con variación mínima respecto a la jornada anterior. El tipo de cambio referencial del BCB se sitúa en Bs 10.18 (compra) y Bs 10.39 (venta), mientras el tipo oficial fijo permanece en Bs 6.96, sin modificaciones desde 2011. La brecha entre el mercado informal y el oficial supera el 44%, aunque el paralelo se mantiene alejado de los picos registrados en 2025, cuando superó los Bs 12. Los bloqueos agravan la escasez de divisas en comercios importadores del interior del país.</p>
-      <span class="source-link">
-        <a href="https://dolarparalelobolivia.net/">Dólar Paralelo Bolivia</a> &middot;
-        <a href="https://www.bcb.gob.bo/?q=cotizaciones_tc">BCB</a> &middot;
-        <a href="https://www.reduno.com.bo/noticias/dolar-en-bolivia-oficial-referencial-o-paralelo-cual-es-la-diferencia-202651222636">Red Uno</a>
-      </span>
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>D&#243;lar paralelo en Bs&#160;10.03; brecha con el tipo oficial supera el 44%</h3>
+      <p>El d&#243;lar paralelo se ubica en Bs 10.03 (compra) con escasa variaci&#243;n respecto a la semana anterior. El tipo de cambio referencial del BCB se sit&#250;a en Bs 10.18 (compra) y Bs 10.39 (venta), mientras el tipo oficial permanece fijo en Bs 6.96 desde 2011. La brecha entre el mercado informal y el oficial supera el 44%, aunque el paralelo se mantiene lejos de los picos de 2025. Los bloqueos agravan la escasez de divisas en comercios importadores del interior del pa&#237;s.</p>
+      <span class="source-link"><a href="https://dolarparalelobolivia.net/">D&#243;lar Paralelo Bolivia</a> &middot; <a href="https://www.bcb.gob.bo/">BCB</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.16s">
-      <span class="pill pill-eco">Económico</span>
-      <h3>Crisis de abastecimiento: 5.000 camiones varados y pérdidas agropecuarias de más de 20 millones de bolivianos</h3>
-      <p>La Cámara Agropecuaria de Cochabamba estimó pérdidas superiores a los 20 millones de bolivianos por los bloqueos, incluyendo toneladas de flores y productos perecederos destruidos. Unos 5.000 camiones de alto tonelaje permanecen varados en las rutas nacionales, transportando desde combustible y animales vivos hasta exportaciones de soya. El sector agrícola advirtió que si los cortes se extienden una semana más, el desabastecimiento llegará a las ciudades capitales.</p>
-      <span class="source-link">
-        <a href="https://rpp.pe/mundo/actualidad/crisis-en-bolivia-2026-bloqueos-protestas-y-exigencias-al-gobierno-noticia-1688270">RPP</a> &middot;
-        <a href="https://www.infobae.com/america/america-latina/2026/05/07/persisten-los-bloqueos-en-bolivia-pese-al-acuerdo-del-gobierno-con-algunos-sectores-sociales/">Infobae</a>
-      </span>
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Crisis de abastecimiento: m&#225;s de 20 millones en p&#233;rdidas agropecuarias y toneladas de perecederos destruidos</h3>
+      <p>La C&#225;mara Agropecuaria de Cochabamba estim&#243; p&#233;rdidas superiores a los 20 millones de bolivianos por los bloqueos, incluyendo toneladas de flores y productos perecederos destruidos. Unos 5.000 camiones de alto tonelaje permanecen varados transportando desde combustible y animales vivos hasta exportaciones de soya. El sector advirti&#243; que si los cortes se extienden una semana m&#225;s, el desabastecimiento llegar&#225; a las ciudades capitales.</p>
+      <span class="source-link"><a href="https://rpp.pe/mundo/actualidad/crisis-en-bolivia-2026-bloqueos-protestas-y-exigencias-al-gobierno-noticia-1688270">RPP</a> &middot; <a href="https://www.infobae.com/america/america-latina/2026/05/15/bolivia-el-gobierno-denuncia-que-las-protestas-son-financiadas-por-el-narco-y-las-vincula-con-evo-morales/">Infobae</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.20s">
-      <span class="pill pill-emp">Empresarial</span>
-      <h3>DS 5619: reglamento de calidad de carburantes aplica multas a productoras, importadoras y distribuidoras</h3>
-      <p>Mediante el Decreto Supremo 5619, aprobado el 14 de mayo, el gobierno estableció un régimen de control de calidad que alcanza a todas las empresas de la cadena hidrocarburífera: productoras, importadoras, transportadoras y comercializadoras. La Agencia Nacional de Hidrocarburos (ANH) será la entidad fiscalizadora. La medida es una respuesta tardía al escándalo de la "gasolina basura" que estalló en enero de 2026, considerado uno de los peores episodios de calidad de combustibles en la historia boliviana y que fue uno de los detonantes de las protestas actuales.</p>
-      <span class="source-link">
-        <a href="https://todosnube.com/blog/todosnube-com-blog-gasolina-basura-bolivia-bloqueos-mayo-2026/">TodosNube</a> &middot;
-        <a href="https://www.urgente.bo/noticia/carburantes-el-precio-politico-de-no-decir-la-verdad">Urgentebo</a>
-      </span>
+      <span class="pill pill-int">Internacional</span>
+      <h3>DEA reabre oficina en La Paz para intercambio de inteligencia; el gobierno descarta operaciones conjuntas</h3>
+      <p>El gobierno de Rodrigo Paz anunci&#243; el restablecimiento de la oficina de la DEA (Drug Enforcement Administration) en La Paz, cerrada durante el gobierno de Morales hace m&#225;s de una d&#233;cada. Las autoridades precisaron que la agencia operar&#225; solo en modalidad de intercambio de inteligencia, sin participar en operaciones conjuntas con fuerzas bolivianas. Morales interpret&#243; el anuncio como una se&#241;al de persecuci&#243;n pol&#237;tica directa.</p>
+      <span class="source-link"><a href="https://www.abc.com.py/internacionales/2026/05/15/morales-senala-que-la-dea-y-el-ejercito-boliviano-planean-detenerlo-entre-viernes-y-sabado/">ABC Color</a> &middot; <a href="https://www.jornada.com.mx/2026/05/15/mundo/026n2mun">La Jornada</a></span>
     </div>
 
     <div class="news-item glass reveal" style="transition-delay:0.24s">
       <span class="pill pill-soc">Social</span>
-      <h3>Tercer fallecimiento vinculado a los bloqueos: joven de 20 años no pudo acceder a atención médica urgente</h3>
-      <p>Una joven de 20 años se convirtió en la tercera víctima mortal atribuida indirectamente a los bloqueos, al no poder recibir atención médica urgente debido a los cortes de ruta. Los dos fallecimientos anteriores también ocurrieron por impedimentos en el paso de ambulancias y pacientes críticos. Las muertes provocaron condena de organismos de derechos humanos y sectores de la sociedad civil, que exigen a todas las partes garantizar corredores humanitarios mientras dure la crisis.</p>
-      <span class="source-link">
-        <a href="https://www.eltribuno.com/internacionales/2026-5-15-0-0-0-tension-social-en-bolivia-protestas-bloqueos-y-muertos">El Tribuno</a> &middot;
-        <a href="https://es.wikipedia.org/wiki/Protestas_en_Bolivia_de_2026">Wikipedia</a>
-      </span>
+      <h3>Tercera v&#237;ctima mortal vinculada a los bloqueos: pacientes cr&#237;ticos no pueden acceder a hospitales</h3>
+      <p>Una tercera persona falleci&#243; como consecuencia indirecta de los bloqueos al no poder recibir atenci&#243;n m&#233;dica urgente. Los dos fallecimientos anteriores tambi&#233;n ocurrieron por impedimentos al paso de ambulancias y pacientes cr&#237;ticos. Organizaciones de derechos humanos y sectores de la sociedad civil exigen a todas las partes garantizar corredores humanitarios mientras dure la crisis.</p>
+      <span class="source-link"><a href="https://www.eltribuno.com/internacionales/2026-5-15-0-0-0-tension-social-en-bolivia-protestas-bloqueos-y-muertos">El Tribuno</a> &middot; <a href="https://es.wikipedia.org/wiki/Protestas_en_Bolivia_de_2026">Wikipedia &#8212; Protestas en Bolivia 2026</a></span>
     </div>
 
-    <div class="news-item glass reveal" style="transition-delay:0.28s">
-      <span class="pill pill-dep">Deportes</span>
-      <h3>División Profesional 2026: Independiente Petrolero lidera con 3-1 a Blooming; Bolívar empata ante Nacional Potosí</h3>
-      <p>En la más reciente jornada de la División Profesional 2026 (94.ª edición, 30 fechas en formato todos contra todos), Independiente Petrolero venció 3-1 a Blooming de Santa Cruz y se consolida en la parte alta de la tabla. Bolívar, considerado el gran favorito al título, cedió puntos al empatar 1-1 frente a Nacional Potosí en La Paz, resultado que mantiene la competencia abierta con varios aspirantes activos.</p>
-      <span class="source-link">
-        <a href="https://www.flashscore.es/futbol/bolivia/division-profesional/resultados/">Flashscore</a> &middot;
-        <a href="https://www.espn.com/soccer/standings/_/league/bol.1">ESPN</a> &middot;
-        <a href="https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026">Wikipedia</a>
-      </span>
-    </div>
-
-    <div class="news-item glass reveal" style="transition-delay:0.32s">
-      <span class="pill pill-int">Internacional</span>
-      <h3>DEA reabre oficina en La Paz para intercambio de inteligencia; el gobierno descarta operaciones conjuntas</h3>
-      <p>En medio de la crisis social, el gobierno de Rodrigo Paz anunció el restablecimiento de la oficina de la DEA (Drug Enforcement Administration) en La Paz, cerrada durante el gobierno de Evo Morales hace más de una década. Las autoridades precisaron que la agencia estadounidense operará solo en modalidad de intercambio de inteligencia, sin participar en operaciones conjuntas con fuerzas bolivianas. La medida tensionó aún más la relación con Morales y sus bases, quienes la interpretan como una señal de persecución política directa vinculada a las acusaciones de narcofinanciamiento de protestas.</p>
-      <span class="source-link">
-        <a href="https://www.abc.com.py/internacionales/2026/05/15/morales-senala-que-la-dea-y-el-ejercito-boliviano-planean-detenerlo-entre-viernes-y-sabado/">ABC Color</a> &middot;
-        <a href="https://www.jornada.com.mx/2026/05/15/mundo/026n2mun">La Jornada</a>
-      </span>
-    </div>
-
-    <!-- DATA STRIP -->
     <div class="data-strip">
       <div class="data-cell glass reveal">
-        <div class="data-cell-label">Dólar Oficial BCB</div>
+        <div class="data-cell-label">D&#243;lar Oficial BCB</div>
         <div class="data-cell-value">Bs 6.96</div>
         <div class="data-cell-delta" style="color:var(--muted)">Fijo desde 2011</div>
       </div>
       <div class="data-cell glass reveal">
-        <div class="data-cell-label">Dólar Paralelo</div>
+        <div class="data-cell-label">D&#243;lar Paralelo</div>
         <div class="data-cell-value">Bs 10.03</div>
         <div class="data-cell-delta red">Venta: Bs 10.00</div>
       </div>
@@ -463,22 +293,19 @@
       </div>
     </div>
 
-    <!-- QUÉ VIGILAR -->
     <div class="vigilar reveal">
-      <div class="vigilar-header">Qué Vigilar Hoy</div>
-      <div class="vigilar-item">Detención de Morales: si el gobierno ejecuta el operativo anunciado este fin de semana, la respuesta de sus bases en el Trópico podría ampliar los bloqueos y escalar la crisis hacia un enfrentamiento directo con consecuencias imprevisibles.</div>
-      <div class="vigilar-item">Negociaciones con la COB y sectores movilizados: el gobierno tiene una ventana estrecha para ofrecer una salida que contemple el aumento salarial sin ceder en la demanda de renuncia del presidente Paz. El sábado y el domingo serán decisivos.</div>
-      <div class="vigilar-item">Intervención policial en rutas bloqueadas: cualquier operación de desbloqueo que derive en enfrentamientos violentos elevaría el costo político y humanitario de la crisis, dificultando aún más una salida negociada.</div>
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Detecci&#243;n de Morales: si el gobierno ejecuta el operativo anunciado este fin de semana, la respuesta de sus bases en el Tr&#243;pico podr&#237;a ampliar los bloqueos y escalar la crisis hacia un enfrentamiento con consecuencias imprevisibles para la gobernabilidad.</div>
+      <div class="vigilar-item">Negociaciones con la COB y sectores movilizados: el gobierno tiene una ventana muy estrecha para ofrecer una salida que contemple el aumento salarial sin ceder en la demanda de renuncia presidencial. El s&#225;bado y el domingo ser&#225;n decisivos.</div>
+      <div class="vigilar-item">Intervenci&#243;n policial en rutas bloqueadas: cualquier operaci&#243;n de desbloqueo que derive en enfrentamientos violentos elevar&#225; el costo pol&#237;tico y humanitario de la crisis, dificultando a&#250;n m&#225;s una salida negociada.</div>
     </div>
 
-    <!-- FOOTER -->
     <div class="footer reveal">
-      <div>Fuentes: El Tribuno &middot; Urgentebo &middot; El Deber &middot; La Jornada &middot; ABC Color &middot; Resumen Latinoamericano &middot; RPP &middot; Red Uno &middot; Infobae &middot; Flashscore &middot; BCB &middot; Opinión Bolivia &middot; Unitel</div>
+      <div>Fuentes: El Tribuno &middot; Urgentebo &middot; RPP &middot; La Jornada &middot; ABC Color &middot; Infobae &middot; Resumen Latinoamericano &middot; La Tercera &middot; piensaChile &middot; BCB &middot; D&#243;lar Paralelo Bolivia &middot; TodosNube</div>
       <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
     </div>
 
-  </div><!-- /wrap -->
-
+  </div>
   <script>
     const track = document.getElementById('carousel');
     const dots = document.querySelectorAll('.dot');
@@ -491,6 +318,5 @@
     }),{threshold:0.1});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
-
 </body>
 </html>
