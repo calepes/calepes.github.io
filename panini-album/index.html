@@ -377,27 +377,22 @@ function updateMainButton() {
 async function register() {
   if (batch.length === 0) return;
   const codes = batch.map(b => b.code);
+  const msg = `Figuritas álbum: ${codes.join(', ')}`;
 
-  if (tg?.MainButton) tg.MainButton.showProgress(false);
   try {
-    const res = await fetch(
-      "https://cos-agent-worker.carlos-cb4.workers.dev/panini/register",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ codes }),
-      }
-    );
-    if (res.ok) {
-      tg?.HapticFeedback?.notificationOccurred("success");
-      tg?.close();
-    } else {
-      throw new Error("server_error");
-    }
+    await navigator.clipboard.writeText(msg);
   } catch {
-    if (tg?.MainButton) tg.MainButton.hideProgress();
+    // clipboard failed — show manual fallback
     showCopyFallback(codes);
+    return;
   }
+
+  tg?.HapticFeedback?.notificationOccurred("success");
+  if (tg?.MainButton) {
+    tg.MainButton.setText('✓ Copiado — pega en el chat');
+    tg.MainButton.hideProgress();
+  }
+  setTimeout(() => tg?.close(), 1500);
 }
 
 function showCopyFallback(codes) {
