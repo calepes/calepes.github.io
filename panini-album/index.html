@@ -204,8 +204,12 @@ if (tg) { tg.ready(); tg.expand(); }
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 // 50 equipos del álbum Panini FIFA World Cup 2026, orden alfabético español
+// Sección de introducción: "We Are Panini" (00) + FWC1–FWC19
+const FWC_STICKERS = ["00","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"];
+
 // 48 equipos del álbum Panini FIFA World Cup 2026, orden alfabético español
 const ALL = [
+  {c:"FWC",n:"Portada",f:"🌐",stickers:FWC_STICKERS},
   {c:"GER",n:"Alemania",f:"🇩🇪"},
   {c:"KSA",n:"Arabia S.",f:"🇸🇦"},
   {c:"ALG",n:"Argelia",f:"🇩🇿"},
@@ -319,10 +323,12 @@ function renderCountryInfo(code) {
 }
 
 function renderNumGrid(code) {
-  const used = new Set(batch.filter(b => b.country === code).map(b => b.num));
+  const t = BY_CODE[code];
+  const nums = t.stickers || Array.from({length: TOTAL}, (_, i) => String(i + 1));
+  const used = new Set(batch.filter(b => b.country === code).map(b => String(b.num)));
   let html = '';
-  for (let i = 1; i <= TOTAL; i++) {
-    html += `<div class="num-btn${used.has(i) ? ' used' : ''}" onclick="addSticker('${code}',${i})">${i}</div>`;
+  for (const num of nums) {
+    html += `<div class="num-btn${used.has(String(num)) ? ' used' : ''}" onclick="addSticker('${code}','${num}')">${num}</div>`;
   }
   document.getElementById('numGrid').innerHTML = html;
 }
@@ -354,7 +360,7 @@ function addSticker(code, num) {
     if (tg) tg.HapticFeedback?.notificationOccurred('warning');
     return;
   }
-  batch.push({ code: stickerCode, country: code, num });
+  batch.push({ code: stickerCode, country: code, num: String(num) });
   if (tg) tg.HapticFeedback?.impactOccurred('light');
   renderNumGrid(code);
   renderCountryInfo(code);
