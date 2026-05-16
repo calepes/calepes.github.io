@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — Viernes 15 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead {
+      text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+      border-radius: 20px; background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal" style="transition-delay:0s">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Viernes 15 de mayo de 2026 &middot; Bogotá</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Elecciones a 16 días: encuestas confirman segunda vuelta entre Cepeda y De la Espriella</div>
+            </div>
+            <div class="swipe-body">A dos semanas y media de la primera vuelta del 31 de mayo, los sondeos ubican a Iván Cepeda (Pacto Histórico) con 38.6% de intención de voto, seguido de Abelardo de la Espriella con 23.2% y Paloma Valencia con 18.4%. Ningún candidato alcanza el 50% necesario para ganar en primera vuelta. Las firmas Invamer, AtlasIntel, Guarumo, GAD3 y CNC coinciden en que la segunda vuelta es altamente probable.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El resultado electoral redefinirá la dirección política del país. Un triunfo de Cepeda implicaría continuidad del proyecto Petro; Valencia o De la Espriella representan un giro hacia el centro-derecha. Los mercados y la inversión extranjera monitorean de cerca el escenario de segunda vuelta.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.portafolio.co/economia/gobierno/a-15-dias-de-las-elecciones-presidenciales-en-colombia-encuestas-muestran-incertidumbre-y-segunda-vuelta-494066">Portafolio</a> &middot; <a href="https://www.bloomberglinea.com/latinoamerica/colombia/asi-esta-la-intencion-de-voto-segun-encuestas-a-15-dias-de-las-elecciones-2026-en-colombia/">Bloomberg Línea</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">PIB Colombia creció 2.2% en el primer trimestre de 2026, superando proyecciones</div>
+            </div>
+            <div class="swipe-body">El DANE confirmó que la economía colombiana registró un crecimiento del 2.2% en el primer trimestre de 2026. Los sectores con mayor dinamismo fueron administración pública, defensa, salud y educación (aportó 0.9 p.p.) y manufactura (creció 2.9%). El resultado supera las proyecciones iniciales de varios gremios que anticipaban un crecimiento menor en un contexto de incertidumbre electoral y dólar al alza.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La cifra llega en año electoral y ofrece un argumento al gobierno Petro sobre estabilidad macroeconómica. Sin embargo, el crecimiento sigue siendo modesto y concentrado en gasto público, lo que plantea interrogantes sobre sostenibilidad fiscal para el siguiente gobierno, independientemente de quién gane el 31 de mayo.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.vanguardia.com/economia/2026/05/15/economia-colombiana-crecio-22-en-el-primer-trimestre-del-ano-cuales-fueron-los-sectores-protagonistas/">Vanguardia</a> &middot; <a href="https://www.elnuevosiglo.com.co/economia/la-economia-colombiana-crecio-22-en-el-primer-semestre-de-2026">El Nuevo Siglo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">CICR: Colombia vive la peor crisis humanitaria de la última década</div>
+            </div>
+            <div class="swipe-body">El Comité Internacional de la Cruz Roja emitió una de sus alertas humanitarias más graves sobre Colombia. Entre enero y abril de 2026 se registraron 49 masacres con 205 víctimas, la cifra más alta desde 2016. Se documentaron 965 personas heridas o fallecidas por artefactos explosivos, incluyendo 93 menores de edad. Los grupos EMBF, CNEB y el Clan del Golfo mantienen control territorial que amenaza el proceso electoral del 31 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La violencia preelectoral amenaza directamente la integridad del proceso del 31 de mayo. Zonas con presencia de grupos armados podrían ver afluencia reducida de votantes. Es también un indicador del fracaso de la política de "paz total" del gobierno Petro, tema central en el debate de los candidatos.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.semana.com/nacion/articulo/colombia-vive-la-peor-crisis-humanitaria-de-la-ultima-decada-cicr-alerta-por-explosion-de-violencia-desplazamientos-y-desapariciones/202602/">Semana</a> &middot; <a href="https://www.infobae.com/colombia/2026/05/13/elecciones-en-colombia-2026-en-alerta-violencia-grupos-armados-y-desinformacion-amenazan-la-primera-vuelta/">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Congreso avala en comisiones el Ministerio de la Igualdad — pasa a plenarias con plazo hasta el 16 de junio</div>
+            </div>
+            <div class="swipe-body">El proyecto que busca dar continuidad legal al Ministerio de la Igualdad y Equidad superó las comisiones primeras conjuntas del Senado y la Cámara. El gobierno Petro logró los votos necesarios en la primera instancia legislativa. Debe ahora superar las plenarias antes del 16 de junio, cuando concluyen las sesiones ordinarias. La entidad administra 2.8 billones de pesos con solo 8.7% de ejecución presupuestal.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Si el ministerio desaparece antes del cambio de gobierno, es una derrota simbólica para el legado de Petro. Si sobrevive, el siguiente gobierno hereda una institucionalidad cuestionada por su bajo nivel de ejecución. Los plazos son estrechos y la oposición tiene margen para frenarlo en plenaria.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.eluniversal.com.co/colombia/2026/05/15/gobierno-petro-salva-en-congreso-el-ministerio-de-la-igualdad/">El Universal</a> &middot; <a href="https://www.semana.com/politica/articulo/gobierno-petro-se-juega-la-ultima-carta-para-revivir-el-ministerio-de-igualdad/202617/">Semana</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Petro lleva la disputa por reforma agraria al Consejo de Seguridad de la ONU</div>
+            </div>
+            <div class="swipe-body">El presidente Gustavo Petro anunció que presentará ante el Consejo de Seguridad de Naciones Unidas una denuncia por el incumplimiento del punto uno del Acuerdo de Paz con las FARC, relacionado con la reforma rural integral. El anuncio se da tras cuestionamientos de magistrados de la Corte Suprema al proyecto de Jurisdicción Agraria en el Congreso. Petro también citó al CNE y a observadores internacionales ante tensiones sobre garantías electorales.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Escalar la disputa a la ONU en plena campaña electoral tiene doble efecto: busca presión internacional sobre instituciones del Estado y refuerza el discurso de Petro ante su base. Puede generar fricción diplomática y agudizar la tensión entre el ejecutivo y los poderes judicial y legislativo en el tramo final del gobierno.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.eluniversal.com.co/colombia/2026/05/14/petro-llevara-a-la-onu-disputa-por-baldios-y-reforma-agraria/">El Universal</a> &middot; <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/candidatos-y-entidades-piden-garantias-en-seguridad-y-financiacion-esto-responde-el-gobierno-petro-noticias-hoy/">El Espectador</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más &rarr;</div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Sección</span>
+    </div>
+
+    <!-- NEWS ITEMS -->
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Petro inaugura sede universitaria en Santander a 16 días de las elecciones</h3>
+      <p>El presidente Gustavo Petro participó en un acto en Málaga, Santander, donde entregó una sede de la Universidad Industrial de Santander (UIS) con una inversión de 55.000 millones de pesos entre aportes nacionales, departamentales y universitarios. El evento, realizado en plena campaña electoral, fue leído como un acto de gobierno con impacto político. Petro también convocó al Consejo Nacional Electoral y a observadores internacionales ante tensiones sobre garantías del proceso del 31 de mayo.</p>
+      <span class="source-link"><a href="https://www.semana.com/politica/articulo/a-15-dias-de-la-primera-vuelta-presidencial-gustavo-petro-lanzo-un-aviso-apenas-inicia-una-transformacion-de-colombia/202631/">Semana</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Dólar cerró la semana al alza: TRM en $3,784 y cierre interbancario en $3,801</h3>
+      <p>La Tasa Representativa del Mercado (TRM) oficial del viernes se ubicó en $3,784.70, una baja de $10.21 frente al día anterior. Sin embargo, el cierre interbancario del mercado llegó a $3,796–$3,801, por encima de la TRM. El máximo del día fue $3,820 y el mínimo $3,776.50. En lo que va de mayo, el dólar acumula una suba de 4.1% desde los $3,637.51 del 1 de mayo, impulsada por incertidumbre preelectoral y presiones externas.</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-en-el-cierre-de-hoy-15-de-mayo-de-2026-1021625">RCN Noticias</a> &middot; <a href="https://www.infobae.com/colombia/2026/05/15/dolar-hoy-en-colombia-cotizacion-de-cierre-del-15-de-mayo/">Infobae</a> &middot; <a href="https://www.elpais.com.co/economia/dolar-en-colombia-cerro-la-semana-al-alza-asi-se-ubico-la-divisa-este-viernes-15-de-mayo-de-2026-1548.html">El País</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Fusiones y adquisiciones sacuden el sector privado: cemento, telecomunicaciones y petróleo en movimiento</h3>
+      <p>En los primeros 75 días de 2026 se registró una ola de compras, ventas, fusiones y alianzas en sectores estratégicos del país. Los movimientos más relevantes incluyen la venta de activos de Cemex en Colombia, la integración entre Tigo y Movistar en telecomunicaciones, y la entrada del Grupo Gilinski al negocio de petróleo regional. El 30% de inversores internacionales encuestados por Bain &amp; Company señala a Colombia como destino atractivo para 2026, el doble que hace dos años.</p>
+      <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Sismo de magnitud 4.5 (Venezuela) se sintió en el norte de Colombia; más de diez temblores durante el día</h3>
+      <p>Un temblor de magnitud 4.5, con epicentro en el estado Zulia de Venezuela a 51 km de Villa del Rosario, se sintió en ciudades del norte colombiano incluyendo La Guajira y Cesar. El Servicio Geológico Colombiano (SGC) registró más de diez sismos menores durante el viernes. El 14 de mayo, un sismo de magnitud 5.6 en el Chocó había también generado alertas. No se reportaron víctimas ni daños estructurales significativos.</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-fuerte-se-sintio-en-colombia-hoy-15-de-mayo-de-2026-1021760">RCN Noticias</a> &middot; <a href="https://www.eltiempo.com/amp/colombia/otras-ciudades/temblor-hoy-reportan-fuerte-sismo-que-sacudio-al-norte-de-colombia-este-viernes-15-de-mayo-epicentro-magnitud-profundidad-y-detalles-3556166">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Colombia arrasa en el Panamericano Junior de Pista con 10 oros y récord mundial; Liga BetPlay fecha 15</h3>
+      <p>La Selección Colombia de ciclismo de pista conquistó por cuarto año consecutivo el Campeonato Panamericano Junior en el Velódromo Internacional de Xalapa, México, con 10 oros, 8 platas y 8 bronces, incluyendo un récord mundial. En la Liga BetPlay (jornada 15): Deportes Tolima 4-1 Águilas Doradas, Jaguares 1-0 Millonarios, América 2-0 Bucaramanga, Junior 1-2 Deportivo Cali. Tabla: Atlético Nacional lidera con 31 puntos, seguido de Pasto (28) y Tolima (27).</p>
+      <span class="source-link"><a href="https://www.elcolombiano.com/deportes/colombia-campeon-panamericano-pista-junior-mexico-xalapa-veracruz-2026-cuarto-ano-seguido-manuela-loaiza-IB36405841">El Colombiano</a> &middot; <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/tabla-de-posiciones-y-resultados-fecha-15-liga-betplay-2026-i-265331">Futbolred</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Presión externa sobre el peso colombiano crece en la recta final de la campaña</h3>
+      <p>Analistas internacionales señalan que la depreciación acumulada del peso en mayo responde en parte al escrutinio de inversores ante la proximidad electoral. El Banco Mundial y la CEPAL proyectan un crecimiento regional moderado en 2026, con Colombia alineada al promedio latinoamericano. Misiones de observación internacional de la OEA y la UE están alistando sus equipos para el proceso del 31 de mayo.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/15/dolar-hoy-en-colombia-cotizacion-de-cierre-del-15-de-mayo/">Infobae</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.40s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">Dólar TRM</div>
+        <div class="data-cell-value">$3,784</div>
+        <div class="data-cell-delta red">&minus;$10.21</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Cierre Mercado</div>
+        <div class="data-cell-value">$3,801</div>
+        <div class="data-cell-delta red">+$16 vs TRM</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Var. Mayo</div>
+        <div class="data-cell-value">+4.1%</div>
+        <div class="data-cell-delta red">desde $3,637</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.44s">
+      <div class="vigilar-header">Qué Vigilar Hoy</div>
+      <div class="vigilar-item">Primera vuelta presidencial el 31 de mayo — quedan 16 días. La campaña entra en la recta final con posibilidad de debates decisivos y movimientos de última hora en las encuestas. La movilización de bases y la seguridad en zonas de conflicto serán determinantes.</div>
+      <div class="vigilar-item">Las plenarias del Senado y la Cámara deben votar el Ministerio de la Igualdad antes del 16 de junio. La oposición tiene margen para frenarlo; monitorear el calendario legislativo de la próxima semana.</div>
+      <div class="vigilar-item">Escalada de violencia armada preelectoral en el Cauca, Chocó y Catatumbo. El CICR ya emitió alerta de máxima gravedad; cualquier incidente mayor en los próximos días podría tensionar el ambiente político y desafiar la logística electoral de la Registraduría.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.48s">
+      <div>Fuentes: El Tiempo &middot; Semana &middot; El Espectador &middot; Portafolio &middot; RCN Noticias &middot; Infobae Colombia &middot; El Universal &middot; Vanguardia &middot; El Colombiano &middot; Bloomberg Línea &middot; Futbolred &middot; El Nuevo Siglo</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
