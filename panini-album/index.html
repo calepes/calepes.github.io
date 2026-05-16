@@ -372,24 +372,11 @@ function updateMainButton() {
   tg.MainButton.show();
 }
 
-// ── Register (sendData + fallback) ────────────────────────────────────────────
+// ── Register ──────────────────────────────────────────────────────────────────
 
 async function register() {
   if (batch.length === 0) return;
   const codes = batch.map(b => b.code);
-
-  // Try sendData first (keyboard button context — closes app immediately)
-  if (tg?.sendData) {
-    try {
-      tg.sendData(JSON.stringify({ codes }));
-      // If sendData works the app closes; if we're still alive after 300ms it was a no-op
-      await new Promise(r => setTimeout(r, 300));
-    } catch { /* fall through to POST */ }
-  }
-
-  // Menu button context: POST directly to the CF Worker, then close the app.
-  // Worker validates Telegram initData and enqueues the registration.
-  if (!tg?.initData) { showCopyFallback(codes); return; }
 
   if (tg?.MainButton) tg.MainButton.showProgress(false);
   try {
@@ -398,12 +385,12 @@ async function register() {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ initData: tg.initData, codes }),
+        body: JSON.stringify({ codes }),
       }
     );
     if (res.ok) {
-      tg.HapticFeedback?.notificationOccurred("success");
-      tg.close();
+      tg?.HapticFeedback?.notificationOccurred("success");
+      tg?.close();
     } else {
       throw new Error("server_error");
     }
