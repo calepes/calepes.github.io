@@ -377,12 +377,13 @@ function updateMainButton() {
 function register() {
   if (batch.length === 0) return;
   const codes = batch.map(b => b.code);
-  const data = JSON.stringify({ codes });
+  if (!tg?.sendData) { showCopyFallback(codes); return; }
   try {
-    if (!tg) throw new Error('no tg');
-    tg.sendData(data); // works only when opened via ReplyKeyboard web_app button
+    tg.sendData(JSON.stringify({ codes }));
+    // sendData() that works closes the app immediately — no JS runs after it.
+    // If we're still alive after 350ms, it was a silent no-op (menu button context).
+    setTimeout(() => showCopyFallback(codes), 350);
   } catch {
-    // Opened via menu button — sendData not available. Show copy fallback.
     showCopyFallback(codes);
   }
 }
