@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — 15 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #E8EDF2 0%, #D4DEE7 25%, #E0D4D8 55%, #EDF0F5 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Viernes 15 de mayo de 2026 · Lima</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="section-header reveal">Top 5 del Día</div>
+
+  <div class="carousel-container reveal">
+    <div class="carousel-track" id="carousel">
+
+      <!-- Card 01 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">ONPE certifica al 100%: segunda vuelta el 7 de junio entre Fujimori y Sánchez</div>
+          </div>
+          <div class="swipe-body">La Oficina Nacional de Procesos Electorales completó el escrutinio de la primera vuelta del 12 de abril. Keiko Fujimori (Fuerza Popular) obtuvo 17.18% con 2'877,501 votos; Roberto Sánchez (Juntos por el Perú) alcanzó 12.03% con 2'015,097 votos, superando por más de 21,000 sufragios a Rafael López Aliaga. El balotaje está fijado para el 7 de junio. Las encuestas de mayo los ubican empatados al 38%, con un 27% de voto blanco o viciado.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Fujimori va a su cuarta segunda vuelta consecutiva habiendo perdido las tres anteriores. El empate técnico en encuestas y el alto voto blanco indican una elección completamente abierta: los indecisos y quienes recurrieron al voto en blanco serán decisivos para el rumbo del país los próximos cinco años.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> · <a href="https://larepublica.pe/politica/2026/05/04/elecciones-presidenciales-2026-cuando-es-la-segunda-vuelta-entre-keiko-fujimori-fuerza-popular-y-roberto-sanchez-juntos-por-el-peru-hnews-318624">La República</a></div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Congreso rechaza interpelar al ministro de Defensa por la masacre de Colcabamba</div>
+          </div>
+          <div class="swipe-body">Con 32 votos a favor, 40 en contra y 22 abstenciones, el Pleno rechazó la moción para citar al ministro de Defensa Amadeo Flores por el operativo militar del 25 de abril en Colcabamba (VRAEM, Huancavelica), que dejó cinco civiles muertos. La Fiscalía mantiene abierta la investigación contra ocho militares, incluido un capitán. Los abogados de las víctimas denuncian manipulación de la escena del crimen y señalan que el ataque fue unilateral sin que los jóvenes portaran armas.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El rechazo parlamentario cierra la vía de rendición de cuentas política, pero deja abierto el flanco judicial. En año electoral, el caso expone la tensión entre la estrategia de seguridad en el VRAEM y los derechos civiles, con posibles implicancias para el gobierno saliente y el Ejército.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/politica/congreso/congreso-rechaza-mocion-de-interpelacion-contra-ministro-de-defensa-por-operativo-militar-en-colcabamba-noticia-1688346">RPP</a> · <a href="https://larepublica.pe/politica/2026/05/14/masacre-en-colcabamba-congreso-rechaza-interpelar-al-ministro-de-defensa-hnews-629566">La República</a></div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">PBI de marzo creció 3.21% pese a 13 días de crisis del gas Camisea</div>
+          </div>
+          <div class="swipe-body">La economía peruana avanzó 3.21% interanual en marzo, impulsada por construcción y comercio. Sin embargo, el sector de minería e hidrocarburos cayó 4.56% tras el colapso del subsector hidrocarburos (-35.41%) por la rotura del ducto de Camisea en el kilómetro 43. La producción de gas natural bajó 38.94% y la de líquidos de gas natural, 44.83%. El BCRP mantiene su proyección de crecimiento en 3% para todo 2026, con cobre y oro como anclas exportadoras.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El rebote de 3.21% superó expectativas pese al shock energético, pero el arrastre del sector extractivo sobre el PBI de abril y mayo sigue siendo un riesgo latente. La vulnerabilidad estructural de depender de un único gasoducto persiste sin solución de corto plazo.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/economia/2026/05/15/economia-peruana-crecio-32-en-marzo-construccion-se-disparo-pero-mineria-retrocedio-ante-crisis-del-gas-hnews-1216140">La República</a> · <a href="https://rpp.pe/economia/economia/economia-sorprendio-en-marzo-crecio-321-pese-a-13-dias-de-crisis-del-gas-natural-noticia-1688503">RPP</a></div>
+        </div>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Extorsión: 5,531 denuncias en lo que va del año y suboficial PNP capturado por cobrar cupos</div>
+          </div>
+          <div class="swipe-body">El Ministerio del Interior presentó un estudio criminológico sobre extorsión: entre enero y el 10 de mayo se registraron 5,531 denuncias. En Lima opera una nueva modalidad —bandas secuestran a comerciantes, los someten a violencia física y graban los abusos para presionar a familiares—. En paralelo, un suboficial de la PNP en actividad fue detenido durante un operativo en El Agustino por integrar una banda de extorsionadores y tráfico ilegal de terrenos.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La captura de un policía activo en una red extorsiva profundiza la desconfianza institucional. La bajada estadística frente a 2025 no refleja necesariamente menor criminalidad —hay un desfase del 40% entre cifras de PNP y Ministerio Público— y el tema dominará la campaña de segunda vuelta.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/14/radiografia-de-la-extorsion-el-principal-desafio-de-la-seguridad-ciudadana-extorsion-hnews-1023568">La República</a> · <a href="https://www.infobae.com/peru/2026/05/14/debia-combatir-el-crimen-y-termino-detenido-capturan-a-suboficial-pnp-como-parte-de-banda-de-extorsionadores/">Infobae</a></div>
+        </div>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Liga 1, fecha 15: Cajamarca hunde a Cristal 3-1 y Grau vence a la U; Alianza Lima lidera con 33 pts</div>
+          </div>
+          <div class="swipe-body">En el inicio de la fecha 15 del Torneo Apertura, FC Cajamarca remontó un golazo de Yoshimar Yotún desde media cancha y venció 3-1 a Sporting Cristal con anotaciones de Hernán Barcos, Jonathan Betancourt y Sebastien Pineau. Atlético Grau derrotó 1-0 a Universitario —que jugó con diez por la expulsión de Andy Polo— con gol de Raúl Ruidíaz. Alianza Lima se mantiene primero con 33 puntos; Los Chankas los siguen con 30.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Los resultados golpean a los dos clubes grandes del fútbol peruano: Sporting Cristal pierde terreno en la tabla y Universitario cede puntos clave. Alianza Lima, en cambio, consolida su liderato a falta de tres fechas para cerrar el Torneo Apertura 2026.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru/deportes/2026/05/15/resultados-de-la-fecha-15-de-la-liga-1-2026-hoy-asi-van-los-partidos-del-torneo-apertura/">Infobae</a> · <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-liga-1-peru-2026-en-vivo-hoy-partidos-y-resultados-de-fecha-15-del-torneo-apertura-2026-alianza-lima-los-chankas-cienciano-universitario-de-deportes-sporting-cristal-noticia/">Depor</a></div>
+        </div>
+      </div>
+
+    </div><!-- end carousel-track -->
+
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+  <!-- ELECTORAL -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Electoral</span>
+    <h3>Segunda vuelta confirmada: Fujimori y Sánchez empatados al 38% de cara al 7 de junio</h3>
+    <p>Con el escrutinio al 100% cerrado, el JNE procederá a la proclamación oficial. Las encuestas de mayo ubican a Keiko Fujimori (Fuerza Popular) y Roberto Sánchez (Juntos por el Perú) en empate técnico al 38%, con un alto 27% de voto blanco o viciado que refleja el desencanto ciudadano. Sánchez, candidato de izquierda que hasta semanas antes aparecía rezagado, sorprendió al desplazar a Rafael López Aliaga por más de 21,000 votos en el conteo final.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/15/resultados-onpe-al-100-en-vivo-conteo-oficial-confirma-segunda-vuelta-entre-keiko-fujimori-y-roberto-sanchez/">Infobae</a> · <a href="https://elcomercio.pe/ecdata/keiko-fujimori-roberto-sanchez-elecciones-2026-juntos-por-el-peru-fuerza-popular-onpe-jne-rafael-lopez-aliaga-renovacion-popular-noticia/">El Comercio</a></span>
+  </div>
+
+  <!-- POLÍTICO: Política General -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político</span>
+    <h3>Ejecutivo aprueba Política General de Gobierno 2026: seguridad, economía y transición ordenada</h3>
+    <p>El Consejo de Ministros formalizó la Política General de Gobierno 2026, instrumento rector vigente hasta el 28 de julio —fecha del traspaso de mando—, con cuatro ejes estratégicos: seguridad ciudadana, continuidad económica, transición democrática y cohesión social. El documento establece 27 lineamientos para garantizar que el cambio de gobierno se produzca sin turbulencias institucionales.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/nacionales/ejecutivo-aprobo-la-politica-general-de-gobierno-2026-priorizando-seguridad-economia-y-elecciones-limpias">TVPerú</a> · <a href="https://gestion.pe/peru/politica/consejo-de-ministros-aprueba-politica-general-de-gobierno-2026-noticia/">Gestión</a></span>
+  </div>
+
+  <!-- POLÍTICO: Colcabamba -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Político · Justicia</span>
+    <h3>Caso Colcabamba: Fiscalía investiga a ocho militares mientras el Congreso blinda al ministro</h3>
+    <p>El rechazo parlamentario a la interpelación (40 contra, 32 a favor) contrasta con el avance judicial: la Fiscalía mantiene activa la investigación por homicidio contra el capitán y siete militares del operativo del 25 de abril en el VRAEM. Los ocho detenidos fueron liberados al vencer el plazo de flagrancia sin medidas cautelares. Un abogado de las víctimas denunció manipulación de la escena del crimen y señaló que no hay evidencia de que los cinco jóvenes fallecidos hayan disparado.</p>
+    <span class="source-link"><a href="https://rpp.pe/politica/congreso/congreso-rechaza-mocion-de-interpelacion-contra-ministro-de-defensa-por-operativo-militar-en-colcabamba-noticia-1688346">RPP</a> · <a href="https://www.infobae.com/peru/2026/04/27/fiscalia-abre-investigacion-contra-ocho-miembros-del-ejercito-por-asesinato-de-jovenes-durante-intervencion-en-colcabamba/">Infobae</a></span>
+  </div>
+
+  <!-- ECONÓMICO -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-eco">Económico</span>
+    <h3>PBI de marzo +3.21%: construcción y comercio empujan; hidrocarburos se desploma 35.41%</h3>
+    <p>El INEI reportó que la economía avanzó 3.21% interanual en marzo, resistiendo la peor crisis energética en dos décadas. Construcción privada y pública, consumo masivo y servicios impulsaron el resultado. En sentido contrario, pesca cayó 12.5% por el colapso de la captura de anchoveta, e hidrocarburos se desplomó 35.41% durante los 13 días de interrupción del gasoducto de Camisea. El BCRP proyecta 3% de crecimiento para todo el año, sustentado en términos de intercambio elevados para cobre y oro.</p>
+    <span class="source-link"><a href="https://larepublica.pe/economia/2026/05/15/economia-peruana-crecio-32-en-marzo-construccion-se-disparo-pero-mineria-retrocedio-ante-crisis-del-gas-hnews-1216140">La República</a> · <a href="https://rpp.pe/economia/economia/economia-sorprendio-en-marzo-crecio-321-pese-a-13-dias-de-crisis-del-gas-natural-noticia-1688503">RPP</a></span>
+  </div>
+
+  <!-- SOCIAL/SEGURIDAD -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-soc">Social · Seguridad</span>
+    <h3>Nueva modalidad de extorsión en Lima y 15 menores detenidos por sicariato en Callao</h3>
+    <p>El Ministerio del Interior presentó un estudio criminológico sobre extorsión con más de 170 operadores de justicia. En Lima, bandas secuestran a comerciantes, graban los abusos y usan el material para presionar a familiares. En el Callao, 15 menores de edad fueron detenidos en 2026 por sicariato y extorsión. El desfase del 40% entre las cifras de la PNP y el Ministerio Público genera dudas sobre el verdadero volumen del fenómeno criminal.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/05/14/radiografia-de-la-extorsion-el-principal-desafio-de-la-seguridad-ciudadana-extorsion-hnews-1023568">La República</a> · <a href="https://www.infobae.com/peru/2026/05/03/extorsion-en-lima-se-vuelve-mas-violenta-victimas-son-secuestradas-sometidas-a-maltratos-y-grabadas-para-forzar-pagos/">Infobae</a></span>
+  </div>
+
+  <!-- NORMAS LEGALES -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-pol">Normas Legales</span>
+    <h3>Leyes 32592 y 32593: Vigilancia Amazónica y restauración de sitios de Túpac Amaru II</h3>
+    <p>El Diario Oficial publicó dos leyes relevantes del viernes 15. La Ley 32592 declara de interés nacional el Sistema de Vigilancia Amazónico para monitoreo y respuesta ante amenazas a la Amazonía y fronteras del país. La Ley 32593 ordena restaurar y poner en valor los escenarios históricos vinculados a Túpac Amaru II en el distrito de Langui (Canas, Cusco), incluyendo el templo colonial, el puente histórico y el cerro Yana Orqo, con fines de promoción turística.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-15-de-mayo-de-2026">TVPerú</a> · <a href="https://elperuano.pe/noticia/295779-el-peruano-te-informa-consulta-aqui-las-principales-normas-legales-para-hoy-viernes-15-de-mayo-del-2026">El Peruano</a></span>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="news-item glass reveal">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Liga 1, fecha 15: Cristal y Universitario pierden; Alianza Lima consolida el liderato con 33 puntos</h3>
+    <p>Sporting Cristal cayó 1-3 ante FC Cajamarca —Yotún abrió el marcador desde media cancha, pero Barcos, Betancourt y Pineau revirtieron el partido— y Universitario perdió 0-1 ante Atlético Grau con gol de Raúl Ruidíaz, luego de la expulsión de Andy Polo. Alianza Lima se mantiene líder con 33 puntos; Los Chankas, con 30, aprietan. Restan partidos del sábado y domingo para completar la fecha 15.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/05/15/resultados-de-la-fecha-15-de-la-liga-1-2026-hoy-asi-van-los-partidos-del-torneo-apertura/">Infobae</a> · <a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-liga-1-peru-2026-en-vivo-hoy-partidos-y-resultados-de-fecha-15-del-torneo-apertura-2026-alianza-lima-los-chankas-cienciano-universitario-de-deportes-sporting-cristal-noticia/">Depor</a></span>
+  </div>
+
+  <!-- DATA STRIP -->
+  <div class="data-strip">
+    <div class="data-cell glass reveal">
+      <div class="data-cell-label">Tipo de Cambio</div>
+      <div class="data-cell-value">S/ 3.42</div>
+      <div class="data-cell-delta" style="color: var(--muted)">Compra 3.413 · Venta 3.419</div>
+    </div>
+    <div class="data-cell glass reveal">
+      <div class="data-cell-label">PBI Marzo</div>
+      <div class="data-cell-value green">+3.21%</div>
+      <div class="data-cell-delta green">vs. marzo 2025</div>
+    </div>
+    <div class="data-cell glass reveal">
+      <div class="data-cell-label">2da Vuelta</div>
+      <div class="data-cell-value" style="font-size: 18px; color: var(--accent);">7 jun</div>
+      <div class="data-cell-delta" style="color: var(--muted)">Fujimori vs. Sánchez</div>
+    </div>
+  </div>
+
+  <!-- QUÉ VIGILAR -->
+  <div class="vigilar reveal">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Segunda vuelta presidencial del 7 de junio: con Fujimori y Sánchez empatados al 38% y un 27% de voto blanco o viciado, cualquier movimiento de alianzas, declaración o escándalo puede definir el resultado. Seguir encuestas de esta semana.</div>
+    <div class="vigilar-item">Caso Colcabamba: el Ministerio Público evalúa posibles medidas de coerción para los militares investigados; posibles decisiones del Poder Judicial en los próximos días. El caso puede escalar a instancias internacionales si las víctimas acuden a la CIDH.</div>
+    <div class="vigilar-item">Recuperación energética post-Camisea: monitorear los datos de PBI de abril cuando el INEI los publique en junio. La estabilización del ducto y la diversificación de fuentes de suministro son claves para que el BCRP sostenga su proyección de 3% para el año.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer reveal">
+    <div>Fuentes: RPP · La República · Infobae Perú · El Comercio · TVPerú · Gestión · Depor · El Peruano</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div><!-- end wrap -->
+
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
