@@ -355,9 +355,14 @@ function renderBatch() {
 // ── Actions ───────────────────────────────────────────────────────────────────
 
 function addSticker(code, num) {
-  const stickerCode = `${code}-${num}`;
-  if (batch.find(b => b.code === stickerCode)) {
-    if (tg) tg.HapticFeedback?.notificationOccurred('warning');
+  const stickerCode = `${code}${num}`;
+  const existing = batch.findIndex(b => b.code === stickerCode);
+  if (existing !== -1) {
+    batch.splice(existing, 1);
+    if (tg) tg.HapticFeedback?.impactOccurred('light');
+    renderNumGrid(code);
+    renderCountryInfo(code);
+    renderBatch();
     return;
   }
   batch.push({ code: stickerCode, country: code, num: String(num) });
