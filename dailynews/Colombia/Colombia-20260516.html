@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 16 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px);
+      scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell {
+      padding: 20px 14px;
+      text-align: center;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal" style="transition-delay:0s">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Sábado, 16 de mayo de 2026 · Colombia</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Elecciones a 15 días: Cepeda lidera pero la segunda vuelta parece inevitable</div>
+            </div>
+            <div class="swipe-body">A dos semanas del 31 de mayo, las encuestas ubican a Iván Cepeda (izquierda) al frente con entre 35% y 44% según la firma consultada, seguido de Abelardo de la Espriella (21–31%) y Paloma Valencia (19–25%). Ningún candidato alcanza el 50% necesario para ganar en primera vuelta. La segunda vuelta más probable sería entre Cepeda y Espriella, aunque Valencia sigue muy cerca del segundo cupo. La dispersión entre encuestadoras refleja un escenario de alta incertidumbre.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El resultado definirá la continuidad o ruptura del proyecto político de Petro. Un Cepeda ganador prolongaría el giro a la izquierda; Espriella o Valencia representan retorno al centro-derecha con impacto directo en política fiscal, paz total y relaciones con EE.UU.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.bloomberglinea.com/latinoamerica/colombia/asi-esta-la-intencion-de-voto-segun-encuestas-a-15-dias-de-las-elecciones-2026-en-colombia/">Bloomberg Línea</a> · <a href="https://www.infobae.com/colombia/2026/05/14/ivan-cepeda-lidera-primera-vuelta-presidencial-y-paloma-valencia-se-impondria-en-un-escenario-de-segunda-vuelta-segun-encuesta-fundacion-genesis-crea/">Infobae</a> · <a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/">La Silla Vacía</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Fiscalía abre investigación contra ministra Irene Vélez por escándalo Aremca</div>
+            </div>
+            <div class="swipe-body">La Fiscalía General anunció que investigará a la ministra de Minas y Energía, Irene Vélez, y a un integrante de la junta de Ecopetrol, por la asignación de un contrato ambiental de $24.240 millones de regalías a la Asociación de Municipios del Caribe (Aremca), entidad que presuntamente carecía de capacidad técnica y financiera. El escándalo Aremca suma ya al menos 101 proyectos con posibles desvíos por más de $500 mil millones y nueve personas capturadas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Es la investigación más grave contra un miembro del gabinete Petro en plena recta final electoral. Alimenta la narrativa de corrupción en el manejo de regalías —tema central de los candidatos opositores— y puede impactar el voto de cierre de campaña.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.colombia.com/actualidad/nacionales/fiscalia-investigara-a-irene-velez-por-presuntas-irregularidades-en-contrato-de-regalias-583774">Colombia.com</a> · <a href="https://www.lafm.com.co/orden-publico/escandalo-aremca-fiscalia-investigara-a-ministra-irene-velez-integrante-junta-ecopetrol-399438">La FM</a> · <a href="https://www.elpais.com.co/judicial/escandalo-aremca-fiscalia-investigara-a-ministra-del-gobierno-petro-por-presuntas-irregularidades-en-contrato-1514.html">El País</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Petro confirma bombardeo al comando central del ELN con respaldo de Venezuela</div>
+            </div>
+            <div class="swipe-body">El presidente Gustavo Petro reconoció que ordenó un ataque aéreo al comando central del ELN en el Catatumbo (Norte de Santander), ejecutado con cooperación del gobierno venezolano. El anuncio marca un giro drástico en la política de "paz total" que el propio Petro promovió durante casi cuatro años. Por su parte, el ELN respondió planteando retomar las negociaciones de paz con el próximo gobierno, descartando al actual ejecutivo como interlocutor válido.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La cooperación militar con Venezuela es políticamente inédita y genera cuestionamientos en política exterior. El reconocimiento del fracaso de la "paz total" con el ELN, a dos semanas de las elecciones, obliga a los candidatos a definir su postura de seguridad ante una guerrilla que ya mira al siguiente gobierno.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/colombia/2026/05/12/petro-confirmo-que-dio-la-orden-de-bombardear-al-comando-central-del-eln-con-apoyo-de-venezuela-no-estan-en-ningun-acuerdo-de-paz/">Infobae</a> · <a href="https://www.diariolasamericas.com/america-latina/el-eln-plantea-retomar-negociaciones-paz-proximo-gobierno-colombia-n5394822">Diario Las Américas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Ola sísmica: 11 temblores en 24 horas y más de 1.100 sismos en 15 días</div>
+            </div>
+            <div class="swipe-body">El Servicio Geológico Colombiano registró al menos 11 sismos en Colombia durante el sábado 16 de mayo, con epicentros en varias regiones del país, incluyendo uno que superó los 3,0 grados de magnitud. El fenómeno se enmarca en una inusual actividad sísmica acumulada: más de 1.100 movimientos telúricos en apenas 15 días, generando alarma ciudadana. El Ideam también alertó por calor extremo y un aumento significativo de lluvias durante el fin de semana.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La frecuencia del enjambre sísmico es atípica y activa protocolos de vigilancia geológica reforzada. Aunque ninguno superó magnitudes destructivas, la concentración eleva el riesgo percibido en zonas de alta exposición como el Eje Cafetero, Huila y Valle del Cauca.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.hsbnoticias.com/temblo-masivamente-en-colombia-hoy-16-de-mayo-de-2026-estos-han-sido-los-epicentros/">HSB Noticias</a> · <a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-16-de-mayo-de-2026-1021968">RCN Noticias</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Semifinales BetPlay: Nacional vence en Ibagué; Santa Fe y Junior empatan</div>
+            </div>
+            <div class="swipe-body">Atlético Nacional derrotó 1-0 a Deportes Tolima en el Manuel Murillo Toro, con gol de cabeza de Alfredo Morelos (min. 57') y actuación clave de David Ospina. La polémica: doble amarilla a Anderson Angulo del Tolima en el min. 31', dejando al local con diez hombres. En Bogotá, Independiente Santa Fe igualó 1-1 con Junior: gol en propia puerta de Scarpeta (37') y penal de Hugo Rodallega señalado por VAR (85'). Las vueltas se juegan el sábado 23 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Nacional llega con ventaja al Atanasio Girardot pero con expulsiones que afectan su plantel para la vuelta. La serie Santa Fe-Junior está completamente abierta en Barranquilla. Las finales podrían jugarse el 28 de mayo y el 1 de junio, cruzadas con el período electoral.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/nacional-y-un-triunfazo-en-ibague-0-1-contra-tolima-en-semifinales-de-liga-betplay-2026-i-rg10">GolCaracol</a> · <a href="https://www.infobae.com/colombia/deportes/2026/05/16/en-vivo-santa-fe-vs-junior-por-las-semifinales-de-la-liga-betplay-2026-l/">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div><!-- /carousel-container -->
+
+    <div class="divider reveal" style="transition-delay:0.10s"><span class="divider-text">Noticias por Sección</span></div>
+
+    <!-- NOTICIAS POR SECCIÓN -->
+
+    <!-- Político -->
+    <div class="news-item glass reveal" style="transition-delay:0.12s">
+      <span class="pill pill-pol">Político</span>
+      <h3>A 15 días del voto: Cepeda lidera en encuestas con segunda vuelta en el horizonte</h3>
+      <p>Las últimas encuestas publicadas antes del inicio del silencio electoral ubican a Iván Cepeda con ventaja en primera vuelta, aunque sin mayoría. Invamer le otorga 44,3%; AtlasIntel lo coloca tercero con 24,8% detrás de Espriella (31,2%) y Valencia (29,6%). La dispersión entre firmas evidencia un escenario de alta incertidumbre. El ELN, por su parte, ya se proyecta hacia el próximo presidente y propone un "acuerdo nacional" de paz, descartando a Petro como interlocutor.</p>
+      <span class="source-link"><a href="https://www.portafolio.co/economia/gobierno/a-15-dias-de-las-elecciones-presidenciales-en-colombia-encuestas-muestran-incertidumbre-y-segunda-vuelta-494066">Portafolio</a> · <a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/">La Silla Vacía</a> · <a href="https://www.pulzo.com/elecciones-colombia-2026/ultimas-encuestas-presidenciales-colombia-2026-PP5174818A">Pulzo</a></span>
+    </div>
+
+    <!-- Judicial -->
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-emp">Judicial</span>
+      <h3>Escándalo Aremca: Fiscalía investigará a ministra Vélez y a directivo de Ecopetrol</h3>
+      <p>La Fiscalía General de la Nación abrirá investigación formal contra la ministra de Minas Irene Vélez y un integrante de la junta de Ecopetrol en el marco del escándalo Aremca, considerado el mayor desvío sospechoso del Sistema General de Regalías en años recientes. El contrato cuestionado, por $24.240 millones, fue asignado a una entidad sin la capacidad técnica ni financiera requerida. La Procuraduría tiene a su vez una investigación paralela contra Vélez por la hidroeléctrica Urrá. El caso acumula 9 capturas y revisión de al menos 101 proyectos por cerca de $500 mil millones.</p>
+      <span class="source-link"><a href="https://www.colombia.com/actualidad/nacionales/fiscalia-investigara-a-irene-velez-por-presuntas-irregularidades-en-contrato-de-regalias-583774">Colombia.com</a> · <a href="https://www.lafm.com.co/orden-publico/escandalo-aremca-fiscalia-investigara-a-ministra-irene-velez-integrante-junta-ecopetrol-399438">La FM</a> · <a href="https://www.elpais.com.co/judicial/escandalo-aremca-fiscalia-investigara-a-ministra-del-gobierno-petro-por-presuntas-irregularidades-en-contrato-1514.html">El País</a></span>
+    </div>
+
+    <!-- Económico -->
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>TRM sube a $3.796,78: máximo en más de dos meses con inflación en 5,6% anual</h3>
+      <p>La Tasa Representativa del Mercado (TRM) del sábado 16 de mayo cerró en $3.796,78 COP por dólar, su nivel más alto desde el 4 de marzo de 2026, con una variación diaria de +$12,08 (+0,32%) y semanal de +1,33%. El peso acumula presión cambiaria a medida que el calendario electoral reduce el apetito de riesgo de los inversionistas. El Banco de la República mantiene la tasa de política monetaria en 11,25% —decisión del 30 de abril—, con inflación anual en 5,6% en el primer trimestre y proyecciones institucionales que apuntan a 6,4% para diciembre de 2026.</p>
+      <span class="source-link"><a href="https://www.colombia.com/actualidad/economia/precio-del-dolar-hoy-en-colombia-sabado-16-de-mayo-583763">Colombia.com</a> · <a href="https://www.semana.com/amp/economia/macroeconomia/articulo/asi-se-cotiza-este-sabado-16-de-mayo-con-puente-festivo-el-precio-del-dolar-en-colombia/202624/">Semana</a> · <a href="https://www.banrep.gov.co/en/news/board-directors/inflation-target-2026">Banrep</a></span>
+    </div>
+
+    <!-- Internacional -->
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>CORI alerta por la pérdida de liderazgo e imagen de Colombia en el mundo</h3>
+      <p>El Consejo Colombiano de Relaciones Internacionales (CORI) reiteró su preocupación por el deterioro de la presencia, credibilidad y liderazgo de Colombia en organismos multilaterales durante los cuatro años de la administración Petro. El organismo señala que la política exterior errática y los vínculos con Venezuela han erosionado la posición del país. En sentido contrario, la Cancillería destacó que el comercio bilateral con Venezuela superó los USD $1.000 millones en el período y que la visita de Petro a la Casa Blanca (febrero 2026) alineó las agendas en migración y seguridad.</p>
+      <span class="source-link"><a href="https://www.semana.com/amp/politica/articulo/consejo-colombiano-de-relaciones-internacionales-reitera-su-preocupacion-por-la-perdida-de-liderazgo-de-colombia/202634/">Semana</a></span>
+    </div>
+
+    <!-- Social -->
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Puente festivo del 18 de mayo (Ascensión) activa fin de semana largo con alta movilidad</h3>
+      <p>Colombia vive un fin de semana de tres días —sábado 16, domingo 17 y lunes 18 de mayo— por el festivo de la Ascensión de Jesús, trasladado al lunes según la Ley Emiliani (Ley 51 de 1983). La movilidad terrestre y aérea es elevada hacia destinos de clima cálido y pueblos patrimonio. El Ideam advirtió calor extremo en varias regiones con lluvias intensas previstas para el sábado. El sector comercio y turismo proyecta un impulso al consumo interno durante el período.</p>
+      <span class="source-link"><a href="https://ifmnoticias.com/colombia/colombia-se-prepara-para-el-festivo-del-18-de-mayo-el-pais-conmemorara-la-ascension-de-jesus/">IFM Noticias</a> · <a href="https://www.noticiascaracol.com/colombia/seguira-el-calor-extremo-en-colombia-asi-sera-el-clima-del-16-al-18-de-mayo-de-2026-segun-ideam-so35">Caracol</a></span>
+    </div>
+
+    <!-- Deportes -->
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay — Semifinales ida: Nacional triunfa en Ibagué; Santa Fe y Junior no se sacan diferencia</h3>
+      <p>Atlético Nacional venció 1-0 a Deportes Tolima en el estadio Manuel Murillo Toro de Ibagué con gol de cabeza de Alfredo Morelos (min. 57') y actuación sobresaliente de David Ospina. La polémica la puso la expulsión de Anderson Angulo del Tolima en el min. 31' por doble tarjeta amarilla. Vuelta el sábado 23 en el Atanasio Girardot (Medellín). En El Campín, Independiente Santa Fe igualó 1-1 con Junior: Scarpeta marcó en propia puerta (37') y Hugo Rodallega convirtió un penal señalado por VAR al 85'. Serie completamente abierta; vuelta en Barranquilla el 23 de mayo.</p>
+      <span class="source-link"><a href="https://www.noticiascaracol.com/golcaracol/futbol-colombiano/nacional-y-un-triunfazo-en-ibague-0-1-contra-tolima-en-semifinales-de-liga-betplay-2026-i-rg10">GolCaracol</a> · <a href="https://www.futbolred.com/futbol-colombiano/liga-betplay/santa-fe-empato-con-junior-en-partido-de-ida-de-semifinal-resultado-resumen-y-analisis-en-liga-i-267618">Futbolred</a> · <a href="https://www.elespectador.com/deportes/futbol-colombiano/asi-quedaron-las-semifinales-de-la-liga-betplay-cuando-son-hora-y-tv-para-ver-en-vivo/">El Espectador</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.36s">
+      <div class="data-cell">
+        <div class="data-cell-label">Dólar TRM</div>
+        <div class="data-cell-value">$3.796</div>
+        <div class="data-cell-delta red">+$12 · +0,32%</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Inflación Anual</div>
+        <div class="data-cell-value">5,6%</div>
+        <div class="data-cell-delta red">Proy. 6,4% dic</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Tasa Banrep</div>
+        <div class="data-cell-value">11,25%</div>
+        <div class="data-cell-delta" style="color: var(--muted)">Sin cambio · 30 abr</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.40s">
+      <div class="vigilar-header">Qué Vigilar Hoy</div>
+      <div class="vigilar-item">Encuestas de última hora y movimientos de campaña durante el puente festivo: el domingo y el lunes son clave en la recta final preelectoral.</div>
+      <div class="vigilar-item">Respuesta oficial del Gobierno frente a la investigación de la Fiscalía contra la ministra Vélez — posible presión por renuncia o reacomodo de gabinete a días del cierre de Petro.</div>
+      <div class="vigilar-item">Continuidad del enjambre sísmico: el Servicio Geológico Colombiano monitorea si la actividad escala en magnitud o frecuencia durante el fin de semana largo.</div>
+      <div class="vigilar-item">Postura de los candidatos presidenciales frente al bombardeo al ELN y la cooperación con Venezuela — primer gran test de seguridad para la campaña con menos de dos semanas para votar.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.44s">
+      <div>Fuentes: El Espectador · Semana · Portafolio · La FM · GolCaracol · Caracol · RCN · Infobae · La Silla Vacía · Bloomberg Línea · HSB Noticias · Futbolred · Colombia.com · El País · Diario Las Américas · Banco de la República</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
