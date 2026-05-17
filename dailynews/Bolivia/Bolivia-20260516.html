@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 16 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 16px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+
+    .masthead {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 32px 24px 26px;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px;
+      border: 0.5px solid var(--glass-border);
+      box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+    }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .swipe-card {
+      flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+      background: var(--card-bg-strong);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 20px; border: 0.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+      padding: 28px 24px; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .neutral { color: var(--muted); }
+
+    .vigilar {
+      background: rgba(29,29,31,0.82);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: 16px; padding: 24px; margin: 32px 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+      color: white;
+    }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+    @media (max-width: 500px) {
+      body { padding: 20px 14px; }
+      .data-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- MASTHEAD -->
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">S&aacute;bado 16 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <!-- Card 01 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Operaci&oacute;n "Corredor Humanitario": 3.500 efectivos en rutas bloqueadas de La Paz</div>
+            </div>
+            <div class="swipe-body">El gobierno de Rodrigo Paz lanz&oacute; una operaci&oacute;n conjunta policial-militar con aproximadamente 2.500 agentes de la Polic&iacute;a y 1.000 militares para levantar los bloqueos de carreteras que mantienen incomunicada a La Paz desde hace m&aacute;s de 11 d&iacute;as. La operaci&oacute;n logr&oacute; abrir corredores en las primeras horas, pero los manifestantes se reorganizaron y retomaron varios puntos de bloqueo al mediod&iacute;a. Los bloqueos han causado ya tres muertes, escasez de alimentos, medicamentos y ox&iacute;geno m&eacute;dico en hospitales de La Paz y El Alto.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Es la mayor intervenci&oacute;n de fuerza del gobierno de Paz hasta la fecha. El resultado de la operaci&oacute;n definir&aacute; si el gobierno puede restablecer el orden o si los bloqueos se consolidan como instrumento de presi&oacute;n. La crisis humanitaria activa ya observaci&oacute;n internacional.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/america/america-latina/2026/05/16/bolivia-inicio-una-operacion-policial-y-militar-para-levantar-los-bloqueos-de-carreteras/">Infobae</a> &middot; <a href="https://www.bloomberglinea.com/latinoamerica/bolivia-intensifica-el-operativo-para-desbloquear-rutas-y-crece-la-tension-politica-y-social/">Bloomberg L&iacute;nea</a> &middot; <a href="https://eldeber.com.bo/pais/reportan-enfrentamientos-policias-bloqueadores-resisten-operativo_1778933763">El Deber</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Cocaleros toman el aeropuerto de Chimore&acute; para proteger a Evo Morales de su detenci&oacute;n</div>
+            </div>
+            <div class="swipe-body">Sectores afines a Evo Morales bloquearon la pista del aeropuerto de Chimore&acute;, en el Tr&oacute;pico de Cochabamba, con ramas y piedras para impedir un posible operativo de aprehenci&oacute;n contra el expresidente. Morales enfrenta tres &oacute;rdenes de detenci&oacute;n por acusaciones de estupro y trata de personas. El ministro de Obras P&uacute;blicas denunci&oacute; la toma como "ilegal" y el gobierno rechaz&oacute; las amenazas de los manifestantes de "dar la vida" por Morales. La dirigencia cocalera calific&oacute; la acci&oacute;n de "pac&iacute;fica" y dijo que defender&aacute; a Morales "hasta las &uacute;ltimas consecuencias".</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La toma de una infraestructura aeroportuaria eleva significativamente la tensi&oacute;n pol&iacute;tica. Un intento fallido de detenci&oacute;n podr&iacute;a convertirse en el detonante de mayor violencia; uno exitoso podr&iacute;a radicalizar a los bloqueadores.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com/america/america-latina/2026/05/16/tension-en-bolivia-los-seguidores-de-evo-morales-tomaron-el-aeropuerto-de-chimore-para-evitar-la-detencion-del-ex-presidente/">Infobae</a> &middot; <a href="https://www.lostiempos.com/actualidad/pais/20260516/toman-aeropuerto-chimore-impedir-presunta-detencion-evo">Los Tiempos</a> &middot; <a href="https://www.vision360.bo/amp/noticias/2026/05/16/48333-cocaleros-toman-el-aeropuerto-de-chimore-y-advierten-que-defenderan-a-evo-morales-hasta-las-ultimas-consecuencias">Visi&oacute;n 360</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Argentina env&iacute;a dos Hércules con 12 toneladas de alimentos; 9 pa&iacute;ses firman declaraci&oacute;n conjunta</div>
+            </div>
+            <div class="swipe-body">La Fuerza A&eacute;rea Argentina traslad&oacute; doce toneladas de carne de pollo desde Santa Cruz hasta el aeropuerto de El Alto para paliar la escasez de alimentos provocada por los bloqueos. Simult&aacute;neamente, Argentina, Chile, Costa Rica, Ecuador, El Salvador, Guatemala, Panam&aacute;, Paraguay y Per&uacute; firmaron una declaraci&oacute;n conjunta en la que rechazan "toda acci&oacute;n orientada a desestabilizar el orden democr&aacute;tico" en Bolivia y expresan preocupaci&oacute;n por la situaci&oacute;n humanitaria.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La intervenci&oacute;n argentina —logiística y diplom&aacute;tica— es un giro notable dado el historial de relaci&oacute;n tensa con el MAS. Nueve pa&iacute;ses respaldan a Paz de forma expl&iacute;cita, aislando regionalmente a los bloqueadores.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.lanacion.com.ar/politica/el-gobierno-anuncio-el-envio-de-un-avion-hercules-a-bolivia-en-medio-de-la-ola-de-protestas-nid16052026/">La Naci&oacute;n (ARG)</a> &middot; <a href="https://www.infobae.com/america/america-latina/2026/05/16/ocho-paises-latinoamericanos-expresaron-su-preocupacion-por-la-situacion-humanitaria-de-bolivia-en-medio-de-los-bloqueos-de-carreteras/">Infobae</a> &middot; <a href="https://www.abc.com.py/internacionales/2026/05/16/avion-argentino-traslada-doce-toneladas-de-carne-de-pollo-a-ciudades-bloqueadas-en-bolivia/">ABC Color</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Gobierno cierra acuerdo con maestros rurales y urbanos: bono de Bs 2.400 y levantamiento de protestas</div>
+            </div>
+            <div class="swipe-body">La ministra de Educaci&oacute;n Beatriz Garc&iacute;a firm&oacute; acuerdos por separado con maestros rurales y maestros urbanos, y tambi&eacute;n con la COR de El Alto. El punto central es un Bono de Gesti&oacute;n de Aula de Bs 2.400 anuales, indexado al &Iacute;ndice de Precios al Consumidor, pagadero en junio. El acuerdo incluye tambi&eacute;n asignaci&oacute;n de horas docentes, pago de horas pendientes, restituci&oacute;n de bonos de zona y frontera, e inversi&oacute;n en conectividad e infraestructura educativa. Los maestros suspendieron sus medidas de presi&oacute;n.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Es la primera ruptura significativa en el bloque de protesta. Si el modelo de "bono en lugar de aumento salarial" se replica con otros sectores —COB, mineros, campesinos— podr&iacute;a descomprimir la crisis sin comprometer la hoja salarial permanente.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.opinion.com.bo/articulo/pais/ministra-educacion-logra-acuerdo-maestros-rurales-que-recibiran-bono-anual-levantan-protestas/20260516144651991414.html">Opini&oacute;n</a> &middot; <a href="https://eldeber.com.bo/pais/maestros-llegan-acuerdo-gobierno-suspenden-medidas-presion_1778961383">El Deber</a> &middot; <a href="https://eju.tv/2026/05/maestros-rurales-aceptan-bono-de-bs-2-400-y-suspenden-protestas/">eju.tv</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Sala Constitucional de La Paz ordena levantar todos los bloqueos del departamento</div>
+            </div>
+            <div class="swipe-body">La Sala Constitucional de La Paz emiti&oacute; una orden judicial obligando al levantamiento de todos los bloqueos en el departamento, a&ntilde;adiendo respaldo legal al operativo policial-militar en curso. El presidente Rodrigo Paz advirti&oacute; que los intentos de desestabilizaci&oacute;n tendr&aacute;n "consecuencias legales" y ratific&oacute; que el gobierno no negociar&aacute; bajo presi&oacute;n de bloqueos activos. La combinaci&oacute;n de fuerza, orden judicial y di&aacute;logo sectorial (maestros) configura la estrategia de tres v&iacute;as del gobierno.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La orden constitucional convierte cualquier bloqueo en desacato judicial, dotando al gobierno de legitimidad jur&iacute;dica para continuar el operativo. Es una palanca que el gobierno podr&iacute;a usar tambi&eacute;n para aislar polticamente a los dirigentes que persistan.
+            </div>
+            <div class="swipe-source">
+              <a href="https://abi.bo/sala-constitucional-de-la-paz-ordena-levantar-todos-los-bloqueos-en-el-departamento/">ABI</a> &middot; <a href="https://www.infobae.com/america/america-latina/2026/05/16/rodrigo-paz-advirtio-que-los-intentos-de-desestabilizacion-al-gobierno-boliviano-tendran-consecuencias-legales/">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <!-- NEWS ITEMS -->
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Crisis de gobernabilidad: COB, campesinos y mineros exigen renuncia de Paz a los 6 meses de gesti&oacute;n</h3>
+      <p>La Central Obrera Boliviana (COB), sindicatos campesinos de La Paz y sectores mineros mantienen un paro nacional exigiendo aumentos salariales, rechazo a la privatizaci&oacute;n de empresas p&uacute;blicas y la renuncia del presidente Rodrigo Paz Pereira. El mandatario, que cumpli&oacute; seis meses en el cargo en medio de la crisis, defini&oacute; el momento como un "cataclismo" y reivindic&oacute; su mandato democr&aacute;tico ganado en las elecciones generales de 2025. Su partido, el PDC, enfrenta fragmentaci&oacute;n en la Asamblea Legislativa.</p>
+      <span class="source-link"><a href="https://www.wsws.org/es/articles/2026/05/09/e59e-m09.html">WSWS</a> &middot; <a href="https://www.opinion.com.bo/">Opini&oacute;n Bolivia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Luis Arce preso; excirculo del MAS a&uacute;n controla sectores del ahorro boliviano</h3>
+      <p>El expresidente Luis Arce, detenido desde abril, se reivindica como "preso pol&iacute;tico" del gobierno de Paz. Un reportaje de El Pa&iacute;s Bolivia revel&oacute; que el c&iacute;rculo &iacute;ntimo de Arce mantiene influencia en instituciones financieras que custodian parte del ahorro nacional, complicando la transici&oacute;n econ&oacute;mica. La tensi&oacute;n entre el procesamiento judicial del MAS y la estabilidad del sistema financiero es uno de los dilemas centrales del nuevo gobierno.</p>
+      <span class="source-link"><a href="https://elpais.bo/reportajes/20260301_a-cien-dias-del-nuevo-gobierno-el-circulo-de-arce-sigue-controlando-el-ahorro-boliviano.html">El Pa&iacute;s Bolivia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Inflaci&oacute;n al 20% anual y escasez de d&oacute;lares: el trasfondo econ&oacute;mico de las protestas</h3>
+      <p>Bolivia registra una inflaci&oacute;n anual cercana al 20%, la m&aacute;s alta en d&eacute;cadas, impulsada por la eliminaci&oacute;n de subsidios a los combustibles, la escasez de divisas y el alza global del petr&oacute;leo por encima de los 100 d&oacute;lares el barril —efecto del conflicto en Oriente Medio. El pa&iacute;s importa ya el 86% de su di&eacute;sel y el 54% de su gasolina, luego de d&eacute;cadas de desinversi&oacute;n en exploraci&oacute;n hidrocarburos. Las reservas internacionales se encuentran en m&iacute;nimos hist&oacute;ricos.</p>
+      <span class="source-link"><a href="https://es-us.finanzas.yahoo.com/noticias/subsidio-combustible-tensiona-gobierno-boliviano-125340631.html">Yahoo Finanzas</a> &middot; <a href="https://www.globalpetrolprices.com/Bolivia/gasoline_prices/">Global Petrol Prices</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>DS 5516: gasolina a Bs 6,96/l y di&eacute;sel a Bs 9,80/l; combustibles escasean en la crisis</h3>
+      <p>Los precios de combustibles fijados por el Decreto Supremo 5516 (enero 2026) —gasolina especial Bs 6,96/l, di&eacute;sel Bs 9,80/l, gasolina premium Bs 11,00/l— est&aacute;n generando desabastecimiento en La Paz y El Alto ante el corte de rutas de distribuci&oacute;n. Las estaciones de servicio en zonas bloqueadas reportan colas de horas y racionamiento. La imposibilidad de acceder a combustibles agrava tambi&eacute;n la crisis de transporte de alimentos y la operaci&oacute;n de los centros de salud.</p>
+      <span class="source-link"><a href="https://correodelsur.com/economia/20260114/conoce-los-nuevos-precios-de-gasolina-diesel-y-gnv-tras-la-promulgacion-del-ds-5516.html">Correo del Sur</a> &middot; <a href="https://www.reduno.com.bo/economia/gasolina-diesel-y-gnv-en-bolivia-estos-son-los-precios-fijados-tras-el-ds-5516-20261147411">Red Uno</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Tres muertos y hospitales sin ox&iacute;geno: la crisis humanitaria escala en La Paz y El Alto</h3>
+      <p>El Gobierno confirm&oacute; tres fallecidos directamente atribuibles a los bloqueos: dos mujeres bolivianas y una ciudadana de Belice que no pudieron acceder a atenci&oacute;n m&eacute;dica de urgencia a tiempo. Los hospitales de La Paz y El Alto reportan reservas cr&iacute;ticas de ox&iacute;geno m&eacute;dico. Los mercados muestran estantes vac&iacute;os de carne, verduras y productos b&aacute;sicos; los precios de los pocos art&iacute;culos disponibles se han triplicado en algunos barrios. La Defensor&iacute;a del Pueblo exigi&oacute; corredores humanitarios garantizados.</p>
+      <span class="source-link"><a href="https://www.infobae.com/america/agencias/2026/05/16/las-fuerzas-de-seguridad-de-bolivia-intentan-desbloquear-la-paz/">Infobae</a> &middot; <a href="https://www.bolivia.com/actualidad/nacionales/asi-se-lleva-a-cabo-el-operativo-de-desbloqueo-en-la-paz-583780">Bolivia.com</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Declaraci&oacute;n conjunta de 9 pa&iacute;ses; Chile publica comunicado oficial de su canciller&iacute;a</h3>
+      <p>Argentina, Chile, Costa Rica, Ecuador, El Salvador, Guatemala, Panam&aacute;, Paraguay y Per&uacute; suscribieron una declaraci&oacute;n conjunta rechazando "toda acci&oacute;n orientada a desestabilizar el orden democr&aacute;tico" en Bolivia e instando a resolver las diferencias por medio del di&aacute;logo. Chile public&oacute; el comunicado oficial a trav&eacute;s de su Ministerio de Relaciones Exteriores. Es el respaldo regional m&aacute;s expl&iacute;cito que ha recibido el gobierno de Paz desde el inicio de la crisis.</p>
+      <span class="source-link"><a href="https://www.minrel.gob.cl/sala-de-prensa/declaracion-conjunta-sobre-la-situacion-en-bolivia">Canciller&iacute;a Chile</a> &middot; <a href="https://www.ambito.com/politica/cancilleria-emitio-una-declaracion-conjunta-la-situacion-bolivia-rechazamos-toda-accion-orientada-desestabilizar-el-orden-democratico-n6278272">Ambito (ARG)</a> &middot; <a href="https://larepublica.pe/mundo/2026/05/16/gobierno-de-rodrigo-paz-inicia-una-operacion-policial-y-militar-para-levantar-bloqueos-en-bolivia-1545792">La Rep&uacute;blica (PE)</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.40s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga Profesional: partidos del s&aacute;bado con postergaciones por la crisis</h3>
+      <p>Al menos dos partidos de la jornada del s&aacute;bado 16 —Real Oruro vs. Always Ready y Blooming vs. GV San Jos&eacute;— fueron postergados en el marco de la crisis nacional. El partido Universitario de Vinto vs. Bol&iacute;var estaba programado para las 15:00. La Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) no emiti&oacute; comunicado general, pero los clubs afectados confirmaron las suspensiones por motivos log&iacute;sticos y de seguridad derivados de los bloqueos.</p>
+      <span class="source-link"><a href="https://www.flashscore.es/futbol/bolivia/division-profesional/">Flashscore</a> &middot; <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+    </div>
+
+    <!-- DATA STRIP -->
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar Oficial (BCB)</div>
+        <div class="data-cell-value">Bs 6,96</div>
+        <div class="data-cell-delta neutral">Sin variaci&oacute;n</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar Paralelo (P2P)</div>
+        <div class="data-cell-value red">Bs 10,00</div>
+        <div class="data-cell-delta red">Binance P2P</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Brecha Cambiaria</div>
+        <div class="data-cell-value red">43,7%</div>
+        <div class="data-cell-delta neutral">Oficial vs. paralelo</div>
+      </div>
+    </div>
+
+    <!-- QUÉ VIGILAR -->
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Sostenimiento del operativo de desbloqueo: los manifestantes retomaron puntos estrat&eacute;gicos al mediod&iacute;a; la noche definir&aacute; si los corredores humanitarios pueden mantenerse o si el gobierno escala la intervenci&oacute;n.</div>
+      <div class="vigilar-item">Situaci&oacute;n de Evo Morales en Chimore&acute;: con el aeropuerto tomado y tres &oacute;rdenes de detenci&oacute;n vigentes, un intento de captura puede ser el punto de inflexi&oacute;n m&aacute;s peligroso. Monitorear si hay negociaci&oacute;n pol&iacute;tica paralela.</div>
+      <div class="vigilar-item">Efecto cascada del acuerdo con maestros: si la COR de El Alto y los sindicatos mineros siguen el modelo del bono, la crisis podr&iacute;a descomprimirse sin mayor escalada. Si no, el gobierno quedar&aacute; aislado frente a un bloque de presi&oacute;n m&aacute;s cohesionado.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; El Deber &middot; Los Tiempos &middot; Opini&oacute;n &middot; ABI &middot; Red Uno &middot; eju.tv &middot; Bloomberg L&iacute;nea &middot; La Naci&oacute;n (ARG) &middot; Visi&oacute;n 360 &middot; Correo del Sur &middot; Canciller&iacute;a Chile</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div><!-- /wrap -->
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
