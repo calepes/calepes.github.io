@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &mdash; 21 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1d4ed8;
+      --accent-soft: rgba(29,78,216,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #EBF0FA 0%, #D8E4F0 25%, #D4DCE8 55%, #E8EEF6 80%, #F4F4FA 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(29,78,216,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(234,179,8,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .neutral { color: var(--muted); } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Jueves 21 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Crisis diplom&aacute;tica Bolivia&ndash;Colombia: expulsi&oacute;n mutua de embajadores tras declaraciones de Petro</div>
+            </div>
+            <div class="swipe-body">Bolivia expuls&oacute; a la embajadora colombiana Elizabeth Garc&iacute;a despu&eacute;s de que el presidente Gustavo Petro calificara los bloqueos que sacuden a Bolivia como una &ldquo;insurrecci&oacute;n popular&rdquo;. En reciprocidad, Colombia expuls&oacute; al encargado de la embajada boliviana, Ariel Percy Molina. Petro luego acus&oacute; al gobierno de Paz de &ldquo;virar hacia extremismos&rdquo;. La oposici&oacute;n colombiana denunci&oacute; que Petro &ldquo;respalda a un golpista&rdquo;.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              A 10 d&iacute;as de la primera vuelta, Petro escala en el tablero regional sin costo electoral propio pero s&iacute; afecta la imagen del Pacto Hist&oacute;rico. La crisis puede alimentar el discurso de los candidatos de derecha que advierten sobre la &ldquo;injerencia bolivariana&rdquo; en Colombia.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.emol.com">Emol</a> &middot; <a href="https://www.elheraldo.co">El Heraldo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">10 d&iacute;as para la primera vuelta: Cepeda lidera con 38%, De la Espriella 33%, Valencia 17%</div>
+            </div>
+            <div class="swipe-body">A d&iacute;as de las elecciones presidenciales del 31 de mayo, la encuesta Atlas Intel (14-17 mayo) muestra a Iv&aacute;n Cepeda (Pacto Hist&oacute;rico) liderando con 37,6%, seguido por Abelardo De la Espriella con 32,9% y Paloma Valencia (Centro Democr&aacute;tico) con 16,7%. Sin embargo, en escenarios de segunda vuelta, Valencia superar&iacute;a a Cepeda (48,3% vs 45,6%). La dispersi&oacute;n del voto entre 14 candidatos hace probable una segunda vuelta.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Cepeda dif&iacute;cilmente supera el 50%+1 en primera vuelta. El escenario m&aacute;s probable es un balotaje Cepeda&ndash;Valencia, donde la derecha unificada tendr&iacute;a ventaja. La posici&oacute;n de De la Espriella en segunda vuelta ser&aacute; decisiva.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.elespectador.com">El Espectador</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Petro emite cuatro &oacute;rdenes para proteger sistema pensional tras suspensi&oacute;n del decreto de Colpensiones</div>
+            </div>
+            <div class="swipe-body">El presidente Gustavo Petro firm&oacute; la Directiva Presidencial 04 con cuatro l&iacute;neas de acci&oacute;n inmediata para proteger el sistema de pensiones, luego de que la justicia suspendiera el Decreto 415 que buscaba trasladar US$25 billones (COP) desde fondos privados hacia Colpensiones. Petro tambi&eacute;n pidi&oacute; directamente a la Corte Constitucional que pusiera el tema en agenda. La senadora Mar&iacute;a Fernanda Cabal calific&oacute; la medida de &ldquo;un atraco&rdquo;.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El traslado de $25 billones a Colpensiones es la &uacute;ltima gran batalla de Petro antes de entregar el poder. Un fallo favorable de la Corte Constitucional ser&iacute;a su mayor legado legislativo; uno adverso dejar&iacute;a su reforma pensional sin efecto real.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://tdicolombia.com.co">TDI Colombia</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">D&oacute;lar baja a m&iacute;nimo en d&iacute;as: TRM cierra en $3.701, ca&iacute;da de $66 frente al d&iacute;a anterior</div>
+            </div>
+            <div class="swipe-body">La Tasa Representativa del Mercado cerr&oacute; en $3.701 el 21 de mayo, registrando una ca&iacute;da de $66,38 frente al valor del d&iacute;a anterior ($3.767,49) y alcanzando su nivel m&aacute;s bajo en m&aacute;s de una semana. La baja del d&oacute;lar se explica por un contexto internacional de debilitamiento del dolar a nivel global, mayor entrada de divisas por exportaciones y expectativas de estabilidad electoral a corto plazo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Una TRM en $3.701 alivia la presi&oacute;n inflacionaria importada y beneficia a deudores en d&oacute;lares. Sin embargo, la volatilidad preelectoral puede revertir esta tendencia si los mercados perciben incertidumbre sobre el resultado del 31 de mayo.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.noticiascaracol.com">Noticias Caracol</a> &middot; <a href="https://www.noticiasrcn.com">RCN Noticias</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Paz Total en su peor momento: presi&oacute;n delictiva en el nivel m&aacute;s alto del gobierno Petro</div>
+            </div>
+            <div class="swipe-body">Colombia llega a las elecciones con la presi&oacute;n delictiva en el nivel m&aacute;s alto de los tres a&ntilde;os de gobierno Petro. La extorsi&oacute;n acumula un alza superior al 800% desde 2010, con 13.417 casos en 2025. El pa&iacute;s figura como el segundo de mayor criminalidad organizada del mundo (Global Organized Crime Index 2025). La pol&iacute;tica de Paz Total no logr&oacute; reducir la violencia ni el control territorial de grupos armados, que han crecido un 300% desde 2017.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La seguridad dominar&aacute; los &uacute;ltimos 10 d&iacute;as de campa&ntilde;a. Cepeda defender&aacute; la continuidad del proceso de paz; Valencia y De la Espriella proponen un enfoque m&aacute;s represivo. La postura de cada candidato definir&aacute; transferencias de voto entre los tres bloques.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.vanguardia.com">Vanguardia</a> &middot; <a href="https://razonpublica.com">Raz&oacute;n P&uacute;blica</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Petro defiende su posici&oacute;n sobre Bolivia: acusa a Paz de &ldquo;extremismo&rdquo;; oposici&oacute;n lo confronta</h3>
+      <p>Tras la expulsi&oacute;n mutua de diplomáticos, el presidente Petro mantuvo su posici&oacute;n y acus&oacute; al gobierno boliviano de &ldquo;virar hacia extremismos&rdquo;. Los candidatos presidenciales colombianos reaccionaron de forma diferente: Paloma Valencia (CD) dijo que &ldquo;Petro respalda a un golpista&rdquo;, mientras el entorno de Cepeda guard&oacute; silencio estrat&eacute;gico. La polarizaci&oacute;n regionale toca de lleno la campa&ntilde;a a d&iacute;as de la primera vuelta.</p>
+      <span class="source-link"><a href="https://www.semana.com">Semana</a> &middot; <a href="https://www.elheraldo.co">El Heraldo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Reforma a la salud y otras iniciativas de Petro en riesgo en el Congreso en sus &uacute;ltimas semanas</h3>
+      <p>El gobierno Petro enfrenta la recta final para aprobar sus reformas clave. La reforma a la salud, la jurisdicci&oacute;n agraria y la continuidad del Ministerio de Igualdad siguen en riesgo por un ambiente de par&aacute;lisis legislativa. Con el Congreso en modo electoral y los partidos enfocados en la campa&ntilde;a del 31 de mayo, el tiempo pol&iacute;tico para el ejecutivo es pr&aacute;cticamente nulo. Las reformas que no se aprueben antes del 7 de agosto ser&aacute;n legado perdido.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://cambiocolombia.com">Cambio Colombia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Inseguridad frena la inversi&oacute;n: Colombia, segundo en criminalidad organizada mundial seg&uacute;n &iacute;ndice 2025</h3>
+      <p>Seg&uacute;n el Global Organized Crime Index 2025, Colombia es el segundo pa&iacute;s con mayor criminalidad organizada en el mundo, solo detr&aacute;s de Myanmar. Para las empresas, esto se traduce en mayor gasto en seguridad, seguros m&aacute;s caros, interrupciones log&iacute;sticas y riesgo para trabajadores. Empresas peque&ntilde;as optan por no expandirse y otras reducen operaciones. La inseguridad se convierte en restricci&oacute;n estructural al desarrollo econ&oacute;mico.</p>
+      <span class="source-link"><a href="https://www.elcolombiano.com">El Colombiano</a> &middot; <a href="https://www.infobae.com">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Crisis Bolivia&ndash;Colombia en contexto: Petro a d&iacute;as del fin de su mandato y con las elecciones encima</h3>
+      <p>Gustavo Petro concluye su mandato el 7 de agosto de 2026. Con solo 10 d&iacute;as antes de la primera vuelta presidencial colombiana, su intervenci&oacute;n en el conflicto boliviano reaviva el debate sobre pol&iacute;tica exterior en un momento en que los candidatos quieren diferenciarse del gobierno saliente. La crisis diplom&aacute;tica con Bolivia llega en el momento de mayor fragilidad pol&iacute;tica del mandatario.</p>
+      <span class="source-link"><a href="https://www.semana.com">Semana</a> &middot; <a href="https://www.latercera.com">La Tercera</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">TRM d&oacute;lar (cierre)</div>
+        <div class="data-cell-value green">$3.701</div>
+        <div class="data-cell-delta green">&darr; $66 m&iacute;nimo en d&iacute;as</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">1ra vuelta en</div>
+        <div class="data-cell-value">10 d&iacute;as</div>
+        <div class="data-cell-delta neutral">31 de mayo 2026</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Cepeda lidera</div>
+        <div class="data-cell-value">37,6%</div>
+        <div class="data-cell-delta neutral">Atlas Intel mayo</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Primera vuelta 31 mayo: con Cepeda en 38% dif&iacute;cilmente llega al 50%+1. El escenario m&aacute;s probable es una segunda vuelta Cepeda&ndash;Valencia donde los votos de De la Espriella (30%) ser&aacute;n determinantes. &iquest;A qui&eacute;n llama a votar De la Espriella si pierde?</div>
+      <div class="vigilar-item">Fallo de la Corte Constitucional sobre pensiones: la decisi&oacute;n sobre el traslado de $25 billones a Colpensiones puede llegar antes del 31 de mayo. Si la Corte falla a favor, Petro tendr&iacute;a su mayor victoria legislativa; si falla en contra, su &uacute;ltimo trimestre termina sin sus reformas clave.</div>
+      <div class="vigilar-item">Impacto de la crisis Bolivia&ndash;Colombia en campa&ntilde;a: &iquest;se convierte en tema de debate? Los candidatos de derecha tienen incentivos para usar el episodio contra el Pacto Hist&oacute;rico; Cepeda debe decidir si se distancia de Petro o defiende la posici&oacute;n del gobierno.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; Semana &middot; El Espectador &middot; El Heraldo &middot; Noticias Caracol &middot; RCN Noticias &middot; Cambio Colombia &middot; Raz&oacute;n P&uacute;blica &middot; El Colombiano &middot; Vanguardia &middot; Emol &middot; La Tercera</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
