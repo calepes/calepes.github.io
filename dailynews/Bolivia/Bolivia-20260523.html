@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia &mdash; 23 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .red { color: #FF3B30; } .neutral { color: var(--muted); }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">S&aacute;bado 23 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Corredor Humanitario suspendido: emboscada con dinamita en Copata frustra el operativo oficial</div>
+            </div>
+            <div class="swipe-body">El operativo &ldquo;Corredor Humanitario de las Banderas Blancas&rdquo;, lanzado en la madrugada del 23 de mayo para restituir el tr&aacute;nsito en la ruta La Paz&ndash;Oruro, fue suspendido tras una emboscada en el sector de Copata. Seg&uacute;n el ministro de Obras P&uacute;blicas Mauricio Zamora, la caravana &mdash;compuesta por polic&iacute;as, militares y civiles&mdash; fue atacada con piedras y dinamita en Copata, Achica Arriba y Vilaque. Los efectivos se replegaron sin lograr avanzar. La Paz lleva 23 d&iacute;as aislada.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El fracaso del corredor humanitario es el golpe m&aacute;s duro para el gobierno en semanas: la estrategia de presencia institucional en las rutas acaba de colapsar ante la resistencia organizada. Hospitales, f&aacute;rmacos y combustible siguen sin entrar a La Paz.
+            </div>
+            <div class="swipe-source">
+              <a href="https://exitonoticias.com.bo">Exito Noticias</a> &middot; <a href="https://www.reduno.com.bo">Red Uno</a> &middot; <a href="https://www.rosario3.com">Rosario3</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Miles marchan en La Paz exigiendo la renuncia de Rodrigo Paz &mdash; d&iacute;a 23 de protestas</div>
+            </div>
+            <div class="swipe-body">Campesinos, obreros, mineros, transportistas, maestros y grupos afines al exmandatario Evo Morales volvieron a tomar las calles de La Paz. La movilizaci&oacute;n es la mayor de las &uacute;ltimas dos semanas: seg&uacute;n La Jornada, miles de trabajadores marcharon exigiendo la renuncia del presidente. Los manifestantes se agruparon en los accesos a la ciudad, reforzando el cerco desde el Alto. El gobierno denunci&oacute; infiltraci&oacute;n del crimen organizado en las marchas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Que la movilizaci&oacute;n se amplifique en el d&iacute;a 23 &mdash;justo cuando fracasa el corredor humanitario&mdash; cierra cualquier salida r&aacute;pida. El gobierno enfrenta ahora presi&oacute;n simult&aacute;nea en las calles y en las rutas.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.jornada.com.mx">La Jornada</a> &middot; <a href="https://www.proceso.com.mx">Proceso</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Evo Morales acusa a EE.UU. de &ldquo;financiar golpes&rdquo; tras cr&iacute;ticas de Rubio a las protestas</div>
+            </div>
+            <div class="swipe-body">El exmandatario Evo Morales arremetio contra el secretario de Estado Marco Rubio, quien calific&oacute; a algunos l&iacute;deres de las movilizaciones como &ldquo;delincuentes y narcotraficantes&rdquo;. Morales respondi&oacute; acusando a Washington de &ldquo;financiar golpes en Am&eacute;rica Latina&rdquo; y llam&oacute; a la movilizaci&oacute;n internacional. Rubio hab&iacute;a expresado respaldo al presidente Paz. La confrontaci&oacute;n convierte a Bolivia en un frente de la disputa geopolítica regional.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La escalada retórica Morales-Rubio internacionaliza el conflicto. Cada declaraci&oacute;n de Washington refuerza la narrativa del gobierno boliviano (golpe de Estado) y la narrativa opositora (imperialismo). Ninguno de los dos puede dar marcha atr&aacute;s.
+            </div>
+            <div class="swipe-source">
+              <a href="https://eju.tv">Eju.tv</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Paz y Milei: &ldquo;Hemos estado en contacto de gobierno a gobierno&rdquo; &mdash; apoyo argentino en plena crisis</div>
+            </div>
+            <div class="swipe-body">El presidente Rodrigo Paz destac&oacute; p&uacute;blicamente el apoyo del presidente argentino Javier Milei, afirmando que ambos gobiernos han mantenido contacto directo durante la crisis. El respaldo de Argentina, junto al de EE.UU., configura un bloque de apoyo expl&iacute;cito al gobierno boliviano. Paz busc&oacute; con esta declaraci&oacute;n mostrar solidez en su frente externo en momentos en que el frente interno se complica por el fracaso del corredor humanitario.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El apoyo de Milei tiene peso simb&oacute;lico y pr&aacute;ctico: Argentina comparte frontera con Bolivia y es socio comercial clave. Si la crisis escala a sanciones o aislamiento, el apoyo argentino ser&iacute;a la primera l&iacute;nea de soporte log&iacute;stico regional.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.canal26.com">Canal 26</a> &middot; <a href="https://www.ambito.com">&Aacute;mbito</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">D&iacute;a 23 de bloqueos: 5 muertos, p&eacute;rdidas superan $600 millones y La Paz sin suministros</div>
+            </div>
+            <div class="swipe-body">Al cumplirse 23 d&iacute;as de bloqueos, el balance es cr&iacute;tico: la Defensor&iacute;a del Pueblo confirm&oacute; 5 muertes directamente atribuibles a los cortes de ruta. La C&aacute;mara Nacional de Industrias cifra las p&eacute;rdidas econ&oacute;micas en m&aacute;s de $600 millones. La C&aacute;mara Departamental de Industrias alerta p&eacute;rdidas de hasta $15 millones diarios. Los mercados populares reportan precios duplicados o triplicados. La Cruz Roja exige un corredor permanente.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Con cada d&iacute;a de bloqueo el costo econ&oacute;mico y humano se acumula irreversiblemente. Los $15 millones diarios de p&eacute;rdida son insostenibles para una econom&iacute;a ya en recesi&oacute;n. La ventana para una soluci&oacute;n antes de colapso humanitario total se estrecha.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.ambito.com">Ambito</a> &middot; <a href="https://www.icrc.org">Cruz Roja Internacional</a> &middot; <a href="https://eldeber.com.bo">El Deber</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>D&oacute;lar paralelo supera Bs 10 frente al oficial de Bs 6,86 &mdash; brecha del 46% persiste</h3>
+      <p>El tipo de cambio paralelo se mantiene en torno a los Bs 10,05 para la compra, mientras el Banco Central de Bolivia fija el oficial en Bs 6,86. La brecha del 46% refleja la escasez estructural de divisas en el sistema bancario formal, agravada por los bloqueos que impiden el flujo comercial. La CEPAL proyecta solo 0,5% de crecimiento para Bolivia en 2026, y el Banco Mundial anticipa una contracci&oacute;n del PIB de -1,1%.</p>
+      <span class="source-link"><a href="https://eldeber.com.bo">El Deber</a> &middot; <a href="https://rtvu.uto.edu.bo">RTVU</a> &middot; <a href="https://www.reduno.com.bo">Red Uno</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Bolivia niega crisis de gobierno: &ldquo;Estamos en control de la situaci&oacute;n&rdquo;, declara vocero</h3>
+      <p>El gobierno de Rodrigo Paz emiti&oacute; un comunicado oficial negando una &ldquo;crisis de gobernabilidad&rdquo; y afirmando que las instituciones del Estado funcionan con normalidad. El vocero gubernamental insisti&oacute; en que el operativo del corredor humanitario sigue en pie pese al repliegue. La oposici&oacute;n y analistas cuestionaron el discurso oficial ante la evidencia del fracaso del operativo. El Congreso boliviano no convoc&oacute; sesi&oacute;n de emergencia.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.losandes.com.ar">Los Andes</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Ocho pa&iacute;ses latinoamericanos expresan alarma humanitaria por los bloqueos en Bolivia</h3>
+      <p>Ocho gobiernos de la regi&oacute;n manifestaron preocupaci&oacute;n por la situaci&oacute;n humanitaria en Bolivia, producto de los bloqueos sostenidos. Las notas diplom&aacute;ticas exigen el restablecimiento del acceso a alimentos, medicamentos y combustibles. La presencia internacional agrega presi&oacute;n adicional sobre ambas partes. Las Naciones Unidas y la OEA estudian una visita de observadores humanitarios.</p>
+      <span class="source-link"><a href="https://www.prensa-latina.cu">Prensa Latina</a> &middot; <a href="https://exitonoticias.com.bo">Exito Noticias</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Tensi&oacute;n en accesos a La Paz: vuelven enfrentamientos mientras el mundo observa</h3>
+      <p>Los accesos a La Paz fueron nuevamente escenario de enfrentamientos entre manifestantes y fuerzas del orden el 23 de mayo. Los medios internacionales &mdash;desde Proceso hasta MendoVoz y Rosario3&mdash; cubrieron extensamente el fracaso del corredor humanitario, lo que eleva la visibilidad global del conflicto. El gobierno de Bolivia mantiene su posici&oacute;n de que la crisis es una tentativa de golpe de Estado financiada por actores vinculados al narcotr&aacute;fico y al expresidente Morales.</p>
+      <span class="source-link"><a href="https://www.mendovoz.com">MendoVoz</a> &middot; <a href="https://www.proceso.com.mx">Proceso</a> &middot; <a href="https://www.cronista.com">El Cronista</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar BCB (oficial)</div>
+        <div class="data-cell-value">Bs 6,86</div>
+        <div class="data-cell-delta neutral">Tipo oficial fijo</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar Paralelo</div>
+        <div class="data-cell-value red">Bs 10,05</div>
+        <div class="data-cell-delta red">Mercado informal</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Brecha Cambiaria</div>
+        <div class="data-cell-value red">46,4%</div>
+        <div class="data-cell-delta neutral">Oficial vs. paralelo</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Segundo intento de corredor humanitario: tras el fracaso del 23 de mayo, el gobierno deber&aacute; decidir si repite la operaci&oacute;n con mayor resguardo o cambia de estrategia. La respuesta definir&aacute; si el Estado tiene capacidad operativa real o solo retórica.</div>
+      <div class="vigilar-item">Posici&oacute;n de Rodrigo Paz y el gabinete: el fracaso del operativo es una derrota visible. C&oacute;mo el gobierno procesa este revés &mdash;moverá a la negociaci&oacute;n o endurecerá la postura&mdash; es la pregunta clave del d&iacute;a.</div>
+      <div class="vigilar-item">Crisis hospitalaria y escasez de combustible: con La Paz sin suministros por 23 d&iacute;as, cualquier muerte atribuible a los bloqueos incrementa la presi&oacute;n internacional sobre ambas partes para encontrar una salida negociada urgente.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; La Jornada &middot; Proceso &middot; Red Uno &middot; El Deber &middot; Exito Noticias &middot; Eju.tv &middot; &Aacute;mbito &middot; Canal 26 &middot; Los Andes &middot; Cruz Roja Internacional &middot; Prensa Latina &middot; Rosario3</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
