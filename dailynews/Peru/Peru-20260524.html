@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Per&uacute; &mdash; 24 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1e3a8a;
+      --accent-soft: rgba(30,58,138,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #E8EEF8 0%, #D4DCF4 25%, #D8E8E0 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(30,58,138,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(185,28,28,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #16a34a; } .neutral { color: var(--muted); } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Per&uacute;</h1>
+      <div class="masthead-date">Domingo 24 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Debate t&eacute;cnico presidencial: equipos de Keiko Fujimori y Roberto S&aacute;nchez confrontan modelos de pa&iacute;s</div>
+            </div>
+            <div class="swipe-body">Los equipos t&eacute;cnicos de Fuerza Popular y Juntos por el Per&uacute; se enfrentaron el domingo 24 de mayo en el debate organizado por el JNE, antesala del cara a cara del 31. Jose Luis Galarreta lider&oacute; al equipo fujimorista; Pedro Francke, al de Roberto S&aacute;nchez. Los seis bloques temáticos &mdash;reforma del Estado, juventud, agricultura, infraestructura, econom&iacute;a y salud&mdash; pusieron en evidencia diferencias profundas sobre el rol del Estado, la regulaci&oacute;n minera y el manejo del gasto p&uacute;blico.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Este debate t&eacute;cnico es la &uacute;ltima gran oportunidad de los equipos para instalar propuestas antes del debate presidencial del 31 y la segunda vuelta del 7 de junio. Las posiciones expuestas hoy ser&aacute;n el marco que los medios usar&aacute;n para evaluar a los candidatos la pr&oacute;xima semana.
+            </div>
+            <div class="swipe-source">
+              <a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://elcomercio.pe">El Comercio</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Encuestas: Keiko lidera con 39&ndash;39,5% vs S&aacute;nchez 35&ndash;36,1% &mdash; indecisos del 24% definen el balotaje</div>
+            </div>
+            <div class="swipe-body">Las &uacute;ltimas encuestas de Ipsos y Datum &mdash;publicadas el 20 y 22 de mayo respectivamente&mdash; muestran a Keiko Fujimori con una ventaja real pero no definitiva: 39&ndash;39,5% frente al 35&ndash;36,1% de Roberto S&aacute;nchez. La diferencia de 3&ndash;4 puntos est&aacute; dentro del margen de error. El bloque indeciso m&aacute;s voto en blanco ronda el 24&ndash;26% del electorado, superando ampliamente la brecha entre candidatos. Keiko domina Lima, S&aacute;nchez lidera Centro y Sur.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Con 24% de indecisos y la segunda vuelta a 14 d&iacute;as, ning&uacute;n resultado est&aacute; garantizado. El desempe&ntilde;o en el debate del 31 podr&iacute;a desempatar. La distribuci&oacute;n geogr&aacute;fica sugiere que las regiones del sur y centro &mdash;hist&oacute;ricamente decisivas&mdash; favorecen a S&aacute;nchez.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://caretas.pe">Caretas</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Econom&iacute;a peruana creci&oacute; 3,5% en el primer trimestre de 2026 con inversi&oacute;n privada al alza por noveno trimestre</div>
+            </div>
+            <div class="swipe-body">El Ministerio de Econom&iacute;a y Finanzas confirm&oacute; que el PIB peruano creci&oacute; 3,5% en el primer trimestre de 2026, impulsado por una expansi&oacute;n de la inversi&oacute;n privada del 13,2% &mdash;el noveno trimestre consecutivo de crecimiento en ese rubro. La demanda interna creci&oacute; 6,6%, su mayor expansi&oacute;n en casi cinco a&ntilde;os. El consumo privado subi&oacute; 3,5%, acumulando 10 trimestres seguidos al alza. La OCDE proyecta un crecimiento del 3,2% para todo 2026.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El buen desempe&ntilde;o econ&oacute;mico convierte al manejo fiscal y la continuidad de la inversi&oacute;n privada en uno de los principales ejes del debate electoral. Ambos candidatos buscar&aacute;n apropiarse de esa narrativa de crecimiento con propuestas diferenciadas.
+            </div>
+            <div class="swipe-source">
+              <a href="https://tvperu.gob.pe">TV Per&uacute;</a> &middot; <a href="https://rpp.pe">RPP</a> &middot; <a href="https://comexperu.org.pe">ComexPer&uacute;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Miner&iacute;a ilegal opera como econom&iacute;a criminal: interdicciones m&aacute;s que duplicadas en dos a&ntilde;os</div>
+            </div>
+            <div class="swipe-body">La PCM advirti&oacute; que las interdicciones a la miner&iacute;a ilegal superan las 130 operaciones mensuales en 2026, m&aacute;s del doble que las 62 registradas en 2024. El analista Iv&aacute;n Arenas, en el congreso proEXPLO 2026, alert&oacute; que la miner&iacute;a ilegal ya &ldquo;opera como una econom&iacute;a criminal que disputa territorios&rdquo;, con corredores conectados al narcotr&aacute;fico, tr&aacute;fico de armas y lavado de activos. M&aacute;s de 140.000 hect&aacute;reas de bosque han sido destruidas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La miner&iacute;a ilegal es uno de los grandes temas ausentes del debate electoral: ning&uacute;n candidato ha presentado un plan concreto con recursos y plazos. El pr&oacute;ximo gobierno heredar&aacute; un problema que escala en territorio y sofisticaci&oacute;n criminal.
+            </div>
+            <div class="swipe-source">
+              <a href="https://iimp.org.pe">IIMP</a> &middot; <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.actualidadambiental.pe">Actualidad Ambiental</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">D&oacute;lar estable en S/ 3,413&ndash;3,421 pese a clima electoral &mdash; BCRP mantiene manejo prudente</div>
+            </div>
+            <div class="swipe-body">El tipo de cambio en Per&uacute; se mantuvo estable el domingo 24 de mayo en S/ 3,413 para la compra y S/ 3,421 para la venta, seg&uacute;n informaci&oacute;n oficial de la SUNAT. La estabilidad cambiaria en plena segunda vuelta electoral refleja la confianza de los mercados en el marco macroecon&oacute;mico del BCRP. Expertos advierten que la volatilidad podr&iacute;a incrementarse si los resultados del 7 de junio generan incertidumbre sobre la direcci&oacute;n de la pol&iacute;tica econ&oacute;mica del pr&oacute;ximo gobierno.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La estabilidad del sol peruano antes del balotaje es una buena noticia para la econom&iacute;a real, pero tambi&eacute;n un bar&oacute;metro de expectativas. Si los mercados perciben riesgo en los programas de cualquiera de los dos candidatos, el tipo de cambio ser&aacute; el primer indicador que lo refleje.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.expreso.com.pe">Expreso</a> &middot; <a href="https://eltiempo.pe">El Tiempo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Segunda vuelta el 7 de junio: Keiko Fujimori obtuvo 17,2% y Roberto S&aacute;nchez 12% en la primera vuelta</h3>
+      <p>Los resultados oficiales de la ONPE al 100% confirmaron que Keiko Fujimori (Fuerza Popular) y Roberto S&aacute;nchez (Juntos por el Per&uacute;) disputar&aacute;n el balotaje del 7 de junio. Fujimori obtuvo el 17,19% y S&aacute;nchez el 12,04% en la primera vuelta del 12 de abril. El campo de indecisos y voto blanco &mdash;que ronda el 24&ndash;26% de cara a la segunda vuelta&mdash; ser&aacute; definitorio. El debate del 31 de mayo ser&aacute; el &uacute;ltimo gran escenario p&uacute;blico antes de la votaci&oacute;n.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://rpp.pe">RPP</a> &middot; <a href="https://elcomercio.pe">El Comercio</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Inversi&oacute;n privada acumula nueve trimestres al alza &mdash; expertos piden que el debate fije posici&oacute;n sobre BCR y d&eacute;ficit</h3>
+      <p>Economistas consultados por RPP se&ntilde;alaron que el debate t&eacute;cnico debi&oacute; profundizar en tres ejes clave: la autonom&iacute;a del Banco Central de Reserva, la reducci&oacute;n de la pobreza que afecta a 8,8 millones de peruanos, y el deterioro del d&eacute;ficit fiscal. La inversi&oacute;n privada creci&oacute; 13,2% en el Q1 2026 y acumula nueve trimestres de expansi&oacute;n, consolidando el Per&uacute; como uno de los mercados m&aacute;s din&aacute;micos de la regi&oacute;n.</p>
+      <span class="source-link"><a href="https://rpp.pe">RPP</a> &middot; <a href="https://gestion.pe">Gesti&oacute;n</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Miner&iacute;a ilegal destruy&oacute; 140.000 hect&aacute;reas y contamin&oacute; 225 cuerpos de agua con mercurio</h3>
+      <p>El informe presentado en proEXPLO 2026 confirm&oacute; que la miner&iacute;a ilegal e informal ha devastado m&aacute;s de 140.000 hect&aacute;reas de bosques amazónicos y contaminado al menos 225 cuerpos de agua con mercurio, afectando principalmente a Madre de Dios, Loreto, Amazonas, Ucayali y Hu&aacute;nuco. Los corredores econ&oacute;micos ilegales conectan miner&iacute;a, narcotr&aacute;fico y lavado de activos en zonas donde el Estado tiene presencia limitada.</p>
+      <span class="source-link"><a href="https://www.actualidadambiental.pe">Actualidad Ambiental</a> &middot; <a href="https://iimp.org.pe">IIMP</a> &middot; <a href="https://www.observatoriomineriailegal.org.pe">Observatorio</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Inestabilidad institucional 2025&ndash;2026: Boluarte vacada en octubre, Jer&iacute; destituido en febrero, gobierno de transici&oacute;n actual</h3>
+      <p>Per&uacute; llega al balotaje del 7 de junio tras atravesar su mayor crisis institucional reciente: Dina Boluarte fue vacada por el Congreso el 9 de octubre de 2025 con 122 votos. Jos&eacute; Jer&iacute; asumi&oacute; la presidencia pero fue censurado y destituido el 17 de febrero de 2026, acusado de enriquecimiento il&iacute;cito y trato irregular con empresarios chinos. El pr&oacute;ximo presidente deber&aacute; restaurar la legitimidad institucional desde el primer d&iacute;a.</p>
+      <span class="source-link"><a href="https://comunicaciones.congreso.gob.pe">Congreso</a> &middot; <a href="https://www.infobae.com">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Crisis en Bolivia agrega presi&oacute;n regional: corte de rutas afecta fronteras con Per&uacute; y Chile</h3>
+      <p>Los bloqueos que cumplen 24 d&iacute;as en Bolivia han cortado las rutas estrat&eacute;gicas hacia las fronteras con Per&uacute; y Chile, impactando el tr&aacute;nsito comercial binacional. El gobierno peruano mantiene monitoreo del flujo en los puestos fronterizos del sur, especialmente en Desaguadero e Ilave. Exportaciones de productos frescos peruanos hacia Bolivia han quedado retenidas. La situaci&oacute;n en el pa&iacute;s vecino suma presiones log&iacute;sticas a la regi&oacute;n andina.</p>
+      <span class="source-link"><a href="https://rpp.pe">RPP</a> &middot; <a href="https://larepublica.pe">La Rep&uacute;blica</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar (SUNAT)</div>
+        <div class="data-cell-value">S/ 3,413</div>
+        <div class="data-cell-delta neutral">24 mayo 2026</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">PIB Q1 2026</div>
+        <div class="data-cell-value green">+3,5%</div>
+        <div class="data-cell-delta green">Crecimiento anual</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Inv. Privada Q1</div>
+        <div class="data-cell-value green">+13,2%</div>
+        <div class="data-cell-delta green">9 trim. consecutivos</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Reacci&oacute;n a los resultados del debate t&eacute;cnico del 24: los medios y encuestadoras analizar&aacute;n qui&eacute;n &ldquo;gan&oacute;&rdquo; el debate. Esa percepci&oacute;n mediat&oacute;tica podr&iacute;a mover las enc uestas antes del debate presidencial del 31 de mayo.</div>
+      <div class="vigilar-item">Movimiento del voto indeciso (24&ndash;26%): el bloque que define la elecci&oacute;n a&uacute;n no tiene candidato. Cualquier declaraci&oacute;n, escándalo o nuevo hecho durante la semana puede catalizarlo hacia uno u otro lado antes del 7 de junio.</div>
+      <div class="vigilar-item">Impacto de la crisis boliviana en las fronteras del sur: si los bloqueos en Bolivia se prolongan, podr&iacute;an afectar exportaciones peruanas y requerir gestiones diplom&aacute;ticas activas del gobierno de transici&oacute;n.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; La Rep&uacute;blica &middot; El Comercio &middot; RPP &middot; Gesti&oacute;n &middot; TV Per&uacute; &middot; Caretas &middot; Expreso &middot; IIMP &middot; Actualidad Ambiental &middot; ComexPer&uacute; &middot; Congreso de la Rep&uacute;blica</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
