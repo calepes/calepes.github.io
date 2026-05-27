@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia &mdash; 26 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .red { color: #FF3B30; } .neutral { color: var(--muted); }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Martes 26 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Congreso da luz verde para desplegar militares: Diputados abroga Ley 1341 con m&aacute;s de dos tercios de votos</div>
+            </div>
+            <div class="swipe-body">Con m&aacute;s de dos tercios de votos a favor, la C&aacute;mara de Diputados aprob&oacute; la abrogaci&oacute;n de la Ley 1341, que desde 2020 establec&iacute;a l&iacute;mites y controles legislativos a los estados de excepci&oacute;n. La sesi&oacute;n dur&oacute; m&aacute;s de cinco horas y se realiz&oacute; de forma virtual porque legisladores no pudieron llegar a La Paz por los bloqueos. El impulsor, Carlos Alarc&oacute;n (Unidad), afirm&oacute; que la ley era &ldquo;criminal&rdquo; y limit&oacute; la capacidad del Estado frente al &ldquo;caos y la anarqu&iacute;a&rdquo;.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La aprobaci&oacute;n da a Paz cobertura jur&iacute;dica para declarar el estado de excepci&oacute;n y desplegar las Fuerzas Armadas en las protestas. Es el hecho pol&iacute;tico m&aacute;s determinante del d&iacute;a. Organismos de DDHH y la oposici&oacute;n advierten sobre el riesgo de replicar la violencia de octubre de 2019.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.latercera.com">La Tercera</a> &middot; <a href="https://www.biobiochile.cl">BioBioChile</a> &middot; <a href="https://www.eluniverso.com">El Universo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Bolivia, d&iacute;a 26 bloqueada: Lula env&iacute;a ayuda humanitaria mientras la crisis se profundiza</div>
+            </div>
+            <div class="swipe-body">El presidente de Brasil, Luiz In&aacute;cio Lula da Silva, orden&oacute; el env&iacute;o de ayuda humanitaria a Bolivia tras hablar por tel&eacute;fono con Rodrigo Paz. Brasil se suma a Chile &mdash;480 cajas de alimentos&mdash; y a EEUU, que tambi&eacute;n brind&oacute; asistencia. La Paz y El Alto acumulan 26 d&iacute;as con acceso restringido a alimentos, combustible y medicamentos. M&aacute;s de 2,3 millones de habitantes se ven afectados.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Que tres pa&iacute;ses deban abastecer a la capital de Bolivia es una se&ntilde;al inequ&iacute;voca de la gravedad del colapso log&iacute;stico. La intervenci&oacute;n de Lula eleva el conflicto al nivel de emergencia humanitaria regional y suma presi&oacute;n internacional para una soluci&oacute;n negociada urgente.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://www.cadena3.com">Cadena 3</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Paz convoca al di&aacute;logo mientras abroga Ley 1341: la paradoja del martes 26</div>
+            </div>
+            <div class="swipe-body">Simult&aacute;neamente al avance legislativo, el presidente Paz insisti&oacute; en llamar a los sectores movilizados a un di&aacute;logo sin condiciones. Las organizaciones campesinas y la COB mantienen su posici&oacute;n: no habr&aacute; di&aacute;logo mientras Paz no renuncie. Los bloqueos permanec&iacute;an activos en m&aacute;s de 50 puntos en todo el pa&iacute;s al cierre del martes 26 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La convivencia de un llamado al di&aacute;logo con la habilitaci&oacute;n de intervenci&oacute;n militar es una estrategia de doble presi&oacute;n. Busca descomprimir internacionalmente sin ceder en lo sustancial. Su efecto sobre los sectores movilizados ser&aacute; el indicador clave de las pr&oacute;ximas horas.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://curadas.com">Curadas</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Hospitales al l&iacute;mite: escasez cr&iacute;tica de ox&iacute;geno, medicamentos e insumos quir&uacute;rgicos en La Paz</div>
+            </div>
+            <div class="swipe-body">Los hospitales p&uacute;blicos de La Paz y El Alto permanecen en estado de emergencia en el d&iacute;a 26 de bloqueos. El Servicio Departamental de Salud report&oacute; escasez cr&iacute;tica de ox&iacute;geno medicinal, medicamentos esenciales e insumos quir&uacute;rgicos. La Cruz Roja Internacional y el Defensor del Pueblo exigen un corredor humanitario permanente. Los mercados registran precios duplicados o triplicados en productos de primera necesidad.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La escasez de ox&iacute;geno en hospitales es una l&iacute;nea roja humanitaria. Que el sistema sanitario de la capital est&eacute; al l&iacute;mite en el d&iacute;a 26 aumenta la presi&oacute;n sobre ambas partes para encontrar un acuerdo m&iacute;nimo que permita el ingreso de suministros m&eacute;dicos de emergencia.
+            </div>
+            <div class="swipe-source">
+              <a href="https://eldeber.com.bo">El Deber</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">D&oacute;lar paralelo Bs&nbsp;9,98 &mdash; brecha del 45,5% con el tipo oficial en el d&iacute;a 26 de protestas</div>
+            </div>
+            <div class="swipe-body">La cotizaci&oacute;n del d&oacute;lar en el mercado paralelo se mantuvo cerca de Bs&nbsp;10,00 este martes, con valores de Bs&nbsp;9,98 para la compra y Bs&nbsp;9,97 para la venta, frente al tipo de cambio oficial del BCB de Bs&nbsp;6,86. La brecha del 45,5% refleja la escasez estructural de divisas agravada por los bloqueos que impiden el comercio exterior. El portal paralelo.bo confirm&oacute; las cifras del d&iacute;a.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La persistencia del d&oacute;lar paralelo en torno a Bs&nbsp;10 durante 26 d&iacute;as de conflicto indica que los mercados no perciben una resoluci&oacute;n pr&oacute;xima. La brecha es un term&oacute;metro preciso del deterioro econ&oacute;mico acumulado y ser&aacute; dif&iacute;cil de reducir incluso cuando los bloqueos se levanten.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.reduno.com.bo">Red Uno Bolivia</a> &middot; <a href="https://paralelo.bo">paralelo.bo</a> &middot; <a href="https://www.bcb.gob.bo">BCB</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Diputados aprueban abrogaci&oacute;n con 2/3 &mdash; oposici&oacute;n alerta sobre riesgo de mayor violencia</h3>
+      <p>El diputado Edwin Valda (PDC disidente) advirti&oacute; que la abrogaci&oacute;n generar&aacute; &ldquo;mayor violencia&rdquo; y que las reivindicaciones sociales quedar&aacute;n &ldquo;desprotegidas&rdquo;. Mientras el oficialismo impulsa la medida como herramienta para restaurar el orden, la oposici&oacute;n y organismos de DDHH advierten sobre el riesgo de replicar octubre de 2019. La sesi&oacute;n virtual dur&oacute; m&aacute;s de cinco horas porque legisladores de regiones bloqueadas no pudieron llegar a La Paz.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.eluniverso.com">El Universo</a> &middot; <a href="https://www.latercera.com">La Tercera</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Paz: &ldquo;Los revoltosos de Evo Morales no tomar&aacute;n Bolivia&rdquo; &mdash; insiste en el di&aacute;logo</h3>
+      <p>En declaraciones del martes 26 de mayo, el presidente Paz respondi&oacute; a las presiones del expresidente Morales asegurando que los sectores movilizados no lograr&aacute;n desestabilizar al gobierno. Simult&aacute;neamente convoc&oacute; al di&aacute;logo &ldquo;sin condiciones previas&rdquo;, pero los bloqueos permanecen activos. La posici&oacute;n dual &mdash;mano dura legislativa y llamado al di&aacute;logo&mdash; busca proyectar autoridad ante empresarios y clase media.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://curadas.com">Curadas</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>D&oacute;lar paralelo Bs&nbsp;9,98 &mdash; brecha del 45,5% refleja el colapso del comercio exterior</h3>
+      <p>El d&oacute;lar paralelo se mantiene estable en torno a los Bs&nbsp;10,00 durante la cuarta semana de bloqueos. La diferencia del 45,5% respecto al tipo oficial refleja la escasez estructural de divisas en el sistema bancario formal. Los bloqueos impiden el comercio exterior, agravando la escasez de divisas. El BCB mantiene el tipo oficial en Bs&nbsp;6,86, pero los exportadores no pueden liquidar divisas ante la interrupci&oacute;n log&iacute;stica.</p>
+      <span class="source-link"><a href="https://www.reduno.com.bo">Red Uno Bolivia</a> &middot; <a href="https://paralelo.bo">paralelo.bo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Bonos soberanos caen 10 jornadas consecutivas; p&eacute;rdidas de la industria superan US$615 millones</h3>
+      <p>Los bonos soberanos de Bolivia acumulan diez jornadas consecutivas de ca&iacute;das, reflejando el deterioro de la confianza internacional. La C&aacute;mara Nacional de Industrias estima p&eacute;rdidas acumuladas superiores a US$615 millones. Los sectores exportadores &mdash;agropecuario y minero&mdash; no pueden trasladar productos ni recibir insumos. El sector de panificaci&oacute;n declar&oacute; emergencia por escasez cr&iacute;tica de harina y gas.</p>
+      <span class="source-link"><a href="https://gestion.pe">Gesti&oacute;n</a> &middot; <a href="https://www.filo.news">Filo News</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-soc">Social</span>
+      <h3>La Paz y El Alto, 2,3 millones de habitantes, en desabastecimiento cr&iacute;tico en el d&iacute;a 26</h3>
+      <p>Los mercados populares de La Paz y El Alto reportan escasez de alimentos b&aacute;sicos, con precios duplicados o triplicados. La Cruz Roja Internacional exige un corredor humanitario permanente. Las panader&iacute;as informan cierre generalizado por falta de harina y gas. Las filas en grifos de combustible superan las 8 horas de espera. La Defensor&iacute;a del Pueblo reitera que Bolivia est&aacute; &ldquo;al borde del precipicio&rdquo;.</p>
+      <span class="source-link"><a href="https://eldeber.com.bo">El Deber</a> &middot; <a href="https://lapatria.bo">La Patria</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Lula pide di&aacute;logo y env&iacute;a ayuda; Brasil se suma a Chile, Argentina y EEUU en el apoyo</h3>
+      <p>El presidente Lula orden&oacute; el env&iacute;o de ayuda humanitaria tras hablar con Paz y pidi&oacute; &ldquo;evitar recurrir a la violencia&rdquo; y &ldquo;priorizar el di&aacute;logo&rdquo;. Chile envi&oacute; 480 cajas de alimentos la semana pasada; Argentina aport&oacute; dos aviones militares con carne; EEUU brind&oacute; asistencia m&eacute;dica y log&iacute;stica. El apoyo regional in&eacute;dito refleja la gravedad de la crisis humanitaria.</p>
+      <span class="source-link"><a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://www.cadena3.com">Cadena 3</a> &middot; <a href="https://www.infobae.com">Infobae</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar BCB (oficial)</div>
+        <div class="data-cell-value">Bs 6,86</div>
+        <div class="data-cell-delta neutral">Tipo fijo</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">D&oacute;lar Paralelo</div>
+        <div class="data-cell-value red">Bs 9,98</div>
+        <div class="data-cell-delta red">Mercado informal</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Brecha Cambiaria</div>
+        <div class="data-cell-value red">45,5%</div>
+        <div class="data-cell-delta neutral">Oficial vs. paralelo</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Si el presidente Paz declarar&aacute; el estado de excepci&oacute;n usando la nueva habilitaci&oacute;n legislativa del Congreso, y c&oacute;mo responder&aacute; la comunidad internacional a un eventual despliegue militar en las protestas.</div>
+      <div class="vigilar-item">Reacci&oacute;n de los sectores movilizados ante la aprobaci&oacute;n de la abrogaci&oacute;n de la Ley 1341: si la amenaza de militarizaci&oacute;n los lleva a negociar o a radicalizar sus posiciones en las rutas bloqueadas.</div>
+      <div class="vigilar-item">Log&iacute;stica y distribuci&oacute;n de la ayuda humanitaria enviada por Brasil: si llega efectivamente a los hospitales y mercados de La Paz y El Alto y si alivia el desabastecimiento cr&iacute;tico.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; La Tercera &middot; BioBioChile &middot; El Universo &middot; La Rep&uacute;blica &middot; Cadena 3 &middot; El Deber &middot; Red Uno &middot; paralelo.bo &middot; BCB &middot; Gesti&oacute;n &middot; La Patria &middot; Curadas &middot; Filo News</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

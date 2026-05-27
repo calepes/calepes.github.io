@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &mdash; 26 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #154360;
+      --accent-soft: rgba(21,67,96,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #E8EEF4 0%, #D8E4EE 25%, #D4DCE8 55%, #E0EAF4 80%, #F2F4F8 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(21,67,96,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .neutral { color: var(--muted); }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fcd34d; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fcd34d; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Martes 26 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">A 5 d&iacute;as de las elecciones: Cepeda 44,6%, De la Espriella 31,6%, Valencia 14% &mdash; segunda vuelta inevitable</div>
+            </div>
+            <div class="swipe-body">La primera vuelta de las elecciones presidenciales se realizar&aacute; el domingo 31 de mayo. La encuesta Invamer da a Iv&aacute;n Cepeda (Pacto Hist&oacute;rico) 44,6%, seguido de Abelardo De la Espriella con 31,6% &mdash;10 puntos m&aacute;s que hace un mes&mdash; y Paloma Valencia con 14%. Ning&uacute;n candidato supera el 50% requerido para ganar en primera vuelta, por lo que la segunda vuelta del 21 de junio parece casi segura.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El avance de 10 puntos de De la Espriella en un mes reordena la disputa por el segundo lugar. Si la tendencia contin&uacute;a, la segunda vuelta entre Cepeda y Espriella ser&iacute;a muy pareja: en ese escenario, Espriella llegar&iacute;a a 43,6% y Cepeda a 40,9%, seg&uacute;n proyecciones de encuestadoras.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://cnnespanol.cnn.com">CNN en Espa&ntilde;ol</a> &middot; <a href="https://www.eltiempo.com">El Tiempo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Alerta financiera: posible victoria de Cepeda pone en riesgo las cuentas de Colombia</div>
+            </div>
+            <div class="swipe-body">Un an&aacute;lisis de Infobae alerta que una posible victoria de Iv&aacute;n Cepeda &ldquo;tiene en problemas las cuentas de Colombia&rdquo; por su posible impacto en el pago de cr&eacute;ditos soberanos y las expectativas de los mercados financieros. Los analistas se&ntilde;alan que si Cepeda gana y profundiza las reformas del gobierno Petro, podr&iacute;a deteriorarse la calificaci&oacute;n crediticia del pa&iacute;s y encarecerse el servicio de la deuda p&uacute;blica, que supera el 55% del PIB.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Colombia necesita refinanciar obligaciones importantes en 2026&ndash;2027. La se&ntilde;al de los mercados ante el resultado electoral ser&aacute; determinante para las condiciones de acceso al cr&eacute;dito internacional del pr&oacute;ximo gobierno, y el resultado del 31 de mayo ser&aacute; el primer indicador real.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">TRM: $3.667 &mdash; d&oacute;lar abre a la baja ante expectativas electorales moderadas</div>
+            </div>
+            <div class="swipe-body">El d&oacute;lar en Colombia abri&oacute; a la baja este martes 26 de mayo, con la Tasa Representativa del Mercado (TRM) en $3.667,06 por d&oacute;lar. La divisa acumula una ca&iacute;da del 2,4% en lo que va de 2026 y se apreciaba 3,42% en la &uacute;ltima semana. Los analistas atribuyen la relativa estabilidad a la monetizaci&oacute;n de deuda externa del gobierno y a que los mercados no anticipan un resultado que cause p&aacute;nico antes de las elecciones.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Que el d&oacute;lar abra a la baja el martes antes de las elecciones sugiere que los mercados no anticipan un resultado extremo. Sin embargo, la volatilidad podr&iacute;a dispararse el 1 de junio si el resultado del 31 arroja un ganador sorpresa o una ventaja inesperadamente ajustada.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.noticiasrcn.com">Noticias RCN</a> &middot; <a href="https://www.elpais.com.co">El Pa&iacute;s (Cali)</a> &middot; <a href="https://www.elcolombiano.com">El Colombiano</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Uribe acusa a Cepeda de v&iacute;nculos con las FARC y respalda a Paloma Valencia en la recta final</div>
+            </div>
+            <div class="swipe-body">El expresidente &Aacute;lvaro Uribe Vélez lanz&oacute; fuertes acusaciones contra Iv&aacute;n Cepeda a 5 d&iacute;as de las elecciones, se&ntilde;al&aacute;ndolo de &ldquo;supuestos v&iacute;nculos con las FARC&rdquo; y de haber &ldquo;enga&ntilde;ado a toda Colombia con la Paz Total&rdquo;. Uribe respald&oacute; abiertamente a Paloma Valencia (Centro Democr&aacute;tico). Cepeda respondi&oacute; que las acusaciones son &ldquo;una muestra de desesperaci&oacute;n&rdquo;.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La intervenci&oacute;n de Uribe en las &uacute;ltimas horas busca movilizar el voto anti-petrista hacia Valencia y evitar que migre hacia De la Espriella. Su impacto depender&aacute; de cu&aacute;nto del electorado uribista sigue disciplinado a las se&ntilde;ales del expresidente en 2026.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Izquierda a prueba ante la peor ola de violencia &mdash; seguridad es el eje de la campa&ntilde;a final</div>
+            </div>
+            <div class="swipe-body">Cepeda enfrenta la &ldquo;peor ola de violencia&rdquo; del pa&iacute;s justo cuando cierra su campa&ntilde;a. Los grupos armados ilegales superan los 27.000 integrantes, con un crecimiento del 23,5% en un a&ntilde;o. Las confrontaciones entre grupos armados aumentaron 34% en 2025. Cepeda propone profundizar la &ldquo;Paz Total&rdquo;; sus rivales se&ntilde;alan que la pol&iacute;tica de Petro agrav&oacute; la situaci&oacute;n de seguridad.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Colombia enfrenta su mayor reto de seguridad en m&aacute;s de una d&eacute;cada justo cuando elige nuevo presidente. El resultado del 31 de mayo enviar&aacute; una se&ntilde;al clara sobre qu&eacute; estrategia prefiere el electorado: continuidad de la Paz Total o un enfoque m&aacute;s duro con los grupos armados.
+            </div>
+            <div class="swipe-source">
+              <a href="https://curadas.com">Curadas</a> &middot; <a href="https://www.elespectador.com">El Espectador</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Iv&aacute;n Cepeda: qui&eacute;n es el candidato del Pacto Hist&oacute;rico que lidera las encuestas en Colombia 2026</h3>
+      <p>Iv&aacute;n Cepeda es abogado, senador y defensor de derechos humanos. Fue v&iacute;ctima de la violencia paramilitar y facilitador en los di&aacute;logos de paz con las FARC (2012) y el ELN (2015). Como candidato del Pacto Hist&oacute;rico, propone profundizar las reformas de Petro, acelerar la implementaci&oacute;n del Acuerdo de Paz y fortalecer la protecci&oacute;n de l&iacute;deres sociales. Las encuestas lo dan por encima del 40% en primera vuelta.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://lasillarota.com">La Silla Rota</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>De la Espriella sube 10 puntos en un mes &mdash; el fen&oacute;meno que puede cambiar la segunda vuelta</h3>
+      <p>El avance de Abelardo De la Espriella de ~21% a 31,6% en las encuestas Invamer del &uacute;ltimo mes es el fen&oacute;meno pol&iacute;tico m&aacute;s llamativo de la recta final. Su perfil de abogado &ldquo;outsider&rdquo; y su mensaje de &ldquo;autoridad&rdquo; le gana terreno al voto anti-petrista que no se identifica con el Centro Democr&aacute;tico. En un escenario de segunda vuelta, Espriella llegar&iacute;a a 43,6% frente a 40,9% de Cepeda.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.portafolio.co">Portafolio</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>TRM $3.667 &mdash; el peso colombiano estable a 5 d&iacute;as de las elecciones del 31 de mayo</h3>
+      <p>La Tasa Representativa del Mercado cerr&oacute; este martes en $3.667,06 por d&oacute;lar, reflej&aacute;ndose estabilidad relativa ante la incertidumbre electoral. El peso acumula una ca&iacute;da del 2,4% en 2026. Los analistas proyectan que el d&oacute;lar podr&iacute;a moverse hasta $1.000 pesos en seis meses seg&uacute;n el resultado: entre $2.800 (si gana Espriella) y hasta $5.000 (escenarios adversos con Cepeda).</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com">Noticias RCN</a> &middot; <a href="https://www.bloomberglinea.com">Bloomberg L&iacute;nea</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Alerta crediticia: posible victoria de Cepeda genera preocupaci&oacute;n por deuda soberana colombiana</h3>
+      <p>Analistas advierten que una victoria de Cepeda y la profundizaci&oacute;n de las reformas petristas podr&iacute;a deteriorar la calificaci&oacute;n crediticia de Colombia y encarecer el servicio de una deuda p&uacute;blica que supera el 55% del PIB. La inflaci&oacute;n se ubica en 5,56% (marzo 2026), por encima del objetivo del 3% del Banco de la Rep&uacute;blica. Los mercados financieros monitorear&aacute;n el resultado del 31 como primer indicador de la direcci&oacute;n econ&oacute;mica del pr&oacute;ximo gobierno.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.larepublica.co">La Rep&uacute;blica</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-soc">Seguridad</span>
+      <h3>Colombia: 27.000 integrantes en grupos armados &mdash; la herencia de seguridad del pr&oacute;ximo gobierno</h3>
+      <p>Un informe reciente revela que los grupos armados ilegales en Colombia superan ya los 27.000 integrantes, con un crecimiento del 23,5% en un a&ntilde;o. Las confrontaciones entre grupos aumentaron 34% en 2025, el mayor registro de la d&eacute;cada, impulsadas por disputas en corredores estrat&eacute;gicos y econom&iacute;as il&iacute;citas. El pr&oacute;ximo presidente heredar&aacute; el reto de seguridad m&aacute;s complejo en m&aacute;s de diez a&ntilde;os.</p>
+      <span class="source-link"><a href="https://curadas.com">Curadas</a> &middot; <a href="https://www.elespectador.com">El Espectador</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Ley seca y silencio electoral: restricciones a partir del 30 de mayo antes de la votaci&oacute;n del 31</h3>
+      <p>A partir del s&aacute;bado 30 de mayo aplica ley seca en todo el territorio nacional, con restricciones a la venta y consumo de alcohol. El silencio electoral tambi&eacute;n entra en vigor, prohibiendo publicidad pol&iacute;tica y encuestas p&uacute;blicas en los d&iacute;as previos a la votaci&oacute;n. Las multas por incumplimiento alcanzan casi $2 millones de pesos. Registradur&iacute;a confirm&oacute; que los riesgos el&eacute;ctorales no est&aacute;n en sus sistemas.</p>
+      <span class="source-link"><a href="https://www.eltiempo.com">El Tiempo</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">TRM (d&oacute;lar)</div>
+        <div class="data-cell-value">$3.667</div>
+        <div class="data-cell-delta green">-2,4% en 2026</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Inflaci&oacute;n (mar.)</div>
+        <div class="data-cell-value">5,56%</div>
+        <div class="data-cell-delta neutral">Meta Banrep: 3%</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Cepeda (Invamer)</div>
+        <div class="data-cell-value">44,6%</div>
+        <div class="data-cell-delta neutral">Espriella 31,6%</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Resultado de la primera vuelta el 31 de mayo: qui&eacute;nes avanzar&aacute;n a la segunda vuelta del 21 de junio y con qu&eacute; margen. Si De la Espriella logra superar a Cepeda en el n&uacute;mero de votos, ser&iacute;a la gran sorpresa electoral del ciclo.</div>
+      <div class="vigilar-item">Movimiento de la TRM el lunes 1 de junio post-elecciones: primer indicador real de c&oacute;mo los mercados leen el resultado del 31 de mayo y qu&eacute; escenario de gobierno descotan.</div>
+      <div class="vigilar-item">&Uacute;ltimos movimientos de los candidatos antes de la ley seca del 30 de mayo y el silencio electoral: cualquier endoso de candidatos menores o reposicionamiento de &uacute;ltima hora puede mover votos en regiones.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; CNN en Espa&ntilde;ol &middot; El Tiempo &middot; Noticias RCN &middot; El Colombiano &middot; Portafolio &middot; La Rep&uacute;blica &middot; El Espectador &middot; Bloomberg L&iacute;nea &middot; Curadas &middot; La Silla Rota &middot; Semana</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

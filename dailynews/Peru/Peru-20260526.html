@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Per&uacute; &mdash; 26 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #7c2d12;
+      --accent-soft: rgba(124,45,18,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E4 0%, #E8D8D0 25%, #D8D4E4 55%, #E4ECF0 80%, #F2F0EC 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(124,45,18,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(220,150,80,0.08) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .neutral { color: var(--muted); }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fbbf24; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fbbf24; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Per&uacute;</h1>
+      <div class="masthead-date">Martes 26 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&oacute;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&iacute;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Encuestas: Fujimori 39,5% vs S&aacute;nchez 36,1% &mdash; 12 d&iacute;as antes del balotaje del 7 de junio</div>
+            </div>
+            <div class="swipe-body">Seg&uacute;n Datum Internacional, Keiko Fujimori (Fuerza Popular) mantiene una ventaja de 3,4 puntos sobre Roberto S&aacute;nchez (Juntos por el Per&uacute;): 39,5% frente a 36,1%. Ipsos confirma la tendencia: 39% vs. 35%. Sin embargo, entre el 24% y 26% del electorado a&uacute;n no tiene candidato definido, y son ellos quienes determinar&aacute;n el resultado del 7 de junio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Con una brecha de 3&ndash;4 puntos y un cuarto del electorado sin definirse, la segunda vuelta es genuinamente abierta. El debate del 31 de mayo ser&aacute; el evento determinante: cualquier actuaci&oacute;n contundente puede mover la aguja en los d&iacute;as finales.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.ipsos.com">Ipsos</a> &middot; <a href="https://gestion.pe">Gesti&oacute;n</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Debate presidencial confirmado para el 31 de mayo &mdash; seguridad ciudadana como eje central</div>
+            </div>
+            <div class="swipe-body">El JNE confirm&oacute; que el debate presidencial entre Fujimori y S&aacute;nchez se realizar&aacute; el domingo 31 de mayo a las 8 p.m. Los cuatro temas principales son: seguridad ciudadana, econom&iacute;a, salud y fortalecimiento democr&aacute;tico. Fujimori apostar&aacute; por &ldquo;mano dura&rdquo; y reducci&oacute;n del crimen organizado; S&aacute;nchez centrar&aacute; su discurso en inteligencia criminal y causas socioecon&oacute;micas del delito.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              Con la segunda vuelta el 7 de junio, este es el &uacute;ltimo evento determinante antes de la votaci&oacute;n. Las encuestas muestran que la seguridad ciudadana es el tema de mayor peso electoral. El desempe&ntilde;o de ambos candidatos en este bloque ser&aacute; analizado como el predictor m&aacute;s confiable del resultado.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://rpp.pe">RPP</a> &middot; <a href="https://www.tvperu.gob.pe">TV Per&uacute;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Tipo de cambio: S/&nbsp;3,42 &mdash; sol peruano fortalecido 6,9% en los &uacute;ltimos 12 meses</div>
+            </div>
+            <div class="swipe-body">El BCRP registr&oacute; el martes 26 de mayo un tipo de cambio de S/&nbsp;3,42 por d&oacute;lar al cierre (compra S/&nbsp;3,407, venta S/&nbsp;3,420). La moneda peruana ha mostrado notable resiliencia ante la incertidumbre preelectoral: se ha fortalecido 6,9% en los &uacute;ltimos 12 meses y 0,22% en el &uacute;ltimo mes. Las expectativas del BCRP para el cierre de a&ntilde;o apuntan a un rango de S/&nbsp;3,34&ndash;S/&nbsp;3,46.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La estabilidad del sol es una se&ntilde;al de confianza del mercado en los fundamentos macroecon&oacute;micos peruanos, independientemente del resultado electoral. Ambos candidatos pueden atribuirse parte de esa estabilidad en sus discursos del debate del 31.
+            </div>
+            <div class="swipe-source">
+              <a href="https://rpp.pe">RPP</a> &middot; <a href="https://elcomercio.pe">El Comercio</a> &middot; <a href="https://www.bcrp.gob.pe">BCRP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Campa&ntilde;a en regiones: el voto fuera de Lima decidir&aacute; la segunda vuelta del 7 de junio</div>
+            </div>
+            <div class="swipe-body">Con m&aacute;s del 60% del electorado fuera de Lima, ambos candidatos intensificaron recorridos en regiones este martes 26. Fujimori lidera Lima/Callao (48,8% vs. 25,6%), mientras S&aacute;nchez domina el Sur (44,7% vs. 27,9%) y el Centro (47,3% vs. 30,1%). Las regiones donde ning&uacute;n candidato tiene ventaja s&oacute;lida &mdash;Norte andino y Selva&mdash; concentran el grueso del voto ind&eacute;ciso.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              La distribuci&oacute;n geogr&aacute;fica del voto ind&eacute;ciso (~24%) determinar&aacute; el resultado. Las regiones donde ning&uacute;n candidato tiene ventaja s&oacute;lida ser&aacute;n el campo de batalla final de los &uacute;ltimos 12 d&iacute;as de campa&ntilde;a.
+            </div>
+            <div class="swipe-source">
+              <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://larepublica.pe">La Rep&uacute;blica</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Fuerza Popular en pol&eacute;mica: no present&oacute; su equipo t&eacute;cnico a horas del debate del 24 de mayo</div>
+            </div>
+            <div class="swipe-body">Horas antes del debate t&eacute;cnico del 24 de mayo, Fuerza Popular a&uacute;n no hab&iacute;a publicado la lista definitiva de sus representantes, generando especulaci&oacute;n sobre una posible ausencia. Finalmente present&oacute; a Luis Carranza (econom&iacute;a) y otros t&eacute;cnicos. La estrategia fue criticada por el JNE y organizaciones de sociedad civil como falta de transparencia en la recta final de la campa&ntilde;a.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&eacute; importa</strong>
+              El incidente revel&oacute; tensi&oacute;n interna en FP en la semana final de campa&ntilde;a y puede ser indicativo de una estrategia de manejo de expectativas o presi&oacute;n t&aacute;ctica sobre JP. El JNE evaluar&aacute; si hubo incumplimiento de reglas del debate.
+            </div>
+            <div class="swipe-source">
+              <a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://www.infobae.com">Infobae</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s">
+      <span class="divider-text">Noticias por Secci&oacute;n</span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Fujimori 39,5% vs S&aacute;nchez 36,1% &mdash; el 24% sin definir es la llave de la segunda vuelta</h3>
+      <p>Las encuestas de Datum e Ipsos coinciden en que la segunda vuelta del 7 de junio es extremadamente competitiva. Fujimori lidera en Lima/Callao y el norte costero; S&aacute;nchez domina el sur y el centro. El bloque de votantes sin candidato definido &mdash;entre 24% y 26%&mdash; supera la brecha entre ambos candidatos, lo que hace que el debate del 31 de mayo sea decisivo.</p>
+      <span class="source-link"><a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://gestion.pe">Gesti&oacute;n</a> &middot; <a href="https://larepublica.pe">La Rep&uacute;blica</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>JNE confirma debate del 31 de mayo: cuatro temas, se&ntilde;al abierta nacional, 8 p.m.</h3>
+      <p>El Jurado Nacional de Elecciones confirm&oacute; el formato y los temas del debate presidencial del 31 de mayo. Los cuatro bloques son: seguridad ciudadana, econom&iacute;a y empleo, salud y educaci&oacute;n, y fortalecimiento democr&aacute;tico. La transmisi&oacute;n ser&aacute; en se&ntilde;al abierta a nivel nacional. El debate comenzar&aacute; exactamente a las 8 p.m. y tendr&aacute; una duraci&oacute;n aproximada de 1 hora y 15 minutos.</p>
+      <span class="source-link"><a href="https://rpp.pe">RPP</a> &middot; <a href="https://www.infobae.com">Infobae</a> &middot; <a href="https://www.tvperu.gob.pe">TV Per&uacute;</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Tipo de cambio PEN/USD: S/&nbsp;3,42 &mdash; sol estable ante la incertidumbre electoral</h3>
+      <p>El tipo de cambio cerr&oacute; el martes 26 de mayo en S/&nbsp;3,42 por d&oacute;lar, seg&uacute;n el BCRP. La moneda peruana se ha fortalecido 6,9% en los &uacute;ltimos 12 meses, superando a otras monedas de la regi&oacute;n. Las expectativas para el cierre de 2026 apuntan a un rango de S/&nbsp;3,34&ndash;S/&nbsp;3,46. La estabilidad cambiaria contrasta con la incertidumbre pol&iacute;tica de la recta final.</p>
+      <span class="source-link"><a href="https://rpp.pe">RPP</a> &middot; <a href="https://elcomercio.pe">El Comercio</a> &middot; <a href="https://www.expreso.com.pe">Expreso</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Per&uacute; proyecta crecer 3,2% en 2026 &mdash; una de las econom&iacute;as m&aacute;s din&aacute;micas de Am&eacute;rica Latina</h3>
+      <p>El BCRP y el MEF mantienen la proyecci&oacute;n de crecimiento del PBI en 3,2% para 2026, con la inversi&oacute;n minera superando los US$6.800 millones. Per&uacute; supera el promedio regional y a pa&iacute;ses como Chile, Brasil y M&eacute;xico en dinamismo econ&oacute;mico. La inversi&oacute;n privada crecer&iacute;a 5,5%, aunque con precauci&oacute;n por la incertidumbre preelectoral.</p>
+      <span class="source-link"><a href="https://gestion.pe">Gesti&oacute;n</a> &middot; <a href="https://elcomercio.pe">El Comercio</a> &middot; <a href="https://rpp.pe">RPP</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-soc">Seguridad</span>
+      <h3>Seguridad ciudadana: el eje que definir&aacute; el debate del 31 y la segunda vuelta del 7 de junio</h3>
+      <p>La seguridad ciudadana es el tema de mayor peso electoral en la segunda vuelta. Fujimori propone mano dura, refuerzo policial y repatriaci&oacute;n de extranjeros con antecedentes delictivos; S&aacute;nchez apuesta por inteligencia criminal, reinserci&oacute;n y ataque a las ra&iacute;ces socioecon&oacute;micas del crimen. Las encuestadoras coinciden en que este bloque ser&aacute; el m&aacute;s determinante del debate presidencial del 31.</p>
+      <span class="source-link"><a href="https://larepublica.pe">La Rep&uacute;blica</a> &middot; <a href="https://rpp.pe">RPP</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Inversores regionales monitorean de cerca la segunda vuelta peruana del 7 de junio</h3>
+      <p>La segunda vuelta peruana atrae la atenci&oacute;n de inversores de Am&eacute;rica Latina, dada la importancia del sector minero y el peso econ&oacute;mico del pa&iacute;s en la regi&oacute;n. Analistas de Bloomberg L&iacute;nea y Portafolio Colombia destacan que el resultado del 7 de junio tendr&aacute; impacto directo en los flujos de inversi&oacute;n extranjera directa hacia minera e infraestructura. El sol estable es una se&ntilde;al positiva para los mercados.</p>
+      <span class="source-link"><a href="https://www.bloomberglinea.com">Bloomberg L&iacute;nea</a> &middot; <a href="https://elcomercio.pe">El Comercio</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.44s">
+      <div class="data-cell">
+        <div class="data-cell-label">PEN / USD</div>
+        <div class="data-cell-value green">S/ 3,42</div>
+        <div class="data-cell-delta neutral">BCRP, 26-may</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">PBI Proyectado</div>
+        <div class="data-cell-value green">3,2%</div>
+        <div class="data-cell-delta neutral">Estimado anual 2026</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Fujimori (Datum)</div>
+        <div class="data-cell-value">39,5%</div>
+        <div class="data-cell-delta neutral">vs. S&aacute;nchez 36,1%</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.48s">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">Nuevas encuestas de intenci&oacute;n de voto publicadas esta semana: si la brecha de 3,4 puntos entre Fujimori y S&aacute;nchez se mantiene, ampl&iacute;a o reduce antes del debate presidencial del 31 de mayo.</div>
+      <div class="vigilar-item">Campa&ntilde;a en regiones clave &mdash;Sur andino, Sierra Centro y Norte andino&mdash; donde el voto ind&eacute;ciso (~24%) tiene mayor concentraci&oacute;n y puede definir el resultado del 7 de junio.</div>
+      <div class="vigilar-item">Posici&oacute;n del BCRP sobre perspectivas econ&oacute;micas post-elecciones: cualquier se&ntilde;al sobre pol&iacute;tica monetaria ser&aacute; monitorizada por mercados ante la incertidumbre electoral.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.52s">
+      <div>Fuentes: Infobae &middot; RPP &middot; El Comercio &middot; Gesti&oacute;n &middot; La Rep&uacute;blica &middot; Per&uacute; 21 &middot; BCRP &middot; JNE &middot; Datum &middot; Ipsos &middot; TV Per&uacute; &middot; Bloomberg L&iacute;nea</div>
+      <div>Briefing generado con Claude &mdash; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
