@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 27 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink);
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 8px 40px var(--shadow); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-size: clamp(40px, 10vw, 64px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-family: 'Newsreader', serif; font-size: 17px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(153,27,27,0.15); border-radius: 100px; padding: 5px 14px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-header .divider { flex: 1; height: 1px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 18px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); padding: 28px 24px 24px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .swipe-title { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 14px; }
+    .swipe-why-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { display: flex; gap: 8px; flex-wrap: wrap; }
+    .swipe-source a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.5); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tertiary); transition: all 0.3s; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+    .news-item { padding: 20px 22px; margin-bottom: 12px; }
+    .news-item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .news-item p { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; }
+    .source-link { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--tertiary); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0; overflow: hidden; }
+    .data-cell { padding: 20px 16px; text-align: center; }
+    .data-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .data-value { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .data-delta { font-size: 12px; color: var(--muted); }
+    .data-delta.down { color: var(--accent); }
+    .vigilar { background: #1d1d1f; border-radius: 18px; padding: 28px 24px; margin: 28px 0; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .vigilar-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .vigilar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .vigilar-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 4px; display: block; }
+    .vigilar-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; margin-top: 6px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--tertiary); }
+    .footer-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 10px; }
+    .footer-sources { display: flex; flex-wrap: wrap; gap: 8px; }
+    .footer-sources a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.4); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Miércoles 27 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+    <div class="section-header reveal"><h2>Top 5 del Día</h2><div class="divider"></div></div>
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+        <div class="swipe-card">
+          <div class="swipe-num">01 / 05</div>
+          <div class="swipe-title">Gobierno habilitado para declarar estado de excepción ante los bloqueos</div>
+          <div class="swipe-body">El Ejecutivo completó los requisitos constitucionales para emitir un decreto de estado de excepción tras 22 días de bloqueos sostenidos en seis departamentos. El presidente convocó a todas las fuerzas políticas al diálogo: “esto está llegando al límite”.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Un estado de excepción otorgaría al Ejecutivo poderes extraordinarios para desbloquear rutas por la fuerza, pero históricamente escala las tensiones políticas en Bolivia.</p></div>
+          <div class="swipe-source"><a href="#">El Deber</a><a href="#">La Razón</a><a href="#">APG Noticias</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">02 / 05</div>
+          <div class="swipe-title">150 puntos de bloqueo en seis departamentos — 22 días de crisis nacional</div>
+          <div class="swipe-body">Los sectores afines al MAS-Evo mantienen 150 puntos de corte vial en Cochabamba, La Paz, Oruro, Potosí, Santa Cruz y Beni. Es la mayor paralización simultánea en quince años. Los camioneros advierten quiebras masivas si la situación no se resuelve en 48 horas.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>La magnitud territorial hace imposible un desbloqueo policial coordinado sin intervención militar; la economía pierde un estimado de $14 millones diarios en comercio interrumpido.</p></div>
+          <div class="swipe-source"><a href="#">Los Tiempos</a><a href="#">El País Bolivia</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">03 / 05</div>
+          <div class="swipe-title">Crisis humanitaria: hospitales sin oxígeno, cuatro muertes evitables</div>
+          <div class="swipe-body">Al menos cuatro pacientes murieron en hospitales de Cochabamba y Santa Cruz por falta de oxígeno medicinal, cuyo suministro fue cortado por los bloqueos. La OPS pidió formalmente un corredor humanitario de emergencia ante la comunidad internacional.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Las muertes documentadas elevan la presión internacional sobre el gobierno y los bloqueadores. La narrativa del costo humano podría erosionar el apoyo base de los sectores movilizados.</p></div>
+          <div class="swipe-source"><a href="#">Página Siete</a><a href="#">OPS Bolivia</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">04 / 05</div>
+          <div class="swipe-title">Brecha cambiaria supera el 45 %: dólar paralelo a Bs 9,97 frente al oficial Bs 6,86</div>
+          <div class="swipe-body">El tipo de cambio paralelo alcanzó Bs 9,97 frente al oficial Bs 6,86, una brecha del 45,3 % que no se veía desde 2023. Las reservas del BCB caen aceleradamente y el gobierno restringe la venta de divisas al sector privado importador.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Si la brecha supera el 50 %, los analistas prevén una corrección oficial abrupta del tipo de cambio que dispararía la inflación importada en un país que depende del dólar para sus importaciones de energía.</p></div>
+          <div class="swipe-source"><a href="#">Economía Bolivia</a><a href="#">Reuters</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">05 / 05</div>
+          <div class="swipe-title">El Ejecutivo señala a Evo Morales como instigador de los bloqueos con pruebas de audio</div>
+          <div class="swipe-body">El Ministerio de Gobierno publicó audios y mensajes que, según afirma, demuestran que Evo Morales coordina los bloqueos desde el exterior. Los sectores evistas rechazaron las pruebas como un “montaje político” y exigieron la renuncia del ministro.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Si la Fiscalía acepta los elementos probatorios, Morales podría enfrentar cargos de sedición, agravando la fractura interna del MAS y dificultando cualquier solución negociada a la crisis.</p></div>
+          <div class="swipe-source"><a href="#">La Razón</a><a href="#">ABI</a></div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="section-header reveal"><h2>Noticias por Sección</h2><div class="divider"></div></div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>FFAA desplegadas para garantizar suministro de alimentos en capitales departamentales</h3></div></div>
+      <p>El Ministerio de Defensa ordenó el despliegue de unidades militares en carreteras troncales para escortar convoyes de alimentos hacia La Paz, Cochabamba y Santa Cruz. Es la primera operación de este tipo desde las protestas de 2019.</p>
+      <a href="#" class="source-link">Ministerio de Defensa · La Razón</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>FMI alerta sobre insostenibilidad fiscal y caída de reservas internacionales del BCB</h3></div></div>
+      <p>En comunicado desde Washington, el FMI reitó su preocupación por las reservas netas del BCB, que cayeron por debajo de los $1.500 millones, y recomendó un ajuste gradual del tipo de cambio oficial para evitar una crisis cambiaria abrupta.</p>
+      <a href="#" class="source-link">FMI · Economía Bolivia</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-soc">Social</span><div><h3>YPFB confirma reservas de combustible para menos de 72 horas en ciudades capitales</h3></div></div>
+      <p>Las estaciones de servicio en La Paz, Cochabamba y Santa Cruz tienen reservas de gasolina y diésel para no más de 72 horas. La falta de combustible amenaza toda la cadena de distribución de alimentos y medicamentos a nivel nacional.</p>
+      <a href="#" class="source-link">YPFB · Los Tiempos</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>Sectores evistas rechazan mesa de diálogo y condicionan negociación a liberación de detenidos</h3></div></div>
+      <p>Los dirigentes del MAS-Evo rechazaron sentarse en la mesa de diálogo convocada por el gobierno, exigiendo la liberación de todos los detenidos durante las protestas y la retirada de las FFAA de las carreteras bloqueadas como condiciones previas.</p>
+      <a href="#" class="source-link">APG Noticias · Página Siete</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-int">Internacional</span><div><h3>Brasil y Argentina emiten declaración conjunta sobre estabilidad democrática en Bolivia</h3></div></div>
+      <p>Los cancilleres de Brasil y Argentina expresaron en declaración conjunta su “honda preocupación” por la crisis boliviana y llamaron a todas las partes a respetar el orden constitucional y garantizar los derechos humanos fundamentales.</p>
+      <a href="#" class="source-link">Cancíllería Brasil · Infobae</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Exportadores de soya pierden $8 M diarios por cierre del corredor vial con Brasil</h3></div></div>
+      <p>Las exportaciones de soya y derivados del oriente boliviano están virtualmente paralizadas tras el bloqueo del corredor a Puerto Suárez. Una semana adicional implica pérdida de contratos por más de $200 millones, según Anapo.</p>
+      <a href="#" class="source-link">Anapo · El Deber</a>
+    </div>
+    <div class="data-strip glass reveal">
+      <div class="data-cell"><div class="data-label">USD Oficial</div><div class="data-value">Bs 6,86</div><div class="data-delta">Tipo BCB</div></div>
+      <div class="data-cell"><div class="data-label">USD Paralelo</div><div class="data-value">Bs 9,97</div><div class="data-delta down">Brecha 45,3 %</div></div>
+      <div class="data-cell"><div class="data-label">Días de bloqueo</div><div class="data-value">22</div><div class="data-delta down">150 puntos activos</div></div>
+    </div>
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Decreto de estado de excepción</span>
+        <p>El primer decreto ya está redactado y pendiente de firma presidencial. Si se emite en las próximas 24 horas, activará disposiciones militares en carreteras y podría desatar una respuesta violenta de los sectores bloqueadores.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Negociaciones paralelas secretas</span>
+        <p>Fuentes del ala arcista del MAS reportan canales de comunicación directa con dirigentes evistas moderados, al margen de las declaraciones públicas de rechazo al diálogo. Una reunión reservada podría celebrarse esta noche.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Reservas del BCB bajo nivel crítico</span>
+        <p>Si las reservas internacionales netas caen por debajo de $1.200 millones —umbral proyectado en 10 días al ritmo actual— el gobierno no podrá defender el tipo de cambio oficial y deberá devaluar, con impacto inflacionario inmediato.</p>
+      </div>
+    </div>
+    <div class="footer reveal">
+      <div class="footer-label">Fuentes consultadas</div>
+      <div class="footer-sources">
+        <a href="#">El Deber</a><a href="#">La Razón</a><a href="#">Los Tiempos</a><a href="#">Página Siete</a><a href="#">APG Noticias</a><a href="#">ABI</a><a href="#">YPFB</a><a href="#">OPS</a><a href="#">Reuters</a><a href="#">FMI</a><a href="#">Anapo</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' }));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
