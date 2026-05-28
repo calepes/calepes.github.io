@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 27 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1e3a8a;
+      --accent-soft: rgba(30,58,138,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #E8EDF5 0%, #D4DEF0 25%, #E4E8D4 55%, #EDF2E8 80%, #F2F5F7 100%);
+      min-height: 100vh; color: var(--ink);
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(30,58,138,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(234,179,8,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 8px 40px var(--shadow); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-size: clamp(40px, 10vw, 64px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-family: 'Newsreader', serif; font-size: 17px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(30,58,138,0.15); border-radius: 100px; padding: 5px 14px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-header .divider { flex: 1; height: 1px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 18px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); padding: 28px 24px 24px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .swipe-title { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 14px; }
+    .swipe-why-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { display: flex; gap: 8px; flex-wrap: wrap; }
+    .swipe-source a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.5); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tertiary); transition: all 0.3s; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+    .news-item { padding: 20px 22px; margin-bottom: 12px; }
+    .news-item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .news-item p { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; }
+    .source-link { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--tertiary); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0; overflow: hidden; }
+    .data-cell { padding: 20px 16px; text-align: center; }
+    .data-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .data-value { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .data-delta { font-size: 12px; color: var(--muted); }
+    .data-delta.down { color: #991b1b; }
+    .vigilar { background: #1d1d1f; border-radius: 18px; padding: 28px 24px; margin: 28px 0; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fde68a; margin-bottom: 20px; }
+    .vigilar-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .vigilar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .vigilar-item::before { content: '▶'; font-size: 9px; color: #fde68a; margin-right: 8px; }
+    .vigilar-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 4px; display: inline; }
+    .vigilar-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; margin-top: 6px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--tertiary); }
+    .footer-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 10px; }
+    .footer-sources { display: flex; flex-wrap: wrap; gap: 8px; }
+    .footer-sources a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.4); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Miércoles 27 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+    <div class="section-header reveal"><h2>Top 5 del Día</h2><div class="divider"></div></div>
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+        <div class="swipe-card">
+          <div class="swipe-num">01 / 05</div>
+          <div class="swipe-title">A cuatro días de la primera vuelta: Cepeda lidera, De la Espriella subió 13 pp desde febrero</div>
+          <div class="swipe-body">Faltando cuatro días para la primera vuelta del 31 de mayo, Cepeda mantiene el liderazgo con ~37 %, pero De la Espriella acorta distancias tras subir 13 puntos porcentuales desde febrero. El 18 % de los encuestados aún es indeciso.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Si De la Espriella consolida su tendencia al alza en los últimos días, la primera vuelta podría ser más cerrada de lo que proyectan los modelos, forzando una segunda vuelta con dinámicas muy distintas.</p></div>
+          <div class="swipe-source"><a href="#">Invamer</a><a href="#">El Tiempo</a><a href="#">Semana</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">02 / 05</div>
+          <div class="swipe-title">Crisis energética: deudas del sector superan $5,9 billones — CREG alerta por riesgo de apagón</div>
+          <div class="swipe-body">La Comisión de Regulación de Energía y Gas (CREG) advirtió que las deudas acumuladas del sector eléctrico colombiano superan los $5,9 billones de pesos. El fenómeno El Niño proyecta una probabilidad del 82 % para el segundo semestre, agravando el riesgo de racionamiento.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Un apagón en el segundo semestre de 2026 sería la peor crisis energética desde 1992 y caería sobre el nuevo gobierno justo al comienzo de su mandato, con impacto económico y político devastador.</p></div>
+          <div class="swipe-source"><a href="#">CREG</a><a href="#">Portafolio</a><a href="#">El Tiempo</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">03 / 05</div>
+          <div class="swipe-title">Petro recorre la Costa Caribe en campaña activa a favor de Cepeda: “Es la continuidad de la dignidad”</div>
+          <div class="swipe-body">El presidente Gustavo Petro realizó tres actos de campaña en Barranquilla, Cartagena y Montería respaldando a Cepeda. El presidente utilizó recursos del Estado para los traslados, lo que originó una denuncia ante el Consejo de Estado por abuso de la maquinaria.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>La Costa Caribe concentra el 22 % del padrón electoral. La presencia presidencial puede mover 3–4 puntos en la región, pero la denuncia por maquinaria podría abrir un frente legal para Cepeda si prospera.</p></div>
+          <div class="swipe-source"><a href="#">El Tiempo</a><a href="#">Semana</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">04 / 05</div>
+          <div class="swipe-title">Colombia envía nota de protesta a EE. UU. por muerte de ciudadano bajo custodia del ICE</div>
+          <div class="swipe-body">La Cancillería colombiana entregó una nota de protesta formal a la embajada estadounidense tras la muerte de un ciudadano colombiano bajo custodia del Servicio de Control de Inmigración y Aduanas (ICE). Petro calificó el hecho como “crimen de Estado” y llamó al embajador a consultas.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>La tensión diplomática con Washington se escala en plena campaña electoral. Los candidatos de oposición exigen al gobierno no comprometer las relaciones comerciales bilaterales por motivaciones políticas internas.</p></div>
+          <div class="swipe-source"><a href="#">Cancillería Colombia</a><a href="#">Reuters</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">05 / 05</div>
+          <div class="swipe-title">Segunda vuelta: De la Espriella ganaría a Cepeda 43,6 % vs 40 % según Invamer</div>
+          <div class="swipe-body">Un ejercicio de segunda vuelta hipotética de Invamer muestra que De la Espriella le ganaría a Cepeda con 43,6 % frente a 40 % si ninguno supera el 50 % el 31 de mayo. El resultado refleja la transferencia de votos de candidatos de centro-derecha hacia De la Espriella.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Cepeda necesita ganar en primera vuelta o maximizar su ventaja para enfrentar una segunda vuelta desfavorable. Cada punto extra el 31 de mayo define el margen de maniobra para junio.</p></div>
+          <div class="swipe-source"><a href="#">Invamer</a><a href="#">Semana</a></div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="section-header reveal"><h2>Noticias por Sección</h2><div class="divider"></div></div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>Registraduría alista operativo para 36 millones de votantes el 31 de mayo</h3></div></div>
+      <p>La Registraduría Nacional del Estado Civil completó el despliegue logístico para 36 millones de votantes habilitados: 33.000 puestos de votación, 3.500 contingentes de seguridad y transmisión de resultados en tiempo real. La Misión de Observación de la OEA está desplegada desde ayer.</p>
+      <a href="#" class="source-link">Registraduría · El Espectador</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Peso colombiano: COP 4.250 / USD — tendencia depreciatoria en semana preelectoral</h3></div></div>
+      <p>El peso colombiano cerró el martes en COP 4.250 por dólar, depreciación del 0,8 % semanal atribuida a la incertidumbre electoral y al alza del dólar global. BanRep no intervendrá según fuentes del banco, que espera a que pase la elección para evaluar política monetaria.</p>
+      <a href="#" class="source-link">BanRep · Portafolio</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-soc">Social</span><div><h3>ELN rechaza reinicio de diálogos de paz antes de las elecciones presidenciales</h3></div></div>
+      <p>El Estado Mayor Central del ELN publicó un comunicado rechazando la propuesta del gobierno Petro de retomar las mesas de diálogo antes del 31 de mayo, argumentando que las elecciones “condicionan” la negociación. El proceso de paz queda congelado hasta después de la primera vuelta.</p>
+      <a href="#" class="source-link">ELN · El Espectador</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>De la Espriella en Bogotá: promete auditoría de la JEP y reforma al régimen de regalías</h3></div></div>
+      <p>En un acto en el centro de convenciones de Bogotá, De la Espriella presentó sus ejes programáticos: auditoría externa a la JEP, reforma al sistema de regalías mineras para destinar más recursos a los municipios productores y eliminación de la reforma pensional del gobierno Petro.</p>
+      <a href="#" class="source-link">Semana · El Tiempo</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Inflación anual en Colombia: 6,8 % — BanRep evalúa recorte de tasas tras las elecciones</h3></div></div>
+      <p>El DANE publicó la inflación de abril en 6,8 % anual, 20 puntos básicos por debajo del mes anterior. El Banco de la República aún no baja su tasa de interés (9,75 %), pero el consenso del mercado espera dos recortes de 50 pb en el segundo semestre si la inflación sigue su senda de descenso.</p>
+      <a href="#" class="source-link">DANE · BanRep · Portafolio</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-int">Internacional</span><div><h3>OEA despliega misión de observación para la primera vuelta del 31 de mayo en Colombia</h3></div></div>
+      <p>La Organización de Estados Americanos desplegó 85 observadores en 15 departamentos del país para la primera vuelta presidencial. La misión emitirá un informe preliminar en las 24 horas siguientes al cierre de urnas y un informe final a los 30 días.</p>
+      <a href="#" class="source-link">OEA · Cancillería Colombia</a>
+    </div>
+    <div class="data-strip glass reveal">
+      <div class="data-cell"><div class="data-label">Primera Vuelta</div><div class="data-value">31 Mayo</div><div class="data-delta">4 días</div></div>
+      <div class="data-cell"><div class="data-label">Cepeda (intención)</div><div class="data-value">~37 %</div><div class="data-delta">De la Espriella ~31 %</div></div>
+      <div class="data-cell"><div class="data-label">Deuda energética</div><div class="data-value">$5,9 B</div><div class="data-delta down">Riesgo apagón</div></div>
+    </div>
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Debate del 29 de mayo: último cara a cara</span>
+        <p>El debate final antes de la primera vuelta se realiza el jueves 29 de mayo. El tema de la crisis energética y la deuda del sector eléctrico podría ser el punto de inflexión para los indecisos, especialmente en Bogotá y las ciudades industriales.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Abstención histórica del 44 %: clave para De la Espriella</span>
+        <p>En primera vuelta, Colombia registra histróricamente una abstención del 44 %. Movilizar votantes urbanos de clase media en Bogotá, Medellín y Cali es la variable diferencial de la campaña de De la Espriella, cuya base electoral es más urbana y menos cliente.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Crisis energética: fecha límite 15 de junio</span>
+        <p>Si la deuda eléctrica de $5,9 billones no se reestructura antes del 15 de junio, la CREG activará un protocolo de racionamiento en Bogotá y otras ciudades. El nuevo gobierno tendrá menos de dos semanas desde su posesión para evitar la crisis.</p>
+      </div>
+    </div>
+    <div class="footer reveal">
+      <div class="footer-label">Fuentes consultadas</div>
+      <div class="footer-sources">
+        <a href="#">El Tiempo</a><a href="#">Semana</a><a href="#">El Espectador</a><a href="#">Portafolio</a><a href="#">Invamer</a><a href="#">CREG</a><a href="#">BanRep</a><a href="#">DANE</a><a href="#">Registraduría</a><a href="#">OEA</a><a href="#">Reuters</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' }));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
