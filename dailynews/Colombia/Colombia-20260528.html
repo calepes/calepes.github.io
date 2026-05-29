@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 28 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #b45309;
+      --accent-soft: rgba(180,83,9,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #F5F0E0 0%, #EDE0C8 25%, #D4DDE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink);
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(180,83,9,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 8px 40px var(--shadow); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-size: clamp(40px, 10vw, 64px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-family: 'Newsreader', serif; font-size: 17px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(180,83,9,0.15); border-radius: 100px; padding: 5px 14px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-header .divider { flex: 1; height: 1px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 18px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); padding: 28px 24px 24px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .swipe-title { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 14px; }
+    .swipe-why-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { display: flex; gap: 8px; flex-wrap: wrap; }
+    .swipe-source a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.5); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tertiary); transition: all 0.3s; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+    .news-item { padding: 20px 22px; margin-bottom: 12px; }
+    .news-item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .news-item p { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; }
+    .source-link { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--tertiary); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0; overflow: hidden; }
+    .data-cell { padding: 20px 16px; text-align: center; }
+    .data-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .data-value { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .data-delta { font-size: 12px; color: var(--muted); }
+    .data-delta.up { color: #065f46; }
+    .vigilar { background: #1d1d1f; border-radius: 18px; padding: 28px 24px; margin: 28px 0; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .vigilar-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .vigilar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .vigilar-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 4px; display: block; }
+    .vigilar-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; margin-top: 6px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--tertiary); }
+    .footer-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 10px; }
+    .footer-sources { display: flex; flex-wrap: wrap; gap: 8px; }
+    .footer-sources a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.4); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Jueves 28 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+    <div class="section-header reveal"><h2>Top 5 del Día</h2><div class="divider"></div></div>
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+        <div class="swipe-card">
+          <div class="swipe-num">01 / 05</div>
+          <div class="swipe-title">A 3 días de la primera vuelta: Cepeda 44,6 %, De la Espriella 31,6 %, Valencia 14 %</div>
+          <div class="swipe-body">Según la última encuesta Invamer (13–20 de mayo), Iván Cepeda lidera con 44,6 % de intención de voto, seguido por Abelardo De la Espriella con 31,6 % y Paloma Valencia con 14 %. Ninguno alcanza el 50 %+1 necesario para ganar en primera vuelta. La jornada electoral es el domingo 31 de mayo.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Si las encuestas reflejan el resultado, habrá segunda vuelta entre Cepeda y De la Espriella. Ese escenario implicaría una polarización extrema izquierda–derecha en una Colombia que ya está fragmentada tras cuatro años de gobierno Petro.</p></div>
+          <div class="swipe-source"><a href="https://cnnespanol.cnn.com">CNN en Español</a><a href="https://www.infobae.com/colombia">Infobae Colombia</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">02 / 05</div>
+          <div class="swipe-title">Dólar cae al mínimo de las últimas semanas: TRM fijada en $3.631,57</div>
+          <div class="swipe-body">La Tasa Representativa del Mercado fue fijada en $3.631,57 pesos por dólar, el nivel más bajo de las últimas semanas. El mercado cambiario responde a las expectativas electorales: los inversionistas ajustan posiciones anticipando que ningún candidato extremo tendrá mayoría absoluta para impulsar reformas disruptivas.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Un peso fortalecido reduce la inflación importada y abarata el servicio de la deuda externa. Sin embargo, el resultado electoral del 31 de mayo podría revertir esta tendencia de forma abrupta dependiendo del ganador.</p></div>
+          <div class="swipe-source"><a href="https://www.noticiasrcn.com">Noticias RCN</a><a href="https://www.noticiascaracol.com">Caracol Noticias</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">03 / 05</div>
+          <div class="swipe-title">Petróleo Brent sube 3,72 % hasta $97,8 el barril — mayor alza semanal del año</div>
+          <div class="swipe-body">El crudo Brent ganó $3,5, equivalente a un alza del 3,72 %, para cerrar en $97,8 por barril, su mayor incremento semanal en 2026. La suba responde a tensiones en Oriente Medio y una reducción inesperada de inventarios en EE. UU. Analistas ven posible cruce de los $100 si la tendencia continúa.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Colombia es exportador neto de petróleo. Un Brent sobre $97 mejora los ingresos del Fondo de Estabilización Petrolera y el presupuesto nacional, pero también presiona al alza los precios de los combustibles domésticos.</p></div>
+          <div class="swipe-source"><a href="https://www.elpais.com.co">El País Cali</a><a href="https://www.elespectador.com">El Espectador</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">04 / 05</div>
+          <div class="swipe-title">Nido sísmico de Bucaramanga activo: temblores en Los Santos, Santander</div>
+          <div class="swipe-body">El Servicio Geológico Colombiano registró varios temblores desde la madrugada del 28 de mayo en los alrededores de Los Santos, Santander, con magnitudes superiores a 3.0 a profundidades de 140–160 km. La zona hace parte del «Nido Sísmico de Bucaramanga», uno de los puntos con mayor actividad sísmica del planeta.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Aunque los eventos registrados no representan riesgo estructural inmediato, la actividad sostenida del nido sísmico requiere monitoreo permanente. Un sismo de mayor magnitud en esta zona afectaría a más de 2 millones de habitantes del área metropolitana.</p></div>
+          <div class="swipe-source"><a href="https://newsroom.rcnradio.com">RCN Radio</a><a href="#">Servicio Geológico Colombiano</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">05 / 05</div>
+          <div class="swipe-title">Cierre de fronteras y veda de alcohol el 31 de mayo para las elecciones</div>
+          <div class="swipe-body">El Ministerio del Interior activó las restricciones electorales para la jornada del 31 de mayo: cierre de pasos fronterizos, prohibición de venta de alcohol desde el sábado 30 y ley seca en zonas de riesgo. La Registraduría reporta todo listo para recibir a los 41,4 millones de votantes habilitados.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Las restricciones buscan blindar el orden público en un proceso electoral considerado el más polarizado desde 2022. La Misión de Observación Electoral desplegará observadores en más de 1.100 municipios.</p></div>
+          <div class="swipe-source"><a href="https://www.eltiempo.com">El Tiempo</a><a href="#">Registraduría Nacional</a></div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="section-header reveal"><h2>Noticias por Sección</h2><div class="divider"></div></div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>Análisis: Cepeda necesita el 50 %+1 para evitar segunda vuelta — un escenario difícil</h3></div></div>
+      <p>Solo una vez en la historia colombiana un candidato ganó la presidencia en primera vuelta. Pese al liderazgo de Cepeda en encuestas (44,6 %), ganar en primera vuelta requeriría que el voto blanco y los candidatos menores no erosionen su base. Analistas dan 80 % de probabilidad a una segunda vuelta el 21 de junio.</p>
+      <a href="#" class="source-link">La Silla Vacía · CNN en Español</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Inversores ajustan posiciones: el peso colombiano se fortalece ante expectativa de continuidad</h3></div></div>
+      <p>En la penúltima jornada cambiaria antes de la primera vuelta, los operadores del mercado ajustaron posiciones anticipando que ningún candidato tendrá margen para reformas económicas radicales en el corto plazo. El dólar cerró en $3.640 en el mercado intradía, su nivel más bajo desde marzo.</p>
+      <a href="#" class="source-link">Noticias RCN · Infobae Colombia</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>De la Espriella sube 13 puntos en 3 meses y erosiona el centro político tradicional</h3></div></div>
+      <p>El ascenso de Abelardo De la Espriella —de 18,9 % en febrero a 31,6 % en mayo— refleja una reconfiguración del voto de derecha. Su discurso duro en seguridad y su presencia digital han captado votantes que antes apoyaban a candidatos de centro–derecha como el Partido Conservador y Cambio Radical.</p>
+      <a href="#" class="source-link">Infobae Colombia · Pulzo</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-soc">Social</span><div><h3>Registraduría confirma 41,4 M de votantes habilitados y logística completa para el 31 de mayo</h3></div></div>
+      <p>La Registraduría Nacional confirmó que el padrón electoral para la primera vuelta supera los 41,4 millones de ciudadanos habilitados. Se instalarán más de 100.000 mesas de votación en todo el territorio nacional, con plenos mecanismos de verificación biométrica y transmisión digital de resultados.</p>
+      <a href="#" class="source-link">Registraduría Nacional · El Tiempo</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-int">Internacional</span><div><h3>Misión de la OEA y observadores internacionales llegan a Colombia para monitorear elecciones</h3></div></div>
+      <p>Una misión de observación de la Organización de Estados Americanos y observadores de la Unión Europea llegaron a Bogotá para monitorear el proceso electoral del 31 de mayo. Es la primera elección presidencial colombiana observada por ambos organismos en simultáneo desde 2010.</p>
+      <a href="#" class="source-link">OEA · El Espectador</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Brent a $97,8 eleva perspectivas del Fondo de Estabilización Petrolera en $400 M anuales</h3></div></div>
+      <p>Con el Brent cerrando en $97,8, analistas del sector energético proyectan que el Fondo de Estabilización Petrolera recibirá aproximadamente $400 millones adicionales en el año respecto a lo presupuestado. Ecopetrol reportó positivo impacto en sus ingresos operativos del segundo trimestre.</p>
+      <a href="#" class="source-link">Ecopetrol · El Espectador</a>
+    </div>
+    <div class="data-strip glass reveal">
+      <div class="data-cell"><div class="data-label">TRM Dólar</div><div class="data-value">$3.632</div><div class="data-delta up">↓ Mínimo semanas</div></div>
+      <div class="data-cell"><div class="data-label">Brent USD</div><div class="data-value">$97,8</div><div class="data-delta up">↑ +3,72 %</div></div>
+      <div class="data-cell"><div class="data-label">Días 1ª Vuelta</div><div class="data-value">3</div><div class="data-delta">31 mayo 2026</div></div>
+    </div>
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Escenario sin segunda vuelta: victoria de Cepeda en primera ronda</span>
+        <p>Si Cepeda supera el 50 % el 31 de mayo, el Pacto Histórico consolidaría el poder ejecutivo sin necesidad de alianzas de balotaje. Mercados y empresarios monitorean este escenario con especial atención dada la profundización de reformas que implicaría.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Segunda vuelta Cepeda vs De la Espriella: polarización extrema</span>
+        <p>El escenario más probable según las encuestas. Un balotaje entre el candidato del Pacto Histórico y el representante de la derecha dura configuraría la elección más polarizada en décadas, con efectos sobre la inversión extranjera y el tipo de cambio.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Riesgo de incidentes en zonas de conflicto armado</span>
+        <p>Organizaciones de derechos humanos alertaron sobre posible violencia electoral en municipios de Caquetá, Cauca y Nariño donde operan grupos armados. La Fuerza Pública desplegó 250.000 efectivos para garantizar la seguridad de la jornada del 31 de mayo.</p>
+      </div>
+    </div>
+    <div class="footer reveal">
+      <div class="footer-label">Fuentes consultadas</div>
+      <div class="footer-sources">
+        <a href="#">Noticias RCN</a><a href="#">Caracol Noticias</a><a href="#">El Tiempo</a><a href="#">El Espectador</a><a href="#">Infobae Colombia</a><a href="#">La Silla Vacía</a><a href="#">CNN en Español</a><a href="#">Registraduría Nacional</a><a href="#">SGC</a><a href="#">Ecopetrol</a><a href="#">OEA</a><a href="#">RCN Radio</a><a href="#">Pulzo</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' }));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

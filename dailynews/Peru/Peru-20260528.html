@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — 28 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink);
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 8px 40px var(--shadow); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-size: clamp(40px, 10vw, 64px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-family: 'Newsreader', serif; font-size: 17px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(153,27,27,0.15); border-radius: 100px; padding: 5px 14px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-header .divider { flex: 1; height: 1px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 18px; border: 1px solid var(--glass-border); box-shadow: 0 1px 0 var(--inset-highlight) inset, 0 4px 24px var(--shadow); padding: 28px 24px 24px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .swipe-title { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 14px; }
+    .swipe-why-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { display: flex; gap: 8px; flex-wrap: wrap; }
+    .swipe-source a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.5); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tertiary); transition: all 0.3s; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+    .news-item { padding: 20px 22px; margin-bottom: 12px; }
+    .news-item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .news-item p { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 10px; }
+    .source-link { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; color: var(--tertiary); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0; overflow: hidden; }
+    .data-cell { padding: 20px 16px; text-align: center; }
+    .data-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .data-value { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .data-delta { font-size: 12px; color: var(--muted); }
+    .data-delta.up { color: #065f46; }
+    .vigilar { background: #1d1d1f; border-radius: 18px; padding: 28px 24px; margin: 28px 0; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .vigilar-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .vigilar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .vigilar-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 4px; display: block; }
+    .vigilar-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; margin-top: 6px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--tertiary); }
+    .footer-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 10px; }
+    .footer-sources { display: flex; flex-wrap: wrap; gap: 8px; }
+    .footer-sources a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; background: rgba(255,255,255,0.4); border: 1px solid var(--glass-border); border-radius: 6px; padding: 4px 10px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Perú</h1>
+      <div class="masthead-date">Jueves 28 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+    <div class="section-header reveal"><h2>Top 5 del Día</h2><div class="divider"></div></div>
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+        <div class="swipe-card">
+          <div class="swipe-num">01 / 05</div>
+          <div class="swipe-title">10 días para el balotaje: campaña Fujimori–Sánchez entra en recta final</div>
+          <div class="swipe-body">Con la segunda vuelta presidencial fijada para el 7 de junio, Keiko Fujimori (Fuerza Popular, 17,1 % en primera vuelta) y Roberto Sánchez (Juntos por el Perú, 12 %) intensifican sus recorridos a nivel nacional. Las encuestas muestran un escenario disputado con diferencias dentro del margen de error.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Por primera vez en décadas, Perú celebra un balotaje con un nuevo Congreso bicameral. El resultado definirá el rumbo de las reformas económicas y de seguridad en un país que crece al 3,4 % pero enfrenta alta desconfianza institucional.</p></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru">Infobae Perú</a><a href="https://larepublica.pe">La República</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">02 / 05</div>
+          <div class="swipe-title">Estado de emergencia en Tumbes: 60 días por violencia y crimen organizado</div>
+          <div class="swipe-body">El Ejecutivo declaró estado de emergencia en la provincia de Tumbes por 60 días para combatir el crimen organizado transnacional. La medida habilita operativos policiales y militares conjuntos y restringe algunas garantías constitucionales en la zona fronteriza con Ecuador.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Tumbes es una puerta de entrada de redes criminales ligadas al narcotráfico y la trata de personas. El estado de emergencia en período electoral puede influir en el voto de las regiones del norte del país el 7 de junio.</p></div>
+          <div class="swipe-source"><a href="https://andina.pe">Agencia Andina</a><a href="https://www.tvperu.gob.pe">TVPerú</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">03 / 05</div>
+          <div class="swipe-title">Sismo de magnitud 3,9 en Caravelí, Arequipa — sin víctimas reportadas</div>
+          <div class="swipe-body">El Instituto Geofísico del Perú registró un sismo de magnitud 3,9 a las 02:02 horas con epicentro 30 km al este de Caravelí, región Arequipa, a una profundidad de 20 km. No se reportaron víctimas ni daños estructurales. El IGP monitorea la actividad sísmica permanentemente en la zona sur del país.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>La costa sur peruana es una de las zonas de mayor riesgo sísmico del mundo. La zona de Caravelí acumula tensión tectónica y cualquier evento de mayor magnitud podría afectar infraestructura minera y portuaria clave.</p></div>
+          <div class="swipe-source"><a href="https://www.infobae.com/peru">Infobae</a><a href="https://elpopular.pe">El Popular</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">04 / 05</div>
+          <div class="swipe-title">Gobierno subsidia transporte por 2 meses ante alza de combustibles</div>
+          <div class="swipe-body">El Ejecutivo aprobó un subsidio económico de dos meses para transportistas de servicio público para mitigar el impacto del alza de precios del diésel y la gasolina. La medida busca evitar un incremento en las tarifas de transporte que afectaría directamente el costo de vida de los hogares.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Un alza en tarifas de transporte en período electoral tiene alto costo político. El subsidio es una medida de contención, pero su financiamiento presionará el presupuesto de un gobierno en transición hacia el balotaje.</p></div>
+          <div class="swipe-source"><a href="https://andina.pe">Agencia Andina</a><a href="https://www.elperuano.pe">El Peruano</a></div>
+        </div>
+        <div class="swipe-card">
+          <div class="swipe-num">05 / 05</div>
+          <div class="swipe-title">Marina del Perú alerta oleaje fuerte en toda la costa hasta el 3 de junio</div>
+          <div class="swipe-body">La Marina de Guerra emitió un aviso especial de oleaje fuerte y marejadas que afectarán la costa peruana entre el 28 de mayo y el 3 de junio. Se recomienda a embarcaciones menores no salir al mar y a bañistas alejarse de playas expuestas. Los puertos de Paita y Matarani evalúan restricciones operativas.</div>
+          <div class="swipe-why"><div class="swipe-why-label">Por qué importa</div><p>Las marejadas pueden interrumpir operaciones portuarias en el norte y sur del país durante casi una semana, afectando el comercio exterior en un momento en que el PBI crece 3,4 % impulsado por exportaciones.</p></div>
+          <div class="swipe-source"><a href="#">Marina de Guerra del Perú</a><a href="https://andina.pe">Andina</a></div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="section-header reveal"><h2>Noticias por Sección</h2><div class="divider"></div></div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>Fujimori apuesta por seguridad; Sánchez por redistribución en recta final de campaña</h3></div></div>
+      <p>En los últimos días de campaña antes del balotaje del 7 de junio, Keiko Fujimori concentra su discurso en seguridad ciudadana y orden público, mientras Roberto Sánchez enfatiza redistribución económica y derechos laborales. Ambos buscan capturar el voto de los candidatos eliminados en primera vuelta.</p>
+      <a href="#" class="source-link">Peru21 · La República</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>Dólar cae a S/ 3,42 — mínimo del mes impulsado por expectativas de estabilidad</h3></div></div>
+      <p>El tipo de cambio del dólar cerró en S/ 3,42, su nivel más bajo en mayo, en medio de expectativas de estabilidad macroeconómica y un PBI que crece 3,4 % anualizado. El BCRP proyecta que el tipo de cambio cerrará 2026 en un rango de S/ 3,34 a S/ 3,46.</p>
+      <a href="#" class="source-link">Infobae Perú · RPP Noticias</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-soc">Social</span><div><h3>Ley 32615 promulgada: inteligencia artificial para proteger vicuñas del furtivismo</h3></div></div>
+      <p>El Congreso promulgó la Ley 32615 que establece el uso de inteligencia artificial y tecnología de geolocalización para el monitoreo y protección de la vicuña frente a la caza furtiva. Perú alberga el 70 % de la población mundial de vicuñas y su fibra es uno de los productos de exportación más valiosos.</p>
+      <a href="#" class="source-link">Congreso del Perú · Andina</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-pol">Política</span><div><h3>PNP captura cuatro sospechosos del robo de lingotes de oro en Costa Verde</h3></div></div>
+      <p>La Policía Nacional capturó a cuatro personas vinculadas al robo de lingotes de oro ocurrido semanas atrás en Costa Verde, Lima. El Poder Judicial impuso 9 meses de prisión preventiva a los detenidos. El caso involucra a redes de minería ilegal y lavado de activos bajo investigación del Ministerio Público.</p>
+      <a href="#" class="source-link">PNP · Peru21</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-eco">Economía</span><div><h3>PBI anualizado crece 3,4 % — construcción y comercio lideran la expansión</h3></div></div>
+      <p>El BCRP confirmó que el PBI creció 3,4 % en términos anualizados al primer trimestre de 2026, impulsado principalmente por construcción, comercio y servicios. Tres choques de oferta negativos moderaron levemente la proyección anual de 3,1 % a 2,9 %, aunque Perú sigue entre las economías más estables de la región.</p>
+      <a href="#" class="source-link">BCRP · Gestión</a>
+    </div>
+    <div class="news-item glass reveal">
+      <div class="news-item-header"><span class="pill pill-int">Internacional</span><div><h3>ONPE activa protocolo de seguridad electoral para el balotaje del 7 de junio</h3></div></div>
+      <p>La Oficina Nacional de Procesos Electorales confirmó que activó todos los protocolos de seguridad y logística para la segunda vuelta del 7 de junio. Los 41,5 millones de ciudadanos del padrón electoral están habilitados para votar, con mesas de sufragio abiertas desde las 7:00 a.m. hasta las 5:00 p.m.</p>
+      <a href="#" class="source-link">ONPE · Agencia Andina</a>
+    </div>
+    <div class="data-strip glass reveal">
+      <div class="data-cell"><div class="data-label">USD / SOL</div><div class="data-value">S/ 3,42</div><div class="data-delta up">↓ Mínimo del mes</div></div>
+      <div class="data-cell"><div class="data-label">PBI Anual</div><div class="data-value">3,4 %</div><div class="data-delta up">Ene–Mar 2026</div></div>
+      <div class="data-cell"><div class="data-label">Días para balotaje</div><div class="data-value">10</div><div class="data-delta">7 junio 2026</div></div>
+    </div>
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Debate presidencial antes del 7 de junio</span>
+        <p>La confirmación de un debate entre Fujimori y Sánchez está pendiente. Si se realiza, será el evento comunicacional más importante de la campaña y puede mover la intención de voto de forma significativa en un escenario muy disputado.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Estado de emergencia en Tumbes y efecto electoral</span>
+        <p>Las restricciones en Tumbes podrían dificultar la logística electoral en la zona fronteriza. Además, el estado de emergencia puede ser capitalizado políticamente por Fujimori, cuyo eje de campaña es la seguridad pública.</p>
+      </div>
+      <div class="vigilar-item">
+        <span class="vigilar-item-title">Oleaje fuerte y puertos del norte</span>
+        <p>Si las marejadas se intensifican, los puertos de Paita y Matarani podrían suspender operaciones durante días, afectando la cadena de exportaciones agroindustriales y mineras en un período de balanza comercial favorable.</p>
+      </div>
+    </div>
+    <div class="footer reveal">
+      <div class="footer-label">Fuentes consultadas</div>
+      <div class="footer-sources">
+        <a href="#">Agencia Andina</a><a href="#">TVPerú</a><a href="#">El Peruano</a><a href="#">ONPE</a><a href="#">BCRP</a><a href="#">IGP</a><a href="#">Marina de Guerra</a><a href="#">Infobae Perú</a><a href="#">La República</a><a href="#">Peru21</a><a href="#">RPP Noticias</a><a href="#">Gestión</a><a href="#">PNP</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' }));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
