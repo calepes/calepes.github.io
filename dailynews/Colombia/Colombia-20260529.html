@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 29 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #F5EEE0 0%, #EDE0CC 25%, #DED8E8 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink); -webkit-font-smoothing: antialiased;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 40px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-family: 'Newsreader', serif; font-size: clamp(40px, 10vw, 64px); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: white; background: var(--accent); border-radius: 100px; padding: 5px 16px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); white-space: nowrap; }
+    .section-header .sh-line { flex: 1; height: 0.5px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 12px; }
+    .swipe-why strong { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); display: block; margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .news-item { padding: 20px 22px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; margin-bottom: 8px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-emp { color: var(--pill-emp); background: var(--pill-emp-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-dep { color: var(--pill-dep); background: var(--pill-dep-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: rgba(60,60,67,0.78); line-height: 1.6; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 16px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 12px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Viernes 29 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">
+      <h2>Top 5 del Día</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">T-48 horas: Colombia entra en silencio electoral con Cepeda en cabeza — 408.000 uniformados desplegados</div>
+            </div>
+            <div class="swipe-body">A menos de 48 horas de las elecciones presidenciales del domingo 31 de mayo, Colombia activó el plan de seguridad electoral más grande de su historia: 408.000 efectivos de la Policía y el Ejército desplegados en todo el territorio. La Registraduría activó monitoreo permanente de 24 horas y alertas contra desinformación en redes. En las encuestas más recientes, Iván Cepeda (Pacto Histórico) lidera con 37,1 %, seguido por Abelardo de la Espriella (27,5 %) y Paloma Valencia (21,7 %).</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Con Cepeda sin los votos suficientes para ganar en primera vuelta, Colombia se encamina a un ballotage que definirá si continúa o revierte la agenda izquierdista de Petro. El resultado impactará directamente en las relaciones con inversores extranjeros, el precio de los TES y el margen fiscal del próximo gobierno desde el primer día.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.semana.com/mejor-colombia/elecciones/articulo/elecciones-en-colombia-2026-autoridades-activan-monitoreo-24-horas-y-alertas-por-desinformacion/202643/">Semana</a> · <a href="https://cnnespanol.cnn.com/2026/05/24/colombia/encuestas-favoritos-elecciones-cepeda-espriella-valencia-orix">CNN en Español</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Metro de Bogotá hace su primera prueba histórica con pasajeros sobre el viaducto</div>
+            </div>
+            <div class="swipe-body">El Metro de Bogotá realizó el 29 de mayo su primera prueba con pasajeros a bordo sobre el viaducto elevado, entre las estaciones Gibraltar y Portal Américas, en el suroccidente de la capital. El recorrido cubrió 1,3 kilómetros a una velocidad de 10 km/h. El alcalde Carlos Fernando Galán presidió el acto y declaró: "Esto ya no tiene reversa." El proyecto registra un avance del 67 % y se espera que entre en operación comercial en 2028.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>El metro de Bogotá es el proyecto de infraestructura urbana más grande en la historia de Colombia. Su materialización —luego de décadas de promesas incumplidas— cambia el debate sobre la capacidad del Estado para ejecutar megaproyectos. El timing, a 48 horas de las elecciones, también tiene lectura política: Galán, eventual candidato presidencial en 2030, escribe su hoja de vida ante el país.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.noticiasrcn.com/colombia/bogota-vive-las-primeras-pruebas-con-pasajeros-en-el-metro-esto-ya-no-tiene-reversa-1025821">RCN</a> · <a href="https://www.semana.com/nacion/bogota/articulo/video-asi-fue-la-primera-prueba-del-metro-de-bogota-con-pasajeros-personalidades-se-subieron-a-los-vagones/202650/">Semana</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">48 cuerpos recuperados en San José del Guaviare tras combates entre disidencias FARC</div>
+            </div>
+            <div class="swipe-body">Una comisión humanitaria del gobierno logró recuperar 48 cuerpos de víctimas de enfrentamientos entre grupos disidentes de las FARC en zona rural de San José del Guaviare. Los combates, que se prolongaron varios días, desplazaron a centenares de familias campesinas e indígenas de la región. Las organizaciones de derechos humanos denunciaron que la violencia en el Guaviare se intensificó en las semanas previas a las elecciones.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>La violencia en el Guaviare evidencia que la "paz total" de Petro no logró neutralizar a las disidencias de las FARC. El nuevo gobierno —sea quien sea— heredará un mapa de conflicto activo en al menos seis departamentos. Para los candidatos opositores, es un argumento central; para Cepeda, un legado difícil de defender.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.noticiasrcn.com/emisiones/emision-noticias-rcn-7-00-p-m-viernes-29-de-mayo-de-2026-1026032">RCN Noticias</a> · <a href="https://www.semana.com/">Semana</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Gobierno Petro deja deuda al 61,5 % del PIB y TES a tasas récord del 14 % en 20 años</div>
+            </div>
+            <div class="swipe-body">Con el gobierno Petro a días de su cierre, el legado fiscal es controvertido: la deuda neta del gobierno central alcanzó el 61,5 % del PIB en el primer trimestre de 2026, frente al 54,1 % de un año antes. En una sola operación, el gobierno colocó $6 billones en TES a tasas del 14 %, la cifra más alta en dos décadas. En sentido contrario, la pobreza monetaria bajó del 36,6 % (2022) al 31,8 % (2024) y el salario mínimo tuvo un alza real del 23,7 %.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Quien gane el domingo hereda una hacienda pública bajo presión severa: déficit creciente, tasas de financiamiento en máximos históricos y gasto social comprometido. Revertir los programas sociales de Petro generará costos políticos enormes; mantenerlos sin reforma fiscal será insostenible. No hay escenario fácil para el próximo presidente.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.elcolombiano.com/negocios/deuda-tes-colombia-tasa-record-gobierno-petro-2026-GH36757436">El Colombiano</a> · <a href="https://www.infobae.com/colombia/2026/05/28/fue-todo-menos-un-acierto-al-gobierno-petro-se-le-cae-otra-mentira-destapan-la-realidad-de-la-deuda-en-dolares-de-colombia-en-2026/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Cepeda promete acuerdo de paz con ELN y "gran acuerdo nacional" si gana las elecciones</div>
+            </div>
+            <div class="swipe-body">En sus últimas apariciones de campaña antes del silencio electoral, Iván Cepeda (Pacto Histórico) reiteró que de ganar buscará retomar las negociaciones de paz con el ELN —suspendidas por el gobierno Petro en 2025— y convocará a una mesa de "gran acuerdo nacional" con todos los sectores políticos. Sus rivales De la Espriella y Valencia prometieron, en cambio, un enfoque de seguridad de mano dura contra el crimen organizado.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>La postura de Cepeda frente al ELN es uno de los pocos diferenciadores nítidos entre candidatos en un debate dominado por la economía. El ELN tiene presencia activa en 10 departamentos y el fracaso de las negociaciones Petro dejó el proceso sin hoja de ruta. El resultado del domingo marcará si Colombia retoma el camino negociador o apuesta por la vía militar.</p>
+            </div>
+            <div class="swipe-source"><a href="https://cnnespanol.cnn.com/2026/05/27/colombia/quien-es-ivan-cepeda-petro-elecciones-orix">CNN en Español</a> · <a href="https://www.local10.com/espanol/2026/05/29/colombia-acude-a-las-urnas-dividida-entre-consolidar-o-revertir-la-agenda-politica-de-petro/">Local10</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="section-header reveal">
+      <div class="sh-line"></div>
+      <h2>Noticias por Sección</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-pol">Político</span>
+      <h3>De la Espriella se perfila como el candidato antisistema; Valencia busca consolidar el voto uribista</h3>
+      <p>Abelardo de la Espriella, segundo en las encuestas con 27,5 %, construyó su campaña sobre el modelo de Nayib Bukele en El Salvador: propuestas de mano dura, discurso antipetro y perfil técnico-económico. Paloma Valencia, con el 21,7 %, avanzó como candidata del Centro Democrático tras ganar la Gran Consulta por Colombia. Analistas coinciden en que hay alta probabilidad de segunda vuelta entre Cepeda y uno de los dos candidatos opositores, con un resultado abierto.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/23/nueva-encuesta-sacude-la-carrera-presidencial-asi-quedarian-los-duelos-entre-paloma-valencia-ivan-cepeda-y-de-la-espriella-en-segunda-vuelta/">Infobae</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-guarumo-y-ecoanalitica-cepeda-37-1-de-la-espriella-27-5-y-paloma-valencia-21-7-en-segunda-abelardo-aparece-por-encima-de-cepeda-3557410">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-eco">Económico</span>
+      <h3>TRM sube a $3.646,58 pesos por dólar el 29 de mayo — alza del 0,41 %</h3>
+      <p>La Tasa Representativa del Mercado (TRM) para el viernes 29 de mayo se ubicó en $3.646,58 pesos por dólar, un incremento de $15,01 pesos (0,41 %) respecto al cierre anterior. La volatilidad cambiaria se situó en 14,25 %, por encima del umbral de referencia. Bancolombia proyecta que el dólar promediará $3.878 pesos en 2026, presionado por el déficit fiscal y la incertidumbre electoral de cara al cambio de gobierno.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/29/dolar-hoy-en-colombia-cotizacion-de-apertura-del-29-de-mayo/">Infobae</a> · <a href="https://dolar.wilkinsonpc.com.co/2026-05">WilkinsonPC</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-soc">Social</span>
+      <h3>8 sismos registrados en Colombia el 29 de mayo — el primero en Paratebueno, Cundinamarca</h3>
+      <p>El Servicio Geológico Colombiano reportó la ocurrencia de ocho sismos en el territorio nacional durante el 29 de mayo, con el primero detectado en Paratebueno, Cundinamarca. Ninguno de los eventos alcanzó una magnitud que generara alertas de daños o evacuación. La actividad sísmica se registra en el marco de la vigilancia permanente de la cadena volcánica andina y las zonas de subducción del Pacífico colombiano.</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-29-de-mayo-de-2026-1026007">RCN</a> · <a href="https://www.lafm.com.co/">La FM</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Venezuela y Ecuador observan la elección colombiana con interés estratégico</h3>
+      <p>El resultado de las elecciones colombianas del 31 de mayo tiene implicaciones regionales directas: una victoria de Cepeda mantendría el alineamiento con Venezuela, Ecuador (Noboa) y el espacio progresista latinoamericano; una victoria opositora implicaría un viraje hacia posiciones más críticas con Caracas. La comunidad internacional, incluyendo EEUU y la UE, llamó a garantizar un proceso transparente y libre de interferencia.</p>
+      <span class="source-link"><a href="https://www.expreso.ec/internacional/colombia-llega-urnas-presion-fiscal-debate-legado-economico-petro-283802.html">Expreso Ecuador</a> · <a href="https://cepr.net/publications/colombia-under-petro-social-gains-amid-monetary-and-fiscal-constraints/">CEPR</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay — Fecha 18: Millonarios sigue en la cima; Nacional y Junior pelean el segundo lugar</h3>
+      <p>Millonarios F.C. mantiene el liderato de la Liga BetPlay Dimayor 2026-I tras la jornada del jueves. Nacional y Junior del Barranquilla compiten por el segundo puesto antes del cierre de la fase todos contra todos. En ciclismo, Egan Bernal se recupera satisfactoriamente de su lesión de rodilla y su equipo Ineos confirmó que sería incluido en la nómina para la Vuelta a España en agosto.</p>
+      <span class="source-link"><a href="https://www.elcolombiano.com/">El Colombiano</a> · <a href="https://www.caracol.com.co/">Caracol</a></span>
+    </div>
+
+    <div class="data-strip glass reveal">
+      <div class="data-cell">
+        <div class="data-cell-label">TRM / USD</div>
+        <div class="data-cell-value">$3.647</div>
+        <div class="data-cell-delta red">+0,41 % hoy</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Deuda / PIB</div>
+        <div class="data-cell-value">61,5 %</div>
+        <div class="data-cell-delta red">vs 54,1 % hace un año</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Elecciones en</div>
+        <div class="data-cell-value">2 d</div>
+        <div class="data-cell-delta">31 mayo 2026</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">La jornada electoral del domingo 31 de mayo es el momento más crítico del calendario político colombiano del año. Si ningún candidato supera el 50 % en primera vuelta —lo que las encuestas hacen altamente probable—, la segunda vuelta se realizará el 21 de junio y el mercado vivirá tres semanas de incertidumbre adicional con presión sobre la TRM.</div>
+      <div class="vigilar-item">Los 48 cuerpos recuperados en el Guaviare son el recordatorio más duro de que el conflicto armado no ha terminado. El nivel de violencia en departamentos como Nariño, Arauca y Cauca se ha intensificado en 2026, y el próximo gobierno deberá definir en las primeras semanas si retoma negociaciones con el ELN o adopta una estrategia de confrontación.</div>
+      <div class="vigilar-item">El primer test real del Metro de Bogotá abre el debate sobre la capacidad del Estado colombiano para ejecutar proyectos de infraestructura a escala. El éxito o fracaso del metro en sus pruebas de carga y velocidad determinará si las fechas de apertura comercial en 2028 son alcanzables, y si otras ciudades como Medellín y Cali avanzan con sus propios proyectos metro.</div>
+    </div>
+
+    <div class="footer reveal">
+      Fuentes: Semana · El Tiempo · El Colombiano · RCN Noticias · Caracol · CNN en Español · Infobae · La FM · El Espectador · Portafolio · Local10 · WilkinsonPC · Banrep · CEPR
+      <br>
+      Briefing generado con Claude — Solo para uso informativo
+    </div>
+
+  </div>
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' }));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

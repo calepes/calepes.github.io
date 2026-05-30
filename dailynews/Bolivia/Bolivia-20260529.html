@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 29 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink); -webkit-font-smoothing: antialiased;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 40px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-family: 'Newsreader', serif; font-size: clamp(40px, 10vw, 64px); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: white; background: var(--accent); border-radius: 100px; padding: 5px 16px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); white-space: nowrap; }
+    .section-header .sh-line { flex: 1; height: 0.5px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 12px; }
+    .swipe-why strong { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); display: block; margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .news-item { padding: 20px 22px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; margin-bottom: 8px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-emp { color: var(--pill-emp); background: var(--pill-emp-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-dep { color: var(--pill-dep); background: var(--pill-dep-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: rgba(60,60,67,0.78); line-height: 1.6; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 16px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 12px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Viernes 29 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">
+      <h2>Top 5 del Día</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Fracasa la mesa de diálogo; COB rechaza negociaciones y anuncia más bloqueos</div>
+            </div>
+            <div class="swipe-body">La comisión de diálogo convocada por el gobierno en La Paz no logró avanzar por la ausencia de los principales líderes movilizados. La Central Obrera Boliviana (COB) resolvió en asamblea no asistir al diálogo y endurecer las presiones para exigir la renuncia del presidente Rodrigo Paz. Las federaciones campesinas Túpac Katari y Bartolina Sisa anunciaron la ampliación de los bloqueos a nuevos puntos.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Con la COB fuera del diálogo, el gobierno queda sin interlocutor válido. Cada día adicional de bloqueo profundiza la crisis humanitaria y acorta el margen político antes de que el ejecutivo deba optar entre la fuerza o la negociación directa con Morales desde el exterior.</p>
+            </div>
+            <div class="swipe-source"><a href="https://rtvu.uto.edu.bo/2026/05/29/se-profundiza-la-crisis-en-bolivia-fracasa-el-dialogo-y-se-anuncian-mas-bloqueos/">RTVU</a> · <a href="https://www.opinion.com.bo/articulo/pais/cob-ira-dialogo-decide-presionar-mas-renuncia-paz/20260529115055991784.html">Opinión Bolivia</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">El Alto acuerda ampliar bloqueos en todo el país "hasta la renuncia de Paz"</div>
+            </div>
+            <div class="swipe-body">Sectores movilizados en El Alto resolvieron en cabildo nocturno intensificar los puntos de bloqueo a nivel nacional y mantener la presión hasta la salida del presidente. El viernes se contabilizaron más de 70 puntos de bloqueo activos en el país, 20 más que al inicio de la semana, según la Administradora Boliviana de Carreteras. El movimiento suma ahora a federaciones de transportistas libres y comerciantes minoristas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>El aumento de 20 puntos de bloqueo en una sola semana muestra que el movimiento gana adherentes, no los pierde. Con El Alto —la ciudad más densa del altiplano— coordinando la expansión, la logística del gobierno para abastecer La Paz se vuelve prácticamente imposible.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/alto-sectores-movilizados-acuerdan-ampliar-bloqueos-renuncia-paz/20260529172410991801.html">Opinión Bolivia</a> · <a href="https://www.lanacion.com.py/mundo/2026/05/29/manifestantes-aumentan-bloqueos-en-bolivia-y-rechazan-dialogo-con-el-gobierno/">La Nación</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Cien mil pollos muertos en Cochabamba; filas de cuatro cuadras para comprar comida en La Paz</div>
+            </div>
+            <div class="swipe-body">En el municipio de Pocona, más de 100.000 pollos murieron en granjas avícolas por falta de alimento balanceado, gas licuado e insumos veterinarios; las pérdidas superan los 700.000 bolivianos diarios. En la ciudad de La Paz, cientos de personas hacen fila de hasta cuatro cuadras para comprar un pollo, y varios supermercados limitan las ventas a una unidad por persona. El pollo se vende al doble de su precio habitual.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>La destrucción de la cadena avícola es un daño económico que no se revierte en semanas. Aun si los bloqueos ceden mañana, la escasez de proteína seguirá por meses, con un impacto desproporcionado en los sectores de menores ingresos y una presión adicional sobre la inflación ya desbocada.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/05/30/la-crisis-de-abastecimiento-en-bolivia-se-agrava-tras-29-dias-de-bloqueos/">Infobae</a> · <a href="https://www.lmneuquen.com/mundo/crisis-y-desabastecimiento-bolivia-largas-filas-comprar-comida-y-precios-exorbitantes-n1239426">LMNeuquén</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Rodrigo Paz: "Evo Morales tiene los días contados" — gobierno endurece postura</div>
+            </div>
+            <div class="swipe-body">En entrevista con medios argentinos, el presidente Rodrigo Paz afirmó que Evo Morales "se esconde en el Trópico de Cochabamba" y que "sabe que sus días están contados", en referencia a la orden de aprehensión vigente en su contra. El gobierno rechazó cualquier negociación que implique levantar las órdenes de detención contra líderes movilizados como condición previa al diálogo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>El endurecimiento retórico de Paz cierra la puerta a una salida negociada de corto plazo. Si el gobierno apuesta por la captura de Morales como acto de fuerza, el riesgo de una escalada violenta en el Chapare y el Trópico de Cochabamba es inmediato y podría internacionalizar el conflicto.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/paz-evo-morales-sabe-que-dias-estan-contados/20260529092950991777.html">Opinión Bolivia</a> · <a href="https://www.resumenlatinoamericano.org/2026/05/29/bolivia-tras-casi-un-mes-de-protestas-el-presidente-rodrigo-paz-apunta-contra-evo-morales-tiene-los-dias-contados">Resumen Latinoamericano</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Ministro Blanco pide "mil perdones" por escasez de combustible; más de 500 cisternas varadas</div>
+            </div>
+            <div class="swipe-body">El ministro de Hidrocarburos David Blanco reconoció públicamente la crisis de abastecimiento de combustible y ofreció disculpas a la ciudadanía, atribuyendo la situación a los bloqueos. Más de 500 cisternas cargadas con gasolina y diésel permanecen varadas en carreteras, varias de ellas expuestas al sol por más de 48 horas. YPFB anunció medidas de emergencia para priorizar hospitales, transporte de alimentos y servicios esenciales.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Que un ministro se disculpe públicamente es un indicador de la pérdida de control del relato gubernamental. Las cisternas varadas con combustible inflamable en puntos de bloqueo representan además un riesgo físico extremo: una chispa puede convertir la crisis política en una tragedia de proporciones mayores.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/ministro-blanco-pide-mil-perdones-falta-combustible-bloqueos-estan-perjudicando/20260529165410991800.html">Opinión Bolivia</a> · <a href="https://eldeber.com.bo/">El Deber</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="section-header reveal">
+      <div class="sh-line"></div>
+      <h2>Noticias por Sección</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-pol">Político</span>
+      <h3>Paz convoca diálogo ampliado para el lunes; oposición lo califica de "maniobra dilatoria"</h3>
+      <p>Ante el fracaso de la mesa instalada el viernes, el Ejecutivo anunció una convocatoria ampliada para el lunes 1 de junio, incluyendo a partidos políticos, iglesia y sociedad civil. Los dirigentes movilizados la rechazaron de antemano: la COB y las federaciones campesinas ratificaron que no negociarán mientras existan órdenes de detención contra sus líderes.</p>
+      <span class="source-link"><a href="https://www.mundiario.com/articulo/internacional/paz-convoca-dialogo-mientras-bolivia-acerca-punto-critico-protestas-bloqueos/20260529075049388339.html">Mundiario</a> · <a href="https://www.opinion.com.bo/">Opinión Bolivia</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-pol">Político</span>
+      <h3>Nueva ley amplía facultades de las FF.AA. para intervenir en conflictos internos — OEA expresa preocupación</h3>
+      <p>La ley promulgada en los días previos, que elimina restricciones para que las Fuerzas Armadas intervengan en conflictos internos, recibió una nota de preocupación de la Organización de Estados Americanos. Sectores opositores y organizaciones de derechos humanos advirtieron sobre el riesgo de represión violenta si el gobierno decide usar la norma para despejar carreteras por la fuerza.</p>
+      <span class="source-link"><a href="https://cnnespanol.cnn.com/2026/05/25/latinoamerica/protestas-bolivia-paz-militarizar-conflicto-orix">CNN en Español</a> · <a href="https://www.france24.com/es/am%C3%A9rica-latina/20260526-bolivia-entra-en-nueva-escalada-de-tensi%C3%B3n-con-m%C3%A1s-de-50-bloqueos-el-gobierno-confirma-la-muerte-de-un-manifestante">France 24</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Banco Mundial proyecta recesión del -1,1 % del PIB en 2026; inflación camino al 20 %</h3>
+      <p>El Banco Mundial actualizó sus proyecciones para Bolivia anticipando una contracción del PIB del -1,1 % para 2026, la primera recesión en más de dos décadas. El FMI proyecta una inflación del 20,7 % al cierre del año, impulsada por el desabastecimiento, la brecha cambiaria y la ruptura de cadenas de suministro. La inflación acumulada en 12 meses ya oscila entre 15 % y 17 % según el BCB.</p>
+      <span class="source-link"><a href="https://elpost.com.bo/2026/04/16/sin-shock-ni-crisis-la-inflacion-puede-superar-el-peligroso-20-en-2026/">El Post Bolivia</a> · <a href="https://www.bcb.gob.bo/?q=indicadores_inflacion">BCB</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-soc">Social</span>
+      <h3>Beni mantiene emergencia humanitaria; hospitales del país reportan crítica escasez de oxígeno</h3>
+      <p>El departamento de Beni lleva más de 48 horas en emergencia humanitaria declarada por la falta de alimentos y combustible. A nivel nacional, el Servicio Departamental de Salud de La Paz reportó escasez crítica de oxígeno medicinal en al menos cuatro hospitales. La OPS reiteró la exigencia de un corredor humanitario urgente y ofreció asistencia técnica al gobierno para establecerlo.</p>
+      <span class="source-link"><a href="https://www.eldiario.net/portal/2026/05/27/beni-declara-emergencia-humanitaria-por-falta-de-alimentos-y-combustible-2/">El Diario Bolivia</a> · <a href="https://www.infobae.com/america/america-latina/2026/05/19/bolivia-en-alerta-bloqueos-y-desabastecimiento-agravan-la-crisis-politica/">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Argentina, Brasil y México llaman a "preservar el orden constitucional" en Bolivia</h3>
+      <p>Los gobiernos de Argentina, Brasil y México emitieron declaraciones conjuntas pidiendo preservar el orden constitucional boliviano y el respeto a las instituciones democráticas. No hubo condena explícita a las protestas ni apoyo abierto al gobierno de Paz. La comunidad internacional observa con atención el desenlace, dado el impacto regional de una posible ruptura institucional.</p>
+      <span class="source-link"><a href="https://www.primicias.ec/internacional/protestas-bolivia-crisis-politica-presidente-rodrigo-paz-exigen-renuncia-bloqueo-carreteras-122969/">Primicias</a> · <a href="https://es.wikipedia.org/wiki/Protestas_en_Bolivia_de_2026">Wikipedia</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>División Profesional: San Antonio Bulo Bulo recibe a Guabira en jornada de viernes</h3>
+      <p>En el único partido de la División Profesional disputado el viernes 29 de mayo, San Antonio Bulo Bulo recibió a Guabira en el estadio de Villa Tunari. La jornada siguiente programada para el fin de semana incluye encuentros entre Academia del Balompié y Always Ready, y Real Oruro vs. GV San José. La continuidad del torneo en semanas previas se vio afectada por los bloqueos que impidieron el traslado de varios equipos.</p>
+      <span class="source-link"><a href="https://www.espn.com/soccer/schedule/_/league/bol.1">ESPN</a> · <a href="https://www.flashscore.es/futbol/bolivia/division-profesional/">Flashscore</a></span>
+    </div>
+
+    <div class="data-strip glass reveal">
+      <div class="data-cell">
+        <div class="data-cell-label">USD Oficial BCB</div>
+        <div class="data-cell-value">Bs 6,86</div>
+        <div class="data-cell-delta">Tipo de cierre</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">USD Referencial BCB</div>
+        <div class="data-cell-value">Bs 9,40</div>
+        <div class="data-cell-delta red">Venta publicada</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Brecha cambiaria</div>
+        <div class="data-cell-value">37 %</div>
+        <div class="data-cell-delta red">Crisis día 29</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">La convocatoria de diálogo ampliado para el lunes 1 de junio es el último test antes de que el gobierno deba optar entre medidas de fuerza o negociación directa con el evismo. Si la COB vuelve a no presentarse, el decreto de estado de excepción que el ejecutivo tiene listo podría firmarse en las próximas 72 horas.</div>
+      <div class="vigilar-item">El gobierno tiene listo un decreto de estado de excepción. Su activación le daría poderes extraordinarios para despejar carreteras por la fuerza, pero con alto riesgo de víctimas en el Chapare y el Trópico de Cochabamba —feudos históricos del evismo— y probable condena internacional.</div>
+      <div class="vigilar-item">La brecha cambiaria del 37 % entre el tipo oficial (Bs 6,86) y el referencial BCB (Bs 9,40) acumula presión sobre el sistema financiero. Una corrección del tipo oficial dispararía la inflación importada de forma inmediata, golpeando desproporcionadamente a los sectores de menor ingreso.</div>
+    </div>
+
+    <div class="footer reveal">
+      Fuentes: La Razón · El Deber · Opinión Bolivia · RTVU · Infobae · France 24 · CNN Español · Resumen Latinoamericano · Mundiario · El Diario Bolivia · La Nación PY · BCB · El Post Bolivia · ESPN · Flashscore
+      <br>
+      Briefing generado con Claude — Solo para uso informativo
+    </div>
+
+  </div>
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' }));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

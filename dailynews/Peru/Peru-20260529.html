@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — 29 mayo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(160deg, #E8EEF3 0%, #D4DCE8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      min-height: 100vh; color: var(--ink); -webkit-font-smoothing: antialiased;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { width: 500px; height: 500px; bottom: 200px; left: -100px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; padding: 40px 32px 36px; margin-bottom: 32px; background: var(--card-bg-strong); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 40px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .masthead h1 { font-family: 'Newsreader', serif; font-size: clamp(40px, 10vw, 64px); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+    .masthead-date { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .masthead-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: white; background: var(--accent); border-radius: 100px; padding: 5px 16px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 18px; }
+    .section-header h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); white-space: nowrap; }
+    .section-header .sh-line { flex: 1; height: 0.5px; background: var(--tertiary); }
+    .carousel-container { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .carousel-container::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 28px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 12px; }
+    .swipe-why strong { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); display: block; margin-bottom: 4px; }
+    .swipe-why p { font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .news-item { padding: 20px 22px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; margin-bottom: 8px; }
+    .pill-pol { color: var(--pill-pol); background: var(--pill-pol-bg); }
+    .pill-eco { color: var(--pill-eco); background: var(--pill-eco-bg); }
+    .pill-emp { color: var(--pill-emp); background: var(--pill-emp-bg); }
+    .pill-soc { color: var(--pill-soc); background: var(--pill-soc-bg); }
+    .pill-dep { color: var(--pill-dep); background: var(--pill-dep-bg); }
+    .pill-int { color: var(--pill-int); background: var(--pill-int-bg); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 14px; color: rgba(60,60,67,0.78); line-height: 1.6; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 16px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 12px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Perú</h1>
+      <div class="masthead-date">Viernes 29 de mayo de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">
+      <h2>Top 5 del Día</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="carousel-container" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Simulacro Nacional Multipeligro 2026: 9,3 millones de escolares participan en el mayor ejercicio preventivo del año</div>
+            </div>
+            <div class="swipe-body">El Primer Simulacro Nacional Multipeligro 2026 se realizó a las 10:00 a.m. con la participación de más de 9,3 millones de escolares de 87.341 instituciones educativas y 612.000 docentes. El ejercicio simuló un sismo de 8,8 grados con posterior tsunami en Lima y Callao, mientras otras regiones practicaron respuestas ante huaicos, inundaciones y friajes. El INDECI destacó el alto nivel de participación ciudadana e institucional.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Perú es uno de los países con mayor riesgo sísmico del planeta. Ejercicios de esta escala —el primero del año— miden capacidad real de respuesta frente a escenarios que el IGP proyecta con probabilidad alta en la costa del Pacífico. Una preparación deficiente en hogares y escuelas puede costar decenas de miles de vidas en un sismo mayor.</p>
+            </div>
+            <div class="swipe-source"><a href="https://andina.pe/agencia/noticia-indeci-destaca-gran-participacion-durante-primer-simulacro-nacional-multipeligro-2026-1077267.aspx">Andina</a> · <a href="https://elcomercio.pe/lima/sucesos/simulacro-nacional-multipeligro-2026-en-vivo-fecha-hora-acciones-y-ultimas-noticias-del-ejercicio-de-prevencion-indeci-terremoto-yungay-terremoto-y-tsunami-peru-lbposting-noticia/">El Comercio</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Segunda vuelta el 7 de junio: Keiko Fujimori (32,5 %) vs Roberto Sánchez (29,1 %) — recta final de la campaña</div>
+            </div>
+            <div class="swipe-body">A nueve días de la segunda vuelta presidencial, Keiko Fujimori (Fuerza Popular) mantiene una ventaja de 3,4 puntos sobre Roberto Sánchez (Juntos por el Perú) en la encuesta de CPI. Ambos candidatos intensificaron sus agendas de campaña en regiones clave: Fujimori en Arequipa y La Libertad; Sánchez en el norte y Cajamarca. El presidente interino José María Balcázar reiteró que el gobierno conducirá la segunda vuelta con plena institucionalidad.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>La brecha es estrecha y el margen de error estadístico es amplio: el resultado es abierto. Quien gane el 7 de junio tomará posesión el 28 de julio con una agenda de reformas pendientes, un Congreso fragmentado y la necesidad de recuperar la confianza de los mercados en medio de la incertidumbre política heredada de tres presidentes en ocho meses.</p>
+            </div>
+            <div class="swipe-source"><a href="https://rpp.pe/politica/elecciones/encuesta-cpi-segunda-vuelta-2026-keiko-fujimori-325-vs-roberto-sanchez-291-intencion-de-voto-por-regiones-noticia-1690615">RPP</a> · <a href="https://www.infobae.com/peru/2026/05/05/segunda-vuelta-2026-en-peru-fecha-oficial-cambios-debate-y-todo-lo-que-necesitas-saber-antes-del-7-de-junio/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Sismo de magnitud 5,0 sacude Moquegua a la medianoche — sin víctimas reportadas</div>
+            </div>
+            <div class="swipe-body">El Instituto Geofísico del Perú (IGP) registró un sismo de magnitud 5,0 a las 00:32 horas del 29 de mayo, con epicentro a 93 kilómetros al sur de Ilo (Moquegua) y una profundidad de 37 kilómetros. La intensidad llegó a III en Ilo. No se reportaron víctimas ni daños estructurales. Posteriormente, a las 23:09 horas, se registró un segundo sismo de magnitud 3,9 a 63 kilómetros al suroeste de Ilo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>La secuencia sísmica en la zona de subducción Nazca-Sudamericana frente a Moquegua viene en un contexto de mayor actividad desde inicios de 2026. Sismos de magnitud 5,0 son moderados, pero la misma falla puede acumular estrés hacia eventos mayores. Su coincidencia con el simulacro nacional pone el tema de riesgo sísmico en el centro de la agenda pública.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/29/temblor-hoy-en-peru-en-vivo-ultimo-sismo-y-reporte-del-igp-del-viernes-29-de-mayo-de-2026/">Infobae</a> · IGP</div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Estado de emergencia prorrogado en once departamentos por lluvias e inundaciones</div>
+            </div>
+            <div class="swipe-body">El Ejecutivo promulgó la prórroga del estado de emergencia en distritos de once departamentos —entre ellos Áncash, Apurímac, Cajamarca, Cusco, Junín y Lima— afectados por precipitaciones pluviales intensas de la temporada lluviosa 2025-2026. Las medidas habilitan recursos de emergencia para obras de contención, reparación de vías y asistencia a damnificados. SENAMHI proyecta la llegada de friaje al sur del país en los próximos días.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Las prórrogas reiteradas de estados de emergencia señalan que la gestión de riesgos climáticos sigue siendo reactiva. La temporada de lluvias 2025-2026 fue más intensa que el promedio, y la infraestructura vial del país —especialmente en sierra y selva— acumula daños que limitan la actividad económica regional y encarecen la logística de exportación agrícola.</p>
+            </div>
+            <div class="swipe-source"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-29-de-mayo-de-2026">TVPerú</a> · <a href="https://larepublica.pe/amp/sociedad/2026/05/29/simulacro-nacional-multipeligro-2026-hoy-en-vivo-ultimas-noticias-recomendaciones-y-mas-sobre-la-jornada-de-prevencion-de-este-29-de-mayo-375284">La República</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Balcázar y el gobierno interino: últimos 39 días antes del traspaso de poder del 28 de julio</div>
+            </div>
+            <div class="swipe-body">El presidente interino José María Balcázar, tercer mandatario peruano en ocho meses, encabezó una reunión de gabinete centrada en garantizar la transparencia del proceso electoral de segunda vuelta y avanzar en el presupuesto ejecutado. Balcázar reiteró su compromiso de no adoptar decisiones de largo plazo que condicionen al presidente electo. El MEF informó que el crecimiento del PIB en el primer trimestre de 2026 fue del 3,1 %, en línea con las proyecciones.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              <p>Un gobierno interino con capacidad ejecutiva limitada y segunda vuelta a nueve días genera un vacío de política pública que los mercados observan con cautela. Sin embargo, la solidez macroeconómica —inflación ~2 %, tipo de cambio estable en S/ 3,42— sugiere que la incertidumbre política no se ha trasladado aún a los fundamentos económicos.</p>
+            </div>
+            <div class="swipe-source"><a href="https://cnnespanol.cnn.com/2026/02/18/latinoamerica/jose-balcazar-presidente-congreso-peru-orix">CNN en Español</a> · <a href="https://rpp.pe/politica">RPP</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-dots" id="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="section-header reveal">
+      <div class="sh-line"></div>
+      <h2>Noticias por Sección</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-pol">Político</span>
+      <h3>Fujimori y Sánchez intensifican campaña en regiones clave — debate final el 2 de junio</h3>
+      <p>Con nueve días para el balotaje, ambos candidatos priorizaron regiones con alto peso electoral: Fujimori en Arequipa, La Libertad y Piura; Sánchez en Cajamarca, Puno y el norte amazónico. El debate presidencial final, organizado por el JNE, está pactado para el 2 de junio y podría ser determinante en un escenario tan apretado. Las organizaciones de defensa de los derechos humanos pusieron en agenda la situación de las víctimas del período 2022-2023 como tema central del debate.</p>
+      <span class="source-link"><a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2026">Wikipedia</a> · <a href="https://rpp.pe/politica">RPP</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Tipo de cambio estable: el sol cierra el 29 de mayo sin variación en S/ 3,42 por dólar</h3>
+      <p>La cotización del dólar frente al nuevo sol peruano cerró el 29 de mayo prácticamente sin variación en S/ 3,42, según el Banco Central de Reserva del Perú. Durante mayo, el tipo de cambio osciló entre S/ 3,4052 (mínimo del 26 de mayo) y S/ 3,4271 (máximo del 19 de mayo), evidenciando estabilidad cambiaria pese al contexto electoral. La inflación acumulada en 12 meses se mantiene cerca del 2 %, una de las más bajas de la región.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/29/dolar-hoy-en-peru-cotizacion-de-apertura-del-29-de-mayo/">Infobae</a> · <a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-28-de-mayo-del-2026-noticia-1690437">RPP</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-soc">Social</span>
+      <h3>Riesgo de friaje en el sur: SENAMHI alerta sobre caída de temperaturas en Puno y Cusco</h3>
+      <p>El Servicio Nacional de Meteorología e Hidrología (SENAMHI) emitió alertas preventivas de friaje para las regiones de Puno, Cusco y Apurímac, con temperaturas nocturnas que podrían bajar a -10°C en zonas altas. Las autoridades regionales activaron planes de contingencia con distribución de abrigos y kits de protección a comunidades vulnerables. Las heladas amenazan también a cultivos tardíos y ganadería de altura.</p>
+      <span class="source-link"><a href="https://rpp.pe/peru/actualidad/senamhi-pronostico-del-clima-hoy-viernes-29-de-mayo-2026-noticia-1690618">RPP</a> · <a href="https://www.tvperu.gob.pe/">TVPerú</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Perú mantiene posición en la OCDE: conversaciones técnicas avanzan pese a la inestabilidad política interna</h3>
+      <p>Funcionarios del Ministerio de Relaciones Exteriores confirmaron que los grupos de trabajo técnicos de adhesión de Perú a la OCDE continuaron sus reuniones sin interrupción, pese a la sucesión de gobiernos interinos. La OCDE ha valorado la continuidad institucional de los equipos técnicos del MEF y el BCRP. El nuevo presidente electo deberá confirmar el compromiso formal con el proceso de adhesión, que se estima tome entre dos y tres años adicionales.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/02/18/por-que-la-economia-peruana-sigue-resistiendo-a-pesar-de-diez-anos-de-crisis-politica/">Infobae</a> · <a href="https://larepublica.pe/economia">La República</a></span>
+    </div>
+
+    <div class="news-item glass reveal">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga 1 — Fecha 16: Universitario recibe a Cienciano en el Monumental</h3>
+      <p>Universitario de Deportes recibió a Cienciano del Cusco en el Estadio Monumental por la fecha 16 del Torneo Apertura de la Liga 1. Los cremas buscan consolidar su liderazgo en el torneo con miras al intertorneo. En la misma jornada, Alianza Lima visitó a Sporting Cristal en el Estadio Nacional. La selección peruana no tiene actividad en la fecha FIFA de mayo, que no incluye ventana para Conmebol.</p>
+      <span class="source-link"><a href="https://rpp.pe/deportes">RPP Deportes</a> · <a href="https://elcomercio.pe/">El Comercio</a></span>
+    </div>
+
+    <div class="data-strip glass reveal">
+      <div class="data-cell">
+        <div class="data-cell-label">USD / Sol</div>
+        <div class="data-cell-value">S/ 3,42</div>
+        <div class="data-cell-delta green">Sin variación</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Inflación 12m</div>
+        <div class="data-cell-value">~2 %</div>
+        <div class="data-cell-delta green">Más baja de región</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">Días 2da vuelta</div>
+        <div class="data-cell-value">9 d</div>
+        <div class="data-cell-delta">7 junio 2026</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal">
+      <div class="vigilar-header">// Vigilar de cerca</div>
+      <div class="vigilar-item">El debate presidencial del 2 de junio entre Keiko Fujimori y Roberto Sánchez será el último evento de campaña con alcance masivo antes del balotaje del 7 de junio. Con una brecha de solo 3,4 puntos en las encuestas, el debate puede ser decisivo, especialmente en los segmentos indecisos que aún representan el 15-20 % del electorado.</div>
+      <div class="vigilar-item">La llegada del friaje al sur peruano en los próximos días pone a prueba los sistemas de atención humanitaria en Puno, Cusco y Apurímac. Las comunidades altoandinas más vulnerables son las mismas que tienen alta representación electoral en la segunda vuelta, lo que le da al tema una dimensión política además de humanitaria.</div>
+      <div class="vigilar-item">El Congreso tiene pendiente la elección del nuevo contralor general de la República. La vacante lleva más de tres meses sin resolverse, dejando sin fiscalización efectiva grandes rubros del presupuesto público en plena transición presidencial y cuando la ejecución del gasto social es crítica para los candidatos.</div>
+    </div>
+
+    <div class="footer reveal">
+      Fuentes: RPP · El Comercio · La República · Infobae Perú · Andina · TVPerú · INDECI · IGP · SENAMHI · CNN en Español · El Peruano · Diario Correo
+      <br>
+      Briefing generado con Claude — Solo para uso informativo
+    </div>
+
+  </div>
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' }));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
