@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 30 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">S&#225;bado 30 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&#237;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Bolivia llega al d&#237;a 24 de bloqueos con 93 cortes viales y sin soluci&#243;n a la vista</div>
+            </div>
+            <div class="swipe-body">La semana cierra sin que cesen las protestas iniciadas el 6 de mayo. La Administradora Boliviana de Carreteras confirm&#243; 93 puntos de bloqueo activos en todo el pa&#237;s. Los manifestantes, liderados por la COB y sectores campesinos, mantienen la exigencia de renuncia del presidente Rodrigo Paz como condici&#243;n para levantar las medidas de presi&#243;n.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Con 93 cortes viales, el desabastecimiento en La Paz y El Alto es cr&#237;tico. El costo acumulado en 24 d&#237;as supera los US$&#160;1.200 millones seg&#250;n las proyecciones del da&#241;o de US$&#160;51M diarios documentados. La ausencia de una salida negociada incrementa el riesgo de escalada y de intervenci&#243;n de la fuerza p&#250;blica.
+            </div>
+            <div class="swipe-source"><a href="https://www.prensa-latina.cu/2026/05/30/semana-concluye-sin-final-de-las-protestas-en-bolivia/">Prensa Latina</a> &#183; <a href="https://www.urgente.bo/">Urgente.bo</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">COB convoca ampliado de emergencia en El Alto para definir continuidad del conflicto</div>
+            </div>
+            <div class="swipe-body">La Central Obrera Boliviana cit&#243; a un ampliado para el s&#225;bado 30 de mayo a las 14:00 en el Complejo Fabril junto a la UPEA en El Alto. El encuentro deb&#237;a resolver si se levanta, profundiza o condiciona el paro. La suspensi&#243;n previa de otro ampliado evidenci&#243; divisiones internas entre los sectores convocantes.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La COB es el actor clave del conflicto. Si el ampliado modera su posici&#243;n, se abre ventana de di&#225;logo. Si ratifica la renuncia como condici&#243;n innegociable, el conflicto entra en una fase de mayor presi&#243;n con riesgo de confrontaci&#243;n directa entre manifestantes y fuerzas del orden.
+            </div>
+            <div class="swipe-source"><a href="https://abi.bo/presidente-paz-anuncia-nueva-etapa-desde-mayo-con-dialogo-nacional-y-envio-de-leyes-estructurales/">ABI</a> &#183; <a href="https://www.infobae.com/america/america-latina/2026/05/30/crisis-en-bolivia-convocan-a-un-nuevo-dialogo-para-poner-fin-a-casi-un-mes-de-bloqueos-y-violentas-protestas/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Tribunal anula orden de aprehension por terrorismo contra el l&#237;der m&#225;ximo de la COB</div>
+            </div>
+            <div class="swipe-body">Un tribunal de La Paz dej&#243; sin efecto la orden de aprehension por presunto terrorismo contra Mario Argollo, m&#225;ximo ejecutivo de la COB, y el dirigente campesino Vicente Salazar. La medida judicial fue interpretada como un gesto hacia la distensi&#243;n, aunque los sectores en huelga no modificaron su posici&#243;n pol&#237;tica.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La revocatoria reduce la temperatura jur&#237;dica del conflicto. Sin embargo, la cronolog&#237;a muestra que la judicializaci&#243;n de dirigentes no fren&#243; las protestas. La resoluci&#243;n del conflicto depende de concesiones pol&#237;ticas y econ&#243;micas concretas, no de gestos procesales.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/05/30/cronologia-de-la-crisis-protestas-bloqueos-y-violencia-marcaron-el-ultimo-mes-en-bolivia/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Bolivia promulga ley que habilita la intervenci&#243;n de las Fuerzas Armadas en conflictos internos</div>
+            </div>
+            <div class="swipe-body">El gobierno promulg&#243; durante la madrugada una norma que elimina restricciones legales para el despliegue de las FF.AA. en situaciones de conflicto interno. El comandante de la Polic&#237;a anunci&#243; operativos para liberar rutas. Sectores opositores y organizaciones civiles expresaron alarma ante el riesgo de una escalada represiva.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Hist&#243;ricamente en Bolivia, la militarizaci&#243;n de conflictos sociales ha resultado en v&#237;ctimas fatales, da&#241;o pol&#237;tico duradero y mayor radicalizaci&#243;n de manifestantes. La apuesta del ejecutivo implica un riesgo institucional muy alto en un pa&#237;s con memoria viva de las crisis de 2003 y 2019.
+            </div>
+            <div class="swipe-source"><a href="https://cnnespanol.cnn.com/2026/05/25/latinoamerica/protestas-bolivia-paz-militarizar-conflicto-orix">CNN Espa&#241;ol</a> &#183; <a href="https://rpp.pe/mundo/actualidad/crisis-en-bolivia-2026-bloqueos-protestas-y-exigencias-al-gobierno-noticia-1688270">RPP</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Bolivia pierde US$&#160;51 millones diarios por bloqueos; cuatro muertos y m&#225;s de cien detenidos</div>
+            </div>
+            <div class="swipe-body">Un informe revel&#243; que el da&#241;o econ&#243;mico acumulado supera los US$&#160;1.200 millones en 24 d&#237;as. El desabastecimiento de combustible, ox&#237;geno medicinal y alimentos en La Paz y El Alto agrav&#243; la emergencia humanitaria. Cuatro personas han fallecido desde el inicio del conflicto y m&#225;s de un centenar permanecen detenidas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Una econom&#237;a ya tensada por la escasez de d&#243;lares y la ca&#237;da de reservas internacionales no puede absorber indefinidamente p&#233;rdidas de esa magnitud. El impacto se traslada a inflaci&#243;n, desabastecimiento y deterioro fiscal. La ventana para una salida negociada se estrecha cada d&#237;a.
+            </div>
+            <div class="swipe-source"><a href="https://www.prensa-latina.cu/2026/05/30/semana-concluye-sin-final-de-las-protestas-en-bolivia/">Prensa Latina</a> &#183; <a href="https://www.urgente.bo/">Urgente.bo</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &#8594;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Presidente Paz anuncia &#171;nueva etapa&#187; con di&#225;logo nacional y env&#237;o de leyes estructurales</h3>
+      <p>El mandatario reitera su disposici&#243;n al di&#225;logo y anuncia el env&#237;o al parlamento de un paquete de leyes estructurales para responder a las demandas econ&#243;micas de los sectores movilizados. El gobierno insiste en que la renuncia no est&#225; sobre la mesa, pero reconoce la necesidad de &#171;se&#241;ales concretas&#187; para destrabar el conflicto.</p>
+      <span class="source-link"><a href="https://abi.bo/presidente-paz-anuncia-nueva-etapa-desde-mayo-con-dialogo-nacional-y-envio-de-leyes-estructurales/">ABI</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>D&#243;lar paralelo en Bs&#160;9,92 frente a un oficial petrificado en Bs&#160;6,96; brecha del 42,5%</h3>
+      <p>El Banco Central de Bolivia mantiene el tipo de cambio fijo en Bs&#160;6,96 desde noviembre de 2011, pero la brecha con el mercado informal alcanz&#243; el 42,5% seg&#250;n plataformas de seguimiento (Binance P2P). La escasez de divisas en el sistema bancario formal se agudiz&#243; con el conflicto. Conseguir d&#243;lares al precio oficial es pr&#225;cticamente imposible para importadores y empresas.</p>
+      <span class="source-link"><a href="https://www.bcb.gob.bo/?q=cotizaciones_tc">BCB</a> &#183; <a href="https://www.dolarbluebolivia.click/">DolarBlueBolivia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Bolivia tiene oportunidad de impulsar la integraci&#243;n energ&#233;tica regional pese a la crisis interna</h3>
+      <p>El 71,2% de la capacidad el&#233;ctrica instalada de Bolivia &#8212;2.512,5&#160;MW&#8212; proviene de plantas termoeléctricas a gas. La reforma energ&#233;tica anunciada en mayo busca incorporar subastas de energ&#237;a renovable y un regulador independiente. Expertos advierten que el shock de costos llegar&#225; hacia 2028&#8211;2030 cuando Bolivia comience a importar gas a precios internacionales.</p>
+      <span class="source-link"><a href="https://www.eldiario.net/portal/2026/05/30/bolivia-tiene-otra-oportunidad-para-impulsar-la-integracion-energetica/">El Diario</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>14 ataques a la prensa en siete d&#237;as; RSF exige garant&#237;as para periodistas en Bolivia</h3>
+      <p>Reporteros Sin Fronteras document&#243; al menos 14 agresiones contra periodistas y equipos de medios entre el 12 y el 18 de mayo, en cuatro zonas del pa&#237;s, durante la cobertura de manifestaciones sociales. Los ataques se suman a cuatro muertos y m&#225;s de un centenar de detenidos desde el inicio del conflicto.</p>
+      <span class="source-link"><a href="https://www.vision360.bo/amp/noticias/2026/05/21/49203-crisis-politica-y-social-en-bolivia-14-ataques-contra-la-prensa-registrados-en-7-dias">Visi&#243;n 360</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>La crisis boliviana copa portadas regionales; CNN, Infobae y RPP publican cronolog&#237;as del conflicto</h3>
+      <p>Medios internacionales dedican cobertura extensa al conflicto boliviano, que lleva casi un mes sin resoluci&#243;n. La atenci&#243;n regional se centra en si el gobierno recurrir&#225; a las fuerzas militares para despejar rutas y en las consecuencias que eso tendr&#237;a para la gobernabilidad de la administraci&#243;n Paz, que cumple apenas siete meses en el cargo.</p>
+      <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/30/cronologia-de-la-crisis-protestas-bloqueos-y-violencia-marcaron-el-ultimo-mes-en-bolivia/">Infobae</a> &#183; <a href="https://cnnespanol.cnn.com/2026/05/25/latinoamerica/protestas-bolivia-paz-militarizar-conflicto-orix">CNN Espa&#241;ol</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Divisi&#243;n Profesional 2026: fecha 10 en curso; cl&#225;sico Oriente&#8211;Blooming programado para el domingo 31</h3>
+      <p>La d&#233;cima jornada del torneo de la Divisi&#243;n Profesional del F&#250;tbol Boliviano 2026 se disput&#243; entre el s&#225;bado 30 y el domingo 31. El cl&#225;sico oriental entre Oriente Petrolero y Blooming est&#225; programado para el 31 de mayo a las 16:00. El torneo, que inici&#243; el 5 de abril, se disputa en formato todos-contra-todos en 30 fechas.</p>
+      <span class="source-link"><a href="https://www.flashscore.es/futbol/bolivia/division-profesional/resultados/">Flashscore</a> &#183; <a href="https://fbf.com.bo/temporada-2026-de-la-division-profesional/">FBF</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.40s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">D&#243;lar Oficial</div>
+        <div class="data-cell-value">Bs 6,96</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Sin variaci&#243;n</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">D&#243;lar Paralelo</div>
+        <div class="data-cell-value red">Bs 9,92</div>
+        <div class="data-cell-delta red">Binance P2P</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Brecha</div>
+        <div class="data-cell-value red">42,5%</div>
+        <div class="data-cell-delta red">Sobre oficial</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.44s">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Resultado del ampliado de la COB en El Alto: &#191;levantamiento de bloqueos o profundizaci&#243;n de la huelga?</div>
+      <div class="vigilar-item">Primer despliegue de las Fuerzas Armadas para liberar rutas bajo la nueva ley; posibles enfrentamientos en puntos cr&#237;ticos del eje troncal.</div>
+      <div class="vigilar-item">Apertura o cierre de la mesa de di&#225;logo entre el gobierno de Paz y los sectores movilizados; condici&#243;n necesaria para evitar una escalada irreversible.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.48s">
+      <div>Fuentes: ABI &#183; Prensa Latina &#183; Urgente.bo &#183; El Diario &#183; Infobae &#183; CNN Espa&#241;ol &#183; BCB &#183; Visi&#243;n 360 &#183; RPP &#183; FBF</div>
+      <div>Briefing generado con Claude &#8212; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
