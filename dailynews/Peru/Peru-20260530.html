@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Per&#250; &#8212; 30 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #E8EEF2 0%, #D4E0EA 25%, #D4DCE7 55%, #E2EBF2 80%, #F2F4F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Per&#250;</h1>
+      <div class="masthead-date">S&#225;bado 30 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&#237;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Debate presidencial Keiko Fujimori&#8202;vs.&#8202;Roberto S&#225;nchez marca la antesala de la segunda vuelta</div>
+            </div>
+            <div class="swipe-body">La noche del s&#225;bado 30 se realiz&#243; el debate presidencial entre Keiko Fujimori (Fuerza Popular) y Roberto S&#225;nchez (Juntos por el Per&#250;) de cara a la segunda vuelta del 7 de junio. El encuentro, moderado en el Centro de Convenciones de Lima e iniciado a las 20:00, fue el &#250;ltimo frente a frente antes de la elecci&#243;n definitiva que establecer&#225; al sucesor de Dina Boluarte.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El debate es el evento pol&#237;tico m&#225;s relevante de la semana. Con apenas ocho d&#237;as hasta la segunda vuelta, la performance de los candidatos frente a millones de televidentes puede definir el resultado. El nuevo presidente asume el 28 de julio, inicio de un per&#237;odo de cinco a&#241;os.
+            </div>
+            <div class="swipe-source"><a href="https://larepublica.pe/sociedad/2026/05/30/debate-presidencial-en-peru-hoy-2026-quienes-son-los-moderadores-que-partidos-participan-cual-sera-el-formato-y-los-temas-que-se-abordaran-523380">La Rep&#250;blica</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Colectivos convocan marcha nacional anti-Keiko en Lima para el s&#225;bado 30 de mayo</div>
+            </div>
+            <div class="swipe-body">Diversas organizaciones ciudadanas convocaron a una marcha nacional el s&#225;bado 30 de mayo en Lima para manifestarse en contra de la candidatura de Keiko Fujimori antes de la segunda vuelta del 7 de junio. La concentraci&#243;n moviliz&#243; a trabajadores, activistas ambientales y representantes de comunidades vulnerables que argumentan que su elecci&#243;n representa un riesgo para los avances sociales.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La movilizaci&#243;n ciudadana en v&#237;speras de una segunda vuelta hist&#243;ricamente genera efecto en la participaci&#243;n y en el voto indeciso. La marcha evidencia la polarizaci&#243;n del electorado y anticipa una segunda vuelta con alta tensi&#243;n social, independientemente del resultado.
+            </div>
+            <div class="swipe-source"><a href="https://larepublica.pe/politica/2026/05/29/colectivos-convocan-a-marcha-nacional-contra-keiko-fujimori-para-este-sabado-30-de-mayo-hnews-538327">La Rep&#250;blica</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Alianza Lima se consagra campe&#243;n del Torneo Apertura de la Liga&#160;1 2026</div>
+            </div>
+            <div class="swipe-body">Alianza Lima conquist&#243; el t&#237;tulo del Torneo Apertura de la Liga&#160;1 2026. La &#250;ltima fecha del primer torneo del a&#241;o &#8212;la fecha 17&#8212; se disput&#243; el s&#225;bado 30 de mayo. El equipo aliancista cierra el apertura con el campeonato asegurado y visita a FC Cajamarca en la &#250;ltima jornada como formalidad. Universitario recibi&#243; a Sport Huancayo en el Monumental.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La conquista del Apertura posiciona a Alianza Lima como favorito para el Clausura y, eventualmente, para la liguilla final que define al campe&#243;n nacional. El club acumular&#225; puntaje para clasificar a Copa Libertadores 2027, reforzando su proyecto deportivo de mediano plazo.
+            </div>
+            <div class="swipe-source"><a href="https://depor.com/futbol-peruano/descentralizado/tabla-de-posiciones-liga-1-peru-2026-en-vivo-fecha-17-del-torneo-apertura-resultados-programacion-y-como-quedo-alianza-lima-universitario-de-deportes-sporting-cristal-noticia/">Depor</a> &#183; <a href="https://www.infobae.com/peru/deportes/2026/05/29/tabla-de-posiciones-liga-1-peru-2026-hoy-fecha-17-alianza-lima-los-chankas-sporting-cristal-cienciano-universitario-melgar/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">INPE traslada a 17 cabecillas de bandas criminales a penales de m&#225;xima seguridad</div>
+            </div>
+            <div class="swipe-body">El Instituto Nacional Penitenciario ejecut&#243; el traslado de 17 l&#237;deres de organizaciones criminales a establecimientos penitenciarios de m&#225;xima seguridad. La medida forma parte de la estrategia de desarticulaci&#243;n de redes de mando internas y de reducci&#243;n del control de bandas sobre actividades delictivas desde los penales, un problema cr&#243;nico que las autoridades intentan atajar.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La extorsi&#243;n gestionada desde penales es uno de los principales mecanismos de financiamiento del crimen organizado en Per&#250;. Los traslados buscan cortar las l&#237;neas de mando; su efectividad depende de que los nuevos establecimientos mantengan el aislamiento real de los internos m&#225;s peligrosos.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/">Infobae Per&#250;</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Kimberly Garc&#237;a y Mary Luz And&#237;a conquistan oro y plata en el Iberoamericano Lima 2026</div>
+            </div>
+            <div class="swipe-body">Las marchistas peruanas Kimberly Garc&#237;a y Mary Luz And&#237;a ganaron la medalla de oro y plata, respectivamente, en el Campeonato Iberoamericano de Atletismo Lima 2026. El resultado ratifica el dominio peruano en la marcha atl&#233;tica femenina a nivel regional y consolida a Garc&#237;a &#8212;campeona mundial&#8212; como referente del atletismo latinoamericano de cara a los pr&#243;ximos ciclos ol&#237;mpicos.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La marcha atl&#233;tica es uno de los pocos deportes en que Per&#250; compite al m&#225;s alto nivel mundial. Una doble presea en el Iberoamericano aporta puntos de ranking para clasificaciones ol&#237;mpicas y afianza la candidatura de Lima como sede de eventos internacionales de atletismo.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/deportes/2026/05/30/partidos-de-hoy-sabado-30-de-mayo-de-2026-programacion-canales-tv-y-resultados-en-vivo/">Infobae</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &#8594;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Boluarte en su recta final: transici&#243;n en marcha a 58 d&#237;as del cambio de mando del 28 de julio</h3>
+      <p>La presidenta Dina Boluarte, con una aprobaci&#243;n hist&#243;ricamente baja &#8212;en torno al 2% seg&#250;n CPI e Ipsos&#8212;, transita sus &#250;ltimas semanas de gobierno con el foco puesto en mantener la estabilidad institucional hasta el traspaso del 28 de julio. El proceso electoral de segunda vuelta entre Keiko Fujimori y Roberto S&#225;nchez determinar&#225; la orientaci&#243;n del pr&#243;ximo gobierno por cinco a&#241;os.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/">Infobae Per&#250;</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>Velarde (BCRP): &#171;estamos en uno de los mejores momentos econ&#243;micos de los &#250;ltimos 75 a&#241;os&#187;</h3>
+      <p>El presidente del Banco Central de Reserva del Per&#250;, Julio Velarde, advirti&#243; que recuperar la confianza institucional atraer&#225; m&#225;s inversiones y calific&#243; el momento actual como excepcionalmente favorable, impulsado por el rally de precios de los metales y la fortaleza del sector minero. El tipo de cambio cerr&#243; el 29 de mayo en S/&#160;3,4150 por d&#243;lar, mostrando estabilidad.</p>
+      <span class="source-link"><a href="https://larepublica.pe/economia/2026/05/29/julio-velarde-advierte-que-recuperar-la-confianza-atraera-mas-inversiones-estamos-en-uno-de-los-mejores-momentos-de-los-ultimos-75-anos-hnews-568661">La Rep&#250;blica</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Miner&#237;a lidera inversi&#243;n con US$&#160;6.228 millones en 2026; Tia Mar&#237;a y Antamina en avance</h3>
+      <p>La inversi&#243;n minera en Per&#250; alcanz&#243; US$&#160;6.228 millones en 2026, la cifra m&#225;s alta en una d&#233;cada. La cartera de proyectos suma 65 iniciativas por US$&#160;63.000 millones. Los proyectos Tia Mar&#237;a (Southern Peru) y Reposici&#243;n Antamina figuran entre los m&#225;s avanzados. Expertos advierten que la burocracia y los conflictos sociales pueden retrasar los plazos de ejecuci&#243;n.</p>
+      <span class="source-link"><a href="https://gestion.pe/economia/empresas/inversion-de-empresas-creceria-por-tercer-ano-en-2026-con-impulso-de-mineria-noticia/">Gesti&#243;n</a> &#183; <a href="https://energiminas.com/2026/05/27/peru-solo-podra-retomar-tasas-de-crecimiento-superiores-al-6-priorizando-los-grandes-proyectos-mineros/">Energiminas</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Fallece Iv&#225;n Paredes Yataco, expresidente del INPE; la instituci&#243;n lamenta su deceso</h3>
+      <p>Iv&#225;n Paredes Yataco, exdirector del Instituto Nacional Penitenciario, falleci&#243; este fin de semana. La noticia fue difundida en medios nacionales y gener&#243; muestras de condolencia en el sector p&#250;blico. Paredes Yataco condujo el INPE en una etapa de reformas del sistema penitenciario peruano y fue reconocido por su trabajo institucional.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/">Infobae Per&#250;</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Canciller defiende miner&#237;a sostenible, integrada y tecnol&#243;gica como estrategia para atraer inversi&#243;n</h3>
+      <p>El canciller peruano expuso ante foros internacionales la visi&#243;n del gobierno de posicionar a Per&#250; como destino de inversi&#243;n minera responsable. La cartera minera de US$&#160;63.000 millones representa el principal argumento de atractivo para capitales extranjeros. Per&#250; es el segundo productor mundial de cobre y plata, y primer productor de zinc.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/05/27/canciller-afirma-que-el-peru-apuesta-por-una-mineria-sostenible-integrada-y-tecnologica-para-atraer-inversion-responsable/">Infobae</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.36s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">D&#243;lar BCRP</div>
+        <div class="data-cell-value">S/ 3,4150</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Cierre 29 mayo</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">M&#225;x. del d&#237;a</div>
+        <div class="data-cell-value">S/ 3,4170</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Interbancario</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">M&#237;n. del d&#237;a</div>
+        <div class="data-cell-value">S/ 3,4110</div>
+        <div class="data-cell-delta green">Sin brecha paralela</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.40s">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Resultado y reacci&#243;n p&#250;blica al debate presidencial de anoche: &#191;qui&#233;n sali&#243; fortalecido de cara al 7 de junio?</div>
+      <div class="vigilar-item">Afluencia y posibles incidentes en la marcha nacional anti-Keiko en Lima; impacto en el clima electoral preelectoral.</div>
+      <div class="vigilar-item">Resultados finales de la fecha 17 del Torneo Apertura: &#191;Alianza Lima confirma el t&#237;tulo con victoria o sufre un tropiezo de &#250;ltima hora?</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.44s">
+      <div>Fuentes: La Rep&#250;blica &#183; Infobae Per&#250; &#183; Depor &#183; BCRP &#183; Gesti&#243;n &#183; Energiminas &#183; RPP &#183; TVPer&#250;</div>
+      <div>Briefing generado con Claude &#8212; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
