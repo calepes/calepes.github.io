@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &#8212; 30 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F2EDE4 0%, #EAE0D0 25%, #DDDCE8 55%, #E8ECF0 80%, #F4F2EE 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">S&#225;bado 30 de mayo de 2026 &#183; V&#237;spera electoral</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&#237;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Colombia vota ma&#241;ana 31 mayo: primera vuelta presidencial convoca a 41 millones de ciudadanos</div>
+            </div>
+            <div class="swipe-body">Colombia celebrar&#225; este domingo 31 de mayo la primera vuelta de las elecciones presidenciales que definir&#225;n al sucesor del presidente Gustavo Petro para el per&#237;odo 2026&#8211;2030. M&#225;s de 41 millones de ciudadanos est&#225;n convocados en una jornada marcada por alta polarizaci&#243;n, aumento de la violencia en varias regiones y un amplio despliegue de seguridad.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Colombia es la quinta econom&#237;a de Am&#233;rica Latina. La orientaci&#243;n del pr&#243;ximo gobierno &#8212;continuismo petrista, derecha pro-mercado o centro reformista&#8212; determinar&#225; la pol&#237;tica fiscal, el r&#233;gimen de energ&#237;as, la relaci&#243;n con Venezuela y el avance de las reformas sociales pendientes durante los pr&#243;ximos cinco a&#241;os.
+            </div>
+            <div class="swipe-source"><a href="https://www.semana.com/nacion/articulo/elecciones-colombia-2026-en-vivo-siga-en-directo-las-ultimas-noticias-horarios-de-votacion-de-la-jornada-electoral/202656/">Semana</a> &#183; <a href="https://www.infobae.com/colombia/">Infobae Colombia</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">ELN declara tregua electoral del 30 mayo al 2 de junio; FARC disidentes se suman</div>
+            </div>
+            <div class="swipe-body">El Ej&#233;rcito de Liberaci&#243;n Nacional anunci&#243; un cese al fuego unilateral desde las 00:00 del 30 de mayo hasta las 00:00 del 2 de junio para garantizar la jornada electoral. El principal grupo disidente de las FARC, liderado por alias Iv&#225;n Mordisco, declar&#243; tambi&#233;n una tregua para las elecciones. Ambas organizaciones piden garantizar condiciones de participaci&#243;n en zonas de influencia.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La tregua no elimina el riesgo de incidentes, pero reduce significativamente la probabilidad de ataques durante la jornada en departamentos del Choc&#243;, Norte de Santander, Cauca y Nari&#241;o. Es un dato positivo para la participaci&#243;n en zonas rurales hist&#243;ricamente deprimidas electoralmente por la violencia.
+            </div>
+            <div class="swipe-source"><a href="https://www.elpais.com.co/colombia/guerrilla-del-eln-anuncio-tregua-para-la-primera-vuelta-de-las-elecciones-presidenciales-2026.html">El Pa&#237;s</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">408.000 efectivos de la Fuerza P&#250;blica desplegados para la jornada del 31 de mayo</div>
+            </div>
+            <div class="swipe-body">Las autoridades activaron el mayor despliegue de seguridad de los &#250;ltimos a&#241;os para la jornada electoral: 408.000 hombres y mujeres de la Polic&#237;a y el Ej&#233;rcito est&#225;n distribuidos en todo el territorio nacional. Las medidas incluyen ley seca, restricci&#243;n al porte de armas, pico y placa en v&#237;as y controles especiales en los centros de votaci&#243;n.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              El nivel de despliegue es un indicador de la preocupaci&#243;n institucional por la seguridad en contexto de alta violencia armada. Un d&#237;a electoral sin incidentes mayores reforzar&#225; la legitimidad del resultado; un incidente armado en zonas sensibles puede desencadenar cuestionamientos sobre las condiciones de la elecci&#243;n.
+            </div>
+            <div class="swipe-source"><a href="https://www.noticiasrcn.com/emisiones/emision-noticias-rcn-12-30-p-m-sabado-30-de-mayo-de-2026-1026223">Noticias RCN</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Petro bajo fuego: Procuradur&#237;a y Consejo de Estado exigen que cese la interferencia electoral</div>
+            </div>
+            <div class="swipe-body">La abierta intervenci&#243;n del presidente Gustavo Petro en favor del candidato oficialista Iv&#225;n Cepeda genera una controversia en la antesala electoral. Tanto el Consejo de Estado como la Procuradur&#237;a General le han advertido p&#250;blicamente sobre las implicaciones jur&#237;dicas de su participaci&#243;n en pol&#237;tica. Campa&#241;as como la de Claudia L&#243;pez tambi&#233;n han denunciado el uso de recursos del Estado.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La interferencia del ejecutivo en una elecci&#243;n presidencial es un factor de riesgo para la legitimidad del proceso. Si Cepeda avanza a segunda vuelta y eventualmente gana, los cuestionamientos sobre intervenci&#243;n indebida podr&#237;an alimentar una crisis de gobernabilidad desde el inicio del nuevo mandato.
+            </div>
+            <div class="swipe-source"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/gobierno-petro-y-candidatos-chocan-por-senalamientos-de-participacion-en-politica-contra-el-presidente-noticias-hoy/">El Espectador</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">TRM sube a $3.678 COP/USD, m&#225;ximo de la semana, en v&#237;spera de las elecciones</div>
+            </div>
+            <div class="swipe-body">La Tasa Representativa del Mercado cerr&#243; el s&#225;bado 30 de mayo en $3.678,15 pesos por d&#243;lar, el nivel m&#225;s alto desde el viernes 22 de mayo, con una subida de $31,57 pesos (+0,87%) respecto al d&#237;a anterior. El Banco de la Rep&#250;blica mantuvo su tasa de intervenci&#243;n en 11,25% en su &#250;ltima decisi&#243;n del 6 de mayo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La apreciaci&#243;n del d&#243;lar en v&#237;spera de elecciones es un termometro habitual de incertidumbre pol&#237;tica. Los mercados descansan el domingo, pero el resultado de la primera vuelta mover&#225; el tipo de cambio el lunes 1 de junio: un candidato de izquierda l&#237;der genera presi&#243;n alcista sobre el d&#243;lar; uno de centroderecha tiende a apreciar el peso.
+            </div>
+            <div class="swipe-source"><a href="https://www.dolarhoy.co/">DolarHoy.co</a> &#183; <a href="https://www.banrep.gov.co/es/glosario/tasa-cambio-trm">Banrep</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &#8594;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Los tres candidatos que pelean por pasar a segunda vuelta: Cepeda, De la Espriella y Valencia</h3>
+      <p>Los principales contendientes en la primera vuelta del 31 de mayo son Iv&#225;n Cepeda, respaldado por el oficialismo petrista; Abelardo de la Espriella, candidato de la derecha; y Paloma Valencia, apoyada por el uribismo. Tambi&#233;n participa Santiago Botero, quien enfrenta una grave acusaci&#243;n por presunta violencia intrafamiliar a horas del inicio de la votaci&#243;n.</p>
+      <span class="source-link"><a href="https://eldiario.com/2026/05/30/elecciones-colombia-2026/">El Diario</a> &#183; <a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Millicom consolida la integraci&#243;n Tigo&#8211;Movistar con un desembolso de US$&#160;785 millones</h3>
+      <p>Millicom desembols&#243; cerca de US$&#160;785 millones para completar la integraci&#243;n entre Tigo y Movistar en Colombia, creando uno de los operadores m&#243;viles m&#225;s grandes del pa&#237;s. La fusi&#243;n refuerza la competencia en el sector de telecomunicaciones frente a Claro y ETB. La operaci&#243;n forma parte de una ola de mega movidas empresariales que han agitado el mercado colombiano en 2026.</p>
+      <span class="source-link"><a href="https://www.eltiempo.com/economia/empresas/megamovidas-empresariales-sacuden-el-arranque-de-2026-que-sectores-atraen-mas-capital-en-colombia-3540033">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-emp">Empresarial</span>
+      <h3>Colombia Tech Report 2026: 2.295 startups activas, ecosistema crece 9,3% frente al a&#241;o anterior</h3>
+      <p>KPMG y 13 aliados publicaron el Colombia Tech Report 2026, que mape&#243; 2.295 startups activas en el pa&#237;s, un crecimiento del 9,3% frente a 2025. El informe identifica como principal desaf&#237;o pasar de emprender a escalar, con una baja tasa de startups que logran crecer m&#225;s all&#225; de la etapa temprana. La inversi&#243;n extranjera directa supera los US$&#160;15.000 millones anuales.</p>
+      <span class="source-link"><a href="https://www.businesscol.com/kpmg-y-aliados-lanzan-el-colombia-tech-report-2026-el-ecosistema-crece-el-reto-esta-en-pasar-de-emprender-a-escalar/">BusinessCol</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Santiago Botero, candidato presidencial, acusado de violencia intrafamiliar a horas de la votaci&#243;n</h3>
+      <p>Santiago Botero, uno de los candidatos en la primera vuelta, enfrenta una grave acusaci&#243;n por presunta violencia intrafamiliar. La revelaci&#243;n, a pocas horas del inicio de la jornada electoral, agreg&#243; una capa de turbulencia a una campa&#241;a ya marcada por las controversias sobre la interferencia del presidente Petro y las denuncias cruzadas entre candidatos.</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com/">Noticias RCN</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay Dimayor Apertura 2026 en su recta final; jornada disputada este fin de semana</h3>
+      <p>El Torneo Apertura 2026 de la Liga BetPlay Dimayor &#8212;102.&#170; edici&#243;n del f&#250;tbol profesional colombiano&#8212; avanza hacia su cierre, programado para el 8 de junio. No hubo partidos relevantes reportados el s&#225;bado 30, con la atenci&#243;n del pa&#237;s centrada en la jornada electoral del domingo. Los equipos retomar&#225;n la competencia la pr&#243;xima semana.</p>
+      <span class="source-link"><a href="https://dimayor.com.co/liga-betplay-dimayor/">Dimayor</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.36s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Colombia bajo escrutinio global: la jornada del 31 mayo es indicador clave de estabilidad democr&#225;tica</h3>
+      <p>Medios internacionales y observadores de todo el mundo siguen de cerca la primera vuelta presidencial colombiana. La elecci&#243;n definir&#225; si Colombia contin&#250;a en la &#243;rbita de la izquierda regional o gira hacia posiciones de centroderecha. La OEA despleg&#243; misi&#243;n de observaci&#243;n; la UE y el Centro Carter tambi&#233;n env&#237;an veedores.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/31/guia-para-entender-las-elecciones-presidenciales-en-colombia-2026-que-se-vota-como-funciona-el-sistema-y-quienes-lideran-las-encuestas/">Infobae</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.40s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">TRM 30 mayo</div>
+        <div class="data-cell-value red">$3.678</div>
+        <div class="data-cell-delta red">+$31,57 (+0,87%)</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Tasa Banrep</div>
+        <div class="data-cell-value">11,25%</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Sin cambio (6 mayo)</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">M&#225;x. semana</div>
+        <div class="data-cell-value red">$3.678</div>
+        <div class="data-cell-delta red">Desde 22 mayo</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.44s">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Apertura de mesas y participaci&#243;n en las primeras horas del 31 mayo: &#191;se confirma alta afluencia o hay factores de abstenci&#243;n?</div>
+      <div class="vigilar-item">Reportes de orden p&#250;blico durante la jornada, especialmente en departamentos con presencia del ELN y disidencias FARC, pese a la tregua declarada.</div>
+      <div class="vigilar-item">Resultados preliminares de la tarde del 31 mayo: &#191;qui&#233;n pasa a segunda vuelta? El movimiento del dolar el lunes estar&#225; determinado por este resultado.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.48s">
+      <div>Fuentes: Semana &#183; El Espectador &#183; El Tiempo &#183; Noticias RCN &#183; Infobae &#183; El Pa&#237;s &#183; Banrep &#183; Dimayor &#183; BusinessCol</div>
+      <div>Briefing generado con Claude &#8212; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
