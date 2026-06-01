@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &#8212; 31 mayo 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #b45309;
+      --accent-soft: rgba(180,83,9,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+      --pill-seg: #991b1b; --pill-seg-bg: rgba(153,27,27,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(160deg, #F5F0E0 0%, #EDE4C8 25%, #D8DDE7 55%, #E8EDF2 80%, #F2F2F7 100%);
+      color: var(--ink);
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(180,83,9,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(30,64,175,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .masthead-supertag { display: inline-block; background: rgba(180,83,9,0.12); color: var(--accent); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 6px; margin-left: 6px; border: 1px solid rgba(180,83,9,0.25); }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .pill-seg { background: var(--pill-seg-bg); color: var(--pill-seg); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; }
+    .red { color: #FF3B30; }
+    .amber { color: #b45309; }
+    .blue { color: #1e40af; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #fcd34d; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #fcd34d; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Domingo 31 de mayo de 2026</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+      <div class="masthead-supertag">&#128247; D&#237;a de Elecciones</div>
+    </div>
+
+    <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del D&#237;a</div>
+
+    <div class="carousel-container reveal" style="transition-delay:0.08s">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">De la Espriella gana la primera vuelta con votaci&#243;n r&#233;cord: 43,74% y m&#225;s de 10 millones de votos</div>
+            </div>
+            <div class="swipe-body">Abelardo de la Espriella, candidato de derecha, obtuvo 10.316.370 votos (43,74%) en la primera vuelta presidencial del 31 de mayo, la mayor votaci&#243;n de un candidato en primera vuelta en la historia de Colombia. Su desempe&#241;o super&#243; todas las encuestas previas. Iqu&#237;n Cepeda (Pacto Hist&#243;rico) qued&#243; segundo con 40,9%, lo que obliga a una segunda vuelta el 21 de junio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              De la Espriella entra a la segunda vuelta con una ventaja de casi 3 puntos y con el respaldo de Paloma Valencia y &#193;lvaro Uribe. Sin embargo, la brecha es inferior a la mayoritaria y Cepeda tiene potencial de consolidar el voto progresista. El 21 de junio ser&#225; una eleccci&#243;n muy reida.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/05/31/sorpresa-en-las-elecciones-de-colombia-abelardo-de-la-espriella-gana-la-primera-vuelta-y-disputara-la-presidencia-con-ivan-cepeda/">Infobae</a> &#183; <a href="https://www.elespectador.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-colombia-2026-en-vivo-quien-gano/">El Espectador</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Iv&#225;n Cepeda obtiene 40,9% y va a segunda vuelta; balance de resultados finales</div>
+            </div>
+            <div class="swipe-body">Iv&#225;n Cepeda, senador del Pacto Hist&#243;rico y candidato de izquierda, qued&#243; segundo con 9.687.508 votos (40,9%). Paloma Valencia (derecha, 6,9%) y Sergio Fajardo (centroizquierda, 4,26%) quedaron eliminados. Cepeda buscar&#225; capitalizar el voto de ambos para la segunda vuelta del 21 de junio, mientras De la Espriella ya recibi&#243; el respaldo oficial de Valencia.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La segunda vuelta Colombia 2026 enfrenta dos visiones diametralmente opuestas del pa&#237;s. De la Espriella propone desmantelar la Paz Total y endurecer la seguridad; Cepeda busca continuar y reformar el modelo progresista de Petro con mayor institucionalidad.
+            </div>
+            <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-en-colombia-2026-falta-una-hora-para-que-cierren-las-urnas-de-votacion-asi-avanza-la-jornada-electoral-3560900">El Tiempo</a> &#183; <a href="https://cnnespanol.cnn.com/2026/05/31/colombia/live-news/elecciones-presidenciales-cepeda-abelardo-paloma-resultados-orix">CNN Espa&#241;ol</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Paloma Valencia y &#193;lvaro Uribe anuncian respaldo a De la Espriella para el balotaje del 21 de junio</div>
+            </div>
+            <div class="swipe-body">Minutos despu&#233;s de conocerse los resultados oficiales, la candidata Paloma Valencia anunci&#243; su apoyo a Abelardo de la Espriella para la segunda vuelta. El expresidente &#193;lvaro Uribe hizo lo propio y llam&#243; a sus simpatizantes a votar por De la Espriella. El bloque de derecha se unifica en torno al ganador de la primera vuelta con el objetivo de evitar el retorno del Pacto Hist&#243;rico.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Los votos de Valencia (6,9%) son cruciales. Si se trasladan en bloque a De la Espriella, su ventaja se ampliar&#237;a potencialmente al 50,6%, suficiente para ganar sin segunda vuelta... salvo que Cepeda capture el voto de Fajardo (4,26%) y parte de los indecisos.
+            </div>
+            <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/abelardo-de-la-espriella-se-pronuncia-tras-ganar-la-primera-vuelta-de-las-presidenciales-con-mas-de-10-millones-de-votos-haremos-historia-3560943">El Tiempo</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Petro vota en Plaza de Bol&#237;var y descarta haberse perpetuado en el poder</div>
+            </div>
+            <div class="swipe-body">El presidente Gustavo Petro ejerci&#243; su derecho al voto en la jornada electoral y respondi&#243; a quienes predec&#237;an &#171;una dictadura&#187; bajo su gobierno: &#171;Los hechos demuestran que no hubo ning&#250;n intento de perpetuaci&#243;n&#187;. Petro invit&#243; a los ciudadanos a cuidar y vigilar su voto y expres&#243; preocupaciones sobre la empresa privada encargada del escrutinio. Se retira el 7 de agosto.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La salida ordenada de Petro del poder es una se&#241;al de salud democr&#225;tica en Colombia. Su legado &#8212;Paz Total, reforma de salud, pol&#237;tica energetica&#8212; quedar&#225; expuesto a revisi&#243;n total si De la Espriella gana la segunda vuelta el 21 de junio.
+            </div>
+            <div class="swipe-source"><a href="https://www.eluniversal.com.co/colombia/2026/05/31/elecciones-colombia-2026-petro-voto-y-lanzo-mensaje-sobre-su-salida-del-poder/">El Universal</a> &#183; <a href="https://www.infobae.com/colombia/2026/05/31/comenzo-la-jornada-electoral-en-colombia-este-31-de-mayo-tres-candidatos-presidenciales-lideran-la-contienda-y-esto-es-lo-que-esta-en-juego/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Colombia elige entre dos modelos antagónicos; jornada transcurri&#243; sin incidentes graves</div>
+            </div>
+            <div class="swipe-body">La jornada electoral del 31 de mayo registr&#243; una alta participaci&#243;n y transcurri&#243; sin incidentes de seguridad de importancia seg&#250;n la Registradur&#237;a y la Misi&#243;n de Observaci&#243;n Electoral. El pa&#237;s vot&#243; en una contienda que define el rumbo econ&#243;mico, de seguridad y de relaciones con grupos armados para el per&#237;odo 2026&#8211;2030, despu&#233;s de cuatro a&#241;os del gobierno Petro.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La solidez del proceso electoral colombiano contrasta con la crisis democr&#225;tica en Bolivia y el tenso balotaje en Per&#250;. La alta participaci&#243;n legitima el resultado y da al pr&#243;ximo presidente un mandato claro. La segunda vuelta el 21 de junio definir&#225; si Colombia gira a la derecha o consolida el proyecto progresista.
+            </div>
+            <div class="swipe-source"><a href="https://www.rtvcnoticias.com/politica/elecciones-presidenciales-colombia-2026-en-vivo">RTVC</a> &#183; <a href="https://gestion.pe/mix/usa/quien-gano-las-elecciones-en-colombia-2026-ivan-cepeda-o-abelardo-de-la-espriella-resultados-en-vivo-hoy-31-de-mayo-nnda-nnrt-noticia/">Gesti&#243;n</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &#8594;</div>
+    </div>
+
+    <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.16s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>Cepeda convoca a unidad progresista para segunda vuelta; busca capturar voto de Fajardo y moderados</h3>
+      <p>Iv&#225;n Cepeda, en su discurso de la noche electoral, llam&#243; a la unidad de todas las fuerzas progresistas y de centro para la segunda vuelta del 21 de junio. Cepeda buscar&#225; captar los votos de Sergio Fajardo (4,26%) y de sectores moderados que no comulgan con el discurso duro de derecha de De la Espriella. Su estrategia pasar&#225; por distanciarse de los aspectos m&#225;s controversiales del gobierno Petro.</p>
+      <span class="source-link"><a href="https://www.elespectador.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-colombia-2026-en-vivo-quien-gano/">El Espectador</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.20s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>El pr&#243;ximo presidente hereda retos fiscales severos y la transici&#243;n energ&#233;tica del gobierno Petro</h3>
+      <p>Colombia entrar&#225; al ciclo 2026&#8211;2030 con un d&#233;ficit fiscal considerable y la necesidad de definir el modelo energ&#233;tico del pa&#237;s. El gobierno Petro redujo la pobreza multidimensional a un m&#237;nimo hist&#243;rico de 31,8% pero dej&#243; una reforma de salud sin implementar y tensiones con el sector privado. De la Espriella promete volver al modelo de inversi&#243;n privada y austeridad; Cepeda buscar&#237;a profundizar las reformas sociales con mayor sostenibilidad fiscal.</p>
+      <span class="source-link"><a href="https://www.bloomberglinea.com/latinoamerica/colombia/democracia-a-prueba-en-colombia-pone-en-juego-su-economia-la-seguridad-y-la-gobernabilidad/">Bloomberg L&#237;nea</a> &#183; <a href="https://razonpublica.com/elecciones-2026-analisis-comparativo-las-propuestas-los-candidatos-presidenciales/">Raz&#243;n P&#250;blica</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.24s">
+      <span class="pill pill-seg">Seguridad</span>
+      <h3>Paz Total con saldo mixto: grupos armados crecieron 45% desde 2022 pese a los ceses al fuego</h3>
+      <p>La estrategia de Paz Total de Petro redujo temporalmente la violencia durante los ceses al fuego con el ELN y disidencias de las FARC, pero los grupos armados crecieron un 45% desde 2022, alcanzando ~25.278 combatientes a mediados de 2025. El 64,5% de los colombianos se siente m&#225;s inseguro con la Paz Total, y el 73,8% cree que las FFAA perdieron control territorial. Este saldo es el principal argumento de De la Espriella.</p>
+      <span class="source-link"><a href="https://www.elespectador.com/colombia-20/paz-y-memoria/encuesta-invamer-violencia-seguridad-y-paz-total-son-la-mayor-preocupacion-de-las-elecciones-2026-asi-van-los-candidatos/">El Espectador</a> &#183; <a href="https://razonpublica.com/colombia-2025-deterioro-la-seguridad-la-promesa-incumplida-la-paz/">Raz&#243;n P&#250;blica</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.28s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Participaci&#243;n electoral alta: Colombia dem&#243;crata en una jornada sin incidentes de importancia</h3>
+      <p>La Misi&#243;n de Observaci&#243;n Electoral y la Registradur&#237;a Nacional del Estado Civil confirmaron que la jornada del 31 de mayo transcurri&#243; con normalidad en la mayor parte del territorio nacional. La participaci&#243;n fue significativamente mayor a la de elecciones anteriores, reflejando el inter&#233;s ciudadano en una elecci&#243;n percibida como hist&#243;rica por la polarizaci&#243;n entre los dos modelos de pa&#237;s en competencia.</p>
+      <span class="source-link"><a href="https://www.infobae.com/colombia/2026/05/31/elecciones-presidenciales-en-vivo-desde-bogota-hoy-31-de-mayo-siga-el-minuto-a-minuto-de-las-votaciones/">Infobae</a></span>
+    </div>
+
+    <div class="news-item glass reveal" style="transition-delay:0.32s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Liga BetPlay: Atl&#233;tico Nacional, Am&#233;rica de Cali, Junior y Tolima en semifinales</h3>
+      <p>La Liga BetPlay Dimayor 2026 entr&#243; en su fase de play-offs con ocho equipos clasificados desde el 3 de mayo. Los cuartos de final enfrentan a Internacional de Bogot&#225; vs. Atl&#233;tico Nacional, Deportivo Pasto vs. Deportes Tolima, Santa Fe vs. Am&#233;rica de Cali y Once Caldas vs. Junior. El torneo busca a su campe&#243;n en un mes de junio que adem&#225;s tendr&#225; la segunda vuelta presidencial.</p>
+      <span class="source-link"><a href="https://www.clarosports.com/colombia/liga-bet-play/sorteo-playoff-liga-betplay-2026-en-vivo-como-quedan-los-partidos-de-fase-final-en-colombia-hoy-3-de-mayo/">Claro Sports</a> &#183; <a href="https://dimayor.com.co/liga-betplay-dimayor/">Dimayor</a></span>
+    </div>
+
+    <div class="data-strip reveal" style="transition-delay:0.36s">
+      <div class="data-cell glass">
+        <div class="data-cell-label">De la Espriella</div>
+        <div class="data-cell-value amber">43,74%</div>
+        <div class="data-cell-delta amber">1&#186; vuelta</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">Iv&#225;n Cepeda</div>
+        <div class="data-cell-value blue">40,9%</div>
+        <div class="data-cell-delta blue">1&#186; vuelta</div>
+      </div>
+      <div class="data-cell glass">
+        <div class="data-cell-label">2&#170; Vuelta</div>
+        <div class="data-cell-value">21 jun</div>
+        <div class="data-cell-delta" style="color:var(--muted)">2026</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.40s">
+      <div class="vigilar-header">Qu&#233; Vigilar Hoy</div>
+      <div class="vigilar-item">Adhesiones formales al Pacto Hist&#243;rico de Cepeda: &#191;endosa Fajardo a Cepeda o guarda silencio? Eso puede mover hasta 4 puntos porcentuales.</div>
+      <div class="vigilar-item">Estrategia de De la Espriella hacia el centro: si modera el discurso de seguridad para atraer votantes independientes sin alienar el bloque uribista que lo catapult&#243;.</div>
+      <div class="vigilar-item">Posici&#243;n p&#250;blica de Petro en la segunda vuelta: &#191;apoya abiertamente a Cepeda o prefiere guardar distancia para no convertirse en lastre de la campa&#241;a progresista?</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.44s">
+      <div>Fuentes: Infobae &#183; El Espectador &#183; El Tiempo &#183; CNN Espa&#241;ol &#183; El Universal &#183; RTVC &#183; Bloomberg L&#237;nea &#183; Raz&#243;n P&#250;blica &#183; Claro Sports &#183; Dimayor</div>
+      <div>Briefing generado con Claude &#8212; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
