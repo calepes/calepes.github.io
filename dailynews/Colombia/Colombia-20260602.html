@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia &mdash; 2 junio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1d4ed8;
+      --accent-soft: rgba(29,78,216,0.06);
+      --ink: #1c1c1e;
+      --muted: rgba(60,60,67,0.55);
+      --tertiary: rgba(60,60,67,0.22);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.55);
+      --shadow: rgba(0,0,0,0.07);
+      --inset-highlight: rgba(255,255,255,0.85);
+      --pill-pol: #1d4ed8; --pill-pol-bg: rgba(29,78,216,0.09);
+      --pill-eco: #0f766e; --pill-eco-bg: rgba(15,118,110,0.09);
+      --pill-emp: #7c3aed; --pill-emp-bg: rgba(124,58,237,0.09);
+      --pill-soc: #b45309; --pill-soc-bg: rgba(180,83,9,0.09);
+      --pill-dep: #047857; --pill-dep-bg: rgba(4,120,87,0.09);
+      --pill-int: #9f1239; --pill-int-bg: rgba(159,18,57,0.09);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: linear-gradient(160deg, #EBF0FA 0%, #D4DDF0 25%, #D4E7D8 55%, #E8F0EC 80%, #F2F2F7 100%); color: var(--ink); font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px; overflow-x: hidden; }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(220,180,30,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .glass { background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; margin-bottom: 10px; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+    <header class="masthead reveal" style="transition-delay:0.00s;">
+      <div class="masthead-eyebrow">Briefing Ejecutivo &middot; Colombia</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Martes 2 de junio de 2026</div>
+      <div class="masthead-tag">Segunda vuelta 21 jun &middot; Mundial 2026</div>
+    </header>
+    <div class="carousel-container reveal" style="transition-delay:0.04s;">
+      <div class="section-header">Lo m&aacute;s importante</div>
+      <div class="carousel-track" id="carouselTrack">
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top"><div class="swipe-num">01</div><div class="swipe-title">Resultados primera vuelta: De la Espriella 43,74% y Cepeda 40,90% van a segunda vuelta el 21 de junio</div></div>
+            <p class="swipe-body">Con el 100% de las mesas escrutadas, el candidato de derecha Abelardo de la Espriella obtuvo 10.361.499 votos (43,74%) y el candidato oficialista Iv&aacute;n Cepeda alcan z&oacute; 9.688.361 votos (40,90%). Paloma Valencia (Centro Democr&aacute;tico) qued&oacute; tercera con el 6,92% y Sergio Fajardo cuarto con 4,26%. La segunda vuelta se realizar&aacute; el 21 de junio.</p>
+            <div class="swipe-why"><strong>Por qu&eacute; importa</strong>Una diferencia de apenas 2,84 puntos entre los dos finalistas hace de la segunda vuelta una carrera completamente abierta, con alta polarizaci&oacute;n entre un proyecto de derecha y uno de izquierda.</div>
+          </div>
+          <div class="swipe-source">Fuentes: <a href="#">El Tiempo</a> &middot; <a href="#">Noticias Caracol</a></div>
+        </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top"><div class="swipe-num">02</div><div class="swipe-title">Trump apoya a De la Espriella para segunda vuelta; Petro denuncia interferencia extranjera</div></div>
+            <p class="swipe-body">El presidente de Estados Unidos Donald Trump anunci&oacute; su apoyo a Abelardo de la Espriella para la segunda vuelta del 21 de junio, se&ntilde;alando que los resultados son cruciales para la relaci&oacute;n bilateral. El presidente Gustavo Petro reaccion&oacute; con dureza, denunciando &ldquo;interferencia extranjera&rdquo; y advirtiendo que el respaldo de Trump &ldquo;mata la libertad&rdquo;. Petro anunci&oacute; adem&aacute;s que se pondr&aacute; &ldquo;a la vanguardia&rdquo; de la campa&ntilde;a por Iv&aacute;n Cepeda.</p>
+            <div class="swipe-why"><strong>Por qu&eacute; importa</strong>La intervenci&oacute;n de Trump internacionaliza la campa&ntilde;a colombiana y abre un debate sobre soberan&iacute;a electoral. La promesa de Petro de encabezar personalmente la campa&ntilde;a de Cepeda es constitucionalmente cuestionable.</div>
+          </div>
+          <div class="swipe-source">Fuentes: <a href="#">El Pa&iacute;s</a> &middot; <a href="#">Infobae</a></div>
+        </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top"><div class="swipe-num">03</div><div class="swipe-title">Proscuradur&iacute;a suspende 9 funcionarios del gobierno, incluido Petro, por participar en pol&iacute;tica</div></div>
+            <p class="swipe-body">El martes 2 de junio, la Proscuradur&iacute;a General ampli&oacute; su ofensiva: Alfredo Saade (embajador en Brasil) y Carlos Carrillo (director de la UNGRD) fueron suspendidos provisionalmente por presuntamente promover la candidatura de Iv&aacute;n Cepeda. En total, 9 funcionarios del gobierno, incluido el propio presidente Petro, enfrentan investigaciones disciplinarias por presunta participaci&oacute;n indebida en pol&iacute;tica.</p>
+            <div class="swipe-why"><strong>Por qu&eacute; importa</strong>Las suspensiones debilitan operativamente al gobierno en la recta final de la campa&ntilde;a y crean un precedente sobre los l&iacute;mites legales de la participaci&oacute;n presidencial en las elecciones.</div>
+          </div>
+          <div class="swipe-source">Fuentes: <a href="#">Infobae</a> &middot; <a href="#">El Colombiano</a></div>
+        </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top"><div class="swipe-num">04</div><div class="swipe-title">Colombia en el Mundial 2026: debut el 17 de junio ante Uzbekist&aacute;n en el Azteca</div></div>
+            <p class="swipe-body">El t&eacute;cnico N&eacute;stor Lorenzo public&oacute; la convocatoria de 26 jugadores para el Mundial 2026 (M&eacute;xico, EEUU y Canad&aacute;, 11 junio &ndash; 19 julio). Colombia integra el Grupo K junto a Portugal, Rep&uacute;blica Democr&aacute;tica del Congo y Uzbekist&aacute;n. El debut es el 17 de junio a las 9:00 p.m. (hora colombiana) en el Estadio Azteca de Ciudad de M&eacute;xico. James Rodr&iacute;guez y Luis D&iacute;az lideran la n&oacute;mina.</p>
+            <div class="swipe-why"><strong>Por qu&eacute; importa</strong>El Mundial inicia apenas d&iacute;as despu&eacute;s de la segunda vuelta presidencial, convirtiendo el f&uacute;tbol en el gran evento que puede unificar al pa&iacute;s tras la polarizaci&oacute;n electoral.</div>
+          </div>
+          <div class="swipe-source">Fuentes: <a href="#">Infobae</a> &middot; <a href="#">CNN en Espa&ntilde;ol</a> &middot; <a href="#">FIFA</a></div>
+        </div>
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top"><div class="swipe-num">05</div><div class="swipe-title">Reforma laboral: jornada de 42 horas semanales entra en vigor en julio 2026</div></div>
+            <p class="swipe-body">A partir del 15 de julio de 2026, Colombia reducir&aacute; la jornada laboral de 46 a 42 horas semanales, conforme al cronograma de la Ley 2101 de 2021. El ajuste incrementa los costos de n&oacute;mina para las empresas en un contexto de inflaci&oacute;n proyectada del 6,3% para 2026. El aumento del salario m&iacute;nimo del 23,7% para 2026 ya super&oacute; ampliamente la inflaci&oacute;n de 2025, generando presi&oacute;n sobre las PYMES.</p>
+            <div class="swipe-why"><strong>Por qu&eacute; importa</strong>La reducci&oacute;n de jornada suma a los costos laborales justo cuando el pa&iacute;s enfrenta un cambio pol&iacute;tico inminente y alta incertidumbre sobre la continuidad de las reformas.</div>
+          </div>
+          <div class="swipe-source">Fuentes: <a href="#">ASOSEC</a> &middot; <a href="#">Bancolombia</a></div>
+        </div>
+      </div>
+      <div class="dots" id="carouselDots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+        <div class="dot" data-index="4"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&aacute;s &rarr;</div>
+    </div>
+    <div class="data-strip reveal" style="transition-delay:0.08s;">
+      <div class="data-cell glass"><div class="data-cell-label">TRM (USD/COP)</div><div class="data-cell-value" style="color:var(--ink);">$&#160;4.098</div><div class="data-cell-delta" style="color:var(--muted);">2 jun 2026</div></div>
+      <div class="data-cell glass"><div class="data-cell-label">Inflaci&oacute;n 2026</div><div class="data-cell-value red">6,3%</div><div class="data-cell-delta" style="color:var(--muted);">Est. Bancolombia</div></div>
+      <div class="data-cell glass"><div class="data-cell-label">Desempleo</div><div class="data-cell-value" style="color:var(--ink);">8,8%</div><div class="data-cell-delta" style="color:var(--muted);">Abr 2026 &middot; DANE</div></div>
+    </div>
+    <div class="divider reveal" style="transition-delay:0.12s;"><span class="divider-text">M&aacute;s noticias</span></div>
+    <article class="news-item glass reveal" style="transition-delay:0.16s;">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Paloma Valencia apoya a De la Espriella; izquierda moviliza su base por Cepeda</h3>
+      <p>Tras la primera vuelta, Paloma Valencia (Centro Democr&aacute;tico) anunci&oacute; su apoyo a Abelardo de la Espriella para la segunda vuelta del 21 de junio. En el otro extremo, Sof&iacute;a Petro lanz&oacute; un mensaje en redes sociales llamando a votar por Cepeda: &ldquo;Espero de coraz&oacute;n que Colombia escoja ese camino&rdquo;. Las fuerzas pol&iacute;ticas se polarizan r&aacute;pidamente en torno a los dos finalistas.</p>
+      <span class="source-link">Fuentes: <a href="#">Infobae</a> &middot; <a href="#">La Naci&oacute;n Argentina</a></span>
+    </article>
+    <article class="news-item glass reveal" style="transition-delay:0.20s;">
+      <span class="pill pill-eco">Econ&oacute;mico</span>
+      <h3>Inflaci&oacute;n proyectada en 6,3% para 2026: por encima del rango meta del Banco de la Rep&uacute;blica</h3>
+      <p>Bancolombia y el Banco de la Rep&uacute;blica proyectan que la inflaci&oacute;n en Colombia cerrar&aacute; 2026 en torno al 6,3%, por encima de la meta del 3% (+/- 1%). Los principales factores son la indexaci&oacute;n, los precios de alimentos y servicios regulados, y los mayores costos laborales. La tasa de desocupaci&oacute;n nacional fue de 8,8% en abril 2026.</p>
+      <span class="source-link">Fuentes: <a href="#">Bancolombia</a> &middot; <a href="#">Banco de la Rep&uacute;blica</a> &middot; <a href="#">DANE</a></span>
+    </article>
+    <article class="news-item glass reveal" style="transition-delay:0.24s;">
+      <span class="pill pill-soc">Social</span>
+      <h3>R&eacute;cord de participaci&oacute;n en primera vuelta: Colombia vota con compromiso hist&oacute;rico</h3>
+      <p>La Misi&oacute;n de Observaci&oacute;n Electoral de la UE destac&oacute; que &ldquo;los colombianos votaron en cifras r&eacute;cord&rdquo; en la primera vuelta presidencial del 31 de mayo, &ldquo;demostrando un s&oacute;lido compromiso con la participaci&oacute;n democr&aacute;tica&rdquo;. La Registradur&iacute;a report&oacute; la mayor participaci&oacute;n electoral en d&eacute;cadas, con m&aacute;s de 23 millones de votos v&aacute;lidos emitidos.</p>
+      <span class="source-link">Fuentes: <a href="#">CNN en Espa&ntilde;ol</a> &middot; <a href="#">El Espectador</a></span>
+    </article>
+    <article class="news-item glass reveal" style="transition-delay:0.28s;">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Misi&oacute;n de la UE certifica transparencia electoral; internacionales atentos a segunda vuelta</h3>
+      <p>La Jefa de la Misi&oacute;n de Observaci&oacute;n Electoral de la UE present&oacute; su informe el 2 de junio, certificando que el proceso fue administrado &ldquo;con profesionalismo, competencia t&eacute;cnica y resiliencia&rdquo;. La comunidad internacional, incluidos EEUU, Espa&ntilde;a y varios gobiernos latinoamericanos, observa con atenci&oacute;n la polarizaci&oacute;n de cara a la segunda vuelta del 21 de junio.</p>
+      <span class="source-link">Fuentes: <a href="#">CNN en Espa&ntilde;ol</a> &middot; <a href="#">El Tiempo</a></span>
+    </article>
+    <article class="news-item glass reveal" style="transition-delay:0.32s;">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Colombia vs Jordania el 7 de junio en San Diego: el &uacute;ltimo amistoso antes del Mundial</h3>
+      <p>La selecci&oacute;n Colombia enfrenta a Jordania el domingo 7 de junio en el Snapdragon Stadium de San Diego, California, en su &uacute;ltimo amistoso de preparaci&oacute;n antes del Mundial 2026. Despu&eacute;s, Colombia debuta el 17 de junio ante Uzbekist&aacute;n en el Azteca, y enfrenta a la RDC el 23 de junio. James Rodr&iacute;guez y Luis D&iacute;az ser&aacute;n las figuras clave.</p>
+      <span class="source-link">Fuentes: <a href="#">Vanguardia</a> &middot; <a href="#">Telemundo</a> &middot; <a href="#">FIFA</a></span>
+    </article>
+    <article class="news-item glass reveal" style="transition-delay:0.36s;">
+      <span class="pill pill-pol">Pol&iacute;tico</span>
+      <h3>Gobierno Petro lanza paquete de decretos antes de la segunda vuelta</h3>
+      <p>El gobierno de Gustavo Petro intensific&oacute; su actividad legislativa y administrativa en los d&iacute;as previos a la segunda vuelta del 21 de junio. La presidencia emiti&oacute; varios decretos ejecutivos en &aacute;reas de pol&iacute;tica social, vivienda y protecci&oacute;n de tierras, en un intento de consolidar su legado antes de la potencial transici&oacute;n. La oposici&oacute;n denunci&oacute; un uso indebido del aparato estatal con fines electorales.</p>
+      <span class="source-link">Fuentes: <a href="#">Presidencia de Colombia</a> &middot; <a href="#">El Colombiano</a></span>
+    </article>
+    <div class="vigilar reveal" style="transition-delay:0.40s;">
+      <div class="vigilar-header">Qu&eacute; vigilar hoy</div>
+      <div class="vigilar-item">&iquest;Ampliar&aacute; la Procuradur&iacute;a las investigaciones al propio presidente Petro por participaci&oacute;n en campa&ntilde;a?</div>
+      <div class="vigilar-item">&iquest;C&oacute;mo responder&aacute; De la Espriella al apoyo de Trump? &iquest;Lo aprovecha o lo rechaza para evitar el efecto &ldquo;candidato extranjero&rdquo;?</div>
+      <div class="vigilar-item">Convocatoria y primeras escenas de campa&ntilde;a para la segunda vuelta del 21 de junio: &iquest;qui&eacute;n moviliza mejor a sus bases en la primera semana post-primera vuelta?</div>
+    </div>
+    <footer class="footer reveal" style="transition-delay:0.44s;">
+      <div>El Tiempo &middot; Noticias Caracol &middot; El Espectador &middot; Infobae &middot; El Colombiano &middot; CNN en Espa&ntilde;ol &middot; Bancolombia &middot; DANE &middot; FIFA &middot; Vanguardia &middot; Presidencia</div>
+      <div style="margin-top:8px; font-size:11px; color:var(--tertiary)">Briefing generado el 2 de junio de 2026 &middot; Solo para uso informativo ejecutivo</div>
+    </footer>
+  </div>
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('#carouselDots .dot');
+    function updateDots() {
+      const cardWidth = track.querySelector('.swipe-card').offsetWidth + 16;
+      const activeIndex = Math.round(track.scrollLeft / cardWidth);
+      dots.forEach((dot, i) => { dot.classList.toggle('active', i === activeIndex); });
+    }
+    track.addEventListener('scroll', updateDots, { passive: true });
+    dots.forEach(dot => { dot.addEventListener('click', () => { const index = parseInt(dot.getAttribute('data-index')); const cardWidth = track.querySelector('.swipe-card').offsetWidth + 16; track.scrollTo({ left: cardWidth * index, behavior: 'smooth' }); }); });
+  </script>
+</body>
+</html>

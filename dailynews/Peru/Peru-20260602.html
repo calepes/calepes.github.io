@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Per&uacute; &mdash; 2 junio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #b45309;
+      --accent-soft: rgba(180,83,9,0.06);
+      --accent-mid: rgba(180,83,9,0.18);
+      --accent-border: rgba(180,83,9,0.22);
+      --glass-bg: rgba(255,255,255,0.52);
+      --glass-border: rgba(255,255,255,0.75);
+      --glass-shadow: 0 8px 32px rgba(80,40,10,0.10), 0 1.5px 6px rgba(80,40,10,0.06);
+      --text-primary: #1a1208;
+      --text-secondary: #5a4a30;
+      --text-muted: #9c8060;
+      --radius-card: 20px;
+      --radius-pill: 100px;
+      --radius-inner: 12px;
+      --font-sans: 'Sora', system-ui, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: linear-gradient(160deg, #F5EFE6 0%, #EDE2D4 25%, #D4DCE7 55%, #E8EEF2 80%, #F2F2F7 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(72px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(180,83,9,0.10) 0%, transparent 70%); top: -120px; left: -140px; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(218,165,32,0.07) 0%, transparent 70%); bottom: 80px; right: -100px; }
+    .wrapper { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 40px 20px 80px; }
+    .glass { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
+    .header { border-radius: var(--radius-card); padding: 28px 32px 24px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; }
+    .header-flag { font-size: 2.6rem; line-height: 1; flex-shrink: 0; }
+    .header-meta { flex: 1; }
+    .header-eyebrow { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); opacity: 0.85; margin-bottom: 4px; }
+    .header-title { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; line-height: 1.18; color: var(--text-primary); letter-spacing: -0.01em; }
+    .header-title strong { font-weight: 500; color: var(--accent); }
+    .header-date { margin-top: 6px; font-size: 0.78rem; color: var(--text-muted); font-weight: 400; }
+    .header-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: var(--radius-pill); padding: 4px 12px; font-size: 0.70rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; flex-shrink: 0; }
+    .header-badge::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.75); } }
+    .section-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; padding-left: 4px; }
+    .carousel-wrapper { margin-bottom: 28px; position: relative; }
+    .carousel-track-outer { overflow: hidden; border-radius: var(--radius-card); }
+    .carousel-track { display: flex; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
+    .carousel-card { min-width: 100%; padding: 28px 30px 26px; background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); position: relative; }
+    .carousel-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, rgba(180,83,9,0.3) 100%); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+    .card-number { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent); opacity: 0.7; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .card-headline { font-family: var(--font-serif); font-size: 1.22rem; font-weight: 400; line-height: 1.35; color: var(--text-primary); margin-bottom: 12px; }
+    .card-body { font-size: 0.84rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 14px; }
+    .card-why { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-inner) var(--radius-inner) 0; padding: 10px 14px; margin-bottom: 14px; }
+    .card-why-label { font-family: var(--font-mono); font-size: 0.60rem; text-transform: uppercase; letter-spacing: 0.10em; color: var(--accent); margin-bottom: 4px; }
+    .card-why-text { font-size: 0.82rem; line-height: 1.55; color: var(--text-secondary); }
+    .card-sources { font-family: var(--font-mono); font-size: 0.63rem; color: var(--text-muted); letter-spacing: 0.03em; }
+    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; }
+    .carousel-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--accent-border); background: var(--glass-bg); backdrop-filter: blur(10px); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.85rem; transition: background 0.2s, box-shadow 0.2s; box-shadow: 0 2px 8px rgba(80,40,10,0.07); }
+    .carousel-btn:hover { background: var(--accent-mid); box-shadow: 0 4px 14px rgba(180,83,9,0.15); }
+    .carousel-dots { display: flex; gap: 6px; align-items: center; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); transition: background 0.25s, transform 0.25s; cursor: pointer; }
+    .carousel-dot.active { background: var(--accent); transform: scale(1.35); }
+    .data-strip { border-radius: var(--radius-card); padding: 16px 24px; margin-bottom: 28px; display: flex; gap: 0; align-items: stretch; overflow: hidden; }
+    .data-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 12px; text-align: center; position: relative; }
+    .data-item + .data-item::before { content: ''; position: absolute; left: 0; top: 10%; bottom: 10%; width: 1px; background: rgba(180,83,9,0.15); }
+    .data-value { font-family: var(--font-mono); font-size: 1.18rem; font-weight: 500; color: var(--text-primary); line-height: 1.1; margin-bottom: 3px; }
+    .data-value.positive { color: #15803d; }
+    .data-label { font-size: 0.70rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 2px; }
+    .data-meta { font-family: var(--font-mono); font-size: 0.60rem; color: var(--text-muted); letter-spacing: 0.03em; }
+    .news-section { margin-bottom: 28px; }
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item { border-radius: var(--radius-card); padding: 20px 24px 18px; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: default; }
+    .news-item:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(80,40,10,0.13), 0 2px 8px rgba(80,40,10,0.07); }
+    .news-item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .pill { display: inline-block; border-radius: var(--radius-pill); padding: 2px 10px; font-size: 0.60rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .pill-pol { background: rgba(139,92,246,0.12); color: #6d28d9; border: 1px solid rgba(139,92,246,0.25); }
+    .pill-eco { background: rgba(21,128,61,0.10); color: #15803d; border: 1px solid rgba(21,128,61,0.22); }
+    .pill-soc { background: rgba(14,116,144,0.10); color: #0e7490; border: 1px solid rgba(14,116,144,0.22); }
+    .pill-int { background: rgba(180,83,9,0.10); color: #b45309; border: 1px solid rgba(180,83,9,0.22); }
+    .pill-dep { background: rgba(220,38,38,0.09); color: #dc2626; border: 1px solid rgba(220,38,38,0.20); }
+    .news-headline { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; line-height: 1.38; color: var(--text-primary); flex: 1; }
+    .news-body { font-size: 0.82rem; line-height: 1.62; color: var(--text-secondary); margin-bottom: 10px; }
+    .news-sources { font-family: var(--font-mono); font-size: 0.61rem; color: var(--text-muted); letter-spacing: 0.02em; }
+    .watchlist { border-radius: var(--radius-card); padding: 22px 26px; margin-bottom: 28px; }
+    .watchlist-title { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .watchlist-title::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+    .watchlist-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .watchlist-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 14px; background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: var(--radius-inner); }
+    .watchlist-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent); font-weight: 500; min-width: 16px; padding-top: 1px; }
+    .watchlist-text { font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary); }
+    .footer { border-radius: var(--radius-card); padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; }
+    .footer-sources { font-family: var(--font-mono); font-size: 0.61rem; color: var(--text-muted); line-height: 1.8; letter-spacing: 0.02em; }
+    .footer-brand { font-family: var(--font-mono); font-size: 0.60rem; color: var(--accent); opacity: 0.65; letter-spacing: 0.08em; text-transform: uppercase; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 540px) { .wrapper { padding: 20px 14px 60px; } .header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 22px 20px 18px; } .header-title { font-size: 1.45rem; } .carousel-card { padding: 22px 18px 20px; } .data-strip { flex-direction: column; gap: 4px; padding: 16px 16px; } .data-item + .data-item::before { display: none; } .news-item { padding: 16px 18px 14px; } .watchlist { padding: 18px 18px; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrapper">
+    <header class="header glass reveal" style="transition-delay:0.00s">
+      <div class="header-flag">&#127477;&#127466;</div>
+      <div class="header-meta">
+        <div class="header-eyebrow">Briefing Ejecutivo &middot; Per&uacute;</div>
+        <h1 class="header-title">Resumen del d&iacute;a &mdash; <strong>Per&uacute;</strong></h1>
+        <div class="header-date">Martes 2 de junio de 2026 &middot; Edici&oacute;n matutina</div>
+      </div>
+      <div class="header-badge">En vivo</div>
+    </header>
+    <section class="carousel-wrapper reveal" style="transition-delay:0.04s">
+      <div class="section-label">Top 5 &middot; Noticias del d&iacute;a</div>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-card">
+            <div class="card-number">01 / 05</div>
+            <h2 class="card-headline">Debate presidencial de segunda vuelta: Keiko Fujimori y Roberto S&aacute;nchez presentan propuestas a 5 d&iacute;as de la elecci&oacute;n</h2>
+            <p class="card-body">La segunda vuelta presidencial del 7 de junio entr&oacute; en su recta final con el debate oficial entre Keiko Fujimori (Fuerza Popular) y Roberto S&aacute;nchez (Juntos por el Per&uacute;). El debate, realizado en el Centro de Convenciones de Lima en San Borja, abord&oacute; seguridad ciudadana, derechos humanos, educaci&oacute;n, salud y econom&iacute;a. Ambos candidatos intercambiaron reproches mutuos en una jornada de alta confrontaci&oacute;n.</p>
+            <div class="card-why"><div class="card-why-label">Por qu&eacute; importa</div><div class="card-why-text">Con 5 d&iacute;as para la elecci&oacute;n y alta polarizaci&oacute;n, el debate fue posiblemente el &uacute;ltimo gran momento para mover indecisos. Las propuestas econ&oacute;micas marcaron el tono del cierre de campa&ntilde;a.</div></div>
+            <div class="card-sources">Fuentes: El Comercio &middot; RPP</div>
+          </div>
+          <div class="carousel-card">
+            <div class="card-number">02 / 05</div>
+            <h2 class="card-headline">Boluarte desliza apoyo a Keiko: &laquo;El Per&uacute; no necesita modelos que fracasaron&raquo;</h2>
+            <p class="card-body">La presidenta saliente Dina Boluarte realiz&oacute; declaraciones que impl&iacute;citamente se&ntilde;alan su respaldo a Keiko Fujimori para la segunda vuelta del 7 de junio. Al referirse a modelos econ&oacute;micos que &ldquo;fracasaron&rdquo;, Boluarte aludi&oacute; al programa de Juntos por el Per&uacute;. La declaraci&oacute;n gener&oacute; pol&eacute;mica sobre la neutralidad que debe guardar un presidente en funciones durante un proceso electoral.</p>
+            <div class="card-why"><div class="card-why-label">Por qu&eacute; importa</div><div class="card-why-text">El apoyo impl&iacute;cito de Boluarte puede movilizar votos del centro-derecha hacia Fujimori y crea tensi&oacute;n institucional sobre el rol del ejecutivo saliente.</div></div>
+            <div class="card-sources">Fuentes: Infobae &middot; Altavoz</div>
+          </div>
+          <div class="carousel-card">
+            <div class="card-number">03 / 05</div>
+            <h2 class="card-headline">FMI y MEF confirman crecimiento del 3,2% para 2026: Per&uacute; lidera la regi&oacute;n</h2>
+            <p class="card-body">El Ministerio de Econom&iacute;a y Finanzas ratific&oacute; una proyecci&oacute;n de crecimiento del 3,2% para 2026, impulsada por la miner&iacute;a, la agroindustria y las exportaciones r&eacute;cord. Las exportaciones peruanas alcanzaron US$&#160;28.725 millones en el primer trimestre, con un crecimiento del 37,8% respecto al mismo per&iacute;odo de 2025. El FMI proyecta 2,8%, identificando la incertidumbre pol&iacute;tica electoral como el principal riesgo.</p>
+            <div class="card-why"><div class="card-why-label">Por qu&eacute; importa</div><div class="card-why-text">La solidez macroecon&oacute;mica contrasta con la incertidumbre pol&iacute;tica preelectoral. Quien gane el 7 de junio heredar&aacute; una econom&iacute;a s&oacute;lida pero deber&aacute; mantener la confianza del mercado.</div></div>
+            <div class="card-sources">Fuentes: MEF &middot; RPP &middot; FMI</div>
+          </div>
+          <div class="carousel-card">
+            <div class="card-number">04 / 05</div>
+            <h2 class="card-headline">Canciller rota embajadores en plena transici&oacute;n: salen Iberico, Hakansson y Ferrero</h2>
+            <p class="card-body">El presidente Jos&eacute; Balc&aacute;zar y el canciller Carlos Pareja dieron por terminadas las funciones de los embajadores Luis Iberico, Carlos Hakansson y Alfredo Ferrero el 1 y 2 de junio. La canciller&iacute;a impuls&oacute; simult&aacute;neamente la campa&ntilde;a &laquo;Tu voto cruza fronteras&raquo;, abriendo locales de votaci&oacute;n en Israel, Qatar y Emiratos &Aacute;rabes para la segunda vuelta del 7 de junio.</p>
+            <div class="card-why"><div class="card-why-label">Por qu&eacute; importa</div><div class="card-why-text">La rotaci&oacute;n de embajadores a d&iacute;as de un cambio de gobierno es inusual y puede leerse como un intento de consolidar posiciones diplom&aacute;ticas antes de la transici&oacute;n.</div></div>
+            <div class="card-sources">Fuentes: La Rep&uacute;blica &middot; RPP</div>
+          </div>
+          <div class="carousel-card">
+            <div class="card-number">05 / 05</div>
+            <h2 class="card-headline">Selecci&oacute;n peruana lista para amistosos ante Hait&iacute; y Espa&ntilde;a antes del Mundial 2030</h2>
+            <p class="card-body">El t&eacute;cnico Mano Menezes public&oacute; la lista de convocados para los amistosos de fecha FIFA en junio: Per&uacute; enfrenta a Hait&iacute; el 5 de junio en Miami y a Espa&ntilde;a el 8 de junio en el Estadio Cuauht&eacute;moc de Puebla. Estos son el tercer y cuarto partidos bajo la conducci&oacute;n de Menezes, quien busca consolidar un sistema de juego de cara al Mundial 2030.</p>
+            <div class="card-why"><div class="card-why-label">Por qu&eacute; importa</div><div class="card-why-text">Los duelos ante Hait&iacute; y Espa&ntilde;a son vitales para evaluar el nivel de la selecci&oacute;n ante rivales de distinta jerarqu&iacute;a, con miras al ciclo rumbo al Mundial 2030.</div></div>
+            <div class="card-sources">Fuentes: Infobae &middot; RPP</div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Anterior">&#8592;</button>
+        <div class="carousel-dots" id="carouselDots">
+          <div class="carousel-dot active" data-index="0"></div>
+          <div class="carousel-dot" data-index="1"></div>
+          <div class="carousel-dot" data-index="2"></div>
+          <div class="carousel-dot" data-index="3"></div>
+          <div class="carousel-dot" data-index="4"></div>
+        </div>
+        <button class="carousel-btn" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+      </div>
+    </section>
+    <div class="data-strip glass reveal" style="transition-delay:0.08s">
+      <div class="data-item"><div class="data-value">S/&#160;3,41</div><div class="data-label">Tipo de Cambio</div><div class="data-meta">2 jun 2026</div></div>
+      <div class="data-item"><div class="data-value">3,2%</div><div class="data-label">Inflaci&oacute;n 2026</div><div class="data-meta">MEF estimado</div></div>
+      <div class="data-item"><div class="data-value positive">3,2%</div><div class="data-label">Crecimiento PBI</div><div class="data-meta">MEF proyecci&oacute;n</div></div>
+    </div>
+    <section class="news-section">
+      <div class="section-label">M&aacute;s noticias relevantes</div>
+      <div class="news-list">
+        <article class="news-item glass reveal" style="transition-delay:0.12s">
+          <div class="news-item-header"><span class="pill pill-pol">Pol&iacute;tico</span><h3 class="news-headline">Cierre de campa&ntilde;a: cinco d&iacute;as para definir el Per&uacute; de los pr&oacute;ximos 5 a&ntilde;os</h3></div>
+          <p class="news-body">Per&uacute; enfrenta una de sus elecciones m&aacute;s polarizadas de la &uacute;ltima d&eacute;cada. Keiko Fujimori lidera propuestas de estabilidad econ&oacute;mica y megaproyectos de infraestructura, mientras Roberto S&aacute;nchez apuesta por redistribuci&oacute;n del ingreso y la modernizaci&oacute;n productiva. La campa&ntilde;a de silencio electoral entra en vigor el s&aacute;bado 6 de junio.</p>
+          <div class="news-sources">Fuentes: El Comercio &middot; La Naci&oacute;n Argentina</div>
+        </article>
+        <article class="news-item glass reveal" style="transition-delay:0.16s">
+          <div class="news-item-header"><span class="pill pill-eco">Econ&oacute;mico</span><h3 class="news-headline">Exportaciones peruanas baten r&eacute;cord en Q1 2026: US$&#160;28.725 millones impulsados por miner&iacute;a</h3></div>
+          <p class="news-body">El Banco Central de Reserva del Per&uacute; inform&oacute; que las exportaciones alcanzaron US$&#160;28.725 millones en el primer trimestre de 2026, crecimiento del 37,8% respecto al a&ntilde;o anterior. Las exportaciones mineras sumaron US$&#160;13.831 millones en el primer bimestre, un salto del 59%. El sol peruano cotiz&oacute; a S/&#160;3,41 por d&oacute;lar el 2 de junio.</p>
+          <div class="news-sources">Fuentes: BCR &middot; Caretas &middot; RPP</div>
+        </article>
+        <article class="news-item glass reveal" style="transition-delay:0.20s">
+          <div class="news-item-header"><span class="pill pill-soc">Social</span><h3 class="news-headline">Campa&ntilde;a &laquo;Tu voto cruza fronteras&raquo;: peruanos en el exterior podr&aacute;n votar el 7 de junio</h3></div>
+          <p class="news-body">La Canciller&iacute;a habilit&oacute; locales de votaci&oacute;n en Israel, Qatar, Emiratos &Aacute;rabes Unidos y otros pa&iacute;ses para la segunda vuelta presidencial del 7 de junio. La campa&ntilde;a busca maximizar la participaci&oacute;n de la di&aacute;spora peruana, que supera los 3 millones de ciudadanos en el exterior. El voto externo fue clave en la primera vuelta.</p>
+          <div class="news-sources">Fuentes: La Rep&uacute;blica</div>
+        </article>
+        <article class="news-item glass reveal" style="transition-delay:0.24s">
+          <div class="news-item-header"><span class="pill pill-int">Internacional</span><h3 class="news-headline">FMI advierte: incertidumbre pol&iacute;tica es la principal amenaza para la econom&iacute;a peruana en 2026</h3></div>
+          <p class="news-body">El Fondo Monetario Internacional proyect&oacute; un crecimiento del 2,8% para Per&uacute; en 2026, pero advirti&oacute; que la persistencia de la polarizaci&oacute;n y la fragmentaci&oacute;n pol&iacute;tica podr&iacute;a afectar la confianza de consumidores e inversionistas. El FMI destac&oacute; que Per&uacute; se perfila como una de las econom&iacute;as de mayor crecimiento en Am&eacute;rica Latina, superando a Chile, Brasil y M&eacute;xico.</p>
+          <div class="news-sources">Fuentes: RPP &middot; FMI</div>
+        </article>
+        <article class="news-item glass reveal" style="transition-delay:0.28s">
+          <div class="news-item-header"><span class="pill pill-dep">Deportes</span><h3 class="news-headline">Per&uacute; vs Hait&iacute; el 5 de junio en Miami: antesala del duelo ante Espa&ntilde;a</h3></div>
+          <p class="news-body">La selecci&oacute;n peruana disputar&aacute; dos amistosos clave: el viernes 5 de junio ante Hait&iacute; en el NU Stadium de Miami (7:00 p.m. hora peruana) y el lunes 8 ante Espa&ntilde;a en el Estadio Cuauht&eacute;moc de Puebla (9:00 p.m. hora peruana). Ambos partidos se transmiten por Am&eacute;rica Televisi&oacute;n y ATV en se&ntilde;al abierta.</p>
+          <div class="news-sources">Fuentes: Infobae &middot; ESPN</div>
+        </article>
+        <article class="news-item glass reveal" style="transition-delay:0.32s">
+          <div class="news-item-header"><span class="pill pill-eco">Econ&oacute;mico</span><h3 class="news-headline">Empleo minero crece 10,2%: sectores de mayor demanda en 2026</h3></div>
+          <p class="news-body">El empleo minero directo creci&oacute; 10,2% en los primeros meses de 2026, por encima del promedio registrado en 2025. Per&uacute; registra 1.087 unidades mineras en exploraci&oacute;n y explotaci&oacute;n a marzo de 2026. Los sectores de mayor demanda laboral para el a&ntilde;o son miner&iacute;a, tecnolog&iacute;a, agroindustria y log&iacute;stica.</p>
+          <div class="news-sources">Fuentes: OJO &middot; Revista Econom&iacute;a</div>
+        </article>
+      </div>
+    </section>
+    <div class="watchlist glass reveal" style="transition-delay:0.36s">
+      <div class="watchlist-title">Qu&eacute; vigilar hoy</div>
+      <ul class="watchlist-items">
+        <li class="watchlist-item"><span class="watchlist-num">01</span><span class="watchlist-text">Resultados del debate presidencial: &iquest;logr&oacute; alguno de los candidatos mover la aguja en encuestas de &uacute;ltima hora?</span></li>
+        <li class="watchlist-item"><span class="watchlist-num">02</span><span class="watchlist-text">Actividad de campa&ntilde;a en el cierre: cu&aacute;ndo entra el silencio electoral del s&aacute;bado 6 de junio.</span></li>
+        <li class="watchlist-item"><span class="watchlist-num">03</span><span class="watchlist-text">Desempe&ntilde;o de la selecci&oacute;n peruana frente a Hait&iacute; el viernes 5 de junio en Miami.</span></li>
+      </ul>
+    </div>
+    <footer class="footer glass reveal" style="transition-delay:0.40s">
+      <div class="footer-sources">El Comercio &middot; RPP &middot; La Rep&uacute;blica &middot; Infobae &middot; BCR &middot; MEF &middot; FMI &middot; Altavoz &middot; ESPN &middot; Caretas &middot; Am&eacute;rica Televisi&oacute;n</div>
+      <div class="footer-brand">Briefing Per&uacute; &middot; 2 jun 2026</div>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let current = 0;
+      const total = dots.length;
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+      }
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      dots.forEach(function (dot) { dot.addEventListener('click', function () { goTo(parseInt(dot.getAttribute('data-index'), 10)); }); });
+      var startX = 0;
+      track.parentElement.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.parentElement.addEventListener('touchend', function (e) { var delta = startX - e.changedTouches[0].clientX; if (Math.abs(delta) > 40) { goTo(delta > 0 ? current + 1 : current - 1); } }, { passive: true });
+      setInterval(function () { goTo(current + 1); }, 7000);
+    })();
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
