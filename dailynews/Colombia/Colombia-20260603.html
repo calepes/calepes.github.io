@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 3 junio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #c4841d;
+  --accent-soft: rgba(196,132,29,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F2EDE4 0%, #EAE0D0 25%, #DDD9D0 55%, #E8EAE2 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead {
+  text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Miércoles 3 de junio de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">Trump respalda a De la Espriella para la segunda vuelta del 21 de junio; Petro acusa de traición e injerencia</div>
+          </div>
+          <div class="swipe-body">El presidente de EE.UU., Donald Trump, anunció su apoyo público a Abelardo de la Espriella (43,74% primera vuelta) para el balotaje del 21 de junio. El presidente Gustavo Petro respondió acusando a Trump de violar un acuerdo privado alcanzado en la Casa Blanca el 3 de febrero de no intervenir en asuntos colombianos: "Cuando un país interviene en las decisiones de otro, muere la libertad".</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El endoso de Trump convierte la segunda vuelta en un episodio de política exterior hemisférica, no solo doméstica. La intervención puede movilizar el voto anti-Trump en favor de Cepeda, pero también consolidar el apoyo a De la Espriella en sectores que valoran la relación bilateral con EE.UU. y la seguridad.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/06/03/petro-rechaza-respaldo-de-trump-a-abelardo-de-la-espriella-cuando-un-pais-interviene-en-las-decisiones-de-otro-muere-la-libertad/">Infobae</a> · <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-en-colombia-2026-el-escrutinio-de-las-votaciones-alcanzo-el-99-98-sin-ninguna-novedad-3561390">El Tiempo</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">ELN ataca con drones en Teorama y El Tarra: un soldado y un civil muertos, 784 personas desplazadas</div>
+          </div>
+          <div class="swipe-body">El Ejército de Liberación Nacional realizó ataques con drones cargados de explosivos en los municipios de Teorama y El Tarra (Norte de Santander, Catatumbo). El soldado profesional Wilson Andrés Guevara Bermeo y el civil Miguel Ríos fueron identificados como las víctimas fatales. La Defensoría del Pueblo reportó el desplazamiento forzado de 784 personas de 293 familias.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El uso sistemático de drones armados por el ELN representa una escalada tecnológica en el conflicto armado colombiano con impacto directo en la seguridad de la infraestructura energética del Catatumbo. El contexto electoral agrava la percepción de debilidad del Estado en zonas de alta conflictividad.
+          </div>
+          <div class="swipe-source"><a href="https://www.infobae.com/colombia/2026/06/03/identifican-a-soldado-profesional-muerto-en-ataque-con-drones-del-eln-en-teorama-norte-de-santander/">Infobae</a> · <a href="https://www.semana.com/nacion/cucuta/articulo/ataques-con-drones-y-explosivos-en-el-catatumbo-dejan-este-martes-un-soldado-y-un-adulto-mayor-muertos-y-dos-personas-heridas/202649/">Semana</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Colombia goleó 3-1 a Costa Rica en El Campín en la despedida hacia el Mundial 2026</div>
+          </div>
+          <div class="swipe-body">La selección colombiana se despidió de su público en el estadio El Campín de Bogotá con una goleada 3-1 ante Costa Rica, en partido amistoso de preparación para el Mundial de Fútbol 2026 (Norteamérica). Los goles fueron de Dávinson Sánchez (m. 17), Luis Díaz (m. 24) y Luis Javier Suárez (segundo tiempo); descontó Andrey Soto para los ticos. El equipo viaja ahora a Norteamérica para el torneo.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La victoria con actuaciones destacadas de Luis Díaz y Dávinson Sánchez le da confianza y estado de forma al equipo antes de su debut en el Mundial. Colombia tiene alta presión interna para rendir en la cita mundialista, y este resultado apaciguará temporalmente las críticas al proceso.</div>
+          <div class="swipe-source"><a href="https://www.elcolombiano.com/deportes/futbol/seleccion-colombia-vs-costa-rica-partido-despedida-mundial-norteamerica-2026-HF37237462">El Colombiano</a> · <a href="https://www.eltiempo.com/deportes/futbol-internacional/seleccion-colombia-vs-costa-rica-siga-el-minuto-a-minuto-del-partido-de-despedida-de-cara-a-la-copa-mundial-de-futbol-de-3561221">El Tiempo</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Dólar supera los $3.500: TRM en $3.562, inflación proyectada al 6,4% e inversión en mínimo de dos décadas</div>
+          </div>
+          <div class="swipe-body">La Tasa Representativa del Mercado (TRM) del 3 de junio se fijó en $3.562 pesos por dólar, con el billete verde sostenido por encima de los $3.500. La inflación anual cerraría 2026 en 6,4%, por encima del rango meta. La inversión como porcentaje del PIB es del 17,5%, el nivel más bajo en dos décadas, reflejando la pérdida de confianza del sector privado.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La combinación de peso débil, inflación persistente e inversión deprimida es la principal amenaza a la estabilidad macroeconómica colombiana en el mediano plazo. El próximo gobierno heredará este escenario y su política económica en los primeros 100 días será clave para la recuperación de la confianza inversora.
+          </div>
+          <div class="swipe-source"><a href="https://www.noticiascaracol.com/economia/precio-del-dolar-en-colombia-hoy-miercoles-3-de-junio-de-2026-trm-sigue-por-encima-de-los-3-500-so35">Caracol</a> · <a href="https://www.elcolombiano.com/negocios/cuanto-crecera-economia-colombia-2026-BD32314234">El Colombiano</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Segunda vuelta el 21 de junio: De la Espriella (43,74%) vs Cepeda (40,90%) en elección más polarizada en décadas</div>
+          </div>
+          <div class="swipe-body">Los comicios del 31 de mayo arrojaron que ningún candidato superó el 50% requerido. Abelardo de la Espriella (coalición conservadora-centro) y Iván Cepeda (izquierda progresista) disputarán el balotaje del 21 de junio. Milei y Noboa felicitaron a De la Espriella; Ernesto Samper llamó a defender la soberanía ante la intervención de Trump.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Con apenas 2,8 puntos de diferencia en la primera vuelta, el resultado del 21 de junio es completamente abierto. La elección definirá el modelo económico, la agenda de paz con el ELN y las relaciones con EE.UU. para el período 2026-2030, con implicaciones directas para el clima de inversión.
+          </div>
+          <div class="swipe-source"><a href="https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026">Wikipedia</a> · <a href="https://cnnespanol.cnn.com/2026/06/01/colombia/reacciones-segunda-vuelta-espriella-cepeda-orix">CNN en Español</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Iván Cepeda y ex presidente Samper rechazan respaldo de Trump a De la Espriella; Milei y Noboa lo celebran</h3>
+    <p>Cepeda calificó de injerencista el apoyo de Trump, exigiendo respeto a la soberanía y a la decisión del pueblo colombiano el 21 de junio. Ernesto Samper llamó a defender la soberanía ante lo que describió como una "vulgar e inaceptable intervención". En contraste, el presidente argentino Javier Milei y el ecuatoriano Daniel Noboa felicitaron a De la Espriella por su resultado en primera vuelta, configurando una clara división ideológica regional.</p>
+    <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/elecciones-presidenciales-en-colombia-2026-ultimas-noticias-apoyos-y-reacciones-a-la-segunda-vuelta-entre-abelardo-de-la-espriella-e-ivan-cepeda-3561681">El Tiempo</a> · <a href="https://cnnespanol.cnn.com/2026/06/01/colombia/reacciones-segunda-vuelta-espriella-cepeda-orix">CNN en Español</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Catatumbo en 2026: 13 eventos de desplazamiento masivo dejan 2.447 personas desplazadas por guerra entre ELN y FARC disidentes</h3>
+    <p>El Catatumbo lleva 13 eventos de desplazamiento masivo en 2026, con 2.447 personas desplazadas principalmente en los municipios de Tibú y El Tarra. El último evento del 3 de junio sumó 784 personas de 293 familias tras los ataques con drones del ELN. La región es el epicentro de una guerra de drones entre el ELN y disidencias de las FARC por el control territorial del área cocalera.</p>
+    <span class="source-link"><a href="https://www.elpais.com.co/judicial/ataques-con-drones-dejan-un-soldado-y-campesino-muertos-provocan-el-desplazamiento-de-cientos-de-personas-en-catatumbo-0349.html">El País Colombia</a> · <a href="https://www.semana.com/nacion/cucuta/articulo/ataques-con-drones-y-explosivos-en-el-catatumbo-dejan-este-martes-un-soldado-y-un-adulto-mayor-muertos-y-dos-personas-heridas/202649/">Semana</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>BanRep mantiene tasa en 11,25%; PIB proyectado en 2,8% para 2026, con inflación por encima del 6%</h3>
+    <p>La Junta Directiva del Banco de la República mantuvo por unanimidad la tasa de política monetaria en 11,25% (decisión del 6 de mayo de 2026), en una postura cauta ante la inflación persistente. BBVA Research proyecta un crecimiento del PIB del 2,8% para 2026, condicionado a la recuperación de la inversión privada. La inflación anual cerraría el año en 6,4%, por encima del rango meta del 3%.</p>
+    <span class="source-link"><a href="https://www.bbva.com/es/co/economia-y-finanzas/colombia-creceria-28-en-2026-y-18-en-2027-con-inflacion-al-alza-y-elevada-presion-fiscal/">BBVA Research</a> · <a href="https://www.banrep.gov.co/es">Banco de la República</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Sin noticias empresariales relevantes el 3 de junio</h3>
+    <p>No se registraron resultados financieros significativos, fusiones, adquisiciones ni decisiones regulatorias de impacto en el sector empresarial colombiano durante el 3 de junio de 2026. La atención del mercado se concentra en los posibles efectos de la segunda vuelta del 21 de junio sobre el entorno regulatorio e impositivo de los negocios.</p>
+    <span class="source-link">Fuente: varios medios, sin ítem destacado</span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Colombia viaja a Norteamérica tras golear a Costa Rica; calendario mundialista define el grupo tricolor</h3>
+    <p>Tras la victoria 3-1 en El Campín, la selección colombiana emprendió viaje a Norteamérica para su participación en el Mundial de Fútbol 2026. Luis Díaz y Dávinson Sánchez fueron los más destacados del partido de despedida. El calendario de la fase de grupos de Colombia en el Mundial confirma una fase inicial exigente ante rivales de alto nivel europeo y sudamericano.</p>
+    <span class="source-link"><a href="https://www.semana.com/deportes/articulo/colombia-bailo-a-costa-rica-en-el-campin-y-se-va-sonriendo-al-mundial-2026-resultado-y-goles/202643/">Semana</a> · <a href="https://www.noticiascaracol.com/golcaracol/seleccion-colombia/seleccion-colombia-vs-costa-rica-en-vivo-minuto-a-minuto-del-partido-de-despedida-rg10">Caracol</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.36s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Seis sismos registrados en Colombia el 3 de junio; el más fuerte en el Pacífico caucano</h3>
+    <p>El Servicio Geológico Colombiano registró al menos seis movimientos sísmicos a lo largo del 3 de junio, iniciando a las 12:43 de la madrugada. El sismo de mayor magnitud se localizó en el Pacífico caucano. No se reportaron víctimas ni daños materiales significativos, pero la actividad sísmica concentrada en una misma jornada generó alarma en la ciudadanía de la región.</p>
+    <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-3-de-junio-de-2026-1027555">RCN</a></span>
+  </div>
+
+  <div class="data-strip reveal" style="transition-delay:0.40s">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar (TRM)</div>
+      <div class="data-cell-value">$3.562</div>
+      <div class="data-cell-delta red">+$1,76 día</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Inflación proy.</div>
+      <div class="data-cell-value">6,4%</div>
+      <div class="data-cell-delta red">Sobre meta 3%</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Tasa BanRep</div>
+      <div class="data-cell-value">11,25%</div>
+      <div class="data-cell-delta" style="color: var(--muted)">Sin cambio</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal" style="transition-delay:0.44s">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Respuesta diplomática de Colombia ante el respaldo de Trump a De la Espriella: si el gobierno Petro convoca al embajador estadounidense o toma medidas formales de protesta, el peso podría presionarse.</div>
+    <div class="vigilar-item">Continuidad de los ataques con drones del ELN en el Catatumbo y posición del próximo gobierno frente al proceso de paz, que depende del resultado del balotaje del 21 de junio.</div>
+    <div class="vigilar-item">Movimiento de encuestas para la segunda vuelta tras el respaldo de Trump: el impacto en la intención de voto definirá la dinámica de campaña en los días previos al 21 de junio.</div>
+  </div>
+
+  <div class="footer reveal" style="transition-delay:0.48s">
+    <div>Fuentes: El Tiempo · Infobae · Semana · El Colombiano · Caracol · RCN · El Espectador · BBVA Research · Banco de la República · CNN en Español · El País Colombia</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
