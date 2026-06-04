@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Perú — 3 junio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1a4a6b;
+  --accent-soft: rgba(26,74,107,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #E8EEF2 0%, #D4E0EA 25%, #D4DEE7 55%, #E2EAF0 80%, #F2F2F7 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead {
+  text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Perú</h1>
+    <div class="masthead-date">Miércoles 3 de junio de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">A cuatro días del balotaje, Keiko lidera con 32,5% frente al 29,1% de Roberto Sánchez</div>
+          </div>
+          <div class="swipe-body">Con la segunda vuelta presidencial fijada para el domingo 7 de junio, una encuesta de CPI publicada a días del cierre de campaña muestra a Keiko Fujimori (Fuerza Popular) al frente con 32,5% a nivel nacional, contra el 29,1% de Roberto Sánchez (Juntos por el Perú). Sánchez domina en la sierra centro-sur (53,3%); Fujimori lidera en Lima y Callao (45,6%).</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La brecha de 3,4 puntos está dentro del margen de error de la mayoría de encuestadoras, lo que hace el resultado incierto. El ganador del 7 de junio asumirá el 28 de julio, definiendo la política económica, la agenda de seguridad y las relaciones con el sector minero por el período 2026-2031.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/politica/elecciones/encuesta-cpi-segunda-vuelta-2026-keiko-fujimori-325-vs-roberto-sanchez-291-intencion-de-voto-por-regiones-noticia-1690615">RPP</a> · <a href="https://elcomercio.pe/ecdata/keiko-fujimori-roberto-sanchez-elecciones-2026-juntos-por-el-peru-fuerza-popular-onpe-jne-rafael-lopez-aliaga-renovacion-popular-noticia/">El Comercio</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">Balcázar cesa a 8 embajadores en países clave a días del cambio de gobierno</div>
+          </div>
+          <div class="swipe-body">El gobierno del presidente transitorio José María Balcázar concluyó las funciones de ocho embajadores políticos acreditados ante Estados Unidos, España, Francia, India, Costa Rica, Brasil, Nueva Zelanda y Bangladesh. La Cancillería aclaró que no designará reemplazos y dejará los nombramientos al próximo gobierno, lo que deja sin representación política de alto nivel a misiones clave.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La decisión deja vacantes diplomáticas en las principales plazas comerciales y políticas de Perú en un momento de transición sensible. El nuevo presidente que asuma el 28 de julio deberá priorizar la reconstrucción de la red diplomática antes de negociar acuerdos bilaterales o de inversión.
+          </div>
+          <div class="swipe-source"><a href="https://elcomercio.pe/politica/gobierno-de-jose-maria-balcazar-cesa-a-embajadores-de-paises-claves-las-razones-detras-a-dias-de-la-segunda-vuelta-elecciones-2026-elecciones-7-de-junio-tlcnota-noticia/">El Comercio</a> · <a href="https://rpp.pe/politica/gobierno/ejecutivo-dio-por-terminadas-las-funciones-de-8-embajadores-a-semanas-de-finalizar-el-gobierno-noticia-1691217">RPP</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">PNP rescata a dos extranjeros secuestrados y captura a integrantes del Tren de Aragua y Los Mexicanos en Lince</div>
+          </div>
+          <div class="swipe-body">La Policía Nacional del Perú, con apoyo de la SUAT, realizó un operativo en el distrito de Lince que resultó en la captura de cuatro personas — dos peruanos y dos venezolanos — vinculadas a las organizaciones criminales Tren de Aragua y Los Mexicanos. Los detenidos son acusados de extorsión y secuestro; dos víctimas extranjeras fueron rescatadas con vida.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El operativo confirma la presencia activa de bandas transnacionales en distritos residenciales de clase media de Lima. El FMI ya advirtió que la alta inseguridad amenaza las perspectivas de crecimiento e inversión del país; la expansión del Tren de Aragua fuera de Lima agrava ese riesgo estructural.
+          </div>
+          <div class="swipe-source"><a href="https://larepublica.pe/sociedad/2026/06/03/liberan-a-dos-extranjeros-secuestrados-y-capturan-a-presuntos-miembros-de-los-mexicanos-y-el-tren-de-aragua-185181">La República</a> · <a href="https://www.infobae.com/peru/2026/06/04/pnp-captura-a-presuntos-miembros-del-tren-de-aragua-y-los-mexicanos-tras-balacera-en-lince-rescatan-a-dos-personas-retenidas/">Infobae</a></div>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">MEF mantiene proyección de crecimiento del PIB del 3,2% para 2026 impulsado por minería e inversión privada</div>
+          </div>
+          <div class="swipe-body">El Ministerio de Economía y Finanzas ratificó su estimación de crecimiento del 3,2% para el año, apoyada en una inversión privada que crecería un 5,5% y en una inversión minera que superaría los USD 6.800 millones. UBS señaló que, a pesar de la polarización electoral, mantiene confianza en la solidez del sol peruano. El tipo de cambio cerró en S/ 3,42 el 3 de junio.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La continuidad de la proyección macroeconómica en un contexto electoral polarizado es una señal de estabilidad institucional que protege la confianza inversora. El resultado del 7 de junio puede afectar la prima de riesgo y el tipo de cambio dependiendo del perfil del ganador.
+          </div>
+          <div class="swipe-source"><a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a> · <a href="https://www.bloomberglinea.com/mercados/peru-enfrenta-una-eleccion-polarizada-pero-ubs-mantiene-confianza-en-el-sol/">Bloomberg Línea</a></split>
+        </div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Selección peruana viaja a Miami para amistoso FIFA vs Haití el 5 de junio, previo al Mundial 2026</div>
+          </div>
+          <div class="swipe-body">La blanquirroja disputará dos amistosos FIFA de preparación: el viernes 5 de junio ante Haití en el Nu Stadium de Miami (19:00 hora peruana) y el lunes 8 de junio frente a España en el estadio Cuauhtémoc de Puebla, México. Ambos rivales están clasificados al Mundial 2026. El equipo, dirigido por Mano Menezes, presentó la nómina convocada para la doble fecha.</div>
+        </div>
+        <div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Estos amistosos son la última preparación de la selección peruana antes del inicio del Mundial 2026. Los resultados definirán el estado de forma y la confianza del equipo en su debut mundialista, en una cita que genera alto impacto en el estado de ánimo nacional y en las cifras de audiencia televisiva.
+          </div>
+          <div class="swipe-source"><a href="https://rpp.pe/futbol/seleccion-peruana/peru-vs-haiti-en-vivo-a-que-hora-juegan-en-miami-y-donde-ver-amistoso-internacional-por-fecha-fifa-2026-partidos-de-hoy-noticia-1691348">RPP</a> · <a href="https://www.infobae.com/peru/deportes/2026/05/06/amistosos-de-peru-en-junio-fechas-horarios-y-canales-tv-confirmados-de-los-duelos-ante-espana-y-haiti/">Infobae</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Político</span>
+    <h3>Sánchez exhorta a Fujimori a aceptar resultados del 7 de junio; campaña entra en tramo final</h3>
+    <p>Roberto Sánchez lanzó un mensaje directo a Keiko Fujimori instándola a comprometerse públicamente a aceptar los resultados del balotaje del 7 de junio: "Exhorto a la señora del caos a aceptar los resultados electorales". Ambos candidatos cierran sus campañas el jueves 4 de junio — Fujimori en Ate y Sánchez en el centro de Lima — antes del silencio electoral del viernes y la votación del domingo.</p>
+    <span class="source-link"><a href="https://larepublica.pe/politica/2026/06/03/roberto-sanchez-manda-mensaje-a-keiko-fujimori-exhorto-a-la-senora-del-caos-a-aceptar-los-resultados-electorales-hnews-157233">La República</a> · <a href="https://elcomercio.pe/politica/segunda-vuelta-2026-keiko-fujimori-y-roberto-sanchez-cierran-sus-campanas-este-jueves-donde-sera-noticia/">El Comercio</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-pol">Político</span>
+    <h3>JNE lanza plataforma digital para fiscalización electoral en tiempo real durante la segunda vuelta</h3>
+    <p>El Jurado Nacional de Elecciones presentó una plataforma digital que permitirá a ciudadanos y organizaciones de la sociedad civil monitorear en tiempo real el proceso de fiscalización electoral del domingo 7 de junio. La herramienta incluye seguimiento de incidencias en mesa, conteo paralelo de actas y alertas de irregularidades, en respuesta a demandas de mayor transparencia ante un contexto electoral polarizado.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-miercoles-3-de-junio-de-2026">TVPerú</a> · <a href="https://www.infobae.com/peru/2026/06/01/cuando-es-la-segunda-vuelta-de-las-elecciones-2026-en-peru-conoce-ese-y-otros-detalles-importantes/">Infobae</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-eco">Económico</span>
+    <h3>Dólar cierra en S/ 3,42 con alza del 0,21%; BCR prevé rango de S/ 3,34–3,46 para cierre de año</h3>
+    <p>El tipo de cambio al cierre del 3 de junio marcó S/ 3,42 por dólar, con un avance del 0,21% frente al sol. El Banco Central de Reserva del Perú proyecta que el dólar cerrará 2026 en un rango de S/ 3,34 a S/ 3,46. La incertidumbre preelectoral mantiene cierta presión al alza, aunque el sol ha mostrado resiliencia frente a la volatilidad regional.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-03-de-junio-del-2026-noticia-1691292">RPP</a> · <a href="https://larepublica.pe/economia/precio-del-dolar/2026/06/03/precio-del-dolar-hoy-en-peru-3-de-junio-2026-cotizacion-de-compra-y-venta-segun-bcr-y-tasa-de-cambio-dolares-a-soles-ocona-dolar-bloomberg-121986">La República</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-soc">Social</span>
+    <h3>Gobierno subsidia temporalmente el transporte público en Lima y Callao ante alza de combustibles</h3>
+    <p>El Ejecutivo de Balcázar oficializó un subsidio temporal para el transporte público en Lima y Callao, como respuesta al encarecimiento de los combustibles. La medida tiene vigencia hasta el cambio de gobierno el 28 de julio y busca contener el impacto inflacionario en los sectores de menores ingresos durante el período de transición política.</p>
+    <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-miercoles-3-de-junio-de-2026">TVPerú</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-emp">Empresarial</span>
+    <h3>Cartera minera con 65 proyectos por USD 63.000 millones define la agenda del próximo gobierno</h3>
+    <p>El Ministerio de Energía y Minas reportó que la cartera de proyectos de inversión minera cuenta con 65 iniciativas que representan USD 63.000 millones en inversión potencial, de los cuales USD 52.000 millones se ejecutarían a partir de 2026. La posición de cada candidato frente a la conflictividad social minera y los estándares ambientales será decisiva para destrabar o frenar estos proyectos.</p>
+    <span class="source-link"><a href="https://gestion.pe/economia/peru-mantiene-proyeccion-de-32-para-2026-pero-es-mas-optimista-sobre-inversion-privada-las-nuevas-cifras-del-informe-de-actualizacion-macroeconomica-noticia/">Gestión</a> · <a href="https://www.ey.com/es_pe/insights/mining-metals/guia-inversion-minera-peru">EY Perú</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.36s">
+    <span class="pill pill-dep">Deportes</span>
+    <h3>Selección peruana: Mano Menezes anuncia convocatoria para amistosos FIFA ante Haití y España</h3>
+    <p>El técnico brasileño Mano Menezes presentó la lista de convocados para los dos amistosos FIFA de junio. Perú enfrentará a Haití el 5 de junio en Miami (Nu Stadium) y a España el 8 de junio en Puebla, México (estadio Cuauhtémoc). Ambos partidos son de preparación para el Mundial 2026. Los encuentros se transmiten por América TV, ATV y Movistar Deportes.</p>
+    <span class="source-link"><a href="https://www.infobae.com/peru/deportes/2026/05/28/lista-convocados-seleccion-peruana-amistosos-haiti-espana-junio-antes-mundial-2026/">Infobae</a> · <a href="https://rpp.pe/futbol/futbol-mundial/partidos-de-hoy-amistoso-fifa-en-directo-peru-miercoles-3-de-junio-2026-horarios-online-canales-tv-ver-futbol-en-vivo-noticia-1691168">RPP</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.40s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>FMI advierte que inseguridad y minería ilegal son los principales riesgos para el crecimiento peruano</h3>
+    <p>El Fondo Monetario Internacional alertó que los altos niveles de inseguridad y el avance de la minería ilegal constituyen los principales riesgos estructurales para las perspectivas de crecimiento de Perú. El FMI proyecta una moderación del crecimiento al 2,8% para 2026 —por debajo del 3,2% del MEF—, condicionada a que el nuevo gobierno implemente una agenda efectiva de seguridad y formalización del sector minero.</p>
+    <span class="source-link"><a href="https://rpp.pe/economia/economia/fmi-alerta-que-alta-inseguridad-y-mineria-ilegal-amenazan-perspectivas-de-crecimiento-de-peru-noticia-1681937">RPP</a> · <a href="https://ipe.org.pe/proyeccion-economica-del-peru-2026-crecimiento-y-vulnerabilidades/">IPE</a></span>
+  </div>
+
+  <div class="data-strip reveal" style="transition-delay:0.44s">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar / Sol</div>
+      <div class="data-cell-value">S/ 3,42</div>
+      <div class="data-cell-delta red">+0,21% día</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Proy. PIB 2026</div>
+      <div class="data-cell-value">3,2%</div>
+      <div class="data-cell-delta green">MEF confirma</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">2.ª Vuelta</div>
+      <div class="data-cell-value">7 jun.</div>
+      <div class="data-cell-delta" style="color: var(--muted)">Keiko vs Sánchez</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal" style="transition-delay:0.48s">
+    <div class="vigilar-header">Qué Vigilar Hoy</div>
+    <div class="vigilar-item">Cierre de campañas de Keiko Fujimori (Ate) y Roberto Sánchez (Centro de Lima) el jueves 4 de junio, último evento público antes del silencio electoral y el balotaje del domingo.</div>
+    <div class="vigilar-item">Movimiento del sol ante la incertidumbre electoral: el tipo de cambio puede presionarse al alza si los mercados perciben mayor riesgo político en los últimos días previos al 7 de junio.</div>
+    <div class="vigilar-item">Amistoso Perú vs Haití el viernes 5 de junio en Miami — primer examen del equipo de Mano Menezes ante una selección clasificada al Mundial 2026.</div>
+  </div>
+
+  <div class="footer reveal" style="transition-delay:0.52s">
+    <div>Fuentes: RPP · La República · El Comercio · Infobae · Gestión · TVPerú · Bloomberg Línea · IPE · EY Perú · Canal N</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
