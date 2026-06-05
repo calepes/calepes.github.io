@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Colombia — 4 junio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #92400e;
+  --accent-soft: rgba(146,64,14,0.06);
+  --ink: #1d1d1f;
+  --muted: rgba(60,60,67,0.6);
+  --tertiary: rgba(60,60,67,0.3);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-bg-strong: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.45);
+  --shadow: rgba(0,0,0,0.06);
+  --inset-highlight: rgba(255,255,255,0.7);
+  --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+  --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+  --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+  --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+  --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+  --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(160deg, #F5EFE6 0%, #EDE3D4 25%, #E0DECE 55%, #EEF0E8 80%, #F5F5F0 100%);
+  color: var(--ink);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  overflow-x: hidden;
+}
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(146,64,14,0.10) 0%, transparent 70%); }
+.orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+.wrap { position: relative; z-index: 1; }
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead {
+  text-align: center; margin-bottom: 28px; padding: 32px 24px 26px;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight);
+}
+.masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+.masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+.masthead-date { font-size: 13px; color: var(--muted); }
+.masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+.section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+.carousel-container { position: relative; margin-bottom: 32px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.swipe-card {
+  flex: 0 0 calc(100% - 16px); scroll-snap-align: start;
+  background: var(--card-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px; border: 0.5px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight);
+  padding: 28px 24px; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+.swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+.swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+.swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+.swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+.swipe-source a { color: var(--accent); text-decoration: none; }
+.dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+.divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+.news-item { padding: 18px 20px; margin-bottom: 10px; }
+.pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+.pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+.pill-emp { background: var(--pill-emp-bg); color: var(--pill-emp); }
+.pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+.pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+.pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+.news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+.source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+.source-link a { color: var(--accent); text-decoration: none; }
+.data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+.data-cell { padding: 20px 14px; text-align: center; }
+.data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+.data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+.data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+.green { color: #34C759; }
+.red { color: #FF3B30; }
+.vigilar {
+  background: rgba(29,29,31,0.82);
+  backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 16px; padding: 24px; margin: 32px 0;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04);
+  color: white;
+}
+.vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+.vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+.vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+.vigilar-item:last-child { margin-bottom: 0; }
+.footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+.reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@media (max-width: 500px) {
+  body { padding: 20px 14px; }
+  .data-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="wrap">
+
+  <div class="masthead reveal">
+    <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+    <h1>Colombia</h1>
+    <div class="masthead-date">Jueves 4 de junio de 2026</div>
+    <div class="masthead-tag">Edición Diaria</div>
+  </div>
+
+  <div class="section-header reveal" style="transition-delay:0.04s">Top 5 del Día</div>
+  <div class="carousel-container reveal" style="transition-delay:0.08s">
+    <div class="carousel-track" id="carousel">
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">01</div>
+            <div class="swipe-title">"Dos Colombias frente a frente": De la Espriella y Cepeda arrancan la recta final hacia el 21 de junio</div>
+          </div>
+          <div class="swipe-body">Tras la primera vuelta del 31 de mayo (De la Espriella 43,74% — Cepeda 40,90%), los dos finalistas de la presidencia colombiana iniciaron el 4 de junio las actividades formales de campaña de segunda vuelta. La diferencia de 673.138 votos es suficientemente estrecha para que el balotaje sea genuinamente competido. El 21 de junio definirá si Colombia consolida el giro a la derecha o si el Pacto Histórico logra la reelección ideológica bajo Cepeda.</div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La diferencia de 2,84 puntos porcentuales entre los candidatos hace que la segunda vuelta sea genuinamente competida. El resultado del 21 de junio definirá si Colombia consolida el giro a la derecha iniciado con De la Espriella o si el Pacto Histórico logra la continuidad progresista bajo Cepeda.
+          </div>
+        </div>
+        <div class="swipe-source">Fuentes: <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-en-colombia-2026-falta-una-hora-para-que-cierren-las-urnas-de-votacion-asi-avanza-la-jornada-electoral-3560900">El Tiempo</a> · <a href="https://www.france24.com/es/programas/el-debate/20260602-dos-colombias-frente-a-frente-cepeda-y-de-la-espriella-se-juegan-la-presidencia">France 24</a></div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">02</div>
+            <div class="swipe-title">AtlasIntel —la encuestadora que acertó la primera vuelta— da ventaja a De la Espriella en el balotaje</div>
+          </div>
+          <div class="swipe-body">AtlasIntel, la firma brasileña que proyectó con precisión el resultado del 31 de mayo, publicó su primera medición post-primera vuelta dando ventaja a Abelardo de la Espriella de cara al 21 de junio. La encuesta muestra que el electorado de los candidatos eliminados no se trasladaría en bloque al candidato del Pacto Histórico, beneficiando al candidato de Defensores de la Patria.</div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            El historial de AtlasIntel en Colombia le da peso específico a esta proyección. Sin embargo, la campaña de segunda vuelta puede activar factores nuevos, especialmente la capacidad de Cepeda de unificar todo el voto progresista y parte del voto de protesta anti-Petro que no apoya a De la Espriella por su estilo.
+          </div>
+        </div>
+        <div class="swipe-source">Fuentes: <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-atlasintel-la-que-acerto-en-victoria-de-abelardo-de-la-espriella-en-primera-vuelta-dice-que-ganaria-la-segunda-segun-nueva-medicion-3561651">El Tiempo</a> · AtlasIntel</div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">03</div>
+            <div class="swipe-title">Propuestas económicas contrastantes: De la Espriella promete reducir el Estado 40% y relanzar el Plan Colombia II</div>
+          </div>
+          <div class="swipe-body">Abelardo de la Espriella presentó los 10 pilares de su gobierno: reducción del aparato estatal en un 40%, relanzamiento del Plan Colombia II, construcción de 7 megacárceles, fumigación aérea de cultivos ilícitos y un ecosistema pro-empresa que busca llevar el PIB por encima del 3%. Ahorro estructural proyectado: $31,8 billones/año (3,1% del PIB). Iván Cepeda propone control estricto de evasión fiscal por la DIAN y austeridad en el gasto de funcionamiento.</div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Las propuestas son ideológicamente opuestas y sus impactos macroeconómicos divergentes. De la Espriella busca atraer inversión privada con un Estado más pequeño; Cepeda busca aumentar ingresos sin reducir el gasto social. El mercado favorece la primera opción, pero el electorado colombiano tiene una base progresista significativa heredada del ciclo Petro.
+          </div>
+        </div>
+        <div class="swipe-source">Fuentes: <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/abelardo-de-la-espriella-anuncio-los-10-pilares-de-su-gobierno-plan-colombia-ii-reduccion-del-estado-en-40-7-megacarceles-y-otras-medidas-3561778">El Tiempo</a> · <a href="https://www.elcolombiano.com/inicio/propuestas-economicas-cepeda-abelardo-segunda-vuelta-presidencia-DH37213734">El Colombiano</a></div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">04</div>
+            <div class="swipe-title">Dólar abrió el 4 de junio en COP 3.560; TRM en COP 3.572,85 y economía creció solo 1,6% en febrero</div>
+          </div>
+          <div class="swipe-body">El peso colombiano abrió el jueves 4 de junio en 3.560 pesos por dólar, con la Tasa Representativa del Mercado (TRM) oficial en COP 3.572,85, una subida de 10,85 pesos respecto al día anterior. La economía colombiana creció apenas 1,6% interanual en febrero de 2026, acumulando 1,5% en los dos primeros meses del año, por debajo de las expectativas y de las necesidades de generación de empleo del país.</div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            Un crecimiento de 1,6% con una inflación proyectada superior al 6% implica que Colombia está perdiendo poder adquisitivo en términos reales. Este escenario favorece el discurso anti-estatista y pro-inversión de De la Espriella, aunque el electorado colombiano vota también por identidad ideológica y no solo por racionalidad económica.
+          </div>
+        </div>
+        <div class="swipe-source">Fuentes: <a href="https://www.noticiasrcn.com/economia/precio-del-dolar-en-colombia-hoy-4-de-junio-de-2026-1027830">Noticias RCN</a> · <a href="https://www.elcolombiano.com/negocios/cuanto-crecera-economia-colombia-2026-BD32314234">El Colombiano</a></div>
+      </div>
+
+      <div class="swipe-card">
+        <div>
+          <div class="swipe-top">
+            <div class="swipe-num">05</div>
+            <div class="swipe-title">Inversión privada en Colombia en su nivel más bajo en dos décadas; sectores primarios acumulan 5 meses en negativo</div>
+          </div>
+          <div class="swipe-body">La inversión privada como porcentaje del PIB se encuentra en su nivel más bajo en veinte años en Colombia. Los sectores primarios —agricultura y minería— registran variaciones negativas por quinto mes consecutivo (-2,1% en actividades primarias al cierre del primer bimestre). El desafío de recuperar la confianza inversora es el mayor reto económico del próximo gobierno, independientemente de quién gane el 21 de junio.</div>
+          <div class="swipe-why">
+            <strong>Por qué importa</strong>
+            La caída de la inversión privada es la señal más preocupante de la economía colombiana: sin inversión no hay empleo ni crecimiento sostenible. Si el próximo gobierno no logra revertir esta tendencia en los primeros meses, la promesa de ambos candidatos de superar el 3% de crecimiento quedará en papel.
+          </div>
+        </div>
+        <div class="swipe-source">Fuentes: <a href="https://www.elcolombiano.com/negocios/cuanto-crecera-economia-colombia-2026-BD32314234">El Colombiano</a> · <a href="https://www.infobae.com/colombia/2026/04/20/hay-malas-noticias-para-el-crecimiento-de-la-economia-colombiana-y-alertan-que-cuando-uno-abre-el-dato-la-historia-cambia/">Infobae Colombia</a></div>
+      </div>
+
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="swipe-hint">Desliza para ver más →</div>
+  </div>
+
+  <div class="divider reveal" style="transition-delay:0.12s"><span class="divider-text">Noticias por Sección</span></div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.16s">
+    <span class="pill pill-pol">Política</span>
+    <h3>Apoyos post-primera vuelta: ¿quién tiene el respaldo de los partidos que no pasaron a segunda vuelta?</h3>
+    <p>Con el 100% de las mesas escrutadas en la primera vuelta, los partidos y movimientos eliminados deben ahora declarar su posición para el 21 de junio. El espectro del Centro Democrático y otros partidos de derecha tiende a De la Espriella; los movimientos sociales y partidos de izquierda moderada se inclinan naturalmente hacia Cepeda, aunque sin el automatismo de los ciclos electorales anteriores al gobierno Petro.</p>
+    <span class="source-link">Fuentes: <a href="https://www.eltiempo.com/politica/">El Tiempo</a> · <a href="https://www.semana.com">Semana</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.20s">
+    <span class="pill pill-pol">Política</span>
+    <h3>Cepeda y Petro: la herencia del gobierno saliente como activo y pasivo electoral</h3>
+    <p>Iván Cepeda llega al balotaje con el respaldo explícito del presidente Gustavo Petro, cuya gestión termina con aprobación entre el 25% y el 30%. Esta herencia es un arma de doble filo: le asegura el voto duro del Pacto Histórico pero lo liga a las controversias del gobierno Petro. De la Espriella capitalizó el «antivoto» petronista para obtener su 43,74% en la primera vuelta del 31 de mayo.</p>
+    <span class="source-link">Fuentes: <a href="https://www.france24.com/es/programas/el-debate/20260602-dos-colombias-frente-a-frente-cepeda-y-de-la-espriella-se-juegan-la-presidencia">France 24</a> · <a href="https://cnnespanol.cnn.com/colombia">CNN en Español</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.24s">
+    <span class="pill pill-eco">Economía</span>
+    <h3>Inflación proyectada supera el 6% en 2026: el mayor reto de política monetaria desde 2022</h3>
+    <p>El Banco de la República enfrenta el desafío de contener la inflación (proyectada por BBVA Research en 6,5% al cierre de 2026) mientras la economía crece apenas al 1,5-1,6%. El próximo presidente heredará un Banco de la República con tasas aún restrictivas y escaso margen para estimular el crecimiento sin exacerbar la inflación. La combinación de baja inversión, inflación alta y crecimiento débil configura un escenario de estanflación incipiente.</p>
+    <span class="source-link">Fuentes: <a href="https://www.bbva.com/es/co/economia-y-finanzas/colombia-creceria-28-en-2026-y-18-en-2027-con-inflacion-al-alza-y-elevada-presion-fiscal/">BBVA Research</a> · <a href="https://www.portafolio.co">Portafolio</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.28s">
+    <span class="pill pill-eco">Economía</span>
+    <h3>BBVA Research proyecta PIB de Colombia en 2,8% para 2026; Fedesarrollo estima 2,9%</h3>
+    <p>Los organismos privados son moderadamente optimistas sobre el desempeño económico colombiano en 2026, proyectando crecimientos de entre 2,8% (BBVA) y 3,2% (Bancolombia), por encima de los datos de enero-febrero. La condición para alcanzar estos niveles es la resolución de la incertidumbre electoral y la reactivación de la inversión privada tras las elecciones del 21 de junio.</p>
+    <span class="source-link">Fuentes: <a href="https://www.bbva.com/es/co/economia-y-finanzas/colombia-creceria-28-en-2026-y-18-en-2027-con-inflacion-al-alza-y-elevada-presion-fiscal/">BBVA Research</a> · <a href="https://www.bancolombia.com/empresas/capital-inteligente/actualidad-economica-sectorial/perspectivas-economicas-2026">Bancolombia</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.32s">
+    <span class="pill pill-soc">Sociedad</span>
+    <h3>Primera vuelta registró participación del 65%, la más alta desde 2018</h3>
+    <p>La primera vuelta presidencial del 31 de mayo tuvo una participación electoral del 65%, la más alta en Colombia desde las elecciones de 2018. Este nivel de participación refleja la polarización de la contienda y la alta movilización de ambos bloques. Para la segunda vuelta del 21 de junio se espera una participación igualmente elevada, con ambas campañas enfocando esfuerzos en la movilización de sus votantes registrados.</p>
+    <span class="source-link">Fuentes: <a href="https://www.eltiempo.com/politica/">El Tiempo</a> · <a href="https://www.registraduria.gov.co">Registraduría Nacional</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.36s">
+    <span class="pill pill-dep">Deporte</span>
+    <h3>Selección Colombia suma amistosos de preparación y apunta al Mundial 2026 en EEUU, México y Canadá</h3>
+    <p>La Selección Colombia completó la fase de preparativos para el Mundial de Fútbol 2026, con amistosos recientes que confirmaron el once titular del técnico. Colombia integra el Grupo F y tendrá su primer partido el 12 de junio. El Mundial 2026 es el evento deportivo más grande en la historia de América del Norte, y Colombia llega con una de las plantillas más competitivas de su historia reciente, con líderes como Luis Díaz y James Rodríguez.</p>
+    <span class="source-link">Fuentes: <a href="https://fcf.com.co">FCF</a> · <a href="https://www.eltiempo.com">El Tiempo</a> · <a href="https://www.elcolombiano.com">El Colombiano</a></span>
+  </div>
+
+  <div class="news-item glass reveal" style="transition-delay:0.40s">
+    <span class="pill pill-int">Internacional</span>
+    <h3>Venezuela y Brasil reaccionan con cautela a un posible giro en la política exterior colombiana</h3>
+    <p>Los gobiernos vecinos observan con atención la segunda vuelta colombiana: Venezuela teme el retorno de una política de distancia con Caracas si gana De la Espriella, mientras Brasil prefiere la continuidad del bloque progresista regional. El próximo presidente colombiano definirá la postura del país en el contexto de las tensiones regionales y la política de seguridad en la frontera con Venezuela, uno de los temas más sensibles de la agenda bilateral.</p>
+    <span class="source-link">Fuentes: <a href="https://www.france24.com/es/">France 24</a> · <a href="https://cnnespanol.cnn.com/colombia">CNN en Español</a></span>
+  </div>
+
+  <div class="data-strip">
+    <div class="data-cell glass">
+      <div class="data-cell-label">Dólar</div>
+      <div class="data-cell-value">COP 3.560</div>
+      <div class="data-cell-delta" style="color: var(--muted);">TRM 3.572,85</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">PIB proy. 2026</div>
+      <div class="data-cell-value green">2,8%</div>
+      <div class="data-cell-delta green">BBVA Research</div>
+    </div>
+    <div class="data-cell glass">
+      <div class="data-cell-label">Días al balotaje</div>
+      <div class="data-cell-value">17</div>
+      <div class="data-cell-delta" style="color: var(--muted);">21 de junio</div>
+    </div>
+  </div>
+
+  <div class="vigilar reveal" style="transition-delay:0.44s">
+    <div class="vigilar-header">&#8594; A Vigilar el 5 de Junio</div>
+    <div class="vigilar-item">Publicación de las primeras encuestas formales de segunda vuelta y movimientos de alianzas entre los partidos eliminados en primera vuelta: el apoyo explícito o implícito de los líderes del tercer y cuarto lugar podría mover varios puntos de intención de voto en los próximos días.</div>
+    <div class="vigilar-item">Reacción del mercado cambiario y bolsa de valores de Colombia (BVC) a la dinámica electoral: el COP/USD y el COLCAP son los mejores termómetros de corto plazo para monitorear la percepción de riesgo político del mercado financiero local e internacional.</div>
+    <div class="vigilar-item">Primeros actos de campaña de segunda vuelta de De la Espriella y Cepeda: los mensajes que emitan en las primeras 48 horas post-primera vuelta moldearán el encuadre del debate que dominará los próximos 17 días hasta el 21 de junio.</div>
+  </div>
+
+  <div class="footer reveal" style="transition-delay:0.52s">
+    <div>Fuentes: El Tiempo · France 24 · Infobae Colombia · El Colombiano · CNN en Español · AtlasIntel · Noticias RCN · Semana · Portafolio · BBVA Research · Fedesarrollo · Bancolombia · Banco de la República · Registraduría Nacional · FCF</div>
+    <div>Briefing generado con Claude — Solo para uso informativo</div>
+  </div>
+
+</div>
+<script>
+  const track = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
