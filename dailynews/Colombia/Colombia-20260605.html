@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Colombia — 5 de junio de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #c4841d;
+      --accent-soft: rgba(196,132,29,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: linear-gradient(160deg, #F2EDE8 0%, #E8DFD4 25%, #D8DEE2 55%, #E8EDF2 80%, #F2F2F7 100%); color: var(--ink); font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px; overflow-x: hidden; }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(196,132,29,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Colombia</h1>
+      <div class="masthead-date">Viernes 5 de junio de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Segunda vuelta presidencial el 21 de junio: De la Espriella vs Cepeda definen el próximo gobierno</div>
+            </div>
+            <div class="swipe-body">Abelardo de la Espriella (43.74% en primera vuelta) e Iván Cepeda (40.90%) disputarán la presidencia el 21 de junio. Con el 100% del escrutinio concluido, De la Espriella obtuvo 10.361.499 votos y Cepeda 9.688.361. Ninguno superó el 50% necesario para ganar en primera ronda. La campaña de segunda vuelta ya está en marcha, con ambos candidatos buscando apoyos de los partidos eliminados.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El resultado del 21 de junio definirá la dirección del país en materia económica, de seguridad y de política exterior. La diferencia de menos de 700.000 votos en la primera vuelta hace que cualquier movimiento de los votantes de terceras fuerzas sea decisivo para el resultado final.
+            </div>
+            <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/elecciones-presidenciales-en-colombia-2026-ultimas-noticias-apoyos-y-reacciones-a-la-segunda-vuelta-entre-abelardo-de-la-espriella-e-ivan-cepeda-3561681">El Tiempo</a> · <a href="https://cnnespanol.cnn.com/2026/06/01/colombia/reacciones-segunda-vuelta-espriella-cepeda-orix">CNN</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">AtlasIntel da ventaja a De la Espriella: 50.3% vs 42.6% de Cepeda para la segunda vuelta</div>
+            </div>
+            <div class="swipe-body">La encuestadora AtlasIntel, que acertó en el resultado de la primera vuelta, publicó una nueva medición que ubica a Abelardo de la Espriella con 50.3% y a Iván Cepeda con 42.6% de intención de voto para el 21 de junio. La firma consultó a ciudadanos sobre su intención de voto para la definición presidencial. Otros sondeos también muestran ventaja para De la Espriella, aunque con márgenes más estrechos.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El historial de AtlasIntel en la primera vuelta le da credibilidad especial a esta medición. Una ventaja de casi 8 puntos porcentuales es significativa, pero la campaña aún tiene más de dos semanas y el incidente en la sede de De la Espriella puede redibujar el escenario de simpatías.
+            </div>
+            <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/encuesta-de-atlasintel-la-que-acerto-en-victoria-de-abelardo-de-la-espriella-en-primera-vuelta-dice-que-ganaria-la-segunda-segun-nueva-medicion-3561651">El Tiempo</a> · <a href="https://www.infobae.com/colombia/2026/06/04/nueva-encuesta-ubica-a-abelardo-de-la-espriella-como-el-ganador-de-la-segunda-vuelta-ivan-cepeda-perderia-por-pocos-votos/">Infobae</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Atacan sede de campaña de De la Espriella en Bogotá; la Policía interviene sin heridos</div>
+            </div>
+            <div class="swipe-body">Simpatizantes de Iván Cepeda obstruyeron la entrada y salida de la sede de campaña de Abelardo de la Espriella en el barrio Teusaquillo de Bogotá, lanzando consignas que la campaña calificó de "intimidantes". La Secretaría de Seguridad de Bogotá informó que no hubo daños materiales. La Policía actuó preventivamente y garantizó la evacuación pacífica del lugar. El episodio reavivó el debate sobre violencia política electoral.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Los incidentes de violencia política en campañas tienen efecto boomerang: pueden generar simpatía hacia el candidato afectado. El manejo comunicacional del episodio por parte de ambas campañas en los próximos días será clave para medir su impacto en la intención de voto.
+            </div>
+            <div class="swipe-source"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/elecciones-presidenciales-en-colombia-2026-minuto-a-minuto-respaldos-y-noticias-de-la-segunda-vuelta-entre-ivan-cepeda-y-abelardo-de-la-espriella-3562000">El Tiempo</a> · <a href="https://www.elpais.com.co/elecciones-2026/video-denuncian-ataque-contra-sede-de-la-campana-de-abelardo-de-la-espriella-en-bogota-la-policia-hizo-presencia-en-el-lugar-0416.html">El País Cali</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">TRM cierra en $3,565.32: el dólar se mantiene por debajo de $3,600 pese a incertidumbre electoral</div>
+            </div>
+            <div class="swipe-body">La Tasa Representativa del Mercado del viernes 5 de junio quedó fijada en COP 3.565,32, una reducción de COP 7,85 frente al día anterior (-0.21%). Frente a la semana anterior, la caída es de 2.23%, y comparado con el mismo día del mes pasado, el dólar bajó 3.84%. Los analistas atribuyen la estabilidad al movimiento lateral del mercado mientras espera señales de la segunda vuelta del 21 de junio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Que el dólar se mantenga bajo $3,600 con una segunda vuelta a 16 días sugiere que el mercado tiene relativa confianza en el proceso. Una victoria de De la Espriella es percibida como más favorable para la inversión; un triunfo de Cepeda podría impulsar el dólar hacia $3,700 o más según proyecciones de analistas.
+            </div>
+            <div class="swipe-source"><a href="https://www.elespectador.com/economia/finanzas-personales/precio-del-dolar-hoy-5-de-junio-de-2026-en-colombia-noticias-hoy/">El Espectador</a> · <a href="https://www.noticiascaracol.com/economia/precio-del-dolar-en-colombia-hoy-viernes-5-de-junio-trm-se-mantiene-por-debajo-de-los-3-600-so35">Caracol</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Colombia asume su mandato como miembro no permanente del Consejo de Seguridad de la ONU 2026-2027</div>
+            </div>
+            <div class="swipe-body">Colombia inició formalmente su mandato como miembro no permanente del Consejo de Seguridad de Naciones Unidas para el período 2026-2027 el 1 de enero de 2026. El viernes el país reafirmó su posición en el organismo multilateral en medio de la campaña presidencial, en la que la política exterior es uno de los temas diferenciadores entre los candidatos que disputarán la segunda vuelta del 21 de junio.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El asiento en el Consejo de Seguridad le da a Colombia una plataforma diplomática de alto nivel en un momento de transición política interna. El candidato que gane el 21 de junio heredará esa posición y definirá cómo Colombia la usa en temas regionales clave como Venezuela y el narcotráfico.
+            </div>
+            <div class="swipe-source"><a href="https://www.cancilleria.gov.co/newsroom/news/colombia-asume-su-mandato-miembro-no-permanente-consejo-seguridad-naciones-unidas">Cancillería</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+    <div class="news-item reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>De la Espriella aclara que familiares y amigos no pueden hacer acuerdos en nombre de su campaña</h3>
+      <p>El candidato presidencial Abelardo de la Espriella emitió una declaración pública deslindándose de posibles compromisos políticos o acuerdos hechos por personas de su entorno cercano en su nombre. La aclaración llega en un contexto de intensas negociaciones de segunda vuelta, donde las coaliciones y los apoyos de los partidos que no pasaron a la final son codiciados por ambos candidatos.</p>
+      <span class="source-link"><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/elecciones-presidenciales-en-colombia-2026-minuto-a-minuto-respaldos-y-noticias-de-la-segunda-vuelta-entre-ivan-cepeda-y-abelardo-de-la-espriella-3562276">El Tiempo</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.08s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>Petróleo Texas baja 3.1% a USD 93.04 por barril tras señales de distensión con Irán</h3>
+      <p>El crudo de Texas (WTI) cayó 3.1% hasta USD 93.04 por barril el viernes, luego de conocerse que el presidente estadounidense Donald Trump rechazó reanudar las hostilidades con Irán. Colombia, cuyas exportaciones de petróleo representan una fracción significativa de sus ingresos fiscales, monitorea de cerca esta tendencia. Los analistas proyectan que el dólar podría cerrar el año en COP 3,700-3,800 dependiendo del resultado electoral.</p>
+      <span class="source-link"><a href="https://www.elheraldo.co/economia/2026/06/05/precio-del-dolar-para-este-viernes-5-de-junio-de-2026/">El Heraldo</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.12s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Más de 60,000 homicidios en el gobierno Petro: la seguridad, tema central de la segunda vuelta</h3>
+      <p>Colombia registró más de 60,000 homicidios durante el gobierno de Gustavo Petro, según cifras oficiales recogidas por la revista Semana. El dato se convirtió en argumento central de la campaña de Abelardo de la Espriella, mientras Cepeda cuestiona la atribución de esa cifra a la política de "paz total". El deterioro de la seguridad fue el principal motivo por el que la seguridad escaló como tema prioritario en las propuestas presidenciales de 2026.</p>
+      <span class="source-link"><a href="https://www.semana.com/nacion/articulo/mas-de-60000-homicidios-se-han-registrado-en-el-gobierno-petro-bajo-el-eslogan-colombia-potencia-mundial-de-la-vida/202631/">Semana</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.16s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Temblores menores en Santander y Antioquia sin daños reportados</h3>
+      <p>El viernes 5 de junio se registraron varios sismos de baja magnitud en Colombia. Los más destacados fueron un temblor con epicentro en Los Santos, Santander, de magnitud 2.1 a 142 kilómetros de profundidad, y otro en Betania, Antioquia, de magnitud 2.3 a 64 kilómetros. Ninguno de los eventos generó alertas de daños estructurales ni afectó a la población. El Servicio Geológico Colombiano mantiene el monitoreo habitual.</p>
+      <span class="source-link"><a href="https://www.noticiasrcn.com/colombia/temblor-en-colombia-hoy-5-de-junio-de-2026-1028326">Noticias RCN</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.20s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Sin eventos relevantes de Liga BetPlay ni selección colombiana el viernes 5 de junio</h3>
+      <p>No se reportaron partidos de la Liga BetPlay Dimayor ni actuaciones de la selección colombiana en competencias de relevancia el viernes 5 de junio. La actividad ciclista tampoco registró etapas de grandes vueltas (Tour, Giro, Vuelta) con participación colombiana destacada en esa fecha. El calendario deportivo nacional retoma actividad el fin de semana con partidos de la liga local.</p>
+      <span class="source-link">Fuente: medios locales — sin eventos relevantes reportados</span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell reveal" style="transition-delay:0.24s">
+        <div class="data-cell-label">TRM</div>
+        <div class="data-cell-value">$3,565</div>
+        <div class="data-cell-delta green">-$7.85 vs ayer</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.28s">
+        <div class="data-cell-label">Var. diaria</div>
+        <div class="data-cell-value">-0.21%</div>
+        <div class="data-cell-delta green">Baja</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.32s">
+        <div class="data-cell-label">Vs. semana ant.</div>
+        <div class="data-cell-value">-2.23%</div>
+        <div class="data-cell-delta green">Tendencia baja</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.36s">
+      <div class="vigilar-header">Qué vigilar hoy</div>
+      <div class="vigilar-item">Dinámica de la campaña de segunda vuelta: cómo reaccionan las encuestas al incidente en la sede de De la Espriella y cuántos apoyos de partidos elimina cada candidato.</div>
+      <div class="vigilar-item">Comportamiento del petróleo y el dólar: si el WTI se estabiliza en $93/barril o cae más, impacta directamente los ingresos fiscales colombianos en el corto plazo.</div>
+      <div class="vigilar-item">Legado de seguridad del gobierno Petro como eje de la campaña: cualquier nuevo hecho de violencia en zonas de conflicto armado tendrá eco inmediato en el debate presidencial.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.40s">
+      <div>Fuentes: El Tiempo · El Espectador · Semana · Caracol · RCN · Infobae · El Heraldo · Cancillería · CNN</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

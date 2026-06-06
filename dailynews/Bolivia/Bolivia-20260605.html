@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 5 de junio de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%); color: var(--ink); font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px; overflow-x: hidden; }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Viernes 5 de junio de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Fuerzas de seguridad desbloquean ruta La Paz-Río Abajo en el día 36 de crisis</div>
+            </div>
+            <div class="swipe-body">Policías y militares ejecutaron de madrugada un operativo de 37 kilómetros entre Lipari y Carreras, retirando piedras, troncos y tierra con maquinaria pesada. El presidente Rodrigo Paz llegó personalmente a Río Abajo tras la apertura. La maniobra es un alivio parcial: 86 puntos de bloqueo activos en seis departamentos y 10 muertos por la crisis persisten.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Es la primera acción de fuerza significativa del gobierno. Si el operativo se replica en rutas clave del oriente, marca un punto de inflexión; si genera violencia, acelera la declaratoria de estado de excepción con consecuencias políticas mayores.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/america/america-latina/2026/06/05/crisis-en-bolivia-las-fuerzas-de-seguridad-desbloquearon-una-ruta-clave-hacia-la-paz/">Infobae</a> · <a href="https://eldeber.com.bo/pais/rodrigo-paz-llega-rio-abajo-desbloqueo-ruta-abastece-alimentos-paz_1780678891">El Deber</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Paz lleva al Congreso proyecto para habilitar a las Fuerzas Armadas en desbloqueos</div>
+            </div>
+            <div class="swipe-body">El presidente envió un proyecto de ley para reglamentar el estado de excepción y reforzar la actuación militar en el levantamiento de bloqueos. La medida requiere aval legislativo. EE.UU. y aliados latinoamericanos denunciaron formalmente "intentos de derrocar" al gobierno, reforzando la posición internacional de Paz ante la crisis.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Habilitar militares eleva el riesgo de confrontación y polariza más al país. El respaldo de Washington cambia el marco del conflicto: de demanda legítima a amenaza a la democracia, lo que limita el margen político de los sectores que piden la renuncia de Paz.
+            </div>
+            <div class="swipe-source"><a href="https://www.ambito.com/mundo/bolivia-rodrigo-paz-busca-habilitar-los-militares-levantar-bloqueos-rutas-n6284845">Ámbito</a> · <a href="https://www.france24.com/es/am%C3%A9rica-latina/20260603-paz-prepara-el-terreno-para-el-estado-de-excepci%C3%B3n-mientras-bolivia-registra-10-muertes-por-bloqueos">France 24</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Inflación mensual de 5.41% en La Paz; pérdidas económicas superan USD 1.600 millones</div>
+            </div>
+            <div class="swipe-body">La capital concentró el 84% del alza de precios nacional en mayo, con inflación mensual de 5.41%: la más alta del año. Pollo, huevos y cerdo se duplicaron o triplicaron. La inflación acumulada en 12 meses llegó a 12.51%. El Banco Mundial proyecta contracción del PIB de -1.1% para 2026; la CEPAL, apenas 0.5% de crecimiento.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Con inflación mensual de doble dígito anualizado y recesión proyectada, la ventana para una solución negociada se estrecha. Cada semana adicional de bloqueos destruye valor equivalente a una crisis financiera en términos de impacto sobre la población vulnerable.
+            </div>
+            <div class="swipe-source"><a href="https://eldeber.com.bo/economia/inflacion-dispara-mayo-bloqueos-problemas-estructurales-economia_1780603621">El Deber</a> · <a href="https://larazon.bo/economia-y-empresa/2026/05/17/bloqueos-generan-escasez-y-alza-de-precios-en-mercados-y-supermercados/">La Razón</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Doble feriado de Corpus Christi suspende actividades públicas y privadas en todo el país</div>
+            </div>
+            <div class="swipe-body">Los días 4 y 5 de junio son feriados nacionales por el Decreto Supremo N° 5521, con suspensión obligatoria en todo el territorio boliviano. El objetivo oficial era incentivar el turismo interno, pero el feriado coincide con el día 36 de la crisis, agravando el impacto económico acumulado al postergar transacciones bancarias, comerciales y administrativas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El feriado sobre la crisis genera un doble freno: las actividades que podrían funcionar a pesar de los bloqueos también quedan suspendidas por decreto. El lunes será el primer día hábil en cinco días, con importante acumulación de operaciones pendientes.
+            </div>
+            <div class="swipe-source"><a href="https://www.reduno.com.bo/noticias/ministerio-de-trabajo-ratifica-feriado-nacional-el-4-y-5-de-junio-por-corpus-christi-202661183733">Red Uno</a> · <a href="https://abi.bo/ministerio-de-trabajo-ratifica-feriados-nacionales-este-jueves-y-viernes-por-corpus-christi/">ABI</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">EE.UU. y aliados latinoamericanos denuncian "intentos de derrocar" al gobierno boliviano</div>
+            </div>
+            <div class="swipe-body">Washington y varios gobiernos de la región denunciaron formalmente los bloqueos como acción desestabilizadora, encuadrándolos como amenaza a la democracia boliviana. El respaldo externo llega cuando el gobierno evalúa herramientas legales para escalar su respuesta. La COB mantiene como única condición de diálogo la renuncia del presidente Paz.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El apoyo internacional reduce el aislamiento del gobierno y fortalece su legitimidad ante instituciones nacionales clave. Hace más difícil sostener el relato de "crisis espontánea" y complica el margen de maniobra de los sectores que demandan la renuncia de Paz.
+            </div>
+            <div class="swipe-source"><a href="https://acento.com.do/internacional/ee-uu-y-aliados-latinoamericanos-denuncian-intentos-de-derrocar-al-gobierno-de-bolivia-9692885.html">Acento</a> · <a href="https://lapatria.bo/enfoque-nacional/bolivia-enfrenta-el-dia-36-de-conflictos-sociales-y-bloqueos/">La Patria</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+    <div class="news-item reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>13 muertos y taxistas se suman a la demanda de renuncia de Rodrigo Paz</h3>
+      <p>El conflicto acumula 13 fallecidos, atribuidos a la falta de atención médica por bloqueos. Los taxistas de La Paz se sumaron formalmente a la demanda de renuncia del presidente, ampliando la base social de la protesta más allá de los sindicatos obreros y campesinos que la iniciaron el 6 de mayo. La COB rechazó cualquier diálogo que no incluya la salida de Paz.</p>
+      <span class="source-link"><a href="https://lapatria.bo/enfoque-nacional/bolivia-enfrenta-el-dia-36-de-conflictos-sociales-y-bloqueos/">La Patria</a> · <a href="https://www.telesurtv.net/bolivia-bloqueos-jornada-33-movilizaciones-rodrigo-paz/">teleSUR</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.08s">
+      <span class="pill pill-eco">Económico</span>
+      <h3>BM proyecta recesión de -1.1%; gobierno apunta a déficit fiscal del 7% e inflación del 17%</h3>
+      <p>El Banco Mundial anticipa contracción del -1.1% del PIB boliviano para 2026, mientras la CEPAL estima 0.5% de crecimiento marginal. El gobierno proyecta reducir el déficit fiscal al 7% del PIB y estima una inflación anual de hasta 17%. Las cinco semanas de conflictos agravaron una economía ya debilitada por la escasez estructural de divisas y la caída de reservas del BCB.</p>
+      <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/05/21/la-crisis-humanitaria-y-economica-en-bolivia-aumenta-a-medida-que-rodrigo-paz-recibe-el-apoyo-eeuu-y-continuan-las-protestas/">Infobae</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.12s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Puente aéreo: única vía de abastecimiento para La Paz y El Alto ante el colapso de rutas</h3>
+      <p>Con los accesos terrestres bloqueados, el transporte aéreo se convirtió en la principal vía para surtir de alimentos básicos a la conurbación de La Paz y El Alto. Las filas para conseguir pollo, huevos y pan se extienden durante horas en mercados populares. Los precios de esos productos se duplicaron o triplicaron respecto a niveles previos al 6 de mayo.</p>
+      <span class="source-link"><a href="https://www.infobae.com/america/america-latina/2026/06/02/crisis-en-bolivia-los-bloqueos-ya-causaron-cinco-muertos-y-mantienen-aisladas-a-la-paz-y-el-alto/">Infobae</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.16s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Crisis boliviana bajo escrutinio regional: 90 puntos de bloqueo al inicio de junio</h3>
+      <p>Al comenzar junio Bolivia registraba más de 90 puntos de bloqueo activos en siete departamentos. La crisis es seguida por Argentina, Chile y Brasil, que evalúan el impacto en el comercio regional. Medios internacionales la destacan como antecedente relevante para la estabilidad política andina en un año de varias elecciones en la región.</p>
+      <span class="source-link"><a href="https://www.prensa-latina.cu/2026/06/01/bolivia-inicia-junio-con-mas-de-90-puntos-de-bloqueo/">Prensa Latina</a> · <a href="https://www.eldiario.ec/mundo/bolivia-rodrigo-paz-fin-bloqueos-crisis-01062026/">El Diario EC</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.20s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Sin actividad de la División Profesional por feriado y restricciones de movilidad</h3>
+      <p>La jornada del viernes 5 de junio no registró partidos ni eventos de la División Profesional boliviana por el doble feriado de Corpus Christi y las restricciones de movilidad vigentes en seis departamentos. No se reportaron actuaciones de deportistas bolivianos en competencias internacionales de relevancia.</p>
+      <span class="source-link">Fuente: medios locales — sin eventos reportados</span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell reveal" style="transition-delay:0.24s">
+        <div class="data-cell-label">Dólar Oficial</div>
+        <div class="data-cell-value">Bs 6.96</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Sin variación</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.28s">
+        <div class="data-cell-label">Dólar Paralelo</div>
+        <div class="data-cell-value">Bs 9.92</div>
+        <div class="data-cell-delta red">Mercado P2P</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.32s">
+        <div class="data-cell-label">Brecha</div>
+        <div class="data-cell-value">42.5%</div>
+        <div class="data-cell-delta red">3° en la región</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.36s">
+      <div class="vigilar-header">Qué vigilar hoy</div>
+      <div class="vigilar-item">Votación en el Congreso del proyecto de estado de excepción: su aprobación o rechazo definirá el nivel de escalada del gobierno en los próximos días.</div>
+      <div class="vigilar-item">Reacción de los bloqueadores ante el operativo en Río Abajo: si hay enfrentamientos, el gobierno podría activar medidas de fuerza sin esperar al Parlamento.</div>
+      <div class="vigilar-item">Señales de diálogo entre la COB y el gobierno durante el fin de semana largo; cualquier apertura negociadora cambiaría el escenario de la próxima semana.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.40s">
+      <div>Fuentes: Infobae · El Deber · La Razón · La Patria · ABI · Red Uno · France 24 · Ámbito · Prensa Latina · teleSUR · Acento</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

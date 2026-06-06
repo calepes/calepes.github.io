@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Perú — 5 de junio de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a4a6b;
+      --accent-soft: rgba(26,74,107,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-emp: #7c2d12; --pill-emp-bg: rgba(124,45,18,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-dep: #0369a1; --pill-dep-bg: rgba(3,105,161,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: linear-gradient(160deg, #E8EEF2 0%, #D4DDE7 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%); color: var(--ink); font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px; overflow-x: hidden; }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(26,74,107,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-dep { background: var(--pill-dep-bg); color: var(--pill-dep); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Perú</h1>
+      <div class="masthead-date">Viernes 5 de junio de 2026</div>
+      <div class="masthead-tag">Edición Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del Día</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Silencio electoral desde las 0h: 27.3 millones votan el domingo en la segunda vuelta Fujimori-Sánchez</div>
+            </div>
+            <div class="swipe-body">Desde las 0 horas del viernes 5 de junio quedaron prohibidas las reuniones y manifestaciones políticas en todo el Perú. El domingo 7, 27.325.432 ciudadanos elegirán entre Keiko Fujimori (Fuerza Popular) y Roberto Sánchez (Juntos por el Perú). Las mesas de sufragio funcionarán de 07:00 a 17:00 horas. Más de 1.5 millones de escolares no tendrán clases por uso de colegios como locales de votación.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El resultado del domingo redefinirá el rumbo económico y político del país. Las encuestas muestran una carrera cerrada. La incertidumbre ya se refleja en el tipo de cambio; el comportamiento del dólar el lunes será el primer termómetro post-electoral de los mercados.
+            </div>
+            <div class="swipe-source"><a href="https://andina.pe/agencia/noticia-elecciones-2026-desde-viernes-5-junio-quedaran-prohibidas-las-reuniones-politicas-1077669.aspx">Andina</a> · <a href="https://www.infobae.com/peru/2026/06/05/elecciones-2026-peru-segunda-vuelta-en-vivo-ultimas-noticias-de-keiko-fujimori-roberto-sanchez-y-todo-sobre-los-comicios-del-7-de-junio/">Infobae Perú</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">Masacre en Sullana: sicarios asesinan a cuatro miembros de una familia con más de 60 disparos</div>
+            </div>
+            <div class="swipe-body">Cuatro encapuchados en dos motocicletas irrumpieron en una reunión en el asentamiento humano Santa Teresita de Sullana (Piura) la noche del miércoles 4 y dispararon más de 60 veces. Murieron cuatro personas, incluyendo un menor de 12 años. La PNP informó que los sicarios son de nacionalidad extranjera. Piura acumula 65 homicidios en lo que va de 2026.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La masacre evidencia la penetración de organizaciones criminales extranjeras en el norte del país y la disputa territorial por la construcción civil. La cifra de 65 homicidios en Piura en cinco meses convierte a la región en un foco de inseguridad crítico que exigirá respuesta del próximo gobierno.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/06/05/todos-los-detalles-de-la-masacre-que-acabo-con-una-familia-en-piura-sicarios-mataron-a-cuatro-entre-ellos-un-nino/">Infobae</a> · <a href="https://larepublica.pe/sociedad/2026/06/05/crimen-en-sullana-sicarios-irrumpen-en-vivienda-y-asesinan-a-cuatro-integrantes-de-una-familia-en-piura-130360">La República</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Ipsos da leve ventaja a Fujimori: 51.4% vs 48.6% en votos válidos; resultado en suspenso</div>
+            </div>
+            <div class="swipe-body">El simulacro de votación de Ipsos ubica a Keiko Fujimori con 51.4% de los votos válidos y a Roberto Sánchez con 48.6%. Al incluir votos en blanco y viciados, la brecha cae: Fujimori 40.4%, Sánchez 38.3%, nulos/blancos 21.3%. La encuesta CPI mostró empate técnico (32.5% vs 29.1%). El alto porcentaje de voto en blanco es el factor más incierto del domingo.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              Un margen tan estrecho significa que el voto en blanco y el nivel de ausentismo decidirán el resultado. Si la participación baja por la incertidumbre electoral, cualquiera de los dos candidatos puede ganar. El escenario de proclamación tardía o impugnaciones es real.
+            </div>
+            <div class="swipe-source"><a href="https://www.infobae.com/peru/2026/05/29/cpi-a-nueve-dias-de-la-segunda-vuelta-keiko-fujimori-con-ligera-ventaja-sobre-roberto-sanchez-con-un-226-dispuesto-a-votar-en-blanco/">Infobae</a> · <a href="https://rpp.pe/politica/elecciones/encuesta-cpi-segunda-vuelta-2026-keiko-fujimori-325-vs-roberto-sanchez-291-intencion-de-voto-por-regiones-noticia-1690615">RPP</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">Dólar se dispara a S/ 3.474 al cierre por incertidumbre preelectoral</div>
+            </div>
+            <div class="swipe-body">El tipo de cambio cerró el viernes en S/ 3.474, con una apertura en S/ 3.435 y fuerte alza intradía. El BCRP monitorea los movimientos del mercado cambiario ante la volatilidad preelectoral. Según el tipo oficial SUNAT, el dólar se ubica en S/ 3.412 (compra) y S/ 3.418 (venta). La segunda vuelta del domingo 7 es el principal factor de incertidumbre para los inversionistas.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              La volatilidad cambiaria preelectoral es un indicador de la percepción de riesgo de los mercados. El comportamiento del dólar en la apertura del lunes post-elección será el primer veredicto financiero sobre el resultado y el candidato ganador.
+            </div>
+            <div class="swipe-source"><a href="https://rpp.pe/economia/economia/precio-del-dolar-peru-y-tipo-de-cambio-hoy-05-de-junio-del-2026-noticia-1691650">RPP</a> · <a href="https://gestion.pe/economia/mercados/elecciones-2026-tipo-de-cambio-dolar-hoy-en-peru-cuanto-esta-el-precio-del-dolar-este-viernes-5-de-junio-dolares-a-soles-compra-y-venta-segun-bcrp-noticia/">Gestión</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">Oleajes anómalos: 78 puertos cerrados a lo largo del litoral; alerta hasta el 11 de junio</div>
+            </div>
+            <div class="swipe-body">La Marina de Guerra activó alerta por oleajes anómalos en todo el litoral costero hasta el jueves 11 de junio. Se cerraron 78 puertos en todo el país. Los picos críticos se esperan entre el domingo 7 y el lunes 8, con oleaje calificado como "muy fuerte" en el litoral sur. La alerta coincide con el día de las elecciones, lo que podría afectar el acceso a mesas en zonas costeras.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qué importa</strong>
+              El cierre de 78 puertos impacta las exportaciones y la cadena logística pesquera. Que el pico del oleaje coincida con la jornada electoral del domingo añade un factor operativo a considerar para el traslado de materiales y personas en zonas costeras vulnerables.
+            </div>
+            <div class="swipe-source"><a href="https://elcomercio.pe/lima/alerta-por-oleajes-anomalos-en-la-costa-peruana-que-dias-seran-mas-peligrosos-segun-la-marina-ultimas-noticia/">El Comercio</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver más →</div>
+    </div>
+
+    <div class="divider"><span class="divider-text">Noticias por Sección</span></div>
+
+    <div class="news-item reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Político</span>
+      <h3>458,000 electores sin DNI a dos días del balotaje; 1.5M escolares sin clases</h3>
+      <p>La ONPE reportó que más de 458,000 ciudadanos aún no han recogido su Documento Nacional de Identidad antes de la segunda vuelta del domingo 7 de junio. Paralelamente, más de 1.5 millones de escolares no tendrán clases por el uso de sus colegios como locales de votación. La ONPE detalló el paso a paso del proceso de votación para la ciudadanía.</p>
+      <span class="source-link"><a href="https://peru21.pe/politica/estas-son-las-cortitas-de-hoy-viernes-5-de-junio-de-2026/">Perú21</a> · <a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-5-de-junio-de-2026">TVPerú</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.08s">
+      <span class="pill pill-pol">Político</span>
+      <h3>Keiko cierra en el Arena Monumental y Sánchez en la avenida Peruanidad antes del silencio electoral</h3>
+      <p>En las últimas horas antes de la prohibición de actos políticos, Keiko Fujimori realizó su actividad final en el Arena Monumental de Ate, mientras Roberto Sánchez lo hizo en la avenida de la Peruanidad, en Jesús María. Ambas concentraciones congregaron a miles de simpatizantes en los cierres más masivos de sus respectivas campañas de segunda vuelta.</p>
+      <span class="source-link"><a href="https://www.infobae.com/peru/2026/06/05/elecciones-2026-peru-segunda-vuelta-en-vivo-ultimas-noticias-de-keiko-fujimori-roberto-sanchez-y-todo-sobre-los-comicios-del-7-de-junio/">Infobae Perú</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.12s">
+      <span class="pill pill-soc">Social</span>
+      <h3>Ley 32620 declara de interés nacional la creación de universidades públicas en cuatro regiones</h3>
+      <p>Se publicó la Ley n.° 32620, que declara de interés nacional la creación de universidades públicas en los departamentos de Loreto, Junín, Ucayali y Cusco. La norma busca ampliar la cobertura de educación superior en regiones con menor oferta universitaria pública. La ley fue publicada en el diario oficial El Peruano el viernes 5 de junio.</p>
+      <span class="source-link"><a href="https://www.tvperu.gob.pe/noticias/politica/consulta-las-normas-legales-mas-importantes-de-hoy-viernes-5-de-junio-de-2026">TVPerú</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.16s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Crimen organizado extranjero activo en Piura: sicarios de otra nacionalidad en la masacre de Sullana</h3>
+      <p>El general PNP Daniel Jorge Jares confirmó que los sicarios responsables de la masacre de Sullana son de nacionalidad extranjera. La investigación apunta a un ajuste de cuentas vinculado al control de obras de construcción civil y la disputa territorial del entorno de alias "Negro Yan". Piura suma 65 homicidios en lo que va de 2026, reflejando el avance del crimen organizado transnacional.</p>
+      <span class="source-link"><a href="https://elcomercio.pe/peru/piura/piura-sicarios-asesinan-a-cuatro-miembros-de-una-familia-entre-ellos-un-menor-en-sullana-ultimas-noticia/">El Comercio</a> · <a href="https://www.exitosanoticias.pe/crimen/masacre-sullana-sicarios-asesinan-cuatro-integrantes-una-familia-mas-50-disparos-n177146">Exitosa</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.20s">
+      <span class="pill pill-dep">Deportes</span>
+      <h3>Perú empató con Haití en amistoso internacional por fecha FIFA</h3>
+      <p>La selección peruana disputó un amistoso internacional por fecha FIFA frente a Haití el viernes 5 de junio. El partido se jugó en el contexto de preparación del equipo de cara a las eliminatorias mundialistas. Los detalles del marcador final y las actuaciones individuales estaban siendo procesados por los medios deportivos peruanos al cierre de esta edición.</p>
+      <span class="source-link"><a href="https://rpp.pe/futbol/futbol-mundial/partidos-de-hoy-amistoso-fifa-y-liga-de-naciones-femenina-en-vivo-peru-viernes-5-de-junio-2026-horarios-online-canales-tv-ver-futbol-en-vivo-noticia-1691584">RPP</a></span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell reveal" style="transition-delay:0.24s">
+        <div class="data-cell-label">Dólar Compra</div>
+        <div class="data-cell-value">S/ 3.412</div>
+        <div class="data-cell-delta" style="color:var(--muted)">SUNAT oficial</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.28s">
+        <div class="data-cell-label">Dólar Venta</div>
+        <div class="data-cell-value">S/ 3.418</div>
+        <div class="data-cell-delta" style="color:var(--muted)">SUNAT oficial</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.32s">
+        <div class="data-cell-label">Cierre del día</div>
+        <div class="data-cell-value">S/ 3.474</div>
+        <div class="data-cell-delta red">Fuerte alza</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.36s">
+      <div class="vigilar-header">Qué vigilar hoy</div>
+      <div class="vigilar-item">Segunda vuelta presidencial el domingo 7 de junio: movilización de 27.3 millones de votantes; resultados proyectados en la noche del domingo.</div>
+      <div class="vigilar-item">Comportamiento del tipo de cambio en la apertura del lunes post-elección: será el primer termómetro financiero sobre el candidato ganador.</div>
+      <div class="vigilar-item">Oleajes anómalos alcanzan su pico el 7-8 de junio en el litoral sur; monitorear afectación de puertos y operaciones portuarias durante el fin de semana.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.40s">
+      <div>Fuentes: RPP · La República · El Comercio · Infobae Perú · Gestión · Exitosa · TVPerú · Andina · Perú21</div>
+      <div>Briefing generado con Claude — Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
