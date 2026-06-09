@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Bolivia — 8 de junio de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #991b1b;
+      --accent-soft: rgba(153,27,27,0.06);
+      --ink: #1d1d1f;
+      --muted: rgba(60,60,67,0.6);
+      --tertiary: rgba(60,60,67,0.3);
+      --card-bg: rgba(255,255,255,0.55);
+      --card-bg-strong: rgba(255,255,255,0.72);
+      --glass-border: rgba(255,255,255,0.45);
+      --shadow: rgba(0,0,0,0.06);
+      --inset-highlight: rgba(255,255,255,0.7);
+      --pill-pol: #1e40af; --pill-pol-bg: rgba(30,64,175,0.08);
+      --pill-eco: #065f46; --pill-eco-bg: rgba(6,95,70,0.08);
+      --pill-soc: #6b21a8; --pill-soc-bg: rgba(107,33,168,0.08);
+      --pill-int: #374151; --pill-int-bg: rgba(55,65,81,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: linear-gradient(160deg, #F0E8E8 0%, #E4D4D8 25%, #D4DEE7 55%, #E8EDF2 80%, #F2F2F7 100%); color: var(--ink); font-family: 'Sora', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; max-width: 680px; margin: 0 auto; padding: 32px 20px; overflow-x: hidden; }
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .orb-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(153,27,27,0.10) 0%, transparent 70%); }
+    .orb-2 { bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(175,82,222,0.07) 0%, transparent 70%); }
+    .wrap { position: relative; z-index: 1; }
+    .masthead { text-align: center; margin-bottom: 28px; padding: 32px 24px 26px; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .masthead-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 6px; }
+    .masthead h1 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 8vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .masthead-date { font-size: 13px; color: var(--muted); }
+    .masthead-tag { display: inline-block; background: var(--accent); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 100px; margin-top: 10px; }
+    .section-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 14px; padding-left: 4px; }
+    .carousel-container { position: relative; margin-bottom: 32px; }
+    .carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .swipe-card { flex: 0 0 calc(100% - 16px); scroll-snap-align: start; background: var(--card-bg-strong); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 20px; border: 0.5px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 0.5px 0 var(--inset-highlight); padding: 28px 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swipe-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .swipe-num { font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; }
+    .swipe-title { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; }
+    .swipe-body { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .swipe-why { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 13px; line-height: 1.5; }
+    .swipe-why strong { font-weight: 700; color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
+    .swipe-source { color: var(--muted); font-size: 11px; margin-top: 10px; }
+    .swipe-source a { color: var(--accent); text-decoration: none; }
+    .dots { display: flex; justify-content: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(60,60,67,0.15); transition: all 0.3s ease; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .swipe-hint { text-align: center; font-size: 11px; color: var(--tertiary); margin-top: 10px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 0.5px; background: var(--tertiary); }
+    .divider-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); white-space: nowrap; }
+    .news-item { padding: 18px 20px; margin-bottom: 10px; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .pill { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+    .pill-pol { background: var(--pill-pol-bg); color: var(--pill-pol); }
+    .pill-eco { background: var(--pill-eco-bg); color: var(--pill-eco); }
+    .pill-soc { background: var(--pill-soc-bg); color: var(--pill-soc); }
+    .pill-int { background: var(--pill-int-bg); color: var(--pill-int); }
+    .news-item h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item p { font-size: 15px; color: rgba(60,60,67,0.78); line-height: 1.55; }
+    .source-link { color: var(--muted); font-size: 11px; margin-top: 8px; display: block; }
+    .source-link a { color: var(--accent); text-decoration: none; }
+    .data-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 32px 0; }
+    .data-cell { padding: 20px 14px; text-align: center; background: var(--card-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 16px; border: 0.5px solid var(--glass-border); box-shadow: 0 4px 16px var(--shadow), inset 0 0.5px 0 var(--inset-highlight); }
+    .data-cell-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 6px; }
+    .data-cell-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 700; }
+    .data-cell-delta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; margin-top: 4px; }
+    .green { color: #34C759; } .red { color: #FF3B30; }
+    .vigilar { background: rgba(29,29,31,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: 16px; padding: 24px; margin: 32px 0; border: 0.5px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0.5px 0 rgba(255,255,255,0.04); color: white; }
+    .vigilar-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #93c5fd; margin-bottom: 14px; }
+    .vigilar-item { font-size: 15px; line-height: 1.6; margin-bottom: 10px; padding-left: 22px; position: relative; color: rgba(255,255,255,0.88); }
+    .vigilar-item::before { content: '\2192'; position: absolute; left: 0; color: #93c5fd; font-weight: 600; }
+    .vigilar-item:last-child { margin-bottom: 0; }
+    .footer { text-align: center; padding-top: 24px; font-size: 12px; color: var(--muted); line-height: 2; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: all 0.5s cubic-bezier(0.25,0.1,0.25,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 500px) { body { padding: 20px 14px; } .data-strip { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap">
+
+    <div class="masthead reveal">
+      <div class="masthead-eyebrow">Briefing Ejecutivo</div>
+      <h1>Bolivia</h1>
+      <div class="masthead-date">Lunes 8 de junio de 2026</div>
+      <div class="masthead-tag">Edici&#243;n Diaria</div>
+    </div>
+
+    <div class="section-header reveal">Top 5 del D&#237;a</div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track" id="carousel">
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">01</div>
+              <div class="swipe-title">Paz promulga Ley 1740 de Estados de Excepci&#243;n &#8212; el decreto que la activa a&#250;n no fue emitido</div>
+            </div>
+            <div class="swipe-body">El presidente Rodrigo Paz promulg&#243; a mediod&#237;a del lunes la Ley 1740 de Regulaci&#243;n de los Estados de Excepci&#243;n, flanqueado por su gabinete y los altos mandos de las Fuerzas Armadas y la Polic&#237;a Boliviana. La norma permite declarar estados de excepci&#243;n mediante decreto supremo por hasta 90 d&#237;as. Sin embargo, ese decreto no fue emitido: la ley es una habilitaci&#243;n legal, no una medida en vigor. Al promulgarla, Paz advirti&#243; a grupos vinculados al narcoterrorismo que el gobierno actuar&#225; con firmeza.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La distinci&#243;n es cr&#237;tica: Paz tiene el arma legal pero no la ha disparado. Cada hora sin decreto alimenta la narrativa de que el gobierno carece de voluntad de usarla. La presi&#243;n para emitirlo se acumula desde el Legislativo, la ciudadan&#237;a y ahora el Tribunal Constitucional.
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/paz-promulga-ley-que-regula-estados-excepcion/20260608130653992126.html">Opini&#243;n Bolivia</a> &#183; <a href="https://cnnespanol.cnn.com/2026/06/08/latinoamerica/bolivia-paz-ley-estado-excepcion-orix">CNN en Espa&#241;ol</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">02</div>
+              <div class="swipe-title">D&#237;a 39: m&#225;s de 90 puntos de bloqueo; productores en emergencia y advierten crisis alimentaria</div>
+            </div>
+            <div class="swipe-body">Bolivia enfrenta el lunes una nueva semana con m&#225;s de 90 puntos de bloqueo activos en seis departamentos. Cochabamba concentra 27 puntos y La Paz 21, seg&#250;n el reporte de la Administradora Boliviana de Carreteras. Los productores agropecuarios declararon emergencia sectorial y advierten que si el conflicto se extiende otra semana, el impacto en los ciclos agr&#237;colas generar&#225; una crisis alimentaria de mediano plazo, m&#225;s all&#225; del desabastecimiento inmediato que ya golpea a las ciudades.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              A 39 d&#237;as, el da&#241;o al sector agropecuario ya no es recuperable en el corto plazo. Una crisis alimentaria estructural har&#237;a inviable cualquier salida negociada sin concesiones significativas del gobierno y elevar&#237;a el costo pol&#237;tico para todos los actores.
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/bolivia-cumple-39-dias-bloqueo-productores-estan-emergencia-advierten-crisis-alimentaria/20260608101450992117.html">Opini&#243;n Bolivia</a> &#183; <a href="https://www.telesurtv.net/bolivia-protestas-bloqueos-a-nivel-nacional/">teleSUR</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">03</div>
+              <div class="swipe-title">Acci&#243;n Popular ante el Tribunal Constitucional exige que Paz emita el decreto de excepci&#243;n</div>
+            </div>
+            <div class="swipe-body">Organizaciones civiles presentaron el lunes una Acci&#243;n Popular ante el Tribunal Constitucional Plurinacional para exigir que el presidente emita el decreto supremo que active el estado de excepci&#243;n. El argumento: la omisi&#243;n del decreto, con la ley ya vigente, vulnera el derecho a la salud, la vida y la libre circulaci&#243;n de la poblaci&#243;n. Si el Tribunal la admite, el gobierno puede perder su discrecionalidad pol&#237;tica sobre el momento de la acci&#243;n.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              Suma una dimensi&#243;n judicial a la presi&#243;n pol&#237;tica y social. Si prospera, el gobierno ya no decide si act&#250;a, sino c&#243;mo act&#250;a. Es el primer instrumento constitucional ciudadano directo contra la inacci&#243;n gubernamental desde el inicio del conflicto.
+            </div>
+            <div class="swipe-source"><a href="https://www.opinion.com.bo/articulo/pais/presentan-accion-popular-exigir-paz-que-decrete-estado-excepcion/20260608191423992146.html">Opini&#243;n Bolivia</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">04</div>
+              <div class="swipe-title">39 toneladas de ayuda humanitaria llegan al pa&#237;s; Brasil encabeza la solidaridad regional</div>
+            </div>
+            <div class="swipe-body">Al menos 39 toneladas de ayuda humanitaria &#8212;medicamentos, alimentos y equipos m&#233;dicos&#8212; han ingresado a Bolivia desde el inicio de la crisis, principalmente por el puente a&#233;reo operado desde El Alto. Brasil envi&#243; el domingo un avi&#243;n con v&#237;veres en la primera respuesta directa de un pa&#237;s vecino con asistencia material. La coalici&#243;n de 13 naciones liderada por EE.UU. mantiene su respaldo diplom&#225;tico al gobierno constitucional.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              La asistencia internacional legitima al gobierno ante la opini&#243;n p&#250;blica global y presiona a los bloqueadores, pero 39 toneladas en 39 d&#237;as son insuficientes para 12 millones de personas. El puente a&#233;reo no puede reemplazar las carreteras indefinidamente.
+            </div>
+            <div class="swipe-source"><a href="https://lapatilla.com/2026/06/08/al-menos-39-toneladas-de-ayuda-han-llegado-a-bolivia-en-plena-crisis-por-protestas-y-cierres-de-vias/">La Patilla</a></div>
+          </div>
+        </div>
+
+        <div class="swipe-card">
+          <div>
+            <div class="swipe-top">
+              <div class="swipe-num">05</div>
+              <div class="swipe-title">P&#233;rdidas superan USD 2.100 millones seg&#250;n CNI; turismo acumula USD 1.230 millones en da&#241;os</div>
+            </div>
+            <div class="swipe-body">La C&#225;mara Nacional de Industrias elev&#243; su estimaci&#243;n de p&#233;rdidas a USD 2.100 millones acumulados a raz&#243;n de USD 50 millones diarios. El sector tur&#237;stico registra da&#241;os adicionales por USD 1.230 millones, incluyendo el deterioro de la &#8220;imagen-pa&#237;s&#8221;. La inflaci&#243;n mensual de La Paz en mayo lleg&#243; al 5,41%. El Banco Mundial proyecta una contracci&#243;n del PIB de &#8722;1,1% para 2026. El precio del pollo alcanz&#243; Bs&#160;120 por pieza en mercados populares de la capital.</div>
+          </div>
+          <div>
+            <div class="swipe-why">
+              <strong>Por qu&#233; importa</strong>
+              USD 2.100 millones equivalen a m&#225;s del 5% del PIB anual boliviano. El da&#241;o ya es estructural: tardar&#225; a&#241;os en recuperarse, independientemente de cu&#225;ndo termine el conflicto. La inflaci&#243;n acelerada erosiona el poder adquisitivo de los sectores m&#225;s vulnerables.
+            </div>
+            <div class="swipe-source"><a href="https://www.cooperativa.cl/noticias/mundo/bolivia/caos-social-desabastecimiento-y-perdidas-millonarias-bolivia-al-limite/2026-06-06/170521.html">Cooperativa</a> &#183; <a href="https://ahoradigital.net/economia/02/06/2026/cinco-semanas-de-bloqueos-dejan-perdidas-millonarias-y-agravan-la-crisis-en-bolivia/">Ahora Digital</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="swipe-hint">Desliza para ver m&#225;s &#8594;</div>
+    </div>
+
+    <div class="divider"><span class="divider-text">Noticias por Secci&#243;n</span></div>
+
+    <div class="news-item reveal" style="transition-delay:0.04s">
+      <span class="pill pill-pol">Pol&#237;tico</span>
+      <h3>La distinci&#243;n que define el d&#237;a: ley promulgada &#8800; estado de excepci&#243;n vigente</h3>
+      <p>La Ley 1740 establece que el presidente debe emitir un decreto supremo fundamentado con el alcance territorial, la duraci&#243;n y las medidas autorizadas; ese decreto debe remitirse al Legislativo en 72 horas. Sin ese decreto, las Fuerzas Armadas no tienen habilitaci&#243;n jur&#237;dica para intervenir en los bloqueos. El gobierno indic&#243; que contin&#250;a &#8220;evaluando la situaci&#243;n&#8221;, lo que genera creciente impaciencia en el Legislativo y en sectores civiles que leen la demora como debilidad institucional.</p>
+      <span class="source-link"><a href="https://eldeber.com.bo/pais/activara-estado-excepcion-bolivia-cuanto-tiempo-puede-durar_1780689230">El Deber</a> &#183; <a href="https://www.urgente.bo/noticia/paz-promulgo-la-ley-de-estados-de-excepcion-aun-no-el-decreto-y-evo-le-dice-tus-dias-estan">Urgente.bo</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.08s">
+      <span class="pill pill-eco">Econ&#243;mico</span>
+      <h3>USD 2.100 millones perdidos, inflaci&#243;n en alza e industria al l&#237;mite de su capacidad</h3>
+      <p>Las p&#233;rdidas acumuladas superan los USD 2.100 millones, agravando una econom&#237;a que ya enfrenta escasez estructural de divisas desde 2023. La inflaci&#243;n mensual en La Paz lleg&#243; al 5,41% en mayo. El Banco Mundial proyecta una contracci&#243;n del PIB de &#8722;1,1% para 2026. El d&#243;lar oficial se mantiene en Bs 6,96 mientras el mercado paralelo cotiza cerca de Bs 9,92. La agroindustria cruce&#241;a y el transporte de carga son los sectores m&#225;s golpeados por los cortes de rutas, con p&#233;rdidas irreversibles en ciclos agr&#237;colas.</p>
+      <span class="source-link"><a href="https://eldeber.com.bo/">El Deber</a> &#183; <a href="https://lasillarota.com/mundo/2026/6/6/crisis-en-bolivia-tras-un-mes-de-bloqueos-se-intensifica-la-escasez-de-alimentos-combustibles-602739.html">La Silla Rota</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.12s">
+      <span class="pill pill-soc">Social</span>
+      <h3>10 muertos, 7 por falta de atenci&#243;n m&#233;dica; hospitales en emergencia sanitaria nacional</h3>
+      <p>La Defensor&#237;a del Pueblo mantiene el balance de 10 fallecidos en 39 d&#237;as de conflicto: siete por imposibilidad de acceder a atenci&#243;n m&#233;dica oportuna y tres en el contexto de las protestas. El departamento de La Paz permanece bajo emergencia sanitaria declarada por 90 d&#237;as. Los hospitales atienden &#250;nicamente urgencias. El Hospital del Ni&#241;o cancel&#243; decenas de cirug&#237;as programadas por escasez de ox&#237;geno medicinal. El puente a&#233;reo desde El Alto sigue siendo el &#250;nico canal de abastecimiento de la conurbaci&#243;n pace&#241;a.</p>
+      <span class="source-link"><a href="https://abi.bo/mas-de-100-puntos-de-bloqueo-en-el-pais-frenan-el-paso-de-alimentos-medicamentos-combustible-y-ambulancias/">ABI</a> &#183; <a href="https://www.ambito.com/mundo/bolivia-al-borde-una-emergencia-sanitaria-crisis-hospitales-y-colapso-del-sistema-salud-n6284552">&#193;mbito</a></span>
+    </div>
+
+    <div class="news-item reveal" style="transition-delay:0.16s">
+      <span class="pill pill-int">Internacional</span>
+      <h3>Brasil y coalici&#243;n de 13 naciones respaldan a Paz; el gobierno advierte a grupos narcoterroristas</h3>
+      <p>Al promulgar la ley, Paz lanz&#243; un mensaje directo a &#8220;grupos vinculados al narcoterrorismo&#8221; advirtiendo que el gobierno actuar&#225; con firmeza para preservar el orden constitucional y la seguridad del pa&#237;s. Brasil encabeza la respuesta regional con env&#237;os de v&#237;veres. La coalici&#243;n de 13 naciones liderada por Estados Unidos &#8212;que la semana anterior denunci&#243; un plan organizado de desestabilizaci&#243;n&#8212; mantiene su respaldo al gobierno constitucional y presiona diplom&#225;ticamente a los bloqueadores.</p>
+      <span class="source-link"><a href="https://www.telesurtv.net/rodrigo-paz-ley-estado-excepcion-bolivia/">teleSUR</a> &#183; <a href="https://cnnespanol.cnn.com/2026/06/08/latinoamerica/bolivia-paz-ley-estado-excepcion-orix">CNN en Espa&#241;ol</a></span>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-cell reveal" style="transition-delay:0.20s">
+        <div class="data-cell-label">D&#243;lar Oficial</div>
+        <div class="data-cell-value">Bs 6.96</div>
+        <div class="data-cell-delta" style="color:var(--muted)">Sin variaci&#243;n</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.24s">
+        <div class="data-cell-label">D&#243;lar Paralelo</div>
+        <div class="data-cell-value">Bs 9.92</div>
+        <div class="data-cell-delta red">Mercado P2P</div>
+      </div>
+      <div class="data-cell reveal" style="transition-delay:0.28s">
+        <div class="data-cell-label">D&#237;a Conflicto</div>
+        <div class="data-cell-value">#39</div>
+        <div class="data-cell-delta red">$50M / d&#237;a</div>
+      </div>
+    </div>
+
+    <div class="vigilar reveal" style="transition-delay:0.32s">
+      <div class="vigilar-header">Qu&#233; vigilar hoy</div>
+      <div class="vigilar-item">Si el presidente Paz emite el decreto supremo que activa el estado de excepci&#243;n, en qu&#233; departamentos lo aplica y con qu&#233; alcance para las Fuerzas Armadas en los bloqueos.</div>
+      <div class="vigilar-item">Decisi&#243;n del Tribunal Constitucional Plurinacional sobre la Acci&#243;n Popular presentada: si la admite, el gobierno pierde su discrecionalidad pol&#237;tica sobre el momento de la acci&#243;n.</div>
+      <div class="vigilar-item">Evoluci&#243;n de las reservas de ox&#237;geno medicinal en el Hospital del Ni&#241;o y dem&#225;s centros de La Paz: cualquier muerte atribuible a la escasez de insumos m&#233;dicos es un punto de no retorno pol&#237;tico.</div>
+    </div>
+
+    <div class="footer reveal" style="transition-delay:0.36s">
+      <div>Fuentes: Opini&#243;n Bolivia &#183; CNN en Espa&#241;ol &#183; teleSUR &#183; El Deber &#183; ABI &#183; La Patilla &#183; Cooperativa &#183; Ahora Digital &#183; &#193;mbito &#183; Urgente.bo</div>
+      <div>Briefing generado con Claude &#8212; Solo para uso informativo</div>
+    </div>
+
+  </div>
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    });
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    }),{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
