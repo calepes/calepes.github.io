@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shortlist · Regreso a Lima 2027</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --card2:#1d212b; --line:#2a2f3a;
+    --txt:#e8eaf0; --muted:#9aa3b2; --accent:#4f9cf9; --accent2:#7c5cff;
+    --ok:#34d399; --warn:#fbbf24; --flex:#60a5fa; --na:#6b7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 20% -10%,#1c2330,transparent),var(--bg);
+    color:var(--txt); line-height:1.5; padding:40px 20px; min-height:100vh;
+  }
+  .wrap{max-width:1100px;margin:0 auto}
+  header{margin-bottom:8px}
+  .eyebrow{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:30px;font-weight:700;margin:6px 0 4px}
+  .sub{color:var(--muted);font-size:15px}
+  .criteria{
+    display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px;
+  }
+  .chip{
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 14px;font-size:13px;color:var(--muted)
+  }
+  .chip b{color:var(--txt)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:linear-gradient(180deg,var(--card2),var(--card));
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .15s,border-color .15s
+  }
+  .card:hover{transform:translateY(-3px);border-color:#3a4150}
+  .photo{position:relative;aspect-ratio:16/10;background:#0b0d12;overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .rank{
+    position:absolute;top:12px;left:12px;background:rgba(15,17,21,.82);
+    backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:10px;
+    padding:5px 11px;font-size:12px;font-weight:700;color:var(--txt)
+  }
+  .rank.top{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none}
+  .price-tag{
+    position:absolute;bottom:12px;right:12px;background:rgba(15,17,21,.82);
+    backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:10px;
+    padding:6px 12px;font-size:18px;font-weight:700
+  }
+  .body{padding:16px 18px 18px}
+  .zone{font-size:18px;font-weight:700}
+  .meta{color:var(--muted);font-size:13px;margin-top:2px}
+  .specs{display:flex;gap:14px;margin:14px 0;flex-wrap:wrap}
+  .spec{font-size:13px;color:var(--muted)}
+  .spec b{display:block;color:var(--txt);font-size:15px;font-weight:600}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .badge{font-size:12px;padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-weight:600}
+  .b-ok{color:var(--ok);border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+  .b-flex{color:var(--flex);border-color:rgba(96,165,250,.4);background:rgba(96,165,250,.08)}
+  .b-na{color:var(--na);border-color:rgba(107,114,128,.4);background:rgba(107,114,128,.06)}
+  .links{display:flex;gap:10px;margin-top:14px}
+  .links a{
+    flex:1;text-align:center;text-decoration:none;font-size:13px;font-weight:600;
+    padding:9px;border-radius:10px;border:1px solid var(--line);color:var(--txt);
+    background:var(--card2);transition:background .15s
+  }
+  .links a:hover{background:#272d3a}
+  .links a.primary{background:var(--accent);border-color:var(--accent);color:#06121f}
+  .note{
+    margin-top:30px;background:var(--card);border:1px solid var(--line);
+    border-left:3px solid var(--warn);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--muted)
+  }
+  .note b{color:var(--txt)}
+  footer{margin-top:26px;color:var(--na);font-size:12px;text-align:center}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:9px;height:9px;border-radius:50%}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Regreso a Lima 2027 · Vivienda</div>
+    <h1>Shortlist de departamentos</h1>
+    <div class="sub">Compra cerca del Colegio Trener (Monterrico, Surco) · 170–200 m² · datos vivos Urbania, 29-jun-2026</div>
+  </header>
+
+  <div class="criteria">
+    <div class="chip">Presupuesto tope <b>USD 500k</b></div>
+    <div class="chip">Inicial <b>USD 60k</b></div>
+    <div class="chip">Ingreso <b>S/ 35,000/mes</b></div>
+    <div class="chip">Cuota estimada <b>@7% · 25 años · 20% inicial</b></div>
+    <div class="chip">Requisitos <b>estudio · cuarto de servicio · estar de TV</b></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Nº2 -->
+    <div class="card">
+      <div class="photo">
+        <img src="./fotos/02-chacarilla-196m2/01-evidencia.jpeg" alt="Chacarilla 196 m²">
+        <div class="rank top">★ Nº2 · Top en rango</div>
+        <div class="price-tag">US$415k</div>
+      </div>
+      <div class="body">
+        <div class="zone">Chacarilla del Estanque</div>
+        <div class="meta">Santiago de Surco · ~US$2,117/m²</div>
+        <div class="specs">
+          <div class="spec"><b>196 m²</b>área</div>
+          <div class="spec"><b>3</b>dormitorios</div>
+          <div class="spec"><b>3</b>baños</div>
+          <div class="spec"><b>2</b>cocheras</div>
+          <div class="spec"><b>~US$2,301</b>cuota/mes</div>
+        </div>
+        <div class="badges">
+          <span class="badge b-ok">Estudio ✓</span>
+          <span class="badge b-na">Servicio (declarado)</span>
+          <span class="badge b-ok">Estar TV ✓</span>
+        </div>
+        <div class="links">
+          <a class="primary" href="https://urbania.pe/inmueble/clasificado/veclapin-venta-de-departamento-en-chacarilla-del-estanque-santiago-de-surco-3-dormitorios-148261267" target="_blank">Ver aviso</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Chacarilla+del+Estanque+Santiago+de+Surco" target="_blank">Mapa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nº9 -->
+    <div class="card">
+      <div class="photo">
+        <img src="./fotos/09-chacarilla-215m2/01-evidencia.jpeg" alt="Chacarilla 215 m²">
+        <div class="rank">Nº9 · Único con los 3 por foto</div>
+        <div class="price-tag">US$410k</div>
+      </div>
+      <div class="body">
+        <div class="zone">Chacarilla del Estanque</div>
+        <div class="meta">Santiago de Surco · 215 m² ⚠️ (sobre rango) · ~US$1,907/m²</div>
+        <div class="specs">
+          <div class="spec"><b>215 m²</b>área</div>
+          <div class="spec"><b>3</b>dormitorios</div>
+          <div class="spec"><b>3</b>baños</div>
+          <div class="spec"><b>~US$2,273</b>cuota/mes</div>
+        </div>
+        <div class="badges">
+          <span class="badge b-flex">Estudio ✓*</span>
+          <span class="badge b-ok">Servicio ✓</span>
+          <span class="badge b-ok">Estar TV ✓</span>
+        </div>
+        <div class="links">
+          <a class="primary" href="https://urbania.pe/inmueble/clasificado/veclapin-venta-de-departamento-en-chacarilla-del-estanque-santiago-de-surco-3-dormitorios-148705488" target="_blank">Ver aviso</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Chacarilla+del+Estanque+Santiago+de+Surco" target="_blank">Mapa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nº13 -->
+    <div class="card">
+      <div class="photo">
+        <img src="./fotos/13-floresta-200m2/01-evidencia.jpeg" alt="Floresta de Monterrico 200 m²">
+        <div class="rank">Nº13 · Junto al Museo del Oro</div>
+        <div class="price-tag">US$379k</div>
+      </div>
+      <div class="body">
+        <div class="zone">La Floresta de Monterrico</div>
+        <div class="meta">Santiago de Surco · ~US$1,895/m²</div>
+        <div class="specs">
+          <div class="spec"><b>200 m²</b>área</div>
+          <div class="spec"><b>3</b>dormitorios</div>
+          <div class="spec"><b>3</b>baños</div>
+          <div class="spec"><b>2</b>cocheras</div>
+          <div class="spec"><b>~US$2,102</b>cuota/mes</div>
+        </div>
+        <div class="badges">
+          <span class="badge b-flex">Estudio ✓*</span>
+          <span class="badge b-na">Servicio ¿?</span>
+          <span class="badge b-ok">Estar TV ✓</span>
+        </div>
+        <div class="links">
+          <a class="primary" href="https://urbania.pe/inmueble/clasificado/veclapin-venta-de-departamento-en-la-floresta-de-monterrico-santiago-de-surco-3-dormitorios-150196669" target="_blank">Ver aviso</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=La+Floresta+de+Monterrico+Santiago+de+Surco" target="_blank">Mapa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nº24 -->
+    <div class="card">
+      <div class="photo">
+        <img src="./fotos/24-casuarinas-baja-191m2/01-evidencia.jpeg" alt="Casuarinas Baja 191 m²">
+        <div class="rank">Nº24 · Mejor precio/m²</div>
+        <div class="price-tag">US$285k</div>
+      </div>
+      <div class="body">
+        <div class="zone">Las Casuarinas Baja</div>
+        <div class="meta">Santiago de Surco · ~US$1,492/m²</div>
+        <div class="specs">
+          <div class="spec"><b>191 m²</b>área</div>
+          <div class="spec"><b>4</b>dormitorios</div>
+          <div class="spec"><b>3</b>baños</div>
+          <div class="spec"><b>2</b>cocheras</div>
+          <div class="spec"><b>~US$1,580</b>cuota/mes</div>
+        </div>
+        <div class="badges">
+          <span class="badge b-flex">Estudio ✓*</span>
+          <span class="badge b-ok">Servicio ✓</span>
+          <span class="badge b-na">Estar TV ¿?</span>
+        </div>
+        <div class="links">
+          <a class="primary" href="https://urbania.pe/inmueble/clasificado/veclapin-venta-de-departamento-en-las-casuarinas-baja-santiago-de-surco-4-dormitorios-148113444" target="_blank">Ver aviso</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Las+Casuarinas+Santiago+de+Surco" target="_blank">Mapa</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <span><span class="dot" style="background:var(--ok)"></span> ✓ confirmado por foto</span>
+    <span><span class="dot" style="background:var(--flex)"></span> ✓* flexible (escritorio en dormitorio / TV en sala)</span>
+    <span><span class="dot" style="background:var(--na)"></span> ¿? / declarado, no confirmado por foto</span>
+  </div>
+
+  <div class="note">
+    <b>Aprendizaje de la búsqueda:</b> de 33 avisos en la zona (todos bajo 500k, inventario agotado), un departamento con <b>estudio Y estar de TV como ambientes dedicados separados</b> es raro — lo normal es escritorio dentro de un dormitorio y TV en la sala principal. El cuarto de servicio es estándar (32/33). Para confirmar ambientes sin ambigüedad, conviene <b>pedir el plano al anunciante</b> de los finalistas.
+    <br><br>
+    <b>Pendiente financiero:</b> la inicial de US$60k es solo 12% de 500k; el banco suele pedir 20% (~US$100k). Confirmar % mínimo con BCP/Interbank/BBVA.
+  </div>
+
+  <footer>Generado el 29-jun-2026 · datos Urbania vía Playwright · proyecto Regreso a Lima 2027</footer>
+</div>
+</body>
+</html>
