@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="win95">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Digest — 1 Julio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & SHARED
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+
+/* ═══════════════════════════════════════════════
+   THEME: Windows 95
+═══════════════════════════════════════════════ */
+[data-theme="win95"] {
+  --bg: #008080;
+  --window-bg: #ffffff;
+  --titlebar-bg: #000080;
+  --titlebar-text: #ffffff;
+  --menubar-bg: #d4d0c8;
+  --tabs-bg: #d4d0c8;
+  --tab-active-bg: #ffffff;
+  --tab-idle-bg: #c0c0c0;
+  --tab-active-text: #000000;
+  --tab-idle-text: #606060;
+  --tab-border: #808080;
+  --toolbar-bg: #d4d0c8;
+  --section-hdr-bg: #000080;
+  --section-hdr-text: #ffffff;
+  --ticker-bg: #000080;
+  --ticker-text: #ffff00;
+  --status-bg: #d4d0c8;
+  --status-text: #404040;
+  --status-item-bg: #c8c8c8;
+  --row-hover: rgba(0,0,128,0.06);
+  --row-even: #f8f8f8;
+  --row-new-bg: #fffacd;
+  --row-new-border: #cc6600;
+  --row-visited-bg: #eee0ff;
+  --link: #0000cc;
+  --link-visited: #6b1f9e;
+  --separator: #d0d0d0;
+  --text-dim: #606060;
+  --edition-bg: #fff3cc;
+  --edition-border: rgba(200,140,0,0.40);
+  --edition-text: #cc6600;
+  --badge-bg: #cc0000;
+  --vote-btn-bg: #c0c0c0;
+  --vote-btn-border-light: #ffffff;
+  --vote-btn-border-dark: #808080;
+  --vote-up-active: #ccffcc;
+  --vote-down-active: #ffcccc;
+  --numero-val-color: #000080;
+  --font: 'Tahoma','MS Sans Serif',Arial,sans-serif;
+  --font-mono: 'Courier New',monospace;
+  --tab-radius: 3px 3px 0 0;
+  --window-shadow: none;
+  --window-border: 2px outset #c0c0c0;
+  --window-margin: 4px;
+}
+
+/* ═══════════════════════════════════════════════
+   THEME: macOS 90s (System 7 / Platinum)
+═══════════════════════════════════════════════ */
+[data-theme="mac90"] {
+  --bg: #aaaaaa;
+  --window-bg: #ffffff;
+  --titlebar-bg: linear-gradient(180deg,#e0e0e0 0%,#c0c0c0 100%);
+  --titlebar-text: #000000;
+  --menubar-bg: #ffffff;
+  --tabs-bg: #cccccc;
+  --tab-active-bg: #ffffff;
+  --tab-idle-bg: #c8c8c8;
+  --tab-active-text: #000000;
+  --tab-idle-text: #666666;
+  --tab-border: #888888;
+  --toolbar-bg: #eeeeee;
+  --section-hdr-bg: #cccccc;
+  --section-hdr-text: #000000;
+  --ticker-bg: #000000;
+  --ticker-text: #ffffff;
+  --status-bg: #cccccc;
+  --status-text: #444444;
+  --status-item-bg: #dddddd;
+  --row-hover: #f0f0f0;
+  --row-even: #fafafa;
+  --row-new-bg: #ffffcc;
+  --row-new-border: #cc6600;
+  --row-visited-bg: #eee0ff;
+  --link: #0000cc;
+  --link-visited: #660099;
+  --separator: #cccccc;
+  --text-dim: #666666;
+  --edition-bg: #fff8dc;
+  --edition-border: rgba(200,140,0,0.30);
+  --edition-text: #cc6600;
+  --badge-bg: #cc0000;
+  --vote-btn-bg: #cccccc;
+  --vote-btn-border-light: rgba(255,255,255,0.9);
+  --vote-btn-border-dark: rgba(0,0,0,0.4);
+  --vote-up-active: #ccffcc;
+  --vote-down-active: #ffcccc;
+  --numero-val-color: #000000;
+  --font: 'Geneva','Helvetica',Arial,sans-serif;
+  --font-mono: 'Monaco','Courier New',monospace;
+  --tab-radius: 4px 4px 0 0;
+  --window-shadow: 2px 2px 0 #000;
+  --window-border: 1px solid #000;
+  --window-margin: 6px;
+}
+
+/* ═══════════════════════════════════════════════
+   THEME: macOS Aqua 2000
+═══════════════════════════════════════════════ */
+[data-theme="aqua"] {
+  --bg: linear-gradient(160deg,#6aaad8 0%,#3070b0 40%,#1a4a8c 100%);
+  --window-bg: #ffffff;
+  --titlebar-bg: linear-gradient(180deg,#8bbee8 0%,#5a9fd4 18%,#3a80c0 50%,#2060a0 82%,#4080c8 100%);
+  --titlebar-text: #ffffff;
+  --menubar-bg: linear-gradient(180deg,rgba(255,255,255,0.95) 0%,rgba(240,244,252,0.95) 50%,rgba(220,232,248,0.95) 100%);
+  --tabs-bg: linear-gradient(180deg,#d8e8f8 0%,#c0d4ee 100%);
+  --tab-active-bg: linear-gradient(180deg,#eef4ff 0%,#d0e4ff 40%,#b8d4f8 100%);
+  --tab-idle-bg: linear-gradient(180deg,#e0e8f4 0%,#c8d8ec 100%);
+  --tab-active-text: #1a5fad;
+  --tab-idle-text: #4a5070;
+  --tab-border: rgba(60,100,180,0.30);
+  --toolbar-bg: linear-gradient(180deg,#eef2f8 0%,#d8e4f2 100%);
+  --section-hdr-bg: linear-gradient(180deg,#c8d8f0 0%,#a8c0e8 100%);
+  --section-hdr-text: #1a5fad;
+  --ticker-bg: linear-gradient(180deg,#1a4888 0%,#0e2e60 100%);
+  --ticker-text: #a8d0ff;
+  --status-bg: linear-gradient(180deg,#d8e4f4 0%,#c0d0e8 100%);
+  --status-text: #4a5070;
+  --status-item-bg: rgba(255,255,255,0.50);
+  --row-hover: #e4eeff;
+  --row-even: #f5f8ff;
+  --row-new-bg: #fffde6;
+  --row-new-border: #cc6600;
+  --row-visited-bg: #f0ecff;
+  --link: #0050aa;
+  --link-visited: #6030aa;
+  --separator: rgba(180,200,230,0.50);
+  --text-dim: #8890aa;
+  --edition-bg: linear-gradient(180deg,#fff8dc 0%,#ffeea0 100%);
+  --edition-border: rgba(200,140,0,0.30);
+  --edition-text: #cc6600;
+  --badge-bg: linear-gradient(180deg,#ff6060,#cc1010);
+  --vote-btn-bg: linear-gradient(180deg,rgba(255,255,255,0.90) 0%,#d0e0f8 30%,#a8c4f0 70%,#c8dcf8 100%);
+  --vote-btn-border-light: rgba(60,100,200,0.40);
+  --vote-btn-border-dark: rgba(60,100,200,0.40);
+  --vote-up-active: linear-gradient(180deg,rgba(255,255,255,0.80) 0%,#aaeebb 30%,#55cc77 100%);
+  --vote-down-active: linear-gradient(180deg,rgba(255,255,255,0.80) 0%,#ffaaaa 30%,#ee5555 100%);
+  --numero-val-color: #1a5fad;
+  --font: 'Nunito','Lucida Grande',Geneva,Helvetica,sans-serif;
+  --font-mono: 'Lucida Console','Monaco',monospace;
+  --tab-radius: 5px 5px 0 0;
+  --window-shadow: 0 8px 32px rgba(0,20,80,0.40),0 2px 8px rgba(0,0,0,0.25);
+  --window-border: 1px solid rgba(60,100,180,0.40);
+  --window-margin: 6px;
+}
+
+/* ═══════════════════════════════════════════════
+   GOOGLE FONTS (loaded per theme)
+═══════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  font-size: 13px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* Win95 bg texture */
+[data-theme="win95"] body {
+  background-image: repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px);
+}
+/* Mac90 bg texture */
+[data-theme="mac90"] body {
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.08) 1px,rgba(0,0,0,0.08) 2px),repeating-linear-gradient(90deg,transparent,transparent 1px,rgba(0,0,0,0.08) 1px,rgba(0,0,0,0.08) 2px);
+  background-size: 8px 8px;
+}
+
+/* ── MENUBAR ── */
+.menubar {
+  background: var(--menubar-bg);
+  height: 22px;
+  display: flex; align-items: center;
+  padding: 0 8px;
+  flex-shrink: 0;
+  font-size: 12px; font-weight: 600;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+[data-theme="win95"] .menubar { display: none; }
+.menubar-apple { font-size: 15px; margin-right: 14px; }
+.menubar-item { padding: 0 10px; height: 100%; display: flex; align-items: center; cursor: pointer; }
+.menubar-item:hover { background: #000080; color: #fff; border-radius: 2px; }
+[data-theme="aqua"] .menubar-item:hover { background: linear-gradient(180deg,#3a70c0,#1a50a0); border-radius: 3px; }
+.menubar-right { margin-left: auto; font-size: 11px; color: #666; font-variant-numeric: tabular-nums; }
+[data-theme="aqua"] .menubar-right { color: #4a5070; }
+
+/* ── WINDOW ── */
+.window {
+  display: flex; flex-direction: column; flex: 1;
+  margin: var(--window-margin);
+  border: var(--window-border);
+  box-shadow: var(--window-shadow);
+  overflow: hidden;
+  background: var(--window-bg);
+}
+[data-theme="win95"] .window { margin-bottom: 0; }
+[data-theme="aqua"] .window { border-radius: 8px; }
+
+/* ── TITLEBAR ── */
+.titlebar {
+  background: var(--titlebar-bg);
+  height: 28px;
+  display: flex; align-items: center;
+  padding: 0 8px; gap: 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.20);
+  position: relative;
+}
+[data-theme="win95"] .titlebar { height: 24px; }
+[data-theme="aqua"] .titlebar::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg,rgba(255,255,255,0.30) 0%,transparent 100%);
+  pointer-events: none;
+}
+
+/* Win95 titlebar controls */
+.tb-win-title { font-size: 12px; font-weight: bold; color: #fff; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tb-win-btns { display: flex; gap: 2px; }
+.tb-win-btn { width: 18px; height: 16px; background: #c0c0c0; border: 1px outset #e0e0e0; font-size: 9px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #000; }
+[data-theme="mac90"] .tb-win-btns, [data-theme="aqua"] .tb-win-btns { display: none; }
+[data-theme="mac90"] .tb-win-title { display: none; }
+[data-theme="aqua"] .tb-win-title { display: none; }
+
+/* Mac90 titlebar */
+.tb-mac-close { width: 13px; height: 13px; background: #eeeeee; border: 1px solid #000; border-radius: 1px; flex-shrink: 0; cursor: pointer; z-index: 1; }
+.tb-mac-title { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: bold; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 40px; z-index: 1; color: var(--titlebar-text); }
+.tb-mac-zoom { margin-left: auto; z-index: 1; width: 13px; height: 13px; background: #eeeeee; border: 1px solid #000; border-radius: 1px; flex-shrink: 0; cursor: pointer; }
+.titlebar-stripes {
+  position: absolute; inset: 3px 32px;
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.12) 1px,rgba(0,0,0,0.12) 2px);
+  pointer-events: none;
+}
+[data-theme="win95"] .tb-mac-close, [data-theme="win95"] .tb-mac-title, [data-theme="win95"] .tb-mac-zoom, [data-theme="win95"] .titlebar-stripes { display: none; }
+[data-theme="aqua"] .tb-mac-close, [data-theme="aqua"] .tb-mac-title, [data-theme="aqua"] .tb-mac-zoom, [data-theme="aqua"] .titlebar-stripes { display: none; }
+
+/* Aqua traffic lights */
+.traffic-lights { display: flex; gap: 5px; z-index: 1; }
+.tl { width: 13px; height: 13px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.20); cursor: pointer; position: relative; box-shadow: inset 0 1px 0 rgba(255,255,255,0.50),0 1px 2px rgba(0,0,0,0.30); }
+.tl::after { content: ''; position: absolute; top: 2px; left: 2px; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.50); }
+.tl-red    { background: radial-gradient(circle at 40% 35%,#ff8070,#ff5f57 60%,#cc2020); }
+.tl-yellow { background: radial-gradient(circle at 40% 35%,#ffe080,#ffbd2e 60%,#cc8800); }
+.tl-green  { background: radial-gradient(circle at 40% 35%,#80e880,#28c840 60%,#008820); }
+.aqua-title { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,40,0.50); pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 80px; z-index: 1; }
+[data-theme="win95"] .traffic-lights, [data-theme="win95"] .aqua-title { display: none; }
+[data-theme="mac90"] .traffic-lights, [data-theme="mac90"] .aqua-title { display: none; }
+
+/* ── TICKER ── */
+.ticker-bar {
+  background: var(--ticker-bg);
+  color: var(--ticker-text);
+  font-size: 11px; font-weight: bold;
+  padding: 3px 0; overflow: hidden; flex-shrink: 0;
+  white-space: nowrap; border-bottom: 1px solid rgba(0,0,0,0.20);
+}
+.ticker-inner { display: inline-block; animation: scroll-ticker 28s linear infinite; }
+@keyframes scroll-ticker { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
+
+/* ── TABS ── */
+.tabs-bar {
+  background: var(--tabs-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.20);
+  display: flex; gap: 2px;
+  padding: 4px 6px 0;
+  overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none; flex-shrink: 0;
+  touch-action: pan-x; overscroll-behavior-x: contain;
+}
+.tabs-bar::-webkit-scrollbar { display: none; }
+.tab {
+  padding: 5px 12px;
+  font-size: 11px; font-weight: bold;
+  background: var(--tab-idle-bg);
+  border: 1px solid var(--tab-border);
+  border-bottom: none;
+  border-radius: var(--tab-radius);
+  cursor: pointer; white-space: nowrap;
+  color: var(--tab-idle-text);
+  margin-right: 2px;
+  display: flex; align-items: center; gap: 5px;
+  position: relative; top: 1px; min-height: 26px;
+}
+[data-theme="aqua"] .tab { box-shadow: inset 0 1px 0 rgba(255,255,255,0.70); }
+.tab.active {
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  border-bottom: 1px solid var(--window-bg);
+  z-index: 1;
+}
+[data-theme="aqua"] .tab.active { box-shadow: inset 0 1px 0 rgba(255,255,255,0.90); }
+.tab-badge {
+  background: var(--badge-bg);
+  color: #fff; font-size: 9px; font-weight: bold;
+  padding: 1px 5px; border-radius: 8px;
+  min-width: 16px; text-align: center;
+}
+[data-theme="win95"] .tab-badge { border-radius: 2px; }
+[data-theme="mac90"] .tab-badge { border-radius: 3px; }
+
+/* ── TOOLBAR ── */
+.toolbar {
+  background: var(--toolbar-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  padding: 3px 8px;
+  display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+[data-theme="aqua"] .toolbar { box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
+.toolbar-info { font-size: 11px; color: var(--text-dim); }
+.toolbar-sep { width: 1px; height: 16px; background: rgba(0,0,0,0.15); }
+.toolbar-edition {
+  margin-left: auto;
+  border: 1px solid rgba(180,120,0,0.40);
+  color: #cc6600;
+  font-size: 10px; font-weight: bold;
+  padding: 2px 8px; background: #fff3cc;
+}
+[data-theme="aqua"] .toolbar-edition { border-radius: 9px; background: linear-gradient(180deg,#ffe8a0,#ffd060); box-shadow: inset 0 1px 0 rgba(255,255,255,0.60); }
+[data-theme="mac90"] .toolbar-edition { border-radius: 3px; }
+
+/* ── CONTENT ── */
+.content { flex: 1; overflow-y: auto; background: var(--window-bg); -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── SECTION HDR ── */
+.section-hdr {
+  background: var(--section-hdr-bg);
+  color: var(--section-hdr-text);
+  padding: 5px 10px;
+  font-size: 12px; font-weight: bold;
+  display: flex; align-items: center; gap: 8px;
+  position: sticky; top: 0; z-index: 10;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+[data-theme="aqua"] .section-hdr { box-shadow: 0 1px 4px rgba(60,100,200,0.10); }
+.section-new-badge {
+  margin-left: auto;
+  background: #cc6600; color: #fff;
+  font-size: 9px; font-weight: bold; padding: 2px 8px;
+}
+[data-theme="mac90"] .section-new-badge { border-radius: 3px; }
+[data-theme="aqua"] .section-new-badge { background: linear-gradient(180deg,#ffaa40,#ff8800); border-radius: 9px; box-shadow: 0 1px 3px rgba(180,80,0,0.30); }
+
+/* ── NEWS ROW ── */
+.news-row {
+  display: flex; align-items: flex-start;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--separator);
+  cursor: pointer; text-decoration: none; color: inherit; gap: 8px;
+  transition: background 0.1s;
+}
+.news-row:nth-child(even) { background: var(--row-even); }
+.news-row:hover { background: var(--row-hover); }
+.news-row.visited { background: var(--row-visited-bg); }
+.news-row.is-new { background: var(--row-new-bg); border-left: 3px solid var(--row-new-border); padding-left: 7px; }
+
+.row-num {
+  font-size: 11px; font-weight: bold; color: var(--text-dim);
+  min-width: 20px; padding-top: 1px; font-variant-numeric: tabular-nums; flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+.news-row.visited .row-num { color: var(--link-visited); }
+.news-row.is-new .row-num { color: #cc6600; }
+
+.row-body { flex: 1; min-width: 0; }
+.row-title { font-size: 13px; color: var(--link); line-height: 1.35; display: block; margin-bottom: 4px; word-break: break-word; }
+[data-theme="win95"] .row-title { text-decoration: underline; }
+.news-row.visited .row-title { color: var(--link-visited); }
+.news-row.is-new .row-title { color: #2a1800; font-weight: bold; }
+[data-theme="win95"] .news-row.is-new .row-title { text-decoration: none; }
+
+.row-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.row-byline { font-size: 10px; color: var(--text-dim); }
+
+/* Tags */
+.tag { font-size: 9px; font-weight: bold; padding: 1px 6px; text-transform: uppercase; border: 1px solid; letter-spacing: 0.3px; }
+[data-theme="mac90"] .tag { border-radius: 9px; }
+[data-theme="aqua"] .tag { border-radius: 9px; border: none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.50); }
+.tag-economia { color: #004422; border-color: #006633; background: #eeffee; }
+.tag-politica { color: #000080; border-color: #0000aa; background: #eeeeff; }
+.tag-sociedad { color: #663300; border-color: #884400; background: #fff5ee; }
+.tag-judicial  { color: #660000; border-color: #880000; background: #ffeeee; }
+.tag-fintech   { color: #330066; border-color: #550088; background: #f5eeff; }
+.tag-deportes  { color: #003355; border-color: #004466; background: #eef8ff; }
+[data-theme="aqua"] .tag-economia { background: linear-gradient(180deg,#aaeebb,#66cc88); }
+[data-theme="aqua"] .tag-politica { background: linear-gradient(180deg,#aaccff,#6699ee); }
+[data-theme="aqua"] .tag-sociedad { background: linear-gradient(180deg,#ffddaa,#ffaa55); }
+[data-theme="aqua"] .tag-judicial  { background: linear-gradient(180deg,#ffaaaa,#ee6666); }
+[data-theme="aqua"] .tag-fintech   { background: linear-gradient(180deg,#ddaaff,#aa66ee); }
+[data-theme="aqua"] .tag-deportes  { background: linear-gradient(180deg,#aaeeff,#55ccee); }
+
+/* Chips */
+.chip-new {
+  font-size: 9px; font-weight: bold; padding: 1px 6px;
+  background: #cc0000; color: #fff; border: 1px solid #880000;
+  animation: blink-chip 1.3s step-end infinite;
+}
+[data-theme="mac90"] .chip-new { border-radius: 9px; }
+[data-theme="aqua"] .chip-new { border-radius: 9px; border: none; animation: aqua-pulse 1.6s ease-in-out infinite; background: linear-gradient(180deg,#ff8080,#dd2020); }
+@keyframes blink-chip { 0%,100%{opacity:1} 50%{opacity:0.2} }
+@keyframes aqua-pulse { 0%,100%{box-shadow:0 1px 3px rgba(180,0,0,0.30)} 50%{box-shadow:0 2px 8px rgba(220,0,0,0.50)} }
+
+.chip-visited {
+  font-size: 9px; padding: 1px 6px;
+  background: var(--row-visited-bg); color: var(--link-visited);
+  border: 1px solid var(--link-visited);
+}
+[data-theme="mac90"] .chip-visited { border-radius: 9px; }
+[data-theme="aqua"] .chip-visited { border-radius: 9px; border: none; background: linear-gradient(180deg,#ddccff,#bb99ee); }
+
+/* Vote buttons */
+.row-actions { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; padding-top: 1px; }
+.vote-btn {
+  width: 40px; height: 28px;
+  background: var(--vote-btn-bg);
+  border-top: 1px solid var(--vote-btn-border-light);
+  border-left: 1px solid var(--vote-btn-border-light);
+  border-right: 1px solid var(--vote-btn-border-dark);
+  border-bottom: 1px solid var(--vote-btn-border-dark);
+  font-size: 14px; font-weight: bold; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #333;
+}
+[data-theme="mac90"] .vote-btn { border-radius: 4px; box-shadow: 1px 1px 0 rgba(0,0,0,0.20); }
+[data-theme="aqua"] .vote-btn { border-radius: 6px; border: 1px solid rgba(60,100,200,0.40); color: #1a5fad; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80),0 1px 3px rgba(0,30,120,0.20); }
+.vote-btn:active { border-top-color: var(--vote-btn-border-dark); border-left-color: var(--vote-btn-border-dark); border-right-color: var(--vote-btn-border-light); border-bottom-color: var(--vote-btn-border-light); }
+[data-theme="aqua"] .vote-btn:active { box-shadow: inset 0 2px 4px rgba(0,30,120,0.20); }
+.vote-btn.active-up { background: var(--vote-up-active); color: #006600; border-color: #005500; }
+.vote-btn.active-down { background: var(--vote-down-active); color: #880000; border-color: #880000; }
+[data-theme="aqua"] .vote-btn.active-up { border-color: rgba(0,120,40,0.50); color: #007700; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
+[data-theme="aqua"] .vote-btn.active-down { border-color: rgba(180,0,0,0.40); color: #bb0000; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
+
+/* Edition divider */
+.edition-div {
+  background: var(--edition-bg);
+  border-top: 1px solid var(--edition-border);
+  border-bottom: 1px solid var(--edition-border);
+  padding: 6px 10px;
+  font-size: 11px; font-weight: bold; color: var(--edition-text);
+  display: flex; align-items: center; gap: 8px;
+}
+.edition-div-time { margin-left: auto; font-size: 10px; font-variant-numeric: tabular-nums; }
+
+/* Número */
+.numero { margin: 12px 10px; border: 1px solid rgba(0,0,0,0.20); }
+[data-theme="win95"] .numero { border: 2px outset #c0c0c0; }
+[data-theme="mac90"] .numero { box-shadow: 2px 2px 0 #000; }
+[data-theme="aqua"] .numero { border-radius: 10px; border-color: rgba(60,100,180,0.25); overflow: hidden; box-shadow: 0 4px 16px rgba(0,30,120,0.12); }
+.numero-titlebar { background: var(--titlebar-bg); color: var(--titlebar-text); padding: 5px 10px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px; }
+[data-theme="aqua"] .numero-titlebar { text-shadow: 0 1px 2px rgba(0,0,40,0.50); }
+.ntl { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.20); }
+.ntl-r { background: #ff5f57; } .ntl-y { background: #ffbd2e; } .ntl-g { background: #28c840; }
+[data-theme="win95"] .ntl, [data-theme="mac90"] .ntl { display: none; }
+[data-theme="win95"] .tb-num-icon { display: inline; }
+.tb-num-icon { display: none; }
+.numero-body { padding: 24px 12px; text-align: center; background: var(--window-bg); }
+[data-theme="aqua"] .numero-body { background: linear-gradient(180deg,#f0f6ff 0%,#ffffff 100%); }
+.numero-val { font-size: 64px; font-weight: bold; color: var(--numero-val-color); line-height: 1; display: block; margin-bottom: 10px; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+[data-theme="aqua"] .numero-val { background: linear-gradient(180deg,#4a90d9,#0d3b7a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.numero-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+
+/* ── STATUSBAR ── */
+.statusbar {
+  background: var(--status-bg);
+  border-top: 1px solid rgba(0,0,0,0.15);
+  padding: 2px 8px; display: flex; gap: 6px;
+  font-size: 10px; color: var(--status-text);
+  flex-shrink: 0; flex-wrap: wrap;
+}
+.status-item { background: var(--status-item-bg); border: 1px solid rgba(0,0,0,0.15); padding: 1px 8px; }
+[data-theme="aqua"] .status-item { border-radius: 4px; border-color: rgba(100,140,200,0.20); }
+
+/* ═══════════════════════════════════════════════
+   MODE SWITCHER PILL — floating
+═══════════════════════════════════════════════ */
+.mode-switcher {
+  position: fixed; bottom: 12px; right: 12px;
+  z-index: 9999;
+  display: flex; gap: 0;
+  border: 2px solid rgba(0,0,0,0.30);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+.mode-btn {
+  width: 40px; height: 36px;
+  cursor: pointer; border: none;
+  background: rgba(210,210,210,0.97);
+  color: #444;
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid rgba(0,0,0,0.15);
+  transition: background 0.15s, color 0.15s;
+}
+.mode-btn:last-child { border-right: none; }
+.mode-btn:hover { background: rgba(185,185,185,0.97); color: #000; }
+.mode-btn.active { background: #000080; color: #fff; }
+[data-theme="mac90"] .mode-btn.active { background: #000000; color: #ffffff; }
+[data-theme="aqua"] .mode-btn.active { background: linear-gradient(180deg,#5a9fd4,#2060a0); color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- MENUBAR (mac90 + aqua only) -->
+<div class="menubar">
+  <span class="menubar-apple">&#63743;</span>
+  <span class="menubar-item">Finder</span>
+  <span class="menubar-item">Archivo</span>
+  <span class="menubar-item">Ver</span>
+  <div class="menubar-right" id="sysClock">12:00 PM</div>
+</div>
+
+<!-- WINDOW -->
+<div class="window">
+
+  <!-- TITLEBAR -->
+  <div class="titlebar">
+    <!-- Win95 -->
+    <span class="tb-win-title">&#128240; Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</span>
+    <div class="tb-win-btns"><div class="tb-win-btn">_</div><div class="tb-win-btn">&#9633;</div><div class="tb-win-btn">&#10005;</div></div>
+    <!-- Mac90 -->
+    <div class="tb-mac-close"></div>
+    <div class="titlebar-stripes"></div>
+    <div class="tb-mac-title">Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</div>
+    <div class="tb-mac-zoom"></div>
+    <!-- Aqua -->
+    <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+    <div class="aqua-title">Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <span class="ticker-inner">&#9670; MEDIOD&Iacute;A &nbsp;&middot;&nbsp; +12 NUEVAS &nbsp;&middot;&nbsp; TC PARALELO BS 8.9/USD R&Eacute;CORD &nbsp;&middot;&nbsp; JNE: 2DA VUELTA 7 JUNIO &nbsp;&middot;&nbsp; BRE-B EN PRUEBAS 12 BANCOS &nbsp;&middot;&nbsp; STABLECOINS LATAM +38% Q1 &nbsp;&middot;&nbsp; USD/BOB 6.91 &nbsp;&middot;&nbsp; USD/PEN 3.432 &nbsp;&middot;&nbsp; USD/COP 4,180 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <div class="tab active" data-section="bolivia" onclick="switchTab(this)">&#127463;&#127476; Bolivia <span class="tab-badge">+4</span></div>
+    <div class="tab" data-section="peru" onclick="switchTab(this)">&#127477;&#127466; Per&uacute; <span class="tab-badge">+3</span></div>
+    <div class="tab" data-section="colombia" onclick="switchTab(this)">&#127464;&#127476; Colombia <span class="tab-badge">+3</span></div>
+    <div class="tab" data-section="fintech" onclick="switchTab(this)">&#128179; Fintech <span class="tab-badge">+2</span></div>
+    <div class="tab" data-section="numero" onclick="switchTab(this)">&#128204; N&uacute;mero</div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <span class="toolbar-info" id="sectionInfo">Bolivia &middot; 20 noticias</span>
+    <div class="toolbar-sep"></div>
+    <span class="toolbar-info" id="visitedCount">0 le&iacute;das</span>
+    <span class="toolbar-edition">&#9728;&#65039; Mediod&iacute;a</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content" id="mainContent">
+<div class="section active" id="s-bolivia"><div class="section-hdr">🇧🇴 Bolivia — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-001" target="_blank" data-id="20260701-BOL-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">El Gobierno abre el mercado de combustibles a privados hasta 2030</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-001">＋</button><button class="vote-btn down" data-id="20260701-BOL-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-002" target="_blank" data-id="20260701-BOL-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Bolivia reporta movimiento de 17 millones de dólares en primer día de nuevo tipo de cambio</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-002">＋</button><button class="vote-btn down" data-id="20260701-BOL-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-003" target="_blank" data-id="20260701-BOL-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">Empresarios sugieren un plan de emergencia y exigen participación en las decisiones económicas ante la crisis</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-003">＋</button><button class="vote-btn down" data-id="20260701-BOL-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-004" target="_blank" data-id="20260701-BOL-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">La cumbre de la CEPB plantea trabajar en un plan integral de recuperación nacional</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-004">＋</button><button class="vote-btn down" data-id="20260701-BOL-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-005" target="_blank" data-id="20260701-BOL-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Proyecto de ley contempla que el presidente designe de manera interina a magistrados del TCP y del TSJ</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">EJU &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-005">＋</button><button class="vote-btn down" data-id="20260701-BOL-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-006" target="_blank" data-id="20260701-BOL-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Saucedo asegura que el 75% del presupuesto asignado se va en sueldos; buscan un 5% del PGE</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-006">＋</button><button class="vote-btn down" data-id="20260701-BOL-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-007" target="_blank" data-id="20260701-BOL-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Gabinete promulga cinco decretos que afectan y benefician a sectores sociales</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-007">＋</button><button class="vote-btn down" data-id="20260701-BOL-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-008" target="_blank" data-id="20260701-BOL-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Escasez de diésel reduce las salidas interdepartamentales y afecta a la producción</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-008">＋</button><button class="vote-btn down" data-id="20260701-BOL-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-009" target="_blank" data-id="20260701-BOL-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">Urbanización Celina ofrece revisar caso por caso tras reclamos por alza de cuotas debido al nuevo tipo de cambio</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-009">＋</button><button class="vote-btn down" data-id="20260701-BOL-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-010" target="_blank" data-id="20260701-BOL-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Roban Bs 1 millón a una mujer tras seguirla a la salida de un banco en Santa Cruz</span><div class="row-meta"><span class="tag tag-sociedad">Seguridad</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-010">＋</button><button class="vote-btn down" data-id="20260701-BOL-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-011" target="_blank" data-id="20260701-BOL-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">Aduana Nacional denuncia actos de corrupción y falsedad material en agencia de Arica</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-011">＋</button><button class="vote-btn down" data-id="20260701-BOL-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-012" target="_blank" data-id="20260701-BOL-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Fiscalía archiva caso 'pasajes de Noemí' que involucraba a Evo Morales</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-012">＋</button><button class="vote-btn down" data-id="20260701-BOL-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-013" target="_blank" data-id="20260701-BOL-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">El Gobierno inicia una serie de reuniones con alcaldías para articular esfuerzos hacia la reactivación económica</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">EJU &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-013">＋</button><button class="vote-btn down" data-id="20260701-BOL-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-014" target="_blank" data-id="20260701-BOL-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">CAO exige a la Policía ejecutar las órdenes de desalojo en el predio Santa Rita</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-014">＋</button><button class="vote-btn down" data-id="20260701-BOL-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-015" target="_blank" data-id="20260701-BOL-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">Cárcel para dirigente de El Alto investigado por los 50 días de bloqueos</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-015">＋</button><button class="vote-btn down" data-id="20260701-BOL-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-016" target="_blank" data-id="20260701-BOL-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">El presidente del TSJ vincula amenaza de paro de jueces con gobiernos del MAS</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-016">＋</button><button class="vote-btn down" data-id="20260701-BOL-016">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-017" target="_blank" data-id="20260701-BOL-017"><span class="row-num">17</span><div class="row-body"><span class="row-title">Chuquisaca: decomisan 2.500 litros de combustible en tres operativos</span><div class="row-meta"><span class="tag tag-sociedad">Seguridad</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-017">＋</button><button class="vote-btn down" data-id="20260701-BOL-017">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-018" target="_blank" data-id="20260701-BOL-018"><span class="row-num">18</span><div class="row-body"><span class="row-title">La Asamblea cruceña sesiona en Buena Vista y perfila una agenda centrada en las autonomías</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-018">＋</button><button class="vote-btn down" data-id="20260701-BOL-018">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-019" target="_blank" data-id="20260701-BOL-019"><span class="row-num">19</span><div class="row-body"><span class="row-title">Caja Petrolera realiza con éxito el primer trasplante renal pediátrico ministerial</span><div class="row-meta"><span class="tag tag-sociedad">Salud</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-019">＋</button><button class="vote-btn down" data-id="20260701-BOL-019">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-020" target="_blank" data-id="20260701-BOL-020"><span class="row-num">20</span><div class="row-body"><span class="row-title">Identifican dos casos de aleccionamiento político a estudiantes en Bolivia e iniciarán procesos</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-020">＋</button><button class="vote-btn down" data-id="20260701-BOL-020">－</button></div></a></div><div class="section" id="s-peru"><div class="section-hdr">🇵🇪 Perú — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-001" target="_blank" data-id="20260701-PER-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Cúal fue el último temblor en México hoy 1 de julio según SSN</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 03:30 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-001">＋</button><button class="vote-btn down" data-id="20260701-PER-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-002" target="_blank" data-id="20260701-PER-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Temblor en Perú, hoy 30 de junio: magnitud y epicentro del sismo según IGP</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:06 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-002">＋</button><button class="vote-btn down" data-id="20260701-PER-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-003" target="_blank" data-id="20260701-PER-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">SENAMHI: Pronóstico del clima hoy miércoles 01 de julio 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 05:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-003">＋</button><button class="vote-btn down" data-id="20260701-PER-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-004" target="_blank" data-id="20260701-PER-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">Xi Jinping define la &quot;reunificación&quot; con Taiwán como la &quot;tarea histórica&quot; del Partido Comunista de China</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 01:45 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-004">＋</button><button class="vote-btn down" data-id="20260701-PER-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-005" target="_blank" data-id="20260701-PER-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">JEE de Lima Centro declara improcedente inscripción de Rafael López Aliaga como candidato a regidor de Lima</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 08:39 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-005">＋</button><button class="vote-btn down" data-id="20260701-PER-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-006" target="_blank" data-id="20260701-PER-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Moisés Caicedo, uno de los más afectados: la tristeza de los jugadores de Ecuador tras eliminación del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 01:05 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-006">＋</button><button class="vote-btn down" data-id="20260701-PER-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-007" target="_blank" data-id="20260701-PER-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Carlos Malpica, del Cuerpo de Bomberos del Perú: &quot;Venezuela no cuenta con un sistema de normativa de ingeniería sismorresistente&quot;</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:52 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-007">＋</button><button class="vote-btn down" data-id="20260701-PER-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-008" target="_blank" data-id="20260701-PER-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">&quot;Adiós maldición&quot;: Así reaccionó la prensa mexicana a la clasificación de su selección a los octavos de final del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:47 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-008">＋</button><button class="vote-btn down" data-id="20260701-PER-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-009" target="_blank" data-id="20260701-PER-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">México vs. Ecuador: resumen e incidencias del partido por 16vos del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:30 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-009">＋</button><button class="vote-btn down" data-id="20260701-PER-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-010" target="_blank" data-id="20260701-PER-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">México ganó 2-0 a Ecuador en el Estadio Azteca y pasó a octavos de final del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-010">＋</button><button class="vote-btn down" data-id="20260701-PER-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-011" target="_blank" data-id="20260701-PER-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">México clasificó a octavos: venció 2-0 a Ecuador en el Estadio Azteca por el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:53 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-011">＋</button><button class="vote-btn down" data-id="20260701-PER-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-012" target="_blank" data-id="20260701-PER-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Calendario de 16avos de final del Mundial 2026 EN VIVO: los partidos, fechas y horarios confirmados del torneo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:13 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-012">＋</button><button class="vote-btn down" data-id="20260701-PER-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-013" target="_blank" data-id="20260701-PER-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">Fixture del Mundial 2026: AQUÍ los resultados, las fechas y los horarios de todos los partidos de la Copa del Mundo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-013">＋</button><button class="vote-btn down" data-id="20260701-PER-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-014" target="_blank" data-id="20260701-PER-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">Calendario de los octavos de final del Mundial: fechas y horarios confirmados</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:10 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-014">＋</button><button class="vote-btn down" data-id="20260701-PER-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-015" target="_blank" data-id="20260701-PER-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">El segundo expulsado del Mundial por la Ley Prestianni: Piero Hincapie vio la tarjeta roja por llevarse la mano a la boca</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:09 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-015">＋</button><button class="vote-btn down" data-id="20260701-PER-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-016" target="_blank" data-id="20260701-PER-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">Ingeniero murió tras sufrir un accidente mientras practicaba parapente en Arequipa</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-016">＋</button><button class="vote-btn down" data-id="20260701-PER-016">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-017" target="_blank" data-id="20260701-PER-017"><span class="row-num">17</span><div class="row-body"><span class="row-title">El récord de Pelé y que Gilberto Mora se quedó cerca de romper en el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-017">＋</button><button class="vote-btn down" data-id="20260701-PER-017">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-018" target="_blank" data-id="20260701-PER-018"><span class="row-num">18</span><div class="row-body"><span class="row-title">Tabla de goleadores del Mundial 2026 EN VIVO: estos son los máximos anotadores de la Copa del Mundo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 07:00 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-018">＋</button><button class="vote-btn down" data-id="20260701-PER-018">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-019" target="_blank" data-id="20260701-PER-019"><span class="row-num">19</span><div class="row-body"><span class="row-title">Murió Juan Sotomayor, exalcalde provincial del Callao, a los 72 años</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:53 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-019">＋</button><button class="vote-btn down" data-id="20260701-PER-019">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-020" target="_blank" data-id="20260701-PER-020"><span class="row-num">20</span><div class="row-body"><span class="row-title">Partidos del miércoles 1 de julio de 2026: horarios y canales TV para ver EN VIVO el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:15 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-020">＋</button><button class="vote-btn down" data-id="20260701-PER-020">－</button></div></a></div><div class="section" id="s-colombia"><div class="section-hdr">🇨🇴 Colombia — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-001" target="_blank" data-id="20260701-COL-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Banco Agrario completa cinco días con fallas en su web, app y Bre-B</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">larepublica &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-001">＋</button><button class="vote-btn down" data-id="20260701-COL-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-002" target="_blank" data-id="20260701-COL-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Miguel Gómez Martínez será el nuevo ministro de Hacienda del gobierno de Abelardo de la Espriella</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">diariodelsur &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-002">＋</button><button class="vote-btn down" data-id="20260701-COL-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-003" target="_blank" data-id="20260701-COL-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">Precio del ACPM y la gasolina no subirá en el mes de julio, confirma Ministerio de Hacienda</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">elheraldo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-003">＋</button><button class="vote-btn down" data-id="20260701-COL-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-004" target="_blank" data-id="20260701-COL-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">Constructoras colombianas sumaron $91,78 billones en ingresos en 2025</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">portafolio &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-004">＋</button><button class="vote-btn down" data-id="20260701-COL-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-005" target="_blank" data-id="20260701-COL-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Accionistas retoman el control de la EPS Savia Salud y ordenan auditoría forense por millonario déficit</span><div class="row-meta"><span class="tag tag-sociedad">Salud</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-005">＋</button><button class="vote-btn down" data-id="20260701-COL-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-006" target="_blank" data-id="20260701-COL-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Las tres megaobras clave en Antioquia que heredará el gobierno de Abelardo De la Espriella</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-006">＋</button><button class="vote-btn down" data-id="20260701-COL-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-007" target="_blank" data-id="20260701-COL-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">La situación de salud de Miguel Uribe y el luto que golpea a la familia Uribe Turbay</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">semana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-007">＋</button><button class="vote-btn down" data-id="20260701-COL-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-008" target="_blank" data-id="20260701-COL-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Proyecto Túnel del Toyo: la importancia del túnel cero para conectar a Medellín con el Urabá antioqueño</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-008">＋</button><button class="vote-btn down" data-id="20260701-COL-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-009" target="_blank" data-id="20260701-COL-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">United Airlines conectará a Cartagena con Houston y Washington D.C. sin escalas</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-009">＋</button><button class="vote-btn down" data-id="20260701-COL-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-010" target="_blank" data-id="20260701-COL-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Rescatistas colombianos apoyan en la búsqueda de supervivientes tras tragedia en Venezuela</span><div class="row-meta"><span class="tag tag-politica">Internacional</span></div><div class="row-byline">kienyke &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-010">＋</button><button class="vote-btn down" data-id="20260701-COL-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-011" target="_blank" data-id="20260701-COL-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">Metro Cali define el futuro de los buses del transporte tradicional colectivo</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-011">＋</button><button class="vote-btn down" data-id="20260701-COL-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-012" target="_blank" data-id="20260701-COL-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Puente de Juanchito cumple dos años de operación aliviando movilidad entre Cali y el sur del Valle</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-012">＋</button><button class="vote-btn down" data-id="20260701-COL-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-013" target="_blank" data-id="20260701-COL-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">Sismo de magnitud 3,4 se registró en Colombia la noche del martes 30 de junio</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-013">＋</button><button class="vote-btn down" data-id="20260701-COL-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-014" target="_blank" data-id="20260701-COL-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">Así inicia la rotación del pico y placa en Cali para el segundo semestre de 2026</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-014">＋</button><button class="vote-btn down" data-id="20260701-COL-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-015" target="_blank" data-id="20260701-COL-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">Funcionamiento de la medida de pico y placa en Bucaramanga a partir de julio de 2026</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-015">＋</button><button class="vote-btn down" data-id="20260701-COL-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-016" target="_blank" data-id="20260701-COL-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">La experiencia inmersiva del arte de Van Gogh llega al Gran Malecón de Barranquilla</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-016">＋</button><button class="vote-btn down" data-id="20260701-COL-016">－</button></div></a></div><div class="section" id="s-fintech"><div class="section-hdr">💳 Latam Fintech — 10 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-001" target="_blank" data-id="20260701-FIN-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Trii facilitará el acceso a la Bolsa de Nueva York para inversores en Colombia y Perú</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">iupana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-001">＋</button><button class="vote-btn down" data-id="20260701-FIN-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-002" target="_blank" data-id="20260701-FIN-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Finsus avanza en su solicitud de licencia bancaria y planifica expansion en América Latina</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">iupana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-002">＋</button><button class="vote-btn down" data-id="20260701-FIN-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-003" target="_blank" data-id="20260701-FIN-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">American Express y Apple Pay permiten a los usuarios realizar pagos utilizando puntos de recompensa</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-003">＋</button><button class="vote-btn down" data-id="20260701-FIN-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-004" target="_blank" data-id="20260701-FIN-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">El 51% de los usuarios de BNPL recurre a este método de pago por necesidad financiera</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-004">＋</button><button class="vote-btn down" data-id="20260701-FIN-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-005" target="_blank" data-id="20260701-FIN-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Comité del Congreso de EE.UU. avanza proyectos de ley para dotar a los bancos de nuevas herramientas contra el fraude</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-005">＋</button><button class="vote-btn down" data-id="20260701-FIN-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-006" target="_blank" data-id="20260701-FIN-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">La digitalización convierte a la factura en el nuevo carrito de compras para los pagos B2B</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-006">＋</button><button class="vote-btn down" data-id="20260701-FIN-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-007" target="_blank" data-id="20260701-FIN-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Google Cloud se asocia con FactSet para expandir su presencia en los mercados financieros mediante inteligencia artificial</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-007">＋</button><button class="vote-btn down" data-id="20260701-FIN-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-008" target="_blank" data-id="20260701-FIN-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Anthropic reduce los costos de agentes de inteligencia artificial con el lanzamiento de Claude Sonnet 5</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-008">＋</button><button class="vote-btn down" data-id="20260701-FIN-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-009" target="_blank" data-id="20260701-FIN-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">Las pequeñas empresas enfrentan dificultades de flujo de caja similares a las de las corporaciones</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-009">＋</button><button class="vote-btn down" data-id="20260701-FIN-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-010" target="_blank" data-id="20260701-FIN-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Cooperativas de crédito buscan competir por relaciones comerciales con empresas de mayor tamaño</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-010">＋</button><button class="vote-btn down" data-id="20260701-FIN-010">－</button></div></a></div><div class="section" id="s-numero"><div class="section-hdr">📌 Número del Día</div><div class="numero"><div class="numero-titlebar"><span class="tb-num-icon">📌</span><div class="ntl ntl-r"></div><div class="ntl ntl-y"></div><div class="ntl ntl-g"></div><span style="margin-left:6px">Número del día · 2026-07-01</span></div><div class="numero-body"><span class="numero-val">$91.78 B</span><div class="numero-desc">Las constructoras en Colombia sumaron ingresos por 91,78 billones de pesos durante el año 2025.<br><span style="font-size:11px;color:#888;margin-top:8px;display:block">Fuente: Noticias Colombia</span></div></div></div></div>
+  </div><!-- /content -->
+
+  <div class="statusbar">
+    <span class="status-item" id="statusSection">Bolivia &middot; 20 noticias</span>
+    <span class="status-item" id="statusVisited">0 le&iacute;das</span>
+    <span class="status-item" id="statusTime">1 Julio 2026</span>
+  </div>
+</div><!-- /window -->
+
+<!-- MODE SWITCHER -->
+<div class="mode-switcher">
+
+  <!-- Windows 95: classic waving flag logo -->
+  <button class="mode-btn active" data-theme="win95" onclick="setTheme('win95',this)" title="Windows 95">
+    <svg width="20" height="20" viewBox="0 0 88 88" fill="none">
+      <!-- Classic Windows 3.1/95 flag — four colored panes with perspective wave -->
+      <polygon points="4,12 40,6 40,42 4,42" fill="#E84B35"/>
+      <polygon points="44,5 84,0 84,40 44,42" fill="#53A63A"/>
+      <polygon points="4,46 40,46 40,82 4,76" fill="#4BADD2"/>
+      <polygon points="44,46 84,48 84,88 44,83" fill="#F8B84E"/>
+    </svg>
+  </button>
+
+  <!-- Mac 90s: classic Mac SE / compact Mac silhouette -->
+  <button class="mode-btn" data-theme="mac90" onclick="setTheme('mac90',this)" title="Mac OS 90s">
+    <svg width="18" height="20" viewBox="0 0 36 42" fill="currentColor">
+      <!-- Body -->
+      <rect x="3" y="0" width="30" height="34" rx="3" ry="3"/>
+      <!-- Screen bezel -->
+      <rect x="7" y="4" width="22" height="18" rx="1" ry="1" fill="white" opacity="0.85"/>
+      <!-- Screen content (classic happy mac face area) -->
+      <rect x="9" y="6" width="18" height="14" rx="1" fill="#b0c8b0"/>
+      <!-- Disk slot -->
+      <rect x="11" y="25" width="14" height="3" rx="1" fill="white" opacity="0.5"/>
+      <!-- Base / chin -->
+      <rect x="1" y="34" width="34" height="5" rx="2"/>
+      <!-- Feet -->
+      <rect x="6" y="39" width="8" height="3" rx="1"/>
+      <rect x="22" y="39" width="8" height="3" rx="1"/>
+    </svg>
+  </button>
+
+  <!-- Mac 2000 Aqua: Aqua drop / gel button shape -->
+  <button class="mode-btn" data-theme="aqua" onclick="setTheme('aqua',this)" title="Mac OS X Aqua">
+    <svg width="20" height="20" viewBox="0 0 40 40">
+      <!-- Aqua gel button — the iconic look of Mac OS X -->
+      <ellipse cx="20" cy="22" rx="17" ry="15" fill="url(#aqua-base)"/>
+      <ellipse cx="20" cy="22" rx="17" ry="15" fill="url(#aqua-grad)"/>
+      <!-- Gloss highlight -->
+      <ellipse cx="20" cy="13" rx="11" ry="6" fill="rgba(255,255,255,0.55)"/>
+      <!-- Inner shine dot -->
+      <ellipse cx="15" cy="11" rx="4" ry="2.5" fill="rgba(255,255,255,0.35)"/>
+      <defs>
+        <radialGradient id="aqua-base" cx="50%" cy="60%" r="55%">
+          <stop offset="0%" stop-color="#7ECBF5"/>
+          <stop offset="100%" stop-color="#1A5FAD"/>
+        </radialGradient>
+        <linearGradient id="aqua-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.0)"/>
+          <stop offset="100%" stop-color="rgba(0,60,140,0.25)"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </button>
+
+</div>
+
+<script>
+  // ── THEME SWITCHER ──
+  function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    localStorage.setItem('digest-theme', theme);
+  }
+  // Restore saved theme
+  const saved = localStorage.getItem('digest-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.querySelectorAll('.mode-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === saved);
+    });
+  }
+
+  // ── CLOCK ──
+  function updateClock() {
+    const now = new Date();
+    let h = now.getHours(); const m = String(now.getMinutes()).padStart(2,'0');
+    const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+    const t = h + ':' + m + ' ' + ap;
+    const cl = document.getElementById('sysClock'); if (cl) cl.textContent = t;
+    const st = document.getElementById('statusTime'); if (st) st.textContent = '1 Julio 2026 · ' + t;
+  }
+  updateClock(); setInterval(updateClock, 1000);
+
+  // ── TAB SWITCHING ──
+  const SM = {
+    bolivia: 'Bolivia · 20 noticias',
+    peru: 'Perú · 20 noticias',
+    colombia: 'Colombia · 20 noticias',
+    fintech: 'Latam Fintech · 10 noticias',
+    numero: 'Número del Día'
+  };
+  function switchTab(tab) {
+    const s = tab.dataset.section;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
+    document.getElementById('s-' + s).classList.add('active');
+    document.getElementById('sectionInfo').textContent = SM[s] || '';
+    document.getElementById('statusSection').textContent = SM[s] || '';
+    document.getElementById('mainContent').scrollTop = 0;
+    updateVisited();
+  }
+
+  // ── VOTE — exclusive toggle ──
+  const VS = {};
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      const id = btn.dataset.id; const isUp = btn.classList.contains('up');
+      const row = btn.closest('.news-row');
+      const up = row.querySelector('.vote-btn.up');
+      const dn = row.querySelector('.vote-btn.down');
+      const cur = VS[id];
+      up.classList.remove('active-up'); dn.classList.remove('active-down');
+      if (isUp && cur !== 'up')       { VS[id] = 'up';   up.classList.add('active-up'); }
+      else if (!isUp && cur !== 'down') { VS[id] = 'down'; dn.classList.add('active-down'); }
+      else { delete VS[id]; }
+    });
+  });
+
+  // ── VISITED TRACKING ──
+  const visited = new Set();
+  function updateVisited() {
+    const sec = document.querySelector('.section.active'); if (!sec) return;
+    const rows = sec.querySelectorAll('.news-row[data-id]');
+    let c = 0; rows.forEach(r => { if (visited.has(r.dataset.id)) c++; });
+    document.getElementById('visitedCount').textContent = c + '/' + rows.length + ' leídas';
+    document.getElementById('statusVisited').textContent = c + ' leídas';
+  }
+  document.querySelectorAll('.news-row[data-id]').forEach(row => {
+    row.addEventListener('click', function(e) {
+      if (e.target.classList.contains('vote-btn')) return;
+      const id = this.dataset.id;
+      if (!visited.has(id)) {
+        visited.add(id); this.classList.add('visited');
+        const meta = this.querySelector('.row-meta');
+        if (meta && !meta.querySelector('.chip-visited')) {
+          const chip = document.createElement('span');
+          chip.className = 'chip-visited'; chip.textContent = '✓ leído';
+          meta.prepend(chip);
+        }
+      }
+      updateVisited();
+    });
+  });
+  updateVisited();
+</script>
+</body>
+</html>
