@@ -1,739 +1,167 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="win95">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digest — 1 Julio 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
-/* ═══════════════════════════════════════════════
-   RESET & SHARED
-═══════════════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden}
-
-/* ═══════════════════════════════════════════════
-   THEME: Windows 95
-═══════════════════════════════════════════════ */
-[data-theme="win95"] {
-  --bg: #008080;
-  --window-bg: #ffffff;
-  --titlebar-bg: #000080;
-  --titlebar-text: #ffffff;
-  --menubar-bg: #d4d0c8;
-  --tabs-bg: #d4d0c8;
-  --tab-active-bg: #ffffff;
-  --tab-idle-bg: #c0c0c0;
-  --tab-active-text: #000000;
-  --tab-idle-text: #606060;
-  --tab-border: #808080;
-  --toolbar-bg: #d4d0c8;
-  --section-hdr-bg: #000080;
-  --section-hdr-text: #ffffff;
-  --ticker-bg: #000080;
-  --ticker-text: #ffff00;
-  --status-bg: #d4d0c8;
-  --status-text: #404040;
-  --status-item-bg: #c8c8c8;
-  --row-hover: rgba(0,0,128,0.06);
-  --row-even: #f8f8f8;
-  --row-new-bg: #fffacd;
-  --row-new-border: #cc6600;
-  --row-visited-bg: #eee0ff;
-  --link: #0000cc;
-  --link-visited: #6b1f9e;
-  --separator: #d0d0d0;
-  --text-dim: #606060;
-  --edition-bg: #fff3cc;
-  --edition-border: rgba(200,140,0,0.40);
-  --edition-text: #cc6600;
-  --badge-bg: #cc0000;
-  --vote-btn-bg: #c0c0c0;
-  --vote-btn-border-light: #ffffff;
-  --vote-btn-border-dark: #808080;
-  --vote-up-active: #ccffcc;
-  --vote-down-active: #ffcccc;
-  --numero-val-color: #000080;
-  --font: 'Tahoma','MS Sans Serif',Arial,sans-serif;
-  --font-mono: 'Courier New',monospace;
-  --tab-radius: 3px 3px 0 0;
-  --window-shadow: none;
-  --window-border: 2px outset #c0c0c0;
-  --window-margin: 4px;
-}
-
-/* ═══════════════════════════════════════════════
-   THEME: macOS 90s (System 7 / Platinum)
-═══════════════════════════════════════════════ */
-[data-theme="mac90"] {
-  --bg: #aaaaaa;
-  --window-bg: #ffffff;
-  --titlebar-bg: linear-gradient(180deg,#e0e0e0 0%,#c0c0c0 100%);
-  --titlebar-text: #000000;
-  --menubar-bg: #ffffff;
-  --tabs-bg: #cccccc;
-  --tab-active-bg: #ffffff;
-  --tab-idle-bg: #c8c8c8;
-  --tab-active-text: #000000;
-  --tab-idle-text: #666666;
-  --tab-border: #888888;
-  --toolbar-bg: #eeeeee;
-  --section-hdr-bg: #cccccc;
-  --section-hdr-text: #000000;
-  --ticker-bg: #000000;
-  --ticker-text: #ffffff;
-  --status-bg: #cccccc;
-  --status-text: #444444;
-  --status-item-bg: #dddddd;
-  --row-hover: #f0f0f0;
-  --row-even: #fafafa;
-  --row-new-bg: #ffffcc;
-  --row-new-border: #cc6600;
-  --row-visited-bg: #eee0ff;
-  --link: #0000cc;
-  --link-visited: #660099;
-  --separator: #cccccc;
-  --text-dim: #666666;
-  --edition-bg: #fff8dc;
-  --edition-border: rgba(200,140,0,0.30);
-  --edition-text: #cc6600;
-  --badge-bg: #cc0000;
-  --vote-btn-bg: #cccccc;
-  --vote-btn-border-light: rgba(255,255,255,0.9);
-  --vote-btn-border-dark: rgba(0,0,0,0.4);
-  --vote-up-active: #ccffcc;
-  --vote-down-active: #ffcccc;
-  --numero-val-color: #000000;
-  --font: 'Geneva','Helvetica',Arial,sans-serif;
-  --font-mono: 'Monaco','Courier New',monospace;
-  --tab-radius: 4px 4px 0 0;
-  --window-shadow: 2px 2px 0 #000;
-  --window-border: 1px solid #000;
-  --window-margin: 6px;
-}
-
-/* ═══════════════════════════════════════════════
-   THEME: macOS Aqua 2000
-═══════════════════════════════════════════════ */
-[data-theme="aqua"] {
-  --bg: linear-gradient(160deg,#6aaad8 0%,#3070b0 40%,#1a4a8c 100%);
-  --window-bg: #ffffff;
-  --titlebar-bg: linear-gradient(180deg,#8bbee8 0%,#5a9fd4 18%,#3a80c0 50%,#2060a0 82%,#4080c8 100%);
-  --titlebar-text: #ffffff;
-  --menubar-bg: linear-gradient(180deg,rgba(255,255,255,0.95) 0%,rgba(240,244,252,0.95) 50%,rgba(220,232,248,0.95) 100%);
-  --tabs-bg: linear-gradient(180deg,#d8e8f8 0%,#c0d4ee 100%);
-  --tab-active-bg: linear-gradient(180deg,#eef4ff 0%,#d0e4ff 40%,#b8d4f8 100%);
-  --tab-idle-bg: linear-gradient(180deg,#e0e8f4 0%,#c8d8ec 100%);
-  --tab-active-text: #1a5fad;
-  --tab-idle-text: #4a5070;
-  --tab-border: rgba(60,100,180,0.30);
-  --toolbar-bg: linear-gradient(180deg,#eef2f8 0%,#d8e4f2 100%);
-  --section-hdr-bg: linear-gradient(180deg,#c8d8f0 0%,#a8c0e8 100%);
-  --section-hdr-text: #1a5fad;
-  --ticker-bg: linear-gradient(180deg,#1a4888 0%,#0e2e60 100%);
-  --ticker-text: #a8d0ff;
-  --status-bg: linear-gradient(180deg,#d8e4f4 0%,#c0d0e8 100%);
-  --status-text: #4a5070;
-  --status-item-bg: rgba(255,255,255,0.50);
-  --row-hover: #e4eeff;
-  --row-even: #f5f8ff;
-  --row-new-bg: #fffde6;
-  --row-new-border: #cc6600;
-  --row-visited-bg: #f0ecff;
-  --link: #0050aa;
-  --link-visited: #6030aa;
-  --separator: rgba(180,200,230,0.50);
-  --text-dim: #8890aa;
-  --edition-bg: linear-gradient(180deg,#fff8dc 0%,#ffeea0 100%);
-  --edition-border: rgba(200,140,0,0.30);
-  --edition-text: #cc6600;
-  --badge-bg: linear-gradient(180deg,#ff6060,#cc1010);
-  --vote-btn-bg: linear-gradient(180deg,rgba(255,255,255,0.90) 0%,#d0e0f8 30%,#a8c4f0 70%,#c8dcf8 100%);
-  --vote-btn-border-light: rgba(60,100,200,0.40);
-  --vote-btn-border-dark: rgba(60,100,200,0.40);
-  --vote-up-active: linear-gradient(180deg,rgba(255,255,255,0.80) 0%,#aaeebb 30%,#55cc77 100%);
-  --vote-down-active: linear-gradient(180deg,rgba(255,255,255,0.80) 0%,#ffaaaa 30%,#ee5555 100%);
-  --numero-val-color: #1a5fad;
-  --font: 'Nunito','Lucida Grande',Geneva,Helvetica,sans-serif;
-  --font-mono: 'Lucida Console','Monaco',monospace;
-  --tab-radius: 5px 5px 0 0;
-  --window-shadow: 0 8px 32px rgba(0,20,80,0.40),0 2px 8px rgba(0,0,0,0.25);
-  --window-border: 1px solid rgba(60,100,180,0.40);
-  --window-margin: 6px;
-}
-
-/* ═══════════════════════════════════════════════
-   GOOGLE FONTS (loaded per theme)
-═══════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&display=swap');
-
-/* ═══════════════════════════════════════════════
-   LAYOUT
-═══════════════════════════════════════════════ */
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  font-size: 13px;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-}
-
-/* Win95 bg texture */
-[data-theme="win95"] body {
-  background-image: repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px);
-}
-/* Mac90 bg texture */
-[data-theme="mac90"] body {
-  background-image: repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.08) 1px,rgba(0,0,0,0.08) 2px),repeating-linear-gradient(90deg,transparent,transparent 1px,rgba(0,0,0,0.08) 1px,rgba(0,0,0,0.08) 2px);
-  background-size: 8px 8px;
-}
-
-/* ── MENUBAR ── */
-.menubar {
-  background: var(--menubar-bg);
-  height: 22px;
-  display: flex; align-items: center;
-  padding: 0 8px;
-  flex-shrink: 0;
-  font-size: 12px; font-weight: 600;
-  border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-[data-theme="win95"] .menubar { display: none; }
-.menubar-apple { font-size: 15px; margin-right: 14px; }
-.menubar-item { padding: 0 10px; height: 100%; display: flex; align-items: center; cursor: pointer; }
-.menubar-item:hover { background: #000080; color: #fff; border-radius: 2px; }
-[data-theme="aqua"] .menubar-item:hover { background: linear-gradient(180deg,#3a70c0,#1a50a0); border-radius: 3px; }
-.menubar-right { margin-left: auto; font-size: 11px; color: #666; font-variant-numeric: tabular-nums; }
-[data-theme="aqua"] .menubar-right { color: #4a5070; }
-
-/* ── WINDOW ── */
-.window {
-  display: flex; flex-direction: column; flex: 1;
-  margin: var(--window-margin);
-  border: var(--window-border);
-  box-shadow: var(--window-shadow);
-  overflow: hidden;
-  background: var(--window-bg);
-}
-[data-theme="win95"] .window { margin-bottom: 0; }
-[data-theme="aqua"] .window { border-radius: 8px; }
-
-/* ── TITLEBAR ── */
-.titlebar {
-  background: var(--titlebar-bg);
-  height: 28px;
-  display: flex; align-items: center;
-  padding: 0 8px; gap: 8px;
-  flex-shrink: 0;
-  border-bottom: 1px solid rgba(0,0,0,0.20);
-  position: relative;
-}
-[data-theme="win95"] .titlebar { height: 24px; }
-[data-theme="aqua"] .titlebar::after {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
-  background: linear-gradient(180deg,rgba(255,255,255,0.30) 0%,transparent 100%);
-  pointer-events: none;
-}
-
-/* Win95 titlebar controls */
-.tb-win-title { font-size: 12px; font-weight: bold; color: #fff; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tb-win-btns { display: flex; gap: 2px; }
-.tb-win-btn { width: 18px; height: 16px; background: #c0c0c0; border: 1px outset #e0e0e0; font-size: 9px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #000; }
-[data-theme="mac90"] .tb-win-btns, [data-theme="aqua"] .tb-win-btns { display: none; }
-[data-theme="mac90"] .tb-win-title { display: none; }
-[data-theme="aqua"] .tb-win-title { display: none; }
-
-/* Mac90 titlebar */
-.tb-mac-close { width: 13px; height: 13px; background: #eeeeee; border: 1px solid #000; border-radius: 1px; flex-shrink: 0; cursor: pointer; z-index: 1; }
-.tb-mac-title { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: bold; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 40px; z-index: 1; color: var(--titlebar-text); }
-.tb-mac-zoom { margin-left: auto; z-index: 1; width: 13px; height: 13px; background: #eeeeee; border: 1px solid #000; border-radius: 1px; flex-shrink: 0; cursor: pointer; }
-.titlebar-stripes {
-  position: absolute; inset: 3px 32px;
-  background-image: repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.12) 1px,rgba(0,0,0,0.12) 2px);
-  pointer-events: none;
-}
-[data-theme="win95"] .tb-mac-close, [data-theme="win95"] .tb-mac-title, [data-theme="win95"] .tb-mac-zoom, [data-theme="win95"] .titlebar-stripes { display: none; }
-[data-theme="aqua"] .tb-mac-close, [data-theme="aqua"] .tb-mac-title, [data-theme="aqua"] .tb-mac-zoom, [data-theme="aqua"] .titlebar-stripes { display: none; }
-
-/* Aqua traffic lights */
-.traffic-lights { display: flex; gap: 5px; z-index: 1; }
-.tl { width: 13px; height: 13px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.20); cursor: pointer; position: relative; box-shadow: inset 0 1px 0 rgba(255,255,255,0.50),0 1px 2px rgba(0,0,0,0.30); }
-.tl::after { content: ''; position: absolute; top: 2px; left: 2px; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.50); }
-.tl-red    { background: radial-gradient(circle at 40% 35%,#ff8070,#ff5f57 60%,#cc2020); }
-.tl-yellow { background: radial-gradient(circle at 40% 35%,#ffe080,#ffbd2e 60%,#cc8800); }
-.tl-green  { background: radial-gradient(circle at 40% 35%,#80e880,#28c840 60%,#008820); }
-.aqua-title { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,40,0.50); pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 80px; z-index: 1; }
-[data-theme="win95"] .traffic-lights, [data-theme="win95"] .aqua-title { display: none; }
-[data-theme="mac90"] .traffic-lights, [data-theme="mac90"] .aqua-title { display: none; }
-
-/* ── TICKER ── */
-.ticker-bar {
-  background: var(--ticker-bg);
-  color: var(--ticker-text);
-  font-size: 11px; font-weight: bold;
-  padding: 3px 0; overflow: hidden; flex-shrink: 0;
-  white-space: nowrap; border-bottom: 1px solid rgba(0,0,0,0.20);
-}
-.ticker-inner { display: inline-block; animation: scroll-ticker 28s linear infinite; }
-@keyframes scroll-ticker { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
-
-/* ── TABS ── */
-.tabs-bar {
-  background: var(--tabs-bg);
-  border-bottom: 1px solid rgba(0,0,0,0.20);
-  display: flex; gap: 2px;
-  padding: 4px 6px 0;
-  overflow-x: auto; overflow-y: hidden;
-  scrollbar-width: none; flex-shrink: 0;
-  touch-action: pan-x; overscroll-behavior-x: contain;
-}
-.tabs-bar::-webkit-scrollbar { display: none; }
-.tab {
-  padding: 5px 12px;
-  font-size: 11px; font-weight: bold;
-  background: var(--tab-idle-bg);
-  border: 1px solid var(--tab-border);
-  border-bottom: none;
-  border-radius: var(--tab-radius);
-  cursor: pointer; white-space: nowrap;
-  color: var(--tab-idle-text);
-  margin-right: 2px;
-  display: flex; align-items: center; gap: 5px;
-  position: relative; top: 1px; min-height: 26px;
-}
-[data-theme="aqua"] .tab { box-shadow: inset 0 1px 0 rgba(255,255,255,0.70); }
-.tab.active {
-  background: var(--tab-active-bg);
-  color: var(--tab-active-text);
-  border-bottom: 1px solid var(--window-bg);
-  z-index: 1;
-}
-[data-theme="aqua"] .tab.active { box-shadow: inset 0 1px 0 rgba(255,255,255,0.90); }
-.tab-badge {
-  background: var(--badge-bg);
-  color: #fff; font-size: 9px; font-weight: bold;
-  padding: 1px 5px; border-radius: 8px;
-  min-width: 16px; text-align: center;
-}
-[data-theme="win95"] .tab-badge { border-radius: 2px; }
-[data-theme="mac90"] .tab-badge { border-radius: 3px; }
-
-/* ── TOOLBAR ── */
-.toolbar {
-  background: var(--toolbar-bg);
-  border-bottom: 1px solid rgba(0,0,0,0.12);
-  padding: 3px 8px;
-  display: flex; align-items: center; gap: 8px;
-  flex-shrink: 0;
-}
-[data-theme="aqua"] .toolbar { box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
-.toolbar-info { font-size: 11px; color: var(--text-dim); }
-.toolbar-sep { width: 1px; height: 16px; background: rgba(0,0,0,0.15); }
-.toolbar-edition {
-  margin-left: auto;
-  border: 1px solid rgba(180,120,0,0.40);
-  color: #cc6600;
-  font-size: 10px; font-weight: bold;
-  padding: 2px 8px; background: #fff3cc;
-}
-[data-theme="aqua"] .toolbar-edition { border-radius: 9px; background: linear-gradient(180deg,#ffe8a0,#ffd060); box-shadow: inset 0 1px 0 rgba(255,255,255,0.60); }
-[data-theme="mac90"] .toolbar-edition { border-radius: 3px; }
-
-/* ── CONTENT ── */
-.content { flex: 1; overflow-y: auto; background: var(--window-bg); -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
-.section { display: none; }
-.section.active { display: block; }
-
-/* ── SECTION HDR ── */
-.section-hdr {
-  background: var(--section-hdr-bg);
-  color: var(--section-hdr-text);
-  padding: 5px 10px;
-  font-size: 12px; font-weight: bold;
-  display: flex; align-items: center; gap: 8px;
-  position: sticky; top: 0; z-index: 10;
-  border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-[data-theme="aqua"] .section-hdr { box-shadow: 0 1px 4px rgba(60,100,200,0.10); }
-.section-new-badge {
-  margin-left: auto;
-  background: #cc6600; color: #fff;
-  font-size: 9px; font-weight: bold; padding: 2px 8px;
-}
-[data-theme="mac90"] .section-new-badge { border-radius: 3px; }
-[data-theme="aqua"] .section-new-badge { background: linear-gradient(180deg,#ffaa40,#ff8800); border-radius: 9px; box-shadow: 0 1px 3px rgba(180,80,0,0.30); }
-
-/* ── NEWS ROW ── */
-.news-row {
-  display: flex; align-items: flex-start;
-  padding: 9px 10px;
-  border-bottom: 1px solid var(--separator);
-  cursor: pointer; text-decoration: none; color: inherit; gap: 8px;
-  transition: background 0.1s;
-}
-.news-row:nth-child(even) { background: var(--row-even); }
-.news-row:hover { background: var(--row-hover); }
-.news-row.visited { background: var(--row-visited-bg); }
-.news-row.is-new { background: var(--row-new-bg); border-left: 3px solid var(--row-new-border); padding-left: 7px; }
-
-.row-num {
-  font-size: 11px; font-weight: bold; color: var(--text-dim);
-  min-width: 20px; padding-top: 1px; font-variant-numeric: tabular-nums; flex-shrink: 0;
-  font-family: var(--font-mono);
-}
-.news-row.visited .row-num { color: var(--link-visited); }
-.news-row.is-new .row-num { color: #cc6600; }
-
-.row-body { flex: 1; min-width: 0; }
-.row-title { font-size: 13px; color: var(--link); line-height: 1.35; display: block; margin-bottom: 4px; word-break: break-word; }
-[data-theme="win95"] .row-title { text-decoration: underline; }
-.news-row.visited .row-title { color: var(--link-visited); }
-.news-row.is-new .row-title { color: #2a1800; font-weight: bold; }
-[data-theme="win95"] .news-row.is-new .row-title { text-decoration: none; }
-
-.row-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
-.row-byline { font-size: 10px; color: var(--text-dim); }
-
-/* Tags */
-.tag { font-size: 9px; font-weight: bold; padding: 1px 6px; text-transform: uppercase; border: 1px solid; letter-spacing: 0.3px; }
-[data-theme="mac90"] .tag { border-radius: 9px; }
-[data-theme="aqua"] .tag { border-radius: 9px; border: none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.50); }
-.tag-economia { color: #004422; border-color: #006633; background: #eeffee; }
-.tag-politica { color: #000080; border-color: #0000aa; background: #eeeeff; }
-.tag-sociedad { color: #663300; border-color: #884400; background: #fff5ee; }
-.tag-judicial  { color: #660000; border-color: #880000; background: #ffeeee; }
-.tag-fintech   { color: #330066; border-color: #550088; background: #f5eeff; }
-.tag-deportes  { color: #003355; border-color: #004466; background: #eef8ff; }
-[data-theme="aqua"] .tag-economia { background: linear-gradient(180deg,#aaeebb,#66cc88); }
-[data-theme="aqua"] .tag-politica { background: linear-gradient(180deg,#aaccff,#6699ee); }
-[data-theme="aqua"] .tag-sociedad { background: linear-gradient(180deg,#ffddaa,#ffaa55); }
-[data-theme="aqua"] .tag-judicial  { background: linear-gradient(180deg,#ffaaaa,#ee6666); }
-[data-theme="aqua"] .tag-fintech   { background: linear-gradient(180deg,#ddaaff,#aa66ee); }
-[data-theme="aqua"] .tag-deportes  { background: linear-gradient(180deg,#aaeeff,#55ccee); }
-
-/* Chips */
-.chip-new {
-  font-size: 9px; font-weight: bold; padding: 1px 6px;
-  background: #cc0000; color: #fff; border: 1px solid #880000;
-  animation: blink-chip 1.3s step-end infinite;
-}
-[data-theme="mac90"] .chip-new { border-radius: 9px; }
-[data-theme="aqua"] .chip-new { border-radius: 9px; border: none; animation: aqua-pulse 1.6s ease-in-out infinite; background: linear-gradient(180deg,#ff8080,#dd2020); }
-@keyframes blink-chip { 0%,100%{opacity:1} 50%{opacity:0.2} }
-@keyframes aqua-pulse { 0%,100%{box-shadow:0 1px 3px rgba(180,0,0,0.30)} 50%{box-shadow:0 2px 8px rgba(220,0,0,0.50)} }
-
-.chip-visited {
-  font-size: 9px; padding: 1px 6px;
-  background: var(--row-visited-bg); color: var(--link-visited);
-  border: 1px solid var(--link-visited);
-}
-[data-theme="mac90"] .chip-visited { border-radius: 9px; }
-[data-theme="aqua"] .chip-visited { border-radius: 9px; border: none; background: linear-gradient(180deg,#ddccff,#bb99ee); }
-
-/* Vote buttons */
-.row-actions { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; padding-top: 1px; }
-.vote-btn {
-  width: 40px; height: 28px;
-  background: var(--vote-btn-bg);
-  border-top: 1px solid var(--vote-btn-border-light);
-  border-left: 1px solid var(--vote-btn-border-light);
-  border-right: 1px solid var(--vote-btn-border-dark);
-  border-bottom: 1px solid var(--vote-btn-border-dark);
-  font-size: 14px; font-weight: bold; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  color: #333;
-}
-[data-theme="mac90"] .vote-btn { border-radius: 4px; box-shadow: 1px 1px 0 rgba(0,0,0,0.20); }
-[data-theme="aqua"] .vote-btn { border-radius: 6px; border: 1px solid rgba(60,100,200,0.40); color: #1a5fad; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80),0 1px 3px rgba(0,30,120,0.20); }
-.vote-btn:active { border-top-color: var(--vote-btn-border-dark); border-left-color: var(--vote-btn-border-dark); border-right-color: var(--vote-btn-border-light); border-bottom-color: var(--vote-btn-border-light); }
-[data-theme="aqua"] .vote-btn:active { box-shadow: inset 0 2px 4px rgba(0,30,120,0.20); }
-.vote-btn.active-up { background: var(--vote-up-active); color: #006600; border-color: #005500; }
-.vote-btn.active-down { background: var(--vote-down-active); color: #880000; border-color: #880000; }
-[data-theme="aqua"] .vote-btn.active-up { border-color: rgba(0,120,40,0.50); color: #007700; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
-[data-theme="aqua"] .vote-btn.active-down { border-color: rgba(180,0,0,0.40); color: #bb0000; box-shadow: inset 0 1px 0 rgba(255,255,255,0.80); }
-
-/* Edition divider */
-.edition-div {
-  background: var(--edition-bg);
-  border-top: 1px solid var(--edition-border);
-  border-bottom: 1px solid var(--edition-border);
-  padding: 6px 10px;
-  font-size: 11px; font-weight: bold; color: var(--edition-text);
-  display: flex; align-items: center; gap: 8px;
-}
-.edition-div-time { margin-left: auto; font-size: 10px; font-variant-numeric: tabular-nums; }
-
-/* Número */
-.numero { margin: 12px 10px; border: 1px solid rgba(0,0,0,0.20); }
-[data-theme="win95"] .numero { border: 2px outset #c0c0c0; }
-[data-theme="mac90"] .numero { box-shadow: 2px 2px 0 #000; }
-[data-theme="aqua"] .numero { border-radius: 10px; border-color: rgba(60,100,180,0.25); overflow: hidden; box-shadow: 0 4px 16px rgba(0,30,120,0.12); }
-.numero-titlebar { background: var(--titlebar-bg); color: var(--titlebar-text); padding: 5px 10px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px; }
-[data-theme="aqua"] .numero-titlebar { text-shadow: 0 1px 2px rgba(0,0,40,0.50); }
-.ntl { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.20); }
-.ntl-r { background: #ff5f57; } .ntl-y { background: #ffbd2e; } .ntl-g { background: #28c840; }
-[data-theme="win95"] .ntl, [data-theme="mac90"] .ntl { display: none; }
-[data-theme="win95"] .tb-num-icon { display: inline; }
-.tb-num-icon { display: none; }
-.numero-body { padding: 24px 12px; text-align: center; background: var(--window-bg); }
-[data-theme="aqua"] .numero-body { background: linear-gradient(180deg,#f0f6ff 0%,#ffffff 100%); }
-.numero-val { font-size: 64px; font-weight: bold; color: var(--numero-val-color); line-height: 1; display: block; margin-bottom: 10px; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
-[data-theme="aqua"] .numero-val { background: linear-gradient(180deg,#4a90d9,#0d3b7a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.numero-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
-
-/* ── STATUSBAR ── */
-.statusbar {
-  background: var(--status-bg);
-  border-top: 1px solid rgba(0,0,0,0.15);
-  padding: 2px 8px; display: flex; gap: 6px;
-  font-size: 10px; color: var(--status-text);
-  flex-shrink: 0; flex-wrap: wrap;
-}
-.status-item { background: var(--status-item-bg); border: 1px solid rgba(0,0,0,0.15); padding: 1px 8px; }
-[data-theme="aqua"] .status-item { border-radius: 4px; border-color: rgba(100,140,200,0.20); }
-
-/* ═══════════════════════════════════════════════
-   MODE SWITCHER PILL — floating
-═══════════════════════════════════════════════ */
-.mode-switcher {
-  position: fixed; bottom: 12px; right: 12px;
-  z-index: 9999;
-  display: flex; gap: 0;
-  border: 2px solid rgba(0,0,0,0.30);
-  border-radius: 14px; overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
-}
-.mode-btn {
-  width: 40px; height: 36px;
-  cursor: pointer; border: none;
-  background: rgba(210,210,210,0.97);
-  color: #444;
-  display: flex; align-items: center; justify-content: center;
-  border-right: 1px solid rgba(0,0,0,0.15);
-  transition: background 0.15s, color 0.15s;
-}
-.mode-btn:last-child { border-right: none; }
-.mode-btn:hover { background: rgba(185,185,185,0.97); color: #000; }
-.mode-btn.active { background: #000080; color: #fff; }
-[data-theme="mac90"] .mode-btn.active { background: #000000; color: #ffffff; }
-[data-theme="aqua"] .mode-btn.active { background: linear-gradient(180deg,#5a9fd4,#2060a0); color: #fff; }
+  :root{
+    --bg:#f4f5f7; --card:#ffffff; --text:#14161a; --text-dim:#6b7078; --border:#e8e9ec;
+    --accent:#2f6fed; --up:#1ea672; --down:#e0483e;
+    --tag-economia:#0e7a4a; --tag-economia-bg:#e6f6ee;
+    --tag-politica:#2f56c9; --tag-politica-bg:#eaefff;
+    --tag-sociedad:#a15c1c; --tag-sociedad-bg:#fbeee0;
+    --tag-judicial:#b3311f; --tag-judicial-bg:#fbe9e7;
+    --tag-fintech:#7238c9; --tag-fintech-bg:#f1e9fb;
+    --tag-deportes:#0a6e6e; --tag-deportes-bg:#e5f6f6;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif;
+    background:var(--bg); color:var(--text); height:100dvh; display:flex; flex-direction:column;
+  }
+  header{
+    background:var(--card); border-bottom:1px solid var(--border);
+    padding:14px 16px 0; flex-shrink:0; position:sticky; top:0; z-index:10;
+  }
+  .header-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+  .logo{font-size:20px; font-weight:800; letter-spacing:-0.02em;}
+  .logo span{color:var(--accent);}
+  .date{font-size:13px; color:var(--text-dim); font-weight:500;}
+  .chips{display:flex; gap:8px; overflow-x:auto; padding-bottom:12px; scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{
+    flex-shrink:0; padding:8px 16px; border-radius:20px; font-size:14px; font-weight:600;
+    background:#eef0f3; color:var(--text-dim); cursor:pointer; white-space:nowrap;
+    display:flex; align-items:center; gap:6px; transition:.15s;
+  }
+  .chip.active{background:var(--text); color:#fff;}
+  .chip .n{font-size:11px; opacity:.65;}
+  main{flex:1; overflow-y:auto; padding:16px; -webkit-overflow-scrolling:touch;}
+  .section{display:none;}
+  .section.active{display:flex; flex-direction:column; gap:2px;}
+  .numero-card{
+    background:linear-gradient(135deg,#1a2a6c,#2f6fed); color:#fff; border-radius:20px;
+    padding:24px 20px; margin-bottom:8px;
+  }
+  .numero-label{font-size:13px; font-weight:600; opacity:.85; text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px;}
+  .numero-val{font-size:52px; font-weight:800; letter-spacing:-0.02em; line-height:1;}
+  .numero-desc{font-size:14px; opacity:.9; margin-top:8px; line-height:1.4;}
+  .card{
+    display:flex; gap:12px; align-items:flex-start;
+    padding:14px 2px; cursor:pointer; transition:.15s; position:relative;
+    border-bottom:1px solid var(--border); text-decoration:none; color:inherit;
+  }
+  .card:active{opacity:.85;}
+  .card.visited{opacity:.55;}
+  .card-main{flex:1; min-width:0;}
+  .card-top{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
+  .tag{font-size:10px; font-weight:700; padding:3px 9px; border-radius:8px; text-transform:uppercase; letter-spacing:.02em;}
+  .tag-economia{color:var(--tag-economia); background:var(--tag-economia-bg);}
+  .tag-politica{color:var(--tag-politica); background:var(--tag-politica-bg);}
+  .tag-sociedad{color:var(--tag-sociedad); background:var(--tag-sociedad-bg);}
+  .tag-judicial{color:var(--tag-judicial); background:var(--tag-judicial-bg);}
+  .tag-fintech{color:var(--tag-fintech); background:var(--tag-fintech-bg);}
+  .tag-deportes{color:var(--tag-deportes); background:var(--tag-deportes-bg);}
+  .new-dot{width:8px; height:8px; border-radius:50%; background:var(--accent); margin-left:auto;}
+  .card-title{
+    font-size:15px; font-weight:700; line-height:1.32; letter-spacing:-0.01em; margin-bottom:5px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .card-excerpt{
+    font-size:13px; color:var(--text-dim); line-height:1.4; margin-bottom:7px; opacity:.85;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .card-meta{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .meta-left{font-size:12px; color:var(--text-dim); display:flex; align-items:center; gap:6px;}
+  .meta-left b{color:var(--text); font-weight:600;}
+  .dot-sep{width:3px; height:3px; border-radius:50%; background:var(--text-dim);}
+  .votes{display:flex; gap:6px;}
+  .vote-btn{
+    width:30px; height:30px; border-radius:9px; border:1px solid var(--border);
+    background:#fafafa; font-size:14px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; color:var(--text-dim);
+  }
+  .vote-btn.active-up{background:#e6f6ee; border-color:var(--up); color:var(--up);}
+  .vote-btn.active-down{background:#fbe9e7; border-color:var(--down); color:var(--down);}
+  .card-thumb{
+    width:100px; height:112px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:26px;
+    background-size:cover; background-position:center; overflow:hidden;
+  }
+  .thumb-economia{background-color:var(--tag-economia-bg);}
+  .thumb-politica{background-color:var(--tag-politica-bg);}
+  .thumb-sociedad{background-color:var(--tag-sociedad-bg);}
+  .thumb-judicial{background-color:var(--tag-judicial-bg);}
+  .thumb-fintech{background-color:var(--tag-fintech-bg);}
+  .thumb-deportes{background-color:var(--tag-deportes-bg);}
+  .card-thumb.photo{font-size:0;}
+  .card-thumb.no-photo{font-size:22px;}
+  nav.bottom{
+    background:var(--card); border-top:1px solid var(--border); display:flex; flex-shrink:0;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .nav-item{
+    flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; padding:10px 0 8px;
+    color:var(--text-dim); cursor:pointer; font-size:11px; font-weight:600; position:relative;
+  }
+  .nav-item.active{color:var(--accent);}
+  .nav-icon{font-size:20px;}
+  .nav-badge{
+    position:absolute; top:4px; right:calc(50% - 20px); background:var(--down); color:#fff;
+    font-size:9px; font-weight:800; padding:1px 5px; border-radius:8px; min-width:14px; text-align:center;
+  }
 </style>
 </head>
 <body>
 
-<!-- MENUBAR (mac90 + aqua only) -->
-<div class="menubar">
-  <span class="menubar-apple">&#63743;</span>
-  <span class="menubar-item">Finder</span>
-  <span class="menubar-item">Archivo</span>
-  <span class="menubar-item">Ver</span>
-  <div class="menubar-right" id="sysClock">12:00 PM</div>
-</div>
-
-<!-- WINDOW -->
-<div class="window">
-
-  <!-- TITLEBAR -->
-  <div class="titlebar">
-    <!-- Win95 -->
-    <span class="tb-win-title">&#128240; Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</span>
-    <div class="tb-win-btns"><div class="tb-win-btn">_</div><div class="tb-win-btn">&#9633;</div><div class="tb-win-btn">&#10005;</div></div>
-    <!-- Mac90 -->
-    <div class="tb-mac-close"></div>
-    <div class="titlebar-stripes"></div>
-    <div class="tb-mac-title">Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</div>
-    <div class="tb-mac-zoom"></div>
-    <!-- Aqua -->
-    <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
-    <div class="aqua-title">Digest &middot; 1 Julio 2026 &middot; Edici&oacute;n Mediod&iacute;a</div>
+<header>
+  <div class="header-top">
+    <div class="logo">Digest<span>.</span></div>
+    <div class="date">1 Julio 2026 · Edición Mañana</div>
   </div>
-
-  <!-- TICKER -->
-  <div class="ticker-bar">
-    <span class="ticker-inner">&#9670; MEDIOD&Iacute;A &nbsp;&middot;&nbsp; +12 NUEVAS &nbsp;&middot;&nbsp; TC PARALELO BS 8.9/USD R&Eacute;CORD &nbsp;&middot;&nbsp; JNE: 2DA VUELTA 7 JUNIO &nbsp;&middot;&nbsp; BRE-B EN PRUEBAS 12 BANCOS &nbsp;&middot;&nbsp; STABLECOINS LATAM +38% Q1 &nbsp;&middot;&nbsp; USD/BOB 6.91 &nbsp;&middot;&nbsp; USD/PEN 3.432 &nbsp;&middot;&nbsp; USD/COP 4,180 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <div class="chips" id="chips">
+    <div class="chip active" data-section="bolivia" onclick="switchTab(this)">🇧🇴 Bolivia <span class="n">20</span></div>
+    <div class="chip" data-section="peru" onclick="switchTab(this)">🇵🇪 Perú <span class="n">20</span></div>
+    <div class="chip" data-section="colombia" onclick="switchTab(this)">🇨🇴 Colombia <span class="n">20</span></div>
+    <div class="chip" data-section="fintech" onclick="switchTab(this)">💳 Fintech <span class="n">10</span></div>
   </div>
+</header>
 
-  <!-- TABS -->
-  <div class="tabs-bar">
-    <div class="tab active" data-section="bolivia" onclick="switchTab(this)">&#127463;&#127476; Bolivia <span class="tab-badge">+4</span></div>
-    <div class="tab" data-section="peru" onclick="switchTab(this)">&#127477;&#127466; Per&uacute; <span class="tab-badge">+3</span></div>
-    <div class="tab" data-section="colombia" onclick="switchTab(this)">&#127464;&#127476; Colombia <span class="tab-badge">+3</span></div>
-    <div class="tab" data-section="fintech" onclick="switchTab(this)">&#128179; Fintech <span class="tab-badge">+2</span></div>
-    <div class="tab" data-section="numero" onclick="switchTab(this)">&#128204; N&uacute;mero</div>
-  </div>
+<main id="mainContent">
+<div class="section active" id="s-bolivia"><div class="numero-card"><div class="numero-label">📌 Número del día</div><div class="numero-val">$1.9 B</div><div class="numero-desc">Klarna's PriceRunner recibió una indemnización millonaria tras ganar un caso antimonopolio contra Google.</div></div><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-001" target="_blank" data-id="20260701-BOL-001" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">BCB descarta el bolsín y anuncia control de ASFI a casas de cambio</div><div class="card-excerpt">El BCB destaca operaciones por más de $us 17 millones en el primer día del cambio flexible. Expertos ven que la disponibilidad de dólares en bancos será determinante para bajar la brecha con el mercado paralelo</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-001" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-001" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782902349129.jpg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-002" target="_blank" data-id="20260701-BOL-002" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">El Gobierno abre el mercado de combustibles a privados hasta 2030</div><div class="card-excerpt">Un nuevo decreto autoriza a personas y empresas privadas a importar y comercializar diésel y gasolinas a precio de mercado. La norma elimina el IEHD para esos combustibles hasta 2030 y mantiene el abastecimiento regulad</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-002" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-002" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/062026/1782865206293.jpg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-003" target="_blank" data-id="20260701-BOL-003" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">¿En cuánto se cotiza el dólar flexible este miércoles 1 de julio?</div><div class="card-excerpt">El BCB actualiza el precio del dólar flexible cada día a las 20:00</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-003" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-003" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782906645409.jpeg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-004" target="_blank" data-id="20260701-BOL-004" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">BCB descarta devaluación y califica de positivo el tipo de cambio flexible</div><div class="card-excerpt">INFORME. El presidente de BCB descartó que la unificación y flexibilización del tipo de cambio represente una devaluación de la moneda nacional, por el contrario, la calificó de positiva. Sin embargo, será evaluada</div><div class="card-meta"><div class="meta-left"><b>El Mundo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-004" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-004" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://elmundo.com.bo/wp-content/uploads/2026/06/apertura-pag-3-17.webp')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-005" target="_blank" data-id="20260701-BOL-005" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">El dólar flexible subirá alquileres, complicará anticréticos y alejará a compradores de inmuebles</div><div class="card-excerpt">30 de junio (Urgente.bo)- El nuevo régimen del dólar flexible tendrá un impacto inmediato en tres ejes. El analista económico Fernando Romero advirtió que esta disposición aumentará los costos de los alquileres co</div><div class="card-meta"><div class="meta-left"><b>Urgente</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-005" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-005" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.urgente.bo/sites/default/files/styles/thumb_600x465/public/images_19_4.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-006" target="_blank" data-id="20260701-BOL-006" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">El PGE reformulado llega a julio bajo presión del diseño presupuestario para el 2027</div><div class="card-excerpt">Mientras el reformulado del PGE 2026 continúa pendiente, Alcaldías y Gobernaciones aguardan la definición de los techos presupuestarios para la segunda quincena de julio, como se hacía con el calendario de formulación…</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-006" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-006" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782902862656.jpeg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-007" target="_blank" data-id="20260701-BOL-007" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Lula respalda a Paz y se abre una nueva agenda energética</div><div class="card-excerpt">El bloque se sumó al rechazo internacional a cualquier interrupción de servicios como el que enfrentó el país. Bolivia recibió el apoyo de la izquierda democrática de la región</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-007" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-007" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782901987194.jpg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-008" target="_blank" data-id="20260701-BOL-008" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Mercosur llama al respeto de la democracia en Bolivia y ratifica respaldo al gobierno de Rodrigo Paz</div><div class="card-excerpt">La Paz, 30 de junio de 2026 (ABI). – Los presidentes de los Estados Partes (Paraguay, Brasil, Bolivia, Uruguay y Argentina) y de los Estados Asociados (Chile, Ecuador, Panamá y otros) del Mercosur emitieron este martes </div><div class="card-meta"><div class="meta-left"><b>ABI</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-008" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-008" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://abi.bo/wp-content/uploads/2026/06/Presidente-en-Cumbre-de-Jefes-de-Estado-del-Mercosur-Oficina-del-Presidente.jpg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-009" target="_blank" data-id="20260701-BOL-009" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Gobierno establece límites a la variación de tarifas de electricidad</div><div class="card-excerpt">NORMATIVA. Mediante el DS 5647, el Gobierno boliviano fija límites a la variación de tarifas de electricidad con un máximo del 5% para consumidores regulados, con el fin de evitar incrementos bruscos en el costo del s</div><div class="card-meta"><div class="meta-left"><b>El Mundo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-009" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-009" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://elmundo.com.bo/wp-content/uploads/2026/06/apertura-pag-2-17.webp')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-010" target="_blank" data-id="20260701-BOL-010" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Gobierno anuncia una semana clave con decretos, inversiones y medidas para reactivar la economía</div><div class="card-excerpt">La Paz, 30 de junio de 2026 (ABI).– Tras concluir su participación en la Cumbre de jefes de Estado del Mercado Común del Sur (Mercosur), el presidente de Bolivia, Rodrigo Paz, anunció este martes que el Gobierno inici</div><div class="card-meta"><div class="meta-left"><b>ABI</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-010" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-010" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://abi.bo/wp-content/uploads/2026/06/rppbtv.jpg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-011" target="_blank" data-id="20260701-BOL-011" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Cámara Automotor rechaza legalizar autos chutos: afirma que es imposible competir contra lo ilegal</div><div class="card-excerpt">Sin resumen disponible para este artículo.</div><div class="card-meta"><div class="meta-left"><b>EJU</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-011" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-011" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-economia no-photo">📈</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-012" target="_blank" data-id="20260701-BOL-012" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Gabinete promulga cinco decretos de beneficio e impacto para sectores sociales</div><div class="card-excerpt">El Presidente anticipó que las autoridades explicarán en esta semana los beneficios de estas normas a los interesados</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-012" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-012" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/062026/1782870011098/pazuco-jpg..jpg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-013" target="_blank" data-id="20260701-BOL-013" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Gobierno aprueba el manual del Sistema Integral de Pensiones para calificar grado de invalidez</div><div class="card-excerpt">Sin resumen disponible para este artículo.</div><div class="card-meta"><div class="meta-left"><b>EJU</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-013" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-013" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-politica no-photo">🏛️</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-014" target="_blank" data-id="20260701-BOL-014" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Habilitan código QR para agilizar trámite de viaje de menores de edad</div><div class="card-excerpt">La Defensoría de la Niñez facilita la descarga de los formularios y requisitos mediante el sistema virtual y refuerza los controles en la terminal Bimodal para prevenir salidas irregulares y sin autorización</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-014" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-014" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782903656573.jpeg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-015" target="_blank" data-id="20260701-BOL-015" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Seguridad</span></div><div class="card-title">Cámara Forestal pide peritaje internacional por caso narcomaderas y advierte daño al sector</div><div class="card-excerpt">Sin resumen disponible para este artículo.</div><div class="card-meta"><div class="meta-left"><b>EJU</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-015" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-015" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-016" target="_blank" data-id="20260701-BOL-016" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-judicial">Judicial</span></div><div class="card-title">Existen más de 10 leyes judiciales estancadas y litigantes rechazan un paro</div><div class="card-excerpt">Los proyectos de ley presentados al Parlamento son parte de la reforma judicial, pero no contemplan hacer modificaciones parciales a la Constitución Política del Estado. Gobierno y Legislativo rechazan los anuncios de…</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-016" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-016" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/072026/1782901631570.jpeg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-017" target="_blank" data-id="20260701-BOL-017" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Seguridad</span></div><div class="card-title">Denuncian infiltración de agentes de inteligencia de cocaleros en la policía y el ejército</div><div class="card-excerpt">Dirigentes del ala «evista» del Trópico de Cochabamba aseguraron que mantienen un dispositivo de vigilancia con centinelas y guardias para proteger a Evo Morales ante posibles intentos de aprehensión por...</div><div class="card-meta"><div class="meta-left"><b>La Voz</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-017" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-017" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://lavozbolivia.com/wp-content/uploads/2026/06/central-49.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-018" target="_blank" data-id="20260701-BOL-018" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Seguridad</span></div><div class="card-title">Decomisan 2.500 litros de combustible en tres operativos en Chuquisaca</div><div class="card-excerpt">El último de estos controles se realizó la madrugada del martes 30 de junio en el municipio de Yotola, zona de la carretera que une Sucre con Potosí</div><div class="card-meta"><div class="meta-left"><b>El Deber</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-018" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-018" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://pxcdn.eldeber.com.bo/eldeber/062026/1782870674869.jpg?cw=320&amp;amp;ch=180')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-019" target="_blank" data-id="20260701-BOL-019" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-judicial">Judicial</span></div><div class="card-title">Aduana denuncia a un exfuncionario de Oruro por presuntos actos de corrupción</div><div class="card-excerpt">Oruro, 30 de junio de 2026 (ABI).– La Aduana Nacional presentó una denuncia en contra un exfuncionario por presuntas irregularidades en la administración de la Agencia Exterior Arica, en Oruro, tras establecerse indici</div><div class="card-meta"><div class="meta-left"><b>ABI</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-019" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-019" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://abi.bo/wp-content/uploads/2026/02/detenido.jpg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-020" target="_blank" data-id="20260701-BOL-020" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Heladas afectan 320 hectáreas de cultivos en 36 comunidades de Mizque</div><div class="card-excerpt">Debido a las bajas temperaturas que se registran en el país, alrededor de 320 hectáreas de cultivos de frutas y verduras se han visto afectados en 36 comunidades del municipio...</div><div class="card-meta"><div class="meta-left"><b>La Voz</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-BOL-020" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-BOL-020" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://lavozbolivia.com/wp-content/uploads/2026/06/infeiror-1.jpg')"></div></a></div><div class="section" id="s-peru"><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-001" target="_blank" data-id="20260701-PER-001" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Gondwana y Quique Neira en Lima: fecha, preventa de entradas y todo sobre su histórico reencuentro en Costa 21</div><div class="card-excerpt">Tras 23 años, Gondwana y Quique Neira volverán a compartir escenario en un único concierto en Perú. Conoce cuándo será el esperado show, cómo comprar las entradas y qué canciones interpretarán.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>08:22 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-001" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-001" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/06/30/182518_1882860.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-002" target="_blank" data-id="20260701-PER-002" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Ignacio Buse perdió 3-0 ante Jenson Brooksby por la segunda ronda de Wimbledon 2026</div><div class="card-excerpt">El peruano Ignacio Buse, número 34 del ranking ATP, no pudo ante el buen nivel del estadounidense Jenson Brooksby.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>08:19 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-002" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-002" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/491749_1883090.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-003" target="_blank" data-id="20260701-PER-003" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">JNJ declara desierto concurso para elegir al nuevo jefe de la ONPE en medio de crisis institucional</div><div class="card-excerpt">La Junta Nacional de Justicia tomó la decisión por unanimidad tras la renuncia y exclusión de los dos únicos postulantes en carrera.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>08:19 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-003" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-003" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/171017_1883089.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-004" target="_blank" data-id="20260701-PER-004" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Cúal fue el último temblor en México hoy 1 de julio según SSN</div><div class="card-excerpt">Cuál es el ultimo temblor en México y CDMX registrado segun el Servicio Sismológico Nacional (SSN) hoy 1 de julio del 2026. Consulta los últimos sismos EN VIVO para México aquí.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>03:30 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-004" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-004" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2024/11/07/111411_1666676.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-005" target="_blank" data-id="20260701-PER-005" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Muere a los 74 años Victor Willis, el policía de Village People y coautor de sus éxitos</div><div class="card-excerpt">El deceso de Willis fue confirmado por la agrupación mediante un comunicado a través de su cuenta en Facebook, en el cual expresaron su “profunda tristeza” por la partida de su primer integrante.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>07:52 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-005" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-005" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/175717_1883088.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-006" target="_blank" data-id="20260701-PER-006" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">SENAMHI: Pronóstico del clima hoy miércoles 01 de julio 2026</div><div class="card-excerpt">Consulta el pronóstico del clima hoy en Lima y ciudades del Perú: temperatura actual, sensación térmica, radiación UV, probabilidad de lluvia y reporte oficial del Senamhi actualizado.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>05:00 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-006" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-006" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2025/12/03/213221_1818086.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-007" target="_blank" data-id="20260701-PER-007" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Temblor en Perú, hoy 1 de julio: magnitud y epicentro del sismo según IGP</div><div class="card-excerpt">Actualización EN VIVO del último sismo en Perú hoy, miércoles 1 de julio según las últimas actualizaciones del Instituto Geofísico del Perú IGP</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>11:06 p. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-007" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-007" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2024/11/04/372237_1665153.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-008" target="_blank" data-id="20260701-PER-008" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Los Olivos: sujeto atacó a balazos un bus interprovincial de la empresa Emmanuel en plena ruta</div><div class="card-excerpt">El crimen fue perpetrado por un sujeto que iba en motocicleta lineal, que disparó contra la unidad que estaba estacionada debido al tráfico intenso en la Panamericana Norte. Ni el conductor de la unidad ni los pasajer…</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>06:55 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-008" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-008" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/250125_1883084.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-009" target="_blank" data-id="20260701-PER-009" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">SMP: mototaxista quedó gravemente herido tras ser atacado a balazos cuando dejaba a un pasajero</div><div class="card-excerpt">El joven de 26 años recibió múltiples impactos de bala en el rostro y el pecho tras ser interceptado por dos sujetos en una moto lineal. La Policía Nacional investiga si la víctima fue llevada al lugar con engaños.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>07:23 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-009" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-009" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/442044_1883085.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-010" target="_blank" data-id="20260701-PER-010" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Cartelera Cine en Lima y Perú hoy miércoles 01 de julio</div><div class="card-excerpt">La cartelera de películas de cines en Lima y Perú se renueva cada jueves. Revisa los títulos que se estrenan y mira los trailers.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>07:12 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-010" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-010" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-011" target="_blank" data-id="20260701-PER-011" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Precio del dólar Perú y tipo de cambio hoy 01 de julio del 2026</div><div class="card-excerpt">En Perú, el tipo de cambio para hoy miércoles 01 de julio es de S/3.41 según el Banco Central de Reserva Del Perú.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>07:05 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-011" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-011" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2025/08/25/053105_1784712.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-012" target="_blank" data-id="20260701-PER-012" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Argentina: dólar blue hoy a cuánto cotiza este miércoles 01 de julio</div><div class="card-excerpt">La cotización del dólar blue, hoy miércoles 01 de julio en el país de Argentina es de $1495 compra y $1515 la venta.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>06:59 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-012" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-012" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2025/09/10/432943_1790265.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-013" target="_blank" data-id="20260701-PER-013" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Rusia llama a Afganistán y Pakistán a poner fin a enfrentamientos por medio del diálogo</div><div class="card-excerpt">La diplomacia rusa hizo un llamado a Islamabad y Kabul a terminar el conflicto armado y priorizar la solución de sus diferencias por la vía político-diplomática.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>06:10 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-013" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-013" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/111911_1883083.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-014" target="_blank" data-id="20260701-PER-014" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Corte de agua en Lima hoy 01 de julio: Distritos y horarios afectados</div><div class="card-excerpt">EN VIVO Consulta aquí los distritos de Lima y horarios afectados por el corte de agua programado por el Servicio de Agua Potable y Alcantarillado de Lima (Sedapal) para hoy.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>06:00 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-014" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-014" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2025/03/06/412341_1714105.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-015" target="_blank" data-id="20260701-PER-015" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Xi Jinping define la &quot;reunificación&quot; con Taiwán como la &quot;tarea histórica&quot; del Partido Comunista de China</div><div class="card-excerpt">En un discurso pronunciado en el Gran Palacio del Pueblo de Pekín, el presidente chino pidió profundizar los intercambios y la integración con la isla y prometió combatir de forma &quot;firme&quot; a las &quot;fuerzas separatistas&quot; …</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>01:45 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-015" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-015" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/07/01/392739_1883082.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-016" target="_blank" data-id="20260701-PER-016" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">JEE de Lima Centro declara improcedente inscripción de Rafael López Aliaga como candidato a regidor de Lima</div><div class="card-excerpt">La decisión fue adoptada mediante la Resolución N.° 04301, emitida este martes, luego de que el órgano electoral evaluara la documentación presentada por el partido Renovación Popular para subsanar las observaciones f…</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>08:39 p. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-016" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-016" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/06/30/404640_1883045.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-017" target="_blank" data-id="20260701-PER-017" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Moisés Caicedo, uno de los más afectados: la tristeza de los jugadores de Ecuador tras eliminación del Mundial 2026</div><div class="card-excerpt">Las imágenes de tristeza en el Mundial 2026 han dejado postales conmovedoras. En esta ocasión fue Ecuador, que perdió 2-1 ante México.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>01:05 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-017" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-017" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-018" target="_blank" data-id="20260701-PER-018" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">Carlos Malpica, del Cuerpo de Bomberos del Perú: &quot;Venezuela no cuenta con un sistema de normativa de ingeniería sismorresistente&quot;</div><div class="card-excerpt">El Grupo USAR Perú, integrada por 40 bomberos y la can de rescate 'Kaira', trabaja en La Guaira y Caracas, donde las labores de búsqueda entran en una etapa decisiva tras los terremotos del pasado 24 de junio.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>12:52 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-018" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-018" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/06/30/m1-2026-06-30-22-12-58-1467-1883065mp4_1883066.jpg?imgdimension=look')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-019" target="_blank" data-id="20260701-PER-019" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">&quot;Adiós maldición&quot;: Así reaccionó la prensa mexicana a la clasificación de su selección a los octavos de final del Mundial 2026</div><div class="card-excerpt">La prensa mexicana destacó que su selección pudo romper la racha de 40 años sin superar una fase de eliminatorias.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>12:47 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-019" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-019" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-020" target="_blank" data-id="20260701-PER-020" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Peru</span></div><div class="card-title">México vs. Ecuador: resumen e incidencias del partido por 16vos del Mundial 2026</div><div class="card-excerpt">México plasmó una buena actuación en el Estadio Azteca ante un Ecuador lejos de su mejor forma.</div><div class="card-meta"><div class="meta-left"><b>RPP</b><span class="dot-sep"></span>12:30 a. m.</div><div class="votes"><div class="vote-btn up" data-id="20260701-PER-020" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-PER-020" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://f.rpp-noticias.io/2026/06/30/564156_1883076.jpg?imgdimension=look')"></div></a></div><div class="section" id="s-colombia"><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-001" target="_blank" data-id="20260701-COL-001" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Superfinanciera autorizó la fusión entre Cementos Argos y Concretos Argos</div><div class="card-excerpt">La Junta Directiva de Cementos Argos ya había aprobado este compromiso desde el pasado 17 de marzo</div><div class="card-meta"><div class="meta-left"><b>La República</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-001" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-001" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://img.lalr.co/cms/2025/12/09141705/Juan-Esteban-Calle-1.jpg?size=xl&amp;ratio=r40_21')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-002" target="_blank" data-id="20260701-COL-002" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">DIAN estima que 7 millones de colombianos declararán renta este año</div><div class="card-excerpt">La autoridad tributaria recordó que los vencimientos comenzarán el 12 de agosto y recomendó a los contribuyentes revisar si cumplen los requisitos para evitar sanciones por presentar la declaración fuera de tiempo.</div><div class="card-meta"><div class="meta-left"><b>KienyKe</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-002" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-002" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-economia no-photo">📈</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-003" target="_blank" data-id="20260701-COL-003" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Quién es Miguel Gómez Martínez, nuevo Ministro de Hacienda de Colombia</div><div class="card-excerpt">El economista llega al gabinete con experiencia en Bancóldex, Fasecolda, la Vicecontraloría y la diplomacia.</div><div class="card-meta"><div class="meta-left"><b>KienyKe</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-003" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-003" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-politica no-photo">🏛️</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-004" target="_blank" data-id="20260701-COL-004" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Exfiscal Francisco Barbosa pide investigar penalmente a Iván Cepeda por promover desobediencia civil</div><div class="card-excerpt">El llamado del senador del Pacto Histórico generó una fuerte controversia en sectores políticos y sociales, en especial sobre los límites entre la protesta legítima, el respeto a los resultados electorales y la defe</div><div class="card-meta"><div class="meta-left"><b>infobae</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-004" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-004" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.infobae.com/resizer/v2/54PB3DEXCZAJRKCZLJVIYSU2JA.jpg?auth=eeed024bd7c9d6faa3a9bd716d2f3d3b478019639ded5085736717911f304117&amp;smart=true&amp;width=1920&amp;height=1080')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-005" target="_blank" data-id="20260701-COL-005" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Salud</span></div><div class="card-title">Giro en EPS Savia Salud: accionistas retoman el control y ordenan auditoría forense por déficit</div><div class="card-excerpt">Tras finalizar el empalme ordenado por el Tribunal de Antioquia, los socios recuperan el control de la EPS y anuncian una estricta auditoría.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-005" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-005" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2025/07/23/6880d16c88d67.r_d.760-128-0.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-006" target="_blank" data-id="20260701-COL-006" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Las tres megaobras clave en Antioquia que heredará el gobierno de Abelardo De la Espriella</div><div class="card-excerpt">El próximo Presidente de Colombia tendrá el inmenso reto de destrabar grandes obras en Antioquia que no contaron con el apoyo del Gobierno Petro.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-006" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-006" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/06/26/6a3ebc122a698.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-007" target="_blank" data-id="20260701-COL-007" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-politica">Politica</span></div><div class="card-title">Así funciona el empalme entre el Gobierno saliente y el presidente electo en Colombia</div><div class="card-excerpt">El empalme entre Petro y De la Espriella activa informes, equipos y revisión de contratos antes del 7 de agosto.</div><div class="card-meta"><div class="meta-left"><b>KienyKe</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-007" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-007" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-politica no-photo">🏛️</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-008" target="_blank" data-id="20260701-COL-008" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">United Airlines conectará a Cartagena con Houston y Washington D.C. sin escalas</div><div class="card-excerpt">Operará de manera regular durante todo el año, iniciando con cuatro vuelos semanales los días martes, jueves, sábados y domingos.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-008" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-008" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2025/08/07/6894aded95177.r_d.588-340-0.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-009" target="_blank" data-id="20260701-COL-009" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Seguridad</span></div><div class="card-title">Abatido alias 'Bola Ocho', coordinador de milicias del ELN vinculado a ataques con drones</div><div class="card-excerpt">Operación del Ejército en el sur de Bolívar dejó muerto a alias 'Bola Ocho', señalado de coordinar milicias y ataques con drones del Eln.</div><div class="card-meta"><div class="meta-left"><b>La Razón Co</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-009" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-009" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://larazon.co/wp-content/uploads/2026/06/Captura-de-pantalla-2026-06-10-a-las-10.00.04-p.m.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-010" target="_blank" data-id="20260701-COL-010" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Comunidades de Santander lanzan alerta por convocatoria para definir el futuro de Santurbán</div><div class="card-excerpt">Cuestionaron la convocatoria del Ministerio de Ambiente y pidieron que el proceso sea revisado por el Gobierno entrante, tras la reciente decisión del Tribunal Administrativo de Santander.</div><div class="card-meta"><div class="meta-left"><b>Semana</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-010" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-010" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://semana-semana-prod.web.arc-cdn.net/resizer/v2/5V4LQJLLEVC2HB66LZTEKOKFKM.jpeg?auth=35433bf3bf69a3beca2e6147a499465851909f7983bf67472826e8bc239808db&amp;smart=true&amp;width=1600&amp;height=1200')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-011" target="_blank" data-id="20260701-COL-011" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Proyecto Túnel del Toyo: la importancia del túnel cero para conectar a Medellín con el Urabá</div><div class="card-excerpt">El Tramo 2 de la vía alcanza un 80% de avance tras la inyección de recursos regionales, mientras el Tramo 1 ya se encuentra terminado al 100%.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-011" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-011" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2026/06/30/6a443a0debc04.r_d.640-427-0.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-012" target="_blank" data-id="20260701-COL-012" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Seguridad</span></div><div class="card-title">Rescatan en Cali a comerciante que había sido secuestrado</div><div class="card-excerpt">Un comerciante que permaneció secuestrado durante tres días en Cali fue liberado en un operativo adelantado por el GAULA de la Policía en una vivienda abandonada ubicada en el sector de la invasión Haití, en la comu</div><div class="card-meta"><div class="meta-left"><b>Occidente</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-012" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-012" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://occidente.co/wp-content/uploads/2026/06/Rescatan-en-Cali-a-comerciante-secuestrado.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-013" target="_blank" data-id="20260701-COL-013" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Bogotá ofrece 665 vacantes laborales a través de convocatoria del Distrito</div><div class="card-excerpt">La convocatoria reúne ofertas en tecnología, comercio, servicios y construcción con inscripción completamente virtual.</div><div class="card-meta"><div class="meta-left"><b>KienyKe</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-013" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-013" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-014" target="_blank" data-id="20260701-COL-014" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Metro Cali aclara el futuro de los buses colectivos del transporte tradicional</div><div class="card-excerpt">Se alista plan que incluye la expansión de nuevas rutas operadas por buses colectivos y el desbloqueo de pagos por desintegración vehicular.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-014" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-014" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/06/30/6a44661036e9f.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-015" target="_blank" data-id="20260701-COL-015" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-economia">Economia</span></div><div class="card-title">Puente de Juanchito cumple dos años de operación entre Cali y el sur del Valle del Cauca</div><div class="card-excerpt">La obra desarrollada por la Gobernación, optimiza el tránsito vehicular y redujo los tiempos de desplazamiento.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-015" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-015" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/06/30/6a4447425f574.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-016" target="_blank" data-id="20260701-COL-016" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Salud</span></div><div class="card-title">Ministerio de Salud de Colombia envía 646 kilos de ayuda humanitaria para Venezuela</div><div class="card-excerpt">La ayuda incluye medicamentos, insumos médicos y elementos de bioseguridad para atender la emergencia.</div><div class="card-meta"><div class="meta-left"><b>KienyKe</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-016" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-016" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-sociedad no-photo">🧑‍🤝‍🧑</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-017" target="_blank" data-id="20260701-COL-017" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Policía de Nariño implementa medidas de protección para el ave Guardián de los Bosques</div><div class="card-excerpt">Conocido como uno de los principales dispersores de semillas en los bosques tropicales y una de las aves más particulares del continente por su capacidad de orientarse mediante ecolocalización, el guácharo representa </div><div class="card-meta"><div class="meta-left"><b>Diario del Sur</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-017" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-017" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.diariodelsur.com.co/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-30-at-7.09.51-PM.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-018" target="_blank" data-id="20260701-COL-018" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Exposición inmersiva sobre el arte de Van Gogh abrirá sus puertas en el Gran Malecón de Barranquilla</div><div class="card-excerpt">La muestra estará disponible entre el 3 de julio y el 2 de agosto en el Pabellón de Cristal. También se podrá participar en talleres de pintura.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-018" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-018" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/06/30/6a443425c2962.png')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-019" target="_blank" data-id="20260701-COL-019" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Sismo de magnitud 3.4 se registró en las últimas horas en Colombia</div><div class="card-excerpt">El Servicio Geológico Colombiano compartió detalles del nuevo sismo que se registró en el país.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-019" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-019" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/02/17/6994ddc8a1fa3.jpeg')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-020" target="_blank" data-id="20260701-COL-020" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-sociedad">Sociedad</span></div><div class="card-title">Así operará la rotación del pico y placa en Cali para el segundo semestre</div><div class="card-excerpt">La medida entró en una nueva fase con cambios en la rotación. La restricción para vehículos particulares rige entre las 6 a. m. y las 7 p. m.</div><div class="card-meta"><div class="meta-left"><b>El Tiempo</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-COL-020" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-COL-020" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2025/01/23/679245f7212bf.r_d.128-243-0.png')"></div></a></div><div class="section" id="s-fintech"><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-001" target="_blank" data-id="20260701-FIN-001" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">trii facilitará el acceso a la Bolsa de Nueva York para inversores en Colombia y Perú</div><div class="card-excerpt">La app de inversiones concretó en marzo de este año una alianza con el broker Alpaca para abrir el mercado accionario estadounidense a sus clientes en Chile. Ahora, el cofundador de trii, Carlos Guayara, dijo en exclu…</div><div class="card-meta"><div class="meta-left"><b>iupana</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-001" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-001" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-fintech no-photo">💳</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-002" target="_blank" data-id="20260701-FIN-002" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">Finsus avanza en su solicitud de licencia bancaria y planifica expansión en América Latina</div><div class="card-excerpt">El CEO de la Sofipo adelantó a iupana la internacionalización del negocio, con la llegada de sus operaciones a Centroamérica. La apuesta va en línea con su crecimiento operativo. Su solicitud de licencia bancaria en M…</div><div class="card-meta"><div class="meta-left"><b>iupana</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-002" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-002" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-fintech no-photo">💳</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-003" target="_blank" data-id="20260701-FIN-003" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">American Express y Apple Pay permiten a los usuarios realizar pagos utilizando puntos de recompensa</div><div class="card-excerpt">American Express U.S. card members can now use their Membership Rewards points on everyday purchases by redeeming the points directly within Apple Pay’s checkout experience. This capability is enabled by American Expr…</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-003" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-003" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/america-express-apple-pay-1.jpg?w=457')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-004" target="_blank" data-id="20260701-FIN-004" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">PriceRunner, filial de Klarna, obtiene 1.900 millones de dólares en demanda antimonopolio contra Google</div><div class="card-excerpt">Klarna-owned price comparison website PriceRunner has prevailed in its antitrust lawsuit against Google. A Swedish court on Wednesday (July 1) awarded PriceRunner $1.9 billion, Klara said in a news release, calling it…</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-004" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-004" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/PriceRunner-Klarna-Google-1.jpg?w=457')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-005" target="_blank" data-id="20260701-FIN-005" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">Comité de la Cámara de EE.UU. avanza proyectos de ley para dotar a bancos de nuevas herramientas antifraude</div><div class="card-excerpt">The House Financial Services Committee on Tuesday (June 30) advanced a package of legislation that would give banks greater flexibility to combat payments fraud, expand the types of payment histories that can be used …</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-005" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-005" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/SB6-bank-regulation-payments.jpg?w=457')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-006" target="_blank" data-id="20260701-FIN-006" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">Midas y Fasanara lanzan mGLOBAL en Aave para proveer liquidez de crédito privado en cadena</div><div class="card-excerpt">Midas and Fasanara Capital have launched a real-world asset tokenization initiative on the Aave Horizon RWA Market, enabling investors to use tokenized trade receivables as collateral to access on-chain stablecoin liq…</div><div class="card-meta"><div class="meta-left"><b>The Fintech Times</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-006" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-006" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-fintech no-photo">💳</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-007" target="_blank" data-id="20260701-FIN-007" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">La factura electrónica se transforma en carrito de compras para optimizar los pagos B2B</div><div class="card-excerpt">Businesses sent roughly 560 billion invoices in 2024. Fewer than a quarter were electronic. The rest were paper, or PDFs that may as well be paper, generated by one system, keyed into another, chased by phone, and set…</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-007" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-007" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/2026-Web-Hero-Image-KLW-NEXT-1200x780-06302.jpg?w=457')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-008" target="_blank" data-id="20260701-FIN-008" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">Google Cloud se asocia con FactSet para expandir su presencia en los mercados financieros</div><div class="card-excerpt">Google Cloud and FactSet, a provider of data and artificial intelligence solutions to the financial markets, plan to jointly develop AI agents designed to assist with portfolio operations, deal advisory and corporate …</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-008" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-008" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/Google-Cloud-FactSet-1.jpg?w=457')"></div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-009" target="_blank" data-id="20260701-FIN-009" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">LeapXpert recauda 180 millones de dólares para integrar inteligencia artificial en mensajería empresarial regulada</div><div class="card-excerpt">LeapXpert has raised $180million in growth funding to expand its messaging compliance and corporate intelligence platform, using AI to transform conversations across channels like WhatsApp and Signal into secure, comp…</div><div class="card-meta"><div class="meta-left"><b>The Fintech Times</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-009" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-009" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb thumb-fintech no-photo">💳</div></a><a class="card" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-010" target="_blank" data-id="20260701-FIN-010" onclick="markRead(this)"><div class="card-main"><div class="card-top"><span class="tag tag-fintech">Fintech</span></div><div class="card-title">El 51% de los usuarios de servicios Compre Ahora y Pague Después recurre a esta opción por necesidad financiera</div><div class="card-excerpt">The next stage of Pay Later may look less like a single checkout button and more like a credit menu built for different kinds of buyers. That is one of the clearest signals from “Pay Later Revolution: Redefining the C…</div><div class="card-meta"><div class="meta-left"><b>PYMNTS</b><span class="dot-sep"></span></div><div class="votes"><div class="vote-btn up" data-id="20260701-FIN-010" onclick="vote(event,this)">▲</div><div class="vote-btn down" data-id="20260701-FIN-010" onclick="vote(event,this)">▼</div></div></div></div><div class="card-thumb photo" style="background-image:url('https://www.pymnts.com/wp-content/uploads/2026/06/pay-later-data-brief.png?w=457')"></div></a></div>
+</main>
 
-  <!-- TOOLBAR -->
-  <div class="toolbar">
-    <span class="toolbar-info" id="sectionInfo">Bolivia &middot; 20 noticias</span>
-    <div class="toolbar-sep"></div>
-    <span class="toolbar-info" id="visitedCount">0 le&iacute;das</span>
-    <span class="toolbar-edition">&#9728;&#65039; Mediod&iacute;a</span>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="content" id="mainContent">
-<div class="section active" id="s-bolivia"><div class="section-hdr">🇧🇴 Bolivia — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-001" target="_blank" data-id="20260701-BOL-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">El Gobierno abre el mercado de combustibles a privados hasta 2030</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-001">＋</button><button class="vote-btn down" data-id="20260701-BOL-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-002" target="_blank" data-id="20260701-BOL-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Bolivia reporta movimiento de 17 millones de dólares en primer día de nuevo tipo de cambio</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-002">＋</button><button class="vote-btn down" data-id="20260701-BOL-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-003" target="_blank" data-id="20260701-BOL-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">Empresarios sugieren un plan de emergencia y exigen participación en las decisiones económicas ante la crisis</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-003">＋</button><button class="vote-btn down" data-id="20260701-BOL-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-004" target="_blank" data-id="20260701-BOL-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">La cumbre de la CEPB plantea trabajar en un plan integral de recuperación nacional</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-004">＋</button><button class="vote-btn down" data-id="20260701-BOL-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-005" target="_blank" data-id="20260701-BOL-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Proyecto de ley contempla que el presidente designe de manera interina a magistrados del TCP y del TSJ</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">EJU &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-005">＋</button><button class="vote-btn down" data-id="20260701-BOL-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-006" target="_blank" data-id="20260701-BOL-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Saucedo asegura que el 75% del presupuesto asignado se va en sueldos; buscan un 5% del PGE</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-006">＋</button><button class="vote-btn down" data-id="20260701-BOL-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-007" target="_blank" data-id="20260701-BOL-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Gabinete promulga cinco decretos que afectan y benefician a sectores sociales</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-007">＋</button><button class="vote-btn down" data-id="20260701-BOL-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-008" target="_blank" data-id="20260701-BOL-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Escasez de diésel reduce las salidas interdepartamentales y afecta a la producción</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-008">＋</button><button class="vote-btn down" data-id="20260701-BOL-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-009" target="_blank" data-id="20260701-BOL-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">Urbanización Celina ofrece revisar caso por caso tras reclamos por alza de cuotas debido al nuevo tipo de cambio</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-009">＋</button><button class="vote-btn down" data-id="20260701-BOL-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-010" target="_blank" data-id="20260701-BOL-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Roban Bs 1 millón a una mujer tras seguirla a la salida de un banco en Santa Cruz</span><div class="row-meta"><span class="tag tag-sociedad">Seguridad</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-010">＋</button><button class="vote-btn down" data-id="20260701-BOL-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-011" target="_blank" data-id="20260701-BOL-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">Aduana Nacional denuncia actos de corrupción y falsedad material en agencia de Arica</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-011">＋</button><button class="vote-btn down" data-id="20260701-BOL-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-012" target="_blank" data-id="20260701-BOL-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Fiscalía archiva caso 'pasajes de Noemí' que involucraba a Evo Morales</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-012">＋</button><button class="vote-btn down" data-id="20260701-BOL-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-013" target="_blank" data-id="20260701-BOL-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">El Gobierno inicia una serie de reuniones con alcaldías para articular esfuerzos hacia la reactivación económica</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">EJU &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-013">＋</button><button class="vote-btn down" data-id="20260701-BOL-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-014" target="_blank" data-id="20260701-BOL-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">CAO exige a la Policía ejecutar las órdenes de desalojo en el predio Santa Rita</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-014">＋</button><button class="vote-btn down" data-id="20260701-BOL-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-015" target="_blank" data-id="20260701-BOL-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">Cárcel para dirigente de El Alto investigado por los 50 días de bloqueos</span><div class="row-meta"><span class="tag tag-judicial">Judicial</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-015">＋</button><button class="vote-btn down" data-id="20260701-BOL-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-016" target="_blank" data-id="20260701-BOL-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">El presidente del TSJ vincula amenaza de paro de jueces con gobiernos del MAS</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">eldeber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-016">＋</button><button class="vote-btn down" data-id="20260701-BOL-016">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-017" target="_blank" data-id="20260701-BOL-017"><span class="row-num">17</span><div class="row-body"><span class="row-title">Chuquisaca: decomisan 2.500 litros de combustible en tres operativos</span><div class="row-meta"><span class="tag tag-sociedad">Seguridad</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-017">＋</button><button class="vote-btn down" data-id="20260701-BOL-017">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-018" target="_blank" data-id="20260701-BOL-018"><span class="row-num">18</span><div class="row-body"><span class="row-title">La Asamblea cruceña sesiona en Buena Vista y perfila una agenda centrada en las autonomías</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-018">＋</button><button class="vote-btn down" data-id="20260701-BOL-018">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-019" target="_blank" data-id="20260701-BOL-019"><span class="row-num">19</span><div class="row-body"><span class="row-title">Caja Petrolera realiza con éxito el primer trasplante renal pediátrico ministerial</span><div class="row-meta"><span class="tag tag-sociedad">Salud</span></div><div class="row-byline">El Deber &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-019">＋</button><button class="vote-btn down" data-id="20260701-BOL-019">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-BOL-020" target="_blank" data-id="20260701-BOL-020"><span class="row-num">20</span><div class="row-body"><span class="row-title">Identifican dos casos de aleccionamiento político a estudiantes en Bolivia e iniciarán procesos</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">urgente_bo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-BOL-020">＋</button><button class="vote-btn down" data-id="20260701-BOL-020">－</button></div></a></div><div class="section" id="s-peru"><div class="section-hdr">🇵🇪 Perú — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-001" target="_blank" data-id="20260701-PER-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Cúal fue el último temblor en México hoy 1 de julio según SSN</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 03:30 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-001">＋</button><button class="vote-btn down" data-id="20260701-PER-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-002" target="_blank" data-id="20260701-PER-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Temblor en Perú, hoy 30 de junio: magnitud y epicentro del sismo según IGP</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:06 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-002">＋</button><button class="vote-btn down" data-id="20260701-PER-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-003" target="_blank" data-id="20260701-PER-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">SENAMHI: Pronóstico del clima hoy miércoles 01 de julio 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 05:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-003">＋</button><button class="vote-btn down" data-id="20260701-PER-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-004" target="_blank" data-id="20260701-PER-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">Xi Jinping define la &quot;reunificación&quot; con Taiwán como la &quot;tarea histórica&quot; del Partido Comunista de China</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 01:45 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-004">＋</button><button class="vote-btn down" data-id="20260701-PER-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-005" target="_blank" data-id="20260701-PER-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">JEE de Lima Centro declara improcedente inscripción de Rafael López Aliaga como candidato a regidor de Lima</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 08:39 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-005">＋</button><button class="vote-btn down" data-id="20260701-PER-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-006" target="_blank" data-id="20260701-PER-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Moisés Caicedo, uno de los más afectados: la tristeza de los jugadores de Ecuador tras eliminación del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 01:05 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-006">＋</button><button class="vote-btn down" data-id="20260701-PER-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-007" target="_blank" data-id="20260701-PER-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Carlos Malpica, del Cuerpo de Bomberos del Perú: &quot;Venezuela no cuenta con un sistema de normativa de ingeniería sismorresistente&quot;</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:52 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-007">＋</button><button class="vote-btn down" data-id="20260701-PER-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-008" target="_blank" data-id="20260701-PER-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">&quot;Adiós maldición&quot;: Así reaccionó la prensa mexicana a la clasificación de su selección a los octavos de final del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:47 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-008">＋</button><button class="vote-btn down" data-id="20260701-PER-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-009" target="_blank" data-id="20260701-PER-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">México vs. Ecuador: resumen e incidencias del partido por 16vos del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:30 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-009">＋</button><button class="vote-btn down" data-id="20260701-PER-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-010" target="_blank" data-id="20260701-PER-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">México ganó 2-0 a Ecuador en el Estadio Azteca y pasó a octavos de final del Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-010">＋</button><button class="vote-btn down" data-id="20260701-PER-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-011" target="_blank" data-id="20260701-PER-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">México clasificó a octavos: venció 2-0 a Ecuador en el Estadio Azteca por el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:53 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-011">＋</button><button class="vote-btn down" data-id="20260701-PER-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-012" target="_blank" data-id="20260701-PER-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Calendario de 16avos de final del Mundial 2026 EN VIVO: los partidos, fechas y horarios confirmados del torneo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:13 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-012">＋</button><button class="vote-btn down" data-id="20260701-PER-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-013" target="_blank" data-id="20260701-PER-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">Fixture del Mundial 2026: AQUÍ los resultados, las fechas y los horarios de todos los partidos de la Copa del Mundo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-013">＋</button><button class="vote-btn down" data-id="20260701-PER-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-014" target="_blank" data-id="20260701-PER-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">Calendario de los octavos de final del Mundial: fechas y horarios confirmados</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:10 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-014">＋</button><button class="vote-btn down" data-id="20260701-PER-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-015" target="_blank" data-id="20260701-PER-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">El segundo expulsado del Mundial por la Ley Prestianni: Piero Hincapie vio la tarjeta roja por llevarse la mano a la boca</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:09 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-015">＋</button><button class="vote-btn down" data-id="20260701-PER-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-016" target="_blank" data-id="20260701-PER-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">Ingeniero murió tras sufrir un accidente mientras practicaba parapente en Arequipa</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-016">＋</button><button class="vote-btn down" data-id="20260701-PER-016">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-017" target="_blank" data-id="20260701-PER-017"><span class="row-num">17</span><div class="row-body"><span class="row-title">El récord de Pelé y que Gilberto Mora se quedó cerca de romper en el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 12:00 a. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-017">＋</button><button class="vote-btn down" data-id="20260701-PER-017">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-018" target="_blank" data-id="20260701-PER-018"><span class="row-num">18</span><div class="row-body"><span class="row-title">Tabla de goleadores del Mundial 2026 EN VIVO: estos son los máximos anotadores de la Copa del Mundo</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 07:00 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-018">＋</button><button class="vote-btn down" data-id="20260701-PER-018">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-019" target="_blank" data-id="20260701-PER-019"><span class="row-num">19</span><div class="row-body"><span class="row-title">Murió Juan Sotomayor, exalcalde provincial del Callao, a los 72 años</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:53 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-019">＋</button><button class="vote-btn down" data-id="20260701-PER-019">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-PER-020" target="_blank" data-id="20260701-PER-020"><span class="row-num">20</span><div class="row-body"><span class="row-title">Partidos del miércoles 1 de julio de 2026: horarios y canales TV para ver EN VIVO el Mundial 2026</span><div class="row-meta"><span class="tag tag-sociedad">Peru</span></div><div class="row-byline">RPP &middot; 11:15 p. m.</div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-PER-020">＋</button><button class="vote-btn down" data-id="20260701-PER-020">－</button></div></a></div><div class="section" id="s-colombia"><div class="section-hdr">🇨🇴 Colombia — 20 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-001" target="_blank" data-id="20260701-COL-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Banco Agrario completa cinco días con fallas en su web, app y Bre-B</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">larepublica &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-001">＋</button><button class="vote-btn down" data-id="20260701-COL-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-002" target="_blank" data-id="20260701-COL-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Miguel Gómez Martínez será el nuevo ministro de Hacienda del gobierno de Abelardo de la Espriella</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">diariodelsur &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-002">＋</button><button class="vote-btn down" data-id="20260701-COL-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-003" target="_blank" data-id="20260701-COL-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">Precio del ACPM y la gasolina no subirá en el mes de julio, confirma Ministerio de Hacienda</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">elheraldo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-003">＋</button><button class="vote-btn down" data-id="20260701-COL-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-004" target="_blank" data-id="20260701-COL-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">Constructoras colombianas sumaron $91,78 billones en ingresos en 2025</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">portafolio &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-004">＋</button><button class="vote-btn down" data-id="20260701-COL-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-005" target="_blank" data-id="20260701-COL-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Accionistas retoman el control de la EPS Savia Salud y ordenan auditoría forense por millonario déficit</span><div class="row-meta"><span class="tag tag-sociedad">Salud</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-005">＋</button><button class="vote-btn down" data-id="20260701-COL-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-006" target="_blank" data-id="20260701-COL-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">Las tres megaobras clave en Antioquia que heredará el gobierno de Abelardo De la Espriella</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-006">＋</button><button class="vote-btn down" data-id="20260701-COL-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-007" target="_blank" data-id="20260701-COL-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">La situación de salud de Miguel Uribe y el luto que golpea a la familia Uribe Turbay</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">semana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-007">＋</button><button class="vote-btn down" data-id="20260701-COL-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-008" target="_blank" data-id="20260701-COL-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Proyecto Túnel del Toyo: la importancia del túnel cero para conectar a Medellín con el Urabá antioqueño</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-008">＋</button><button class="vote-btn down" data-id="20260701-COL-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-009" target="_blank" data-id="20260701-COL-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">United Airlines conectará a Cartagena con Houston y Washington D.C. sin escalas</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-009">＋</button><button class="vote-btn down" data-id="20260701-COL-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-010" target="_blank" data-id="20260701-COL-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Rescatistas colombianos apoyan en la búsqueda de supervivientes tras tragedia en Venezuela</span><div class="row-meta"><span class="tag tag-politica">Internacional</span></div><div class="row-byline">kienyke &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-010">＋</button><button class="vote-btn down" data-id="20260701-COL-010">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-011" target="_blank" data-id="20260701-COL-011"><span class="row-num">11</span><div class="row-body"><span class="row-title">Metro Cali define el futuro de los buses del transporte tradicional colectivo</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-011">＋</button><button class="vote-btn down" data-id="20260701-COL-011">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-012" target="_blank" data-id="20260701-COL-012"><span class="row-num">12</span><div class="row-body"><span class="row-title">Puente de Juanchito cumple dos años de operación aliviando movilidad entre Cali y el sur del Valle</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-012">＋</button><button class="vote-btn down" data-id="20260701-COL-012">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-013" target="_blank" data-id="20260701-COL-013"><span class="row-num">13</span><div class="row-body"><span class="row-title">Sismo de magnitud 3,4 se registró en Colombia la noche del martes 30 de junio</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-013">＋</button><button class="vote-btn down" data-id="20260701-COL-013">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-014" target="_blank" data-id="20260701-COL-014"><span class="row-num">14</span><div class="row-body"><span class="row-title">Así inicia la rotación del pico y placa en Cali para el segundo semestre de 2026</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-014">＋</button><button class="vote-btn down" data-id="20260701-COL-014">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-015" target="_blank" data-id="20260701-COL-015"><span class="row-num">15</span><div class="row-body"><span class="row-title">Funcionamiento de la medida de pico y placa en Bucaramanga a partir de julio de 2026</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-015">＋</button><button class="vote-btn down" data-id="20260701-COL-015">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-COL-016" target="_blank" data-id="20260701-COL-016"><span class="row-num">16</span><div class="row-body"><span class="row-title">La experiencia inmersiva del arte de Van Gogh llega al Gran Malecón de Barranquilla</span><div class="row-meta"><span class="tag tag-sociedad">Sociedad</span></div><div class="row-byline">El Tiempo &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-COL-016">＋</button><button class="vote-btn down" data-id="20260701-COL-016">－</button></div></a></div><div class="section" id="s-fintech"><div class="section-hdr">💳 Latam Fintech — 10 noticias<span class="section-new-badge">Ed. Mañana 6:00 AM</span></div><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-001" target="_blank" data-id="20260701-FIN-001"><span class="row-num">1</span><div class="row-body"><span class="row-title">Trii facilitará el acceso a la Bolsa de Nueva York para inversores en Colombia y Perú</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">iupana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-001">＋</button><button class="vote-btn down" data-id="20260701-FIN-001">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-002" target="_blank" data-id="20260701-FIN-002"><span class="row-num">2</span><div class="row-body"><span class="row-title">Finsus avanza en su solicitud de licencia bancaria y planifica expansion en América Latina</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">iupana &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-002">＋</button><button class="vote-btn down" data-id="20260701-FIN-002">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-003" target="_blank" data-id="20260701-FIN-003"><span class="row-num">3</span><div class="row-body"><span class="row-title">American Express y Apple Pay permiten a los usuarios realizar pagos utilizando puntos de recompensa</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-003">＋</button><button class="vote-btn down" data-id="20260701-FIN-003">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-004" target="_blank" data-id="20260701-FIN-004"><span class="row-num">4</span><div class="row-body"><span class="row-title">El 51% de los usuarios de BNPL recurre a este método de pago por necesidad financiera</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-004">＋</button><button class="vote-btn down" data-id="20260701-FIN-004">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-005" target="_blank" data-id="20260701-FIN-005"><span class="row-num">5</span><div class="row-body"><span class="row-title">Comité del Congreso de EE.UU. avanza proyectos de ley para dotar a los bancos de nuevas herramientas contra el fraude</span><div class="row-meta"><span class="tag tag-politica">Politica</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-005">＋</button><button class="vote-btn down" data-id="20260701-FIN-005">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-006" target="_blank" data-id="20260701-FIN-006"><span class="row-num">6</span><div class="row-body"><span class="row-title">La digitalización convierte a la factura en el nuevo carrito de compras para los pagos B2B</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-006">＋</button><button class="vote-btn down" data-id="20260701-FIN-006">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-007" target="_blank" data-id="20260701-FIN-007"><span class="row-num">7</span><div class="row-body"><span class="row-title">Google Cloud se asocia con FactSet para expandir su presencia en los mercados financieros mediante inteligencia artificial</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-007">＋</button><button class="vote-btn down" data-id="20260701-FIN-007">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-008" target="_blank" data-id="20260701-FIN-008"><span class="row-num">8</span><div class="row-body"><span class="row-title">Anthropic reduce los costos de agentes de inteligencia artificial con el lanzamiento de Claude Sonnet 5</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-008">＋</button><button class="vote-btn down" data-id="20260701-FIN-008">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-009" target="_blank" data-id="20260701-FIN-009"><span class="row-num">9</span><div class="row-body"><span class="row-title">Las pequeñas empresas enfrentan dificultades de flujo de caja similares a las de las corporaciones</span><div class="row-meta"><span class="tag tag-economia">Economia</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-009">＋</button><button class="vote-btn down" data-id="20260701-FIN-009">－</button></div></a><a class="news-row" href="https://digest-tracker.carlos-cb4.workers.dev/t/20260701-FIN-010" target="_blank" data-id="20260701-FIN-010"><span class="row-num">10</span><div class="row-body"><span class="row-title">Cooperativas de crédito buscan competir por relaciones comerciales con empresas de mayor tamaño</span><div class="row-meta"><span class="tag tag-fintech">Fintech</span></div><div class="row-byline">PYMNTS &middot; </div></div><div class="row-actions"><button class="vote-btn up" data-id="20260701-FIN-010">＋</button><button class="vote-btn down" data-id="20260701-FIN-010">－</button></div></a></div><div class="section" id="s-numero"><div class="section-hdr">📌 Número del Día</div><div class="numero"><div class="numero-titlebar"><span class="tb-num-icon">📌</span><div class="ntl ntl-r"></div><div class="ntl ntl-y"></div><div class="ntl ntl-g"></div><span style="margin-left:6px">Número del día · 2026-07-01</span></div><div class="numero-body"><span class="numero-val">$91.78 B</span><div class="numero-desc">Las constructoras en Colombia sumaron ingresos por 91,78 billones de pesos durante el año 2025.<br><span style="font-size:11px;color:#888;margin-top:8px;display:block">Fuente: Noticias Colombia</span></div></div></div></div>
-  </div><!-- /content -->
-
-  <div class="statusbar">
-    <span class="status-item" id="statusSection">Bolivia &middot; 20 noticias</span>
-    <span class="status-item" id="statusVisited">0 le&iacute;das</span>
-    <span class="status-item" id="statusTime">1 Julio 2026</span>
-  </div>
-</div><!-- /window -->
-
-<!-- MODE SWITCHER -->
-<div class="mode-switcher">
-
-  <!-- Windows 95: classic waving flag logo -->
-  <button class="mode-btn active" data-theme="win95" onclick="setTheme('win95',this)" title="Windows 95">
-    <svg width="20" height="20" viewBox="0 0 88 88" fill="none">
-      <!-- Classic Windows 3.1/95 flag — four colored panes with perspective wave -->
-      <polygon points="4,12 40,6 40,42 4,42" fill="#E84B35"/>
-      <polygon points="44,5 84,0 84,40 44,42" fill="#53A63A"/>
-      <polygon points="4,46 40,46 40,82 4,76" fill="#4BADD2"/>
-      <polygon points="44,46 84,48 84,88 44,83" fill="#F8B84E"/>
-    </svg>
-  </button>
-
-  <!-- Mac 90s: classic Mac SE / compact Mac silhouette -->
-  <button class="mode-btn" data-theme="mac90" onclick="setTheme('mac90',this)" title="Mac OS 90s">
-    <svg width="18" height="20" viewBox="0 0 36 42" fill="currentColor">
-      <!-- Body -->
-      <rect x="3" y="0" width="30" height="34" rx="3" ry="3"/>
-      <!-- Screen bezel -->
-      <rect x="7" y="4" width="22" height="18" rx="1" ry="1" fill="white" opacity="0.85"/>
-      <!-- Screen content (classic happy mac face area) -->
-      <rect x="9" y="6" width="18" height="14" rx="1" fill="#b0c8b0"/>
-      <!-- Disk slot -->
-      <rect x="11" y="25" width="14" height="3" rx="1" fill="white" opacity="0.5"/>
-      <!-- Base / chin -->
-      <rect x="1" y="34" width="34" height="5" rx="2"/>
-      <!-- Feet -->
-      <rect x="6" y="39" width="8" height="3" rx="1"/>
-      <rect x="22" y="39" width="8" height="3" rx="1"/>
-    </svg>
-  </button>
-
-  <!-- Mac 2000 Aqua: Aqua drop / gel button shape -->
-  <button class="mode-btn" data-theme="aqua" onclick="setTheme('aqua',this)" title="Mac OS X Aqua">
-    <svg width="20" height="20" viewBox="0 0 40 40">
-      <!-- Aqua gel button — the iconic look of Mac OS X -->
-      <ellipse cx="20" cy="22" rx="17" ry="15" fill="url(#aqua-base)"/>
-      <ellipse cx="20" cy="22" rx="17" ry="15" fill="url(#aqua-grad)"/>
-      <!-- Gloss highlight -->
-      <ellipse cx="20" cy="13" rx="11" ry="6" fill="rgba(255,255,255,0.55)"/>
-      <!-- Inner shine dot -->
-      <ellipse cx="15" cy="11" rx="4" ry="2.5" fill="rgba(255,255,255,0.35)"/>
-      <defs>
-        <radialGradient id="aqua-base" cx="50%" cy="60%" r="55%">
-          <stop offset="0%" stop-color="#7ECBF5"/>
-          <stop offset="100%" stop-color="#1A5FAD"/>
-        </radialGradient>
-        <linearGradient id="aqua-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="rgba(255,255,255,0.0)"/>
-          <stop offset="100%" stop-color="rgba(0,60,140,0.25)"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </button>
-
-</div>
+<nav class="bottom">
+  <div class="nav-item active" data-section="bolivia" onclick="switchTab(this)"><span class="nav-icon">🇧🇴</span>Bolivia<span class="nav-badge">20</span></div>
+  <div class="nav-item" data-section="peru" onclick="switchTab(this)"><span class="nav-icon">🇵🇪</span>Perú<span class="nav-badge">20</span></div>
+  <div class="nav-item" data-section="colombia" onclick="switchTab(this)"><span class="nav-icon">🇨🇴</span>Colombia<span class="nav-badge">20</span></div>
+  <div class="nav-item" data-section="fintech" onclick="switchTab(this)"><span class="nav-icon">💳</span>Fintech<span class="nav-badge">10</span></div>
+</nav>
 
 <script>
-  // ── THEME SWITCHER ──
-  function setTheme(theme, btn) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    localStorage.setItem('digest-theme', theme);
-  }
-  // Restore saved theme
-  const saved = localStorage.getItem('digest-theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-    document.querySelectorAll('.mode-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.theme === saved);
-    });
-  }
-
-  // ── CLOCK ──
-  function updateClock() {
-    const now = new Date();
-    let h = now.getHours(); const m = String(now.getMinutes()).padStart(2,'0');
-    const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
-    const t = h + ':' + m + ' ' + ap;
-    const cl = document.getElementById('sysClock'); if (cl) cl.textContent = t;
-    const st = document.getElementById('statusTime'); if (st) st.textContent = '1 Julio 2026 · ' + t;
-  }
-  updateClock(); setInterval(updateClock, 1000);
-
-  // ── TAB SWITCHING ──
-  const SM = {
-    bolivia: 'Bolivia · 20 noticias',
-    peru: 'Perú · 20 noticias',
-    colombia: 'Colombia · 20 noticias',
-    fintech: 'Latam Fintech · 10 noticias',
-    numero: 'Número del Día'
-  };
-  function switchTab(tab) {
-    const s = tab.dataset.section;
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
-    document.getElementById('s-' + s).classList.add('active');
-    document.getElementById('sectionInfo').textContent = SM[s] || '';
-    document.getElementById('statusSection').textContent = SM[s] || '';
-    document.getElementById('mainContent').scrollTop = 0;
-    updateVisited();
-  }
-
-  // ── VOTE — exclusive toggle ──
-  const VS = {};
-  document.querySelectorAll('.vote-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault(); e.stopPropagation();
-      const id = btn.dataset.id; const isUp = btn.classList.contains('up');
-      const row = btn.closest('.news-row');
-      const up = row.querySelector('.vote-btn.up');
-      const dn = row.querySelector('.vote-btn.down');
-      const cur = VS[id];
-      up.classList.remove('active-up'); dn.classList.remove('active-down');
-      if (isUp && cur !== 'up')       { VS[id] = 'up';   up.classList.add('active-up'); }
-      else if (!isUp && cur !== 'down') { VS[id] = 'down'; dn.classList.add('active-down'); }
-      else { delete VS[id]; }
-    });
+function switchTab(el){
+  const sec = el.dataset.section;
+  document.querySelectorAll('.chip, .nav-item').forEach(x=>{
+    if(x.dataset.section===sec) x.classList.add('active'); else x.classList.remove('active');
   });
-
-  // ── VISITED TRACKING ──
-  const visited = new Set();
-  function updateVisited() {
-    const sec = document.querySelector('.section.active'); if (!sec) return;
-    const rows = sec.querySelectorAll('.news-row[data-id]');
-    let c = 0; rows.forEach(r => { if (visited.has(r.dataset.id)) c++; });
-    document.getElementById('visitedCount').textContent = c + '/' + rows.length + ' leídas';
-    document.getElementById('statusVisited').textContent = c + ' leídas';
-  }
-  document.querySelectorAll('.news-row[data-id]').forEach(row => {
-    row.addEventListener('click', function(e) {
-      if (e.target.classList.contains('vote-btn')) return;
-      const id = this.dataset.id;
-      if (!visited.has(id)) {
-        visited.add(id); this.classList.add('visited');
-        const meta = this.querySelector('.row-meta');
-        if (meta && !meta.querySelector('.chip-visited')) {
-          const chip = document.createElement('span');
-          chip.className = 'chip-visited'; chip.textContent = '✓ leído';
-          meta.prepend(chip);
-        }
-      }
-      updateVisited();
-    });
-  });
-  updateVisited();
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s-'+sec).classList.add('active');
+  document.getElementById('mainContent').scrollTop = 0;
+}
+function vote(e, btn){
+  e.preventDefault(); e.stopPropagation();
+  const row = btn.closest('.card');
+  const up = row.querySelector('.vote-btn.up');
+  const dn = row.querySelector('.vote-btn.down');
+  const wasUp = btn.classList.contains('active-up'), wasDown = btn.classList.contains('active-down');
+  up.classList.remove('active-up'); dn.classList.remove('active-down');
+  if(btn===up && !wasUp) up.classList.add('active-up');
+  else if(btn===dn && !wasDown) dn.classList.add('active-down');
+}
+function markRead(card){
+  card.classList.add('visited');
+}
 </script>
 </body>
 </html>
