@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glosario de stats FIFA — qué mide cada una</title>
+
+<style>
+  :root{
+    --bg:#f3f5ef;
+    --paper:#ffffff;
+    --ink:#132018;
+    --ink-dim:#5c6b5f;
+    --ink-faint:#8b9990;
+    --border:#dde3d7;
+    --border-soft:#e8ece3;
+    --accent:#1d6b45;
+    --accent-ink:#ffffff;
+    --accent-soft:#e2efe4;
+    --tag-bg:#eef1e9;
+    --tag-ink:#8b9990;
+    --star-bg:#e2efe4;
+    --star-ink:#155a38;
+    --shadow: 0 1px 2px rgba(19,32,24,.04), 0 8px 24px -14px rgba(19,32,24,.16);
+    --cat-sat:44%; --cat-light:40%;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d130f; --paper:#131b15; --ink:#e7ece6; --ink-dim:#9dab9f; --ink-faint:#67766a;
+      --border:#25332a; --border-soft:#1c2721; --accent:#57cf94; --accent-ink:#08150e;
+      --accent-soft:#152a1d; --tag-bg:#182119; --tag-ink:#67766a;
+      --star-bg:#122a1c; --star-ink:#6fe0a4;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
+      --cat-sat:56%; --cat-light:58%;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d130f; --paper:#131b15; --ink:#e7ece6; --ink-dim:#9dab9f; --ink-faint:#67766a;
+    --border:#25332a; --border-soft:#1c2721; --accent:#57cf94; --accent-ink:#08150e;
+    --accent-soft:#152a1d; --tag-bg:#182119; --tag-ink:#67766a;
+    --star-bg:#122a1c; --star-ink:#6fe0a4;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
+    --cat-sat:56%; --cat-light:58%;
+  }
+  :root[data-theme="light"]{
+    --bg:#f3f5ef; --paper:#ffffff; --ink:#132018; --ink-dim:#5c6b5f; --ink-faint:#8b9990;
+    --border:#dde3d7; --border-soft:#e8ece3; --accent:#1d6b45; --accent-ink:#ffffff;
+    --accent-soft:#e2efe4; --tag-bg:#eef1e9; --tag-ink:#8b9990;
+    --star-bg:#e2efe4; --star-ink:#155a38;
+    --shadow: 0 1px 2px rgba(19,32,24,.04), 0 8px 24px -14px rgba(19,32,24,.16);
+    --cat-sat:44%; --cat-light:40%;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.45;
+  }
+  .mono{ font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace; }
+
+  .wrap{max-width:980px; margin:0 auto; padding: 28px 22px 90px;}
+
+  header.top{
+    padding-bottom:20px; border-bottom:1px solid var(--border); margin-bottom:20px;
+  }
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.11em; font-size:11.5px; font-weight:700;
+    color:var(--accent); margin:0 0 6px;
+  }
+  h1{
+    margin:0; font-size: clamp(24px, 3.2vw, 32px); font-weight:800; letter-spacing:-0.01em;
+    text-wrap:balance;
+  }
+  header.top p{ margin:8px 0 0; color:var(--ink-dim); font-size:14.5px; max-width:64ch; }
+  header.top .star-note{ color:var(--star-ink); font-weight:650; }
+
+  .controls{
+    position:sticky; top:0; z-index:5; background:var(--bg);
+    padding:14px 0 14px; margin-bottom:4px;
+    display:flex; flex-wrap:wrap; gap:12px 16px; align-items:center;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .seg{
+    display:inline-flex; background:var(--paper); border:1px solid var(--border);
+    border-radius:9px; padding:3px; gap:2px;
+  }
+  .seg button{
+    border:none; background:transparent; color:var(--ink-dim); font-size:13.5px; font-weight:650;
+    padding:7px 15px; border-radius:6px; cursor:pointer; font-family:inherit;
+  }
+  .seg button.active{ background:var(--accent); color:var(--accent-ink); }
+  .seg button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .search{ position:relative; flex:1 1 220px; max-width:340px; }
+  .search input{
+    width:100%; padding:9px 13px 9px 34px; border-radius:9px; border:1px solid var(--border);
+    background:var(--paper); color:var(--ink); font-size:14px; font-family:inherit;
+  }
+  .search input:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+  .search svg{ position:absolute; left:11px; top:50%; transform:translateY(-50%); opacity:.5; }
+
+  .toggle-exposed{
+    display:inline-flex; align-items:center; gap:7px; font-size:12.5px; color:var(--ink-faint);
+    cursor:pointer; user-select:none; padding:6px 4px; margin-left:auto;
+  }
+  .toggle-exposed input{ accent-color:var(--accent); width:14px; height:14px; }
+  .match-count{ font-size:12.5px; color:var(--ink-faint); white-space:nowrap; }
+
+  section.cat{
+    background:var(--paper); border:1px solid var(--border); border-radius:14px;
+    padding:20px 22px 8px; box-shadow:var(--shadow); margin-top:20px;
+    border-left: 4px solid hsl(var(--hue) var(--cat-sat) var(--cat-light));
+  }
+  section.cat.hidden{ display:none; }
+  section.cat h2{
+    margin:0 0 6px; font-size:17px; font-weight:800; letter-spacing:-.005em;
+    display:flex; align-items:baseline; gap:9px;
+  }
+  section.cat h2 .n{ font-size:12px; font-weight:650; color:var(--ink-faint); font-variant-numeric:tabular-nums; }
+  section.cat .intro{
+    font-size:13.5px; color:var(--ink-dim); margin:0 0 16px; max-width:74ch; line-height:1.55;
+  }
+
+  .stat-grid{
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap:2px 22px;
+  }
+  .stat{
+    padding:11px 0; border-top:1px solid var(--border-soft);
+  }
+  .stat.hidden{ display:none; }
+  .stat .row1{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+  .stat .label{ font-size:13.5px; font-weight:700; }
+  .stat .star{
+    flex:none; font-size:9px; font-weight:800; letter-spacing:.03em; text-transform:uppercase;
+    padding:1.5px 6px; border-radius:20px; background:var(--star-bg); color:var(--star-ink);
+  }
+  .stat .def{ font-size:12.8px; color:var(--ink-dim); margin-top:2px; line-height:1.45; }
+  .stat .raw{
+    display:block; font-size:10px; color:var(--ink-faint); opacity:.65; margin-top:4px;
+    background:var(--tag-bg); padding:1px 5px; border-radius:4px; width:fit-content;
+  }
+
+  footer.notes{
+    margin-top:40px; padding-top:24px; border-top:1px solid var(--border);
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:24px;
+  }
+  footer.notes h3{
+    font-size:11.5px; text-transform:uppercase; letter-spacing:.09em; color:var(--accent);
+    margin:0 0 8px; font-weight:800;
+  }
+  footer.notes p{ font-size:12.8px; color:var(--ink-dim); margin:0; }
+  footer.notes .mono{ font-size:11.5px; background:var(--tag-bg); padding:1px 5px; border-radius:4px; }
+
+  ::selection{ background: var(--accent); color: var(--accent-ink); }
+
+  @media (max-width:560px){ .controls{ position:static; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="eyebrow">MCP worldcup · Mundial 2026 · Enhanced Football Intelligence de FIFA</p>
+    <h1>Glosario de stats FIFA</h1>
+    <p>Qué mide cada una de las 253 estadísticas que da FIFA por partido jugado — 141 de equipo, 112 de jugador — explicadas en criollo, no por su nombre de variable. <span class="star-note">★ verde</span> = ya tiene alias corto en las tools (<span class="mono">stats</span>); el resto se pide por su nombre técnico dentro de <span class="mono">stats_completas</span>, mostrado chico al pie de cada una solo como referencia.</p>
+  </header>
+
+  <div class="controls">
+    <div class="seg" role="tablist" aria-label="Equipo o jugador">
+      <button type="button" class="active" data-scope="team">Equipo · 141</button>
+      <button type="button" data-scope="player">Jugador · 112</button>
+    </div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="text" placeholder="Buscar por lo que mide… ej. sprint, presión, córner" autocomplete="off">
+    </div>
+    <span class="match-count" id="matchCount"></span>
+    <label class="toggle-exposed">
+      <input type="checkbox" id="onlyExposed"> solo con alias ★
+    </label>
+  </div>
+
+  <div id="grid"></div>
+
+  <footer class="notes">
+    <div>
+      <h3>Fuente</h3>
+      <p><span class="mono">fdh-api.fifa.com</span>, solo partidos ya jugados. Unidades ya convertidas (posesión/% 0–1→%, distancias metros→km); el resto viene en su escala final.</p>
+    </div>
+    <div>
+      <h3>Power Ranking (aparte)</h3>
+      <p>Rank + score por jugador en 3 dimensiones — atacante, defensivo, creativo. Ya expuesto por <span class="mono">getFifaPowerRanking</span>, no está en este glosario.</p>
+    </div>
+    <div>
+      <h3>Leaderboards del torneo (otra fuente)</h3>
+      <p>Goleadores/asistencias y rankings acumulados viven en un sistema aparte (GameDay). Investigado, no implementado todavía.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const DATA = {"team": [{"cat": "Goles y modelo", "intro": "El resultado puro y los dos índices que resumen la producción ofensiva/defensiva de FIFA en un solo número.", "items": [{"name": "CleanSheets", "label": "Vallas invictas", "def": "Partidos en los que el equipo no recibió ningún gol.", "exposed": false}, {"name": "Goals", "label": "Goles", "def": "Goles anotados.", "exposed": true}, {"name": "GoalsConceded", "label": "Goles recibidos", "def": "Goles recibidos.", "exposed": true}, {"name": "GoalsFromDirectFreeKicks", "label": "Goles de tiro libre directo", "def": "Goles marcados directo de tiro libre, sin que la toque nadie más antes de entrar.", "exposed": false}, {"name": "GoalsInsideThePenaltyArea", "label": "Goles dentro del área", "def": "Goles marcados desde dentro del área rival.", "exposed": false}, {"name": "GoalsOutsideThePenaltyArea", "label": "Goles fuera del área", "def": "Goles marcados desde fuera del área rival.", "exposed": false}, {"name": "OwnGoals", "label": "Autogoles", "def": "Goles en contra.", "exposed": false}, {"name": "Penalties", "label": "Penales pateados", "def": "Penales que pateó el equipo/jugador.", "exposed": false}, {"name": "PenaltiesScored", "label": "Penales convertidos", "def": "Penales convertidos en gol.", "exposed": false}, {"name": "Threat", "label": "Amenaza", "def": "Índice compuesto de FIFA que mide qué tan peligrosas y frecuentes son las acciones ofensivas cerca del arco rival (remates, pases clave, conducciones al área). Más alto = ataque más punzante.", "exposed": true}, {"name": "XG", "label": "Goles esperados (xG)", "def": "Probabilidad acumulada de gol según la calidad de cada remate (ubicación, ángulo, tipo de jugada, presión del defensor). Si remató mucho desde buen lugar, el xG sube aunque no haya convertido.", "exposed": true}]}, {"cat": "Remates", "intro": "Todo lo relacionado a disparos al arco: cuántos, desde dónde, de qué jugada nacieron y si fueron a puerta.", "items": [{"name": "AttemptAtGoal", "label": "Remates", "def": "Remates totales (a puerta + afuera + bloqueados).", "exposed": true}, {"name": "AttemptAtGoalAgainst", "label": "Remates recibidos", "def": "Remates que le tiró el rival — la misma foto pero mirada en defensa.", "exposed": false}, {"name": "AttemptAtGoalAgainstOnTarget", "label": "Remates rivales a puerta", "def": "De los remates que recibió, cuántos iban a puerta.", "exposed": false}, {"name": "AttemptAtGoalBlocked", "label": "Remates bloqueados", "def": "Remates que un defensor tapó antes de llegar al arco.", "exposed": false}, {"name": "AttemptAtGoalFromBallProgression", "label": "Remates de jugada armada", "def": "Remates que nacen de una jugada de progresión (pase o conducción que avanza el ataque), no de pelota parada.", "exposed": false}, {"name": "AttemptAtGoalFromCorner", "label": "Remates de córner", "def": "Remates que salen directo de un córner.", "exposed": false}, {"name": "AttemptAtGoalFromCross", "label": "Remates de centro", "def": "Remates que salen de un centro desde banda.", "exposed": false}, {"name": "AttemptAtGoalFromFreeKicks", "label": "Remates de tiro libre", "def": "Remates que salen de un tiro libre.", "exposed": false}, {"name": "AttemptAtGoalFromOther", "label": "Remates de otro origen", "def": "Remates que no encajan en ninguna de las demás categorías de jugada.", "exposed": false}, {"name": "AttemptAtGoalFromPass", "label": "Remates de pase en juego", "def": "Remates que nacen de un pase en juego abierto (no centro, no pelota parada).", "exposed": false}, {"name": "AttemptAtGoalFromPenalty", "label": "Remates de penal", "def": "Remates ejecutados de penal.", "exposed": false}, {"name": "AttemptAtGoalFromRebound", "label": "Remates de rebote", "def": "Remates de rechace, en una segunda jugada tras un remate o atajada previa.", "exposed": false}, {"name": "AttemptAtGoalInsideThePenaltyArea", "label": "Remates dentro del área", "def": "Remates ejecutados desde dentro del área rival.", "exposed": true}, {"name": "AttemptAtGoalInsideThePenaltyAreaOnTarget", "label": "Remates dentro del área a puerta", "def": "De los remates dentro del área, cuántos fueron a puerta.", "exposed": false}, {"name": "AttemptAtGoalOffTarget", "label": "Remates desviados", "def": "Remates que se van afuera, sin exigir al arquero.", "exposed": false}, {"name": "AttemptAtGoalOnTarget", "label": "Remates a puerta", "def": "Remates que van entre los tres palos — exigen atajada o son gol.", "exposed": true}, {"name": "AttemptAtGoalOutsideThePenaltyArea", "label": "Remates de media distancia", "def": "Remates ejecutados desde fuera del área rival.", "exposed": false}, {"name": "AttemptAtGoalOutsideThePenaltyAreaOnTarget", "label": "Remates de media distancia a puerta", "def": "De los remates desde fuera del área, cuántos fueron a puerta.", "exposed": false}, {"name": "HeadedAttemptAtGoal", "label": "Remates de cabeza", "def": "Remates ejecutados de cabeza.", "exposed": false}, {"name": "NumberOfShotEndingSequences", "label": "Jugadas que terminan en remate", "def": "Cantidad de jugadas de ataque (posesiones) que terminaron en un remate — mide cuántas veces el equipo llegó de verdad, no solo cuántos remates sueltos dio.", "exposed": true}]}, {"cat": "Pases y distribución", "intro": "Cómo circula el balón: pases, centros, cambios de frente y balón parado.", "items": [{"name": "Assists", "label": "Asistencias", "def": "El pase inmediatamente anterior a un gol.", "exposed": false}, {"name": "AttemptedSwitchesOfPlay", "label": "Cambios de orientación intentados", "def": "Pases largos que mueven el juego de un costado de la cancha al otro, buscando desequilibrar al rival.", "exposed": false}, {"name": "CompletedSwitchesOfPlay", "label": "Cambios de orientación logrados", "def": "De esos cambios de orientación, los que llegaron limpio a destino.", "exposed": false}, {"name": "Corners", "label": "Córners", "def": "Córners sacados.", "exposed": true}, {"name": "Crosses", "label": "Centros", "def": "Centros intentados desde banda hacia el área.", "exposed": true}, {"name": "CrossesCompleted", "label": "Centros completados", "def": "Centros que encontraron a un compañero.", "exposed": true}, {"name": "DirectFreeKicks", "label": "Tiros libres directos", "def": "Tiros libres que se pueden rematar al arco sin que la toque otro jugador antes.", "exposed": false}, {"name": "DistributionsCompletedUnderPressure", "label": "Pases logrados bajo presión", "def": "Pases o distribuciones que llegaron a destino pese a tener un rival encima presionando.", "exposed": false}, {"name": "DistributionsUnderPressure", "label": "Pases intentados bajo presión", "def": "Total de pases o distribuciones ejecutados con un rival presionando (lleguen o no).", "exposed": false}, {"name": "FreeKicks", "label": "Tiros libres", "def": "Tiros libres totales, directos e indirectos.", "exposed": false}, {"name": "IndirectFreeKicks", "label": "Tiros libres indirectos", "def": "Tiros libres que necesitan que la toque otro jugador antes de poder ir directo a gol.", "exposed": false}, {"name": "Passes", "label": "Pases", "def": "Pases intentados.", "exposed": true}, {"name": "PassesCompleted", "label": "Pases completados", "def": "Pases que llegaron a un compañero.", "exposed": true}, {"name": "ThrowIns", "label": "Saques de banda", "def": "Saques de banda ejecutados.", "exposed": false}]}, {"cat": "Progresión y rupturas de línea", "intro": "La familia más técnica del catálogo. \"Romper una línea\" es un pase o conducción que deja atrás a los rivales de una línea de presión (defensiva, media o de ataque) — mide progresión real contra el bloque rival, no solo pases hacia adelante. \"Intentada\" = se buscó; \"lograda\" = el balón cruzó limpio; \"SOLO\" = esa línea nada más, sin combinarla con otra en la misma jugada; \"bajo presión\" = con un rival encima al ejecutarla.", "items": [{"name": "AttemptedBallProgressions", "label": "Progresiones de balón intentadas", "def": "Pases o conducciones que buscan avanzar el balón de forma significativa hacia el arco rival.", "exposed": false}, {"name": "CompletedBallProgressions", "label": "Progresiones de balón logradas", "def": "De esas, las que avanzaron el balón de forma efectiva.", "exposed": false}, {"name": "LinebreaksAttempted", "label": "Rupturas de línea intentadas (total)", "def": "Intentos de superar cualquier línea de presión rival — el conteo general de la familia de \"rupturas de línea\".", "exposed": false}, {"name": "LinebreaksAttemptedAllLines", "label": "Ruptura de TODAS las líneas intentada", "def": "Intentos de romper de una sola jugada la defensa, el medio y el ataque rival juntos — el tipo de ruptura más difícil y valiosa.", "exposed": true}, {"name": "LinebreaksAttemptedAttackingAndMidfieldLine", "label": "Ruptura de ataque+medio intentada", "def": "Intentos de romper a la vez la línea de ataque y la de medio del rival.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLine", "label": "Ruptura de línea de ataque intentada", "def": "Intentos que incluyen romper la línea de ataque rival (sola o combinada con otra).", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineCompleted", "label": "Ruptura de línea de ataque lograda", "def": "De esos intentos, los que sí superaron la línea de ataque rival.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineCompletedOnly", "label": "Ruptura SOLO de línea de ataque lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea de ataque rival, sin sumar otra línea a la vez.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineOnly", "label": "Ruptura SOLO de línea de ataque intentada", "def": "Intentos dirigidos únicamente a romper la línea de ataque rival.", "exposed": false}, {"name": "LinebreaksAttemptedCompleted", "label": "Rupturas de línea logradas (total)", "def": "Total de intentos de ruptura, en cualquier combinación de líneas, que terminaron exitosos.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLine", "label": "Ruptura de línea defensiva intentada", "def": "Intentos que incluyen romper la línea defensiva rival — la más profunda, la que deja mano a mano con el arquero.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineCompleted", "label": "Ruptura de línea defensiva lograda", "def": "De esos intentos, los que sí superaron la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineCompletedOnly", "label": "Ruptura SOLO de línea defensiva lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineOnly", "label": "Ruptura SOLO de línea defensiva intentada", "def": "Intentos dirigidos únicamente a romper la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldAndDefensiveLine", "label": "Ruptura de medio+defensa intentada", "def": "Intentos de romper a la vez la línea de medio y la defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLine", "label": "Ruptura de línea de medio intentada", "def": "Intentos que incluyen romper la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineCompleted", "label": "Ruptura de línea de medio lograda", "def": "De esos intentos, los que sí superaron la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineCompletedOnly", "label": "Ruptura SOLO de línea de medio lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineOnly", "label": "Ruptura SOLO de línea de medio intentada", "def": "Intentos dirigidos únicamente a romper la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedUnderPressure", "label": "Rupturas de línea intentadas bajo presión", "def": "Intentos de ruptura de línea ejecutados con el jugador presionado en el momento.", "exposed": false}, {"name": "LinebreaksCompletedAllLines", "label": "Ruptura de TODAS las líneas lograda", "def": "Veces que el equipo superó defensa+medio+ataque rival en una sola jugada — la progresión más letal que mide FIFA.", "exposed": true}, {"name": "LinebreaksCompletedAttackingAndMidfieldLine", "label": "Ruptura de ataque+medio lograda", "def": "Rupturas completadas de la línea de ataque y de medio a la vez.", "exposed": false}, {"name": "LinebreaksCompletedMidfieldAndDefensiveLine", "label": "Ruptura de medio+defensa lograda", "def": "Rupturas completadas de la línea de medio y la defensiva a la vez.", "exposed": false}, {"name": "LinebreaksCompletedUnderPressure", "label": "Rupturas de línea logradas bajo presión", "def": "Rupturas de línea completadas pese a estar el jugador presionado — mide calidad bajo estrés.", "exposed": false}]}, {"cat": "Territorio y recepción", "intro": "Dónde recibe el equipo el balón (por carril y zona) y cómo se mueven los jugadores para ofrecerse a recibir, con o sin presión encima.", "items": [{"name": "FinalThirdEntriesReceptionCentralChannel", "label": "Recepciones en último tercio (centro)", "def": "Recepciones de balón en el último tercio de cancha, por el carril central.", "exposed": false}, {"name": "FinalThirdEntriesReceptionInsideLeftChannel", "label": "Recepciones en último tercio (medio-izquierda)", "def": "Recepciones en el último tercio, por el carril interior izquierdo (entre el centro y la banda).", "exposed": false}, {"name": "FinalThirdEntriesReceptionInsideRightChannel", "label": "Recepciones en último tercio (medio-derecha)", "def": "Recepciones en el último tercio, por el carril interior derecho.", "exposed": false}, {"name": "FinalThirdEntriesReceptionLeftChannel", "label": "Recepciones en último tercio (banda izq.)", "def": "Recepciones en el último tercio, por la banda izquierda.", "exposed": false}, {"name": "FinalThirdEntriesReceptionRightChannel", "label": "Recepciones en último tercio (banda der.)", "def": "Recepciones en el último tercio, por la banda derecha.", "exposed": false}, {"name": "FinalThirdPitchControl", "label": "Control del último tercio", "def": "Porcentaje del último tercio de cancha (la zona más cerca del arco rival) que el equipo domina territorialmente.", "exposed": true}, {"name": "OffersToReceiveInBehind", "label": "Desmarques a la espalda", "def": "Movimientos buscando recibir a la espalda de la última línea rival.", "exposed": false}, {"name": "OffersToReceiveInBetween", "label": "Desmarques entre líneas", "def": "Movimientos buscando recibir en el espacio entre líneas rivales (el clásico \"medio espacio\").", "exposed": false}, {"name": "OffersToReceiveInFront", "label": "Desmarques de cara", "def": "Movimientos buscando recibir de cara, por delante de la presión rival más cercana.", "exposed": false}, {"name": "OffersToReceiveInside", "label": "Desmarques hacia adentro", "def": "Movimientos ofreciéndose a recibir hacia el interior de la cancha.", "exposed": false}, {"name": "OffersToReceiveOutside", "label": "Desmarques hacia afuera", "def": "Movimientos ofreciéndose a recibir hacia la banda.", "exposed": false}, {"name": "OffersToReceiveTotal", "label": "Desmarques totales", "def": "Total de movimientos ofreciéndose a recibir, sumando todos los tipos.", "exposed": false}, {"name": "PitchControl", "label": "Control de cancha", "def": "Porcentaje de la cancha completa que el equipo domina territorialmente en promedio durante el partido.", "exposed": false}, {"name": "Possession", "label": "Posesión", "def": "Porcentaje de tiempo con el balón.", "exposed": true}, {"name": "ReceivedOffersToReceive", "label": "Desmarques que terminaron en recepción", "def": "De todos los movimientos ofreciéndose a recibir, cuántos terminaron en una recepción real de balón.", "exposed": false}, {"name": "ReceptionsBetweenMidfieldAndDefensiveLine", "label": "Recepciones entre medio y defensa rival", "def": "Recepciones de balón en el espacio entre la línea de medio y la defensiva del rival — zona clave de progresión.", "exposed": false}, {"name": "ReceptionsInBehind", "label": "Recepciones a la espalda", "def": "Recepciones de balón a la espalda de la última línea rival.", "exposed": false}, {"name": "ReceptionsUnderDirectPressure", "label": "Recepciones con marca directa", "def": "Recepciones con un rival encima marcando directamente al que recibe.", "exposed": false}, {"name": "ReceptionsUnderIndirectPressure", "label": "Recepciones con presión cercana", "def": "Recepciones con presión rival cerca, pero no directamente sobre el que recibe.", "exposed": false}, {"name": "ReceptionsUnderNoPressure", "label": "Recepciones sin presión", "def": "Recepciones sin ningún rival presionando.", "exposed": false}, {"name": "ReceptionsUnderPressure", "label": "Recepciones bajo presión (total)", "def": "Total de recepciones con algún tipo de presión encima, directa o indirecta.", "exposed": false}]}, {"cat": "Defensa y presión", "intro": "Qué tan agresivo e intenso es el equipo sin el balón: presiones, recuperaciones y velocidad de reacción a la pérdida.", "items": [{"name": "BallRecoveryTime", "label": "Tiempo de recuperación", "def": "Segundos promedio que tarda el equipo en recuperar el balón después de perderlo — qué tan rápido reacciona a la pérdida.", "exposed": false}, {"name": "DefensivePressuresApplied", "label": "Presiones aplicadas", "def": "Presiones defensivas ejecutadas sobre el rival que tiene el balón.", "exposed": true}, {"name": "DirectDefensivePressuresApplied", "label": "Presiones directas aplicadas", "def": "De esas presiones, las que fueron directamente sobre el jugador con el balón, no de acompañamiento.", "exposed": false}, {"name": "ForcedTurnovers", "label": "Pérdidas provocadas", "def": "Pérdidas de balón del rival provocadas por una acción defensiva del equipo, no un error propio sin presión.", "exposed": true}, {"name": "NumberOfInvolvements", "label": "Involucramientos", "def": "Cantidad de acciones donde el jugador/equipo participó activamente (toques, pases, remates, presiones) — mide qué tan metido estuvo en el juego.", "exposed": false}, {"name": "NumberOfPossessionSequences", "label": "Secuencias de posesión", "def": "Cantidad de tramos continuos con el balón que tuvo el equipo.", "exposed": false}, {"name": "TakeOnsCompleted", "label": "Regates completados", "def": "Gambetas/regates ganados en el uno contra uno.", "exposed": false}]}, {"cat": "Físico", "intro": "Carga física del partido: distancia recorrida por ritmo, sprints y velocidad.", "items": [{"name": "AvgSpeed", "label": "Velocidad promedio", "def": "Velocidad promedio de desplazamiento durante el partido, en km/h.", "exposed": false}, {"name": "DistanceHighSpeedRunning", "label": "Distancia a alta velocidad", "def": "Kilómetros recorridos corriendo a alta velocidad, por debajo del umbral de sprint.", "exposed": false}, {"name": "DistanceHighSpeedSprinting", "label": "Distancia en sprint alto", "def": "Kilómetros recorridos en sprint a máxima intensidad.", "exposed": true}, {"name": "DistanceJogging", "label": "Distancia trotando", "def": "Kilómetros recorridos a ritmo bajo (trote).", "exposed": false}, {"name": "DistanceLowSpeedSprinting", "label": "Distancia en sprint bajo", "def": "Kilómetros recorridos en sprints de intensidad más moderada.", "exposed": false}, {"name": "DistanceWalking", "label": "Distancia caminando", "def": "Kilómetros recorridos caminando.", "exposed": false}, {"name": "SpeedRuns", "label": "Arrancadas de velocidad", "def": "Cantidad de carreras/arrancadas a velocidad significativa (conteo, no distancia).", "exposed": false}, {"name": "Sprints", "label": "Sprints", "def": "Cantidad de sprints (arrancadas a máxima intensidad) realizados.", "exposed": true}, {"name": "TopSpeed", "label": "Velocidad punta", "def": "Velocidad máxima alcanzada en el partido, en km/h.", "exposed": true}, {"name": "TotalDistance", "label": "Distancia total", "def": "Kilómetros totales recorridos en el partido.", "exposed": true}]}, {"cat": "Fases tácticas", "intro": "FIFA segmenta el partido en \"fases de juego\" con nombre propio (bloques, presiones, transiciones, contragolpe). Cada valor es qué tanto tiempo/qué tan seguido el equipo estuvo en esa fase — sirve para perfilar el estilo: ¿juega en bloque bajo o presiona arriba? ¿construye con o sin oposición? ¿ataca en transición o de forma posicional?", "items": [{"name": "PhaseAggregateAttackingTransition", "label": "Transición ofensiva", "def": "Momento inmediato tras recuperar el balón, antes de organizarse en ataque posicional.", "exposed": false}, {"name": "PhaseAggregateBuildUpOpposed", "label": "Salida de balón presionada", "def": "Construcción desde el fondo con el rival presionando activamente.", "exposed": false}, {"name": "PhaseAggregateBuildUpUnopposed", "label": "Salida de balón libre", "def": "Construcción desde el fondo sin presión rival relevante, con espacio y tiempo.", "exposed": false}, {"name": "PhaseAggregateCounterattack", "label": "Contraataque", "def": "Ataque rápido y directo tras robar el balón, buscando explotar al rival desorganizado.", "exposed": false}, {"name": "PhaseAggregateCounterPress", "label": "Contrapresión", "def": "Presión inmediata para recuperar el balón apenas se pierde, antes de replegarse (\"gegenpressing\").", "exposed": false}, {"name": "PhaseAggregateDefensiveTransition", "label": "Transición defensiva", "def": "Momento inmediato tras perder el balón, antes de reorganizarse en bloque defensivo.", "exposed": false}, {"name": "PhaseAggregateFinalThird", "label": "Juego en último tercio", "def": "Ataque posicional ya instalado cerca del arco rival.", "exposed": false}, {"name": "PhaseAggregateHighBlock", "label": "Bloque alto", "def": "La línea defensiva del equipo se ubica lejos de su propio arco.", "exposed": false}, {"name": "PhaseAggregateHighPress", "label": "Presión alta", "def": "El equipo presiona la salida de balón rival cerca del arco de este.", "exposed": false}, {"name": "PhaseAggregateLongBall", "label": "Juego directo", "def": "Balón largo saltando líneas intermedias.", "exposed": false}, {"name": "PhaseAggregateLowBlock", "label": "Bloque bajo", "def": "La línea defensiva se repliega cerca de su propio arco.", "exposed": false}, {"name": "PhaseAggregateLowPress", "label": "Presión baja", "def": "El equipo espera y presiona recién en su propio campo.", "exposed": false}, {"name": "PhaseAggregateMidBlock", "label": "Bloque medio", "def": "Línea defensiva ubicada a media altura de cancha.", "exposed": false}, {"name": "PhaseAggregateMidPress", "label": "Presión media", "def": "La presión arranca en la zona media de la cancha.", "exposed": false}, {"name": "PhaseAggregateProgression", "label": "Fase de progresión", "def": "Avance general del ataque hacia el arco rival, sin estar aún en el último tercio.", "exposed": false}, {"name": "PhaseAggregateRecovery", "label": "Fase de recuperación", "def": "El instante/acción de recuperar la posesión del balón.", "exposed": false}, {"name": "PhaseAggregateSetPieces", "label": "Pelota parada", "def": "Córners, tiros libres, laterales y penales.", "exposed": false}]}, {"cat": "Portería", "intro": "Lo que hace el arquero, dentro y fuera de su área.", "items": [{"name": "GoalkeeperDefensiveActionsInsidePenaltyArea", "label": "Acciones del arquero en su área", "def": "Atajadas, achiques y despejes del arquero dentro de su propia área.", "exposed": false}, {"name": "GoalkeeperDefensiveActionsOutsidePenaltyArea", "label": "Acciones del arquero fuera del área", "def": "Intervenciones del arquero fuera de su área, achicando espacio detrás de la defensa (arquero \"líbero\").", "exposed": false}, {"name": "GoalkeeperSavePercentage", "label": "% de atajadas", "def": "Porcentaje de remates a puerta que el arquero logró atajar.", "exposed": true}, {"name": "GoalkeeperSaves", "label": "Atajadas", "def": "Atajadas del arquero.", "exposed": true}, {"name": "GoalkeeperSavesOnTarget", "label": "Remates a puerta atajados", "def": "De los remates a puerta que enfrentó, cuántos atajó — la base para calcular el % de atajadas.", "exposed": false}, {"name": "GoalKicks", "label": "Saques de arco", "def": "Saques de arco ejecutados.", "exposed": false}]}, {"cat": "Disciplina", "intro": "Faltas y tarjetas.", "items": [{"name": "DirectRedCards", "label": "Rojas directas", "def": "Expulsiones por roja directa, sin amarilla previa.", "exposed": true}, {"name": "FoulsAgainst", "label": "Faltas cometidas", "def": "Faltas cometidas por el equipo.", "exposed": true}, {"name": "FoulsFor", "label": "Faltas recibidas", "def": "Faltas cometidas por el rival contra el equipo.", "exposed": true}, {"name": "IndirectRedCards", "label": "Rojas por doble amarilla", "def": "Expulsiones por doble tarjeta amarilla.", "exposed": true}, {"name": "Offsides", "label": "Fueras de juego", "def": "Fueras de juego marcados.", "exposed": true}, {"name": "RedCards", "label": "Expulsiones (total)", "def": "Total de expulsiones, directas más doble amarilla.", "exposed": false}, {"name": "YellowCards", "label": "Amarillas", "def": "Tarjetas amarillas.", "exposed": true}]}, {"cat": "Otros / meta", "intro": "Datos de contexto del partido (minutos, cambios, partidos jugados).", "items": [{"name": "MatchesPlayed", "label": "Partidos jugados", "def": "Cantidad de partidos jugados (base para promedios por partido).", "exposed": false}, {"name": "SubstitutionsIn", "label": "Ingresos", "def": "Jugadores que ingresaron en cambios.", "exposed": false}, {"name": "SubstitutionsOut", "label": "Salidas", "def": "Jugadores que salieron en cambios.", "exposed": false}, {"name": "TimePlayed", "label": "Minutos jugados", "def": "Minutos jugados.", "exposed": false}]}], "player": [{"cat": "Goles y modelo", "intro": "El resultado puro y los dos índices que resumen la producción ofensiva/defensiva de FIFA en un solo número.", "items": [{"name": "Goals", "label": "Goles", "def": "Goles anotados.", "exposed": true}, {"name": "GoalsFromDirectFreeKicks", "label": "Goles de tiro libre directo", "def": "Goles marcados directo de tiro libre, sin que la toque nadie más antes de entrar.", "exposed": false}, {"name": "GoalsInsideThePenaltyArea", "label": "Goles dentro del área", "def": "Goles marcados desde dentro del área rival.", "exposed": false}, {"name": "GoalsOutsideThePenaltyArea", "label": "Goles fuera del área", "def": "Goles marcados desde fuera del área rival.", "exposed": false}, {"name": "OwnGoals", "label": "Autogoles", "def": "Goles en contra.", "exposed": false}, {"name": "Penalties", "label": "Penales pateados", "def": "Penales que pateó el equipo/jugador.", "exposed": false}, {"name": "PenaltiesScored", "label": "Penales convertidos", "def": "Penales convertidos en gol.", "exposed": false}, {"name": "Threat", "label": "Amenaza", "def": "Índice compuesto de FIFA que mide qué tan peligrosas y frecuentes son las acciones ofensivas cerca del arco rival (remates, pases clave, conducciones al área). Más alto = ataque más punzante.", "exposed": true}, {"name": "XG", "label": "Goles esperados (xG)", "def": "Probabilidad acumulada de gol según la calidad de cada remate (ubicación, ángulo, tipo de jugada, presión del defensor). Si remató mucho desde buen lugar, el xG sube aunque no haya convertido.", "exposed": false}]}, {"cat": "Remates", "intro": "Todo lo relacionado a disparos al arco: cuántos, desde dónde, de qué jugada nacieron y si fueron a puerta.", "items": [{"name": "AttemptAtGoal", "label": "Remates", "def": "Remates totales (a puerta + afuera + bloqueados).", "exposed": true}, {"name": "AttemptAtGoalAgainstOnTarget", "label": "Remates rivales a puerta", "def": "De los remates que recibió, cuántos iban a puerta.", "exposed": false}, {"name": "AttemptAtGoalBlocked", "label": "Remates bloqueados", "def": "Remates que un defensor tapó antes de llegar al arco.", "exposed": false}, {"name": "AttemptAtGoalFromBallProgression", "label": "Remates de jugada armada", "def": "Remates que nacen de una jugada de progresión (pase o conducción que avanza el ataque), no de pelota parada.", "exposed": false}, {"name": "AttemptAtGoalFromCorner", "label": "Remates de córner", "def": "Remates que salen directo de un córner.", "exposed": false}, {"name": "AttemptAtGoalFromCross", "label": "Remates de centro", "def": "Remates que salen de un centro desde banda.", "exposed": false}, {"name": "AttemptAtGoalFromFreeKicks", "label": "Remates de tiro libre", "def": "Remates que salen de un tiro libre.", "exposed": false}, {"name": "AttemptAtGoalFromOther", "label": "Remates de otro origen", "def": "Remates que no encajan en ninguna de las demás categorías de jugada.", "exposed": false}, {"name": "AttemptAtGoalFromPass", "label": "Remates de pase en juego", "def": "Remates que nacen de un pase en juego abierto (no centro, no pelota parada).", "exposed": false}, {"name": "AttemptAtGoalFromPenalty", "label": "Remates de penal", "def": "Remates ejecutados de penal.", "exposed": false}, {"name": "AttemptAtGoalFromRebound", "label": "Remates de rebote", "def": "Remates de rechace, en una segunda jugada tras un remate o atajada previa.", "exposed": false}, {"name": "AttemptAtGoalInsideThePenaltyArea", "label": "Remates dentro del área", "def": "Remates ejecutados desde dentro del área rival.", "exposed": false}, {"name": "AttemptAtGoalInsideThePenaltyAreaOnTarget", "label": "Remates dentro del área a puerta", "def": "De los remates dentro del área, cuántos fueron a puerta.", "exposed": false}, {"name": "AttemptAtGoalOffTarget", "label": "Remates desviados", "def": "Remates que se van afuera, sin exigir al arquero.", "exposed": false}, {"name": "AttemptAtGoalOnTarget", "label": "Remates a puerta", "def": "Remates que van entre los tres palos — exigen atajada o son gol.", "exposed": true}, {"name": "AttemptAtGoalOutsideThePenaltyArea", "label": "Remates de media distancia", "def": "Remates ejecutados desde fuera del área rival.", "exposed": false}, {"name": "AttemptAtGoalOutsideThePenaltyAreaOnTarget", "label": "Remates de media distancia a puerta", "def": "De los remates desde fuera del área, cuántos fueron a puerta.", "exposed": false}, {"name": "HeadedAttemptAtGoal", "label": "Remates de cabeza", "def": "Remates ejecutados de cabeza.", "exposed": false}, {"name": "NumberOfShotEndingSequences", "label": "Jugadas que terminan en remate", "def": "Cantidad de jugadas de ataque (posesiones) que terminaron en un remate — mide cuántas veces el equipo llegó de verdad, no solo cuántos remates sueltos dio.", "exposed": false}]}, {"cat": "Pases y distribución", "intro": "Cómo circula el balón: pases, centros, cambios de frente y balón parado.", "items": [{"name": "Assists", "label": "Asistencias", "def": "El pase inmediatamente anterior a un gol.", "exposed": true}, {"name": "AttemptedSwitchesOfPlay", "label": "Cambios de orientación intentados", "def": "Pases largos que mueven el juego de un costado de la cancha al otro, buscando desequilibrar al rival.", "exposed": false}, {"name": "CompletedSwitchesOfPlay", "label": "Cambios de orientación logrados", "def": "De esos cambios de orientación, los que llegaron limpio a destino.", "exposed": false}, {"name": "Corners", "label": "Córners", "def": "Córners sacados.", "exposed": false}, {"name": "Crosses", "label": "Centros", "def": "Centros intentados desde banda hacia el área.", "exposed": false}, {"name": "CrossesCompleted", "label": "Centros completados", "def": "Centros que encontraron a un compañero.", "exposed": false}, {"name": "DirectFreeKicks", "label": "Tiros libres directos", "def": "Tiros libres que se pueden rematar al arco sin que la toque otro jugador antes.", "exposed": false}, {"name": "DistributionsCompletedUnderPressure", "label": "Pases logrados bajo presión", "def": "Pases o distribuciones que llegaron a destino pese a tener un rival encima presionando.", "exposed": false}, {"name": "DistributionsUnderPressure", "label": "Pases intentados bajo presión", "def": "Total de pases o distribuciones ejecutados con un rival presionando (lleguen o no).", "exposed": false}, {"name": "FreeKicks", "label": "Tiros libres", "def": "Tiros libres totales, directos e indirectos.", "exposed": false}, {"name": "IndirectFreeKicks", "label": "Tiros libres indirectos", "def": "Tiros libres que necesitan que la toque otro jugador antes de poder ir directo a gol.", "exposed": false}, {"name": "Passes", "label": "Pases", "def": "Pases intentados.", "exposed": true}, {"name": "PassesCompleted", "label": "Pases completados", "def": "Pases que llegaron a un compañero.", "exposed": true}, {"name": "ThrowIns", "label": "Saques de banda", "def": "Saques de banda ejecutados.", "exposed": false}]}, {"cat": "Progresión y rupturas de línea", "intro": "La familia más técnica del catálogo. \"Romper una línea\" es un pase o conducción que deja atrás a los rivales de una línea de presión (defensiva, media o de ataque) — mide progresión real contra el bloque rival, no solo pases hacia adelante. \"Intentada\" = se buscó; \"lograda\" = el balón cruzó limpio; \"SOLO\" = esa línea nada más, sin combinarla con otra en la misma jugada; \"bajo presión\" = con un rival encima al ejecutarla.", "items": [{"name": "AttemptedBallProgressions", "label": "Progresiones de balón intentadas", "def": "Pases o conducciones que buscan avanzar el balón de forma significativa hacia el arco rival.", "exposed": false}, {"name": "CompletedBallProgressions", "label": "Progresiones de balón logradas", "def": "De esas, las que avanzaron el balón de forma efectiva.", "exposed": false}, {"name": "LinebreaksAttempted", "label": "Rupturas de línea intentadas (total)", "def": "Intentos de superar cualquier línea de presión rival — el conteo general de la familia de \"rupturas de línea\".", "exposed": false}, {"name": "LinebreaksAttemptedAllLines", "label": "Ruptura de TODAS las líneas intentada", "def": "Intentos de romper de una sola jugada la defensa, el medio y el ataque rival juntos — el tipo de ruptura más difícil y valiosa.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingAndMidfieldLine", "label": "Ruptura de ataque+medio intentada", "def": "Intentos de romper a la vez la línea de ataque y la de medio del rival.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLine", "label": "Ruptura de línea de ataque intentada", "def": "Intentos que incluyen romper la línea de ataque rival (sola o combinada con otra).", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineCompleted", "label": "Ruptura de línea de ataque lograda", "def": "De esos intentos, los que sí superaron la línea de ataque rival.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineCompletedOnly", "label": "Ruptura SOLO de línea de ataque lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea de ataque rival, sin sumar otra línea a la vez.", "exposed": false}, {"name": "LinebreaksAttemptedAttackingLineOnly", "label": "Ruptura SOLO de línea de ataque intentada", "def": "Intentos dirigidos únicamente a romper la línea de ataque rival.", "exposed": false}, {"name": "LinebreaksAttemptedCompleted", "label": "Rupturas de línea logradas (total)", "def": "Total de intentos de ruptura, en cualquier combinación de líneas, que terminaron exitosos.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLine", "label": "Ruptura de línea defensiva intentada", "def": "Intentos que incluyen romper la línea defensiva rival — la más profunda, la que deja mano a mano con el arquero.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineCompleted", "label": "Ruptura de línea defensiva lograda", "def": "De esos intentos, los que sí superaron la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineCompletedOnly", "label": "Ruptura SOLO de línea defensiva lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedDefensiveLineOnly", "label": "Ruptura SOLO de línea defensiva intentada", "def": "Intentos dirigidos únicamente a romper la línea defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldAndDefensiveLine", "label": "Ruptura de medio+defensa intentada", "def": "Intentos de romper a la vez la línea de medio y la defensiva rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLine", "label": "Ruptura de línea de medio intentada", "def": "Intentos que incluyen romper la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineCompleted", "label": "Ruptura de línea de medio lograda", "def": "De esos intentos, los que sí superaron la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineCompletedOnly", "label": "Ruptura SOLO de línea de medio lograda", "def": "Rupturas logradas de ÚNICAMENTE la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedMidfieldLineOnly", "label": "Ruptura SOLO de línea de medio intentada", "def": "Intentos dirigidos únicamente a romper la línea de medio rival.", "exposed": false}, {"name": "LinebreaksAttemptedUnderPressure", "label": "Rupturas de línea intentadas bajo presión", "def": "Intentos de ruptura de línea ejecutados con el jugador presionado en el momento.", "exposed": false}, {"name": "LinebreaksCompletedAllLines", "label": "Ruptura de TODAS las líneas lograda", "def": "Veces que el equipo superó defensa+medio+ataque rival en una sola jugada — la progresión más letal que mide FIFA.", "exposed": true}, {"name": "LinebreaksCompletedAttackingAndMidfieldLine", "label": "Ruptura de ataque+medio lograda", "def": "Rupturas completadas de la línea de ataque y de medio a la vez.", "exposed": false}, {"name": "LinebreaksCompletedMidfieldAndDefensiveLine", "label": "Ruptura de medio+defensa lograda", "def": "Rupturas completadas de la línea de medio y la defensiva a la vez.", "exposed": false}, {"name": "LinebreaksCompletedUnderPressure", "label": "Rupturas de línea logradas bajo presión", "def": "Rupturas de línea completadas pese a estar el jugador presionado — mide calidad bajo estrés.", "exposed": false}]}, {"cat": "Territorio y recepción", "intro": "Dónde recibe el equipo el balón (por carril y zona) y cómo se mueven los jugadores para ofrecerse a recibir, con o sin presión encima.", "items": [{"name": "OffersToReceiveInBehind", "label": "Desmarques a la espalda", "def": "Movimientos buscando recibir a la espalda de la última línea rival.", "exposed": false}, {"name": "OffersToReceiveInBetween", "label": "Desmarques entre líneas", "def": "Movimientos buscando recibir en el espacio entre líneas rivales (el clásico \"medio espacio\").", "exposed": false}, {"name": "OffersToReceiveInFront", "label": "Desmarques de cara", "def": "Movimientos buscando recibir de cara, por delante de la presión rival más cercana.", "exposed": false}, {"name": "OffersToReceiveInside", "label": "Desmarques hacia adentro", "def": "Movimientos ofreciéndose a recibir hacia el interior de la cancha.", "exposed": false}, {"name": "OffersToReceiveOutside", "label": "Desmarques hacia afuera", "def": "Movimientos ofreciéndose a recibir hacia la banda.", "exposed": false}, {"name": "OffersToReceiveTotal", "label": "Desmarques totales", "def": "Total de movimientos ofreciéndose a recibir, sumando todos los tipos.", "exposed": false}, {"name": "ReceivedOffersToReceive", "label": "Desmarques que terminaron en recepción", "def": "De todos los movimientos ofreciéndose a recibir, cuántos terminaron en una recepción real de balón.", "exposed": false}, {"name": "ReceptionsBetweenMidfieldAndDefensiveLine", "label": "Recepciones entre medio y defensa rival", "def": "Recepciones de balón en el espacio entre la línea de medio y la defensiva del rival — zona clave de progresión.", "exposed": false}, {"name": "ReceptionsInBehind", "label": "Recepciones a la espalda", "def": "Recepciones de balón a la espalda de la última línea rival.", "exposed": false}, {"name": "ReceptionsUnderDirectPressure", "label": "Recepciones con marca directa", "def": "Recepciones con un rival encima marcando directamente al que recibe.", "exposed": false}, {"name": "ReceptionsUnderIndirectPressure", "label": "Recepciones con presión cercana", "def": "Recepciones con presión rival cerca, pero no directamente sobre el que recibe.", "exposed": false}, {"name": "ReceptionsUnderNoPressure", "label": "Recepciones sin presión", "def": "Recepciones sin ningún rival presionando.", "exposed": false}, {"name": "ReceptionsUnderPressure", "label": "Recepciones bajo presión (total)", "def": "Total de recepciones con algún tipo de presión encima, directa o indirecta.", "exposed": false}]}, {"cat": "Defensa y presión", "intro": "Qué tan agresivo e intenso es el equipo sin el balón: presiones, recuperaciones y velocidad de reacción a la pérdida.", "items": [{"name": "DefensivePressuresApplied", "label": "Presiones aplicadas", "def": "Presiones defensivas ejecutadas sobre el rival que tiene el balón.", "exposed": true}, {"name": "DirectDefensivePressuresApplied", "label": "Presiones directas aplicadas", "def": "De esas presiones, las que fueron directamente sobre el jugador con el balón, no de acompañamiento.", "exposed": false}, {"name": "ForcedTurnovers", "label": "Pérdidas provocadas", "def": "Pérdidas de balón del rival provocadas por una acción defensiva del equipo, no un error propio sin presión.", "exposed": true}, {"name": "NumberOfInvolvements", "label": "Involucramientos", "def": "Cantidad de acciones donde el jugador/equipo participó activamente (toques, pases, remates, presiones) — mide qué tan metido estuvo en el juego.", "exposed": false}, {"name": "NumberOfPossessionSequences", "label": "Secuencias de posesión", "def": "Cantidad de tramos continuos con el balón que tuvo el equipo.", "exposed": false}, {"name": "TakeOnsCompleted", "label": "Regates completados", "def": "Gambetas/regates ganados en el uno contra uno.", "exposed": false}]}, {"cat": "Físico", "intro": "Carga física del partido: distancia recorrida por ritmo, sprints y velocidad.", "items": [{"name": "AvgSpeed", "label": "Velocidad promedio", "def": "Velocidad promedio de desplazamiento durante el partido, en km/h.", "exposed": false}, {"name": "DistanceHighSpeedRunning", "label": "Distancia a alta velocidad", "def": "Kilómetros recorridos corriendo a alta velocidad, por debajo del umbral de sprint.", "exposed": false}, {"name": "DistanceHighSpeedSprinting", "label": "Distancia en sprint alto", "def": "Kilómetros recorridos en sprint a máxima intensidad.", "exposed": false}, {"name": "DistanceJogging", "label": "Distancia trotando", "def": "Kilómetros recorridos a ritmo bajo (trote).", "exposed": false}, {"name": "DistanceLowSpeedSprinting", "label": "Distancia en sprint bajo", "def": "Kilómetros recorridos en sprints de intensidad más moderada.", "exposed": false}, {"name": "DistanceWalking", "label": "Distancia caminando", "def": "Kilómetros recorridos caminando.", "exposed": false}, {"name": "SpeedRuns", "label": "Arrancadas de velocidad", "def": "Cantidad de carreras/arrancadas a velocidad significativa (conteo, no distancia).", "exposed": false}, {"name": "Sprints", "label": "Sprints", "def": "Cantidad de sprints (arrancadas a máxima intensidad) realizados.", "exposed": true}, {"name": "TopSpeed", "label": "Velocidad punta", "def": "Velocidad máxima alcanzada en el partido, en km/h.", "exposed": true}, {"name": "TotalDistance", "label": "Distancia total", "def": "Kilómetros totales recorridos en el partido.", "exposed": true}]}, {"cat": "Portería", "intro": "Lo que hace el arquero, dentro y fuera de su área.", "items": [{"name": "GoalkeeperDefensiveActionsInsidePenaltyArea", "label": "Acciones del arquero en su área", "def": "Atajadas, achiques y despejes del arquero dentro de su propia área.", "exposed": false}, {"name": "GoalkeeperDefensiveActionsOutsidePenaltyArea", "label": "Acciones del arquero fuera del área", "def": "Intervenciones del arquero fuera de su área, achicando espacio detrás de la defensa (arquero \"líbero\").", "exposed": false}, {"name": "GoalkeeperSavePercentage", "label": "% de atajadas", "def": "Porcentaje de remates a puerta que el arquero logró atajar.", "exposed": false}, {"name": "GoalkeeperSaves", "label": "Atajadas", "def": "Atajadas del arquero.", "exposed": false}, {"name": "GoalkeeperSavesOnTarget", "label": "Remates a puerta atajados", "def": "De los remates a puerta que enfrentó, cuántos atajó — la base para calcular el % de atajadas.", "exposed": false}, {"name": "GoalKicks", "label": "Saques de arco", "def": "Saques de arco ejecutados.", "exposed": false}]}, {"cat": "Disciplina", "intro": "Faltas y tarjetas.", "items": [{"name": "DirectRedCards", "label": "Rojas directas", "def": "Expulsiones por roja directa, sin amarilla previa.", "exposed": false}, {"name": "FoulsAgainst", "label": "Faltas cometidas", "def": "Faltas cometidas por el equipo.", "exposed": false}, {"name": "FoulsFor", "label": "Faltas recibidas", "def": "Faltas cometidas por el rival contra el equipo.", "exposed": false}, {"name": "IndirectRedCards", "label": "Rojas por doble amarilla", "def": "Expulsiones por doble tarjeta amarilla.", "exposed": false}, {"name": "Offsides", "label": "Fueras de juego", "def": "Fueras de juego marcados.", "exposed": false}, {"name": "RedCards", "label": "Expulsiones (total)", "def": "Total de expulsiones, directas más doble amarilla.", "exposed": false}, {"name": "YellowCards", "label": "Amarillas", "def": "Tarjetas amarillas.", "exposed": false}]}, {"cat": "Otros / meta", "intro": "Datos de contexto del partido (minutos, cambios, partidos jugados).", "items": [{"name": "MatchesPlayed", "label": "Partidos jugados", "def": "Cantidad de partidos jugados (base para promedios por partido).", "exposed": false}, {"name": "SubstitutionsIn", "label": "Ingresos", "def": "Jugadores que ingresaron en cambios.", "exposed": false}, {"name": "SubstitutionsOut", "label": "Salidas", "def": "Jugadores que salieron en cambios.", "exposed": false}, {"name": "TimePlayed", "label": "Minutos jugados", "def": "Minutos jugados.", "exposed": true}]}]};
+
+const CAT_HUE = {
+  "Goles y modelo": 150, "Remates": 28, "Pases y distribución": 198,
+  "Progresión y rupturas de línea": 262, "Territorio y recepción": 190,
+  "Defensa y presión": 16, "Físico": 35, "Fases tácticas": 246,
+  "Portería": 46, "Disciplina": 355, "Otros / meta": 150
+};
+
+const grid = document.getElementById('grid');
+const qInput = document.getElementById('q');
+const onlyExposed = document.getElementById('onlyExposed');
+const matchCountEl = document.getElementById('matchCount');
+let scope = 'team';
+
+function render(){
+  const cats = DATA[scope];
+  grid.innerHTML = '';
+  for(const cat of cats){
+    const sec = document.createElement('section');
+    sec.className = 'cat';
+    sec.style.setProperty('--hue', CAT_HUE[cat.cat] ?? 150);
+    sec.dataset.cat = cat.cat;
+
+    const h2 = document.createElement('h2');
+    h2.innerHTML = cat.cat + ' <span class="n">' + cat.items.length + '</span>';
+    const intro = document.createElement('p');
+    intro.className = 'intro';
+    intro.textContent = cat.intro;
+    const sg = document.createElement('div');
+    sg.className = 'stat-grid';
+
+    for(const item of cat.items){
+      const div = document.createElement('div');
+      div.className = 'stat';
+      div.dataset.hay = (item.label + ' ' + item.def + ' ' + item.name).toLowerCase();
+      div.dataset.exposed = item.exposed ? '1' : '0';
+      div.innerHTML =
+        '<div class="row1"><span class="label">' + item.label + '</span>' +
+        (item.exposed ? '<span class="star">★ alias</span>' : '') + '</div>' +
+        '<div class="def">' + item.def + '</div>' +
+        '<span class="raw mono">' + item.name + '</span>';
+      sg.appendChild(div);
+    }
+
+    sec.appendChild(h2);
+    sec.appendChild(intro);
+    sec.appendChild(sg);
+    grid.appendChild(sec);
+  }
+  applyFilter();
+}
+
+function applyFilter(){
+  const q = qInput.value.trim().toLowerCase();
+  const exposedOnly = onlyExposed.checked;
+  let visible = 0, total = 0;
+  document.querySelectorAll('.cat').forEach(sec=>{
+    let anyVisible = false;
+    sec.querySelectorAll('.stat').forEach(el=>{
+      total++;
+      const matchesQ = !q || el.dataset.hay.includes(q);
+      const matchesExp = !exposedOnly || el.dataset.exposed === '1';
+      const show = matchesQ && matchesExp;
+      el.classList.toggle('hidden', !show);
+      if(show){ anyVisible = true; visible++; }
+    });
+    sec.classList.toggle('hidden', !anyVisible);
+  });
+  matchCountEl.textContent = (q || exposedOnly) ? (visible + ' de ' + total) : '';
+}
+
+document.querySelectorAll('.seg button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.seg button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    scope = btn.dataset.scope;
+    render();
+  });
+});
+qInput.addEventListener('input', applyFilter);
+onlyExposed.addEventListener('change', applyFilter);
+
+render();
+</script>
+</body>
+</html>
