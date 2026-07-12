@@ -26,7 +26,16 @@ function showScreen(name) {
   for (const key of Object.keys(screens)) {
     screens[key].hidden = key !== name;
   }
+  const entering = screens[name];
+  entering.classList.remove('enter');
+  void entering.offsetWidth;
+  entering.classList.add('enter');
   backBtn.hidden = name === 'zones' || name === 'loading';
+}
+
+function withStagger(el, i) {
+  el.style.animationDelay = `${Math.min(i * 40, 300)}ms`;
+  return el;
 }
 
 function renderZones() {
@@ -41,7 +50,7 @@ function renderZones() {
       <p>${filterByZone(exercises, zone).length} ejercicios</p>
     `;
     btn.addEventListener('click', () => openZone(zone));
-    zoneGrid.appendChild(btn);
+    zoneGrid.appendChild(withStagger(btn, i));
   });
   showScreen('zones');
 }
@@ -50,7 +59,7 @@ function openZone(zone) {
   currentZone = zone;
   screenTitle.textContent = zone;
   exerciseGrid.innerHTML = '';
-  filterByZone(exercises, zone).forEach((ex) => {
+  filterByZone(exercises, zone).forEach((ex, i) => {
     const card = document.createElement('button');
     card.className = 'card exercise-card';
     card.innerHTML = `
@@ -58,7 +67,7 @@ function openZone(zone) {
       <h3>${ex.nombre}</h3>
     `;
     card.addEventListener('click', () => openPlayer(ex));
-    exerciseGrid.appendChild(card);
+    exerciseGrid.appendChild(withStagger(card, i));
   });
   showScreen('list');
 }
