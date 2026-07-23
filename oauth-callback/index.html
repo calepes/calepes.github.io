@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>OAuth callback</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; margin: 0; padding: 24px; box-sizing: border-box;
+    background: #f2f2f7; color: #1c1c1e; text-align: center;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #000; color: #f2f2f7; }
+    .box { background: #1c1c1e !important; }
+  }
+  h1 { font-size: 20px; margin-bottom: 8px; }
+  p.hint { color: #8e8e93; font-size: 14px; margin-top: 0; }
+  .box {
+    background: #fff; border-radius: 14px; padding: 16px; margin: 16px 0;
+    width: 100%; max-width: 480px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .box label { display: block; font-size: 12px; color: #8e8e93; text-transform: uppercase; margin-bottom: 6px; }
+  .box .value {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px; word-break: break-all; text-align: left; user-select: all;
+  }
+  button {
+    font-size: 16px; padding: 12px 20px; border-radius: 10px; border: none;
+    background: #007aff; color: white; margin-top: 8px; width: 100%; max-width: 480px;
+  }
+  button:active { opacity: 0.7; }
+</style>
+</head>
+<body>
+  <h1 id="title">Leyendo parámetros…</h1>
+  <p class="hint">Esta página no envía nada a ningún lado — solo lee y muestra lo que vino en la URL.</p>
+  <div id="params"></div>
+
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const container = document.getElementById('params');
+  const title = document.getElementById('title');
+
+  if ([...params.keys()].length === 0) {
+    title.textContent = 'No llegaron parámetros en la URL.';
+    return;
+  }
+
+  title.textContent = 'Listo — copiá el valor que necesites';
+
+  for (const [key, value] of params.entries()) {
+    const box = document.createElement('div');
+    box.className = 'box';
+    const label = document.createElement('label');
+    label.textContent = key;
+    const val = document.createElement('div');
+    val.className = 'value';
+    val.textContent = value;
+    box.appendChild(label);
+    box.appendChild(val);
+    container.appendChild(box);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Copiar ' + key;
+    btn.onclick = function () {
+      navigator.clipboard.writeText(value).then(function () {
+        btn.textContent = '✓ Copiado';
+        setTimeout(function () { btn.textContent = 'Copiar ' + key; }, 1500);
+      }).catch(function () {
+        btn.textContent = 'No se pudo copiar — seleccioná el texto a mano';
+      });
+    };
+    container.appendChild(btn);
+  }
+})();
+</script>
+</body>
+</html>
