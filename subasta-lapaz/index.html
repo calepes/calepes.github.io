@@ -3,307 +3,795 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subasta BCP Enalta La Paz · Análisis de pujas · 29 julio 2026</title>
+<title>Subasta BCP Enalta La Paz · Análisis de Pujas · 29 julio 2026</title>
 <script>
   (function(){
-    try{
-      var s = localStorage.getItem('lp-theme');
-      if(s === 'light') document.documentElement.setAttribute('data-theme','light');
-    }catch(e){}
+    try {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(saved === 'dark' || (!saved && prefersDark)){
+        document.documentElement.setAttribute('data-theme','dark');
+      }
+    } catch(e){}
   })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,900&family=Archivo:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --void:#12101c;
-  --void-2:#1c1929;
-  --void-3:#262238;
-  --chalk:#f0eef5;
-  --ash:#8f8aa3;
-  --rose:#e63f6d;
-  --emerald:#12a074;
-  --gold:#f0a63c;
-  --cobalt:#5b83ff;
+  :root{
+    --paper:#f4ede0;
+    --paper-2:#ebe1cf;
+    --ink:#15233b;
+    --ink-soft:#3a4a66;
+    --rule:#c9bfa7;
+    --rule-soft:#d8cfb8;
+    --accent:#c2410c;
+    --accent-2:#9a3412;
+    --tier-a:#7c2d12;
+    --tier-a-bg:#fde6c8;
+    --tier-b:#1e3a5f;
+    --tier-b-bg:#e2dcc8;
+    --tier-c:#52525b;
+    --tier-c-bg:#dfd6c0;
+    --gold:#a16207;
+    --bg-tint-1:rgba(194,65,12,0.04);
+    --bg-tint-2:rgba(21,35,59,0.04);
+    --row-feat:rgba(194,65,12,0.06);
+    --row-feat-hover:rgba(194,65,12,0.12);
+    --topbar-bg:#15233b;
+    --topbar-fg:#f4ede0;
+    --stats-bg:#15233b;
+    --stats-fg:#f4ede0;
+    --stats-label:rgba(244,237,224,0.7);
+    --thead-bg:#15233b;
+    --thead-fg:#f4ede0;
+  }
+  [data-theme="dark"]{
+    --paper:#0f1620;
+    --paper-2:#1a2230;
+    --ink:#ebe2cf;
+    --ink-soft:#9aa3b5;
+    --rule:#2a3447;
+    --rule-soft:#222b3a;
+    --accent:#e85d2c;
+    --accent-2:#f97316;
+    --tier-a:#fdba74;
+    --tier-a-bg:#3a1d0a;
+    --tier-b:#93c5fd;
+    --tier-b-bg:#16263e;
+    --tier-c:#a1a1aa;
+    --tier-c-bg:#262d3a;
+    --gold:#fbbf24;
+    --bg-tint-1:rgba(232,93,44,0.06);
+    --bg-tint-2:rgba(147,197,253,0.04);
+    --row-feat:rgba(232,93,44,0.08);
+    --row-feat-hover:rgba(232,93,44,0.15);
+    --topbar-bg:#070b12;
+    --topbar-fg:#ebe2cf;
+    --stats-bg:#070b12;
+    --stats-fg:#ebe2cf;
+    --stats-label:rgba(235,226,207,0.6);
+    --thead-bg:#070b12;
+    --thead-fg:#ebe2cf;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    transition:background 0.3s, color 0.3s;
+    background-image:
+      radial-gradient(at 20% 10%, var(--bg-tint-1) 0%, transparent 50%),
+      radial-gradient(at 80% 90%, var(--bg-tint-2) 0%, transparent 50%);
+  }
 
-  --bg:var(--void);
-  --bg-2:var(--void-2);
-  --bg-3:var(--void-3);
-  --fg:var(--chalk);
-  --fg-soft:var(--ash);
-  --line:#2e2a42;
-  --line-soft:#232032;
-  --shadow:rgba(0,0,0,0.45);
-}
-[data-theme="light"]{
-  --bg:#f0eef5;
-  --bg-2:#e6e3ee;
-  --bg-3:#dbd7e6;
-  --fg:#12101c;
-  --fg-soft:#5d5872;
-  --line:#c9c4d8;
-  --line-soft:#d8d4e2;
-  --rose:#c8285a;
-  --emerald:#0d7d5a;
-  --gold:#b87415;
-  --cobalt:#3358d4;
-  --shadow:rgba(18,16,28,0.12);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--fg);
-  font-family:'Archivo',system-ui,sans-serif;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  transition:background .3s,color .3s;
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
+  /* Top utility bar */
+  .topbar{
+    background:var(--topbar-bg);
+    color:var(--topbar-fg);
+    padding:8px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    border-bottom:1px solid var(--accent);
+    transition:background 0.3s, color 0.3s;
+  }
+  .topbar > span:nth-child(2){color:var(--accent)}
+  .topbar-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .theme-toggle{
+    background:transparent;
+    border:1px solid var(--topbar-fg);
+    color:var(--topbar-fg);
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    font-size:13px;
+    line-height:1;
+    transition:all 0.25s ease;
+    opacity:0.7;
+  }
+  .theme-toggle:hover{
+    opacity:1;
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:rotate(15deg);
+  }
+  .theme-toggle .icon-sun{display:none}
+  .theme-toggle .icon-moon{display:inline}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:inline}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:none}
+  @media(max-width:600px){
+    .topbar{font-size:9px;padding:6px 14px}
+    .topbar > span:nth-child(3){display:none}
+  }
 
-/* ── Aguayo stripe: the signature device ── */
-.aguayo{
-  height:4px;
-  background:repeating-linear-gradient(90deg,
-    var(--rose) 0 14px,
-    var(--gold) 14px 22px,
-    var(--emerald) 22px 34px,
-    var(--cobalt) 34px 42px,
-    var(--void-3) 42px 46px);
-}
-[data-theme="light"] .aguayo{
-  background:repeating-linear-gradient(90deg,
-    var(--rose) 0 14px,
-    var(--gold) 14px 22px,
-    var(--emerald) 22px 34px,
-    var(--cobalt) 34px 42px,
-    #ffffff 42px 46px);
-}
+  /* Hero */
+  .hero{
+    padding:60px 24px 50px;
+    max-width:1280px;
+    margin:0 auto;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:30px;
+    right:24px;
+    width:120px;
+    height:120px;
+    border:1px solid var(--accent);
+    border-radius:50%;
+    opacity:0.3;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:50px;
+    right:44px;
+    width:80px;
+    height:80px;
+    background:var(--accent);
+    border-radius:50%;
+    opacity:0.08;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:32px;
+    height:1px;
+    background:var(--accent);
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:clamp(38px,7vw,84px);
+    line-height:0.95;
+    letter-spacing:-0.03em;
+    margin-bottom:24px;
+    font-variation-settings:"opsz" 144;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--accent);
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:32px;
+    margin-top:32px;
+    padding-top:24px;
+    border-top:1px solid var(--rule-soft);
+  }
+  .meta-item{
+    display:flex;
+    flex-direction:column;
+  }
+  .meta-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .meta-value{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:500;
+  }
 
-/* ── Bar ── */
-.bar{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:10px 20px;
-  font-family:'Space Mono',monospace;font-size:10px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--fg-soft);
-  border-bottom:1px solid var(--line-soft);
-}
-.bar b{color:var(--rose);font-weight:400}
-.bar-right{display:flex;align-items:center;gap:14px}
-.tgl{
-  background:none;border:1px solid var(--line);color:var(--fg-soft);
-  width:30px;height:30px;border-radius:2px;cursor:pointer;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;transition:all .2s;
-}
-.tgl:hover,.tgl:focus-visible{border-color:var(--rose);color:var(--rose)}
-.tgl .sun{display:none}.tgl .moon{display:inline}
-[data-theme="light"] .tgl .sun{display:inline}
-[data-theme="light"] .tgl .moon{display:none}
-@media(max-width:640px){.bar{font-size:9px;padding:8px 14px}.bar .hide-sm{display:none}}
+  /* Stats strip */
+  .stats{
+    background:var(--stats-bg);
+    color:var(--stats-fg);
+    padding:40px 24px;
+    transition:background 0.3s, color 0.3s;
+  }
+  .stats-inner{
+    max-width:1280px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  @media(max-width:700px){.stats-inner{grid-template-columns:repeat(2,1fr);gap:32px 16px}}
+  .stat{position:relative;padding-left:16px}
+  .stat::before{
+    content:"";
+    position:absolute;
+    left:0;top:6px;bottom:6px;
+    width:2px;
+    background:var(--accent);
+  }
+  .stat-num{
+    font-family:'Fraunces',serif;
+    font-size:48px;
+    font-weight:300;
+    line-height:1;
+    letter-spacing:-0.02em;
+    margin-bottom:6px;
+  }
+  .stat-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--stats-label);
+  }
 
-/* ── Hero = the room tool ── */
-.hero{max-width:1180px;margin:0 auto;padding:44px 20px 30px}
-.kicker{
-  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--rose);margin-bottom:18px;
-}
-.hero h1{
-  font-family:'Bodoni Moda',serif;font-weight:400;
-  font-size:clamp(34px,6.5vw,68px);line-height:1;letter-spacing:-.015em;
-  margin-bottom:10px;
-}
-.hero h1 i{font-style:italic;color:var(--rose)}
-.hero .sub{color:var(--fg-soft);font-size:14px;max-width:52ch;margin-bottom:32px}
+  /* Section headers */
+  .section{
+    max-width:1280px;
+    margin:0 auto;
+    padding:80px 24px 40px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:40px;
+    padding-bottom:18px;
+    border-bottom:2px solid var(--ink);
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,44px);
+    line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .section-head h2 em{font-style:italic;color:var(--accent);font-weight:300}
+  .section-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--ink-soft);
+  }
 
-.lookup{
-  border:1px solid var(--line);background:var(--bg-2);
-  border-radius:3px;overflow:hidden;
-}
-.lookup-head{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 16px;border-bottom:1px solid var(--line-soft);
-  font-family:'Space Mono',monospace;font-size:10px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--fg-soft);
-}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);flex:none}
-.lookup-body{padding:18px 16px}
-#lot{
-  width:100%;background:transparent;border:none;outline:none;color:var(--fg);
-  font-family:'Bodoni Moda',serif;font-size:clamp(30px,7vw,52px);
-  font-weight:500;letter-spacing:-.01em;
-}
-#lot::placeholder{color:var(--line);}
-.verdict{margin-top:6px;min-height:96px}
-.v-empty{color:var(--fg-soft);font-size:13px;padding-top:14px}
-.v-card{border-top:1px solid var(--line-soft);padding-top:16px}
-.v-artist{
-  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--rose);margin-bottom:6px;
-}
-.v-title{font-family:'Bodoni Moda',serif;font-style:italic;font-size:24px;line-height:1.15;margin-bottom:3px}
-.v-meta{font-size:12px;color:var(--fg-soft);margin-bottom:16px}
-.v-nums{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-end}
-.v-num{display:flex;flex-direction:column;gap:2px}
-.v-num .lbl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft)}
-.v-num .val{font-family:'Bodoni Moda',serif;font-size:30px;font-weight:500;line-height:1}
-.v-num .val.hot{color:var(--gold)}
-.v-more{margin-top:14px;font-size:13px;color:var(--fg-soft);border-left:2px solid var(--rose);padding-left:12px}
-.v-miss{padding-top:14px;font-size:14px;color:var(--fg-soft)}
-.v-miss b{color:var(--fg);font-weight:600}
+  /* Top picks grid */
+  .picks{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .pick{
+    background:var(--paper);
+    padding:28px 24px;
+    position:relative;
+    transition:background 0.3s;
+    display:flex;
+    flex-direction:column;
+    min-height:280px;
+  }
+  .pick:hover{background:var(--paper-2)}
+  .pick-rank{
+    font-family:'Fraunces',serif;
+    font-size:80px;
+    font-weight:200;
+    line-height:0.8;
+    color:var(--accent);
+    opacity:0.18;
+    position:absolute;
+    top:14px;
+    right:18px;
+    pointer-events:none;
+    font-variation-settings:"opsz" 144;
+  }
+  .pick-artist{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .pick-lot{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:24px;
+    border:1px solid var(--accent);
+    border-radius:12px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent);
+    margin-right:8px;
+    vertical-align:middle;
+    background:var(--paper);
+  }
+  [data-theme="dark"] .pick-lot{
+    background:var(--accent);
+    color:#0f1620;
+    border-color:var(--accent);
+  }
+  .pick-title{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:8px;
+    font-style:italic;
+  }
+  .pick-meta{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:auto;
+    padding-bottom:18px;
+  }
+  .pick-prices{
+    border-top:1px dashed var(--rule);
+    padding-top:14px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+  }
+  .pick-price{
+    display:flex;
+    flex-direction:column;
+  }
+  .pick-price-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:2px;
+  }
+  .pick-price-val{
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    font-weight:600;
+  }
+  .pick-price-val.tope{color:var(--accent-2)}
+  .pick-rationale{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--rule);
+    font-size:12px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
 
-/* ── Numbers pending notice ── */
-.pending{
-  max-width:1180px;margin:0 auto 8px;padding:0 20px;
-}
-.pending-in{
-  border:1px dashed var(--line);border-radius:3px;
-  padding:12px 16px;font-size:13px;color:var(--fg-soft);
-  display:flex;gap:10px;align-items:flex-start;
-}
-.pending-in span:first-child{color:var(--gold);font-family:'Space Mono',monospace;flex:none}
+  /* Filters */
+  .controls{
+    background:var(--paper-2);
+    padding:20px 24px;
+    border:1px solid var(--rule);
+    border-bottom:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .search-box{
+    flex:1;
+    min-width:200px;
+    position:relative;
+  }
+  .search-box input{
+    width:100%;
+    padding:10px 14px 10px 36px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    font-family:'Manrope',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    outline:none;
+    transition:border 0.2s;
+  }
+  .search-box input:focus{border-color:var(--accent)}
+  .search-box::before{
+    content:"⌕";
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--ink-soft);
+    font-size:18px;
+  }
+  .filter-group{
+    display:flex;
+    gap:4px;
+    background:var(--paper);
+    padding:4px;
+    border:1px solid var(--rule);
+  }
+  .filter-btn{
+    padding:8px 14px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    transition:all 0.2s;
+  }
+  .filter-btn:hover{color:var(--ink)}
+  .filter-btn.active{background:var(--ink);color:var(--paper)}
+  [data-theme="dark"] .filter-btn.active{background:var(--accent);color:var(--paper)}
+  .filter-btn[data-tier="A"].active{background:var(--tier-a);color:var(--paper)}
+  .filter-btn[data-tier="B"].active{background:var(--tier-b);color:var(--paper)}
+  .filter-btn[data-tier="C"].active{background:var(--tier-c);color:var(--paper)}
+  [data-theme="dark"] .filter-btn[data-tier="A"].active{background:var(--accent);color:#0f1620}
+  [data-theme="dark"] .filter-btn[data-tier="B"].active{background:var(--tier-b);color:#0f1620}
+  [data-theme="dark"] .filter-btn[data-tier="C"].active{background:var(--tier-c);color:#0f1620}
 
-/* ── Stats ── */
-.stats{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:var(--bg-2);margin-top:36px}
-.stats-in{max-width:1180px;margin:0 auto;padding:26px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-@media(max-width:680px){.stats-in{grid-template-columns:repeat(2,1fr);gap:24px 14px}}
-.st{border-left:2px solid var(--line);padding-left:14px}
-.st.a{border-color:var(--rose)}
-.st.b{border-color:var(--cobalt)}
-.st.c{border-color:var(--ash)}
-.st .n{font-family:'Bodoni Moda',serif;font-size:40px;font-weight:400;line-height:1}
-.st .l{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft);margin-top:5px}
+  /* Table */
+  .table-wrap{
+    border:1px solid var(--rule);
+    background:var(--paper);
+    overflow-x:auto;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    min-width:760px;
+  }
+  thead{
+    background:var(--thead-bg);
+    color:var(--thead-fg);
+  }
+  thead th{
+    text-align:left;
+    padding:14px 12px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    font-weight:500;
+    border-bottom:1px solid var(--accent);
+    white-space:nowrap;
+  }
+  thead th.num{text-align:right}
+  tbody tr{
+    border-bottom:1px solid var(--rule-soft);
+    transition:background 0.15s;
+  }
+  tbody tr:hover{background:var(--paper-2)}
+  tbody tr.featured{
+    background:linear-gradient(90deg, var(--row-feat) 0%, transparent 60%);
+  }
+  tbody tr.featured:hover{
+    background:linear-gradient(90deg, var(--row-feat-hover) 0%, var(--paper-2) 60%);
+  }
+  tbody td{
+    padding:14px 12px;
+    vertical-align:middle;
+  }
+  .artist-cell{
+    font-weight:600;
+    font-size:13px;
+  }
+  .featured-mark{
+    color:var(--accent);
+    font-size:11px;
+    margin-left:4px;
+    vertical-align:middle;
+  }
+  .work-cell{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .work-meta{
+    display:block;
+    font-family:'Manrope',sans-serif;
+    font-style:normal;
+    font-size:10px;
+    color:var(--ink-soft);
+    margin-top:2px;
+    letter-spacing:0.02em;
+  }
+  td.num{
+    text-align:right;
+    font-family:'JetBrains Mono',monospace;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .lot-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:26px;
+    border:1px solid var(--ink-soft);
+    border-radius:13px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--paper);
+  }
+  tr.featured .lot-num{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+  [data-theme="dark"] tr.featured .lot-num{
+    background:var(--accent);
+    color:#0f1620;
+    border-color:var(--accent);
+  }
+  td.tope-cell{
+    color:var(--accent-2);
+    font-weight:600;
+  }
+  .tier{
+    display:inline-block;
+    padding:3px 10px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.1em;
+    border-radius:2px;
+  }
+  .tier-A{background:var(--tier-a-bg);color:var(--tier-a)}
+  .tier-B{background:var(--tier-b-bg);color:var(--tier-b)}
+  .tier-C{background:var(--tier-c-bg);color:var(--tier-c)}
+  .ratio{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
 
-/* ── Sections ── */
-.sec{max-width:1180px;margin:0 auto;padding:56px 20px 0}
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-.sec-h h2{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(24px,4vw,38px);line-height:1;letter-spacing:-.01em}
-.sec-h h2 i{font-style:italic;color:var(--rose)}
-.sec-h .note{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft)}
+  .empty-row{
+    text-align:center;
+    padding:40px;
+    color:var(--ink-soft);
+    font-style:italic;
+    font-family:'Fraunces',serif;
+  }
 
-/* ── Picks ── */
-.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.pk{
-  border:1px solid var(--line);border-radius:3px;background:var(--bg-2);
-  padding:20px 18px;display:flex;flex-direction:column;gap:8px;
-  position:relative;overflow:hidden;transition:border-color .2s,transform .2s;
-}
-.pk::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rose)}
-.pk:hover{border-color:var(--rose);transform:translateY(-2px)}
-.pk .who{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
-.pk .what{font-family:'Bodoni Moda',serif;font-style:italic;font-size:20px;line-height:1.15}
-.pk .spec{font-size:11px;color:var(--fg-soft);margin-bottom:6px}
-.pk .row{display:flex;gap:18px;border-top:1px solid var(--line-soft);padding-top:12px;margin-top:auto}
-.pk .row div{display:flex;flex-direction:column}
-.pk .row .k{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-soft)}
-.pk .row .v{font-family:'Space Mono',monospace;font-size:14px;font-weight:700}
-.pk .row .v.hot{color:var(--gold)}
-.pk .why{font-size:12px;color:var(--fg-soft);font-style:italic;border-top:1px solid var(--line-soft);padding-top:10px}
+  /* Methodology */
+  .methodology{
+    max-width:1280px;
+    margin:0 auto;
+    padding:60px 24px 40px;
+    border-top:1px solid var(--rule);
+  }
+  .method-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:32px;
+    margin-top:24px;
+  }
+  .method-item h4{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+  .method-item p{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .caveats{
+    margin-top:48px;
+    padding:24px;
+    background:var(--paper-2);
+    border-left:3px solid var(--accent);
+  }
+  .caveats h4{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-style:italic;
+    margin-bottom:12px;
+    color:var(--ink);
+  }
+  .caveats ul{
+    list-style:none;
+    padding:0;
+  }
+  .caveats li{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    padding-left:20px;
+    position:relative;
+    margin-bottom:8px;
+  }
+  .caveats li::before{
+    content:"§";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-family:'Fraunces',serif;
+    font-weight:600;
+  }
 
-/* ── Controls ── */
-.ctrl{
-  display:flex;flex-wrap:wrap;gap:12px;align-items:center;
-  padding:14px 0;position:sticky;top:0;z-index:20;
-  background:var(--bg);border-bottom:1px solid var(--line);
-}
-.find{flex:1;min-width:180px}
-.find input{
-  width:100%;padding:10px 13px;background:var(--bg-2);
-  border:1px solid var(--line);border-radius:2px;color:var(--fg);
-  font-family:'Archivo',sans-serif;font-size:14px;outline:none;transition:border-color .2s;
-}
-.find input:focus{border-color:var(--rose)}
-.tabs{display:flex;gap:2px;border:1px solid var(--line);border-radius:2px;padding:3px;background:var(--bg-2)}
-.tab{
-  background:none;border:none;cursor:pointer;padding:7px 12px;border-radius:1px;
-  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--fg-soft);transition:all .2s;
-}
-.tab:hover{color:var(--fg)}
-.tab.on{background:var(--fg);color:var(--bg)}
-.tab[data-t="A"].on{background:var(--rose);color:#fff}
-.tab[data-t="B"].on{background:var(--cobalt);color:#fff}
-.tab[data-t="C"].on{background:var(--ash);color:var(--bg)}
+  /* Footer */
+  footer{
+    background:var(--topbar-bg);
+    color:var(--topbar-fg);
+    padding:40px 24px;
+    margin-top:60px;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    transition:background 0.3s, color 0.3s;
+  }
+  footer span{color:var(--accent)}
 
-/* ── Table ── */
-.tw{border:1px solid var(--line);border-top:none;border-radius:0 0 3px 3px;overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
-thead th{
-  text-align:left;padding:11px 12px;background:var(--bg-2);
-  font-family:'Space Mono',monospace;font-size:9px;font-weight:400;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft);
-  border-bottom:1px solid var(--line);white-space:nowrap;
-}
-thead th.r{text-align:right}
-tbody tr{border-bottom:1px solid var(--line-soft);transition:background .15s}
-tbody tr:hover{background:var(--bg-2)}
-tbody tr.star{background:linear-gradient(90deg,rgba(230,63,109,.09),transparent 55%)}
-tbody tr.star:hover{background:linear-gradient(90deg,rgba(230,63,109,.16),var(--bg-2) 55%)}
-tbody td{padding:12px;vertical-align:middle}
-.lot{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-width:34px;height:24px;padding:0 7px;border-radius:2px;
-  border:1px solid var(--line);background:var(--bg-2);
-  font-family:'Space Mono',monospace;font-size:11px;color:var(--fg-soft);
-}
-tr.star .lot{border-color:var(--rose);color:var(--rose)}
-.who-c{font-weight:600;font-size:13px}
-.st-mark{color:var(--rose);margin-left:5px;font-size:10px}
-.what-c{font-family:'Bodoni Moda',serif;font-style:italic;font-size:14px}
-.what-c small{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:10px;color:var(--fg-soft);margin-top:2px}
-td.r{text-align:right;font-family:'Space Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
-td.r.top{color:var(--gold);font-weight:700}
-.tg{display:inline-block;padding:3px 9px;border-radius:2px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em}
-.tg.A{background:rgba(230,63,109,.16);color:var(--rose)}
-.tg.B{background:rgba(91,131,255,.16);color:var(--cobalt)}
-.tg.C{background:rgba(143,138,163,.16);color:var(--ash)}
-.none{text-align:center;padding:36px;color:var(--fg-soft);font-family:'Bodoni Moda',serif;font-style:italic}
+  /* Responsive */
+  @media(max-width:600px){
+    .hero{padding:40px 20px 30px}
+    .hero::before, .hero::after{display:none}
+    .hero-meta{gap:20px}
+    .meta-value{font-size:15px}
+    .stats{padding:30px 20px}
+    .stat-num{font-size:36px}
+    .section{padding:50px 20px 30px}
+    .pick{padding:22px 18px;min-height:auto}
+    .pick-rank{font-size:60px}
+    .pick-title{font-size:18px}
+    .controls{padding:16px;flex-direction:column;align-items:stretch}
+    .filter-group{justify-content:space-between}
+    table{font-size:12px}
+    thead th, tbody td{padding:10px 8px}
+    .work-cell{font-size:13px}
+  }
 
-/* ── Method ── */
-.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-bottom:34px}
-.meth h4{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:9px;padding-bottom:7px;border-bottom:1px solid var(--line)}
-.meth p{font-size:13px;color:var(--fg-soft)}
-.warn{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:2px;padding:20px;background:var(--bg-2)}
-.warn h4{font-family:'Bodoni Moda',serif;font-style:italic;font-size:18px;margin-bottom:11px}
-.warn li{list-style:none;font-size:13px;color:var(--fg-soft);padding-left:18px;position:relative;margin-bottom:8px}
-.warn li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+  /* Modo sala — buscador de lote (La Paz aún no tiene números impresos) */
+  .lookup-wrap{max-width:1280px;margin:0 auto;padding:0 24px 56px}
+  .lookup-card{border:1px solid var(--rule);background:var(--paper-2)}
+  .lookup-head{
+    display:flex;align-items:center;gap:10px;
+    padding:14px 20px;border-bottom:1px solid var(--rule);
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);
+    background:var(--paper);
+  }
+  .lookup-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+  .lookup-body{padding:26px 20px 30px}
+  #lot{
+    width:100%;background:transparent;border:none;outline:none;color:var(--ink);
+    font-family:'Fraunces',serif;font-size:clamp(26px,6vw,44px);
+    font-weight:500;font-variation-settings:"opsz" 144;letter-spacing:-0.01em;
+  }
+  #lot::placeholder{color:var(--rule)}
+  .verdict{margin-top:10px;min-height:90px}
+  .v-empty{color:var(--ink-soft);font-size:13px;padding-top:14px}
+  .v-card{border-top:1px dashed var(--rule);padding-top:18px}
+  .v-artist{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .v-title{font-family:'Fraunces',serif;font-style:italic;font-size:24px;line-height:1.15;margin-bottom:4px;font-variation-settings:"opsz" 144}
+  .v-meta{font-size:12px;color:var(--ink-soft);margin-bottom:18px}
+  .v-nums{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end}
+  .v-num{display:flex;flex-direction:column;gap:3px}
+  .v-num .lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)}
+  .v-num .val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600}
+  .v-num .val.hot{color:var(--accent-2)}
+  .v-more{margin-top:16px;font-size:13px;color:var(--ink-soft);border-left:2px solid var(--accent);padding-left:14px;font-style:italic}
+  .v-miss{padding-top:14px;font-size:14px;color:var(--ink-soft)}
+  .v-miss b{color:var(--ink);font-weight:600}
 
-footer{margin-top:56px;padding:26px 20px;border-top:1px solid var(--line-soft);text-align:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft)}
-footer b{color:var(--rose);font-weight:400}
+  .pending-notice{
+    margin-top:16px;border:1px dashed var(--rule);padding:14px 18px;border-radius:0;
+    font-size:13px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start;
+  }
+  .pending-notice b{color:var(--accent);font-family:'JetBrains Mono',monospace;flex:none}
 
-@media(max-width:640px){
-  .hero{padding:32px 16px 22px}
-  .sec{padding:40px 16px 0}
-  .pending{padding:0 16px}
-  .stats-in{padding:22px 16px}
-  .v-nums{gap:18px}
-  .v-num .val{font-size:24px}
-  thead th,tbody td{padding:9px 8px}
-}
+  @media(max-width:600px){
+    .lookup-body{padding:20px 16px 24px}
+    .v-nums{gap:18px}
+    .v-num .val{font-size:18px}
+  }
 </style>
 </head>
 <body>
 
-<div class="aguayo"></div>
-<div class="bar">
-  <span><b>BCP Enalta</b> · Altamira · 9ª versión</span>
-  <span class="hide-sm">Hotel Casa Grande · Calacoto</span>
-  <div class="bar-right">
-    <span>29 jul · 19:00</span>
-    <button class="tgl" id="tgl" aria-label="Cambiar tema"><span class="moon">☾</span><span class="sun">☀</span></button>
+<div class="topbar">
+  <span>BCP Enalta · Altamira</span>
+  <span>● Análisis privado</span>
+  <div class="topbar-right">
+    <span>29 jul 2026 · 19:00</span>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+      <span class="icon-moon">☾</span>
+      <span class="icon-sun">☀</span>
+    </button>
   </div>
 </div>
 
 <header class="hero">
-  <div class="kicker">Subasta de arte · La Paz · Beneficio Operación Sonrisa</div>
-  <h1>91 obras.<br>Un <i>tope</i> para cada una.</h1>
-  <p class="sub">Escribí el número de lote cuando lo canten y te digo hasta dónde vale la pena pujar. Sin número todavía: buscá por artista u obra.</p>
+  <div class="eyebrow">Subasta de Arte · La Paz · Beneficio Operación Sonrisa</div>
+  <h1>91 obras.<br>Un <em>tope</em><br>para cada una.</h1>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Sede</span>
+      <span class="meta-value">Hotel Casa Grande · Calacoto</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Obras en catálogo</span>
+      <span class="meta-value">91 piezas · 38 artistas</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Edición</span>
+      <span class="meta-value">9ª versión · plaza madre</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Pago</span>
+      <span class="meta-value">USD o Bs al cambio oficial</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Preparado para</span>
+      <span class="meta-value">Cal · uso privado</span>
+    </div>
+  </div>
+</header>
 
-  <div class="lookup">
-    <div class="lookup-head"><span class="dot"></span> Modo sala — buscador de lote</div>
+<div class="lookup-wrap">
+  <div class="lookup-card">
+    <div class="lookup-head"><span class="lookup-dot"></span> Modo sala — buscador de lote</div>
     <div class="lookup-body">
       <input id="lot" type="text" placeholder="lote, artista u obra" autocomplete="off" spellcheck="false">
       <div class="verdict" id="verdict">
@@ -311,94 +799,137 @@ footer b{color:var(--rose);font-weight:400}
       </div>
     </div>
   </div>
-</header>
-
-<div class="pending">
-  <div class="pending-in">
-    <span>[ · ]</span>
-    <span id="pending-txt">Números de lote pendientes. La lista oficial se entrega impresa en la sala — cuando la tengas, se cargan y el buscador responde por número.</span>
+  <div class="pending-notice">
+    <b>§</b>
+    <span>Números de lote pendientes. La lista oficial se entrega impresa en la sala — cuando la tengas, se cargan y el buscador responde por número.</span>
   </div>
 </div>
 
 <section class="stats">
-  <div class="stats-in">
-    <div class="st"><div class="n" id="s-t">91</div><div class="l">Obras</div></div>
-    <div class="st a"><div class="n" id="s-a">0</div><div class="l">Tier A · asimetría fuerte</div></div>
-    <div class="st b"><div class="n" id="s-b">0</div><div class="l">Tier B · valor razonable</div></div>
-    <div class="st c"><div class="n" id="s-c">0</div><div class="l">Tier C · ya en mercado</div></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="sec-h">
-    <h2>Las ocho que <i>perseguiría</i></h2>
-    <span class="note">Orden de prioridad</span>
-  </div>
-  <div class="picks" id="picks"></div>
-</section>
-
-<section class="sec">
-  <div class="sec-h">
-    <h2>Catálogo <i>completo</i></h2>
-    <span class="note" id="count">91 obras · 38 artistas</span>
-  </div>
-  <div class="ctrl">
-    <div class="find"><input id="q" type="text" placeholder="Buscar artista u obra…" autocomplete="off"></div>
-    <div class="tabs">
-      <button class="tab on" data-t="all">Todas</button>
-      <button class="tab" data-t="A">A</button>
-      <button class="tab" data-t="B">B</button>
-      <button class="tab" data-t="C">C</button>
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num" id="stat-total">91</div>
+      <div class="stat-label">Obras analizadas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-a">0</div>
+      <div class="stat-label">Tier A · asimetría fuerte</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-b">0</div>
+      <div class="stat-label">Tier B · valor razonable</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-c">0</div>
+      <div class="stat-label">Tier C · ya en mercado</div>
     </div>
   </div>
-  <div class="tw">
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Las ocho que <em>perseguiría</em></h2>
+    <span class="section-num">/01</span>
+  </div>
+  <div class="picks" id="picks-grid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Catálogo <em>completo</em></h2>
+    <span class="section-num">/02</span>
+  </div>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Buscar artista u obra...">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-tier="all">Todos</button>
+      <button class="filter-btn" data-tier="A">Tier A</button>
+      <button class="filter-btn" data-tier="B">Tier B</button>
+      <button class="filter-btn" data-tier="C">Tier C</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
     <table>
-      <thead><tr>
-        <th>Lote</th><th>Artista</th><th>Obra</th>
-        <th class="r">Base</th><th class="r">Mercado est.</th><th class="r">Tope</th><th>Tier</th>
-      </tr></thead>
-      <tbody id="tb"></tbody>
+      <thead>
+        <tr>
+          <th>Lote</th>
+          <th>Artista</th>
+          <th>Obra</th>
+          <th class="num">Base</th>
+          <th class="num">Mercado est.</th>
+          <th class="num">Tope puja</th>
+          <th>Tier</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
     </table>
   </div>
 </section>
 
-<section class="sec">
-  <div class="sec-h"><h2>Cómo leer <i>estos números</i></h2></div>
-  <div class="meth">
-    <div><h4>Base</h4><p>Precio inicial del catálogo, en dólares. En subasta benéfica el base bajo es anzuelo deliberado, no valuación. Trece obras salen en $1 y tres en $100.</p></div>
-    <div><h4>Mercado estimado</h4><p>Rango de venta razonable en galería o colección privada para una pieza comparable: trayectoria, técnica, formato. Estimación mía, no transacciones verificadas.</p></div>
-    <div><h4>Tope</h4><p>El precio hasta el que la obra sigue siendo buen negocio — cerca del 60-70% del piso de mercado. Si la sala lo pasa, te bajás.</p></div>
-    <div><h4>Tiers</h4><p><b>A</b>: mercado ≥3× la base. <b>B</b>: entre 1,5× y 3×. <b>C</b>: menos de 1,5×, la base ya está en precio.</p></div>
+<section class="methodology">
+  <div class="section-head">
+    <h2>Metodología <em>&amp; advertencias</em></h2>
+    <span class="section-num">/03</span>
   </div>
-  <div class="warn">
+
+  <div class="method-grid">
+    <div class="method-item">
+      <h4>Base</h4>
+      <p>Precio inicial del catálogo, en dólares. En subasta benéfica el base bajo es anzuelo deliberado, no valuación. Trece obras salen en $1 y tres en $100.</p>
+    </div>
+    <div class="method-item">
+      <h4>Mercado estimado</h4>
+      <p>Rango de venta razonable en galería o colección privada para una pieza comparable: trayectoria, técnica, formato. Estimación propia, no transacciones verificadas.</p>
+    </div>
+    <div class="method-item">
+      <h4>Tope de puja</h4>
+      <p>El precio hasta el que la obra sigue siendo buen negocio — cerca del 60-70% del piso de mercado. Si la sala lo pasa, retirarse.</p>
+    </div>
+    <div class="method-item">
+      <h4>Sistema de tiers</h4>
+      <p><strong>A</strong>: mercado ≥3× la base (asimetría fuerte). <strong>B</strong>: entre 1,5× y 3× (valor razonable). <strong>C</strong>: menos de 1,5× (la base ya está en precio).</p>
+    </div>
+  </div>
+
+  <div class="caveats">
     <h4>Lo que hay que tener presente</h4>
     <ul>
-      <li>La Paz es la plaza madre de esta subasta: novena edición, contra la primera de Santa Cruz. Los coleccionistas están formados y hay pujas remotas desde otras ciudades y del exterior. Los topes que servían en Santa Cruz se quedan cortos acá.</li>
-      <li>Ballivián y Lara son paceños y juegan en casa. Esperá más competencia por ellos que la que viste en Santa Cruz.</li>
+      <li>La Paz es la plaza madre de esta subasta: novena edición, contra la primera de Santa Cruz. Los coleccionistas están más formados y hay pujas remotas desde otras ciudades y del exterior. Los topes que servían en Santa Cruz se quedan cortos acá.</li>
+      <li>Ballivián y Lara son paceños y juegan en casa. Esperar más competencia por ellos que la vista en Santa Cruz.</li>
       <li>No hay obra de Alfredo La Placa en esta edición.</li>
       <li>El mercado boliviano de arte es opaco: casi ningún artista de este catálogo tiene historial transaccional público. Los rangos son criterio, no data.</li>
       <li>Pagar en bolivianos al tipo oficial en vez de dólares reduce el costo real de forma significativa. El catálogo lo permite explícitamente.</li>
-      <li>En benéfica los precios pueden pasar el mercado por motivación filantrópica. Definí el tope antes de entrar y no lo muevas en caliente.</li>
+      <li>En benéfica los precios pueden pasar el mercado por motivación filantrópica. Definir el tope antes de entrar y no moverlo en caliente.</li>
     </ul>
   </div>
 </section>
 
-<footer>Análisis privado · <b>Subasta BCP Enalta La Paz</b> · 29.07.2026</footer>
-<div class="aguayo"></div>
+<footer>
+  Análisis privado · <span>BCP Enalta</span> · Subasta La Paz · 29.07.2026
+</footer>
 
 <script>
-document.getElementById('tgl').addEventListener('click',function(){
-  var light = document.documentElement.getAttribute('data-theme') === 'light';
-  if(light){document.documentElement.removeAttribute('data-theme');localStorage.setItem('lp-theme','dark');}
-  else{document.documentElement.setAttribute('data-theme','light');localStorage.setItem('lp-theme','light');}
+// Theme toggle button
+document.getElementById('theme-toggle').addEventListener('click',()=>{
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if(isDark){
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme','light');
+  } else {
+    document.documentElement.setAttribute('data-theme','dark');
+    localStorage.setItem('theme','dark');
+  }
 });
 
-// n = número de lote (null hasta que llegue la lista oficial)
-const D = [
+const data = [
 {n:null,a:"Raúl Lara",o:"Madre e hija",m:"Tinta sobre cromacote · 26×19",b:350,mn:1000,mx:2000,t:750,tier:"B"},
 {n:null,a:"Raúl Lara",o:"Niño con bonete",m:"Mixta sobre cromacote · 32×21,5",b:350,mn:1000,mx:2000,t:750,tier:"B"},
 {n:null,a:"María Esther Ballivián",o:"Bodegón",m:"Carbón sobre papel · 31×23",b:250,mn:800,mx:1800,t:650,tier:"A"},
-{n:null,a:"María Esther Ballivián",o:"De la serie flores",m:"Acuarela sobre papel · 37×26",b:250,mn:1000,mx:2200,t:800,tier:"A",f:4,why:"Única con mercado secundario internacional"},
+{n:null,a:"María Esther Ballivián",o:"De la serie flores",m:"Acuarela sobre papel · 37×26",b:250,mn:1000,mx:2200,t:800,tier:"A",feat:4,rank:4,why:"Única con mercado secundario internacional"},
 {n:null,a:"Luis Zilveti",o:"Hombres corriendo III",m:"Tinta y café sobre papel · 50×65",b:200,mn:600,mx:1300,t:500,tier:"A"},
 {n:null,a:"Luis Zilveti",o:"Figuras sentadas",m:"Óleo sobre lienzo · 92×73",b:1200,mn:2500,mx:4500,t:1800,tier:"B"},
 {n:null,a:"Ejti Stih",o:"Nuestros sueños 1",m:"Acrílico sobre lienzo · 50×70",b:700,mn:1500,mx:3000,t:1200,tier:"B"},
@@ -424,9 +955,9 @@ const D = [
 {n:null,a:"Fernando Antezana",o:"Amanecer en la ciudad",m:"Mixta sobre lienzo · 120×150",b:500,mn:1500,mx:3000,t:1200,tier:"A"},
 {n:null,a:"Fernando Antezana",o:"Dulce cosecha",m:"Mixta sobre lienzo · 120×150",b:400,mn:1500,mx:3000,t:1200,tier:"A"},
 {n:null,a:"Fernando Antezana",o:"En la ribera",m:"Mixta sobre lienzo · 180×120",b:500,mn:1800,mx:3500,t:1400,tier:"A"},
-{n:null,a:"Fernando Antezana",o:"Toborochi",m:"Mixta sobre lienzo · 200×150",b:100,mn:2500,mx:5000,t:1800,tier:"A",f:3,why:"Dos metros por metro y medio, base de $100"},
-{n:null,a:"Rosmery Mamani",o:"Leda",m:"Pastel sobre pastelmatt · 34×50",b:1,mn:1500,mx:3000,t:1200,tier:"A",f:1,why:"Misma técnica que Armonía cotidiana. Base señuelo"},
-{n:null,a:"Rosmery Mamani",o:"Melodía suspendida",m:"Pastel sobre pastelmatt · 56×77",b:500,mn:2500,mx:5000,t:2000,tier:"A",f:2,why:"Formato grande en su técnica firma"},
+{n:null,a:"Fernando Antezana",o:"Toborochi",m:"Mixta sobre lienzo · 200×150",b:100,mn:2500,mx:5000,t:1800,tier:"A",feat:3,rank:3,why:"Dos metros por metro y medio, base de $100"},
+{n:null,a:"Rosmery Mamani",o:"Leda",m:"Pastel sobre pastelmatt · 34×50",b:1,mn:1500,mx:3000,t:1200,tier:"A",feat:1,rank:1,why:"Misma técnica que Armonía cotidiana. Base señuelo"},
+{n:null,a:"Rosmery Mamani",o:"Melodía suspendida",m:"Pastel sobre pastelmatt · 56×77",b:500,mn:2500,mx:5000,t:2000,tier:"A",feat:2,rank:2,why:"Formato grande en su técnica firma"},
 {n:null,a:"Koqui Handal",o:"Clarinero",m:"Acrílico sobre lienzo · 100×100",b:1000,mn:1800,mx:3500,t:1500,tier:"B"},
 {n:null,a:"Koqui Handal",o:"Conde",m:"Acrílico sobre lienzo · 80×80",b:900,mn:1500,mx:3000,t:1200,tier:"B"},
 {n:null,a:"Ángeles Fabbri",o:"Abstracto con fondo de rama",m:"Acrílico sobre lienzo · 170×150",b:1000,mn:2000,mx:3500,t:1500,tier:"B"},
@@ -437,13 +968,13 @@ const D = [
 {n:null,a:"Juan José Serrano",o:"Provolone",m:"Acrílico sobre lienzo · 70×91",b:250,mn:700,mx:1400,t:550,tier:"B"},
 {n:null,a:"Juan José Serrano",o:"Roquefort",m:"Acrílico sobre lienzo · 91×70",b:250,mn:700,mx:1400,t:550,tier:"B"},
 {n:null,a:"Juan José Serrano",o:"La Cebú",m:"Acrílico sobre lienzo · 124×84",b:350,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Juan José Serrano",o:"Nelore de dólar mil",m:"Acrílico sobre lienzo · 102×102",b:100,mn:900,mx:1800,t:700,tier:"A",f:8,why:"Un metro cuadrado a base de $100"},
+{n:null,a:"Juan José Serrano",o:"Nelore de dólar mil",m:"Acrílico sobre lienzo · 102×102",b:100,mn:900,mx:1800,t:700,tier:"A",feat:8,rank:8,why:"Un metro cuadrado a base de $100"},
 {n:null,a:"Jaime Calizaya",o:"Cebú de feria",m:"Acrílico sobre lienzo · 100×90",b:500,mn:900,mx:1800,t:750,tier:"B"},
 {n:null,a:"Jaime Calizaya",o:"Energía taurina",m:"Acrílico sobre lienzo · 100×80",b:500,mn:900,mx:1800,t:750,tier:"B"},
 {n:null,a:"Jaime Calizaya",o:"Tigre americano",m:"Acrílico sobre lienzo · 100×90",b:400,mn:900,mx:1800,t:700,tier:"B"},
 {n:null,a:"Adda Donato",o:"King",m:"Óleo sobre lienzo · 88×122",b:400,mn:1200,mx:2500,t:950,tier:"A"},
 {n:null,a:"Adda Donato",o:"Picas",m:"Óleo sobre lienzo · 88×122",b:400,mn:1200,mx:2500,t:950,tier:"A"},
-{n:null,a:"Adda Donato",o:"J",m:"Óleo sobre lienzo · 140×100",b:500,mn:1500,mx:3000,t:1200,tier:"A",f:7,why:"La mayor de su serie de naipes"},
+{n:null,a:"Adda Donato",o:"J",m:"Óleo sobre lienzo · 140×100",b:500,mn:1500,mx:3000,t:1200,tier:"A",feat:7,rank:7,why:"La mayor de su serie de naipes"},
 {n:null,a:"Betzalel Maida",o:"Pensamientos lejanos",m:"Óleo sobre lienzo · 80×120",b:700,mn:1200,mx:2500,t:1000,tier:"B"},
 {n:null,a:"Betzalel Maida",o:"Hormiguero",m:"Óleo sobre madera de tajibo · 38×19×7,5",b:1,mn:400,mx:800,t:300,tier:"A"},
 {n:null,a:"Hernán Callisaya",o:"Pájaro azul",m:"Óleo sobre papel · 30×40",b:1,mn:500,mx:1000,t:400,tier:"A"},
@@ -454,7 +985,7 @@ const D = [
 {n:null,a:"María José Rodríguez",o:"Estamos fritos (tríptico)",m:"Acrílico sobre trupán · 48×22",b:1,mn:400,mx:900,t:350,tier:"A"},
 {n:null,a:"Ariela Hossen",o:"Abstracto 7",m:"Acrílico sobre lienzo · 60×60",b:200,mn:400,mx:900,t:350,tier:"B"},
 {n:null,a:"Vidal Cussi",o:"Rayo",m:"Óleo sobre lienzo · 150×100",b:500,mn:2000,mx:4000,t:1500,tier:"A"},
-{n:null,a:"Vidal Cussi",o:"Lucidez",m:"Óleo sobre lienzo · 150×150",b:600,mn:2500,mx:5000,t:1800,tier:"A",f:5,why:"La mayor del lote hiperrealista"},
+{n:null,a:"Vidal Cussi",o:"Lucidez",m:"Óleo sobre lienzo · 150×150",b:600,mn:2500,mx:5000,t:1800,tier:"A",feat:5,rank:5,why:"La mayor del lote hiperrealista"},
 {n:null,a:"Vidal Cussi",o:"Feroz",m:"Óleo sobre lienzo · 127×100",b:400,mn:1800,mx:3500,t:1300,tier:"A"},
 {n:null,a:"Vidal Cussi",o:"En reserva",m:"Óleo sobre lienzo · 150×95",b:500,mn:2000,mx:4000,t:1500,tier:"A"},
 {n:null,a:"Juan Mayta",o:"Poesía nocturna",m:"Óleo sobre lienzo · 150×150",b:300,mn:1000,mx:2000,t:800,tier:"A"},
@@ -472,7 +1003,7 @@ const D = [
 {n:null,a:"Carolina Lovo",o:"Serenata para Rosita Pochi",m:"Acrílico sobre lienzo · 100×120",b:200,mn:700,mx:1400,t:550,tier:"A"},
 {n:null,a:"Carolina Lovo",o:"Campestre",m:"Acrílico sobre lienzo · 60×30",b:1,mn:350,mx:700,t:300,tier:"A"},
 {n:null,a:"Carolina Lovo",o:"Músico",m:"Acrílico sobre lienzo · 70×100",b:200,mn:600,mx:1200,t:500,tier:"A"},
-{n:null,a:"Juan Suntura",o:"Eterno",m:"Soldadura · 310×140×60",b:100,mn:2000,mx:4000,t:1500,tier:"A",f:6,why:"Tres metros de alto. Necesita jardín"},
+{n:null,a:"Juan Suntura",o:"Eterno",m:"Soldadura · 310×140×60",b:100,mn:2000,mx:4000,t:1500,tier:"A",feat:6,rank:6,why:"Tres metros de alto. Necesita jardín"},
 {n:null,a:"Juan Suntura",o:"Visitante",m:"Soldadura en metal · 110×42×25",b:300,mn:700,mx:1400,t:600,tier:"B"},
 {n:null,a:"Juan Suntura",o:"Atardecer",m:"Soldadura en metal · 120×60×20",b:300,mn:700,mx:1400,t:600,tier:"B"},
 {n:null,a:"Juan Suntura",o:"La espera",m:"Escultura sobre madera · 49×20×13",b:1,mn:400,mx:800,t:350,tier:"A"},
@@ -487,68 +1018,97 @@ const D = [
 {n:null,a:"Raúl Alvarado",o:"Piel",m:"Piedra alabastro · 60×24",b:350,mn:700,mx:1400,t:600,tier:"B"},
 {n:null,a:"Raúl Alvarado",o:"Manantial",m:"Piedra basalto y madera · 20×115×27",b:550,mn:1000,mx:2000,t:850,tier:"B"}
 ];
-
 const $ = id => document.getElementById(id);
 const money = v => '$' + v.toLocaleString('es');
 
-// stats
-$('s-t').textContent = D.length;
-$('s-a').textContent = D.filter(d=>d.tier==='A').length;
-$('s-b').textContent = D.filter(d=>d.tier==='B').length;
-$('s-c').textContent = D.filter(d=>d.tier==='C').length;
-$('count').textContent = D.length + ' obras · ' + new Set(D.map(d=>d.a)).size + ' artistas';
+// Update stats
+const tierA = data.filter(d=>d.tier==="A").length;
+const tierB = data.filter(d=>d.tier==="B").length;
+const tierC = data.filter(d=>d.tier==="C").length;
+document.getElementById('stat-total').textContent = data.length;
+document.getElementById('stat-a').textContent = tierA;
+document.getElementById('stat-b').textContent = tierB;
+document.getElementById('stat-c').textContent = tierC;
 
-// picks
-$('picks').innerHTML = D.filter(d=>d.f).sort((x,y)=>x.f-y.f).map(p=>`
-  <div class="pk">
-    <div class="who">${p.a}</div>
-    <div class="what">${p.o}</div>
-    <div class="spec">${p.m}</div>
-    <div class="row">
-      <div><span class="k">Base</span><span class="v">${money(p.b)}</span></div>
-      <div><span class="k">Mercado</span><span class="v">${money(p.mn)}–${money(p.mx)}</span></div>
-      <div><span class="k">Tope</span><span class="v hot">${money(p.t)}</span></div>
+// Render top picks
+const picksGrid = document.getElementById('picks-grid');
+const picks = data.filter(d=>d.feat).sort((a,b)=>a.rank-b.rank);
+picksGrid.innerHTML = picks.map(p=>`
+  <div class="pick">
+    <div class="pick-rank">${String(p.rank).padStart(2,'0')}</div>
+    <div class="pick-artist"><span class="pick-lot">${p.n ?? '—'}</span>${p.a}</div>
+    <div class="pick-title">${p.o}</div>
+    <div class="pick-meta">${p.m}</div>
+    <div class="pick-prices">
+      <div class="pick-price">
+        <span class="pick-price-label">Base</span>
+        <span class="pick-price-val">${money(p.b)}</span>
+      </div>
+      <div class="pick-price">
+        <span class="pick-price-label">Mercado</span>
+        <span class="pick-price-val">${(p.mn/1000).toFixed(1)}–${(p.mx/1000).toFixed(1)}k</span>
+      </div>
+      <div class="pick-price">
+        <span class="pick-price-label">Tope</span>
+        <span class="pick-price-val tope">${money(p.t)}</span>
+      </div>
     </div>
-    <div class="why">${p.why}</div>
-  </div>`).join('');
+    <div class="pick-rationale">${p.why}</div>
+  </div>
+`).join('');
 
-// table
-let filter='all', query='';
-function draw(){
-  const s = query.toLowerCase().trim();
-  const rows = D.filter(d=>{
-    const okT = filter==='all' || d.tier===filter;
-    const okQ = !s || d.a.toLowerCase().includes(s) || d.o.toLowerCase().includes(s) || String(d.n)===s;
-    return okT && okQ;
+// Render table
+const tbody = document.getElementById('tbody');
+function render(filter='all', search=''){
+  const s = search.toLowerCase().trim();
+  const filtered = data.filter(d=>{
+    const tierOk = filter==='all' || d.tier===filter;
+    const searchOk = !s || d.a.toLowerCase().includes(s) || d.o.toLowerCase().includes(s) || String(d.n)===s;
+    return tierOk && searchOk;
   });
-  $('tb').innerHTML = rows.length ? rows.map(d=>`
-    <tr class="${d.f?'star':''}">
-      <td><span class="lot">${d.n ?? '—'}</span></td>
-      <td class="who-c">${d.a}${d.f?'<span class="st-mark">★</span>':''}</td>
-      <td class="what-c">${d.o}<small>${d.m}</small></td>
-      <td class="r">${money(d.b)}</td>
-      <td class="r">${money(d.mn)}–${money(d.mx)}</td>
-      <td class="r top">${money(d.t)}</td>
-      <td><span class="tg ${d.tier}">${d.tier}</span></td>
-    </tr>`).join('') : '<tr><td colspan="7" class="none">Nada con esos filtros</td></tr>';
+  if(!filtered.length){
+    tbody.innerHTML = `<tr><td colspan="7" class="empty-row">No hay obras con esos filtros</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = filtered.map(d=>`
+    <tr class="${d.feat?'featured':''}">
+      <td><span class="lot-num">${d.n ?? '—'}</span></td>
+      <td class="artist-cell">${d.a}${d.feat?'<span class="featured-mark">★</span>':''}</td>
+      <td class="work-cell">${d.o}<span class="work-meta">${d.m}</span></td>
+      <td class="num">${money(d.b)}</td>
+      <td class="num">${money(d.mn)}–${money(d.mx)}</td>
+      <td class="num tope-cell">${money(d.t)}</td>
+      <td><span class="tier tier-${d.tier}">${d.tier}</span></td>
+    </tr>
+  `).join('');
 }
-draw();
+render();
 
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); filter=b.dataset.t; draw();
-}));
-$('q').addEventListener('input',e=>{query=e.target.value;draw();});
+// Filter handlers
+let currentFilter = 'all';
+let currentSearch = '';
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.tier;
+    render(currentFilter, currentSearch);
+  });
+});
+document.getElementById('search').addEventListener('input',e=>{
+  currentSearch = e.target.value;
+  render(currentFilter, currentSearch);
+});
 
-// room lookup
+// Modo sala — buscador de lote (por ahora, por nombre; cuando lleguen los números, también por lote)
 $('lot').addEventListener('input',e=>{
   const raw = e.target.value.trim();
   const v = $('verdict');
   if(!raw){ v.innerHTML = '<div class="v-empty">Ej.: «Cussi», «Leda», «Toborochi»</div>'; return; }
   const s = raw.toLowerCase();
-  let hits = D.filter(d => String(d.n)===raw);
-  if(!hits.length) hits = D.filter(d => d.o.toLowerCase().includes(s));
-  if(!hits.length) hits = D.filter(d => d.a.toLowerCase().includes(s));
+  let hits = data.filter(d => String(d.n)===raw);
+  if(!hits.length) hits = data.filter(d => d.o.toLowerCase().includes(s));
+  if(!hits.length) hits = data.filter(d => d.a.toLowerCase().includes(s));
   if(!hits.length){
     v.innerHTML = '<div class="v-miss">Sin coincidencias para <b>'+raw.replace(/[<>&]/g,'')+'</b>. Probá con el apellido del artista.</div>';
     return;
@@ -573,5 +1133,6 @@ $('lot').addEventListener('input',e=>{
     </div>`;
 });
 </script>
+
 </body>
 </html>
