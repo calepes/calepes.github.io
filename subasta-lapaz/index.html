@@ -21,6 +21,7 @@
 <style>
   :root{
     --paper:#f4ede0;
+    --field-bg:#ffffff;
     --paper-2:#ebe1cf;
     --ink:#15233b;
     --ink-soft:#3a4a66;
@@ -49,6 +50,7 @@
   }
   [data-theme="dark"]{
     --paper:#0f1620;
+    --field-bg:#080d14;
     --paper-2:#1a2230;
     --ink:#ebe2cf;
     --ink-soft:#9aa3b5;
@@ -714,16 +716,16 @@
   .lookup-sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;line-height:1.45}
   .lookup-field{
     display:flex;align-items:center;gap:9px;
-    background:#fff;border:1px solid var(--rule);padding:0 12px;
+    background:var(--field-bg);border:1px solid var(--rule);padding:0 12px;
   }
   .lookup-field:focus-within{border-color:var(--accent)}
   .lookup-ico{font-size:14px;color:var(--ink-soft);flex:none;line-height:1}
   #lot{
     width:100%;background:transparent;border:none;outline:none;color:var(--ink);
-    font-family:'Manrope',sans-serif;font-size:16px;font-weight:500;
+    font-family:'Manrope',sans-serif;font-size:16px;font-weight:600;
     padding:11px 0;
   }
-  #lot::placeholder{color:#9aa4b4;font-weight:400}
+  #lot::placeholder{color:var(--ink-soft);font-weight:400;opacity:.7}
   .lookup-eg{
     display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px;
     font-family:'JetBrains Mono',monospace;font-size:9px;
@@ -750,23 +752,11 @@
   .v-opt:hover{background:var(--accent);color:#fff}
   .v-opt span{font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.75;flex:none}
   .v-count{font-size:12px;color:var(--ink-soft);margin-bottom:7px}
-  .v-card{border-top:1px dashed var(--rule);padding-top:18px}
-  .v-artist{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-  .v-title{font-family:'Fraunces',serif;font-style:italic;font-size:24px;line-height:1.15;margin-bottom:4px;font-variation-settings:"opsz" 144}
-  .v-meta{font-size:12px;color:var(--ink-soft);margin-bottom:18px}
-  .v-nums{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end}
-  .v-num{display:flex;flex-direction:column;gap:3px}
-  .v-num .lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)}
-  .v-num .val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600}
-  .v-num .val.hot{color:var(--accent-2)}
-  .v-more{margin-top:16px;font-size:13px;color:var(--ink-soft);border-left:2px solid var(--accent);padding-left:14px;font-style:italic}
-  .v-miss{padding-top:14px;font-size:14px;color:var(--ink-soft)}
+  .v-miss{padding-top:4px;font-size:13.5px;color:var(--ink-soft)}
   .v-miss b{color:var(--ink);font-weight:600}
 
   @media(max-width:600px){
     .lookup-card{padding:15px}
-    .v-nums{gap:18px}
-    .v-num .val{font-size:18px}
   }
 
   /* Fotos reales del catálogo */
@@ -777,10 +767,6 @@
   .thumb-cell{width:56px}
   .thumb-cell img{width:48px;height:48px;object-fit:cover;border:1px solid var(--rule);display:block;background:#fff}
   .thumb-cell.sc img{object-fit:contain;padding:4px;box-sizing:border-box}
-  .v-photo{width:100%;max-height:280px;overflow:hidden;margin-bottom:14px;border:1px solid var(--rule)}
-  .v-photo img{width:100%;height:100%;object-fit:cover;display:block}
-  .v-photo.sc{padding:14px;background:var(--paper-2);max-height:320px}
-  .v-photo.sc img{object-fit:contain;max-height:280px;border:1px solid var(--rule);background:#fff;padding:10px;box-sizing:border-box}
 
   /* Modal de detalle de obra */
   tbody tr{cursor:pointer}
@@ -1216,34 +1202,18 @@ function lookup(raw){
       raw.replace(/[<>&]/g,'') + '</b>. Probá con el apellido del artista.</div>';
     return;
   }
-  if(hits.length > 1){
-    v.innerHTML = '<div class="v-count">' + hits.length + ' obras — tocá una para ver el tope:</div>' +
-      '<div class="v-opts">' + hits.map(h =>
-        `<button class="v-opt" data-i="${data.indexOf(h)}">${h.o}<span>${h.a}</span></button>`
-      ).join('') + '</div>';
-    return;
-  }
-  renderVerdict(hits[0]);
-}
-function renderVerdict(d){
-  $('verdict').innerHTML = `
-    <div class="v-card">
-      <div class="v-photo${d.sc?' sc':''}"><img src="${d.img}" alt="${d.o}"></div>
-      <div class="v-artist">${d.a} · Tier ${d.tier}${d.n?' · Lote '+d.n:''}</div>
-      <div class="v-title">${d.o}</div>
-      <div class="v-meta">${d.m}</div>
-      <div class="v-nums">
-        <div class="v-num"><span class="lbl">Base</span><span class="val">${money(d.b)}</span></div>
-        <div class="v-num"><span class="lbl">Mercado est.</span><span class="val">${money(d.mn)}–${money(d.mx)}</span></div>
-        <div class="v-num"><span class="lbl">Pujá hasta</span><span class="val hot">${money(d.t)}</span></div>
-      </div>
-      ${d.why?'<div class="v-more">'+d.why+'</div>':''}
-    </div>`;
+  const label = hits.length === 1
+    ? '1 obra — tocá para ver el tope:'
+    : hits.length + ' obras — tocá una para ver el tope:';
+  v.innerHTML = '<div class="v-count">' + label + '</div>' +
+    '<div class="v-opts">' + hits.map(h =>
+      `<button class="v-opt" data-i="${data.indexOf(h)}">${h.o}<span>${h.a}</span></button>`
+    ).join('') + '</div>';
 }
 $('lot').addEventListener('input', e => lookup(e.target.value));
 $('verdict').addEventListener('click', e => {
   const btn = e.target.closest('.v-opt');
-  if(btn) renderVerdict(data[Number(btn.dataset.i)]);
+  if(btn) openModal(data[Number(btn.dataset.i)]);
 });
 document.querySelectorAll('.eg-chip').forEach(chip=>{
   chip.addEventListener('click', ()=>{
