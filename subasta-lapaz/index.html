@@ -759,6 +759,46 @@
   .v-photo img{width:100%;height:100%;object-fit:cover;display:block}
   .v-photo.sc{padding:14px;background:var(--paper-2);max-height:320px}
   .v-photo.sc img{object-fit:contain;max-height:280px;border:1px solid var(--rule);background:#fff;padding:10px;box-sizing:border-box}
+
+  /* Modal de detalle de obra */
+  tbody tr{cursor:pointer}
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(21,35,59,.55);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.open{display:flex}
+  .modal-card{
+    background:var(--paper);border:1px solid var(--rule);max-width:680px;width:100%;
+    max-height:92vh;overflow-y:auto;position:relative;
+    box-shadow:0 24px 60px rgba(21,35,59,.35);
+  }
+  .modal-close{
+    position:absolute;top:10px;right:10px;z-index:2;
+    width:34px;height:34px;border:1px solid var(--rule);background:var(--paper);
+    color:var(--ink);font-size:16px;cursor:pointer;line-height:1;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .modal-close:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .modal-photo{width:100%;background:var(--paper-2);border-bottom:1px solid var(--rule)}
+  .modal-photo img{width:100%;max-height:60vh;object-fit:contain;display:block}
+  .modal-photo.sc{padding:22px;box-sizing:border-box}
+  .modal-photo.sc img{border:1px solid var(--rule);background:#fff;padding:14px;box-sizing:border-box}
+  .modal-body{padding:26px 28px 30px}
+  .modal-artist{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .modal-title{font-family:'Fraunces',serif;font-style:italic;font-size:30px;line-height:1.1;margin-bottom:6px;font-variation-settings:"opsz" 144}
+  .modal-meta{font-size:13px;color:var(--ink-soft);margin-bottom:20px}
+  .modal-nums{display:flex;flex-wrap:wrap;gap:28px;border-top:1px dashed var(--rule);padding-top:18px;align-items:flex-end}
+  .modal-num{display:flex;flex-direction:column;gap:3px}
+  .modal-num .lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)}
+  .modal-num .val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600}
+  .modal-num .val.hot{color:var(--accent-2)}
+  .modal-why{margin-top:18px;font-size:13px;color:var(--ink-soft);border-left:2px solid var(--accent);padding-left:14px;font-style:italic}
+  @media(max-width:600px){
+    .modal-body{padding:20px 18px 24px}
+    .modal-title{font-size:24px}
+    .modal-nums{gap:18px}
+    .modal-num .val{font-size:18px}
+  }
 </style>
 </head>
 <body>
@@ -920,6 +960,24 @@
     </ul>
   </div>
 </section>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-photo" id="modal-photo"><img id="modal-img" src="" alt=""></div>
+    <div class="modal-body">
+      <div class="modal-artist" id="modal-artist"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-meta" id="modal-meta"></div>
+      <div class="modal-nums">
+        <div class="modal-num"><span class="lbl">Base</span><span class="val" id="modal-base"></span></div>
+        <div class="modal-num"><span class="lbl">Mercado est.</span><span class="val" id="modal-mercado"></span></div>
+        <div class="modal-num"><span class="lbl">Pujá hasta</span><span class="val hot" id="modal-tope"></span></div>
+      </div>
+      <div class="modal-why" id="modal-why" style="display:none"></div>
+    </div>
+  </div>
+</div>
 
 <footer>
   Análisis privado · <span>BCP Enalta</span> · Subasta La Paz · 29.07.2026
@@ -1087,7 +1145,7 @@ function render(filter='all', search=''){
     return;
   }
   tbody.innerHTML = filtered.map(d=>`
-    <tr class="${d.feat?'featured':''}">
+    <tr class="${d.feat?'featured':''}" data-i="${data.indexOf(d)}">
       <td class="thumb-cell${d.sc?' sc':''}"><img src="${d.img}" alt="" loading="lazy"></td>
       <td><span class="lot-num">${d.n ?? '—'}</span></td>
       <td class="artist-cell">${d.a}${d.feat?'<span class="featured-mark">★</span>':''}</td>
@@ -1150,6 +1208,37 @@ $('lot').addEventListener('input',e=>{
       ${d.why?'<div class="v-more">'+d.why+'</div>':''}
     </div>`;
 });
+
+// Modal de detalle de obra
+const modal = $('modal');
+function openModal(d){
+  $('modal-img').src = d.img;
+  $('modal-img').alt = d.o;
+  $('modal-photo').className = 'modal-photo' + (d.sc ? ' sc' : '');
+  $('modal-artist').textContent = d.a + ' · Tier ' + d.tier + (d.n ? ' · Lote ' + d.n : '');
+  $('modal-title').textContent = d.o;
+  $('modal-meta').textContent = d.m;
+  $('modal-base').textContent = money(d.b);
+  $('modal-mercado').textContent = money(d.mn) + '–' + money(d.mx);
+  $('modal-tope').textContent = money(d.t);
+  const w = $('modal-why');
+  if(d.why){ w.textContent = d.why; w.style.display = 'block'; }
+  else { w.style.display = 'none'; }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+tbody.addEventListener('click', e=>{
+  const tr = e.target.closest('tr[data-i]');
+  if(!tr) return;
+  openModal(data[Number(tr.dataset.i)]);
+});
+$('modal-close').addEventListener('click', closeModal);
+modal.addEventListener('click', e=>{ if(e.target === modal) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeModal(); });
 </script>
 
 </body>
