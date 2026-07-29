@@ -704,7 +704,7 @@
     .work-cell{font-size:13px}
   }
 
-  /* Modo sala — buscá una obra y te da el tope de puja */
+  /* Modo sala — buscar una obra y obtener el tope de puja */
   .lookup-wrap{max-width:620px;margin:0 auto;padding:0 24px 48px}
   .lookup-card{border:1px solid var(--rule);background:var(--paper-2);padding:18px}
   .lookup-head{
@@ -853,13 +853,13 @@
 <div class="lookup-wrap">
   <div class="lookup-card">
     <div class="lookup-head"><span class="lookup-dot"></span> Modo sala</div>
-    <div class="lookup-sub">Escribí el artista o el nombre de la obra que están cantando y te devuelve <strong>hasta cuánto pujar</strong>.</div>
+    <div class="lookup-sub">Escribe el artista o el nombre de la obra que están cantando y te muestra <strong>hasta cuánto pujar</strong>.</div>
     <div class="lookup-field">
       <span class="lookup-ico">⌕</span>
       <input id="lot" type="text" placeholder="Ej. Cussi, Amapolas, Illimani…" autocomplete="off" spellcheck="false">
     </div>
     <div class="lookup-eg">
-      Probá:
+      Ejemplos:
       <button class="eg-chip" data-q="Amapolas">Amapolas</button>
       <button class="eg-chip" data-q="Cussi">Cussi</button>
       <button class="eg-chip" data-q="Centinelas">Centinelas</button>
@@ -872,7 +872,7 @@
 <section class="stats">
   <div class="stats-inner">
     <div class="stat">
-      <div class="stat-num" id="stat-total">91</div>
+      <div class="stat-num" id="stat-total">93</div>
       <div class="stat-label">Obras analizadas</div>
     </div>
     <div class="stat">
@@ -964,7 +964,7 @@
     <h4>Lo que hay que tener presente</h4>
     <ul>
       <li>Benchmark real de esta sala: en ediciones anteriores, obras con base de $1 de artistas conocidos cerraron entre $410 y $600. El anzuelo funciona — calibrar expectativas con eso.</li>
-      <li>La Paz es la plaza madre de esta subasta: novena edición, contra la primera de Santa Cruz. Los coleccionistas están más formados y hay pujas remotas desde otras ciudades y del exterior. Los topes que servían en Santa Cruz se quedan cortos acá.</li>
+      <li>La Paz es la plaza madre de esta subasta: novena edición, contra la primera de Santa Cruz. Los coleccionistas están más formados y hay pujas remotas desde otras ciudades y del exterior. Los topes que servían en Santa Cruz se quedan cortos aquí.</li>
       <li>Ballivián y Lara son paceños y juegan en casa. Esperar más competencia por ellos que la vista en Santa Cruz.</li>
       <li>El mercado boliviano de arte es opaco: casi ningún artista de este catálogo tiene historial transaccional público. Los rangos son criterio, no data.</li>
       <li>Pagar en bolivianos al tipo oficial en vez de dólares reduce el costo real de forma significativa. El catálogo lo permite explícitamente.</li>
@@ -984,7 +984,7 @@
       <div class="modal-nums">
         <div class="modal-num"><span class="lbl">Base</span><span class="val" id="modal-base"></span></div>
         <div class="modal-num"><span class="lbl">Mercado est.</span><span class="val" id="modal-mercado"></span></div>
-        <div class="modal-num"><span class="lbl">Pujá hasta</span><span class="val hot" id="modal-tope"></span></div>
+        <div class="modal-num"><span class="lbl">Tope de puja</span><span class="val hot" id="modal-tope"></span></div>
       </div>
       <div class="modal-why" id="modal-why" style="display:none"></div>
     </div>
@@ -1187,7 +1187,7 @@ document.getElementById('search').addEventListener('input',e=>{
   render(currentFilter, currentSearch);
 });
 
-// Modo sala — buscá por artista u obra (y por número de lote cuando estén cargados)
+// Modo sala — buscar por artista u obra (y por número de lote cuando estén cargados)
 function lookup(raw){
   const v = $('verdict');
   raw = (raw || '').trim();
@@ -1199,12 +1199,12 @@ function lookup(raw){
   }
   if(!hits.length){
     v.innerHTML = '<div class="v-miss">Sin resultados para <b>' +
-      raw.replace(/[<>&]/g,'') + '</b>. Probá con el apellido del artista.</div>';
+      raw.replace(/[<>&]/g,'') + '</b>. Intenta con el apellido del artista.</div>';
     return;
   }
   const label = hits.length === 1
-    ? '1 obra — tocá para ver el tope:'
-    : hits.length + ' obras — tocá una para ver el tope:';
+    ? '1 obra — toca para ver el tope:'
+    : hits.length + ' obras — toca una para ver el tope:';
   v.innerHTML = '<div class="v-count">' + label + '</div>' +
     '<div class="v-opts">' + hits.map(h =>
       `<button class="v-opt" data-i="${data.indexOf(h)}">${h.o}<span>${h.a}</span></button>`
