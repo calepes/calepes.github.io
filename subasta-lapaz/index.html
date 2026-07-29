@@ -746,6 +746,14 @@
     .v-nums{gap:18px}
     .v-num .val{font-size:18px}
   }
+
+  /* Fotos reales del catálogo */
+  .pick-photo{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--rule)}
+  .pick-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb-cell{width:56px}
+  .thumb-cell img{width:48px;height:48px;object-fit:cover;border:1px solid var(--rule);display:block}
+  .v-photo{width:100%;max-height:280px;overflow:hidden;margin-bottom:14px;border:1px solid var(--rule)}
+  .v-photo img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
@@ -764,7 +772,7 @@
 
 <header class="hero">
   <div class="eyebrow">Subasta de Arte · La Paz · Beneficio Operación Sonrisa</div>
-  <h1>91 obras.<br>Un <em>tope</em><br>para cada una.</h1>
+  <h1>93 obras.<br>Un <em>tope</em><br>para cada una.</h1>
   <div class="hero-meta">
     <div class="meta-item">
       <span class="meta-label">Sede</span>
@@ -772,7 +780,7 @@
     </div>
     <div class="meta-item">
       <span class="meta-label">Obras en catálogo</span>
-      <span class="meta-value">91 piezas · 38 artistas</span>
+      <span class="meta-value">93 piezas · 33 artistas</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Edición</span>
@@ -856,6 +864,7 @@
     <table>
       <thead>
         <tr>
+          <th></th>
           <th>Lote</th>
           <th>Artista</th>
           <th>Obra</th>
@@ -900,7 +909,6 @@
     <ul>
       <li>La Paz es la plaza madre de esta subasta: novena edición, contra la primera de Santa Cruz. Los coleccionistas están más formados y hay pujas remotas desde otras ciudades y del exterior. Los topes que servían en Santa Cruz se quedan cortos acá.</li>
       <li>Ballivián y Lara son paceños y juegan en casa. Esperar más competencia por ellos que la vista en Santa Cruz.</li>
-      <li>No hay obra de Alfredo La Placa en esta edición.</li>
       <li>El mercado boliviano de arte es opaco: casi ningún artista de este catálogo tiene historial transaccional público. Los rangos son criterio, no data.</li>
       <li>Pagar en bolivianos al tipo oficial en vez de dólares reduce el costo real de forma significativa. El catálogo lo permite explícitamente.</li>
       <li>En benéfica los precios pueden pasar el mercado por motivación filantrópica. Definir el tope antes de entrar y no moverlo en caliente.</li>
@@ -926,97 +934,99 @@ document.getElementById('theme-toggle').addEventListener('click',()=>{
 });
 
 const data = [
-{n:null,a:"Raúl Lara",o:"Madre e hija",m:"Tinta sobre cromacote · 26×19",b:350,mn:1000,mx:2000,t:750,tier:"B"},
-{n:null,a:"Raúl Lara",o:"Niño con bonete",m:"Mixta sobre cromacote · 32×21,5",b:350,mn:1000,mx:2000,t:750,tier:"B"},
-{n:null,a:"María Esther Ballivián",o:"Bodegón",m:"Carbón sobre papel · 31×23",b:250,mn:800,mx:1800,t:650,tier:"A"},
-{n:null,a:"María Esther Ballivián",o:"De la serie flores",m:"Acuarela sobre papel · 37×26",b:250,mn:1000,mx:2200,t:800,tier:"A",feat:4,rank:4,why:"Única con mercado secundario internacional"},
-{n:null,a:"Luis Zilveti",o:"Hombres corriendo III",m:"Tinta y café sobre papel · 50×65",b:200,mn:600,mx:1300,t:500,tier:"A"},
-{n:null,a:"Luis Zilveti",o:"Figuras sentadas",m:"Óleo sobre lienzo · 92×73",b:1200,mn:2500,mx:4500,t:1800,tier:"B"},
-{n:null,a:"Ejti Stih",o:"Nuestros sueños 1",m:"Acrílico sobre lienzo · 50×70",b:700,mn:1500,mx:3000,t:1200,tier:"B"},
-{n:null,a:"Ejti Stih",o:"Nuestros sueños 2",m:"Acrílico sobre lienzo · 50×70",b:700,mn:1500,mx:3000,t:1200,tier:"B"},
-{n:null,a:"Ejti Stih",o:"Nuestros sueños 3",m:"Acrílico sobre lienzo · 50×70",b:700,mn:1500,mx:3000,t:1200,tier:"B"},
-{n:null,a:"Mario Conde",o:"Juegos en el trono",m:"Acuarela sobre papel · 38×56",b:350,mn:900,mx:1800,t:700,tier:"B"},
-{n:null,a:"Mario Conde",o:"Decolorados",m:"Acuarela sobre papel · 76×56",b:500,mn:1500,mx:3000,t:1200,tier:"A"},
-{n:null,a:"Juan Bustillos",o:"Toro",m:"Bronce · 26×16",b:200,mn:600,mx:1200,t:500,tier:"A"},
-{n:null,a:"Juan Bustillos",o:"Rostro",m:"Bronce · 16×26",b:200,mn:600,mx:1200,t:500,tier:"A"},
-{n:null,a:"Juan Bustillos",o:"Toro (segunda pieza)",m:"Bronce · 26×16",b:1,mn:600,mx:1200,t:500,tier:"A"},
-{n:null,a:"José Bayro",o:"La dama del mercado",m:"Gouache sobre papel · 64×49",b:250,mn:700,mx:1400,t:550,tier:"B"},
-{n:null,a:"José Bayro",o:"El periscopio",m:"Óleo sobre tablero · 28×35",b:400,mn:800,mx:1600,t:650,tier:"B"},
-{n:null,a:"Gustavo del Río",o:"Minotauro",m:"Óleo sobre lienzo · 180×100",b:700,mn:1800,mx:3500,t:1400,tier:"B"},
-{n:null,a:"Gustavo del Río",o:"Mujer descansando en el jardín",m:"Óleo sobre lienzo · 28×30",b:1,mn:500,mx:1000,t:400,tier:"A"},
-{n:null,a:"Gustavo del Río",o:"Illimani",m:"Óleo sobre lienzo · 180×50",b:450,mn:1400,mx:2800,t:1050,tier:"A"},
-{n:null,a:"Erika Ewel",o:"Rojo",m:"Óleo sobre lienzo · 120×120",b:1000,mn:2000,mx:3500,t:1500,tier:"B"},
-{n:null,a:"Erika Ewel",o:"Flores",m:"Óleo sobre lienzo · 38×198",b:600,mn:1200,mx:2500,t:1000,tier:"B"},
-{n:null,a:"Javier Fernández",o:"Fuego",m:"Acuarela sobre papel · 77×57",b:500,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Javier Fernández",o:"Viajero",m:"Acuarela sobre papel · 38×59",b:200,mn:500,mx:1000,t:400,tier:"B"},
-{n:null,a:"Jamir Johanson",o:"Salvaje",m:"Óleo sobre lienzo · 25×100",b:350,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"Jamir Johanson",o:"Misterio",m:"Óleo sobre lienzo · 25×50",b:1,mn:400,mx:800,t:350,tier:"A"},
-{n:null,a:"Jamir Johanson",o:"Mujer recostada en la pared",m:"Óleo sobre lienzo · 150×100",b:700,mn:1800,mx:3500,t:1400,tier:"B"},
-{n:null,a:"Fernando Antezana",o:"Amanecer en la ciudad",m:"Mixta sobre lienzo · 120×150",b:500,mn:1500,mx:3000,t:1200,tier:"A"},
-{n:null,a:"Fernando Antezana",o:"Dulce cosecha",m:"Mixta sobre lienzo · 120×150",b:400,mn:1500,mx:3000,t:1200,tier:"A"},
-{n:null,a:"Fernando Antezana",o:"En la ribera",m:"Mixta sobre lienzo · 180×120",b:500,mn:1800,mx:3500,t:1400,tier:"A"},
-{n:null,a:"Fernando Antezana",o:"Toborochi",m:"Mixta sobre lienzo · 200×150",b:100,mn:2500,mx:5000,t:1800,tier:"A",feat:3,rank:3,why:"Dos metros por metro y medio, base de $100"},
-{n:null,a:"Rosmery Mamani",o:"Leda",m:"Pastel sobre pastelmatt · 34×50",b:1,mn:1500,mx:3000,t:1200,tier:"A",feat:1,rank:1,why:"Misma técnica que Armonía cotidiana. Base señuelo"},
-{n:null,a:"Rosmery Mamani",o:"Melodía suspendida",m:"Pastel sobre pastelmatt · 56×77",b:500,mn:2500,mx:5000,t:2000,tier:"A",feat:2,rank:2,why:"Formato grande en su técnica firma"},
-{n:null,a:"Koqui Handal",o:"Clarinero",m:"Acrílico sobre lienzo · 100×100",b:1000,mn:1800,mx:3500,t:1500,tier:"B"},
-{n:null,a:"Koqui Handal",o:"Conde",m:"Acrílico sobre lienzo · 80×80",b:900,mn:1500,mx:3000,t:1200,tier:"B"},
-{n:null,a:"Ángeles Fabbri",o:"Abstracto con fondo de rama",m:"Acrílico sobre lienzo · 170×150",b:1000,mn:2000,mx:3500,t:1500,tier:"B"},
-{n:null,a:"Ángeles Fabbri",o:"Abstracto en naranja",m:"Acrílico sobre lienzo · 170×150",b:1200,mn:2000,mx:3500,t:1500,tier:"C"},
-{n:null,a:"Ángeles Fabbri",o:"Flores y pinceles",m:"Acrílico sobre lienzo · 48×98",b:500,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Ángeles Fabbri",o:"Enramada",m:"Acrílico sobre lienzo · 47×97",b:500,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Alfredo Müller",o:"Mbareté",m:"Óleo sobre lienzo · 50×60",b:700,mn:1200,mx:2500,t:1000,tier:"B"},
-{n:null,a:"Juan José Serrano",o:"Provolone",m:"Acrílico sobre lienzo · 70×91",b:250,mn:700,mx:1400,t:550,tier:"B"},
-{n:null,a:"Juan José Serrano",o:"Roquefort",m:"Acrílico sobre lienzo · 91×70",b:250,mn:700,mx:1400,t:550,tier:"B"},
-{n:null,a:"Juan José Serrano",o:"La Cebú",m:"Acrílico sobre lienzo · 124×84",b:350,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Juan José Serrano",o:"Nelore de dólar mil",m:"Acrílico sobre lienzo · 102×102",b:100,mn:900,mx:1800,t:700,tier:"A",feat:8,rank:8,why:"Un metro cuadrado a base de $100"},
-{n:null,a:"Jaime Calizaya",o:"Cebú de feria",m:"Acrílico sobre lienzo · 100×90",b:500,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Jaime Calizaya",o:"Energía taurina",m:"Acrílico sobre lienzo · 100×80",b:500,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Jaime Calizaya",o:"Tigre americano",m:"Acrílico sobre lienzo · 100×90",b:400,mn:900,mx:1800,t:700,tier:"B"},
-{n:null,a:"Adda Donato",o:"King",m:"Óleo sobre lienzo · 88×122",b:400,mn:1200,mx:2500,t:950,tier:"A"},
-{n:null,a:"Adda Donato",o:"Picas",m:"Óleo sobre lienzo · 88×122",b:400,mn:1200,mx:2500,t:950,tier:"A"},
-{n:null,a:"Adda Donato",o:"J",m:"Óleo sobre lienzo · 140×100",b:500,mn:1500,mx:3000,t:1200,tier:"A",feat:7,rank:7,why:"La mayor de su serie de naipes"},
-{n:null,a:"Betzalel Maida",o:"Pensamientos lejanos",m:"Óleo sobre lienzo · 80×120",b:700,mn:1200,mx:2500,t:1000,tier:"B"},
-{n:null,a:"Betzalel Maida",o:"Hormiguero",m:"Óleo sobre madera de tajibo · 38×19×7,5",b:1,mn:400,mx:800,t:300,tier:"A"},
-{n:null,a:"Hernán Callisaya",o:"Pájaro azul",m:"Óleo sobre papel · 30×40",b:1,mn:500,mx:1000,t:400,tier:"A"},
-{n:null,a:"Hernán Callisaya",o:"Alma animal",m:"Óleo sobre lienzo/panel · 60×125",b:500,mn:1200,mx:2500,t:1000,tier:"B"},
-{n:null,a:"María Inés Saavedra",o:"Paisaje en secuencia",m:"Hilos sobre papel · 73×92",b:500,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Pablo Giovany",o:"Día de disfraces",m:"Óleo y acrílico sobre panel · 76,2×38,1",b:300,mn:600,mx:1200,t:500,tier:"B"},
-{n:null,a:"Pablo Giovany",o:"Toros en el palacio",m:"Acrílico y lápiz sobre lienzo · 60×80",b:350,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"María José Rodríguez",o:"Estamos fritos (tríptico)",m:"Acrílico sobre trupán · 48×22",b:1,mn:400,mx:900,t:350,tier:"A"},
-{n:null,a:"Ariela Hossen",o:"Abstracto 7",m:"Acrílico sobre lienzo · 60×60",b:200,mn:400,mx:900,t:350,tier:"B"},
-{n:null,a:"Vidal Cussi",o:"Rayo",m:"Óleo sobre lienzo · 150×100",b:500,mn:2000,mx:4000,t:1500,tier:"A"},
-{n:null,a:"Vidal Cussi",o:"Lucidez",m:"Óleo sobre lienzo · 150×150",b:600,mn:2500,mx:5000,t:1800,tier:"A",feat:5,rank:5,why:"La mayor del lote hiperrealista"},
-{n:null,a:"Vidal Cussi",o:"Feroz",m:"Óleo sobre lienzo · 127×100",b:400,mn:1800,mx:3500,t:1300,tier:"A"},
-{n:null,a:"Vidal Cussi",o:"En reserva",m:"Óleo sobre lienzo · 150×95",b:500,mn:2000,mx:4000,t:1500,tier:"A"},
-{n:null,a:"Juan Mayta",o:"Poesía nocturna",m:"Óleo sobre lienzo · 150×150",b:300,mn:1000,mx:2000,t:800,tier:"A"},
-{n:null,a:"Juan Mayta",o:"Urbano",m:"Óleo sobre lienzo · 140×60",b:350,mn:800,mx:1600,t:650,tier:"B"},
-{n:null,a:"Tatiana Hoshino",o:"Momo",m:"Óleo sobre lienzo · 30×40",b:250,mn:400,mx:800,t:350,tier:"B"},
-{n:null,a:"Tatiana Hoshino",o:"Orenji",m:"Óleo sobre lienzo · 30×40",b:250,mn:400,mx:800,t:350,tier:"B"},
-{n:null,a:"Tatiana Hoshino",o:"Churipu tulipanes",m:"Óleo sobre lienzo · 50×70",b:450,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"Corina Aguilar",o:"Vivencias",m:"Óleo sobre lienzo · 75×150",b:350,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Corina Aguilar",o:"Huellas",m:"Óleo sobre lienzo · 120×120",b:400,mn:1200,mx:2400,t:950,tier:"A"},
-{n:null,a:"Corina Aguilar",o:"Mirada nocturna",m:"Óleo sobre lienzo · 75×150",b:350,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Darío Antezana",o:"Bodegón",m:"Acuarela sobre papel · 78×58",b:400,mn:800,mx:1600,t:650,tier:"B"},
-{n:null,a:"Darío Antezana",o:"Zaguán",m:"Acuarela sobre papel · 58×78",b:400,mn:800,mx:1600,t:650,tier:"B"},
-{n:null,a:"Sharon Pérez",o:"Bailas",m:"Pastel seco sobre papel · 29×39",b:1,mn:300,mx:700,t:250,tier:"A"},
-{n:null,a:"Sharon Pérez",o:"Expulsión del paraíso",m:"Acrílico y pastel sobre metal · 68×168",b:450,mn:900,mx:1800,t:750,tier:"B"},
-{n:null,a:"Carolina Lovo",o:"Serenata para Rosita Pochi",m:"Acrílico sobre lienzo · 100×120",b:200,mn:700,mx:1400,t:550,tier:"A"},
-{n:null,a:"Carolina Lovo",o:"Campestre",m:"Acrílico sobre lienzo · 60×30",b:1,mn:350,mx:700,t:300,tier:"A"},
-{n:null,a:"Carolina Lovo",o:"Músico",m:"Acrílico sobre lienzo · 70×100",b:200,mn:600,mx:1200,t:500,tier:"A"},
-{n:null,a:"Juan Suntura",o:"Eterno",m:"Soldadura · 310×140×60",b:100,mn:2000,mx:4000,t:1500,tier:"A",feat:6,rank:6,why:"Tres metros de alto. Necesita jardín"},
-{n:null,a:"Juan Suntura",o:"Visitante",m:"Soldadura en metal · 110×42×25",b:300,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"Juan Suntura",o:"Atardecer",m:"Soldadura en metal · 120×60×20",b:300,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"Juan Suntura",o:"La espera",m:"Escultura sobre madera · 49×20×13",b:1,mn:400,mx:800,t:350,tier:"A"},
-{n:null,a:"Ana Cenoz",o:"Calles mundanas",m:"Óleo y collage sobre lienzo · 140×140",b:700,mn:1500,mx:3000,t:1200,tier:"B"},
-{n:null,a:"Ana Cenoz",o:"Caminito",m:"Óleo sobre lino · 130×120",b:600,mn:1200,mx:2500,t:1000,tier:"B"},
-{n:null,a:"Ana Cenoz",o:"Barrio chino",m:"Mixta sobre lienzo · 130×90",b:500,mn:1000,mx:2000,t:800,tier:"B"},
-{n:null,a:"Rina Mamani",o:"Para el pintor",m:"Acuarela sobre tablero · 40×60",b:1,mn:350,mx:700,t:300,tier:"A"},
-{n:null,a:"Rina Mamani",o:"Añoranzas",m:"Acuarela sobre tablero · 50×70",b:300,mn:600,mx:1200,t:500,tier:"B"},
-{n:null,a:"Christian Aranibar",o:"Learning to fly",m:"Óleo sobre panel circular · 60 ø",b:1,mn:500,mx:1000,t:400,tier:"A"},
-{n:null,a:"Christian Aranibar",o:"El abrazo",m:"Óleo sobre panel circular · 60 ø",b:200,mn:500,mx:1000,t:400,tier:"B"},
-{n:null,a:"Eusebio Choque",o:"Cuidemos a la niña",m:"Pastel seco sobre papel · 87×43",b:1,mn:400,mx:800,t:300,tier:"A"},
-{n:null,a:"Raúl Alvarado",o:"Piel",m:"Piedra alabastro · 60×24",b:350,mn:700,mx:1400,t:600,tier:"B"},
-{n:null,a:"Raúl Alvarado",o:"Manantial",m:"Piedra basalto y madera · 20×115×27",b:550,mn:1000,mx:2000,t:850,tier:"B"}
+{n:null,a:"María Esther Ballivián",o:"Amapolas",m:"acuarela sobre papel · 31 × 31 cm",b:300,mn:180,mx:290,t:120,tier:"C",img:"img/001.jpg"},
+{n:null,a:"María Esther Ballivián",o:"Bodegón cubista",m:"óleo sobre papel · 47 × 35 cm",b:700,mn:300,mx:490,t:200,tier:"C",img:"img/002.jpg"},
+{n:null,a:"Graciela Rodo Boulanger",o:"Sin título",m:"grabado · 56 × 76 cm",b:500,mn:1500,mx:3000,t:950,tier:"A",img:"img/003.jpg",feat:1,rank:1,why:"Artista boliviana de reconocimiento internacional (UNICEF, ONU, retrospectiva en el Museo de Arte Moderno de Latinoamérica en Washington). Sus grabados han rematado hasta $5.500 en Sotheby's — la pieza más subvaluada de todo el catálogo."},
+{n:null,a:"Raúl Lara",o:"Mujer en el ropero",m:"dibujo sobre papel · 33 × 21 cm",b:650,mn:180,mx:290,t:120,tier:"C",img:"img/004.jpg"},
+{n:null,a:"Raúl Lara",o:"Sin título",m:"dibujo sobre papel · 26 × 20 cm",b:500,mn:180,mx:290,t:120,tier:"C",img:"img/005.jpg"},
+{n:null,a:"Luis Zilveti",o:"Una figura",m:"pluma y acuarela sobre papel · 42 × 29,7 cm",b:350,mn:300,mx:490,t:200,tier:"C",img:"img/006.jpg"},
+{n:null,a:"Luis Zilveti",o:"Dos figuras",m:"pluma, acuarela y sanguina sobre papel · 42 × 29,7 cm",b:400,mn:300,mx:490,t:200,tier:"C",img:"img/007.jpg"},
+{n:null,a:"Luis Zilveti",o:"Entre luz y sombra",m:"óleo sobre lienzo · 50 × 50 cm",b:800,mn:480,mx:780,t:310,tier:"C",img:"img/008.jpg"},
+{n:null,a:"Alfredo La Placa",o:"Sin título",m:"tinta sobre papel · 13 × 20 cm",b:150,mn:180,mx:290,t:120,tier:"C",img:"img/009.jpg"},
+{n:null,a:"Alfredo La Placa",o:"3 Arcanos",m:"tinta sobre papel · 64,5 × 28 cm",b:800,mn:300,mx:490,t:200,tier:"C",img:"img/010.jpg"},
+{n:null,a:"Mario Conde",o:"Retrato de familia",m:"acuarela sobre papel · 28 × 38 cm",b:300,mn:180,mx:290,t:120,tier:"C",img:"img/011.jpg"},
+{n:null,a:"Mario Conde",o:"Ventana",m:"grabado · 8 × 13 cm",b:1,mn:180,mx:290,t:120,tier:"A",img:"img/012.jpg"},
+{n:null,a:"Mario Conde",o:"La mecha que dejo encendida...",m:"acuarela sobre papel · 36 × 51 cm",b:500,mn:300,mx:490,t:200,tier:"C",img:"img/013.jpg"},
+{n:null,a:"Juan Bustillos",o:"Máscara Yaritú (Quirquincho)",m:"escultura en bronce · 46 × 25 cm",b:550,mn:360,mx:580,t:230,tier:"C",img:"img/014.jpg"},
+{n:null,a:"Ángeles Fabbri",o:"Antiguo barrio",m:"acrílico sobre lienzo · 100 × 80 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/015.jpg"},
+{n:null,a:"Ángeles Fabbri",o:"La puerta roja",m:"acrílico sobre lienzo · 40 × 30 cm",b:400,mn:480,mx:780,t:310,tier:"B",img:"img/016.jpg"},
+{n:null,a:"Ángeles Fabbri",o:"Ocaso",m:"acrílico sobre lienzo · 50 × 150 cm",b:700,mn:760,mx:1240,t:490,tier:"C",img:"img/017.jpg"},
+{n:null,a:"Ángeles Fabbri",o:"Luz de día",m:"acrílico sobre lienzo · 50 × 150 cm",b:700,mn:760,mx:1240,t:490,tier:"C",img:"img/018.jpg"},
+{n:null,a:"José Bayro C.",o:"Cambio climático",m:"óleo sobre lino · 85 × 31 cm",b:650,mn:300,mx:490,t:200,tier:"C",img:"img/019.jpg"},
+{n:null,a:"José Bayro C.",o:"Del cielo serafines",m:"grabado · 37 × 47 cm",b:1,mn:300,mx:490,t:200,tier:"A",img:"img/020.jpg"},
+{n:null,a:"José Bayro C.",o:"El travesti y los pastores",m:"grabado · 43 × 36 cm",b:150,mn:300,mx:490,t:200,tier:"B",img:"img/021.jpg"},
+{n:null,a:"Ejti Stih",o:"Sueños dorados",m:"acrílico y collage sobre papel · 60 × 40 cm",b:200,mn:300,mx:490,t:200,tier:"B",img:"img/022.jpg"},
+{n:null,a:"Ejti Stih",o:"In God we trust",m:"acrílico y collage sobre papel · 60 × 40 cm",b:1,mn:300,mx:490,t:200,tier:"A",img:"img/023.jpg"},
+{n:null,a:"Ejti Stih",o:"Al cambio oficial",m:"acrílico y collage sobre papel · 60 × 40 cm",b:200,mn:300,mx:490,t:200,tier:"B",img:"img/024.jpg"},
+{n:null,a:"Javier Fernández",o:"Gaviero",m:"acuarela sobre papel · 55 × 36 cm",b:350,mn:300,mx:490,t:200,tier:"C",img:"img/025.jpg"},
+{n:null,a:"Javier Fernández",o:"Trastero",m:"acuarela sobre papel · 38 × 26 cm",b:200,mn:180,mx:290,t:120,tier:"C",img:"img/026.jpg"},
+{n:null,a:"Javier Fernández",o:"Como carga",m:"acuarela sobre papel · 29 × 19 cm",b:1,mn:180,mx:290,t:120,tier:"A",img:"img/027.jpg"},
+{n:null,a:"Javier Fernández",o:"Errante",m:"acuarela sobre papel · 52 × 35 cm",b:400,mn:300,mx:490,t:200,tier:"C",img:"img/028.jpg"},
+{n:null,a:"Rosmery Mamani",o:"Illimani",m:"pastel sobre pastelmatt · 100 × 70 cm",b:600,mn:440,mx:720,t:290,tier:"C",img:"img/029.jpg"},
+{n:null,a:"Rosmery Mamani",o:"Illimani púrpura",m:"pastel sobre pastelmatt · 70 × 45 cm",b:300,mn:300,mx:490,t:200,tier:"C",img:"img/030.jpg"},
+{n:null,a:"Rosmery Mamani",o:"Musa en kimono",m:"pastel sobre pastelmatt · 100 × 70 cm",b:500,mn:440,mx:720,t:290,tier:"C",img:"img/031.jpg"},
+{n:null,a:"Juan José Serrano",o:"* en proceso",m:"mixta sobre lienzo · 51 × 48 cm",b:100,mn:480,mx:780,t:310,tier:"A",img:"img/032.jpg",feat:3,rank:3,why:"Base de anzuelo ($100) en un formato de galería (51 × 48 cm, mixta)."},
+{n:null,a:"Juan José Serrano",o:"La choca",m:"acrílico sobre tabla · 28,5 × 46 cm",b:1,mn:480,mx:780,t:310,tier:"A",img:"img/033.jpg"},
+{n:null,a:"Juan José Serrano",o:"Smile",m:"acrílico sobre tabla · 75 × 96 cm",b:350,mn:760,mx:1240,t:490,tier:"B",img:"img/034.jpg"},
+{n:null,a:"Fernando Antezana",o:"Luz de luna",m:"mixta sobre lienzo · 120 × 90 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/035.jpg"},
+{n:null,a:"Fernando Antezana",o:"Cumbre",m:"mixta sobre trupán · 150 × 100 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/036.jpg"},
+{n:null,a:"Fernando Antezana",o:"Comadres",m:"mixta sobre lienzo · 120 × 80 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/037.jpg"},
+{n:null,a:"Fernando Antezana",o:"Centinelas",m:"mixta sobre lienzo · 130 × 300 cm",b:100,mn:760,mx:1240,t:490,tier:"A",img:"img/038.jpg",feat:2,rank:2,why:"El lienzo más grande de la subasta (130 × 300 cm) al precio de un cuadro de bolsillo."},
+{n:null,a:"Adda Donato",o:"Gallito mañanero",m:"óleo sobre lienzo · 100 × 140 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/039.jpg"},
+{n:null,a:"Adda Donato",o:"Entre manzanilla",m:"óleo sobre lienzo · 90 × 100 cm",b:200,mn:760,mx:1240,t:490,tier:"A",img:"img/040.jpg",feat:5,rank:5,why:"Óleo de gran formato (90 × 100 cm) al precio de una acuarela pequeña."},
+{n:null,a:"Adda Donato",o:"Día nublado",m:"óleo sobre lienzo · 115 × 85 cm",b:300,mn:760,mx:1240,t:490,tier:"A",img:"img/041.jpg"},
+{n:null,a:"Adda Donato",o:"Canto a la libertad",m:"óleo sobre latón · 20 × 20 cm",b:1,mn:280,mx:460,t:180,tier:"A",img:"img/042.jpg"},
+{n:null,a:"Gustavo del Río",o:"Illimani y el atardecer",m:"óleo sobre lienzo · 180 × 50 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/043.jpg"},
+{n:null,a:"Gustavo del Río",o:"Caballo con manto rojo",m:"óleo sobre lienzo · 80 × 80 cm",b:350,mn:480,mx:780,t:310,tier:"B",img:"img/044.jpg"},
+{n:null,a:"Gustavo del Río",o:"Flautista con paisaje",m:"óleo sobre lienzo · 80 × 80 cm",b:300,mn:480,mx:780,t:310,tier:"B",img:"img/045.jpg"},
+{n:null,a:"Vidal Cussi",o:"Místico",m:"óleo sobre lienzo · 80 × 110 cm",b:500,mn:760,mx:1240,t:490,tier:"B",img:"img/046.jpg"},
+{n:null,a:"Vidal Cussi",o:"Tormenta",m:"óleo sobre lienzo · 130 × 125 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/047.jpg"},
+{n:null,a:"Vidal Cussi",o:"Misterios apasionados",m:"óleo sobre lienzo · 150 × 76 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/048.jpg"},
+{n:null,a:"Vidal Cussi",o:"Energía de los Andes",m:"óleo sobre lienzo · 191 × 141 cm",b:750,mn:760,mx:1240,t:490,tier:"C",img:"img/049.jpg"},
+{n:null,a:"Jamir Johanson",o:"Un buen whisky",m:"óleo sobre lienzo · 80 × 80 cm",b:350,mn:480,mx:780,t:310,tier:"B",img:"img/050.jpg"},
+{n:null,a:"Jamir Johanson",o:"Se abre el telón",m:"óleo sobre lienzo · 30 × 50 cm",b:200,mn:480,mx:780,t:310,tier:"A",img:"img/051.jpg"},
+{n:null,a:"Jamir Johanson",o:"Bailarina",m:"óleo sobre lienzo · 30 × 50 cm",b:1,mn:480,mx:780,t:310,tier:"A",img:"img/052.jpg"},
+{n:null,a:"Carolina Lovo",o:"Marita",m:"mixta sobre lienzo · 25 × 25 cm",b:1,mn:280,mx:460,t:180,tier:"A",img:"img/053.jpg"},
+{n:null,a:"Carolina Lovo",o:"Hamaca roja",m:"acrílico sobre lienzo · 100 × 80 cm",b:300,mn:760,mx:1240,t:490,tier:"A",img:"img/054.jpg"},
+{n:null,a:"Carolina Lovo",o:"Catalina",m:"mixta sobre lienzo · 60 × 60 cm",b:200,mn:480,mx:780,t:310,tier:"A",img:"img/055.jpg"},
+{n:null,a:"Pablo Giovany",o:"Siéntate al lado de la abuela",m:"mixta sobre cartón prensado y tela preparada · 100,7 × 61 cm",b:400,mn:440,mx:720,t:290,tier:"C",img:"img/056.jpg"},
+{n:null,a:"Pablo Giovany",o:"Cholita con gato",m:"mixta sobre papel · 37 × 54 cm",b:1,mn:300,mx:490,t:200,tier:"A",img:"img/057.jpg"},
+{n:null,a:"Pablo Giovany",o:"Te has salvado en el pueblo",m:"acrílico sobre lienzo sobre panel · 38,1 × 76,2 cm",b:200,mn:480,mx:780,t:310,tier:"A",img:"img/058.jpg"},
+{n:null,a:"Corina Aguilar",o:"Intensa",m:"óleo sobre lienzo · 80 × 110 cm",b:250,mn:760,mx:1240,t:490,tier:"A",img:"img/059.jpg",feat:6,rank:6,why:"Óleo de 80 × 110 cm con una base que no cubre ni el lienzo en blanco."},
+{n:null,a:"Corina Aguilar",o:"Espíritu protector",m:"óleo sobre lienzo · 150 × 75 cm",b:300,mn:760,mx:1240,t:490,tier:"A",img:"img/060.jpg"},
+{n:null,a:"Corina Aguilar",o:"Luces nocturnas",m:"óleo sobre lienzo · 85 × 150 cm",b:350,mn:760,mx:1240,t:490,tier:"B",img:"img/061.jpg"},
+{n:null,a:"Hernán Callisaya",o:"El sol y la luna",m:"óleo sobre lienzo · 80 × 80 cm",b:500,mn:480,mx:780,t:310,tier:"C",img:"img/062.jpg"},
+{n:null,a:"Hernán Callisaya",o:"Blue",m:"óleo sobre lienzo sobre panel · 37,5 × 52 cm",b:1,mn:480,mx:780,t:310,tier:"A",img:"img/063.jpg"},
+{n:null,a:"Hernán Callisaya",o:"El eclipse doméstico",m:"óleo sobre lienzo sobre panel · 80 × 125 cm",b:750,mn:760,mx:1240,t:490,tier:"C",img:"img/064.jpg"},
+{n:null,a:"Darío Antezana",o:"A pesar del tiempo",m:"acuarela sobre papel · 115 × 80 cm",b:600,mn:440,mx:720,t:290,tier:"C",img:"img/065.jpg"},
+{n:null,a:"Darío Antezana",o:"Fiesta en el pueblo",m:"acuarela sobre papel · 30 × 40 cm",b:1,mn:300,mx:490,t:200,tier:"A",img:"img/066.jpg"},
+{n:null,a:"Darío Antezana",o:"Fogón",m:"acuarela sobre papel · 40 × 60 cm",b:300,mn:300,mx:490,t:200,tier:"C",img:"img/067.jpg"},
+{n:null,a:"Darío Antezana",o:"Granadas",m:"acuarela sobre papel · 60 × 80 cm",b:300,mn:300,mx:490,t:200,tier:"C",img:"img/068.jpg"},
+{n:null,a:"María José Rodríguez",o:"De cerca",m:"pastel sobre papel · 20 × 24 cm",b:1,mn:180,mx:290,t:120,tier:"A",img:"img/069.jpg"},
+{n:null,a:"María José Rodríguez",o:"De la serie testigos",m:"óleo sobre lienzo · 110 × 90 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/070.jpg"},
+{n:null,a:"Jaime Calizaya",o:"Listo para la corrida",m:"acrílico sobre lienzo · 80 × 100 cm",b:580,mn:760,mx:1240,t:490,tier:"B",img:"img/071.jpg"},
+{n:null,a:"Jaime Calizaya",o:"Muy temprano en la feria",m:"acrílico sobre trupán · 40 × 40 cm",b:290,mn:480,mx:780,t:310,tier:"B",img:"img/072.jpg"},
+{n:null,a:"Jaime Calizaya",o:"Primer movimiento",m:"acrílico sobre lienzo · 60 × 80 cm",b:500,mn:480,mx:780,t:310,tier:"C",img:"img/073.jpg"},
+{n:null,a:"Juan Suntura",o:"Sombra",m:"soldadura · 80 × 30 × 32 cm",b:300,mn:360,mx:580,t:230,tier:"B",img:"img/074.jpg"},
+{n:null,a:"Juan Suntura",o:"Aquiles",m:"escultura en piedra · 57 × 30 × 9 cm",b:150,mn:360,mx:580,t:230,tier:"A",img:"img/075.jpg"},
+{n:null,a:"Juan Suntura",o:"Galope",m:"soldadura · 90 × 30 × 30 cm",b:300,mn:560,mx:910,t:360,tier:"B",img:"img/076.jpg"},
+{n:null,a:"Christian Aranibar",o:"Indifférence, le parfum du nouveau monde",m:"óleo sobre lienzo · 64 × 84 cm",b:300,mn:480,mx:780,t:310,tier:"B",img:"img/077.jpg"},
+{n:null,a:"Christian Aranibar",o:"Libertad",m:"óleo sobre lienzo sobre panel · 57 × 47 cm",b:1,mn:480,mx:780,t:310,tier:"A",img:"img/078.jpg"},
+{n:null,a:"Christian Aranibar",o:"El jardín secreto II",m:"óleo sobre lienzo · 120 × 80 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/079.jpg"},
+{n:null,a:"Eusebio Choque",o:"Muy unidos",m:"pastel seco sobre papel · 106 × 44 cm",b:100,mn:440,mx:720,t:290,tier:"A",img:"img/080.jpg",feat:4,rank:4,why:"Técnica distintiva (pastel seco, figuras andinas) en formato panorámico, muy por debajo de lo que pide el resto de su propia serie."},
+{n:null,a:"Eusebio Choque",o:"Conversaciones íntimas",m:"mixta sobre panel · 36 × 15 cm",b:1,mn:280,mx:460,t:180,tier:"A",img:"img/081.jpg"},
+{n:null,a:"Eusebio Choque",o:"En este hermoso caminar estemos juntos",m:"pastel seco sobre papel · 100 × 80 cm",b:100,mn:440,mx:720,t:290,tier:"A",img:"img/082.jpg"},
+{n:null,a:"Juan Mayta",o:"Códigos",m:"óleo sobre lienzo · 170 × 120 cm",b:400,mn:760,mx:1240,t:490,tier:"B",img:"img/083.jpg"},
+{n:null,a:"Juan Mayta",o:"Urbano",m:"óleo sobre lienzo · 130 × 35 cm",b:1,mn:760,mx:1240,t:490,tier:"A",img:"img/084.jpg",feat:8,rank:8,why:"El clásico anzuelo de $1: óleo real, formato apaisado de 130 × 35 cm, no un boceto."},
+{n:null,a:"Juan Mayta",o:"Expresión poética",m:"óleo sobre lienzo · 60 × 50 cm",b:200,mn:480,mx:780,t:310,tier:"A",img:"img/085.jpg"},
+{n:null,a:"Rina Mamani",o:"Bodegón",m:"acuarela sobre papel · 38 × 56 cm",b:250,mn:300,mx:490,t:200,tier:"B",img:"img/086.jpg"},
+{n:null,a:"Rina Mamani",o:"Maduras",m:"acuarela sobre papel · 38 × 56 cm",b:300,mn:300,mx:490,t:200,tier:"C",img:"img/087.jpg"},
+{n:null,a:"Rina Mamani",o:"Se queda vacía",m:"acuarela sobre papel · 34 × 57 cm",b:250,mn:300,mx:490,t:200,tier:"B",img:"img/088.jpg"},
+{n:null,a:"León Saavedra",o:"Picasso",m:"escultura en metal · 29 × 14 × 14 cm",b:100,mn:240,mx:390,t:160,tier:"A",img:"img/089.jpg",feat:7,rank:7,why:"Escultura en metal — valor material y de mano de obra ya superan la base."},
+{n:null,a:"León Saavedra",o:"Kandisky",m:"escultura en metal · 32 × 16 × 18 cm",b:150,mn:240,mx:390,t:160,tier:"B",img:"img/090.jpg"},
+{n:null,a:"Sharon Pérez",o:"Cutintá (cultivar)",m:"mixta, acrílico y pastel sobre plancha de metal · 48 × 53 cm",b:250,mn:480,mx:780,t:310,tier:"B",img:"img/091.jpg"},
+{n:null,a:"Sharon Pérez",o:"Kizomba (baila)",m:"mixta, acrílico y pastel sobre plancha de metal · 33 × 140 cm",b:450,mn:760,mx:1240,t:490,tier:"B",img:"img/092.jpg"},
+{n:null,a:"René Botelho",o:"Cocina",m:"acuarela sobre papel · 30 × 43 cm",b:1,mn:300,mx:490,t:200,tier:"A",img:"img/093.jpg"}
 ];
 const $ = id => document.getElementById(id);
 const money = v => '$' + v.toLocaleString('es');
@@ -1035,6 +1045,7 @@ const picksGrid = document.getElementById('picks-grid');
 const picks = data.filter(d=>d.feat).sort((a,b)=>a.rank-b.rank);
 picksGrid.innerHTML = picks.map(p=>`
   <div class="pick">
+    <div class="pick-photo"><img src="${p.img}" alt="${p.o}" loading="lazy"></div>
     <div class="pick-rank">${String(p.rank).padStart(2,'0')}</div>
     <div class="pick-artist"><span class="pick-lot">${p.n ?? '—'}</span>${p.a}</div>
     <div class="pick-title">${p.o}</div>
@@ -1072,6 +1083,7 @@ function render(filter='all', search=''){
   }
   tbody.innerHTML = filtered.map(d=>`
     <tr class="${d.feat?'featured':''}">
+      <td class="thumb-cell"><img src="${d.img}" alt="" loading="lazy"></td>
       <td><span class="lot-num">${d.n ?? '—'}</span></td>
       <td class="artist-cell">${d.a}${d.feat?'<span class="featured-mark">★</span>':''}</td>
       <td class="work-cell">${d.o}<span class="work-meta">${d.m}</span></td>
@@ -1121,6 +1133,7 @@ $('lot').addEventListener('input',e=>{
   const d = hits[0];
   v.innerHTML = `
     <div class="v-card">
+      <div class="v-photo"><img src="${d.img}" alt="${d.o}"></div>
       <div class="v-artist">${d.a} · Tier ${d.tier}</div>
       <div class="v-title">${d.o}</div>
       <div class="v-meta">${d.m}</div>
