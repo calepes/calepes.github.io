@@ -702,26 +702,54 @@
     .work-cell{font-size:13px}
   }
 
-  /* Modo sala — buscador de lote (La Paz aún no tiene números impresos) */
-  .lookup-wrap{max-width:1280px;margin:0 auto;padding:0 24px 56px}
-  .lookup-card{border:1px solid var(--rule);background:var(--paper-2)}
+  /* Modo sala — buscá una obra y te da el tope de puja */
+  .lookup-wrap{max-width:620px;margin:0 auto;padding:0 24px 48px}
+  .lookup-card{border:1px solid var(--rule);background:var(--paper-2);padding:18px}
   .lookup-head{
-    display:flex;align-items:center;gap:10px;
-    padding:14px 20px;border-bottom:1px solid var(--rule);
+    display:flex;align-items:center;gap:8px;margin-bottom:4px;
     font-family:'JetBrains Mono',monospace;font-size:10px;
     letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);
-    background:var(--paper);
   }
   .lookup-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
-  .lookup-body{padding:26px 20px 30px}
+  .lookup-sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;line-height:1.45}
+  .lookup-field{
+    display:flex;align-items:center;gap:9px;
+    background:#fff;border:1px solid var(--rule);padding:0 12px;
+  }
+  .lookup-field:focus-within{border-color:var(--accent)}
+  .lookup-ico{font-size:14px;color:var(--ink-soft);flex:none;line-height:1}
   #lot{
     width:100%;background:transparent;border:none;outline:none;color:var(--ink);
-    font-family:'Fraunces',serif;font-size:clamp(26px,6vw,44px);
-    font-weight:500;font-variation-settings:"opsz" 144;letter-spacing:-0.01em;
+    font-family:'Manrope',sans-serif;font-size:16px;font-weight:500;
+    padding:11px 0;
   }
-  #lot::placeholder{color:var(--rule)}
-  .verdict{margin-top:10px;min-height:90px}
-  .v-empty{color:var(--ink-soft);font-size:13px;padding-top:14px}
+  #lot::placeholder{color:#9aa4b4;font-weight:400}
+  .lookup-eg{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px;
+    font-family:'JetBrains Mono',monospace;font-size:9px;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .eg-chip{
+    font-family:'Manrope',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;
+    background:var(--paper);border:1px solid var(--rule);color:var(--ink);
+    padding:3px 9px;cursor:pointer;
+  }
+  .eg-chip:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .lookup-hint{
+    margin-top:11px;font-size:11.5px;color:var(--ink-soft);
+    border-top:1px dashed var(--rule);padding-top:9px;line-height:1.45;
+  }
+  .verdict:empty{display:none}
+  .verdict{margin-top:14px}
+  .v-opts{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .v-opt{
+    background:var(--paper);border:none;text-align:left;cursor:pointer;
+    padding:9px 12px;font-family:'Manrope',sans-serif;font-size:13px;color:var(--ink);
+    display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+  }
+  .v-opt:hover{background:var(--accent);color:#fff}
+  .v-opt span{font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.75;flex:none}
+  .v-count{font-size:12px;color:var(--ink-soft);margin-bottom:7px}
   .v-card{border-top:1px dashed var(--rule);padding-top:18px}
   .v-artist{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
   .v-title{font-family:'Fraunces',serif;font-style:italic;font-size:24px;line-height:1.15;margin-bottom:4px;font-variation-settings:"opsz" 144}
@@ -735,14 +763,8 @@
   .v-miss{padding-top:14px;font-size:14px;color:var(--ink-soft)}
   .v-miss b{color:var(--ink);font-weight:600}
 
-  .pending-notice{
-    margin-top:16px;border:1px dashed var(--rule);padding:14px 18px;border-radius:0;
-    font-size:13px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start;
-  }
-  .pending-notice b{color:var(--accent);font-family:'JetBrains Mono',monospace;flex:none}
-
   @media(max-width:600px){
-    .lookup-body{padding:20px 16px 24px}
+    .lookup-card{padding:15px}
     .v-nums{gap:18px}
     .v-num .val{font-size:18px}
   }
@@ -844,17 +866,20 @@
 
 <div class="lookup-wrap">
   <div class="lookup-card">
-    <div class="lookup-head"><span class="lookup-dot"></span> Modo sala — buscador de lote</div>
-    <div class="lookup-body">
-      <input id="lot" type="text" placeholder="lote, artista u obra" autocomplete="off" spellcheck="false">
-      <div class="verdict" id="verdict">
-        <div class="v-empty">Ej.: «Cussi», «Leda», «Toborochi»</div>
-      </div>
+    <div class="lookup-head"><span class="lookup-dot"></span> Modo sala</div>
+    <div class="lookup-sub">Escribí el artista o el nombre de la obra que están cantando y te devuelve <strong>hasta cuánto pujar</strong>.</div>
+    <div class="lookup-field">
+      <span class="lookup-ico">⌕</span>
+      <input id="lot" type="text" placeholder="Ej. Cussi, Amapolas, Illimani…" autocomplete="off" spellcheck="false">
     </div>
-  </div>
-  <div class="pending-notice">
-    <b>§</b>
-    <span>Números de lote pendientes. La lista oficial se entrega impresa en la sala — cuando la tengas, se cargan y el buscador responde por número.</span>
+    <div class="lookup-eg">
+      Probá:
+      <button class="eg-chip" data-q="Amapolas">Amapolas</button>
+      <button class="eg-chip" data-q="Cussi">Cussi</button>
+      <button class="eg-chip" data-q="Centinelas">Centinelas</button>
+    </div>
+    <div class="lookup-hint">Los números de lote se entregan impresos en la sala. Cuando los tengas, el buscador también responde por número.</div>
+    <div class="verdict" id="verdict"></div>
   </div>
 </div>
 
@@ -1176,38 +1201,56 @@ document.getElementById('search').addEventListener('input',e=>{
   render(currentFilter, currentSearch);
 });
 
-// Modo sala — buscador de lote (por ahora, por nombre; cuando lleguen los números, también por lote)
-$('lot').addEventListener('input',e=>{
-  const raw = e.target.value.trim();
+// Modo sala — buscá por artista u obra (y por número de lote cuando estén cargados)
+function lookup(raw){
   const v = $('verdict');
-  if(!raw){ v.innerHTML = '<div class="v-empty">Ej.: «Cussi», «Leda», «Toborochi»</div>'; return; }
+  raw = (raw || '').trim();
+  if(!raw){ v.innerHTML = ''; return; }
   const s = raw.toLowerCase();
-  let hits = data.filter(d => String(d.n)===raw);
-  if(!hits.length) hits = data.filter(d => d.o.toLowerCase().includes(s));
-  if(!hits.length) hits = data.filter(d => d.a.toLowerCase().includes(s));
+  let hits = data.filter(d => String(d.n) === raw);
   if(!hits.length){
-    v.innerHTML = '<div class="v-miss">Sin coincidencias para <b>'+raw.replace(/[<>&]/g,'')+'</b>. Probá con el apellido del artista.</div>';
+    hits = data.filter(d => d.o.toLowerCase().includes(s) || d.a.toLowerCase().includes(s));
+  }
+  if(!hits.length){
+    v.innerHTML = '<div class="v-miss">Sin resultados para <b>' +
+      raw.replace(/[<>&]/g,'') + '</b>. Probá con el apellido del artista.</div>';
     return;
   }
   if(hits.length > 1){
-    v.innerHTML = '<div class="v-miss">'+hits.length+' coincidencias — afiná la búsqueda:<br>' +
-      hits.slice(0,6).map(h=>'<b>'+h.o+'</b>').join(' · ') + (hits.length>6?' …':'') + '</div>';
+    v.innerHTML = '<div class="v-count">' + hits.length + ' obras — tocá una para ver el tope:</div>' +
+      '<div class="v-opts">' + hits.map(h =>
+        `<button class="v-opt" data-i="${data.indexOf(h)}">${h.o}<span>${h.a}</span></button>`
+      ).join('') + '</div>';
     return;
   }
-  const d = hits[0];
-  v.innerHTML = `
+  renderVerdict(hits[0]);
+}
+function renderVerdict(d){
+  $('verdict').innerHTML = `
     <div class="v-card">
       <div class="v-photo${d.sc?' sc':''}"><img src="${d.img}" alt="${d.o}"></div>
-      <div class="v-artist">${d.a} · Tier ${d.tier}</div>
+      <div class="v-artist">${d.a} · Tier ${d.tier}${d.n?' · Lote '+d.n:''}</div>
       <div class="v-title">${d.o}</div>
       <div class="v-meta">${d.m}</div>
       <div class="v-nums">
         <div class="v-num"><span class="lbl">Base</span><span class="val">${money(d.b)}</span></div>
-        <div class="v-num"><span class="lbl">Mercado</span><span class="val">${money(d.mn)}–${money(d.mx)}</span></div>
+        <div class="v-num"><span class="lbl">Mercado est.</span><span class="val">${money(d.mn)}–${money(d.mx)}</span></div>
         <div class="v-num"><span class="lbl">Pujá hasta</span><span class="val hot">${money(d.t)}</span></div>
       </div>
       ${d.why?'<div class="v-more">'+d.why+'</div>':''}
     </div>`;
+}
+$('lot').addEventListener('input', e => lookup(e.target.value));
+$('verdict').addEventListener('click', e => {
+  const btn = e.target.closest('.v-opt');
+  if(btn) renderVerdict(data[Number(btn.dataset.i)]);
+});
+document.querySelectorAll('.eg-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    $('lot').value = chip.dataset.q;
+    lookup(chip.dataset.q);
+    $('lot').focus();
+  });
 });
 
 // Modal de detalle de obra
