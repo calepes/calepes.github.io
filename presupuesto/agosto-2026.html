@@ -4,726 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Presupuesto Agosto 2026</title>
+<title>Presupuesto Agosto 2026 — Cal vs Noe</title>
 <style>
   :root {
-    --bg: #F1F3EE;
-    --surface: #FFFFFF;
-    --surface-2: #E9EDE4;
-    --ink: #1A241F;
-    --muted: #5C6B62;
-    --line: #DCE2D6;
-    --accent: #2B5C63;
-    --accent-soft: #DCEAEA;
-    --income: #3E7D52;
-    --income-soft: #DEEFE2;
-    --expense: #8B3A3A;
-    --expense-soft: #F3E3E0;
-    --shadow: 0 1px 2px rgba(26,36,31,0.04), 0 8px 24px -12px rgba(26,36,31,0.18);
+    --bg: #F6F4EF;
+    --bg-card: #FFFFFF;
+    --ink: #1E2530;
+    --ink-dim: #6B7280;
+    --line: #E4E0D6;
+    --cal: #2F5F8A;
+    --cal-soft: #E7EEF5;
+    --noe: #8A3F6B;
+    --noe-soft: #F5E9F0;
+    --shared: #4B5560;
+    --shared-soft: #EDEFF1;
+    --edit: #9C6B1F;
+    --pos: #2F6F62;
+    --neg: #8A3324;
+    --shadow: 0 1px 2px rgba(30,26,18,0.05), 0 8px 24px rgba(30,26,18,0.06);
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #101512;
-      --surface: #171E1A;
-      --surface-2: #1D251F;
-      --ink: #E7ECE6;
-      --muted: #93A399;
-      --line: #29332C;
-      --accent: #7CB2B8;
-      --accent-soft: #1D3235;
-      --income: #6FBF83;
-      --income-soft: #1C3323;
-      --expense: #D08F7A;
-      --expense-soft: #3A2420;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px -16px rgba(0,0,0,0.6);
+      --bg: #17181C; --bg-card: #1E2026; --ink: #ECE9E2; --ink-dim: #9A9A94; --line: #33342f;
+      --cal: #7FB1DE; --cal-soft: #1E2C38; --noe: #D993BB; --noe-soft: #33212C;
+      --shared: #A9AFB6; --shared-soft: #24262A; --edit: #E0AF5C; --pos: #6FBFA8; --neg: #E08571;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 30px rgba(0,0,0,0.45);
     }
-  }
-  :root[data-theme="dark"] {
-    --bg: #101512;
-    --surface: #171E1A;
-    --surface-2: #1D251F;
-    --ink: #E7ECE6;
-    --muted: #93A399;
-    --line: #29332C;
-    --accent: #7CB2B8;
-    --accent-soft: #1D3235;
-    --income: #6FBF83;
-    --income-soft: #1C3323;
-    --expense: #D08F7A;
-    --expense-soft: #3A2420;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px -16px rgba(0,0,0,0.6);
-  }
-  :root[data-theme="light"] {
-    --bg: #F1F3EE;
-    --surface: #FFFFFF;
-    --surface-2: #E9EDE4;
-    --ink: #1A241F;
-    --muted: #5C6B62;
-    --line: #DCE2D6;
-    --accent: #2B5C63;
-    --accent-soft: #DCEAEA;
-    --income: #3E7D52;
-    --income-soft: #DEEFE2;
-    --expense: #8B3A3A;
-    --expense-soft: #F3E3E0;
-    --shadow: 0 1px 2px rgba(26,36,31,0.04), 0 8px 24px -12px rgba(26,36,31,0.18);
   }
 
   * { box-sizing: border-box; }
-
   body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    padding: clamp(20px, 5vw, 56px) 16px 64px;
-    display: flex;
-    justify-content: center;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 40px 18px 80px;
   }
+  .wrap { max-width: 760px; margin: 0 auto; }
 
-  .num {
-    font-family: ui-monospace, "SF Mono", "Menlo", "Cascadia Mono", monospace;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .sheet {
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--line);
-  }
-  .eyebrow {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); margin: 0 0 6px; }
   h1 {
     font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-    font-size: clamp(28px, 4.5vw, 36px);
-    font-weight: 600;
-    margin: 2px 0 0;
-    text-wrap: balance;
-    letter-spacing: -0.01em;
+    font-size: 30px; font-weight: 400; margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance;
   }
-  .cycle {
-    color: var(--muted);
-    font-size: 14.5px;
-    margin-top: 2px;
-  }
+  .subhead { font-size: 14.5px; color: var(--ink-dim); margin: 0 0 26px; line-height: 1.5; max-width: 62ch; }
 
-  /* ---------- KPI row ---------- */
-  .kpis {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+  .overview {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 30px;
   }
-  .kpi {
-    background: var(--surface);
-    padding: 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  @media (max-width: 560px) { .overview { grid-template-columns: 1fr; } }
+  .ov-card {
+    background: var(--bg-card); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 16px 16px 14px; border-top: 3px solid var(--c);
   }
-  .kpi .label {
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .kpi .amount {
-    font-size: clamp(19px, 3.2vw, 24px);
-    font-weight: 600;
-  }
-  .kpi.income .amount { color: var(--income); }
-  .kpi.expense .amount { color: var(--expense); }
-  .kpi.net .amount { color: var(--accent); }
-  .kpi .sub { font-size: 12px; color: var(--muted); }
+  .ov-card .who { font-size: 13px; font-weight: 700; color: var(--c); margin-bottom: 8px; }
+  .ov-card .row { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-dim); padding: 3px 0; }
+  .ov-card .row b { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .ov-card .net { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 14px; font-weight: 700; }
+  .ov-card .net b { font-variant-numeric: tabular-nums; }
+  .ov-card .net.pos b { color: var(--pos); }
+  .ov-card .net.neg b { color: var(--neg); }
+  .ov-card .takeaway { font-size: 12.5px; color: var(--ink-dim); margin-top: 10px; line-height: 1.45; }
 
-  /* ---------- Section shell ---------- */
-  section.card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 22px clamp(16px, 4vw, 26px) 20px;
-    box-shadow: var(--shadow);
-  }
-  .card-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .card-head h2 {
-    font-family: Georgia, "Iowan Old Style", serif;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-  }
-  .card-head .total {
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .card-head .total.income { color: var(--income); }
-  .card-head .total.expense { color: var(--expense); }
-
-  /* ---------- Bar rows ---------- */
-  .row {
-    display: grid;
-    grid-template-columns: minmax(0,1fr) auto;
-    align-items: center;
-    gap: 10px 14px;
-    padding: 9px 0;
-    border-top: 1px solid var(--line);
-  }
-  .row:first-of-type { border-top: none; }
-  .row .name {
-    font-size: 14.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-  }
-  .row .name span.txt {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .row .amount {
-    font-size: 14.5px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .row .amount.income { color: var(--income); }
-  .row .amount.expense { color: var(--expense); }
-  .bar-track {
-    grid-column: 1 / -1;
-    height: 6px;
-    border-radius: 2px;
-    background: var(--surface-2);
-    overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    border-radius: 2px;
-  }
-  .bar-fill.income { background: var(--income); }
-  .bar-fill.expense { background: var(--expense); }
-
-  .tag {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 2px 6px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-  .tag.extra {
-    background: var(--income-soft);
-    color: var(--income);
-  }
-
-  /* ---------- Groups (details) ---------- */
-  .groups { display: flex; flex-direction: column; gap: 10px; }
-  details.group {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--surface);
-    overflow: hidden;
-  }
-  details.group + details.group { margin-top: 0; }
-  summary.group-head {
-    list-style: none;
-    cursor: pointer;
-    padding: 13px 16px;
-    display: grid;
-    grid-template-columns: auto minmax(0,1fr) auto auto;
-    align-items: center;
-    gap: 12px;
-    -webkit-tap-highlight-color: transparent;
-  }
-  summary.group-head::-webkit-details-marker { display: none; }
-  summary.group-head:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: -2px;
-  }
-  .chev {
-    width: 9px; height: 9px;
-    border-right: 1.6px solid var(--muted);
-    border-bottom: 1.6px solid var(--muted);
-    transform: rotate(-45deg);
-    transition: transform 0.18s ease;
-    flex-shrink: 0;
-  }
-  details[open] .chev { transform: rotate(45deg); }
-  .group-name {
-    font-size: 14.5px;
-    font-weight: 600;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .group-pct {
-    font-size: 12px;
-    color: var(--muted);
-    font-family: ui-monospace, monospace;
-    font-variant-numeric: tabular-nums;
-  }
-  .group-amount {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--expense);
-  }
-  .group-bar {
-    grid-column: 1 / -1;
-    height: 5px;
-    border-radius: 2px;
-    background: var(--surface-2);
-    overflow: hidden;
-    margin-top: 2px;
-  }
-  .group-bar-fill { height: 100%; background: var(--expense); border-radius: 2px; }
-  .group-body {
-    padding: 2px 16px 14px 37px;
-    display: flex;
-    flex-direction: column;
-  }
-  .line {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 7px 0;
-    border-top: 1px solid var(--line);
-    font-size: 13.5px;
-  }
-  .line:first-child { border-top: none; }
-  .line .cat { color: var(--ink); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .line .amt { color: var(--muted); font-weight: 600; white-space: nowrap; }
-
-  /* ---------- Por persona ---------- */
-  .persons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
   .person {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    background: var(--bg-card); border-radius: 16px; box-shadow: var(--shadow);
+    padding: 22px 20px 18px; margin-bottom: 22px; border-left: 4px solid var(--c);
   }
-  .person-name {
-    font-family: Georgia, "Iowan Old Style", serif;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .person-metric { display: flex; flex-direction: column; gap: 4px; }
-  .person-metric .metric-head {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12.5px;
-  }
-  .person-metric .metric-head .k { color: var(--muted); }
-  .person-metric .metric-head .v { font-weight: 600; }
-  .person-metric .metric-head .v.income { color: var(--income); }
-  .person-metric .metric-head .v.expense { color: var(--expense); }
-  .person-bar {
-    height: 6px;
-    border-radius: 2px;
-    background: var(--surface-2);
-    overflow: hidden;
-  }
-  .person-bar-fill { height: 100%; border-radius: 2px; }
-  .person-bar-fill.income { background: var(--income); }
-  .person-bar-fill.expense { background: var(--expense); }
-  .person-net {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-top: 10px;
-    border-top: 1px solid var(--line);
-    font-size: 13px;
-  }
-  .person-net .k { color: var(--muted); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; font-size: 11px; }
-  .person-net .v { font-size: 17px; font-weight: 700; }
-  .person-net .v.pos { color: var(--income); }
-  .person-net .v.neg { color: var(--expense); }
-  .person-hint { font-size: 11.5px; color: var(--muted); }
+  .person h2 { font-size: 17px; font-weight: 700; margin: 0 0 2px; color: var(--c); }
+  .person .role { font-size: 12.5px; color: var(--ink-dim); margin: 0 0 16px; }
 
-  .person-detail summary {
-    list-style: none;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--accent);
-    padding-top: 2px;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .person-detail summary::-webkit-details-marker { display: none; }
-  .person-detail summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .person-detail summary::after { content: " ›"; }
-  .person-detail[open] summary::after { content: " ‹"; }
-  .person-detail .group-body { padding: 4px 0 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-dim); font-weight: 600; padding: 6px 6px; border-bottom: 1px solid var(--line); }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td { padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: none; }
+  td.cat { font-weight: 500; }
+  .income-row td { color: var(--pos); font-weight: 600; }
+  tfoot td { font-weight: 700; border-top: 1px solid var(--line); padding-top: 10px; }
+  tfoot.net-row td { color: var(--c); font-size: 14.5px; }
 
-  @media (max-width: 480px) {
-    .persons { grid-template-columns: 1fr; }
+  .pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 20px; background: var(--noe-soft); color: var(--edit); margin-left: 6px; }
+
+  tr.group-head:first-child td { padding-top: 0; }
+  tr.group-head td {
+    padding: 16px 6px 6px; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--ink-dim); font-weight: 700; border-bottom: 1px solid var(--line);
+  }
+  tr.subtotal td {
+    font-weight: 700; color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   }
 
-  footer {
-    color: var(--muted);
-    font-size: 12.5px;
-    line-height: 1.6;
-    padding-top: 4px;
-    text-align: center;
+  .recon {
+    font-size: 12.5px; color: var(--ink-dim); line-height: 1.7; padding: 4px 2px 0;
   }
-  footer strong { color: var(--ink); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .chev { transition: none; }
-  }
-
-  @media (max-width: 480px) {
-    .kpis { grid-template-columns: 1fr; }
-    .kpi { border-bottom: 1px solid var(--line); }
-  }
+  .recon b { color: var(--ink); }
+  .recon .formula { font-variant-numeric: tabular-nums; font-family: ui-monospace, "SF Mono", monospace; font-size: 12px; }
 </style>
 </head>
 <body>
 
-<div class="sheet">
+<div class="wrap">
+  <p class="eyebrow">Periodo 202608 · Presupuesto Agosto 2026</p>
+  <h1>Presupuesto de agosto — Cal vs Noe</h1>
+  <p class="subhead">
+    Cuánto entra, cuánto tiene que salir y qué le queda a cada uno — con el bloque compartido
+    (hogar, hijas, auto, servicios) ya repartido, sin bucket neutral.
+  </p>
 
-  <header>
-    <div class="eyebrow">Presupuesto Familiar · Bolivia</div>
-    <h1>Agosto 2026</h1>
-    <div class="cycle">Ciclo 23 jul – 22 ago 2026 · actualizado 27 jul 2026</div>
-  </header>
-
-  <div class="kpis">
-    <div class="kpi income">
-      <div class="label">Ingresos</div>
-      <div class="amount num">Bs 89.329</div>
-      <div class="sub">3 fuentes</div>
+  <div class="overview">
+    <div class="ov-card" style="--c: var(--cal);">
+      <div class="who">Cal</div>
+      <div class="row">Ingreso <b>+Bs 73.529</b></div>
+      <div class="row">Presupuesto de gasto <b>-Bs 76.012</b></div>
+      <div class="net neg">Disponible <b>-Bs 2.483</b></div>
+      <p class="takeaway">Este mes tiene que salir <b>Bs 76.012</b> (propio + compartido) — Bs 2.483
+      más de lo que entra. El déficit lo cubre el Bono CAL extraordinario, ya reflejado en el ahorro,
+      no en el disponible del mes.</p>
     </div>
-    <div class="kpi expense">
-      <div class="label">Gastos</div>
-      <div class="amount num">Bs 87.832</div>
-      <div class="sub">36 categorías</div>
-    </div>
-    <div class="kpi net">
-      <div class="label">Neto del mes</div>
-      <div class="amount num">+Bs 1.497</div>
-      <div class="sub">superávit ajustado</div>
+    <div class="ov-card" style="--c: var(--noe);">
+      <div class="who">Noe</div>
+      <div class="row">Ingreso <b>+Bs 15.800</b></div>
+      <div class="row">Presupuesto de gasto <b>-Bs 13.290</b></div>
+      <div class="net pos">Disponible <b>+Bs 2.510</b></div>
+      <p class="takeaway">Este mes tiene que salir <b>Bs 13.290</b> (propio + compartido) — le quedan
+      <b>Bs 2.510</b> libres sobre su sueldo.</p>
     </div>
   </div>
 
-  <section class="card">
-    <div class="card-head">
-      <h2>Ingresos por categoría</h2>
-      <div class="total income num">Bs 89.329</div>
-    </div>
+  <div class="person" style="--c: var(--cal);">
+    <h2>Cal</h2>
+    <p class="role">Sueldo + bono extraordinario, sus categorías personales, y el compartido que le asignaste.</p>
+    <table>
+      <tr><th>Concepto</th><th class="num">Monto</th></tr>
+      <tr class="income-row"><td class="cat">Sueldo CAL</td><td class="num">+38.529</td></tr>
+      <tr class="income-row"><td class="cat">Bono CAL<span class="pill">extra</span></td><td class="num">+35.000</td></tr>
+      <tr class="group-head"><td colspan="2">Personal</td></tr>
+      <tr><td class="cat">Alimentación - CAL</td><td class="num">-460</td></tr>
+      <tr><td class="cat">Fitness Training CAL</td><td class="num">-2.000</td></tr>
+      <tr><td class="cat">Peluqueria y Belleza CAL</td><td class="num">-350</td></tr>
+      <tr><td class="cat">Ahorro Mes CAL<span class="pill">ahorro, no consumo</span></td><td class="num">-30.000</td></tr>
+      <tr class="group-head"><td colspan="2">Compartido asignado</td></tr>
+      <tr><td class="cat">Arriendo</td><td class="num">-16.000</td></tr>
+      <tr><td class="cat">Empleada Chicas</td><td class="num">-6.607</td></tr>
+      <tr><td class="cat">Viaje Nacional</td><td class="num">-3.500</td></tr>
+      <tr><td class="cat">Suscripciones Digitales</td><td class="num">-3.452</td></tr>
+      <tr><td class="cat">Restaurantes y Cafeterías</td><td class="num">-2.500</td></tr>
+      <tr><td class="cat">Seguro Universitario</td><td class="num">-2.402</td></tr>
+      <tr><td class="cat">Recreación</td><td class="num">-2.140</td></tr>
+      <tr><td class="cat">Mantenimiento Carro</td><td class="num">-1.500</td></tr>
+      <tr><td class="cat">Fee Facturas</td><td class="num">-1.500</td></tr>
+      <tr><td class="cat">Recreación AntoCata</td><td class="num">-700</td></tr>
+      <tr><td class="cat">Energía</td><td class="num">-690</td></tr>
+      <tr><td class="cat">Transporte y Taxis</td><td class="num">-500</td></tr>
+      <tr><td class="cat">Internet + TV</td><td class="num">-385</td></tr>
+      <tr><td class="cat">Estacionamiento</td><td class="num">-350</td></tr>
+      <tr><td class="cat">Lavada Carro</td><td class="num">-240</td></tr>
+      <tr><td class="cat">Celular Perú</td><td class="num">-225</td></tr>
+      <tr><td class="cat">Agua</td><td class="num">-221</td></tr>
+      <tr><td class="cat">Celular</td><td class="num">-180</td></tr>
+      <tr><td class="cat">Masajes</td><td class="num">-100</td></tr>
+      <tr><td class="cat">Gas</td><td class="num">-10</td></tr>
+      <tr class="subtotal"><td>Subtotal compartido</td><td class="num">-43.202</td></tr>
+      <tfoot class="net-row"><tr><td>Disponible Cal</td><td class="num">-2.483</td></tr></tfoot>
+    </table>
+  </div>
 
-    <div class="row">
-      <div class="name"><span class="txt">Sueldo CAL</span></div>
-      <div class="amount income num">Bs 38.529</div>
-      <div class="bar-track"><div class="bar-fill income" style="width:100%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span class="txt">Bono CAL</span><span class="tag extra">extraordinario</span></div>
-      <div class="amount income num">Bs 35.000</div>
-      <div class="bar-track"><div class="bar-fill income" style="width:90.9%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span class="txt">Sueldo Noe</span></div>
-      <div class="amount income num">Bs 15.800</div>
-      <div class="bar-track"><div class="bar-fill income" style="width:41.0%"></div></div>
-    </div>
-  </section>
+  <div class="person" style="--c: var(--noe);">
+    <h2>Noe</h2>
+    <p class="role">Sueldo del mes, sus categorías personales, y el compartido que le quedó asignado.</p>
+    <table>
+      <tr><th>Concepto</th><th class="num">Monto</th></tr>
+      <tr class="income-row"><td class="cat">Sueldo Noe</td><td class="num">+15.800</td></tr>
+      <tr class="group-head"><td colspan="2">Personal</td></tr>
+      <tr><td class="cat">Fitness Training Noe</td><td class="num">-700</td></tr>
+      <tr><td class="cat">Peluqueria y Belleza Noe</td><td class="num">-680</td></tr>
+      <tr><td class="cat">Bolsa varios Noe</td><td class="num">-570</td></tr>
+      <tr><td class="cat">Ahorro Mes Noe<span class="pill">ahorro, no consumo</span></td><td class="num">-1.500</td></tr>
+      <tr class="group-head"><td colspan="2">Compartido asignado</td></tr>
+      <tr><td class="cat">Mercado</td><td class="num">-6.200</td></tr>
+      <tr><td class="cat">Empleada</td><td class="num">-1.200</td></tr>
+      <tr><td class="cat">Clases AntoCata</td><td class="num">-900</td></tr>
+      <tr><td class="cat">Gasolina</td><td class="num">-740</td></tr>
+      <tr><td class="cat">Gastos Casa</td><td class="num">-350</td></tr>
+      <tr><td class="cat">Colegio</td><td class="num">-200</td></tr>
+      <tr><td class="cat">Medicinas</td><td class="num">-150</td></tr>
+      <tr><td class="cat">Gastos Médicos</td><td class="num">-100</td></tr>
+      <tr class="subtotal"><td>Subtotal compartido</td><td class="num">-9.840</td></tr>
+      <tfoot class="net-row"><tr><td>Disponible Noe</td><td class="num">+2.510</td></tr></tfoot>
+    </table>
+  </div>
 
-  <section class="card">
-    <div class="card-head">
-      <h2>Por persona</h2>
-      <div class="total num" style="color:var(--muted)">Bs 1.497 neto</div>
-    </div>
-
-    <div class="persons">
-      <div class="person">
-        <div class="person-name">Cal</div>
-        <div class="person-metric">
-          <div class="metric-head"><span class="k">Ingresos</span><span class="v income num">73.529</span></div>
-          <div class="person-bar"><div class="person-bar-fill income" style="width:98.7%"></div></div>
-        </div>
-        <div class="person-metric">
-          <div class="metric-head"><span class="k">Gastos</span><span class="v expense num">74.482</span></div>
-          <div class="person-bar"><div class="person-bar-fill expense" style="width:100%"></div></div>
-        </div>
-        <div class="person-net">
-          <span class="k">Neto</span>
-          <span class="v neg num">−Bs 953</span>
-        </div>
-        <div class="person-hint">Incluye Ahorro Mes CAL (Bs 29.000) y el Bono extraordinario</div>
-        <details class="person-detail">
-          <summary>Ver 24 categorías</summary>
-          <div class="group-body">
-            <div class="line"><span class="cat">Ahorro Mes CAL</span><span class="amt num">29.000</span></div>
-            <div class="line"><span class="cat">Arriendo</span><span class="amt num">16.000</span></div>
-            <div class="line"><span class="cat">Empleada Chicas</span><span class="amt num">6.607</span></div>
-            <div class="line"><span class="cat">Viaje Nacional</span><span class="amt num">3.500</span></div>
-            <div class="line"><span class="cat">Suscripciones Digitales</span><span class="amt num">3.452</span></div>
-            <div class="line"><span class="cat">Restaurantes y Cafeterías</span><span class="amt num">2.500</span></div>
-            <div class="line"><span class="cat">Seguro Universitario</span><span class="amt num">2.402</span></div>
-            <div class="line"><span class="cat">Recreación</span><span class="amt num">2.140</span></div>
-            <div class="line"><span class="cat">Fitness Training CAL</span><span class="amt num">2.000</span></div>
-            <div class="line"><span class="cat">Mantenimiento Carro</span><span class="amt num">1.500</span></div>
-            <div class="line"><span class="cat">Fee Facturas</span><span class="amt num">1.500</span></div>
-            <div class="line"><span class="cat">Energía</span><span class="amt num">1.000</span></div>
-            <div class="line"><span class="cat">Transporte y Taxis</span><span class="amt num">500</span></div>
-            <div class="line"><span class="cat">Alimentación - CAL</span><span class="amt num">460</span></div>
-            <div class="line"><span class="cat">Internet + TV</span><span class="amt num">385</span></div>
-            <div class="line"><span class="cat">Estacionamiento</span><span class="amt num">350</span></div>
-            <div class="line"><span class="cat">Peluquería y Belleza CAL</span><span class="amt num">350</span></div>
-            <div class="line"><span class="cat">Celular Perú</span><span class="amt num">225</span></div>
-            <div class="line"><span class="cat">Agua</span><span class="amt num">221</span></div>
-            <div class="line"><span class="cat">Celular</span><span class="amt num">180</span></div>
-            <div class="line"><span class="cat">Gastos Médicos</span><span class="amt num">100</span></div>
-            <div class="line"><span class="cat">Masajes</span><span class="amt num">100</span></div>
-            <div class="line"><span class="cat">Gas</span><span class="amt num">10</span></div>
-            <div class="line"><span class="cat">Pago Crédito</span><span class="amt num">0</span></div>
-          </div>
-        </details>
-      </div>
-
-      <div class="person">
-        <div class="person-name">Noe</div>
-        <div class="person-metric">
-          <div class="metric-head"><span class="k">Ingresos</span><span class="v income num">15.800</span></div>
-          <div class="person-bar"><div class="person-bar-fill income" style="width:21.2%"></div></div>
-        </div>
-        <div class="person-metric">
-          <div class="metric-head"><span class="k">Gastos</span><span class="v expense num">13.350</span></div>
-          <div class="person-bar"><div class="person-bar-fill expense" style="width:17.9%"></div></div>
-        </div>
-        <div class="person-net">
-          <span class="k">Neto</span>
-          <span class="v pos num">+Bs 2.450</span>
-        </div>
-        <div class="person-hint">&nbsp;</div>
-        <details class="person-detail">
-          <summary>Ver 12 categorías</summary>
-          <div class="group-body">
-            <div class="line"><span class="cat">Mercado</span><span class="amt num">6.200</span></div>
-            <div class="line"><span class="cat">Clases AntoCata</span><span class="amt num">1.300</span></div>
-            <div class="line"><span class="cat">Empleada</span><span class="amt num">1.200</span></div>
-            <div class="line"><span class="cat">Peluquería y Belleza Noe</span><span class="amt num">1.000</span></div>
-            <div class="line"><span class="cat">Gasolina</span><span class="amt num">740</span></div>
-            <div class="line"><span class="cat">Fitness Training Noe</span><span class="amt num">700</span></div>
-            <div class="line"><span class="cat">Recreación AntoCata</span><span class="amt num">700</span></div>
-            <div class="line"><span class="cat">Bolsa varios Noe</span><span class="amt num">570</span></div>
-            <div class="line"><span class="cat">Gastos Casa</span><span class="amt num">350</span></div>
-            <div class="line"><span class="cat">Lavada Carro</span><span class="amt num">240</span></div>
-            <div class="line"><span class="cat">Colegio</span><span class="amt num">200</span></div>
-            <div class="line"><span class="cat">Medicinas</span><span class="amt num">150</span></div>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="card">
-    <div class="card-head">
-      <h2>Gastos por grupo de categoría</h2>
-      <div class="total expense num">Bs 87.832</div>
-    </div>
-
-    <div class="groups">
-
-      <details class="group" open>
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">1. Inversiones y Ahorro</span>
-          <span class="group-pct">33,0%</span>
-          <span class="group-amount num">Bs 29.000</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:100%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Ahorro Mes CAL</span><span class="amt num">29.000</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">2. Hogar</span>
-          <span class="group-pct">29,7%</span>
-          <span class="group-amount num">Bs 26.116</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:90.1%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Arriendo</span><span class="amt num">16.000</span></div>
-          <div class="line"><span class="cat">Mercado</span><span class="amt num">6.200</span></div>
-          <div class="line"><span class="cat">Empleada</span><span class="amt num">1.200</span></div>
-          <div class="line"><span class="cat">Energía</span><span class="amt num">1.000</span></div>
-          <div class="line"><span class="cat">Bolsa varios Noe</span><span class="amt num">570</span></div>
-          <div class="line"><span class="cat">Internet + TV</span><span class="amt num">385</span></div>
-          <div class="line"><span class="cat">Gastos Casa</span><span class="amt num">350</span></div>
-          <div class="line"><span class="cat">Agua</span><span class="amt num">221</span></div>
-          <div class="line"><span class="cat">Celular</span><span class="amt num">180</span></div>
-          <div class="line"><span class="cat">Gas</span><span class="amt num">10</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">3. Educación</span>
-          <span class="group-pct">0,2%</span>
-          <span class="group-amount num">Bs 200</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:0.7%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Colegio</span><span class="amt num">200</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">4. Salud, Belleza y Deporte</span>
-          <span class="group-pct">6,4%</span>
-          <span class="group-amount num">Bs 5.600</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:19.3%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Fitness Training CAL</span><span class="amt num">2.000</span></div>
-          <div class="line"><span class="cat">Clases AntoCata</span><span class="amt num">1.300</span></div>
-          <div class="line"><span class="cat">Peluquería y Belleza Noe</span><span class="amt num">1.000</span></div>
-          <div class="line"><span class="cat">Fitness Training Noe</span><span class="amt num">700</span></div>
-          <div class="line"><span class="cat">Peluquería y Belleza CAL</span><span class="amt num">350</span></div>
-          <div class="line"><span class="cat">Medicinas</span><span class="amt num">150</span></div>
-          <div class="line"><span class="cat">Gastos Médicos</span><span class="amt num">100</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">5. Comidas y Bebidas</span>
-          <span class="group-pct">3,4%</span>
-          <span class="group-amount num">Bs 2.960</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:10.2%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Restaurantes y Cafeterías</span><span class="amt num">2.500</span></div>
-          <div class="line"><span class="cat">Alimentación - CAL</span><span class="amt num">460</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">6. Movilidad y Transporte</span>
-          <span class="group-pct">3,8%</span>
-          <span class="group-amount num">Bs 3.330</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:11.5%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Mantenimiento Carro</span><span class="amt num">1.500</span></div>
-          <div class="line"><span class="cat">Gasolina</span><span class="amt num">740</span></div>
-          <div class="line"><span class="cat">Transporte y Taxis</span><span class="amt num">500</span></div>
-          <div class="line"><span class="cat">Estacionamiento</span><span class="amt num">350</span></div>
-          <div class="line"><span class="cat">Lavada Carro</span><span class="amt num">240</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">7. Entretenimiento y Recreación</span>
-          <span class="group-pct">3,3%</span>
-          <span class="group-amount num">Bs 2.940</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:10.1%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Recreación</span><span class="amt num">2.140</span></div>
-          <div class="line"><span class="cat">Recreación AntoCata</span><span class="amt num">700</span></div>
-          <div class="line"><span class="cat">Masajes</span><span class="amt num">100</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">9. Vacaciones y Viajes</span>
-          <span class="group-pct">4,0%</span>
-          <span class="group-amount num">Bs 3.500</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:12.1%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Viaje Nacional</span><span class="amt num">3.500</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">11. Gastos Financieros</span>
-          <span class="group-pct">1,7%</span>
-          <span class="group-amount num">Bs 1.500</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:5.2%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Fee Facturas</span><span class="amt num">1.500</span></div>
-          <div class="line"><span class="cat">Pago Crédito</span><span class="amt num">0 · terminado</span></div>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="group-head">
-          <span class="chev"></span>
-          <span class="group-name">12. Pagos Perú</span>
-          <span class="group-pct">14,4%</span>
-          <span class="group-amount num">Bs 12.686</span>
-          <span class="group-bar"><span class="group-bar-fill" style="width:43.8%"></span></span>
-        </summary>
-        <div class="group-body">
-          <div class="line"><span class="cat">Empleada Chicas</span><span class="amt num">6.607</span></div>
-          <div class="line"><span class="cat">Suscripciones Digitales</span><span class="amt num">3.452</span></div>
-          <div class="line"><span class="cat">Seguro Universitario</span><span class="amt num">2.402</span></div>
-          <div class="line"><span class="cat">Celular Perú</span><span class="amt num">225</span></div>
-        </div>
-      </details>
-
-    </div>
-  </section>
-
-  <footer>
-    Neto = Ingresos (Bs 89.329) − Gastos (Bs 87.832) = <strong>+Bs 1.497</strong><br>
-    El Ahorro Mes CAL (Bs 29.000) cuenta como gasto planificado, no como ahorro "gratis" sobre el neto — así el bono extraordinario queda reflejado en la cuenta de ahorros, no en el disponible del mes.<br>
-    Fuente: Airtable · Base Presupuesto Bolivia · Periodo 202608. Cifras de presupuesto (proyección), no gasto real todavía.
-  </footer>
-
+  <p class="recon">
+    <b>Reconciliación:</b> <span class="formula">-2.483 (Cal) + 2.510 (Noe) = +27</span>
+    — coincide con el neto general del mes ya con Ahorro Mes Noe cargado (ingresos Bs 89.329 − gasto
+    total Bs 89.302). El compartido ya no queda en un bloque neutral: las 28 categorías (Bs 53.042)
+    se repartieron completas, 20 a Cal (Bs 43.202) y 8 a Noe (Bs 9.840). "Ahorro Mes CAL" y "Ahorro
+    Mes Noe" se cuentan como parte de cada uno (son transferencias a su cuenta de ahorros, no gasto
+    de consumo) — Ahorro Mes Noe (Bs 1.500) creado en Airtable el 2026-08-03, periodo 202608.
+  </p>
 </div>
+
 </body>
 </html>
