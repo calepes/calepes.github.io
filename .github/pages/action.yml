@@ -1,0 +1,10 @@
+name: Verify Pages artifact readiness
+description: Check the uploaded ID using the deployer artifact service before creating a deployment
+outputs:
+  mode:
+    description: create or verify, after prior attempts are reconciled
+  verified_run:
+    description: Run whose publication must be verified
+runs:
+  using: node24
+  main: run.cjs
