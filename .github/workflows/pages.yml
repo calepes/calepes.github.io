@@ -45,6 +45,11 @@ jobs:
 
   deploy:
     needs: package
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: https://apps.lepesqueur.net/
@@ -67,6 +72,7 @@ jobs:
           ARTIFACT_NAME: ${{ needs.package.outputs.artifact_name }}
           ARTIFACT_ID: ${{ needs.package.outputs.artifact_id }}
           PACKAGE_ATTEMPT: ${{ needs.package.outputs.package_attempt }}
+          GH_METADATA_TOKEN: ${{ github.token }}
       - name: Deploy pinned Pages artifact
         id: deployment
         if: steps.gate.outputs.mode == 'create'

@@ -1,5 +1,13 @@
 const {test} = require('node:test');
 const assert = require('node:assert/strict');
+const {readMetadata} = require('./publication.cjs');
+test('metadata requests use the Actions token and fail closed on errors', async () => {
+ let headers;
+ const read = async (_url, options) => { headers = options.headers; return {ok:true, json:async()=>({id:123})}; };
+ assert.deepEqual(await readMetadata(read, 'https://api.github.com/test', 'test-token'), {id:123});
+ assert.equal(headers.Authorization, 'Bearer test-token');
+ await assert.rejects(readMetadata(async()=>({ok:false,status:403}), 'https://api.github.com/test', 'test-token'), /403/);
+});
 const {artifactName, waitForArtifact, retryDisposition, verifyPublication} = require('./publication.cjs');
 const id = {name:'pages-42-1',id:123};
 const artifact = {...id,size:20};

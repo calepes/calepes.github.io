@@ -1,15 +1,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const {artifactName, waitForArtifact, validateProvenance, reconcileRuns, verifyPublication, sha256} = require('./publication.cjs');
+const {readMetadata, artifactName, waitForArtifact, validateProvenance, reconcileRuns, verifyPublication, sha256} = require('./publication.cjs');
 const env = process.env;
 const required = key => {if (!env[key]) throw Error(`Missing ${key}`); return env[key]};
 const output = (key,value) => fs.appendFileSync(required('GITHUB_OUTPUT'),`${key}=${value}\n`);
-async function json(url) {
- // This is a public repo: no token or extra Actions permission is needed here.
- const r = await fetch(url,{headers:{Accept:'application/vnd.github+json'},signal:AbortSignal.timeout(30000)});
- if (!r.ok) throw Error(`Public metadata lookup failed (${r.status}); no retry or permission fallback`);
- return r.json();
-}
+const json = url => readMetadata(fetch,url,required('GH_METADATA_TOKEN'));
 function manifest() {
  const root = required('GITHUB_WORKSPACE');
  const digest = fs.readdirSync(path.join(root,'digest')).filter(x=>/^\d{4}-\d{2}-\d{2}\.html$/.test(x)).sort().at(-1);

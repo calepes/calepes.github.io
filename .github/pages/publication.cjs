@@ -2,6 +2,12 @@ const {createHash} = require('node:crypto');
 const DELAYS = [2000, 4000, 8000, 16000, 30000];
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const sha256 = text => createHash('sha256').update(text).digest('hex');
+async function readMetadata(fetch, url, token) {
+ if (!token) throw Error('Missing GitHub Actions token');
+ const r = await fetch(url,{headers:{Accept:'application/vnd.github+json',Authorization:`Bearer ${token}`},signal:AbortSignal.timeout(30000)});
+ if (!r.ok) throw Error(`Metadata lookup failed (${r.status}); no retry or permission fallback`);
+ return r.json();
+}
 function artifactName(run, attempt) {
  if (!/^\d+$/.test(String(run)) || !/^[1-9]\d*$/.test(String(attempt))) throw Error('Invalid package identity');
  return `pages-${run}-${attempt}`;
@@ -72,4 +78,4 @@ async function reconcileRuns(json, repo, commit, run, attempt) {
  }
  return {mode:priorSuccess ? 'verify' : 'create',run:priorSuccess || run};
 }
-module.exports = {reconcileRuns, artifactName, waitForArtifact, retryDisposition, validateProvenance, verifyPublication, sha256};
+module.exports = {readMetadata, reconcileRuns, artifactName, waitForArtifact, retryDisposition, validateProvenance, verifyPublication, sha256};
