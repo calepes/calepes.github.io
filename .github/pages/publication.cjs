@@ -5,7 +5,12 @@ const sha256 = text => createHash('sha256').update(text).digest('hex');
 async function readMetadata(fetch, url, token) {
  if (!token) throw Error('Missing GitHub Actions token');
  const r = await fetch(url,{headers:{Accept:'application/vnd.github+json',Authorization:`Bearer ${token}`},signal:AbortSignal.timeout(30000)});
- if (!r.ok) throw Error(`Metadata lookup failed (${r.status}); no retry or permission fallback`);
+ if (!r.ok) {
+  const body = r.json ? await r.json().catch(() => ({})) : {};
+  const message = typeof body?.message === 'string' ? body.message.replaceAll(token,'[redacted]').replace(/[\r\n\x00-\x1f\x7f]/g,' ').slice(0,300) : 'no message';
+  const headers = ['x-ratelimit-remaining','x-ratelimit-reset','retry-after','x-github-request-id'].map(name=>[name,r.headers?.get(name)]).filter(([,value])=>value && /^[a-zA-Z0-9:._-]{1,100}$/.test(value)).map(([name,value])=>`${name}=${value}`).join(' ');
+  throw Error(`Metadata lookup failed (${r.status}): ${message}; ${headers}; no retry or permission fallback`);
+ }
  return r.json();
 }
 function artifactName(run, attempt) {

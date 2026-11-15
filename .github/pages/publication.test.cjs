@@ -8,6 +8,19 @@ test('metadata requests use the Actions token and fail closed on errors', async 
  assert.equal(headers.Authorization, 'Bearer test-token');
  await assert.rejects(readMetadata(async()=>({ok:false,status:403}), 'https://api.github.com/test', 'test-token'), /403/);
 });
+test('metadata failures include safe rate diagnostics and redact the token', async () => {
+ const headers = new Headers({'x-ratelimit-remaining':'0','x-ratelimit-reset':'1794752548','retry-after':'60','x-github-request-id':'ABCD:1234'});
+ const failure = {ok:false,status:403,headers,json:async()=>({message:'API rate limit exceeded; test-token'})};
+ await assert.rejects(readMetadata(async()=>failure, 'https://api.github.com/test', 'test-token'), error => {
+  assert.match(error.message,/API rate limit exceeded/);
+  assert.match(error.message,/x-ratelimit-remaining=0/);
+  assert.match(error.message,/x-ratelimit-reset=1794752548/);
+  assert.match(error.message,/retry-after=60/);
+  assert.match(error.message,/x-github-request-id=ABCD:1234/);
+  assert.doesNotMatch(error.message,/test-token/);
+  return true;
+ });
+});
 const {artifactName, waitForArtifact, retryDisposition, verifyPublication} = require('./publication.cjs');
 const id = {name:'pages-42-1',id:123};
 const artifact = {...id,size:20};
